@@ -1,22 +1,30 @@
 openapi: 3.1.0
 info:
-  # Do not change the title, if the title changes, the import paths will be broken
   title: Api
-  version: 0.1.0
-  description: API specification
+  version: 1.0.0
+  description: Creator Toolbox API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: tools
+    description: Tool operations
+  - name: categories
+    description: Category operations
+  - name: blog
+    description: Blog operations
+  - name: admin
+    description: Admin operations
+  - name: analytics
+    description: Analytics operations
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,6 +32,383 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /tools:
+    get:
+      operationId: listTools
+      tags: [tools]
+      summary: List all tools
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+      responses:
+        "200":
+          description: List of tools
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ToolListResponse"
+
+  /tools/popular:
+    get:
+      operationId: getPopularTools
+      tags: [tools]
+      summary: Get popular tools
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 12
+      responses:
+        "200":
+          description: Popular tools
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ToolListResponse"
+
+  /tools/{slug}:
+    get:
+      operationId: getToolBySlug
+      tags: [tools]
+      summary: Get a tool by slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Tool details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ToolDetail"
+        "404":
+          description: Tool not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /tools/{slug}/execute:
+    post:
+      operationId: executeTool
+      tags: [tools]
+      summary: Execute a tool
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ToolExecuteRequest"
+      responses:
+        "200":
+          description: Tool execution result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ToolExecuteResponse"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /categories:
+    get:
+      operationId: listCategories
+      tags: [categories]
+      summary: List all categories
+      responses:
+        "200":
+          description: List of categories
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CategoryListResponse"
+
+  /categories/{slug}:
+    get:
+      operationId: getCategoryBySlug
+      tags: [categories]
+      summary: Get category with its tools
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Category details with tools
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CategoryDetail"
+        "404":
+          description: Category not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /blog:
+    get:
+      operationId: listBlogPosts
+      tags: [blog]
+      summary: List blog posts
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 10
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: tag
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Blog post list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlogListResponse"
+
+  /blog/{slug}:
+    get:
+      operationId: getBlogPost
+      tags: [blog]
+      summary: Get a blog post by slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Blog post
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlogPost"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sitemap:
+    get:
+      operationId: getSitemap
+      tags: [tools]
+      summary: Get sitemap data
+      responses:
+        "200":
+          description: Sitemap entries
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SitemapResponse"
+
+  /analytics/track:
+    post:
+      operationId: trackToolUsage
+      tags: [analytics]
+      summary: Track tool usage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TrackUsageRequest"
+      responses:
+        "200":
+          description: Tracked
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+
+  /admin/tools:
+    get:
+      operationId: adminListTools
+      tags: [admin]
+      summary: Admin list all tools
+      responses:
+        "200":
+          description: All tools for admin
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ToolListResponse"
+    post:
+      operationId: adminCreateTool
+      tags: [admin]
+      summary: Create a new tool
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateToolRequest"
+      responses:
+        "201":
+          description: Tool created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Tool"
+
+  /admin/tools/{id}:
+    put:
+      operationId: adminUpdateTool
+      tags: [admin]
+      summary: Update a tool
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateToolRequest"
+      responses:
+        "200":
+          description: Tool updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Tool"
+    delete:
+      operationId: adminDeleteTool
+      tags: [admin]
+      summary: Delete a tool
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Tool deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+
+  /admin/blog:
+    post:
+      operationId: adminCreateBlogPost
+      tags: [admin]
+      summary: Create a blog post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateBlogPostRequest"
+      responses:
+        "201":
+          description: Blog post created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlogPost"
+
+  /admin/blog/{id}:
+    put:
+      operationId: adminUpdateBlogPost
+      tags: [admin]
+      summary: Update a blog post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateBlogPostRequest"
+      responses:
+        "200":
+          description: Blog post updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlogPost"
+    delete:
+      operationId: adminDeleteBlogPost
+      tags: [admin]
+      summary: Delete a blog post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+
+  /admin/stats:
+    get:
+      operationId: adminGetStats
+      tags: [admin]
+      summary: Get admin dashboard stats
+      responses:
+        "200":
+          description: Stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminStats"
+
 components:
   schemas:
     HealthStatus:
@@ -31,6 +416,343 @@ components:
       properties:
         status:
           type: string
-      required:
-        - status
+      required: [status]
 
+    Tool:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        categoryId:
+          type: integer
+        categoryName:
+          type: string
+        categorySlug:
+          type: string
+        description:
+          type: string
+        shortDescription:
+          type: string
+        icon:
+          type: string
+        usageCount:
+          type: integer
+        isActive:
+          type: boolean
+        createdAt:
+          type: string
+      required: [id, name, slug, categoryId, categoryName, categorySlug, description, shortDescription, icon, usageCount, isActive, createdAt]
+
+    ToolDetail:
+      allOf:
+        - $ref: "#/components/schemas/Tool"
+        - type: object
+          properties:
+            howToGuide:
+              type: string
+            seoContent:
+              type: string
+            faqContent:
+              type: string
+            exampleOutputs:
+              type: string
+            relatedTools:
+              type: array
+              items:
+                $ref: "#/components/schemas/Tool"
+          required: [howToGuide, seoContent, faqContent, exampleOutputs, relatedTools]
+
+    ToolListResponse:
+      type: object
+      properties:
+        tools:
+          type: array
+          items:
+            $ref: "#/components/schemas/Tool"
+        total:
+          type: integer
+      required: [tools, total]
+
+    ToolExecuteRequest:
+      type: object
+      properties:
+        inputs:
+          type: object
+          additionalProperties: true
+      required: [inputs]
+
+    ToolExecuteResponse:
+      type: object
+      properties:
+        result:
+          type: object
+          additionalProperties: true
+        outputs:
+          type: array
+          items:
+            type: string
+        success:
+          type: boolean
+      required: [result, outputs, success]
+
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        description:
+          type: string
+        icon:
+          type: string
+        toolCount:
+          type: integer
+        color:
+          type: string
+      required: [id, name, slug, description, icon, toolCount, color]
+
+    CategoryDetail:
+      allOf:
+        - $ref: "#/components/schemas/Category"
+        - type: object
+          properties:
+            tools:
+              type: array
+              items:
+                $ref: "#/components/schemas/Tool"
+            seoContent:
+              type: string
+          required: [tools, seoContent]
+
+    CategoryListResponse:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            $ref: "#/components/schemas/Category"
+      required: [categories]
+
+    BlogPost:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        slug:
+          type: string
+        excerpt:
+          type: string
+        content:
+          type: string
+        author:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        metaTitle:
+          type: string
+        metaDescription:
+          type: string
+        publishedAt:
+          type: string
+        isPublished:
+          type: boolean
+        readingTime:
+          type: integer
+      required: [id, title, slug, excerpt, content, author, tags, metaTitle, metaDescription, publishedAt, isPublished, readingTime]
+
+    BlogListResponse:
+      type: object
+      properties:
+        posts:
+          type: array
+          items:
+            $ref: "#/components/schemas/BlogPost"
+        total:
+          type: integer
+      required: [posts, total]
+
+    CreateBlogPostRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        slug:
+          type: string
+        excerpt:
+          type: string
+        content:
+          type: string
+        author:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        metaTitle:
+          type: string
+        metaDescription:
+          type: string
+        isPublished:
+          type: boolean
+      required: [title, slug, excerpt, content, author, tags, metaTitle, metaDescription, isPublished]
+
+    UpdateBlogPostRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        slug:
+          type: string
+        excerpt:
+          type: string
+        content:
+          type: string
+        author:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        metaTitle:
+          type: string
+        metaDescription:
+          type: string
+        isPublished:
+          type: boolean
+
+    CreateToolRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        slug:
+          type: string
+        categoryId:
+          type: integer
+        description:
+          type: string
+        shortDescription:
+          type: string
+        icon:
+          type: string
+        howToGuide:
+          type: string
+        seoContent:
+          type: string
+        faqContent:
+          type: string
+        exampleOutputs:
+          type: string
+        isActive:
+          type: boolean
+      required: [name, slug, categoryId, description, shortDescription, icon, isActive]
+
+    UpdateToolRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        slug:
+          type: string
+        categoryId:
+          type: integer
+        description:
+          type: string
+        shortDescription:
+          type: string
+        icon:
+          type: string
+        howToGuide:
+          type: string
+        seoContent:
+          type: string
+        faqContent:
+          type: string
+        exampleOutputs:
+          type: string
+        isActive:
+          type: boolean
+
+    TrackUsageRequest:
+      type: object
+      properties:
+        toolId:
+          type: integer
+        toolSlug:
+          type: string
+      required: [toolSlug]
+
+    SitemapResponse:
+      type: object
+      properties:
+        urls:
+          type: array
+          items:
+            type: object
+            properties:
+              loc:
+                type: string
+              lastmod:
+                type: string
+              changefreq:
+                type: string
+              priority:
+                type: number
+            required: [loc, lastmod, changefreq, priority]
+      required: [urls]
+
+    AdminStats:
+      type: object
+      properties:
+        totalTools:
+          type: integer
+        totalCategories:
+          type: integer
+        totalBlogPosts:
+          type: integer
+        totalUsageToday:
+          type: integer
+        totalUsageMonth:
+          type: integer
+        topTools:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              slug:
+                type: string
+              usageCount:
+                type: integer
+            required: [name, slug, usageCount]
+      required: [totalTools, totalCategories, totalBlogPosts, totalUsageToday, totalUsageMonth, topTools]
+
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+      required: [success, message]
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+      required: [error, message]

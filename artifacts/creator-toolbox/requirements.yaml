@@ -1,0 +1,19 @@
+packages:
+  "framer-motion": "For page transitions, smooth hero animations, and staggered list reveals"
+  "lucide-react": "For beautiful, consistent iconography across the app"
+  "date-fns": "For formatting blog post and tool creation dates professionally"
+  "clsx": "For conditional tailwind class merging"
+  "tailwind-merge": "For resolving tailwind class conflicts in reusable components"
+
+images:
+  - path: "artifacts/creator-toolbox/public/images/hero-bg.png"
+    description: "Abstract modern gradient mesh background in deep indigo, violet, and bright electric purple with soft light leaks and a premium SaaS aesthetic"
+    aspect_ratio: "16:9"
+  - path: "artifacts/creator-toolbox/public/images/creator-illustration.png"
+    description: "High quality 3D modern illustration of a content creator setup featuring a ring light, microphone, and floating UI elements on a transparent or clean light background"
+    aspect_ratio: "1:1"
+
+notes:
+  - "Assuming React Query hooks are exported from @workspace/api-client-react"
+  - "Using Wouter for routing without nested <a> tags in Links"
+  - "AdSense placeholders are implemented as visually distinct blocks to be replaced with real scripts later"

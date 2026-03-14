@@ -12,7 +12,7 @@ import {
   Activity, HelpCircle, FileText, Zap, Loader2
 } from "lucide-react";
 import { ToolCard } from "@/components/tool-card";
-import { TOOL_REGISTRY } from "@/components/tools/tool-registry";
+import { TOOL_REGISTRY, type ToolRegistryEntry } from "@/components/tools/tool-registry";
 
 // ─── Generic Fallback Tool Interface ─────────────────────────────────────────
 
@@ -165,7 +165,9 @@ export default function ToolPage() {
   }
 
   // Check if there's a custom interface registered for this slug
-  const CustomInterface = slug ? TOOL_REGISTRY[slug] : undefined;
+  const registryEntry: ToolRegistryEntry | undefined = slug ? TOOL_REGISTRY[slug] : undefined;
+  const CustomInterface = registryEntry?.component;
+  const customOwnsSeoContent = registryEntry?.ownsSeoContent ?? false;
 
   return (
     <Layout>
@@ -234,33 +236,35 @@ export default function ToolPage() {
             {/* In-article AdSense Placeholder */}
             <div className="adsense-placeholder w-full h-[280px]" />
 
-            {/* SEO Content Sections */}
-            <div className="prose prose-gray dark:prose-invert max-w-none prose-headings:font-display prose-h2:text-2xl prose-h3:text-xl">
-              {tool.howToGuide && (
-                <section className="mb-12">
-                  <h2 className="flex items-center gap-2 border-b pb-4">
-                    <HelpCircle className="text-primary" /> How to use the {tool.name}
-                  </h2>
-                  <div dangerouslySetInnerHTML={{ __html: tool.howToGuide }} />
-                </section>
-              )}
-              {tool.seoContent && (
-                <section className="mb-12">
-                  <h2 className="flex items-center gap-2 border-b pb-4">
-                    <FileText className="text-primary" /> About this Tool
-                  </h2>
-                  <div dangerouslySetInnerHTML={{ __html: tool.seoContent }} />
-                </section>
-              )}
-              {tool.faqContent && (
-                <section className="mb-12">
-                  <h2 className="flex items-center gap-2 border-b pb-4">
-                    <HelpCircle className="text-primary" /> Frequently Asked Questions
-                  </h2>
-                  <div dangerouslySetInnerHTML={{ __html: tool.faqContent }} />
-                </section>
-              )}
-            </div>
+            {/* SEO Content Sections — skipped when the custom component owns its own content */}
+            {!customOwnsSeoContent && (
+              <div className="prose prose-gray dark:prose-invert max-w-none prose-headings:font-display prose-h2:text-2xl prose-h3:text-xl">
+                {tool.howToGuide && (
+                  <section className="mb-12">
+                    <h2 className="flex items-center gap-2 border-b pb-4">
+                      <HelpCircle className="text-primary" /> How to use the {tool.name}
+                    </h2>
+                    <div dangerouslySetInnerHTML={{ __html: tool.howToGuide }} />
+                  </section>
+                )}
+                {tool.seoContent && (
+                  <section className="mb-12">
+                    <h2 className="flex items-center gap-2 border-b pb-4">
+                      <FileText className="text-primary" /> About this Tool
+                    </h2>
+                    <div dangerouslySetInnerHTML={{ __html: tool.seoContent }} />
+                  </section>
+                )}
+                {tool.faqContent && (
+                  <section className="mb-12">
+                    <h2 className="flex items-center gap-2 border-b pb-4">
+                      <HelpCircle className="text-primary" /> Frequently Asked Questions
+                    </h2>
+                    <div dangerouslySetInnerHTML={{ __html: tool.faqContent }} />
+                  </section>
+                )}
+              </div>
+            )}
           </div>
 
           {/* ── Sidebar ── */}

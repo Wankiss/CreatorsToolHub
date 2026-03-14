@@ -1,0 +1,233 @@
+Your task is to rewrite and improve the content sections of the YouTube Tag Generator tool page to maximize SEO rankings, user engagement, and readability.
+
+The sections that must be improved are:
+
+How to Use the Tool
+
+About This Tool
+
+Frequently Asked Questions
+
+You must also upgrade the FAQ section into an interactive modern accordion and ensure the content is SEO optimized for Google search.
+
+Primary Keyword
+
+The page must be optimized for the keyword:
+
+YouTube Tag Generator
+
+Secondary Keywords
+
+Naturally include these keywords throughout the content:
+
+free youtube tag generator
+
+youtube seo tags
+
+youtube tag generator tool
+
+generate youtube tags
+
+youtube video tags
+
+youtube seo optimization
+
+tags for youtube videos
+
+youtube keyword tags
+
+Do NOT keyword stuff. Use them naturally.
+
+Section 1: How to Use the Tool
+
+Rewrite the How to Use the Tool section to be:
+
+• Clear
+• Beginner friendly
+• Step-by-step
+• Optimized for featured snippets
+
+Use numbered steps.
+
+Example structure:
+
+How to Use the YouTube Tag Generator
+
+Step 1 – Enter Your Video Topic
+Step 2 – Click Generate Tags
+Step 3 – Review the Suggested Tags
+Step 4 – Copy and Use Them in YouTube Studio
+
+Each step should include 1–2 explanatory sentences.
+
+Keep this section around 120–150 words.
+
+Section 2: About This Tool
+
+Rewrite the About This Tool section with strong SEO value.
+
+Goals:
+
+• Explain what the tool does
+• Explain how YouTube tags help videos rank
+• Include benefits of using optimized tags
+• Mention YouTube SEO
+
+Structure:
+
+What This YouTube Tag Generator Does
+
+Paragraph explaining:
+
+how the tool analyzes keywords
+
+how it generates relevant tags
+
+how tags help YouTube understand video content
+
+Why YouTube Tags Matter for SEO
+
+Explain:
+
+tags help categorize videos
+
+tags help discoverability
+
+tags support YouTube algorithm understanding
+
+Benefits of Using This Tool
+
+Use bullet points like:
+
+Generates relevant keyword tags
+
+Helps improve YouTube SEO
+
+Saves time researching keywords
+
+Creates long-tail YouTube tags
+
+Total length: 180–220 words
+
+Section 3: FAQ Section Improvements
+
+The current FAQ section is not properly formatted and displays raw JSON.
+
+You must:
+
+Convert it into structured HTML
+
+Make it interactive accordion style
+
+Add SEO optimized questions
+
+Add schema markup for FAQ (FAQPage structured data)
+
+Required FAQ Questions
+
+Create answers for these questions:
+
+What is a YouTube Tag Generator?
+
+How do YouTube tags help videos rank?
+
+How many tags should I use on YouTube?
+
+Are YouTube tags still important for SEO?
+
+What are the best tags for YouTube videos?
+
+Can I use the same tags on every video?
+
+Does this YouTube tag generator use AI?
+
+Each answer should be 2–4 sentences.
+
+FAQ Accordion UI Requirements
+
+Create a modern accordion style FAQ.
+
+Behavior:
+
+• Click question → expands answer
+• Only one open at a time
+• Smooth animation
+• Mobile friendly
+
+Design:
+
+Rounded cards
+
+subtle shadow
+
+arrow icon that rotates when opened
+
+padding and good spacing
+
+SEO Enhancements
+
+Also implement:
+
+FAQ Schema Markup
+
+Add structured data JSON-LD like this:
+
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "What is a YouTube Tag Generator?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "..."
+     }
+   }
+ ]
+}
+
+This helps the page get Google rich results.
+
+Content Readability
+
+Ensure the content:
+
+• Uses short paragraphs
+• Uses subheadings (H2, H3)
+• Uses bullet points where helpful
+• Is optimized for skimmable reading
+
+Internal SEO Enhancements
+
+Inside the text, naturally reference:
+
+YouTube video SEO
+
+YouTube algorithm
+
+video discoverability
+
+keyword optimization
+
+UI/UX Improvements
+
+Improve spacing and layout for:
+
+• How to Use section
+• About Tool section
+• FAQ section
+
+Ensure the page looks like a modern SaaS tool landing page.
+
+Performance Rules
+
+Do not add heavy libraries.
+
+Use:
+
+• vanilla JavaScript
+• lightweight CSS
+• semantic HTML
+
+The accordion must be fast and lightweight.

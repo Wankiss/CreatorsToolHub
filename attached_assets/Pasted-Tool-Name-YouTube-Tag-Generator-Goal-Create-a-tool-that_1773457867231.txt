@@ -1,0 +1,344 @@
+Tool Name
+
+YouTube Tag Generator
+
+Goal
+
+Create a tool that:
+
+Generates relevant YouTube tags
+
+Produces SEO-optimized long-tail keywords
+
+Mimics YouTube search suggestion logic
+
+Prioritizes high-intent search phrases
+
+Avoids irrelevant or spam tags
+
+Allows copying tags in one click
+
+User Inputs
+
+The page should include the following fields:
+
+1️⃣ Video Title (Required)
+
+Text input.
+
+Example:
+
+How to Grow on YouTube in 2026
+2️⃣ Main Keyword (Required)
+
+Example:
+
+YouTube growth
+3️⃣ Optional Keywords
+
+Comma separated.
+
+Example:
+
+youtube algorithm, youtube seo, grow youtube channel
+4️⃣ Tag Count Selector
+
+Dropdown:
+
+10
+20
+30
+40
+50
+
+Default: 30 tags
+
+5️⃣ Generate Button
+Generate Tags
+Tag Generation Logic
+
+The AI must generate tags using 5 layers of keyword expansion.
+
+Step 1: Extract Core Keywords
+
+From title + keywords:
+
+Process:
+
+• Convert to lowercase
+• Remove stop words
+• Extract primary nouns and phrases
+
+Example:
+
+Input title:
+
+How to Grow on YouTube in 2026
+
+Extract:
+
+grow youtube
+youtube growth
+youtube tips
+youtube strategy
+youtube 2026
+Step 2: Generate Keyword Variations
+
+Create variations using:
+
+Prefix Variations
+how to
+best way to
+easy way to
+step by step
+beginner guide
+
+Example:
+
+how to grow youtube channel
+best way to grow youtube channel
+youtube growth tips
+youtube growth strategy
+Suffix Variations
+tutorial
+tips
+guide
+strategy
+2026
+for beginners
+
+Example:
+
+youtube seo tutorial
+youtube growth tips
+youtube algorithm 2026
+youtube growth for beginners
+Step 3: Generate Long-Tail Tags
+
+Combine keywords into longer phrases.
+
+Formula:
+
+Primary Keyword + Modifier
+Modifier + Primary Keyword
+
+Examples:
+
+how to grow youtube channel fast
+youtube seo tips for beginners
+youtube growth strategy 2026
+youtube algorithm explained
+how to rank youtube videos
+Step 4: YouTube Search Intent Simulation
+
+Simulate YouTube autocomplete patterns.
+
+Add patterns like:
+
+keyword + tutorial
+keyword + tips
+keyword + strategy
+keyword + explained
+keyword + step by step
+
+Example:
+
+youtube seo tutorial
+youtube seo tips
+youtube algorithm explained
+youtube growth tutorial
+Step 5: Trending Modifier Injection
+
+Add modern modifiers like:
+
+2026
+latest
+new
+updated
+fast
+free
+best
+
+Example:
+
+youtube seo 2026
+latest youtube algorithm
+best youtube growth tips
+Tag Scoring System
+
+Each generated tag should be scored using relevance.
+
+Score formula:
+
+Relevance Score =
+
++40 keyword match
++30 title similarity
++20 search intent match
++10 long-tail value
+
+Sort tags by highest score first.
+
+Tag Quality Rules
+
+The AI must ensure:
+
+✔ tags are 2-6 words long
+✔ tags are human search phrases
+✔ tags are not duplicates
+✔ tags are not spammy
+
+Avoid:
+
+free free free
+youtube youtube youtube
+viral viral viral
+Output Format
+
+Display tags in two formats.
+
+Tag Boxes
+
+Example:
+
+[how to grow youtube channel]
+[youtube growth tips]
+[youtube seo tutorial]
+[youtube algorithm 2026]
+
+Each tag should be clickable to copy.
+
+Copy All Button
+
+Provide button:
+
+Copy All Tags
+
+Copied format:
+
+how to grow youtube channel, youtube growth tips, youtube seo tutorial, youtube algorithm 2026
+Extra Features
+
+Add the following enhancements.
+
+1️⃣ Character Counter
+
+Show total characters.
+
+YouTube tag limit:
+
+500 characters
+
+Display:
+
+Total Characters: 324 / 500
+2️⃣ Tag Difficulty Indicator
+
+Optional scoring label:
+
+High Competition
+Medium Competition
+Low Competition
+3️⃣ Regenerate Button
+Regenerate Tags
+
+Generates different variations.
+
+UI Layout
+
+Clean SEO tool layout:
+
+--------------------------------
+YouTube Tag Generator
+--------------------------------
+
+Video Title: [ input ]
+
+Main Keyword: [ input ]
+
+Extra Keywords: [ input ]
+
+Tag Count: [ dropdown ]
+
+[ Generate Tags ]
+
+--------------------------------
+
+Generated Tags
+
+[tag] [tag] [tag] [tag]
+
+--------------------------------
+
+Copy All Tags
+Character Count: 342 / 500
+--------------------------------
+Page SEO Optimization
+
+Meta Title:
+
+Free YouTube Tag Generator (SEO Optimized Tags)
+
+Meta Description:
+
+Generate high-ranking YouTube tags instantly. Our YouTube Tag Generator helps creators find SEO optimized tags to boost video ranking and views.
+Performance Rules
+
+Tool must:
+
+• Generate results under 1 second
+• Work without API dependency
+• Run client-side JavaScript
+
+Example
+
+Input:
+
+Title:
+
+How to Grow on YouTube in 2026
+
+Keyword:
+
+youtube growth
+
+Output example:
+
+how to grow youtube channel
+youtube growth tips
+youtube seo tutorial
+youtube algorithm 2026
+youtube growth strategy
+youtube seo tips for beginners
+how to rank youtube videos
+youtube channel growth tips
+best youtube growth strategy
+youtube algorithm explained
+Tech Stack
+
+Preferred:
+
+HTML
+CSS
+JavaScript
+
+Optional:
+
+React
+Next.js
+Tailwind
+Accuracy Priority
+
+The generator must prioritize:
+
+1️⃣ Relevance to title
+2️⃣ Search intent
+3️⃣ Long-tail keywords
+4️⃣ YouTube search patterns
+
+Not random keywords.
+
+Final Instruction to AI
+
+Build a fully working YouTube Tag Generator tool page implementing all logic above.
+Ensure tags are SEO optimized, relevant, and diverse, and the UI is clean, fast, and mobile friendly.

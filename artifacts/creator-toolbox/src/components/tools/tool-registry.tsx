@@ -1,5 +1,6 @@
 import { YouTubeTagGeneratorTool } from "./youtube-tag-generator";
 import { YouTubeTitleGeneratorTool } from "./youtube-title-generator";
+import { YouTubeMoneyCalculatorTool } from "./youtube-money-calculator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;

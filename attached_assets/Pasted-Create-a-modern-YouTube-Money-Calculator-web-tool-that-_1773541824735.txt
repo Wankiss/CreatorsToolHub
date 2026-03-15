@@ -1,0 +1,322 @@
+Create a modern YouTube Money Calculator web tool that estimates how much a YouTube channel or video can earn based on views, niche, audience location, and monetization factors.
+
+The tool should simulate realistic YouTube earnings based on typical CPM and RPM ranges used by YouTube creators.
+
+The design should be clean, responsive, SEO optimized, and similar in quality to tools found on sites like Social Blade or Influencer Marketing Hub.
+
+Core Calculator Logic
+
+YouTube earnings are typically calculated using RPM (Revenue per 1000 views) rather than CPM.
+
+Formula:
+
+Estimated Earnings = (Views / 1000) × RPM
+
+Where:
+
+RPM = Monetized CPM × Monetized Play Rate
+
+Realistic YouTube Metrics
+
+Use these realistic industry averages:
+
+Monetized Play Rate
+= 40% – 70%
+
+Ad CPM (Advertiser CPM)
+= $1 – $30 depending on niche
+
+YouTube takes about 45% revenue share.
+
+So:
+
+Creator RPM ≈ CPM × 0.55 × Monetized Play Rate
+
+Example:
+
+CPM = $10
+Monetized rate = 50%
+
+RPM = 10 × 0.55 × 0.5
+RPM = $2.75
+
+Niche-Based CPM Table
+
+Use this niche table for realistic results.
+
+Entertainment
+CPM: $2 – $8
+
+Gaming
+CPM: $2 – $6
+
+Vlogs / Lifestyle
+CPM: $3 – $9
+
+Education
+CPM: $8 – $20
+
+Finance / Investing
+CPM: $15 – $35
+
+Tech
+CPM: $10 – $25
+
+Business / Marketing
+CPM: $12 – $30
+
+Health / Fitness
+CPM: $6 – $18
+
+Luxury / Real Estate
+CPM: $12 – $40
+
+Geographic Multiplier
+
+Different countries have different ad values.
+
+Apply this multiplier to CPM.
+
+Tier 1 countries
+USA, UK, Canada, Australia
+Multiplier = 1.0
+
+Tier 2 countries
+Europe, UAE, Singapore
+Multiplier = 0.7
+
+Tier 3 countries
+India, Philippines, Indonesia
+Multiplier = 0.35
+
+Tier 4 countries
+Africa, Pakistan, Bangladesh
+Multiplier = 0.25
+
+Input Fields
+
+The calculator should include these inputs:
+
+1️⃣ Monthly Views
+(number input)
+
+2️⃣ Channel Niche
+(dropdown)
+
+3️⃣ Audience Location
+(dropdown)
+
+4️⃣ Monetized Play Rate
+(slider 30% – 80%)
+
+5️⃣ CPM override (optional advanced input)
+
+Output Results
+
+Display these values:
+
+Estimated RPM
+Estimated Monthly Earnings
+Estimated Yearly Earnings
+
+Also show a range:
+
+Low Estimate
+Average Estimate
+High Estimate
+
+Example:
+
+Monthly Views: 500,000
+
+Low: $700
+Average: $1,400
+High: $2,500
+
+Calculation Flow
+
+Step 1
+
+Get CPM range from niche table
+
+Example
+Tech = $10 – $25
+
+Step 2
+
+Apply geographic multiplier
+
+Example
+Tier 4 (Africa) multiplier = 0.25
+
+Adjusted CPM:
+
+Low = 10 × 0.25 = 2.5
+High = 25 × 0.25 = 6.25
+
+Step 3
+
+Convert CPM to RPM
+
+RPM = CPM × 0.55 × Monetized Rate
+
+Example:
+
+CPM = 2.5
+Monetized Rate = 50%
+
+RPM = 2.5 × 0.55 × 0.5
+RPM = $0.69
+
+Step 4
+
+Calculate earnings
+
+Earnings = (Views / 1000) × RPM
+
+Extra Features (Important)
+
+Add additional estimated income sources:
+
+YouTube creators also earn from:
+
+Affiliate marketing
+Sponsorships
+Channel memberships
+Merch
+
+Add optional toggle inputs.
+
+Example:
+
+Sponsorships per month
+Average sponsorship rate
+
+Affiliate conversion rate
+
+Sponsorship Formula
+
+Estimated Sponsorship Price:
+
+$20 – $50 per 1000 views
+
+Formula:
+
+Sponsorship Earnings = (Average Views / 1000) × Sponsorship CPM
+
+UI Requirements
+
+Design should include:
+
+Modern card layout
+Large calculator section
+Graph results visualization
+Responsive mobile design
+
+Sections:
+
+Hero Section
+Calculator Tool
+Results Dashboard
+Explanation of earnings
+FAQ section
+
+Example Result Card
+
+Display:
+
+Estimated Monthly Ad Revenue
+
+$1,200 – $3,400
+
+Estimated Yearly Revenue
+
+$14,000 – $40,000
+
+Breakdown Chart:
+
+Ad revenue
+Sponsorships
+Affiliate income
+
+SEO Requirements
+
+Optimize page for keywords:
+
+YouTube money calculator
+YouTube earnings calculator
+how much YouTubers make
+YouTube CPM calculator
+
+Include a FAQ schema.
+
+Example questions:
+
+How much does YouTube pay per 1000 views?
+How much does a YouTuber with 1 million views make?
+
+UX Features
+
+Add:
+
+Live updating calculator
+Slider controls
+Animated number counters
+Chart visualization using Chart.js
+
+Suggested Tech Stack
+
+Frontend:
+
+HTML
+CSS
+JavaScript
+
+or
+
+React + Tailwind
+
+Libraries:
+
+Chart.js for revenue graphs
+
+Example Output Scenario
+
+Inputs
+
+Monthly Views = 1,000,000
+Niche = Finance
+Location = Tier 1
+Monetized Rate = 60%
+
+Result
+
+Estimated RPM
+
+Low: $5
+High: $12
+
+Monthly Revenue
+
+$5,000 – $12,000
+
+Yearly Revenue
+
+$60,000 – $144,000
+
+Nice Additions
+
+Add:
+
+Revenue growth estimator
+Channel subscriber estimator
+Viral video calculator
+
+UI Inspiration
+
+Use clean UI inspiration similar to
+
+Ahrefs
+Ubersuggest
+
+Minimal, professional, and fast.

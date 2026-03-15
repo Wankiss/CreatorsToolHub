@@ -24,4 +24,8 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
     component: YouTubeTitleGeneratorTool,
     ownsSeoContent: true,
   },
+  "youtube-money-calculator": {
+    component: YouTubeMoneyCalculatorTool,
+    ownsSeoContent: true,
+  },
 };

@@ -1,4 +1,5 @@
 import { YouTubeTagGeneratorTool } from "./youtube-tag-generator";
+import { YouTubeTitleGeneratorTool } from "./youtube-title-generator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -16,6 +17,10 @@ export interface ToolRegistryEntry {
 export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   "youtube-tag-generator": {
     component: YouTubeTagGeneratorTool,
+    ownsSeoContent: true,
+  },
+  "youtube-title-generator": {
+    component: YouTubeTitleGeneratorTool,
     ownsSeoContent: true,
   },
 };

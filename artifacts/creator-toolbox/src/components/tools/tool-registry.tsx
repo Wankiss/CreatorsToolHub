@@ -2,6 +2,7 @@ import { YouTubeTagGeneratorTool } from "./youtube-tag-generator";
 import { YouTubeTitleGeneratorTool } from "./youtube-title-generator";
 import { YouTubeMoneyCalculatorTool } from "./youtube-money-calculator";
 import { YouTubeThumbnailDownloaderTool } from "./youtube-thumbnail-downloader";
+import { YouTubeDescriptionGeneratorTool } from "./youtube-description-generator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -31,6 +32,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "youtube-thumbnail-downloader": {
     component: YouTubeThumbnailDownloaderTool,
+    ownsSeoContent: true,
+  },
+  "youtube-description-generator": {
+    component: YouTubeDescriptionGeneratorTool,
     ownsSeoContent: true,
   },
 };

@@ -1,0 +1,497 @@
+Build a YouTube Channel Name Generator web tool that helps users generate creative, memorable, and brandable channel names for their niche.
+
+The tool must generate names that are:
+
+unique
+
+brandable
+
+SEO-friendly
+
+searchable on YouTube
+
+easy to remember
+
+The tool should help creators stand out and build a recognizable brand.
+
+Product Goal
+
+Users should be able to:
+
+Enter their YouTube niche
+
+Choose style preferences
+
+Click Generate Channel Names
+
+Instantly receive 20–50 unique name ideas
+
+Each name should feel:
+
+brandable
+
+creative
+
+relevant to the niche
+
+Tool Inputs (User Form)
+
+Create a clean form with the following inputs.
+
+1 Channel Niche
+
+Input type: text
+
+Example:
+
+gaming
+tech reviews
+fitness
+travel
+cooking
+
+
+Purpose:
+
+The niche keyword must influence the generated names.
+
+2 Channel Style (Dropdown)
+
+Options:
+
+Professional
+
+Creative
+
+Fun
+
+Minimalist
+
+Brandable
+
+Techy
+
+Educational
+
+Logic:
+
+The naming style must influence word combinations.
+
+Example:
+
+Tech niche + creative style →
+
+TechPulse
+CircuitFlow
+FutureGizmo
+
+3 Target Audience (Optional)
+
+Examples:
+
+beginners
+entrepreneurs
+gamers
+students
+creators
+
+
+Used to influence wording.
+
+Example:
+
+CreatorBoost
+StartupSimplified
+GameMaster Hub
+
+4 Include Keyword Toggle
+
+Checkbox:
+
+Include niche keyword in names
+
+
+Example:
+
+If niche = travel
+
+Names like:
+
+TravelScope
+TravelNova
+TravelNest
+
+5 Name Length Preference
+
+Options:
+
+Short (1 word)
+
+Medium (2 words)
+
+Brandable (invented word)
+
+Example outputs:
+
+Short:
+
+VidForge
+Streamly
+Clipster
+
+
+Medium:
+
+Creator Central
+Video Growth Lab
+Content Boost
+
+
+Brandable:
+
+Vidara
+Tubora
+Streamiq
+
+Channel Name Generation Logic
+
+When user clicks Generate Channel Names:
+
+Follow this process.
+
+Step 1 — Extract Niche Keywords
+
+From niche input generate:
+
+primary keyword
+
+related words
+
+synonyms
+
+Example:
+
+Niche:
+
+fitness
+
+
+Keywords:
+
+fitness
+workout
+gym
+strength
+training
+muscle
+health
+fit
+power
+
+Step 2 — Combine with Branding Words
+
+Use word banks such as:
+
+Creative words:
+
+Lab
+Hub
+Studio
+Nation
+Central
+Pulse
+Forge
+Boost
+Vault
+Base
+
+
+Example outputs:
+
+FitnessForge
+WorkoutLab
+PowerPulse
+GymNation
+FitVault
+
+Step 3 — Generate Brandable Words
+
+Create invented brand names.
+
+Techniques:
+
+Prefix + keyword
+
+Keyword + suffix
+
+Blended words
+
+Examples:
+
+Fitora
+Trainix
+Gymora
+FitNova
+Musclio
+
+
+Rules:
+
+easy to pronounce
+
+less than 12 characters
+
+no numbers
+
+no special characters
+
+Step 4 — Check Basic Availability
+
+Perform simple checks:
+
+YouTube Search URL
+https://www.youtube.com/results?search_query=CHANNEL_NAME
+
+
+Logic:
+
+Mark names as:
+
+Likely Available
+Possibly Taken
+
+Step 5 — Generate 20–50 Names
+
+Group results:
+
+Brandable Names
+Fitora
+Trainix
+Gymora
+
+Keyword Names
+FitnessLab
+WorkoutCentral
+GymNation
+
+Creative Names
+IronPulse
+MuscleForge
+PowerMotion
+
+Output Layout
+
+Display results in cards or list format.
+
+Each name should include:
+
+Name	Copy	Search
+FitForge	Copy	Search YouTube
+
+Buttons:
+
+Copy name
+
+Search on YouTube
+
+Regenerate ideas
+
+UX Features
+
+Add helpful tools.
+
+✔ Copy button
+✔ Save favorite names
+✔ Regenerate names
+✔ Shuffle results
+✔ Mobile responsive layout
+
+Naming Rules
+
+Generated names must be:
+
+1 Short
+
+Ideal length:
+
+5–15 characters
+
+2 Easy to Spell
+
+Avoid:
+
+xqz
+triple letters
+confusing spelling
+
+3 Brandable
+
+Examples:
+
+Good:
+
+VidForge
+ClipNova
+Streamly
+
+
+Bad:
+
+bestyoutubevideos2026
+
+4 SEO Friendly
+
+Include niche keywords when appropriate.
+
+Example:
+
+TravelScope
+TechExplained
+GamingHub
+
+UI Design
+
+Create a modern clean interface.
+
+Header
+
+Title:
+
+YouTube Channel Name Generator
+
+
+Subtitle:
+
+Generate creative and brandable YouTube channel name ideas for your niche.
+
+Input Section
+
+Fields:
+
+Channel Niche
+
+Style
+
+Audience
+
+Keyword toggle
+
+Name length preference
+
+Button:
+
+Generate Channel Names
+
+Results Section
+
+Display generated names in grid format.
+
+Example:
+
+FitForge
+Copy | Search
+
+GymPulse
+Copy | Search
+
+Trainix
+Copy | Search
+
+SEO Strategy for the Tool Page
+
+The page itself must rank on Google.
+
+Page Title
+Free YouTube Channel Name Generator (Creative & Brandable Ideas)
+
+Meta Description
+Generate creative YouTube channel name ideas instantly. Find unique, brandable, and SEO-friendly names for any niche with our free YouTube channel name generator.
+
+H1
+YouTube Channel Name Generator
+
+SEO Content Section
+
+Add 800–1200 words explaining:
+
+How to choose a YouTube channel name
+
+Branding tips for creators
+
+Why memorable names matter
+
+SEO tips for naming channels
+
+Examples of good channel names
+
+Mention the platform **YouTube.
+
+Internal SEO Strategy
+
+Add internal links to related tools like:
+
+YouTube Description Generator
+
+YouTube Title Generator
+
+YouTube Thumbnail Downloader
+
+These tools help build SEO topical authority around YouTube creator tools.
+
+Technical Requirements
+
+Use:
+
+HTML
+
+CSS
+
+JavaScript
+
+The tool must be:
+
+⚡ fast loading
+📱 mobile responsive
+🔍 SEO optimized
+
+Folder Structure
+/youtube-channel-name-generator
+   index.html
+   style.css
+   script.js
+
+JavaScript Logic (Pseudo Code)
+onClick(generateButton)
+
+    niche = getNiche()
+    style = getStyle()
+    audience = getAudience()
+
+    keywords = generateRelatedKeywords(niche)
+
+    names = []
+
+    for each keyword
+        combineWithBrandWords()
+
+    createBrandableNames()
+
+    ensureNamesAreUnique()
+
+    generate20to50Results()
+
+    displayResults()
+
+Output Requirements
+
+The AI must generate:
+
+full HTML page
+
+CSS styling
+
+JavaScript generator logic
+
+working UI
+
+The tool must work immediately when opened in a browser.

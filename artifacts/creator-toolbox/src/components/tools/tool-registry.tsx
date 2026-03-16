@@ -3,6 +3,7 @@ import { YouTubeTitleGeneratorTool } from "./youtube-title-generator";
 import { YouTubeMoneyCalculatorTool } from "./youtube-money-calculator";
 import { YouTubeThumbnailDownloaderTool } from "./youtube-thumbnail-downloader";
 import { YouTubeDescriptionGeneratorTool } from "./youtube-description-generator";
+import { YouTubeChannelNameGeneratorTool } from "./youtube-channel-name-generator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -36,6 +37,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "youtube-description-generator": {
     component: YouTubeDescriptionGeneratorTool,
+    ownsSeoContent: true,
+  },
+  "youtube-channel-name-generator": {
+    component: YouTubeChannelNameGeneratorTool,
     ownsSeoContent: true,
   },
 };

@@ -324,17 +324,6 @@ export function YouTubeDescriptionGeneratorTool() {
     <>
       {/* ── Tool Card ─────────────────────────────────────────── */}
       <div className="rounded-3xl border border-border bg-card shadow-sm overflow-hidden">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border-b border-border px-6 py-5 flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-2xl flex-shrink-0">
-            📝
-          </div>
-          <div>
-            <h2 className="text-lg font-bold text-foreground">YouTube Description Generator</h2>
-            <p className="text-sm text-muted-foreground">Create SEO-optimized descriptions with timestamps, keywords, and calls-to-action</p>
-          </div>
-        </div>
-
         <div className="p-6 space-y-5">
           {/* Row 1: Title + Channel Name */}
           <div className="grid sm:grid-cols-2 gap-4">

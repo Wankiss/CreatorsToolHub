@@ -75,9 +75,19 @@ router.get("/admin/tools", async (_req, res) => {
 
 router.post("/admin/tools", async (req, res) => {
   try {
-    const { name, slug, categoryId, description, shortDescription, icon, howToGuide, seoContent, faqContent, exampleOutputs, isActive } = req.body;
+    const { name, slug, categoryId, categorySlug, description, shortDescription, icon, howToGuide, seoContent, faqContent, exampleOutputs, isActive } = req.body;
+
+    let resolvedCategoryId = categoryId ? Number(categoryId) : undefined;
+    if (!resolvedCategoryId && categorySlug) {
+      const cat = await db.select({ id: categoriesTable.id }).from(categoriesTable).where(eq(categoriesTable.slug, categorySlug)).limit(1);
+      resolvedCategoryId = cat[0]?.id;
+    }
+    if (!resolvedCategoryId) {
+      return res.status(400).json({ error: "bad_request", message: "categoryId or categorySlug is required" });
+    }
+
     const [tool] = await db.insert(toolsTable).values({
-      name, slug, categoryId, description: description || "", shortDescription: shortDescription || "",
+      name, slug, categoryId: resolvedCategoryId, description: description || "", shortDescription: shortDescription || "",
       icon: icon || "🔧", howToGuide: howToGuide || "", seoContent: seoContent || "",
       faqContent: faqContent || "", exampleOutputs: exampleOutputs || "", isActive: isActive ?? true,
     }).returning();

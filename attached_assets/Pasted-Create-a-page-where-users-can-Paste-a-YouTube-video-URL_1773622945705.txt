@@ -1,0 +1,297 @@
+Create a page where users can:
+
+Paste a YouTube video URL
+
+Click Get Thumbnails
+
+Instantly see all available thumbnails
+
+Download any thumbnail in one click
+
+The system must work for all YouTube links including links from YouTube formats like:
+
+youtube.com/watch?v=VIDEO_ID
+
+youtu.be/VIDEO_ID
+
+youtube.com/shorts/VIDEO_ID
+
+youtube.com/embed/VIDEO_ID
+
+Core Logic (Very Important)
+Step 1 — Extract Video ID
+
+The tool must extract the VIDEO_ID from the URL.
+
+Example:
+
+https://www.youtube.com/watch?v=dQw4w9WgXcQ
+VIDEO_ID = dQw4w9WgXcQ
+
+
+Use a regex that supports all formats:
+
+(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})
+
+
+If extraction fails:
+
+Show error:
+
+Invalid YouTube URL
+Please enter a valid YouTube video link
+
+Step 2 — Generate Thumbnail URLs
+
+Once VIDEO_ID is extracted, generate these thumbnail URLs:
+
+https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg
+https://img.youtube.com/vi/VIDEO_ID/sddefault.jpg
+https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg
+https://img.youtube.com/vi/VIDEO_ID/mqdefault.jpg
+https://img.youtube.com/vi/VIDEO_ID/default.jpg
+
+
+Replace VIDEO_ID dynamically.
+
+Example:
+
+https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg
+
+Step 3 — Check Image Validity
+
+Sometimes maxresdefault.jpg does not exist.
+
+So the system must:
+
+Check image response
+
+If status = 404
+
+Hide that thumbnail option
+
+Use:
+
+fetch(imageURL, { method: 'HEAD' })
+
+
+Or image load fallback.
+
+Step 4 — Display Results
+
+Show thumbnails in a grid layout:
+
+Thumbnail	Quality	Download
+Image	Max Resolution	Download
+Image	HD	Download
+Image	High	Download
+Image	Medium	Download
+Image	Default	Download
+
+Each card should contain:
+
+Preview image
+
+Quality label
+
+Resolution text
+
+Download button
+
+Step 5 — Download Feature
+
+Download button should:
+
+<a href="thumbnailURL" download>
+Download
+</a>
+
+
+OR
+
+Use JS to force download.
+
+File naming format:
+
+youtube-thumbnail-VIDEO_ID-quality.jpg
+
+
+Example:
+
+youtube-thumbnail-dQw4w9WgXcQ-maxres.jpg
+
+UI Requirements
+
+Design a clean modern interface.
+
+Header
+
+Title:
+
+YouTube Thumbnail Downloader
+
+
+Subtitle:
+
+Download HD thumbnails from any YouTube video instantly.
+
+Input Section
+
+Elements:
+
+Input box
+
+Paste YouTube URL
+
+Button: Get Thumbnails
+
+Placeholder:
+
+Paste YouTube video URL here...
+
+UX Features
+
+Add:
+
+✔ Paste button
+✔ Loading spinner
+✔ Error message
+✔ Copy thumbnail link
+✔ Mobile responsive layout
+
+SEO Requirements
+
+The page must include:
+
+Title
+Free YouTube Thumbnail Downloader (HD, 4K)
+
+Meta Description
+Download YouTube thumbnails in HD, SD, and Max resolution instantly. Paste any YouTube video link and get high quality thumbnails for free.
+
+H1
+YouTube Thumbnail Downloader
+
+SEO Content Section
+
+Add 400–600 words explaining:
+
+What YouTube thumbnails are
+
+Why people download them
+
+How the tool works
+
+Benefits for creators
+
+Mention **YouTube creators and content marketers.
+
+Performance Requirements
+
+The page must:
+
+⚡ Load under 1 second
+⚡ Use pure JavaScript (no heavy frameworks)
+⚡ Lazy load images
+⚡ Use minimal CSS
+
+Security Rules
+
+Validate input.
+
+Only accept:
+
+youtube.com
+youtu.be
+
+
+Prevent:
+
+script injection
+
+invalid URLs
+
+Mobile Design
+
+Must be fully responsive:
+
+Works on phones
+
+Thumb-friendly buttons
+
+Grid becomes vertical stack
+
+Extra Features (Optional but Recommended)
+
+Add:
+
+Copy Thumbnail URL
+
+Button to copy image link.
+
+Open Image
+
+Button to open in new tab.
+
+Preview Fullscreen
+
+Click image to enlarge.
+
+Folder Structure
+/youtube-thumbnail-downloader
+   index.html
+   style.css
+   script.js
+
+JavaScript Flow
+
+Pseudo code:
+
+onClick(getThumbnailButton)
+
+    url = input.value
+
+    videoID = extractVideoID(url)
+
+    if videoID invalid
+        showError()
+
+    thumbnails = generateThumbnailURLs(videoID)
+
+    for each thumbnail
+        checkIfExists()
+
+    renderValidThumbnails()
+
+Example UI Layout
+---------------------------------
+YouTube Thumbnail Downloader
+---------------------------------
+
+[ Paste YouTube URL here      ]
+[        Get Thumbnails       ]
+
+---------------------------------
+
+[ Thumbnail ]  Max Resolution
+[ Download ]
+
+[ Thumbnail ]  HD
+[ Download ]
+
+[ Thumbnail ]  Medium
+[ Download ]
+
+Output Requirement
+
+Generate complete working code:
+
+HTML
+
+CSS
+
+JavaScript
+
+Must work immediately when opened in a browser.
+
+No external dependencies.

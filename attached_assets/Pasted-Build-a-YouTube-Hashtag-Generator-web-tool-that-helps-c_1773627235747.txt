@@ -1,0 +1,457 @@
+Build a YouTube Hashtag Generator web tool that helps creators generate high-performing hashtags based on their video topic, niche, and keywords.
+
+The generated hashtags must help videos:
+
+rank better in search
+
+increase discoverability
+
+reach a wider audience on YouTube
+
+The tool must be:
+
+fast
+
+mobile friendly
+
+SEO optimized
+
+easy for beginners
+
+Product Goal
+
+Users should be able to:
+
+Enter their video topic or title
+
+Enter optional keywords or niche
+
+Click Generate Hashtags
+
+Instantly receive 20–30 optimized hashtags
+
+The hashtags must include:
+
+trending hashtags
+
+niche hashtags
+
+broad hashtags
+
+long-tail hashtags
+
+Tool Inputs (User Form)
+
+Create a clean form with these inputs.
+
+1 Video Topic / Title
+
+Input type: text.
+
+Example:
+
+How to grow on YouTube in 2026
+
+
+Purpose:
+
+This input determines the main hashtag theme.
+
+2 Video Niche
+
+Input type: dropdown or text.
+
+Examples:
+
+YouTube growth
+gaming
+tech
+education
+fitness
+finance
+travel
+
+
+Logic:
+
+The niche influences hashtag selection.
+
+Example:
+
+Topic:
+
+home workout for beginners
+
+
+Generated hashtags should include:
+
+#homeworkout
+#fitnessmotivation
+#workoutathome
+
+3 Target Keywords (Optional)
+
+Input: comma separated keywords.
+
+Example:
+
+YouTube SEO, grow YouTube channel, YouTube tips
+
+
+Logic:
+
+Convert keywords into hashtags.
+
+Example:
+
+#YouTubeSEO
+#GrowOnYouTube
+#YouTubeTips
+
+4 Hashtag Quantity
+
+Dropdown:
+
+10
+20
+30
+
+
+Default:
+
+20 hashtags
+
+Hashtag Generation Logic
+
+When user clicks Generate Hashtags, follow this logic.
+
+Step 1 — Extract Keywords from Topic
+
+Example topic:
+
+How to grow on YouTube in 2026
+
+
+Extract keywords:
+
+YouTube
+YouTube growth
+YouTube SEO
+content creation
+YouTube tips
+
+Step 2 — Generate Hashtag Variations
+
+Convert keywords to hashtags.
+
+Rules:
+
+remove spaces
+
+capitalize words
+
+keep readable
+
+Example:
+
+#YouTubeGrowth
+#YouTubeSEO
+#ContentCreator
+#YouTubeTips
+
+Step 3 — Generate Long-Tail Hashtags
+
+Combine keywords with modifiers.
+
+Examples:
+
+#GrowOnYouTube
+#YouTubeGrowthTips
+#YouTubeAlgorithm
+#YouTubeCreatorTips
+
+
+Purpose:
+
+Long-tail hashtags improve niche discoverability on YouTube.
+
+Step 4 — Generate Trending Hashtags
+
+Include widely used platform hashtags.
+
+Examples:
+
+#YouTube
+#ContentCreator
+#VideoMarketing
+#YouTuber
+#CreatorEconomy
+
+
+Rules:
+
+Use only relevant hashtags.
+
+Avoid spam hashtags like:
+
+#viral
+#fyp
+#like4like
+
+Step 5 — Categorize Hashtags
+
+Group hashtags into categories.
+
+1 Trending Hashtags
+
+High-volume hashtags.
+
+Example:
+
+#YouTube
+#YouTuber
+#ContentCreator
+
+2 Niche Hashtags
+
+Specific to the video topic.
+
+Example:
+
+#YouTubeSEO
+#GrowOnYouTube
+#YouTubeTips
+
+3 Long-Tail Hashtags
+
+More specific.
+
+Example:
+
+#YouTubeGrowthStrategy
+#YouTubeSEO2026
+#GrowYourChannel
+
+Step 6 — Limit Hashtags
+
+YouTube best practice:
+
+3–15 hashtags recommended
+
+
+However the generator can produce 20 suggestions so users can choose.
+
+Output Layout
+
+Display hashtags in tag cards.
+
+Example layout:
+
+#YouTubeSEO   [Copy]
+#GrowOnYouTube   [Copy]
+#ContentCreator   [Copy]
+#YouTubeTips   [Copy]
+
+
+Add buttons:
+
+Copy All Hashtags
+
+Copy Selected
+
+Regenerate Hashtags
+
+UX Features
+
+Add useful features.
+
+✔ Copy hashtag button
+✔ Copy all hashtags
+✔ Regenerate hashtags
+✔ Character counter
+✔ Mobile responsive layout
+
+Hashtag Formatting Rules
+
+Follow these formatting rules.
+
+Capitalize Words
+
+Good:
+
+#YouTubeTips
+
+
+Bad:
+
+#youtubetips
+
+Keep Length Reasonable
+
+Maximum:
+
+25 characters
+
+
+Example:
+
+#YouTubeGrowthTips
+
+Avoid Spam
+
+Do NOT generate irrelevant hashtags like:
+
+#follow4follow
+#likeforlike
+
+
+These reduce SEO value.
+
+UI Design
+
+Create a modern interface.
+
+Header
+
+Title:
+
+YouTube Hashtag Generator
+
+
+Subtitle:
+
+Generate trending and SEO-optimized YouTube hashtags for your videos.
+
+Input Section
+
+Fields:
+
+Video topic
+
+Niche
+
+Keywords
+
+Hashtag quantity
+
+Button:
+
+Generate Hashtags
+
+Results Section
+
+Display hashtags as clickable tags.
+
+Example:
+
+#YouTubeSEO
+#GrowOnYouTube
+#YouTubeTips
+#ContentCreator
+
+
+Buttons:
+
+Copy All
+Regenerate
+
+SEO Strategy for the Tool Page
+
+The page itself must rank in search engines.
+
+Page Title
+Free YouTube Hashtag Generator (Trending & SEO Hashtags)
+
+Meta Description
+Generate trending YouTube hashtags for your videos instantly. Improve discoverability and reach a wider audience with our free YouTube hashtag generator.
+
+H1
+YouTube Hashtag Generator
+
+SEO Content Section
+
+Add 800–1200 words explaining:
+
+what YouTube hashtags are
+
+how hashtags improve discoverability
+
+how to choose hashtags
+
+examples of effective hashtags
+
+mistakes creators should avoid
+
+Mention the platform **YouTube naturally.
+
+Internal SEO Strategy
+
+Link to other tools such as:
+
+YouTube Description Generator
+
+YouTube Channel Name Generator
+
+YouTube Thumbnail Downloader
+
+This builds topical authority around YouTube creator tools.
+
+Technical Requirements
+
+Use:
+
+HTML
+
+CSS
+
+JavaScript
+
+The page must be:
+
+⚡ fast loading
+📱 mobile responsive
+🔍 SEO optimized
+
+Folder Structure
+/youtube-hashtag-generator
+   index.html
+   style.css
+   script.js
+
+JavaScript Logic (Pseudo Code)
+onClick(generateButton)
+
+    topic = getTopic()
+    niche = getNiche()
+    keywords = getKeywords()
+
+    extractedKeywords = extractKeywords(topic)
+
+    hashtags = []
+
+    for keyword in extractedKeywords
+        hashtags.add(convertToHashtag(keyword))
+
+    addTrendingHashtags(niche)
+
+    addLongTailHashtags(keywords)
+
+    removeDuplicates()
+
+    limitToUserQuantity()
+
+    displayHashtags()
+
+Output Requirements
+
+The AI must generate:
+
+full HTML page
+
+CSS styling
+
+JavaScript generator logic
+
+working UI
+
+The tool must work immediately when opened in a browser.

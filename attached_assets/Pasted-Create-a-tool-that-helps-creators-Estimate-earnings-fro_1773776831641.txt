@@ -1,0 +1,222 @@
+Create a tool that helps creators:
+
+Estimate earnings from YouTube Shorts
+
+Understand how Shorts monetization works
+
+Calculate revenue based on views, engagement, and audience location
+
+Get realistic projections (since Shorts CPM is very different from long-form videos)
+
+🖥️ UI / UX REQUIREMENTS
+1. Hero Section
+
+Title: “Estimate Your YouTube Shorts Earnings”
+
+Subtitle: “See how much your Shorts can make based on views, engagement, and audience”
+
+CTA Button: “Calculate Earnings”
+
+2. Input Section
+
+Create a clean, intuitive form:
+
+📊 Core Inputs
+
+Total Shorts Views (number input)
+
+Average Monthly Views (optional)
+
+Engagement Rate (%) (slider: 0–20%)
+
+Tooltip: “Likes, comments, shares relative to views”
+
+🌍 Audience & Content Inputs
+
+Primary Audience Location (dropdown)
+Options:
+
+United States
+
+United Kingdom
+
+Canada
+
+Australia
+
+Europe
+
+India
+
+Nigeria
+
+Global
+
+Content Niche (dropdown)
+Options:
+
+Entertainment
+
+Comedy
+
+Education
+
+Tech
+
+Finance
+
+Lifestyle
+
+Gaming
+
+Motivation
+
+Other
+
+📺 Monetization Factors
+
+Are you in the YouTube Partner Program? (toggle)
+
+Posting Frequency (dropdown)
+
+Daily
+
+Weekly
+
+Occasionally
+
+3. Calculate Button
+
+Button text: “Estimate Revenue”
+
+📈 OUTPUT SECTION
+
+Display results using cards and visual elements:
+
+💰 Key Results
+
+Estimated Earnings Range
+
+Estimated RPM (Shorts)
+
+Revenue per 1,000 Views
+
+📊 Breakdown
+
+Low Estimate
+
+Average Estimate
+
+High Estimate
+
+📅 Monthly Projection (if monthly views provided)
+
+Estimated monthly earnings
+
+Estimated yearly earnings
+
+🧠 Insights Section
+
+Show intelligent insights such as:
+
+“Shorts RPM is lower than long-form but scales with volume”
+
+“Your niche performs better with high engagement”
+
+“Audience location significantly impacts revenue share”
+
+⚙️ CALCULATION LOGIC
+📌 Important Context
+
+YouTube Shorts revenue comes from:
+
+Ad revenue pool (shared across creators)
+
+Not traditional CPM like long-form videos
+
+Typical Shorts RPM range:
+
+$0.01 – $0.10 per 1,000 views (can vary)
+
+Step-by-Step Logic
+1. Base RPM Range
+
+Set base RPM depending on niche:
+
+Entertainment/Comedy: $0.01 – $0.04
+
+Gaming: $0.02 – $0.05
+
+Lifestyle: $0.02 – $0.06
+
+Education: $0.03 – $0.08
+
+Tech/Finance: $0.04 – $0.10
+
+2. Adjust by Location
+
+Tier 1 (US, UK, Canada, Australia): +30–80%
+
+Europe: +20–50%
+
+Global: baseline
+
+India/Nigeria: -20–50%
+
+3. Adjust by Engagement Rate
+
+High engagement (>10%): +30–70%
+
+Medium (5–10%): baseline
+
+Low (<5%): -20–40%
+
+4. Partner Program Check
+
+If NOT in YPP → earnings = $0
+
+Show message: “You must be in the YouTube Partner Program to earn from Shorts ads”
+
+5. Final RPM Calculation
+
+final_rpm_low = base_low × multipliers
+final_rpm_high = base_high × multipliers
+
+6. Revenue Formula
+
+estimated_low = (views / 1000) × final_rpm_low
+estimated_high = (views / 1000) × final_rpm_high
+
+average = (low + high) / 2
+
+7. Monthly / Yearly Projection
+
+If monthly views provided:
+
+monthly_revenue = calculation
+
+yearly = monthly × 12
+
+🧠 AI INSIGHTS GENERATION
+
+Use AI to generate personalized tips:
+
+Prompt:
+
+"Analyze a YouTube Shorts creator with:
+
+Niche: [NICHE]
+
+Audience: [LOCATION]
+
+Engagement: [RATE]
+
+Views: [VIEWS]
+
+Provide 3–5 actionable tips to increase Shorts revenue, including:
+
+Content strategy
+
+Increasing engagement
+
+Monetization optimization"

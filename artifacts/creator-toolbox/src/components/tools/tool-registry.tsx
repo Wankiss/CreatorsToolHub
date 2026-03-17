@@ -8,6 +8,7 @@ import { YouTubeHashtagGeneratorTool } from "./youtube-hashtag-generator";
 import { YouTubeVideoIdeaGeneratorTool } from "./youtube-video-idea-generator";
 import { YouTubeCpmCalculatorTool } from "./youtube-cpm-calculator";
 import { YouTubeTitleAnalyzerTool } from "./youtube-title-analyzer";
+import { YouTubeShortsRevenueCalculatorTool } from "./youtube-shorts-revenue-calculator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -61,6 +62,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "youtube-title-analyzer": {
     component: YouTubeTitleAnalyzerTool,
+    ownsSeoContent: true,
+  },
+  "youtube-shorts-revenue-calculator": {
+    component: YouTubeShortsRevenueCalculatorTool,
     ownsSeoContent: true,
   },
 };

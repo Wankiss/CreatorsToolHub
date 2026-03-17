@@ -1,0 +1,237 @@
+Create a tool that helps YouTube creators:
+
+Analyze their video titles for SEO performance
+
+Predict click-through rate (CTR) potential
+
+Optimize keyword placement
+
+Improve readability and engagement
+
+Get actionable suggestions to rank higher and get more clicks
+
+🖥️ UI / UX REQUIREMENTS
+1. Hero Section
+
+Title: “Analyze & Optimize Your YouTube Titles”
+
+Subtitle: “Boost your CTR, rank higher, and get more views”
+
+CTA Button: “Analyze Title”
+
+2. Input Section
+
+Create a clean input interface:
+
+YouTube Title Input (text field)
+
+Placeholder: “e.g. How I Made $10,000 in 30 Days with AI”
+
+Target Keyword (optional input)
+
+Placeholder: “e.g. make money with AI”
+
+Video Category / Niche (dropdown)
+Options:
+
+Tech
+
+Finance
+
+Education
+
+Gaming
+
+Lifestyle
+
+Business
+
+Entertainment
+
+Health
+
+Other
+
+Target Audience (optional input)
+
+Analyze Button: “Analyze Title”
+
+📊 OUTPUT SECTION
+
+Display results using cards, progress bars, and scores.
+
+🎯 Overall Score
+
+Score out of 100
+
+Color-coded:
+
+80–100: Excellent (green)
+
+60–79: Good (yellow)
+
+<60: Needs Improvement (red)
+
+📈 Detailed Metrics
+1. SEO Score
+
+Keyword presence
+
+Keyword position (front-loaded or not)
+
+Relevance to niche
+
+2. CTR Score
+
+Use of power words
+
+Emotional triggers
+
+Curiosity gap
+
+Numbers (e.g. “7 ways…”)
+
+3. Readability Score
+
+Clarity
+
+Simplicity
+
+Avoiding clutter
+
+4. Length Optimization
+
+Ideal range: 50–60 characters
+
+Show:
+
+Character count
+
+Pixel width estimate (optional)
+
+🧠 AI Analysis Section
+
+Provide:
+
+Strengths of the title
+
+Weaknesses
+
+Suggested improved versions (3–5 alternatives)
+
+✍️ Suggested Titles Section
+
+Generate improved titles such as:
+
+SEO-optimized version
+
+High-CTR version
+
+Shortened version
+
+“Viral-style” version
+
+⚙️ ANALYSIS LOGIC
+1. Preprocessing
+
+Convert title to lowercase
+
+Count characters and words
+
+Extract keywords
+
+2. SEO SCORING
+
+If keyword exists → + points
+
+If keyword is at the beginning → extra points
+
+If keyword density is natural → bonus
+
+If missing keyword → penalty
+
+Example:
+seo_score = 0–100 based on:
+
+keyword_presence (40%)
+
+keyword_position (30%)
+
+relevance (30%)
+
+3. CTR SCORING
+
+Check for:
+
+Power words (e.g. “Ultimate”, “Secret”, “Proven”, “Shocking”)
+
+Numbers
+
+Brackets (e.g. [Guide], (2025))
+
+Curiosity phrases
+
+Example:
+ctr_score = weighted score:
+
+emotional_words
+
+curiosity_gap
+
+formatting
+
+4. READABILITY SCORING
+
+Sentence simplicity
+
+Word length
+
+Avoiding jargon
+
+5. LENGTH SCORING
+
+Ideal: 50–60 characters
+
+Too short (<40) → penalty
+
+Too long (>70) → penalty
+
+6. FINAL SCORE
+
+overall_score = average of:
+
+SEO score
+
+CTR score
+
+readability score
+
+length score
+
+🧠 AI PROMPT FOR ANALYSIS
+
+Send this to AI:
+
+"Analyze the following YouTube title:
+
+Title: [TITLE]
+Keyword: [KEYWORD]
+Niche: [NICHE]
+
+Evaluate:
+
+SEO effectiveness
+
+Click-through potential
+
+Clarity and readability
+
+Provide:
+
+Strengths
+
+Weaknesses
+
+3–5 improved title suggestions optimized for SEO and CTR
+
+Keep suggestions highly clickable and natural."

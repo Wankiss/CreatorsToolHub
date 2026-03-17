@@ -1,0 +1,226 @@
+Create a tool that allows YouTube creators to:
+
+Estimate their CPM (Cost Per 1000 monetized views)
+
+Calculate RPM (Revenue per 1000 total views)
+
+Understand how niche, audience location, and engagement affect earnings
+
+Predict revenue based on views
+
+🖥️ UI / UX REQUIREMENTS
+1. Hero Section
+
+Title: “Calculate Your YouTube Earnings Instantly”
+
+Subtitle: “Understand your CPM, RPM, and how much you really make per 1,000 views”
+
+CTA Button: “Start Calculating”
+
+2. Input Form
+
+Create a clean, user-friendly form with:
+
+📊 Basic Inputs
+
+Total Views (number input)
+
+Estimated Monetized Playbacks (%) (slider: 0–100)
+
+Estimated CPM ($) (number input, optional)
+
+🎯 Advanced Inputs
+
+Channel Niche (dropdown)
+Options:
+
+Finance
+
+Tech
+
+Education
+
+Gaming
+
+Entertainment
+
+Lifestyle
+
+Health & Fitness
+
+Business
+
+Other
+
+Primary Audience Location (dropdown)
+Options:
+
+United States
+
+United Kingdom
+
+Canada
+
+Australia
+
+Europe
+
+India
+
+Nigeria
+
+Global
+
+Audience Engagement Level (dropdown)
+
+Low
+
+Medium
+
+High
+
+Ad Types Enabled (checkboxes)
+
+Skippable ads
+
+Non-skippable ads
+
+Display ads
+
+Bumper ads
+
+3. Calculate Button
+
+Button text: “Calculate Earnings”
+
+📈 OUTPUT SECTION
+
+Display results in visually appealing cards:
+
+💰 Key Metrics
+
+Estimated CPM
+
+Estimated RPM
+
+Estimated Revenue
+
+📊 Breakdown Section
+
+Monetized Views
+
+Revenue per 1,000 views
+
+Total estimated earnings
+
+📌 Insights Section
+
+Show smart insights like:
+
+“Your niche typically has high advertiser demand”
+
+“Audience location significantly boosts CPM”
+
+“Increasing engagement could raise your RPM by X%”
+
+📉 Comparison Graph (optional)
+
+Show earnings at:
+
+1K views
+
+10K views
+
+100K views
+
+1M views
+
+⚙️ CALCULATION LOGIC
+Definitions
+
+CPM = Cost advertisers pay per 1000 monetized views
+
+RPM = Revenue per 1000 total views
+
+Step-by-Step Logic
+
+Monetized Views:
+monetized_views = total_views × (monetized_playback_percentage / 100)
+
+If user provides CPM:
+use it directly
+
+If CPM is NOT provided:
+estimate CPM based on:
+
+Base CPM by Niche (example ranges)
+
+Finance: $15–40
+
+Tech: $10–25
+
+Business: $12–30
+
+Education: $8–20
+
+Gaming: $3–10
+
+Entertainment: $2–8
+
+Lifestyle: $3–12
+
+Health: $5–15
+
+Adjust by Location
+
+Tier 1 (US, UK, Canada, Australia): +40–100%
+
+Europe: +20–50%
+
+Global: baseline
+
+India/Nigeria: -30–60%
+
+Adjust by Engagement
+
+High: +20–50%
+
+Medium: baseline
+
+Low: -20–40%
+
+Adjust by Ad Types
+
+More ad formats enabled = higher CPM multiplier
+
+Revenue Formula
+
+estimated_revenue = (monetized_views / 1000) × CPM
+
+RPM Formula
+
+RPM = estimated_revenue / total_views × 1000
+
+🧠 AI-POWERED INSIGHTS
+
+Integrate AI to generate personalized insights:
+
+Prompt example:
+
+"Analyze a YouTube channel with:
+
+Niche: [NICHE]
+
+Audience: [LOCATION]
+
+Engagement: [LEVEL]
+
+CPM: [VALUE]
+
+Provide 3–5 actionable tips to increase CPM and RPM, including:
+
+Content strategy
+
+Audience targeting
+
+Ad optimization"

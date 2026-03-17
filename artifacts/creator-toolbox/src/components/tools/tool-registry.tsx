@@ -6,6 +6,7 @@ import { YouTubeDescriptionGeneratorTool } from "./youtube-description-generator
 import { YouTubeChannelNameGeneratorTool } from "./youtube-channel-name-generator";
 import { YouTubeHashtagGeneratorTool } from "./youtube-hashtag-generator";
 import { YouTubeVideoIdeaGeneratorTool } from "./youtube-video-idea-generator";
+import { YouTubeCpmCalculatorTool } from "./youtube-cpm-calculator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -51,6 +52,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "youtube-video-idea-generator": {
     component: YouTubeVideoIdeaGeneratorTool,
+    ownsSeoContent: true,
+  },
+  "youtube-cpm-calculator": {
+    component: YouTubeCpmCalculatorTool,
     ownsSeoContent: true,
   },
 };

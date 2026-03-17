@@ -1,0 +1,224 @@
+Create a tool that helps YouTube creators:
+
+Discover high-performing keywords for their videos
+
+Find high-volume, low-competition keyword opportunities
+
+Improve YouTube SEO and rankings
+
+Generate keyword ideas for titles, tags, and descriptions
+
+🖥️ UI / UX REQUIREMENTS
+1. Hero Section
+
+Title: “Find High-Ranking YouTube Keywords Instantly”
+
+Subtitle: “Discover low-competition, high-volume keywords to grow your channel”
+
+CTA Button: “Generate Keywords”
+
+2. Input Section
+
+Create a clean keyword input interface:
+
+🔍 Main Inputs
+
+Primary Topic / Keyword (text input)
+
+Placeholder: “e.g. make money online”
+
+Video Niche (dropdown)
+Options:
+
+Tech
+
+Finance
+
+Education
+
+Gaming
+
+Lifestyle
+
+Business
+
+Entertainment
+
+Health
+
+Other
+
+Target Audience (optional input)
+
+Placeholder: “e.g. beginners, students, entrepreneurs”
+
+Content Type (dropdown)
+Options:
+
+Tutorial
+
+Review
+
+List
+
+Vlog
+
+Shorts
+
+Case Study
+
+Keyword Goal (dropdown)
+
+High search volume
+
+Low competition
+
+Balanced (recommended)
+
+Long-tail keywords
+
+Language (dropdown)
+
+Country / Region (dropdown)
+
+3. Generate Button
+
+Button text: “Generate Keywords”
+
+📊 OUTPUT SECTION
+
+Display results in a structured, easy-to-scan format.
+
+🔑 Keyword Results Table
+
+Each keyword should include:
+
+Keyword phrase
+
+Search volume (estimated)
+
+Competition level (Low / Medium / High)
+
+SEO difficulty score (1–100)
+
+Opportunity score (highlight best keywords)
+
+🧠 Keyword Categories
+
+Group keywords into:
+
+🔥 High Opportunity Keywords
+
+📈 Trending Keywords
+
+🎯 Long-Tail Keywords
+
+💡 Question-Based Keywords (e.g. “How to…”)
+
+🏷️ Tag Suggestions
+
+Provide ready-to-copy YouTube tags list
+
+✍️ Title Suggestions
+
+Generate 3–5 SEO-optimized titles using top keywords
+
+📄 Description Keywords
+
+Suggest keywords to include in description
+
+⚙️ KEYWORD GENERATION LOGIC
+1. Keyword Expansion
+
+Start with seed keyword and generate variations:
+
+Add modifiers:
+
+“how to”
+
+“best”
+
+“easy”
+
+“for beginners”
+
+“2025”
+
+“step by step”
+
+Create long-tail variations:
+
+“[keyword] for beginners”
+
+“[keyword] without [pain point]”
+
+2. Search Volume Estimation
+
+Use heuristic scoring:
+
+Base volume score (1–100)
+
+Adjust by:
+
+Keyword length (shorter = higher volume)
+
+Trend relevance
+
+Niche popularity
+
+3. Competition Estimation
+
+Simulate competition score based on:
+
+Broad keywords → High competition
+
+Long-tail keywords → Low competition
+
+4. Opportunity Score
+
+Formula:
+
+opportunity_score = (search_volume × 0.6) + (low_competition × 0.4)
+
+Highlight keywords with:
+
+High volume + low competition
+
+🧠 AI PROMPT FOR KEYWORD GENERATION
+
+Send this prompt to AI:
+
+"Generate a list of YouTube keywords for:
+
+Topic: [TOPIC]
+Niche: [NICHE]
+Audience: [AUDIENCE]
+Content Type: [TYPE]
+
+Include:
+
+High-volume keywords
+
+Low-competition keywords
+
+Long-tail keyword variations
+
+Trending keyword ideas
+
+Question-based keywords
+
+For each keyword, estimate:
+
+Search volume (relative score)
+
+Competition level
+
+SEO difficulty
+
+Also generate:
+
+5 optimized video titles using top keywords
+
+A list of YouTube tags
+
+Make the keywords realistic, relevant, and optimized for YouTube SEO."

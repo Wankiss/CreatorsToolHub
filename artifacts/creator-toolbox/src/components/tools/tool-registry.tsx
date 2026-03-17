@@ -5,6 +5,7 @@ import { YouTubeThumbnailDownloaderTool } from "./youtube-thumbnail-downloader";
 import { YouTubeDescriptionGeneratorTool } from "./youtube-description-generator";
 import { YouTubeChannelNameGeneratorTool } from "./youtube-channel-name-generator";
 import { YouTubeHashtagGeneratorTool } from "./youtube-hashtag-generator";
+import { YouTubeVideoIdeaGeneratorTool } from "./youtube-video-idea-generator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -46,6 +47,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "youtube-hashtag-generator": {
     component: YouTubeHashtagGeneratorTool,
+    ownsSeoContent: true,
+  },
+  "youtube-video-idea-generator": {
+    component: YouTubeVideoIdeaGeneratorTool,
     ownsSeoContent: true,
   },
 };

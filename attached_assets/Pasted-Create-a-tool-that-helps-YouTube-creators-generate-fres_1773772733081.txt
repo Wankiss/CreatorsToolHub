@@ -1,0 +1,144 @@
+Create a tool that helps YouTube creators generate fresh, engaging, and clickable video ideas based on:
+
+Their niche
+
+Target audience
+
+Content goals
+
+Trending topics
+
+The app should ensure users never run out of content ideas.
+
+🖥️ UI / UX REQUIREMENTS
+1. Landing Section
+
+Title: “Never Run Out of YouTube Video Ideas Again”
+
+Subtitle: “Generate viral-ready content ideas in seconds using AI”
+
+CTA Button: “Generate Ideas”
+
+2. Input Form
+
+Create a clean form with the following fields:
+
+Channel Niche (text input)
+
+Placeholder: “e.g. Tech Reviews, Fitness, Personal Finance”
+
+Target Audience (text input)
+
+Placeholder: “e.g. Beginners, Teens, Entrepreneurs”
+
+Content Goal (dropdown)
+Options:
+
+Grow subscribers
+
+Increase engagement
+
+Go viral
+
+Educate audience
+
+Monetize
+
+Tone / Style (dropdown)
+Options:
+
+Educational
+
+Entertaining
+
+Controversial
+
+Storytelling
+
+Motivational
+
+Include Trending Topics? (toggle switch)
+
+Number of Ideas (slider: 5–30)
+
+Submit Button: “Generate Video Ideas”
+
+3. Output Section
+
+Display results in cards with:
+
+Each idea card should include:
+
+🎬 Video Title (highly clickable)
+
+💡 Concept Description (1–2 sentences)
+
+🔥 Virality Score (1–10)
+
+🎯 Why It Works (psychological/algorithm reason)
+
+🧲 Suggested Hook (first 5–10 seconds script idea)
+
+Add buttons:
+
+“Copy”
+
+“Regenerate Similar”
+
+“Save Idea”
+
+4. Extra Features
+
+“Trending Ideas” tab
+
+“Saved Ideas” section (local storage)
+
+Dark/light mode toggle
+
+Loading animation while generating
+
+Error handling (empty inputs, API issues)
+
+⚙️ BACKEND / AI LOGIC
+AI Prompt Template
+
+When user submits, construct a prompt like:
+
+"Generate [X] highly engaging YouTube video ideas for a channel in the [NICHE] niche targeting [AUDIENCE].
+
+Content goal: [GOAL]
+Tone: [STYLE]
+
+If trending is enabled, incorporate current trends, viral formats, and popular content angles.
+
+For each idea, provide:
+
+A highly clickable YouTube title
+
+A short concept description
+
+A virality score (1-10)
+
+Why this idea would perform well (psychology, curiosity gap, algorithm appeal)
+
+A compelling hook for the first 5–10 seconds
+
+Make the ideas unique, not generic, and optimized for high CTR and audience retention."
+
+Logic Flow
+
+User submits form
+
+Validate inputs
+
+Build AI prompt dynamically
+
+Send request to AI API
+
+Parse structured response
+
+Render ideas as cards
+
+Allow user interactions (copy/save/regenerate)
+
+🧱 TECH STACK

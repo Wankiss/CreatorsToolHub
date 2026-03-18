@@ -6,9 +6,6 @@ modules = ["nodejs-24", "postgresql-16"]
   [[artifacts]]
   id = "artifacts/mockup-sandbox"
 
-  [[artifacts]]
-  id = "artifacts/creator-toolbox"
-
   [deployment]
   router = "application"
   deploymentTarget = "autoscale"

@@ -125,7 +125,15 @@ function GenericToolInterface({ slug }: { slug: string }) {
 
 export default function ToolPage() {
   const { slug } = useParams<{ slug: string }>();
-  const { data: tool, isLoading, error } = useGetToolBySlug(slug || "");
+  const { data: tool, isLoading, error } = useGetToolBySlug(slug || "", {
+    query: {
+      retry: (failureCount, err) => {
+        const status = (err as { status?: number })?.status;
+        if (status === 404) return false;
+        return failureCount < 2;
+      },
+    },
+  });
   const trackMutation = useTrackToolUsage();
 
   useEffect(() => {

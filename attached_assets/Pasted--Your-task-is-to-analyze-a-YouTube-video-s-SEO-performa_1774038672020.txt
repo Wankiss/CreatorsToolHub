@@ -1,0 +1,260 @@
+
+Your task is to analyze a YouTube video’s SEO performance and generate a detailed SEO score (0–100) along with clear, actionable recommendations to improve rankings in YouTube search results.
+
+INPUT:
+- Video Title
+- Video Description
+- Tags (comma-separated)
+- Thumbnail description or image analysis (optional)
+- Target Keyword (main keyword the video is trying to rank for)
+- Secondary Keywords (optional)
+
+OUTPUT FORMAT:
+
+1. OVERALL SEO SCORE (0–100)
+2. CATEGORY SCORES:
+   - Title Optimization (0–100)
+   - Description Optimization (0–100)
+   - Tags Optimization (0–100)
+   - Thumbnail Effectiveness (0–100)
+   - Keyword Usage & Relevance (0–100)
+   - Click-Through Potential (0–100)
+
+3. DETAILED ANALYSIS:
+   - What is working well
+   - What is missing
+   - What is hurting ranking potential
+
+4. ACTIONABLE RECOMMENDATIONS:
+   - Title improvements (rewrite suggestions)
+   - Description improvements (optimized version)
+   - Tag suggestions (high-ranking tags)
+   - Thumbnail improvement tips
+
+5. OPTIMIZED OUTPUT:
+   - Suggested SEO-optimized title (3 variations)
+   - Suggested SEO-optimized description
+   - Suggested tags list (15–25 tags)
+
+6. KEYWORD INSIGHTS:
+   - Keyword density
+   - Placement analysis (title, first 100 characters, tags)
+   - Missing keyword opportunities
+
+7. FINAL SUMMARY:
+   - Priority fixes (Top 3 changes to make immediately)
+⚙️ SCORING LOGIC (Core Algorithm)
+Use this logic to ensure accuracy and consistency.
+
+🎯 1. TITLE SCORE (0–100)
+Criteria:
+
+Contains target keyword (exact match) → +30
+
+Keyword appears in first 60 characters → +20
+
+Length between 50–70 characters → +15
+
+Uses power words (e.g., “Best”, “Ultimate”, “How to”) → +10
+
+Click-worthy (emotional/curiosity-driven) → +15
+
+No keyword stuffing → +10
+
+📝 2. DESCRIPTION SCORE (0–100)
+Criteria:
+
+Keyword in first 100 characters → +25
+
+Total length ≥ 200 words → +15
+
+Includes secondary keywords naturally → +15
+
+Includes timestamps / structure → +10
+
+Includes CTA (subscribe, links) → +10
+
+No spammy repetition → +10
+
+Readability (clear formatting) → +15
+
+🏷️ 3. TAGS SCORE (0–100)
+Criteria:
+
+Includes exact target keyword → +25
+
+Includes variations (long-tail keywords) → +20
+
+Uses 10–20 tags → +15
+
+Relevance to title/content → +20
+
+No irrelevant/spam tags → +20
+
+🖼️ 4. THUMBNAIL SCORE (0–100)
+(If no image is provided, estimate based on description)
+
+Criteria:
+
+Clear focal point → +20
+
+High contrast colors → +20
+
+Minimal text (3–6 words) → +15
+
+Emotional expression or curiosity → +20
+
+Relevance to title → +25
+
+🔍 5. KEYWORD USAGE SCORE (0–100)
+Criteria:
+
+Keyword appears in:
+
+Title → +25
+
+Description → +25
+
+Tags → +25
+
+Natural distribution (not stuffed) → +25
+
+🚀 6. CLICK-THROUGH RATE (CTR) POTENTIAL (0–100)
+Criteria:
+
+Title curiosity gap → +25
+
+Thumbnail-title alignment → +25
+
+Emotional triggers → +20
+
+Clarity of value proposition → +30
+
+📊 FINAL SCORE CALCULATION
+Final Score = 
+(Title × 0.2) +
+(Description × 0.2) +
+(Tags × 0.15) +
+(Thumbnail × 0.15) +
+(Keyword Usage × 0.15) +
+(CTR Potential × 0.15)
+🧪 AI ANALYSIS LOGIC FLOW
+Use this step-by-step reasoning:
+
+Extract main keyword from title if not provided
+
+Compare keyword across:
+
+Title
+
+First 100 chars of description
+
+Tags
+
+Measure:
+
+Lengths (title, description)
+
+Keyword density
+
+Detect:
+
+Missing SEO elements
+
+Over-optimization (keyword stuffing)
+
+Evaluate human psychology:
+
+Curiosity
+
+Emotion
+
+Clarity
+
+Generate:
+
+Score
+
+Diagnosis
+
+Fixes
+
+✨ RECOMMENDATION ENGINE RULES
+When giving suggestions:
+
+Title:
+Always include keyword
+
+Improve clarity + curiosity
+
+Keep under 70 characters
+
+Description:
+Rewrite first 2 lines (most important for SEO)
+
+Add keyword naturally
+
+Expand content depth
+
+Tags:
+Include:
+
+Exact keyword
+
+Long-tail variations
+
+Trending variations
+
+📈 ACCURACY ENHANCEMENT (Important)
+To make results more accurate and realistic, instruct the AI to:
+
+Avoid generic advice
+
+Reference the user’s actual input
+
+Explain why something is wrong
+
+Prioritize high-impact fixes
+
+Simulate real YouTube ranking factors:
+
+Relevance
+
+CTR
+
+Watch intent match
+
+🧩 OPTIONAL ADVANCED FEATURES
+You can extend the tool with:
+
+🔥 Competitor Analysis
+Compare title structure with top-ranking videos
+
+📊 Trend Awareness
+Suggest trending keywords related to topic
+
+🧠 AI Rewrite Mode
+Auto-generate:
+
+Viral titles
+
+High-converting thumbnails text
+
+💡 EXAMPLE OUTPUT (Short Sample)
+SEO SCORE: 72/100
+
+Top Issues:
+- Keyword missing in first 100 characters
+- Title lacks curiosity
+- Tags are too generic
+
+Top Fixes:
+1. Move keyword to beginning of title
+2. Rewrite description intro
+3. Add long-tail tags
+
+Optimized Title:
+"How to Grow on YouTube Fast (2026 Strategy That Works)"
+
+Suggested Tags:
+youtube growth tips, how to grow youtube channel fast, youtube seo 2026,

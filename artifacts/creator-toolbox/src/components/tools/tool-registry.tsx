@@ -15,6 +15,7 @@ import { YouTubeScriptGeneratorTool } from "./youtube-script-generator";
 import { YouTubeEngagementCalculatorTool } from "./youtube-engagement-calculator";
 import { TikTokViralIdeaGeneratorTool } from "./tiktok-viral-idea-generator";
 import { TikTokHashtagGeneratorTool } from "./tiktok-hashtag-generator";
+import { TikTokMoneyCalculatorTool } from "./tiktok-money-calculator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -96,6 +97,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "tiktok-hashtag-generator": {
     component: TikTokHashtagGeneratorTool,
+    ownsSeoContent: true,
+  },
+  "tiktok-money-calculator": {
+    component: TikTokMoneyCalculatorTool,
     ownsSeoContent: true,
   },
 };

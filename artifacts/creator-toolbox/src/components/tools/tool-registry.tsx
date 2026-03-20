@@ -12,6 +12,7 @@ import { YouTubeShortsRevenueCalculatorTool } from "./youtube-shorts-revenue-cal
 import { YouTubeKeywordGeneratorTool } from "./youtube-keyword-generator";
 import { YouTubeSeoScoreCheckerTool } from "./youtube-seo-score-checker";
 import { YouTubeScriptGeneratorTool } from "./youtube-script-generator";
+import { YouTubeEngagementCalculatorTool } from "./youtube-engagement-calculator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -81,6 +82,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "youtube-script-generator": {
     component: YouTubeScriptGeneratorTool,
+    ownsSeoContent: true,
+  },
+  "youtube-engagement-calculator": {
+    component: YouTubeEngagementCalculatorTool,
     ownsSeoContent: true,
   },
 };

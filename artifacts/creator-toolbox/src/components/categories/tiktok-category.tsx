@@ -206,24 +206,29 @@ export function TikTokCategoryPage({ category }: Props) {
                   <Link href="/tools/tiktok-script-generator" className="text-primary hover:underline font-medium">
                     TikTok Script Generator
                   </Link>{" "}
-                  to build a complete word-for-word script. Scripts are structured in TikTok's proven
-                  retention format: a pattern-interrupt hook (0–3s), a one-line context setup (3–8s), a
-                  fast-paced value delivery section, and a conversion CTA in the final three seconds.
-                  Optimized for 15-second, 30-second, and 60-second formats — the three lengths that the
-                  algorithm currently distributes most aggressively.
+                  to build 3 complete word-for-word script variations, each using a different proven viral
+                  formula: "Stop Doing This," "Nobody Tells You," "Here's How I Did It," "If You're [Audience],"
+                  "3 Mistakes," or "This Changed Everything." Scripts are auto-calibrated to your selected
+                  video length — 30–50 words for 15-second videos, 60–90 words for 30-second videos, and
+                  120–160 words for 60-second videos, matching realistic speaking speed exactly. Every script
+                  includes a Hook Score (1–10), Retention Score (1–10), and timestamps for the Hook (0–3s),
+                  Body, and CTA — plus separate copy buttons for the hook only, CTA only, or the full script.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Every great TikTok also needs a caption and a hashtag set that work together to trigger
-                  comments and reach new audiences. The{" "}
+                  Every great TikTok also needs a caption that triggers engagement. The{" "}
                   <Link href="/tools/tiktok-caption-generator" className="text-primary hover:underline font-medium">
                     TikTok Caption Generator
                   </Link>{" "}
-                  and{" "}
+                  produces 10 caption variations per generation across 10 distinct style formats — Punchy Hook,
+                  POV, Storytelling, Question Hook, Hot Take, Relatable, Educational, Challenge, Listicle, and
+                  Emotional. Each caption includes a Viral Score (combining Hook Strength, Engagement Potential,
+                  and Clarity ratings), 7 curated hashtags, and separate copy buttons for caption body and
+                  hashtags. The{" "}
                   <Link href="/tools/tiktok-hashtag-generator" className="text-primary hover:underline font-medium">
                     TikTok Hashtag Generator
                   </Link>{" "}
-                  complete the publishing package — giving you engagement-optimized captions and a
-                  targeted hashtag strategy that puts your video in front of the right viewers.
+                  completes the publishing package with a targeted hashtag strategy that puts your video in
+                  front of the right viewers.
                 </p>
               </section>
 
@@ -317,10 +322,13 @@ export function TikTokCategoryPage({ category }: Props) {
                   <Link href="/tools/tiktok-caption-generator" className="text-primary hover:underline font-medium">
                     TikTok Caption Generator
                   </Link>
-                  . High-performing captions include a direct question that invites debate, a fill-in-the-blank
-                  prompt, or a controversial statement that viewers feel compelled to correct or agree with.
-                  Comments signal to TikTok that your video is generating conversation — the platform responds
-                  by pushing it to fresh audiences in a second and third distribution wave.
+                  . The generator produces 10 captions per run across 10 style formats — Punchy Hook, POV,
+                  Storytelling, Question Hook, Hot Take, Relatable, Educational, Challenge, Listicle, and
+                  Emotional — each with a Viral Score and 7 curated hashtags. High-performing captions include
+                  a direct question that invites debate, a fill-in-the-blank prompt, or a hot take that viewers
+                  feel compelled to respond to. Comments signal to TikTok that your video is generating
+                  conversation — the platform responds by pushing it to fresh audiences in a second and third
+                  distribution wave.
                 </p>
               </section>
 
@@ -372,11 +380,13 @@ export function TikTokCategoryPage({ category }: Props) {
                   <Link href="/tools/tiktok-bio-generator" className="text-primary hover:underline font-medium">
                     TikTok Bio Generator
                   </Link>{" "}
-                  creates 5 bio variations for your niche and content style, each structured around the
-                  three questions every profile visitor asks subconsciously: "Who is this person?",
-                  "What value do I get from following them?", and "Is there a reason to follow now rather
-                  than later?" A strong bio answers all three in 80 characters or fewer — the length that
-                  displays without being truncated on mobile.
+                  generates 10 bio options per generation using five proven high-converting formula
+                  structures — "I help [audience] [result]," "[Emoji] [Value Proposition]," "[Result] | [Niche],"
+                  "Follow for [benefit]," and "[USP] + [CTA]" — each validated to TikTok's strict 80-character
+                  limit. Choose from 15 niches and 5 tone modes, and filter results by style (emoji bios,
+                  CTA bios, or ultra-minimal) to find the exact bio that fits your brand. A strong bio answers
+                  three visitor questions in 80 characters or fewer: "Who is this person?", "What do I get
+                  from following?", and "Why should I follow now?"
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Profile optimization compounds over time. A creator who converts 20% of profile visitors

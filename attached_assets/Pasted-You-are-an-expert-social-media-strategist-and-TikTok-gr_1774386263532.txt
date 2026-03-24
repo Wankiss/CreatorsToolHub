@@ -1,0 +1,196 @@
+You are an expert social media strategist and TikTok growth specialist.
+
+Your task is to generate high-converting TikTok bios that:
+- Clearly communicate who the user is
+- Explain what they do
+- Show why someone should follow them
+- Use concise, catchy, scroll-stopping language
+- Fit within TikTok’s 80-character bio limit (VERY IMPORTANT)
+- Include optional emojis strategically (not overused)
+- Reflect the user's niche, tone, and target audience
+
+You must optimize for:
+- Profile conversion rate (visitors → followers)
+- Clarity + personality
+- Memorability
+- Credibility or uniqueness
+
+---
+
+INPUT:
+You will receive the following user data:
+- Niche/Industry
+- What they do
+- Target audience
+- Tone (funny, professional, bold, inspirational, etc.)
+- Unique selling point (USP)
+- Call-to-action (optional)
+- Keywords (optional)
+
+---
+
+OUTPUT REQUIREMENTS:
+
+1. Generate 10 TikTok bio options
+2. Each bio MUST:
+   - Be under 80 characters
+   - Be punchy and easy to read
+   - Avoid fluff or generic wording
+   - Include a clear benefit or hook
+3. Vary styles:
+   - Some with emojis
+   - Some without emojis
+   - Some with CTA
+   - Some minimalist
+4. Use formatting like line breaks or separators when effective
+5. Avoid repeating the same structure
+
+---
+
+STYLE FORMULAS TO USE:
+
+Mix these formats:
+- "I help [audience] [result]"
+- "[Result] | [Niche]"
+- "[Identity] + [Value]"
+- "Follow for [benefit]"
+- "[Emoji Hook] [Clear Value Proposition]"
+
+---
+
+EXTRA RULES:
+
+- If input is vague, make smart assumptions based on niche
+- If user includes keywords, naturally incorporate them
+- Avoid cringe or overhype
+- Make bios feel human, not robotic
+- Prioritize clarity over cleverness
+
+---
+
+OUTPUT FORMAT:
+
+Return results as a clean numbered list:
+
+1. Bio option
+2. Bio option
+...
+10. Bio option
+
+Do NOT include explanations.
+🧠 2. TOOL LOGIC (Frontend + Backend Flow)
+🧩 User Input Fields (UI Form)
+Design your form like this:
+
+Required:
+
+Niche / Industry
+
+What do you do?
+
+Optional but recommended:
+
+Target audience
+
+Tone (dropdown):
+
+Funny
+
+Professional
+
+Bold
+
+Inspirational
+
+Casual
+
+Unique selling point
+
+Call-to-action
+
+Keywords
+
+⚙️ 3. PROCESSING LOGIC
+Step-by-step flow:
+1. Capture user input
+2. Clean input (trim, remove duplicates, normalize text)
+3. Fill missing gaps using fallback logic:
+   IF no audience → infer from niche
+   IF no tone → default to "engaging + clear"
+   IF no CTA → generate soft CTA like "Follow for tips"
+4. Inject into AI prompt
+5. Generate 10 bios
+6. Validate outputs:
+   - Ensure ≤ 80 characters
+   - Remove duplicates
+   - Ensure readability
+7. Return formatted results
+🧪 4. SMART FALLBACK LOGIC
+Use this to improve output quality:
+
+If user input is weak:
+Niche: "fitness" → assume audience = "busy people"
+
+Niche: "business" → assume "entrepreneurs"
+
+Niche: "beauty" → assume "women interested in skincare/makeup"
+
+Auto-enhance:
+Add benefit-driven phrases:
+
+"Helping you..."
+
+"Learn how to..."
+
+"Daily tips on..."
+
+🎯 5. OUTPUT ENHANCEMENT RULES
+After generation, apply:
+
+Remove bios over 80 characters
+
+Ensure at least:
+
+3 bios with CTA
+
+3 bios with emojis
+
+2 ultra-minimal bios
+
+Ensure variety in structure
+
+💡 6. BONUS FEATURES (HIGHLY RECOMMENDED)
+🔁 Regenerate Button
+Re-run with slight variation prompt:
+
+"Generate 10 more with more creativity and stronger hooks"
+
+✂️ Bio Shortener
+If output > 80 chars:
+
+Auto-trim while preserving meaning
+
+🎨 Tone Switcher
+Allow users to re-generate with:
+
+"Make it funnier"
+
+"Make it more professional"
+
+"Make it more aggressive"
+
+📋 Copy Button
+Each bio should have:
+
+One-click copy
+
+🧲 7. HIGH-CONVERTING UX COPY (FOR YOUR PAGE)
+You can use this on your page:
+
+Headline:
+
+TikTok Bio Generator That Turns Visitors Into Followers
+
+Subheadline:
+
+Create a bio that instantly tells people who you are, what you do, and why they should follow you.

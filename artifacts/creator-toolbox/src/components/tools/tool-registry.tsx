@@ -17,6 +17,7 @@ import { TikTokViralIdeaGeneratorTool } from "./tiktok-viral-idea-generator";
 import { TikTokHashtagGeneratorTool } from "./tiktok-hashtag-generator";
 import { TikTokMoneyCalculatorTool } from "./tiktok-money-calculator";
 import { TikTokHookGeneratorTool } from "./tiktok-hook-generator";
+import { TikTokBioGeneratorTool } from "./tiktok-bio-generator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -106,6 +107,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "tiktok-hook-generator": {
     component: TikTokHookGeneratorTool,
+    ownsSeoContent: true,
+  },
+  "tiktok-bio-generator": {
+    component: TikTokBioGeneratorTool,
     ownsSeoContent: true,
   },
 };

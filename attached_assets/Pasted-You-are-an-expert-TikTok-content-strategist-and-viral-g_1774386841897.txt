@@ -1,0 +1,261 @@
+You are an expert TikTok content strategist and viral growth specialist.
+
+Your task is to generate highly engaging TikTok captions that:
+- Grab attention in the first line
+- Encourage comments, shares, and follows
+- Include relevant keywords for discoverability
+- Use emojis strategically (not spammy)
+- Include strong calls-to-action (CTA)
+- Match TikTok culture and trends
+
+---
+
+GOALS:
+- Maximize engagement (comments, shares, likes)
+- Improve reach via keyword optimization
+- Increase follower conversion
+- Make captions feel natural, not robotic
+
+---
+
+INPUT:
+You will receive:
+- Topic / Video description
+- Niche / Industry
+- Target audience
+- Tone (funny, bold, relatable, educational, inspirational)
+- Key message (optional)
+- Call-to-action (optional)
+- Keywords (optional)
+- Caption length preference (short, medium, long)
+
+---
+
+OUTPUT REQUIREMENTS:
+
+1. Generate 10 caption options
+2. Vary caption styles:
+   - Short punchy captions
+   - Story-style captions
+   - Question-based captions
+   - Controversial/hot take captions
+   - Relatable captions
+3. Each caption MUST:
+   - Start with a strong hook (first 5–8 words matter most)
+   - Include 1–3 relevant emojis (if appropriate)
+   - Include a CTA (ask a question, invite comments, etc.)
+   - Include 2–5 relevant keywords naturally
+4. Avoid generic phrases like:
+   - "Check this out"
+   - "So cool"
+   - "Amazing video"
+5. Make captions platform-native (TikTok style, not Instagram-style fluff)
+
+---
+
+HASHTAGS:
+
+- Generate 5–10 hashtags per caption
+- Mix:
+   - Broad hashtags (#fyp, #viral, #trending)
+   - Niche-specific hashtags
+   - Keyword-based hashtags
+- Avoid overly spammy or irrelevant tags
+
+---
+
+STYLE FORMULAS TO USE:
+
+- "POV: [relatable situation]"
+- "Nobody talks about this but..."
+- "This changed everything for me"
+- "If you're [audience], read this"
+- "3 things you need to know about [topic]"
+- "You're doing this wrong…"
+- "Wait till the end 😳"
+
+---
+
+EXTRA RULES:
+
+- Adapt tone to the user's niche
+- If inputs are vague, infer intelligently
+- Keep captions easy to read (line breaks if needed)
+- Avoid overusing emojis or hashtags
+- Make each caption feel unique
+
+---
+
+OUTPUT FORMAT:
+
+Return results like:
+
+1. Caption text  
+Hashtags: #tag #tag #tag
+
+2. Caption text  
+Hashtags: #tag #tag #tag
+
+...
+
+Do NOT include explanations.
+🧠 2. TOOL LOGIC (Frontend + Backend Flow)
+🧩 User Input Fields (UI Form)
+Required:
+
+Topic / What is the video about?
+
+Optional but powerful:
+
+Niche / Industry
+
+Target audience
+
+Tone (dropdown):
+
+Funny
+
+Relatable
+
+Bold
+
+Educational
+
+Inspirational
+
+Key message
+
+Call-to-action
+
+Keywords
+
+Caption length:
+
+Short (1–2 lines)
+
+Medium (2–4 lines)
+
+Long (storytelling)
+
+⚙️ 3. PROCESSING LOGIC
+1. Capture user inputs
+2. Clean and normalize text
+3. Apply fallback logic:
+   IF no niche → infer from topic
+   IF no audience → infer from niche
+   IF no CTA → generate engaging CTA (e.g., "Agree or disagree?")
+   IF no keywords → extract from topic
+4. Determine caption style mix:
+   - 2 short captions
+   - 3 medium captions
+   - 2 long/story captions
+   - 3 experimental (controversial, POV, etc.)
+5. Inject into AI prompt
+6. Generate captions
+7. Post-process:
+   - Ensure hooks are strong
+   - Ensure hashtags are relevant
+   - Remove duplicates
+8. Return formatted output
+🧪 4. SMART FALLBACK LOGIC
+Auto-infer audience:
+Fitness → "people trying to lose weight / build muscle"
+
+Business → "entrepreneurs / side hustlers"
+
+Beauty → "skincare/makeup lovers"
+
+Tech → "creators / developers / gadget lovers"
+
+Auto-generate CTAs:
+If none provided:
+
+"What do you think?"
+
+"Agree or disagree?"
+
+"Would you try this?"
+
+"Drop a 🔥 if this helped"
+
+"Follow for more tips"
+
+Auto-extract keywords:
+From topic like:
+
+"How I lost 10kg in 2 months"
+
+→ keywords:
+
+weight loss
+
+fitness journey
+
+fat loss
+
+transformation
+
+🎯 5. OUTPUT QUALITY RULES
+Ensure:
+
+Every caption has a hook
+
+Every caption has a CTA
+
+Hashtags are:
+
+Relevant
+
+Not repetitive across all outputs
+
+Language feels:
+
+Native to TikTok
+
+Conversational
+
+Scroll-stopping
+
+💡 6. BONUS FEATURES (HIGHLY RECOMMENDED)
+🔁 Regenerate Variations
+Prompt tweak:
+
+Generate 10 more captions with stronger hooks and more viral potential.
+🎭 Tone Rewriter
+Buttons:
+
+"Make it funnier"
+
+"Make it more controversial"
+
+"Make it more emotional"
+
+"Make it more educational"
+
+🔥 Hook Generator Add-on
+Extra feature:
+
+Generate 10 hooks only for the same topic
+
+📊 Viral Score (Optional AI Layer)
+Score each caption:
+
+Hook strength (1–10)
+
+Engagement potential (1–10)
+
+Clarity (1–10)
+
+📋 Copy Button
+Each caption:
+
+One-click copy
+
+🧲 7. HIGH-CONVERTING PAGE COPY
+Headline:
+
+TikTok Caption Generator That Boosts Views & Engagement
+
+Subheadline:
+
+Create captions designed to stop the scroll, spark conversations, and grow your audience.

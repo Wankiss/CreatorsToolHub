@@ -261,6 +261,37 @@ export function TikTokCategoryPage({ category }: Props) {
 
               <section>
                 <h2 className="text-2xl font-bold mb-4">
+                  TikTok Bio Generator: Convert Profile Visitors Into Followers
+                </h2>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Most TikTok creators focus entirely on their videos and ignore their profile — but your
+                  bio is the most underleveraged growth asset on TikTok. Every time a viewer watches one of
+                  your videos and taps your profile to learn more, your bio is what determines whether they
+                  hit Follow or leave. A vague bio ("content creator | fitness | lifestyle 🌿") loses visitors.
+                  A specific, benefit-driven bio converts them.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  The{" "}
+                  <Link href="/tools/tiktok-bio-generator" className="text-primary hover:underline font-medium">
+                    TikTok Bio Generator
+                  </Link>{" "}
+                  creates 10 bio variations for your profile using five proven high-converting formula
+                  structures — "I help [audience] [result]," "[Emoji] [Value Proposition]," "[Result] | [Niche],"
+                  "Follow for [benefit]," and "[USP] + [CTA]" — each validated to TikTok's strict
+                  80-character limit. Enter your niche, what you do, and optional details like tone, target
+                  audience, and USP to get bios that feel personal and targeted, not generic. Filter results
+                  by emoji bios, CTA bios, or ultra-minimal bios to find the style that fits your brand.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Test bios like you test hooks: update your profile bio, wait 7 days, and check your
+                  profile-to-follow conversion rate in TikTok Analytics under Profile Visits vs. New Followers.
+                  A 5–10% conversion rate is the benchmark for a high-performing bio. If you're below that,
+                  regenerate a new set and switch to a more specific or benefit-driven option.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">
                   TikTok Hashtags and Captions: The Discoverability Stack
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">

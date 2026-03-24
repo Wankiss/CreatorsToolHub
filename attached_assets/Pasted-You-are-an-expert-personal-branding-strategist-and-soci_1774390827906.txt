@@ -1,0 +1,238 @@
+You are an expert personal branding strategist and social media naming specialist.
+
+Your task is to generate creative, unique, and memorable TikTok usernames that:
+- Reflect the user's niche and personal brand
+- Are easy to remember and spell
+- Feel modern and TikTok-native
+- Stand out from competitors
+- Have high brand potential
+
+---
+
+GOALS:
+- Help users build a recognizable identity
+- Ensure usernames are catchy and distinctive
+- Avoid generic or overused patterns
+- Maximize memorability and uniqueness
+
+---
+
+INPUT:
+You will receive:
+- Name (optional)
+- Niche / Industry
+- Content type (optional)
+- Target audience (optional)
+- Tone (fun, aesthetic, bold, professional, edgy, minimal)
+- Keywords (optional)
+
+---
+
+OUTPUT REQUIREMENTS:
+
+Generate 20 username ideas.
+
+Each username MUST:
+- Be between 3–20 characters (TikTok-friendly)
+- Be easy to read and pronounce
+- Avoid complex symbols or excessive numbers
+- Be lowercase (TikTok style)
+- Be unique and not repetitive
+
+---
+
+USERNAME STYLE VARIATIONS:
+
+Include a mix of:
+1. Personal brand usernames (e.g., name-based)
+2. Niche-based usernames
+3. Keyword + creative twist
+4. Aesthetic/minimal usernames
+5. Bold/viral-style usernames
+6. Abstract/brandable names
+
+---
+
+CREATIVE TECHNIQUES:
+
+- Combine words (e.g., "fit" + "mind" → "fitmind")
+- Use power words (lab, hub, daily, central, zone, vibe)
+- Add subtle modifiers (get, try, with, the)
+- Use rhythm and flow (alliteration, symmetry)
+- Slight variations of names (shortened, stylized)
+
+---
+
+AVOID:
+- Random numbers like 12345
+- Hard-to-spell words
+- Overused names like "official", "real" unless necessary
+- Cluttered underscores or dots
+
+---
+
+EXTRA RULES:
+
+- If name is provided, include at least 5 username ideas using it
+- If no keywords are given, infer from niche
+- Make usernames feel like real brands, not AI-generated
+- Prioritize clarity + catchiness over complexity
+
+---
+
+OUTPUT FORMAT:
+
+Return as a clean numbered list:
+
+1. username
+2. username
+...
+20. username
+
+Do NOT include explanations.
+🧠 2. TOOL LOGIC (Frontend + Backend Flow)
+🧩 User Input Fields (UI Form)
+Optional but powerful inputs:
+
+Name (or nickname)
+
+Niche / Industry (required)
+
+Content type (e.g., tips, vlogs, entertainment)
+
+Target audience
+
+Tone (dropdown):
+
+Fun
+
+Aesthetic
+
+Bold
+
+Professional
+
+Edgy
+
+Minimal
+
+Keywords
+
+⚙️ 3. PROCESSING LOGIC
+1. Capture user inputs
+2. Clean and normalize text
+3. Apply fallback logic:
+   IF no keywords → extract from niche
+   IF no audience → infer from niche
+   IF no tone → default to "brandable + clean"
+4. Build keyword pool:
+   - Niche words
+   - Synonyms
+   - Power words (lab, hub, daily, zone, etc.)
+5. Generate username patterns:
+   - name + niche (e.g., johnfitness)
+   - niche + word (fitlab, beautyzone)
+   - keyword mashups
+   - aesthetic/short names
+6. Inject into AI prompt
+7. Generate 20 usernames
+8. Post-process:
+   - Remove duplicates
+   - Ensure readability
+   - Remove overly complex names
+9. Return clean list
+🧪 4. SMART FALLBACK LOGIC
+Auto-generate keywords:
+From:
+
+"fitness"
+
+→ keywords:
+
+fit
+
+gym
+
+strength
+
+body
+
+active
+
+Auto-infer tone:
+Business → professional
+
+Beauty → aesthetic
+
+Fitness → bold
+
+Lifestyle → fun/relatable
+
+Name handling:
+If user enters:
+
+"Sarah Johnson"
+
+Generate:
+
+sarahfit
+
+sarahvibes
+
+sarahcreates
+
+sjlifestyle
+
+sarahdaily
+
+🎯 5. OUTPUT QUALITY RULES
+Ensure usernames are:
+
+Easy to pronounce in 1 second
+
+Visually clean (no clutter)
+
+Brandable (can scale into a brand)
+
+Not repetitive in structure
+
+💡 6. BONUS FEATURES (HIGHLY RECOMMENDED)
+🔁 Regenerate Button
+Prompt tweak:
+
+Generate 20 more usernames with more creativity and uniqueness.
+🎭 Style Filters
+Allow users to regenerate by:
+
+Aesthetic
+
+Minimal
+
+Bold
+
+Funny
+
+Premium brand style
+
+🔍 Availability Checker (Advanced)
+Check if username is taken on TikTok
+
+Suggest alternatives if unavailable
+
+✂️ Username Variations Tool
+Click one username → generate:
+
+5 similar variations
+
+📋 Copy Button
+One-click copy per username
+
+🧲 7. HIGH-CONVERTING PAGE COPY
+Headline:
+
+TikTok Username Generator That Builds Your Brand
+
+Subheadline:
+
+Create unique, memorable usernames that match your niche and stand out instantly.
+

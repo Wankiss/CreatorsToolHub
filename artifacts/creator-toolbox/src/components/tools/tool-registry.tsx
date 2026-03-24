@@ -19,6 +19,7 @@ import { TikTokMoneyCalculatorTool } from "./tiktok-money-calculator";
 import { TikTokHookGeneratorTool } from "./tiktok-hook-generator";
 import { TikTokBioGeneratorTool } from "./tiktok-bio-generator";
 import { TikTokCaptionGeneratorTool } from "./tiktok-caption-generator";
+import { TikTokScriptGeneratorTool } from "./tiktok-script-generator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -116,6 +117,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "tiktok-caption-generator": {
     component: TikTokCaptionGeneratorTool,
+    ownsSeoContent: true,
+  },
+  "tiktok-script-generator": {
+    component: TikTokScriptGeneratorTool,
     ownsSeoContent: true,
   },
 };

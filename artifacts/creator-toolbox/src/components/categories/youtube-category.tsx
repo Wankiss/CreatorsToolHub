@@ -358,15 +358,7 @@ export function YouTubeCategoryPage({ category }: Props) {
                   invested, which increases how aggressively YouTube recommends your content to new viewers.
                   Channels with above-average engagement typically see 2–3× higher suggested video traffic.
                 </p>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  Planning your path to monetization or the next subscriber milestone? The{" "}
-                  <Link href="/tool/youtube-channel-growth-calculator" className="text-primary hover:underline font-medium">
-                    YouTube Channel Growth Calculator
-                  </Link>{" "}
-                  projects your future subscriber count based on your current growth rate, upload frequency,
-                  and seasonal trends. It tells you exactly how many months until you hit 1,000, 10,000, or
-                  100,000 subscribers — and what changes to your posting schedule could get you there faster.
-                </p>
+
                 <p className="text-muted-foreground leading-relaxed">
                   Finally, the{" "}
                   <Link href="/tool/youtube-thumbnail-downloader" className="text-primary hover:underline font-medium">

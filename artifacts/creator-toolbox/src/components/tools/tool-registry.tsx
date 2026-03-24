@@ -21,6 +21,7 @@ import { TikTokBioGeneratorTool } from "./tiktok-bio-generator";
 import { TikTokCaptionGeneratorTool } from "./tiktok-caption-generator";
 import { TikTokScriptGeneratorTool } from "./tiktok-script-generator";
 import { TikTokUsernameGeneratorTool } from "./tiktok-username-generator";
+import { InstagramUsernameGeneratorTool } from "./instagram-username-generator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -126,6 +127,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "tiktok-username-generator": {
     component: TikTokUsernameGeneratorTool,
+    ownsSeoContent: true,
+  },
+  "instagram-username-generator": {
+    component: InstagramUsernameGeneratorTool,
     ownsSeoContent: true,
   },
 };

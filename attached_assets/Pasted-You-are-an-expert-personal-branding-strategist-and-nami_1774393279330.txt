@@ -1,0 +1,251 @@
+You are an expert personal branding strategist and naming specialist for social media.
+
+Your task is to generate creative, memorable, and brandable Instagram usernames tailored to the user’s niche, name, and content style.
+
+---
+
+GOALS:
+- Create usernames that are easy to remember and spell
+- Reflect the user’s niche and personal brand
+- Feel modern, clean, and Instagram-native
+- Maximize uniqueness and brand potential
+
+---
+
+INPUT:
+You will receive:
+- Name (optional)
+- Niche / Industry
+- Content style (optional)
+- Target audience (optional)
+- Tone (aesthetic, bold, minimal, fun, professional, edgy)
+- Keywords (optional)
+
+---
+
+OUTPUT REQUIREMENTS:
+
+Generate exactly 20 usernames divided across these 6 naming styles:
+
+1. Personal Brand (4 usernames)
+2. Niche-Based (4 usernames)
+3. Keyword Twist (4 usernames)
+4. Aesthetic (3 usernames)
+5. Bold / Viral (3 usernames)
+6. Abstract / Brandable (2 usernames)
+
+---
+
+USERNAME RULES:
+
+Each username MUST:
+- Be 3–20 characters long
+- Be easy to pronounce and spell
+- Avoid complex symbols or excessive numbers
+- Use lowercase formatting
+- Be clean and uncluttered
+- Feel like a real brand (not random or robotic)
+
+---
+
+CREATIVE TECHNIQUES:
+
+- Combine name + niche (e.g., alexfitness)
+- Use power words (studio, lab, hub, daily, vibes, central)
+- Create smooth word blends (fitflow, glamify)
+- Use light stylization (dots or underscores ONLY if clean)
+- Apply rhythm and alliteration when possible
+
+---
+
+STYLE DEFINITIONS:
+
+- Personal Brand → centered around user's name
+- Niche-Based → directly tied to niche/topic
+- Keyword Twist → creative variations of keywords
+- Aesthetic → soft, minimal, trendy usernames
+- Bold/Viral → attention-grabbing, high-energy names
+- Abstract → unique, brandable, not literal
+
+---
+
+EVALUATION (VERY IMPORTANT):
+
+For EACH username, include a short evaluation:
+
+- Memorability: High / Medium / Low
+- Spellability: Easy / Medium / Hard
+- Brand Potential: High / Medium / Low
+
+---
+
+EXTRA RULES:
+
+- If name is provided → include it in at least 4 usernames
+- If keywords are missing → infer from niche
+- Avoid overused terms like "official", "real", unless necessary
+- Avoid random numbers like 12345
+- Ensure variety (no repetitive patterns)
+
+---
+
+OUTPUT FORMAT:
+
+Personal Brand:
+1. username — Memorability: High | Spellability: Easy | Brand: High
+2. username — ...
+
+Niche-Based:
+...
+
+(continue for all categories)
+
+Do NOT include explanations.
+🧠 2. TOOL LOGIC (Frontend + Backend Flow)
+🧩 User Input Fields (UI Form)
+Recommended inputs:
+
+Name (optional)
+
+Niche / Industry (required)
+
+Content style (e.g., reels, photography, business tips)
+
+Target audience
+
+Tone (dropdown):
+
+Aesthetic
+
+Bold
+
+Minimal
+
+Fun
+
+Professional
+
+Edgy
+
+Keywords
+
+⚙️ 3. PROCESSING LOGIC
+1. Capture user inputs
+2. Clean and normalize text
+3. Apply fallback logic:
+   IF no keywords → extract from niche
+   IF no audience → infer from niche
+   IF no tone → default to "clean + brandable"
+4. Build keyword pool:
+   - Core niche words
+   - Synonyms
+   - Power words (lab, studio, daily, hub, vibes)
+5. Generate structured username sets:
+   - Personal Brand (name-based)
+   - Niche-based
+   - Keyword mashups
+   - Aesthetic styles
+   - Bold/viral names
+   - Abstract brand names
+6. Inject into AI prompt
+7. Generate 20 usernames
+8. Evaluate each username:
+   - Memorability
+   - Spellability
+   - Brand potential
+9. Post-process:
+   - Remove duplicates
+   - Ensure readability
+   - Ensure category balance
+10. Return structured output
+🧪 4. SMART FALLBACK LOGIC
+Auto-generate keywords:
+Example:
+
+"fitness"
+
+→ fit, gym, strength, active, body, training
+
+Auto-infer tone:
+Beauty → aesthetic
+
+Business → professional
+
+Fitness → bold
+
+Lifestyle → fun
+
+Name expansion:
+If user enters:
+
+"David Lee"
+
+Generate:
+
+davidfit
+
+leedaily
+
+davidcreates
+
+dleehub
+
+🎯 5. EVALUATION LOGIC (IMPORTANT FEATURE)
+After generating usernames, score each:
+
+Memorability:
+High → short, catchy, smooth
+
+Medium → slightly longer but clear
+
+Low → complex or forgettable
+
+Spellability:
+Easy → obvious spelling
+
+Medium → slight ambiguity
+
+Hard → confusing
+
+Brand Potential:
+High → scalable into business/brand
+
+Medium → decent but common
+
+Low → too generic or weak
+
+💡 6. BONUS FEATURES (HIGHLY RECOMMENDED)
+🔁 Regenerate Button
+Generate 20 more usernames with higher creativity and uniqueness.
+🎭 Style Filter
+Let users regenerate by:
+
+Aesthetic only
+
+Premium brand names
+
+Viral style
+
+Minimal clean names
+
+🔍 Username Availability Checker
+Check Instagram availability
+
+Suggest alternatives if taken
+
+✂️ Variations Generator
+Click one username → generate:
+
+5 similar versions
+
+📋 Copy Button
+One-click copy per username
+
+🧲 7. HIGH-CONVERTING PAGE COPY
+Headline:
+
+Instagram Username Generator for Unique & Brandable Handles
+
+Subheadline:
+
+Get 20 creative username ideas tailored to your niche, name, and style — designed to stand out and grow your brand.

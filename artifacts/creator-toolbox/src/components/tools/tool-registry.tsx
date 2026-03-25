@@ -25,6 +25,7 @@ import { InstagramUsernameGeneratorTool } from "./instagram-username-generator";
 import { InstagramHookGeneratorTool } from "./instagram-hook-generator";
 import { InstagramMoneyCalculatorTool } from "./instagram-money-calculator";
 import { InstagramEngagementCalculatorTool } from "./instagram-engagement-calculator";
+import { InstagramCaptionGeneratorTool } from "./instagram-caption-generator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -146,6 +147,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "instagram-engagement-calculator": {
     component: InstagramEngagementCalculatorTool,
+    ownsSeoContent: true,
+  },
+  "instagram-caption-generator": {
+    component: InstagramCaptionGeneratorTool,
     ownsSeoContent: true,
   },
 };

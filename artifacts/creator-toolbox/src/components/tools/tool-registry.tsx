@@ -22,6 +22,7 @@ import { TikTokCaptionGeneratorTool } from "./tiktok-caption-generator";
 import { TikTokScriptGeneratorTool } from "./tiktok-script-generator";
 import { TikTokUsernameGeneratorTool } from "./tiktok-username-generator";
 import { InstagramUsernameGeneratorTool } from "./instagram-username-generator";
+import { InstagramHookGeneratorTool } from "./instagram-hook-generator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -131,6 +132,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "instagram-username-generator": {
     component: InstagramUsernameGeneratorTool,
+    ownsSeoContent: true,
+  },
+  "instagram-hook-generator": {
+    component: InstagramHookGeneratorTool,
     ownsSeoContent: true,
   },
 };

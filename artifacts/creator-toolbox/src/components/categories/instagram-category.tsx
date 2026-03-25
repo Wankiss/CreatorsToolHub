@@ -102,7 +102,6 @@ const RELATED_CATEGORIES = [
   { name: "YouTube Tools", slug: "youtube-tools", icon: "▶️", desc: "Grow your YouTube channel with title generators, SEO tools, and money calculators." },
   { name: "TikTok Tools", slug: "tiktok-tools", icon: "🎵", desc: "Generate TikTok hooks, captions, scripts, and hashtags for viral content." },
   { name: "AI Creator Tools", slug: "ai-creator-tools", icon: "🤖", desc: "AI-powered tools for content ideation, copywriting, and creative workflows." },
-  { name: "Text Tools", slug: "text-tools", icon: "✍️", desc: "Word counters, case converters, slug generators, and other text utilities." },
 ];
 
 export function InstagramCategoryPage({ category }: Props) {
@@ -254,16 +253,6 @@ export function InstagramCategoryPage({ category }: Props) {
                   produces tailored Reel concepts for your niche — each with a content angle, hook suggestion,
                   and format recommendation (talking head, text-on-screen, POV, tutorial, trending audio
                   concept). Never sit in front of a blank screen wondering what to film.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  For Stories — the most intimate Instagram touchpoint and the highest-conversion surface for
-                  link clicks and product promotions — the{" "}
-                  <Link href="/tools/instagram-story-idea-generator" className="text-primary hover:underline font-medium">
-                    Instagram Story Idea Generator
-                  </Link>{" "}
-                  generates 10+ story concepts per session, including engagement-driving formats like polls,
-                  this-or-that sliders, Q&amp;A prompts, countdown timers, and behind-the-scenes frameworks
-                  that humanize your brand and deepen audience loyalty.
                 </p>
               </section>
 

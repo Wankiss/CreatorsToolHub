@@ -23,6 +23,7 @@ import { TikTokScriptGeneratorTool } from "./tiktok-script-generator";
 import { TikTokUsernameGeneratorTool } from "./tiktok-username-generator";
 import { InstagramUsernameGeneratorTool } from "./instagram-username-generator";
 import { InstagramHookGeneratorTool } from "./instagram-hook-generator";
+import { InstagramMoneyCalculatorTool } from "./instagram-money-calculator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -136,6 +137,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "instagram-hook-generator": {
     component: InstagramHookGeneratorTool,
+    ownsSeoContent: true,
+  },
+  "instagram-money-calculator": {
+    component: InstagramMoneyCalculatorTool,
     ownsSeoContent: true,
   },
 };

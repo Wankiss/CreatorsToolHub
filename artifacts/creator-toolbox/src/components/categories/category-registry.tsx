@@ -1,6 +1,7 @@
 import { YouTubeCategoryPage } from "./youtube-category";
 import { TikTokCategoryPage } from "./tiktok-category";
 import { InstagramCategoryPage } from "./instagram-category";
+import { AiCategoryPage } from "./ai-category";
 
 export interface CategoryRegistryEntry {
   component: React.ComponentType<{ category: any }>;
@@ -18,6 +19,10 @@ export const CATEGORY_REGISTRY: Record<string, CategoryRegistryEntry> = {
   },
   "instagram-tools": {
     component: InstagramCategoryPage,
+    ownsFullLayout: true,
+  },
+  "ai-creator-tools": {
+    component: AiCategoryPage,
     ownsFullLayout: true,
   },
 };

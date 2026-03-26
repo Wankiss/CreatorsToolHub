@@ -30,6 +30,7 @@ import { InstagramBioGeneratorTool } from "./instagram-bio-generator";
 import { InstagramHashtagGeneratorTool } from "./instagram-hashtag-generator";
 import { InstagramContentPlannerTool } from "./instagram-content-planner";
 import { InstagramReelIdeaGeneratorTool } from "./instagram-reel-idea-generator";
+import { AiPromptGeneratorTool } from "./ai-prompt-generator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -171,6 +172,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "instagram-reel-idea-generator": {
     component: InstagramReelIdeaGeneratorTool,
+    ownsSeoContent: true,
+  },
+  "ai-prompt-generator": {
+    component: AiPromptGeneratorTool,
     ownsSeoContent: true,
   },
 };

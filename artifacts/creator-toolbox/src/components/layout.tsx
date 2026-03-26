@@ -66,9 +66,10 @@ export function Layout({ children }: { children: ReactNode }) {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
-              <Link href="/category/youtube" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">YouTube</Link>
-              <Link href="/category/tiktok" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">TikTok</Link>
-              <Link href="/category/ai" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">AI Tools</Link>
+              <Link href="/category/youtube-tools" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">YouTube</Link>
+              <Link href="/category/tiktok-tools" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">TikTok</Link>
+              <Link href="/category/instagram-tools" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Instagram</Link>
+              <Link href="/category/ai-creator-tools" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">AI Tools</Link>
               <Link href="/blog" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Blog</Link>
             </nav>
 
@@ -113,9 +114,10 @@ export function Layout({ children }: { children: ReactNode }) {
                 />
               </form>
               <div className="flex flex-col space-y-3 pt-2">
-                <Link href="/category/youtube" className="px-3 py-2 rounded-lg hover:bg-muted text-foreground font-medium" onClick={() => setIsMobileMenuOpen(false)}>YouTube Tools</Link>
-                <Link href="/category/tiktok" className="px-3 py-2 rounded-lg hover:bg-muted text-foreground font-medium" onClick={() => setIsMobileMenuOpen(false)}>TikTok Tools</Link>
-                <Link href="/category/ai" className="px-3 py-2 rounded-lg hover:bg-muted text-foreground font-medium" onClick={() => setIsMobileMenuOpen(false)}>AI Tools</Link>
+                <Link href="/category/youtube-tools" className="px-3 py-2 rounded-lg hover:bg-muted text-foreground font-medium" onClick={() => setIsMobileMenuOpen(false)}>YouTube Tools</Link>
+                <Link href="/category/tiktok-tools" className="px-3 py-2 rounded-lg hover:bg-muted text-foreground font-medium" onClick={() => setIsMobileMenuOpen(false)}>TikTok Tools</Link>
+                <Link href="/category/instagram-tools" className="px-3 py-2 rounded-lg hover:bg-muted text-foreground font-medium" onClick={() => setIsMobileMenuOpen(false)}>Instagram Tools</Link>
+                <Link href="/category/ai-creator-tools" className="px-3 py-2 rounded-lg hover:bg-muted text-foreground font-medium" onClick={() => setIsMobileMenuOpen(false)}>AI Creator Tools</Link>
                 <Link href="/blog" className="px-3 py-2 rounded-lg hover:bg-muted text-foreground font-medium" onClick={() => setIsMobileMenuOpen(false)}>Creator Blog</Link>
               </div>
             </div>
@@ -145,10 +147,10 @@ export function Layout({ children }: { children: ReactNode }) {
             <div>
               <h4 className="font-bold mb-6 text-white tracking-wide">Top Categories</h4>
               <ul className="space-y-3 text-sm text-muted-foreground/80">
-                <li><Link href="/category/youtube" className="hover:text-white transition-colors flex items-center gap-2"><Youtube className="w-4 h-4"/> YouTube Tools</Link></li>
-                <li><Link href="/category/tiktok" className="hover:text-white transition-colors flex items-center gap-2"><TrendingUp className="w-4 h-4"/> TikTok Tools</Link></li>
-                <li><Link href="/category/instagram" className="hover:text-white transition-colors flex items-center gap-2"><Instagram className="w-4 h-4"/> Instagram Tools</Link></li>
-                <li><Link href="/category/ai" className="hover:text-white transition-colors flex items-center gap-2"><Zap className="w-4 h-4"/> AI Creator Tools</Link></li>
+                <li><Link href="/category/youtube-tools" className="hover:text-white transition-colors flex items-center gap-2"><Youtube className="w-4 h-4"/> YouTube Tools</Link></li>
+                <li><Link href="/category/tiktok-tools" className="hover:text-white transition-colors flex items-center gap-2"><TrendingUp className="w-4 h-4"/> TikTok Tools</Link></li>
+                <li><Link href="/category/instagram-tools" className="hover:text-white transition-colors flex items-center gap-2"><Instagram className="w-4 h-4"/> Instagram Tools</Link></li>
+                <li><Link href="/category/ai-creator-tools" className="hover:text-white transition-colors flex items-center gap-2"><Zap className="w-4 h-4"/> AI Creator Tools</Link></li>
               </ul>
             </div>
 

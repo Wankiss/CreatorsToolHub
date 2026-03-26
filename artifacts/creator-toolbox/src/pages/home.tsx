@@ -115,13 +115,11 @@ export default function Home() {
   };
 
   const getCategoryIcon = (slug: string) => {
-    switch (slug) {
-      case 'youtube': return <Youtube className="w-6 h-6" />;
-      case 'tiktok': return <Music className="w-6 h-6" />;
-      case 'instagram': return <Instagram className="w-6 h-6" />;
-      case 'ai': return <Zap className="w-6 h-6" />;
-      default: return <Sparkles className="w-6 h-6" />;
-    }
+    if (slug.includes('youtube')) return <Youtube className="w-6 h-6" />;
+    if (slug.includes('tiktok')) return <Music className="w-6 h-6" />;
+    if (slug.includes('instagram')) return <Instagram className="w-6 h-6" />;
+    if (slug.includes('ai')) return <Zap className="w-6 h-6" />;
+    return <Sparkles className="w-6 h-6" />;
   };
 
   return (
@@ -552,10 +550,10 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" variant="secondary" className="rounded-full px-10 text-base font-bold h-14">
-                <Link href="/category/youtube">YouTube Tools — Free <ArrowRight className="w-5 h-5 ml-2" /></Link>
+                <Link href="/category/youtube-tools">YouTube Tools — Free <ArrowRight className="w-5 h-5 ml-2" /></Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-full px-10 text-base font-bold h-14 border-white/40 text-white hover:bg-white/10">
-                <Link href="/category/tiktok">TikTok Tools — Free <ArrowRight className="w-5 h-5 ml-2" /></Link>
+                <Link href="/category/tiktok-tools">TikTok Tools — Free <ArrowRight className="w-5 h-5 ml-2" /></Link>
               </Button>
             </div>
             <p className="text-white/50 text-sm mt-8">

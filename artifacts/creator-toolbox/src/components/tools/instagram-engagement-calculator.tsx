@@ -6,7 +6,7 @@ import {
   ChevronDown, Check, BarChart2, TrendingUp, Shield,
   ListChecks, Search, Zap, Heart, MessageCircle,
   Bookmark, Star, Target, DollarSign, ArrowUp, ArrowDown,
-  Minus, Users, ToggleLeft, ToggleRight,
+  Minus, Users, ToggleLeft, ToggleRight, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -974,6 +974,62 @@ export function InstagramEngagementCalculatorTool() {
               <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <span className="text-sm text-muted-foreground">{text}</span>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ───────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips & Best Practices</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { tip: "Instagram benchmarks engagement at 1–3% for accounts under 100K — if your rate is below 1%, prioritize niche content over growth until engagement recovers." },
+            { tip: "Saves are Instagram's most powerful engagement signal — content that earns saves gets distributed to non-followers through the Explore page algorithm." },
+            { tip: "Post consistently to 3–5 formats (Feed, Reels, Stories, Carousels) — multi-format accounts see 60% higher overall engagement than single-format creators." },
+            { tip: "Reply to every comment within the first hour of posting — early comment velocity signals quality to Instagram's algorithm and extends your organic reach." },
+            { tip: "Carousel posts get 3× more reach than single-image posts — use carousels for educational content, before/afters, and step-by-step guides." },
+            { tip: "Track your engagement rate over time, not just per post — a declining trend over 30+ posts signals a content strategy issue worth addressing proactively." },
+            { tip: "Run a 'Save this' CTA test vs. 'Comment below' across 10 posts — the winner reveals what action your specific audience is most likely to take." },
+          ].map(({ tip }, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">
+              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-bold text-primary">{i + 1}</span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related Instagram Tools ─────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related Instagram Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "Instagram Money Calculator", path: "/tools/instagram-money-calculator", desc: "Estimate your Instagram earnings potential based on follower count, engagement rate, and niche category." },
+            { name: "Instagram Content Planner", path: "/tools/instagram-content-planner", desc: "Plan a strategic posting schedule to maintain the consistent output that keeps engagement rates high." },
+            { name: "Instagram Hashtag Generator", path: "/tools/instagram-hashtag-generator", desc: "Find the optimal hashtags to expand your reach — more impressions means more data for engagement analysis." },
+            { name: "Instagram Caption Generator", path: "/tools/instagram-caption-generator", desc: "Write high-engagement captions with proven CTAs that drive the saves, comments, and shares that lift your rate." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
           ))}
         </div>
       </section>

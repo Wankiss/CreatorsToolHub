@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import {
   Hash, Copy, Check, RefreshCw, ChevronDown, Sparkles,
   TrendingUp, Zap, Shield, ListChecks, Search, Target,
-  BarChart2, Flame, Crosshair, Microscope,
+  BarChart2, Flame, Crosshair, Microscope, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -923,6 +923,34 @@ export function InstagramHashtagGeneratorTool() {
               <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <span className="text-sm text-muted-foreground">{text}</span>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related Instagram Tools ─────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related Instagram Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "Instagram Caption Generator", path: "/tools/instagram-caption-generator", desc: "Write the captions that your hashtags will amplify — great copy combined with great tags maximizes every post." },
+            { name: "Instagram Hook Generator", path: "/tools/instagram-hook-generator", desc: "Craft first-line hooks that stop the scroll and drive the engagement that powers your hashtag rankings." },
+            { name: "Instagram Reel Idea Generator", path: "/tools/instagram-reel-idea-generator", desc: "Generate Reel concepts worth hashtagging — high-quality content + targeted hashtags = maximum organic reach." },
+            { name: "Instagram Bio Generator", path: "/tools/instagram-bio-generator", desc: "Optimize your profile bio to convert the new followers your hashtagged posts attract to your page." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
           ))}
         </div>
       </section>

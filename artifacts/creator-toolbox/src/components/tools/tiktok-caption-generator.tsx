@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import {
   MessageSquare, ChevronDown, Sparkles, Loader2, TrendingUp, Zap,
-  Shield, ListChecks, Search, Copy, Check, RefreshCw, Hash,
+  Shield, ListChecks, Search, Copy, Check, RefreshCw, Hash, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -850,6 +850,62 @@ export function TikTokCaptionGeneratorTool() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ───────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips & Best Practices</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { tip: "Start captions with a hook sentence that cuts off mid-thought — TikTok truncates after 2 lines, so a cliffhanger forces the tap-to-expand that boosts engagement." },
+            { tip: "Use 3–5 niche hashtags (not just trending ones) — niche hashtags help TikTok's algorithm categorize your content and deliver it to interested audiences." },
+            { tip: "Ask a question at the end — 'Which one would you pick?' or 'Have you tried this?' drives comments, which is TikTok's strongest ranking signal." },
+            { tip: "Keep captions short and punchy (under 150 characters) — the best-performing TikToks often have minimal caption text, letting the video speak first." },
+            { tip: "Include a CTA every 3–4 posts — 'Follow for part 2' and 'Link in bio for the full guide' work best when tied to genuine value." },
+            { tip: "Use 'POV:', 'Tell me why', or 'The way' trends in captions to signal participation in trending formats and boost algorithmic reach." },
+            { tip: "Time-stamp your series episodes in captions ('Part 3 of 5') — serialized content drives 2–3× more profile visits and follow conversions." },
+          ].map(({ tip }, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">
+              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-bold text-primary">{i + 1}</span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related TikTok Tools ────────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related TikTok Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "TikTok Hook Generator", path: "/tools/tiktok-hook-generator", desc: "Generate powerful opening lines that stop the scroll and keep viewers watching past the critical first 3 seconds." },
+            { name: "TikTok Hashtag Generator", path: "/tools/tiktok-hashtag-generator", desc: "Find the perfect mix of trending and niche hashtags to maximize reach and help TikTok place your content." },
+            { name: "TikTok Script Generator", path: "/tools/tiktok-script-generator", desc: "Write full video scripts with hook, body, and CTA structured to maximize watch time and algorithm performance." },
+            { name: "TikTok Viral Idea Generator", path: "/tools/tiktok-viral-idea-generator", desc: "Get trending content concepts tailored to your niche so you always have high-potential video ideas ready." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

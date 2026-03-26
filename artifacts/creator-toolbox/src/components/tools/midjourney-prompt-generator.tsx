@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import {
   Sparkles, Copy, Check, RefreshCw, Loader2, ChevronDown,
-  Zap, TrendingUp, Shield, ListChecks, Search, FileText,
+  Zap, TrendingUp, Shield, ListChecks, Search, FileText, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -740,6 +740,62 @@ export function MidjourneyPromptGeneratorTool() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ───────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips & Best Practices</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { tip: "Include lighting in every image prompt — 'golden hour lighting', 'dramatic studio lighting', or 'soft window light' dramatically elevates the quality and mood of output." },
+            { tip: "Use style references: append '--style raw' for more realistic outputs or '--style expressive' for more artistic, painterly results tailored to your creative vision." },
+            { tip: "Specify the camera/lens type for photography-style prompts — 'shot on Sony A7IV, 85mm lens, f/1.8' produces dramatically more realistic and detailed portrait results." },
+            { tip: "Use the --ar flag for custom ratios — '--ar 9:16' for vertical TikTok/Reels content, '--ar 16:9' for YouTube thumbnails, '--ar 1:1' for Instagram square posts." },
+            { tip: "Add negative prompts with --no to exclude unwanted elements — '--no text, watermark, blur, low quality' keeps generations sharp and print-ready for professional use." },
+            { tip: "Weight your most important concept at the end of the prompt — Midjourney weights later terms more heavily, so put your key visual element last for best results." },
+            { tip: "Save your best prompts in a prompt library — great prompts are reusable creative assets; a 10-prompt template library can power weeks of consistent content creation." },
+          ].map(({ tip }, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">
+              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-bold text-primary">{i + 1}</span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related AI Creator Tools ─────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related AI Creator Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "AI Prompt Generator", path: "/tools/ai-prompt-generator", desc: "Generate optimized text prompts for ChatGPT, Claude, and other AI tools to supercharge your content workflow." },
+            { name: "Instagram Reel Idea Generator", path: "/tools/instagram-reel-idea-generator", desc: "Get AI-generated Reel concepts you can pair with Midjourney visuals for stunning, scroll-stopping content." },
+            { name: "TikTok Viral Idea Generator", path: "/tools/tiktok-viral-idea-generator", desc: "Discover trending TikTok concepts that pair perfectly with AI-generated visuals for maximum viral potential." },
+            { name: "YouTube Video Idea Generator", path: "/tools/youtube-video-idea-generator", desc: "Generate compelling YouTube video concepts to accompany your AI-crafted thumbnails and visual content." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

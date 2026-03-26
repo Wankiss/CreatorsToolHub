@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import {
   Sparkles, Copy, Check, RefreshCw, Loader2, ChevronDown,
-  Zap, TrendingUp, Shield, ListChecks, Search, FileText,
+  Zap, TrendingUp, Shield, ListChecks, Search, FileText, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -736,6 +736,62 @@ export function AiPromptGeneratorTool() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ───────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips & Best Practices</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { tip: "Be specific about your output format — 'Write a 3-paragraph blog intro with a hook, problem, and promise' outperforms a vague 'write a blog intro' prompt by 10×." },
+            { tip: "Use the role-play prefix: 'Act as an expert [role]' — adding a persona shifts the AI's response to be more confident, specific, and authoritative in tone." },
+            { tip: "Include constraints to improve quality — 'Use simple language' / 'Avoid jargon' / 'Under 200 words' gives the AI a creative fence that consistently improves output." },
+            { tip: "Use chain prompting for complex tasks — break a big project into 3–5 sequential prompts where each output feeds into the next for much better final results." },
+            { tip: "Add 'in the style of [example]' to control tone — 'Write like a Harvard Business Review article' vs 'Write like a casual Twitter thread' changes everything." },
+            { tip: "Ask for alternatives: 'Give me 5 different versions' — variation expands your options and often surfaces unexpected directions you wouldn't have thought of." },
+            { tip: "Iterate in the same conversation — the AI remembers context, so refine with 'Make the third paragraph shorter' rather than starting a new prompt from scratch." },
+          ].map(({ tip }, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">
+              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-bold text-primary">{i + 1}</span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related AI Creator Tools ─────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related AI Creator Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "Midjourney Prompt Generator", path: "/tools/midjourney-prompt-generator", desc: "Generate detailed, style-rich image prompts optimized for Midjourney's unique syntax and quality flags." },
+            { name: "TikTok Script Generator", path: "/tools/tiktok-script-generator", desc: "Use AI prompts to script full TikTok videos with hook, body, and CTA structured for maximum watch time." },
+            { name: "YouTube Script Generator", path: "/tools/youtube-script-generator", desc: "Create long-form YouTube video scripts with AI-crafted structure, pacing, and audience retention techniques." },
+            { name: "Instagram Caption Generator", path: "/tools/instagram-caption-generator", desc: "Generate on-brand Instagram captions — a great next step after crafting your AI content prompts." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

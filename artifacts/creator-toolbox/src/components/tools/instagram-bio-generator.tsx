@@ -7,7 +7,7 @@ import {
   User, ChevronDown, Sparkles, TrendingUp, Zap,
   Shield, ListChecks, Search, Copy, Check, RefreshCw,
   Target, Star, Minimize2, Briefcase, Heart, Link,
-  MessageSquare, UserPlus, AlertCircle,
+  MessageSquare, UserPlus, AlertCircle, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -731,6 +731,62 @@ export function InstagramBioGeneratorTool() {
               <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <span className="text-sm text-muted-foreground">{text}</span>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ───────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips & Best Practices</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { tip: "Instagram bios are capped at 150 characters — lead with your who/what/why in the first line since the second line is folded on mobile profiles." },
+            { tip: "Use the Name Field for SEO keywords, not your actual name — 'Fitness Coach | Fat Loss Expert' in the name field appears in Instagram search results." },
+            { tip: "Add a location if you're a local business or event creator — profiles with location see 3× more calls and visits from nearby discovery searches." },
+            { tip: "Change your bio link to match your current campaign — static 'link in bio' underperforms; update it every 1–2 weeks with your latest content or offer." },
+            { tip: "Use a line break (press return on mobile) to create visual separation — a structured 3-line bio is 60% more likely to result in a follow than a run-on paragraph." },
+            { tip: "Include 1–3 emojis as bullets — they replace periods aesthetically and increase scannability, leading to 20–30% longer bio read times." },
+            { tip: "State your content posting schedule — 'New reels every Tuesday & Friday' sets expectations and improves follow-to-watch conversion rates significantly." },
+          ].map(({ tip }, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">
+              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-bold text-primary">{i + 1}</span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related Instagram Tools ─────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related Instagram Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "Instagram Caption Generator", path: "/tools/instagram-caption-generator", desc: "Write compelling post captions with hooks, CTAs, and the right tone to drive saves, comments, and shares." },
+            { name: "Instagram Hashtag Generator", path: "/tools/instagram-hashtag-generator", desc: "Generate a targeted mix of hashtags to expand your reach and connect your content with the right audience." },
+            { name: "Instagram Username Generator", path: "/tools/instagram-username-generator", desc: "Find a memorable, SEO-friendly Instagram handle that's consistent with your brand across all platforms." },
+            { name: "Instagram Hook Generator", path: "/tools/instagram-hook-generator", desc: "Craft first-line hooks that stop the scroll and compel visitors to tap 'more' on your captions." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
           ))}
         </div>
       </section>

@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import {
   Film, ChevronDown, Sparkles, Loader2, TrendingUp, Zap,
-  Shield, ListChecks, Search, Copy, Check, RefreshCw, Clock,
+  Shield, ListChecks, Search, Copy, Check, RefreshCw, Clock, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -900,6 +900,62 @@ export function TikTokScriptGeneratorTool() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ───────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips & Best Practices</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { tip: "Hook in the first 0.5 seconds — TikTok data shows 45% of viewers drop off in the first 3 seconds; your opening line is the single most important part of the script." },
+            { tip: "Script 60–90 second videos as your sweet spot — this length gets full credit in TikTok's monetization program and maintains strong completion rates." },
+            { tip: "Use a pattern interrupt every 15 seconds — a visual change, cut, or new point resets viewer attention and pushes completion rates above 80%." },
+            { tip: "Write scripts in second-person ('You need to know this') — direct address keeps viewers engaged and drives more saves and shares than third-person narration." },
+            { tip: "End every script with a loop-back to the opening hook — viewers who watch to the end and replay count as double-weight for the algorithm." },
+            { tip: "Prep a 'Part 2 bait' ending — 'I'll share the second step tomorrow' drives anticipation comments that boost your video for 24–48 hours after posting." },
+            { tip: "Script your pitch or CTA at the 80% mark — viewers who make it that far are your most engaged fans and far more likely to click, follow, or buy." },
+          ].map(({ tip }, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">
+              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-bold text-primary">{i + 1}</span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related TikTok Tools ────────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related TikTok Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "TikTok Hook Generator", path: "/tools/tiktok-hook-generator", desc: "Generate scroll-stopping opening lines to pair with your scripts and ensure viewers stay past the first 3 seconds." },
+            { name: "TikTok Caption Generator", path: "/tools/tiktok-caption-generator", desc: "Write compelling captions with hooks and CTAs to complement your video script and drive comments and shares." },
+            { name: "TikTok Viral Idea Generator", path: "/tools/tiktok-viral-idea-generator", desc: "Get niche-specific viral content concepts to plan your next script around proven trending formats." },
+            { name: "TikTok Hashtag Generator", path: "/tools/tiktok-hashtag-generator", desc: "Find the optimal hashtag mix to maximize reach once your scripted video is published." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

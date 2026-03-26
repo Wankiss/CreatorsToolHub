@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import {
   User, ChevronDown, Sparkles, Loader2, TrendingUp, Zap,
-  Shield, ListChecks, Search, Copy, Check, RefreshCw,
+  Shield, ListChecks, Search, Copy, Check, RefreshCw, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -719,6 +719,62 @@ export function TikTokBioGeneratorTool() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ───────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips & Best Practices</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { tip: "Keep your TikTok bio to 80 characters — users see only the first 80 on mobile before it truncates; front-load your value proposition." },
+            { tip: "Include a niche-specific keyword in the first sentence (e.g., 'Fitness coach helping busy moms') — this makes you searchable in TikTok's creator discovery." },
+            { tip: "Add a clear call-to-action with your link — 'New videos daily ↓' or 'Free guide in bio' consistently drive 3–5× more link clicks than plain descriptions." },
+            { tip: "Use 1–3 relevant emojis to add personality without clutter — emojis can increase profile engagement by up to 20% vs plain text bios." },
+            { tip: "Update your bio seasonally or when launching a new series — a fresh bio signals an active creator and increases follow conversions from profile visits." },
+            { tip: "Add your content posting frequency ('5× per week') — consistency claims like this increase follow rates from profile visitors by up to 30%." },
+            { tip: "If you have a link, make it a link-in-bio tool that aggregates your top offers — single links with a landing page convert far better than a bare URL." },
+          ].map(({ tip }, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">
+              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-bold text-primary">{i + 1}</span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related TikTok Tools ────────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related TikTok Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "TikTok Caption Generator", path: "/tools/tiktok-caption-generator", desc: "Write scroll-stopping captions with hooks, hashtag cues, and CTAs that boost engagement on every post." },
+            { name: "TikTok Hashtag Generator", path: "/tools/tiktok-hashtag-generator", desc: "Find the best mix of trending and niche hashtags to expand your reach and help TikTok categorize your content." },
+            { name: "TikTok Username Generator", path: "/tools/tiktok-username-generator", desc: "Generate memorable, brand-consistent TikTok handles that are short, searchable, and available across platforms." },
+            { name: "TikTok Hook Generator", path: "/tools/tiktok-hook-generator", desc: "Craft high-retention opening lines that stop the scroll and keep viewers watching past the critical first 3 seconds." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

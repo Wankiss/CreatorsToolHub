@@ -8,7 +8,7 @@ import {
   MessageSquare, ChevronDown, Sparkles, TrendingUp, Zap,
   Shield, ListChecks, Search, Copy, Check, RefreshCw, Hash,
   Bookmark, Share2, UserPlus, Heart, Target, BookOpen,
-  DollarSign, Users,
+  DollarSign, Users, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -849,6 +849,62 @@ export function InstagramCaptionGeneratorTool() {
               <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <span className="text-sm text-muted-foreground">{text}</span>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ───────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips & Best Practices</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { tip: "Instagram shows only the first 2 lines (125 characters) before the 'more' tap — put your most compelling hook or statement in those first 125 characters." },
+            { tip: "End with a direct question — 'Which one is your favorite?' or 'Have you tried this?' is Instagram's most proven engagement trigger for driving comment activity." },
+            { tip: "Save your best hashtags for the first comment, not the caption — this keeps captions clean and readable while preserving full discoverability." },
+            { tip: "Use a mix of 10–15 hashtags (not 30) — Instagram's algorithm has deprioritized hashtag stuffing; 10–15 targeted hashtags outperform 30 generic ones." },
+            { tip: "Add a CTA in every caption ('Save this for later' / 'Tag a friend who needs this') — saves are Instagram's highest-weight ranking signal for Explore placement." },
+            { tip: "Write captions in a consistent brand voice — profiles with a recognizable tone receive 2–3× more word-of-mouth shares than inconsistent accounts." },
+            { tip: "For Reels, keep the caption to 1–3 lines — Reel captions appear over the video, and longer text blocks cover the visual and reduce completion rate." },
+          ].map(({ tip }, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">
+              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-bold text-primary">{i + 1}</span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related Instagram Tools ─────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related Instagram Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "Instagram Hook Generator", path: "/tools/instagram-hook-generator", desc: "Craft powerful first-line hooks that stop the scroll and compel followers to tap 'more' on every caption." },
+            { name: "Instagram Hashtag Generator", path: "/tools/instagram-hashtag-generator", desc: "Generate a targeted hashtag mix to maximize discoverability and reach the right audience on every post." },
+            { name: "Instagram Reel Idea Generator", path: "/tools/instagram-reel-idea-generator", desc: "Get niche-specific Reel concepts that pair perfectly with your captions for maximum reach and watch time." },
+            { name: "Instagram Content Planner", path: "/tools/instagram-content-planner", desc: "Plan your full posting schedule so every caption fits into a consistent content strategy that grows your account." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
           ))}
         </div>
       </section>

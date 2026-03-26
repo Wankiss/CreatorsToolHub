@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import {
   Zap, ChevronDown, Sparkles, Loader2, TrendingUp, Shield,
   ListChecks, Search, Copy, Check, Star, RefreshCw, Eye, Mic,
-  Target, Wand2,
+  Target, Wand2, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -1007,6 +1007,34 @@ export function InstagramHookGeneratorTool() {
               <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <span className="text-sm text-muted-foreground">{text}</span>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related Instagram Tools ─────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related Instagram Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "Instagram Caption Generator", path: "/tools/instagram-caption-generator", desc: "Extend your hook into a full caption with body content and CTAs that drive saves, comments, and shares." },
+            { name: "Instagram Reel Idea Generator", path: "/tools/instagram-reel-idea-generator", desc: "Generate the Reel concepts that your hooks will introduce — great hooks need great content to follow." },
+            { name: "Instagram Content Planner", path: "/tools/instagram-content-planner", desc: "Plan your posting schedule so every hook-led post is part of a strategic content calendar that builds momentum." },
+            { name: "Instagram Hashtag Generator", path: "/tools/instagram-hashtag-generator", desc: "Pair your scroll-stopping hooks with the right hashtags to ensure maximum reach on every post." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
           ))}
         </div>
       </section>

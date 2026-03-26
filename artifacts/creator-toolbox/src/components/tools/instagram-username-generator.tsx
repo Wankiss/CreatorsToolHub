@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import {
   AtSign, Copy, Check, RefreshCw, Sparkles, Loader2,
-  ChevronDown, Search, Zap, ListChecks, TrendingUp, Shield,
+  ChevronDown, Search, Zap, ListChecks, TrendingUp, Shield, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -899,6 +899,62 @@ export function InstagramUsernameGeneratorTool() {
               <Shield className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
               <span className="text-sm text-foreground font-medium">{benefit}</span>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ───────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips & Best Practices</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { tip: "Keep your Instagram username under 20 characters — shorter handles fit completely in Reels overlays and Stories mentions without being truncated on any device." },
+            { tip: "Match your TikTok and YouTube handles exactly where possible — cross-platform brand consistency reduces friction when fans try to find you from other apps." },
+            { tip: "Use the Name Field (separate from username) for keyword-rich phrases — Instagram searches the Name Field, so 'Travel Photographer | Landscape Tips' beats just your name." },
+            { tip: "Avoid too many underscores or numbers — research shows usernames with 0–1 special characters have 35% higher recall than those with multiple separators." },
+            { tip: "Test your handle for unintended readings — read your proposed username out loud multiple times before finalizing to catch any awkward combinations." },
+            { tip: "Claim your handle on all platforms the same day — Instagram, TikTok, YouTube, X, and Pinterest consistency protects your brand from impersonators." },
+            { tip: "Don't change your username frequently — Instagram algorithm adjustments after handle changes can reduce discovery reach for 2–4 weeks post-change." },
+          ].map(({ tip }, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">
+              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-bold text-primary">{i + 1}</span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related Instagram Tools ─────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related Instagram Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "Instagram Bio Generator", path: "/tools/instagram-bio-generator", desc: "Write a compelling Instagram bio that pairs with your new handle to convert profile visitors into followers." },
+            { name: "Instagram Caption Generator", path: "/tools/instagram-caption-generator", desc: "Create on-brand captions in a consistent voice that reinforces the identity behind your new username." },
+            { name: "Instagram Hashtag Generator", path: "/tools/instagram-hashtag-generator", desc: "Find the right hashtags to start building visibility under your new handle from your very first posts." },
+            { name: "Instagram Hook Generator", path: "/tools/instagram-hook-generator", desc: "Craft scroll-stopping first lines that attract the audience your new username is designed to reach." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
           ))}
         </div>
       </section>

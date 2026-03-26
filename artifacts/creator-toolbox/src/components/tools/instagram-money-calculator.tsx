@@ -6,7 +6,7 @@ import {
   DollarSign, ChevronDown, Sparkles, TrendingUp,
   Shield, ListChecks, Search, Star, BarChart2,
   Users, Check, Zap, Target, Gift, ShoppingBag,
-  Link as LinkIcon, Calculator,
+  Link as LinkIcon, Calculator, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -1070,6 +1070,62 @@ export function InstagramMoneyCalculatorTool() {
               <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <span className="text-sm text-muted-foreground">{text}</span>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ───────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips & Best Practices</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { tip: "Nano-influencers (1K–10K followers) often earn 2–5% engagement vs 0.5–1% for mega-influencers — higher engagement rates can command equal or better sponsorship rates." },
+            { tip: "Brand deal rates on Instagram typically run $100–$500 per 10,000 followers for a feed post — negotiate based on your engagement rate and niche authority." },
+            { tip: "Diversify monetization beyond brand deals — digital products, affiliate commissions, LTK/Amazon storefronts, and subscriptions add reliable non-deal income." },
+            { tip: "The Creator Marketplace increases brand deal visibility 3–5× — apply as soon as you hit 10,000 followers to access official collaboration opportunities." },
+            { tip: "Reel bonuses and performance-based programs fluctuate seasonally — Q4 payouts are typically 30–50% higher, so prioritize your best content for that window." },
+            { tip: "Document your results data (reach, conversions, story swipe-ups) — brands that see case studies in your pitch will pay 20–40% higher rates." },
+            { tip: "Package your services in tiers — offer a Basic (1 story), Standard (1 feed post), and Premium (reel + story + feed) to upsell brands automatically." },
+          ].map(({ tip }, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">
+              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-bold text-primary">{i + 1}</span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related Instagram Tools ─────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related Instagram Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "Instagram Engagement Calculator", path: "/tools/instagram-engagement-calculator", desc: "Calculate your engagement rate — the metric brands use most to evaluate and price sponsorship deals." },
+            { name: "Instagram Content Planner", path: "/tools/instagram-content-planner", desc: "Build a consistent posting schedule that keeps your engagement high and brand partnerships attractive." },
+            { name: "Instagram Reel Idea Generator", path: "/tools/instagram-reel-idea-generator", desc: "Generate high-performing Reel concepts that drive views and follower growth to boost your earnings potential." },
+            { name: "Instagram Hashtag Generator", path: "/tools/instagram-hashtag-generator", desc: "Find the right hashtags to expand your reach and attract the right brand partners to your profile." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
           ))}
         </div>
       </section>

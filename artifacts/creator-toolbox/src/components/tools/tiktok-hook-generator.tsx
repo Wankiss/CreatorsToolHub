@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import {
   Zap, ChevronDown, Sparkles, Loader2, TrendingUp, Shield,
-  ListChecks, Search, Copy, Check, Star, RefreshCw, Eye, Mic,
+  ListChecks, Search, Copy, Check, Star, RefreshCw, Eye, Mic, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -823,6 +823,34 @@ export function TikTokHookGeneratorTool() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Related TikTok Tools ────────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related TikTok Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "TikTok Caption Generator", path: "/tools/tiktok-caption-generator", desc: "Pair your scroll-stopping hook with a well-crafted caption to keep viewers engaged and drive comments." },
+            { name: "TikTok Script Generator", path: "/tools/tiktok-script-generator", desc: "Extend your hook into a full video script with structured body content and a closing CTA that converts." },
+            { name: "TikTok Viral Idea Generator", path: "/tools/tiktok-viral-idea-generator", desc: "Get the trending content ideas that deserve your best hooks — great concepts need great opening lines." },
+            { name: "TikTok Hashtag Generator", path: "/tools/tiktok-hashtag-generator", desc: "Find the right hashtags to amplify the reach of videos that open with a hook strong enough to hold attention." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

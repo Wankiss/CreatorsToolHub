@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import {
   AtSign, Copy, Check, RefreshCw, Sparkles, Loader2,
-  ChevronDown, Search, Zap, ListChecks, TrendingUp, Shield,
+  ChevronDown, Search, Zap, ListChecks, TrendingUp, Shield, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -812,6 +812,62 @@ export function TikTokUsernameGeneratorTool() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ───────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips & Best Practices</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { tip: "Keep your TikTok username under 20 characters — shorter names are easier to remember, search, and fit in duet/stitch overlays without being truncated." },
+            { tip: "Avoid underscores and numbers unless your core brand uses them — clean alphanumeric names have 40% higher recall after a viewer sees your content." },
+            { tip: "Check cross-platform availability before settling on a name — consistent handles across TikTok, Instagram, and YouTube simplify brand building significantly." },
+            { tip: "Include your niche keyword if possible (e.g., FitByMia, TechWithTom) — it signals your content type before a user even views your profile." },
+            { tip: "Avoid changing your username frequently — TikTok's algorithm can penalize handle changes with temporary reach drops lasting 2–4 weeks after the change." },
+            { tip: "Test potential names with non-creator friends — if they can't spell it after hearing it once, it's too complex for organic word-of-mouth growth." },
+            { tip: "Reserve your chosen username on all major platforms the same day — even if you only post on TikTok now, cross-platform consistency protects your brand." },
+          ].map(({ tip }, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">
+              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-bold text-primary">{i + 1}</span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{tip}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related TikTok Tools ────────────────────────── */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related TikTok Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "TikTok Bio Generator", path: "/tools/tiktok-bio-generator", desc: "Craft a compelling TikTok bio that communicates your niche, personality, and call-to-action in 80 characters." },
+            { name: "TikTok Caption Generator", path: "/tools/tiktok-caption-generator", desc: "Write scroll-stopping captions with hooks, hashtag cues, and CTAs that boost engagement on every post." },
+            { name: "TikTok Hashtag Generator", path: "/tools/tiktok-hashtag-generator", desc: "Generate the best mix of trending and niche hashtags to expand your reach after you've secured your handle." },
+            { name: "TikTok Hook Generator", path: "/tools/tiktok-hook-generator", desc: "Create opening lines that stop the scroll and keep viewers watching past the critical first 3 seconds." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-xl border border-border bg-card hover:bg-primary/5 hover:border-primary/30 transition-all">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{name}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

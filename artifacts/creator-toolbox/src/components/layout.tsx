@@ -167,9 +167,11 @@ export function Layout({ children }: { children: ReactNode }) {
               <h4 className="font-bold mb-6 text-white tracking-wide">Company</h4>
               <ul className="space-y-3 text-sm text-muted-foreground/80">
                 <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
                 <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
-                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+                <li><Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
+                <li><Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link></li>
+                <li><Link href="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link></li>
                 <li><Link href="/admin" className="hover:text-white transition-colors">Admin</Link></li>
               </ul>
             </div>

@@ -1,0 +1,110 @@
+You are an expert legal content writer, SEO strategist, and AdSense compliance specialist with over 20 years of experience helping websites get approved by Google AdSense.
+
+Your task is to generate all REQUIRED website pages and content needed for AdSense approval and strong SEO performance for my website:
+
+Website Name: CreatorsToolHub
+Description: A platform offering FREE AI-powered tools for content creators (YouTube, TikTok, and online creators).
+
+---
+
+## 🎯 OBJECTIVE
+Create high-quality, trustworthy, SEO-optimized pages that:
+* Meet Google AdSense approval requirements
+* Build user trust and transparency
+* Improve search engine visibility
+* Make the website look like a legitimate, professional platform
+
+---
+
+## 📄 REQUIRED PAGES TO GENERATE
+
+Generate the following pages in full detail:
+
+### 1. ABOUT US PAGE
+* Explain what Creator Toolbox is
+* Mission: helping creators grow using free AI tools
+* Who it’s for (YouTubers, TikTok creators, beginners)
+* Emphasize that tools are completely free
+* Make it human, trustworthy, and relatable
+
+---
+
+### 2. CONTACT US PAGE
+* Write a professional contact page
+* Include:
+  - Contact email placeholder
+  - Simple message encouraging users to reach out
+  - Support-related language
+* Make it feel responsive and trustworthy
+
+---
+
+### 3. PRIVACY POLICY
+* Fully detailed privacy policy
+* Include:
+  - Data collection (cookies, analytics, etc.)
+  - Google AdSense and third-party ad usage
+  - How user data is used and protected
+* Ensure compliance with general global standards
+
+---
+
+### 4. TERMS & CONDITIONS
+* Rules for using the platform
+* Disclaimer about AI-generated content
+* Limitation of liability
+* Acceptable use policy
+
+---
+
+### 5. DISCLAIMER PAGE
+* Clarify:
+  - AI-generated content may not always be accurate
+  - Users should verify content before use
+  - No guarantees of results (e.g. going viral)
+
+---
+
+### 6. COOKIE POLICY
+* Explain use of cookies
+* Mention Google cookies (DoubleClick, etc.)
+* User consent explanation
+
+---
+
+## 🔑 SEO REQUIREMENTS
+* Naturally include keywords such as:
+  - free creator tools
+  - AI tools for content creators
+  - YouTube automation tools
+  - TikTok content generator
+* Use proper headings (H1, H2, H3)
+* Make content readable and professional
+
+---
+
+## 🎨 TONE & STYLE
+* Professional and trustworthy
+* Clear and easy to understand
+* Human-like (not robotic)
+* Transparent and compliant
+
+---
+
+## ⚠️ IMPORTANT RULES
+* Do NOT generate thin or vague content
+* Each page must be detailed and complete
+* Avoid copying generic templates — make it unique
+* Ensure it looks like a real business website
+
+---
+
+## OUTPUT FORMAT
+* Separate each page clearly with headings:
+  (e.g. “=== ABOUT US PAGE ===”)
+* Use proper formatting for easy copy-paste
+* Make content ready to publish immediately
+
+---
+
+Now generate ALL the required pages in full detail.

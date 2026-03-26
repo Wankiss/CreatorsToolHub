@@ -5,7 +5,7 @@ import { useToast } from "@/hooks/use-toast";
 import {
   Download, Copy, Check, ExternalLink, Image, AlertCircle,
   Loader2, ChevronDown, Search, Zap, TrendingUp, Shield,
-  ListChecks, Link2, Maximize2, RefreshCw,
+  ListChecks, Link2, Maximize2, RefreshCw, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -617,6 +617,60 @@ export function YouTubeThumbnailDownloaderTool() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips for Analyzing & Improving YouTube Thumbnails</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            "Study thumbnails from videos with 500K+ views in your niche before designing yours — high view counts validate which visual styles actually drive clicks.",
+            "High-contrast thumbnails (light text on dark background or vice versa) perform better at small sizes — thumbnails must be readable at 120×90 pixels on mobile.",
+            "Human faces showing exaggerated emotions drive 30–40% higher CTR than text-only or abstract thumbnails — emotion is the most powerful click trigger.",
+            "Limit thumbnail text to 5 words maximum — it must be instantly readable at mobile thumbnail size without zooming in or squinting.",
+            "Check competitor thumbnail color palettes in your niche, then deliberately choose a contrasting scheme — standing out in search beats blending in.",
+            "Use YouTube Studio's A/B thumbnail test feature — run each variation for at least 2 weeks before making a final decision based on real click data.",
+            "Download your top 10 highest-performing video thumbnails and identify visual patterns — replicate those consistent elements in new thumbnails for brand continuity.",
+          ].map((tip, i) => (
+            <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
+              <Zap className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <span className="text-sm text-muted-foreground">{tip}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related YouTube Tools ─────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related YouTube Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "YouTube Title Generator", path: "/tools/youtube-title-generator", desc: "Generate 40+ high-CTR title formulas to pair with your eye-catching thumbnail." },
+            { name: "YouTube Tag Generator", path: "/tools/youtube-tag-generator", desc: "Create SEO-optimized tags to help your videos rank alongside their thumbnails." },
+            { name: "YouTube Description Generator", path: "/tools/youtube-description-generator", desc: "Write keyword-rich descriptions that complement your title and thumbnail strategy." },
+            { name: "YouTube SEO Score Checker", path: "/tools/youtube-seo-score-checker", desc: "Score your title and description for SEO quality before you publish." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-2xl border border-border bg-muted/30 hover:bg-primary/5 hover:border-primary/30 transition-all duration-200">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
+                <ArrowUpRight className="w-4 h-4 text-primary" />
+              </div>
+              <div>
+                <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">{name}</div>
+                <div className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{desc}</div>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

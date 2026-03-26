@@ -864,6 +864,60 @@ export function YouTubeCpmCalculatorTool() {
         </div>
       </section>
 
+      {/* ── Tips & Best Practices ────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Lightbulb className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips to Maximize Your YouTube CPM</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            "Use your actual YouTube Studio RPM data for accuracy — go to Analytics › Revenue to find your real numbers and override the estimated CPM.",
+            "Target high-CPM niches like finance, tech, or SaaS — these consistently pay 5–15× more per 1,000 views than entertainment or gaming.",
+            "Enable all ad formats (skippable, non-skippable, bumper, overlay) in monetization settings — each format adds incrementally to your total RPM.",
+            "US, UK, Canadian, and Australian audiences drive 2–5× higher CPMs — create content that resonates with English-speaking markets to maximize earnings.",
+            "Videos 8+ minutes long can include mid-roll ads, which significantly increases ad revenue per video beyond what pre-roll alone generates.",
+            "Q4 (October–December) CPMs spike 30–50% as advertisers flood platforms with holiday budgets — schedule your best content for this window.",
+            "Improving click-through rate and average view duration signals quality to YouTube, attracting premium advertisers and raising your effective CPM over time.",
+          ].map((tip, i) => (
+            <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
+              <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <span className="text-sm text-muted-foreground">{tip}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related YouTube Tools ─────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related YouTube Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "YouTube Money Calculator", path: "/tools/youtube-money-calculator", desc: "Estimate total revenue from ads, sponsorships, affiliates, and memberships." },
+            { name: "YouTube Shorts Revenue Calculator", path: "/tools/youtube-shorts-revenue-calculator", desc: "Calculate earnings from Shorts views using the YouTube Shorts fund model." },
+            { name: "YouTube Engagement Calculator", path: "/tools/youtube-engagement-calculator", desc: "Measure likes, comments, and shares to benchmark your channel's engagement rate." },
+            { name: "YouTube SEO Score Checker", path: "/tools/youtube-seo-score-checker", desc: "Score your title and description for SEO quality before you publish." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-2xl border border-border bg-muted/30 hover:bg-primary/5 hover:border-primary/30 transition-all duration-200">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
+                <ArrowUpRight className="w-4 h-4 text-primary" />
+              </div>
+              <div>
+                <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">{name}</div>
+                <div className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{desc}</div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
       {/* ── FAQ ──────────────────────────────────────────────── */}
       <section className="mt-2">
         <div className="flex items-center gap-3 mb-6">

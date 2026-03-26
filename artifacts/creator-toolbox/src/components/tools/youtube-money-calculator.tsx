@@ -6,7 +6,7 @@ import {
 import {
   DollarSign, TrendingUp, Users, ChevronDown, Check,
   Sliders, Globe, Tv, ListChecks, Search, Zap, Shield,
-  BadgeDollarSign, ShoppingBag, Heart,
+  BadgeDollarSign, ShoppingBag, Heart, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Data Tables ──────────────────────────────────────────────────────────────
@@ -760,6 +760,60 @@ export function YouTubeMoneyCalculatorTool() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips to Maximize Your YouTube Earnings</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            "Diversify beyond AdSense — top creators earn only 40–60% from ads; the rest comes from sponsorships, affiliates, memberships, and merchandise.",
+            "Finance, tech, and SaaS niches consistently earn 5–10× more ad revenue per 1,000 views than entertainment or gaming — niche selection matters enormously.",
+            "Channel memberships become viable around 10,000 subscribers — even a 1% conversion at $4.99/month adds meaningful, predictable recurring monthly income.",
+            "Sponsorship rates typically run $20–$50 per 1,000 views — always negotiate based on your engaged audience and niche, not raw view count alone.",
+            "Enable Super Thanks, Super Chats (if streaming), and merch shelf once eligible — these passive income layers compound with zero extra content effort.",
+            "Q4 ad budgets spike 30–50% — schedule your most monetizable, highest-quality content for November and December to capitalize on peak advertiser spending.",
+            "Focus on audience retention above 50% — advertisers pay more for content where viewers genuinely watch through, rewarding longer engagement with higher CPMs.",
+          ].map((tip, i) => (
+            <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
+              <Zap className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <span className="text-sm text-muted-foreground">{tip}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related YouTube Tools ─────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related YouTube Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "YouTube CPM Calculator", path: "/tools/youtube-cpm-calculator", desc: "Calculate estimated CPM and RPM based on your niche, audience location, and ad formats." },
+            { name: "YouTube Shorts Revenue Calculator", path: "/tools/youtube-shorts-revenue-calculator", desc: "Estimate how much your YouTube Shorts can earn with Shorts-specific RPM rates." },
+            { name: "YouTube Engagement Calculator", path: "/tools/youtube-engagement-calculator", desc: "Measure your likes, comments, and share rates to benchmark audience engagement." },
+            { name: "YouTube Video Idea Generator", path: "/tools/youtube-video-idea-generator", desc: "Generate viral video ideas for your niche to grow your views and revenue." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-2xl border border-border bg-muted/30 hover:bg-primary/5 hover:border-primary/30 transition-all duration-200">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
+                <ArrowUpRight className="w-4 h-4 text-primary" />
+              </div>
+              <div>
+                <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">{name}</div>
+                <div className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{desc}</div>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

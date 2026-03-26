@@ -844,6 +844,60 @@ export function YouTubeShortsRevenueCalculatorTool() {
         </div>
       </section>
 
+      {/* ── Tips & Best Practices ────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Lightbulb className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips to Maximize Your YouTube Shorts Revenue</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            "Shorts RPM averages $0.03–$0.07 per 1,000 views vs. $3–$7 for long-form — use Shorts primarily for audience growth, not as your main income source.",
+            "Post Shorts daily for 30 consecutive days to build algorithmic momentum — consistency matters far more than production quality for Shorts distribution.",
+            "Hook viewers in the first 0.5 seconds — Shorts with 90%+ loop-through rate get aggressively distributed to new audiences by YouTube's algorithm.",
+            "Use Shorts to funnel viewers to your long-form content — even a 0.5% conversion to long-form subscribers builds compounding channel revenue over time.",
+            "Trending audio clips can increase Shorts reach 3–8× — check YouTube's built-in trending audio library before recording each Short for maximum reach.",
+            "Peak Shorts performance windows are 6–9 AM and 7–10 PM local time — scheduling within these windows improves initial distribution significantly.",
+            "Repurpose your best long-form moments as Shorts — this doubles your content output with minimal effort and cross-promotes your full videos to Shorts viewers.",
+          ].map((tip, i) => (
+            <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
+              <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <span className="text-sm text-muted-foreground">{tip}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related YouTube Tools ─────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related YouTube Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "YouTube Money Calculator", path: "/tools/youtube-money-calculator", desc: "Estimate your full YouTube revenue including ads, sponsorships, and memberships." },
+            { name: "YouTube CPM Calculator", path: "/tools/youtube-cpm-calculator", desc: "Calculate estimated CPM and RPM for your long-form videos by niche and location." },
+            { name: "YouTube Engagement Calculator", path: "/tools/youtube-engagement-calculator", desc: "Measure likes, comments, and share rates to understand your audience engagement." },
+            { name: "YouTube Tag Generator", path: "/tools/youtube-tag-generator", desc: "Generate SEO-optimized tags to help your Shorts and videos rank in search." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-2xl border border-border bg-muted/30 hover:bg-primary/5 hover:border-primary/30 transition-all duration-200">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
+                <ArrowUpRight className="w-4 h-4 text-primary" />
+              </div>
+              <div>
+                <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">{name}</div>
+                <div className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{desc}</div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
       {/* ── FAQ ──────────────────────────────────────────────── */}
       <section className="mt-2">
         <div className="flex items-center gap-3 mb-6">

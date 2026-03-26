@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import {
   ChevronDown, Check, BarChart2, TrendingUp, Shield,
   ListChecks, Search, Zap, ThumbsUp, MessageSquare,
-  Share2, AlertTriangle, Target, ArrowRight, Star,
+  Share2, AlertTriangle, Target, ArrowRight, Star, ArrowUpRight,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -679,6 +679,60 @@ export function YouTubeEngagementCalculatorTool() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips to Improve Your YouTube Engagement Rate</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            "Aim for a like rate above 3% — YouTube's algorithm treats this as a strong positive signal and boosts your video's distribution to new audiences.",
+            "A comment rate above 0.5% indicates a highly engaged community — it improves recommendations and long-term channel authority more than raw views.",
+            "Save rate (adds to playlist) is an underrated metric — it signals high-value content and is weighted heavily in YouTube's search ranking algorithm.",
+            "Reply to every comment in the first 24 hours after publishing — this trains the algorithm to extend your video's recommendation window significantly.",
+            "Post on a consistent schedule — channels that upload regularly see 40–80% higher average engagement rates than sporadic uploaders.",
+            "Use a strong call-to-action at the 30% mark of your video — viewers are most engaged early to mid-video, making this the optimal prompt point.",
+            "End screens and cards linking to related videos reduce bounce rate — lower bounce rate improves session watch time, a key YouTube ranking factor.",
+          ].map((tip, i) => (
+            <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
+              <Zap className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <span className="text-sm text-muted-foreground">{tip}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Related YouTube Tools ─────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related YouTube Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "YouTube Money Calculator", path: "/tools/youtube-money-calculator", desc: "Estimate total revenue from ads, sponsorships, affiliates, and memberships." },
+            { name: "YouTube CPM Calculator", path: "/tools/youtube-cpm-calculator", desc: "Calculate your estimated earnings based on niche, location, and ad formats." },
+            { name: "YouTube Shorts Revenue Calculator", path: "/tools/youtube-shorts-revenue-calculator", desc: "Calculate earnings from Shorts views with Shorts-specific RPM rates." },
+            { name: "YouTube SEO Score Checker", path: "/tools/youtube-seo-score-checker", desc: "Score your video title and description for SEO quality before publishing." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-2xl border border-border bg-muted/30 hover:bg-primary/5 hover:border-primary/30 transition-all duration-200">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
+                <ArrowUpRight className="w-4 h-4 text-primary" />
+              </div>
+              <div>
+                <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">{name}</div>
+                <div className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{desc}</div>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

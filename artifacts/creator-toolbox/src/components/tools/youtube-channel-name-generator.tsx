@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import {
   Sparkles, Copy, Check, RefreshCw, Search, Heart, Shuffle,
-  ChevronDown, Zap, TrendingUp, Shield, ListChecks, ExternalLink,
+  ChevronDown, Zap, TrendingUp, Shield, ListChecks, ExternalLink, ArrowUpRight,
 } from "lucide-react";
 import { Link } from "wouter";
 
@@ -738,6 +738,34 @@ export function YouTubeChannelNameGeneratorTool() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Related YouTube Tools ─────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Related YouTube Tools</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { name: "YouTube Video Idea Generator", path: "/tools/youtube-video-idea-generator", desc: "Generate your first viral video ideas once your channel name and brand are set." },
+            { name: "YouTube Script Generator", path: "/tools/youtube-script-generator", desc: "Write full video scripts with hooks, body, and CTAs to bring your channel to life." },
+            { name: "YouTube Description Generator", path: "/tools/youtube-description-generator", desc: "Craft SEO-optimized descriptions for every video on your new channel." },
+            { name: "YouTube Hashtag Generator", path: "/tools/youtube-hashtag-generator", desc: "Generate niche hashtags that help your new channel's videos get discovered faster." },
+          ].map(({ name, path, desc }) => (
+            <a key={path} href={path} className="group flex items-start gap-4 p-4 rounded-2xl border border-border bg-muted/30 hover:bg-primary/5 hover:border-primary/30 transition-all duration-200">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
+                <ArrowUpRight className="w-4 h-4 text-primary" />
+              </div>
+              <div>
+                <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">{name}</div>
+                <div className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{desc}</div>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

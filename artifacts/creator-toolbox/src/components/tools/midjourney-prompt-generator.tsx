@@ -240,7 +240,7 @@ function buildVariations(
 const FAQ_ITEMS = [
   {
     q: "What is a Midjourney prompt generator and why do I need one?",
-    a: "A Midjourney prompt generator creates optimized, syntax-correct prompts for the Midjourney AI image generation platform. Midjourney prompts are not written in natural sentences — they use a specific comma-separated syntax with style descriptors, lighting terms, composition guidance, and technical parameters like --ar (aspect ratio), --q (quality), and --v (version). Getting this syntax right determines whether your generated image looks amateur or professional. The Midjourney Prompt Generator on Creator Toolbox translates your creative intent into properly structured prompts that produce high-quality visuals on the first attempt — no design experience or Midjourney expertise required.",
+    a: "A Midjourney prompt generator creates optimized, syntax-correct prompts for the Midjourney AI image generation platform. Midjourney prompts are not written in natural sentences — they use a specific comma-separated syntax with style descriptors, lighting terms, composition guidance, and technical parameters like --ar (aspect ratio), --q (quality), and --v (version). Getting this syntax right determines whether your generated image looks amateur or professional. The Midjourney Prompt Generator on creatorsToolHub translates your creative intent into properly structured prompts that produce high-quality visuals on the first attempt — no design experience or Midjourney expertise required.",
   },
   {
     q: "What is the correct Midjourney prompt syntax?",
@@ -264,7 +264,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Can I use Midjourney for free?",
-    a: "Midjourney requires a paid subscription to generate images — free trials are no longer available as of 2024. Subscription plans start at $10/month for basic access with limited generations per month, $30/month for standard with more generations, and $60/month for pro with fast GPU access. However, the Midjourney Prompt Generator on Creator Toolbox is completely free with no account required — you can generate and refine as many prompts as you need, then use those prompts in your Midjourney subscription when you're ready to generate images.",
+    a: "Midjourney requires a paid subscription to generate images — free trials are no longer available as of 2024. Subscription plans start at $10/month for basic access with limited generations per month, $30/month for standard with more generations, and $60/month for pro with fast GPU access. However, the Midjourney Prompt Generator on creatorsToolHub is completely free with no account required — you can generate and refine as many prompts as you need, then use those prompts in your Midjourney subscription when you're ready to generate images.",
   },
   {
     q: "What makes a good Midjourney prompt for professional results?",
@@ -272,7 +272,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How do I generate multiple Midjourney prompt variations?",
-    a: "The Midjourney Prompt Generator produces 4 prompt variations for every generation: your chosen style, a photorealistic variant, a clean minimal variant, and a bold commercial variant. This gives you four different visual directions to explore from the same inputs without having to manually adjust descriptors. In Midjourney itself, you can also generate variations by: (1) Clicking the V1–V4 buttons under any image to create variations of specific results. (2) Adding slight descriptor changes — swapping 'cinematic' for 'editorial' or 'dramatic' for 'ethereal' — to explore different directions. (3) Using the 'Regenerate All' button in Creator Toolbox to generate a completely different set of prompts for the same visual type.",
+    a: "The Midjourney Prompt Generator produces 4 prompt variations for every generation: your chosen style, a photorealistic variant, a clean minimal variant, and a bold commercial variant. This gives you four different visual directions to explore from the same inputs without having to manually adjust descriptors. In Midjourney itself, you can also generate variations by: (1) Clicking the V1–V4 buttons under any image to create variations of specific results. (2) Adding slight descriptor changes — swapping 'cinematic' for 'editorial' or 'dramatic' for 'ethereal' — to explore different directions. (3) Using the 'Regenerate All' button in creatorsToolHub to generate a completely different set of prompts for the same visual type.",
   },
   {
     q: "How do I create a Midjourney prompt for a brand logo?",

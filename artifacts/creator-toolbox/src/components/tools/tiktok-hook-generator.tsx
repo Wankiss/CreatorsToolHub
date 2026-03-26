@@ -276,7 +276,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is this TikTok hook generator free?",
-    a: "Yes — the TikTok Hook Generator on Creator Toolbox is completely free with no account, subscription, or credit card required. Enter your video topic and niche, select your content type and tone, and instantly receive 5–10 scored hooks with on-screen text versions, voiceover delivery tips, a breakdown by hook type, and your top 3 best hooks highlighted. Generate as many hook sets as you need for any topic or niche, with no limits or usage caps.",
+    a: "Yes — the TikTok Hook Generator on creatorsToolHub is completely free with no account, subscription, or credit card required. Enter your video topic and niche, select your content type and tone, and instantly receive 5–10 scored hooks with on-screen text versions, voiceover delivery tips, a breakdown by hook type, and your top 3 best hooks highlighted. Generate as many hook sets as you need for any topic or niche, with no limits or usage caps.",
   },
 ];
 

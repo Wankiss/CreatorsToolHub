@@ -245,7 +245,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is this TikTok bio generator free?",
-    a: "Yes — the TikTok Bio Generator on Creator Toolbox is 100% free with no account, subscription, or credit card required. Enter your niche, what you do, and optional details (tone, target audience, USP, CTA, keywords), and instantly receive 10 bio options — each validated to 80 characters or fewer, varied in style (emoji, minimal, CTA, inspirational), and ready to copy with one click. Generate as many variations as you need until you find the right one for your profile.",
+    a: "Yes — the TikTok Bio Generator on creatorsToolHub is 100% free with no account, subscription, or credit card required. Enter your niche, what you do, and optional details (tone, target audience, USP, CTA, keywords), and instantly receive 10 bio options — each validated to 80 characters or fewer, varied in style (emoji, minimal, CTA, inspirational), and ready to copy with one click. Generate as many variations as you need until you find the right one for your profile.",
   },
 ];
 

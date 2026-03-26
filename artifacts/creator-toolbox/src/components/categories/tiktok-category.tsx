@@ -58,7 +58,7 @@ const FAQS = [
   },
   {
     q: "Are these TikTok tools free to use?",
-    a: "All tools on Creator Toolbox are 100% free with no account or credit card required. You can generate viral ideas, hooks, scripts, captions, hashtags, and earnings estimates as many times as you want — no limits, no paywalls, no subscriptions. Bookmark this page and use it every time you sit down to plan your next TikTok.",
+    a: "All tools on creatorsToolHub are 100% free with no account or credit card required. You can generate viral ideas, hooks, scripts, captions, hashtags, and earnings estimates as many times as you want — no limits, no paywalls, no subscriptions. Bookmark this page and use it every time you sit down to plan your next TikTok.",
   },
   {
     q: "How do I generate viral TikTok video ideas?",

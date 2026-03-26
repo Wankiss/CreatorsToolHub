@@ -505,7 +505,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is this Instagram hashtag generator free?",
-    a: "Yes — the Instagram Hashtag Generator on Creator Toolbox is completely free with no account, subscription, or credit card required. Select your niche, enter your topic, choose your content type (Reel, Carousel, or Static Post), select your goal (Reach, Engagement, Growth, or Sales), and instantly generate three complete 30-hashtag sets (A, B, C) for content batching and rotation. Each set uses the tiered strategy: 5 Broad hashtags (500K+ posts), 10 Mid-Range hashtags (50K–500K posts), and 15 Micro hashtags (under 50K posts). Copy individual tiers or the full 30-tag set in one click. All hashtags are Instagram-native, niche-specific, and free from banned or shadow-banned tags.",
+    a: "Yes — the Instagram Hashtag Generator on creatorsToolHub is completely free with no account, subscription, or credit card required. Select your niche, enter your topic, choose your content type (Reel, Carousel, or Static Post), select your goal (Reach, Engagement, Growth, or Sales), and instantly generate three complete 30-hashtag sets (A, B, C) for content batching and rotation. Each set uses the tiered strategy: 5 Broad hashtags (500K+ posts), 10 Mid-Range hashtags (50K–500K posts), and 15 Micro hashtags (under 50K posts). Copy individual tiers or the full 30-tag set in one click. All hashtags are Instagram-native, niche-specific, and free from banned or shadow-banned tags.",
   },
 ];
 

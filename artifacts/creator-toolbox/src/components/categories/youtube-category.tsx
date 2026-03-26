@@ -58,7 +58,7 @@ const FAQS = [
   },
   {
     q: "Are these YouTube tools free to use?",
-    a: "All tools on Creator Toolbox are 100% free with no signup required. You can generate titles, tags, hashtags, scripts, video ideas, and revenue estimates as many times as you need without creating an account or entering a credit card.",
+    a: "All tools on creatorsToolHub are 100% free with no signup required. You can generate titles, tags, hashtags, scripts, video ideas, and revenue estimates as many times as you need without creating an account or entering a credit card.",
   },
   {
     q: "What is a good YouTube engagement rate?",

@@ -356,7 +356,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is this Instagram bio generator free?",
-    a: "Yes — the Instagram Bio Generator on Creator Toolbox is completely free with no account, subscription, or credit card required. Enter your niche, what you help people achieve, target audience, CTA type, and optional credibility markers or keywords, then instantly generate 10 Instagram bios across four tones: Professional (3 variations), Bold (2 variations), Minimal (2 variations), and Inspirational (3 variations). Every bio is generated to fit within Instagram's 150-character limit, includes a live character meter, and shows a Power Score and Clarity Score. Copy any bio to your clipboard in one click. Use the Keywords field to ensure your niche-specific terms and positioning language appear in the generated bios.",
+    a: "Yes — the Instagram Bio Generator on creatorsToolHub is completely free with no account, subscription, or credit card required. Enter your niche, what you help people achieve, target audience, CTA type, and optional credibility markers or keywords, then instantly generate 10 Instagram bios across four tones: Professional (3 variations), Bold (2 variations), Minimal (2 variations), and Inspirational (3 variations). Every bio is generated to fit within Instagram's 150-character limit, includes a live character meter, and shows a Power Score and Clarity Score. Copy any bio to your clipboard in one click. Use the Keywords field to ensure your niche-specific terms and positioning language appear in the generated bios.",
   },
 ];
 

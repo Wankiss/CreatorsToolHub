@@ -446,7 +446,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is this Instagram caption generator free?",
-    a: "Yes — the Instagram Caption Generator on Creator Toolbox is completely free with no account, subscription, or credit card required. Enter your topic, niche, goal (educate, entertain, sell, or grow followers), tone, caption length, CTA type, and content type, then generate 10 unique captions across every major style — Curiosity Gap, Bold Statement, Relatable Frustration, Mistake Callout, Contrarian Opinion, Quick Win, Story Tease, POV, Listicle, and Emotional. Each caption comes with a Hook Score, Engagement Score, Viral Score, and 9 niche-specific hashtags. Copy caption only, hashtags only, or the full caption + hashtags in one click. Use the Keywords field to ensure niche-specific terms appear in your captions and hashtags.",
+    a: "Yes — the Instagram Caption Generator on creatorsToolHub is completely free with no account, subscription, or credit card required. Enter your topic, niche, goal (educate, entertain, sell, or grow followers), tone, caption length, CTA type, and content type, then generate 10 unique captions across every major style — Curiosity Gap, Bold Statement, Relatable Frustration, Mistake Callout, Contrarian Opinion, Quick Win, Story Tease, POV, Listicle, and Emotional. Each caption comes with a Hook Score, Engagement Score, Viral Score, and 9 niche-specific hashtags. Copy caption only, hashtags only, or the full caption + hashtags in one click. Use the Keywords field to ensure niche-specific terms appear in your captions and hashtags.",
   },
 ];
 

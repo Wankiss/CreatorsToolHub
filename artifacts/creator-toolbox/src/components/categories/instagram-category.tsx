@@ -66,7 +66,7 @@ const FAQS = [
   },
   {
     q: "Are these Instagram tools free to use?",
-    a: "All tools on Creator Toolbox are 100% free with no signup required. You can generate hashtags, captions, hooks, Reel ideas, story ideas, bio variations, username ideas, engagement reports, and revenue estimates as many times as you need without creating an account or entering a credit card. Every tool runs entirely in your browser with instant results.",
+    a: "All tools on creatorsToolHub are 100% free with no signup required. You can generate hashtags, captions, hooks, Reel ideas, story ideas, bio variations, username ideas, engagement reports, and revenue estimates as many times as you need without creating an account or entering a credit card. Every tool runs entirely in your browser with instant results.",
   },
 ];
 

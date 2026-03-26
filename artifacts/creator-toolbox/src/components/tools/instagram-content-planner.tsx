@@ -527,7 +527,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is this Instagram content planner free to use?",
-    a: "Yes — the Instagram Content Planner on Creator Toolbox is completely free with no account, subscription, or credit card required. Select your niche, target audience, content pillars, posting frequency (3, 5, or 7 posts per week), primary goal, content style, time availability, and experience level. The tool generates a complete 4-week content calendar with day-by-day posting plans, including post type (Reel/Carousel/Static), specific topic idea, hook or content angle, post goal, and optimal posting time. A full Story strategy is included for each week along with a strategic overview and weekly growth tip. Copy the full calendar or any individual week for use in your own planning tool, Google Docs, or Notion.",
+    a: "Yes — the Instagram Content Planner on creatorsToolHub is completely free with no account, subscription, or credit card required. Select your niche, target audience, content pillars, posting frequency (3, 5, or 7 posts per week), primary goal, content style, time availability, and experience level. The tool generates a complete 4-week content calendar with day-by-day posting plans, including post type (Reel/Carousel/Static), specific topic idea, hook or content angle, post goal, and optimal posting time. A full Story strategy is included for each week along with a strategic overview and weekly growth tip. Copy the full calendar or any individual week for use in your own planning tool, Google Docs, or Notion.",
   },
 ];
 

@@ -310,7 +310,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Are these TikTok hashtag tools free to use?",
-    a: "Yes — the TikTok Hashtag Generator on Creator Toolbox is 100% free with no account, subscription, or credit card required. You can generate hashtag sets for any niche and topic as many times as you need. Each generation produces a full four-tier hashtag strategy (primary, secondary, trending, long-tail) plus a posting strategy explanation — everything you need to optimize your TikTok discoverability instantly.",
+    a: "Yes — the TikTok Hashtag Generator on creatorsToolHub is 100% free with no account, subscription, or credit card required. You can generate hashtag sets for any niche and topic as many times as you need. Each generation produces a full four-tier hashtag strategy (primary, secondary, trending, long-tail) plus a posting strategy explanation — everything you need to optimize your TikTok discoverability instantly.",
   },
 ];
 

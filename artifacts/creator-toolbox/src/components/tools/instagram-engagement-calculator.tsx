@@ -295,7 +295,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is this Instagram engagement calculator free?",
-    a: "Yes — the Instagram Engagement Calculator on Creator Toolbox is completely free with no account, subscription, or credit card required. Enter your followers, average likes, comments, and saves, and instantly get your weighted engagement rate, a performance label (Poor to Elite), a benchmark comparison against your follower tier and niche, a brand deal potential estimate with suggested pricing, strengths and weaknesses analysis, and 6 specific improvement recommendations. Toggle between Weighted mode (uses saves×3, comments×2) and Basic mode (standard unweighted calculation) to see how Instagram's algorithm weighs your interactions.",
+    a: "Yes — the Instagram Engagement Calculator on creatorsToolHub is completely free with no account, subscription, or credit card required. Enter your followers, average likes, comments, and saves, and instantly get your weighted engagement rate, a performance label (Poor to Elite), a benchmark comparison against your follower tier and niche, a brand deal potential estimate with suggested pricing, strengths and weaknesses analysis, and 6 specific improvement recommendations. Toggle between Weighted mode (uses saves×3, comments×2) and Basic mode (standard unweighted calculation) to see how Instagram's algorithm weighs your interactions.",
   },
 ];
 

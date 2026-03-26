@@ -182,7 +182,7 @@ export default function ToolPage() {
       {/* SEO Meta via Helmet-equivalent title */}
       {typeof document !== "undefined" && (
         (() => {
-          document.title = `Free ${tool.name} - ${tool.categoryName} | Creator Toolbox`;
+          document.title = `Free ${tool.name} - ${tool.categoryName} | creatorsToolHub`;
           return null;
         })()
       )}

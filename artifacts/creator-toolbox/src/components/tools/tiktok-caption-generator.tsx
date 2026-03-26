@@ -424,7 +424,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is this TikTok Caption Generator free?",
-    a: "Yes — the TikTok Caption Generator on Creator Toolbox is completely free. No account, subscription, or credit card required. Enter your video topic and optional details (niche, tone, audience, CTA, keywords, caption length preference) and instantly receive 10 caption variations across 10 distinct style formats: Punchy Hook, POV Style, Storytelling, Question Hook, Hot Take, Relatable, Educational, Challenge, Listicle, and Emotional. Each caption comes with a Viral Score (combining Hook strength, Engagement potential, and Clarity ratings), 7 curated hashtags, and separate copy buttons for the caption body, hashtags, or both combined. Generate as many variations as you need until you find the caption that fits your video perfectly.",
+    a: "Yes — the TikTok Caption Generator on creatorsToolHub is completely free. No account, subscription, or credit card required. Enter your video topic and optional details (niche, tone, audience, CTA, keywords, caption length preference) and instantly receive 10 caption variations across 10 distinct style formats: Punchy Hook, POV Style, Storytelling, Question Hook, Hot Take, Relatable, Educational, Challenge, Listicle, and Emotional. Each caption comes with a Viral Score (combining Hook strength, Engagement potential, and Clarity ratings), 7 curated hashtags, and separate copy buttons for the caption body, hashtags, or both combined. Generate as many variations as you need until you find the caption that fits your video perfectly.",
   },
 ];
 

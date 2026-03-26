@@ -333,7 +333,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is the YouTube Title Analyzer free to use?",
-    a: "Yes — the YouTube Title Analyzer is completely free with no account required and no usage limits. Analyze as many titles as you like, run A/B comparisons, generate title suggestions, and use the proven title templates for your next upload. The tool works entirely in your browser for instant results. For a complete YouTube optimization workflow, use it alongside our free YouTube Tag Generator, YouTube Description Generator, and YouTube Hashtag Generator — all available on Creator Toolbox at no cost.",
+    a: "Yes — the YouTube Title Analyzer is completely free with no account required and no usage limits. Analyze as many titles as you like, run A/B comparisons, generate title suggestions, and use the proven title templates for your next upload. The tool works entirely in your browser for instant results. For a complete YouTube optimization workflow, use it alongside our free YouTube Tag Generator, YouTube Description Generator, and YouTube Hashtag Generator — all available on creatorsToolHub at no cost.",
   },
 ];
 

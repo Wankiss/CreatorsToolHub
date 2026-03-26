@@ -1,0 +1,25 @@
+I want you to perform a complete, intelligent rebranding of my website from CreatorToolbox to creatorsToolHub. My domain is creatorstoolhub.com. This task requires you to scan the entire website thoroughly and replace all instances of “CreatorToolbox” with “creatorsToolHub” in all content, metadata, alt texts, URLs (where possible), and internal links.
+
+Key instructions:
+
+Brand Name Replacement:
+Replace every mention of CreatorToolbox with creatorsToolHub exactly as shown (camel case with lowercase “creators” and uppercase “T” and “H” in Tool and Hub).
+SEO Optimization:
+Maintain or improve existing SEO value during the rebrand.
+Update all page titles, meta descriptions, headings (H1, H2, etc.), and image alt tags to reflect the new brand name naturally and strategically.
+Check for any keyword phrases around “CreatorToolbox” and adjust them to target “creators tool hub” and related high-value keywords without sacrificing readability.
+Ensure the new brand name is incorporated naturally in content to preserve or boost search rankings.
+Content Consistency:
+Review the entire website content including blog posts, landing pages, product descriptions, headers, footers, buttons, and CTAs. Update every textual reference from the old brand to the new one.
+URL and Link Updates:
+Identify any internal URLs or navigation elements containing the old brand name and update them to the new brand where possible without breaking links. Provide a list of any URLs that require manual redirection setup.
+Technical SEO:
+Review schema markup, structured data, and any SEO plugins or configurations that reference the old brand name and update them accordingly.
+Brand Tone and Style:
+Preserve the original brand tone and style across all pages. Make sure the new name fits naturally in all contexts.
+Final Deliverables:
+A detailed report listing all changes made (pages, files, metadata, etc.)
+Suggestions for any redirects or additional SEO actions needed post-migration
+Recommendations for updated keywords and SEO best practices aligned with the new brand name
+
+Use your best judgment to ensure the rebrand is seamless, SEO-friendly, and enhances the user experience. Confirm that all instances of the old brand are fully replaced and the site is ready for launch under the new name creatorsToolHub.

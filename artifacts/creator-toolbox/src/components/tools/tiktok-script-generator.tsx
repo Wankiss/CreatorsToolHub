@@ -522,7 +522,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is this TikTok Script Generator free?",
-    a: "Yes — the TikTok Script Generator on Creator Toolbox is 100% free with no account, credit card, or subscription required. Enter your video topic and select your niche, tone (Funny, Educational, Bold, Storytelling, Inspirational), and video length (15s, 30s, or 60s), and receive 3 complete script variations — each with a full Hook, Body, and CTA section, auto-generated timestamps, Hook Score (1–10), Retention Score (1–10), and word count calibrated to realistic speaking speed. Optional fields (target audience, key message, CTA, keywords) let you personalize scripts further. Copy the full script, hook only, or CTA only with one click. Regenerate for a fresh set of 3 scripts any time.",
+    a: "Yes — the TikTok Script Generator on creatorsToolHub is 100% free with no account, credit card, or subscription required. Enter your video topic and select your niche, tone (Funny, Educational, Bold, Storytelling, Inspirational), and video length (15s, 30s, or 60s), and receive 3 complete script variations — each with a full Hook, Body, and CTA section, auto-generated timestamps, Hook Score (1–10), Retention Score (1–10), and word count calibrated to realistic speaking speed. Optional fields (target audience, key message, CTA, keywords) let you personalize scripts further. Copy the full script, hook only, or CTA only with one click. Regenerate for a fresh set of 3 scripts any time.",
   },
 ];
 

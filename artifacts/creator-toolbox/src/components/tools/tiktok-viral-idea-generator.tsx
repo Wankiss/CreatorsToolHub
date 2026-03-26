@@ -432,7 +432,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Are these TikTok video idea generation tools free?",
-    a: "Yes — the TikTok Viral Idea Generator on Creator Toolbox is 100% free with no account, subscription, or credit card required. You can generate ideas for any niche, with any goal, unlimited times. Each generation produces complete ideas with hooks, content angles, captions, and hashtags — everything you need to go from zero to filming in under 5 minutes.",
+    a: "Yes — the TikTok Viral Idea Generator on creatorsToolHub is 100% free with no account, subscription, or credit card required. You can generate ideas for any niche, with any goal, unlimited times. Each generation produces complete ideas with hooks, content angles, captions, and hashtags — everything you need to go from zero to filming in under 5 minutes.",
   },
 ];
 

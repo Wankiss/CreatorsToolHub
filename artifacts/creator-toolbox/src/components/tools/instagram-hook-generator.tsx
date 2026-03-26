@@ -357,7 +357,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is this Instagram hook generator free?",
-    a: "Yes — the Instagram Hook Generator on Creator Toolbox is completely free with no account, subscription, or credit card required. Enter your Reel topic, select your niche, goal, and tone, and instantly receive up to 20 scored hooks across all 10 proven formats — each with a Scroll-Stopping Score, on-screen text overlay version, one-click Scroll Stopper enhancement, and camera delivery tips. Your top 5 hooks are automatically highlighted for fast A/B testing. Generate as many hook sets as you need for any topic or niche, with no usage limits.",
+    a: "Yes — the Instagram Hook Generator on creatorsToolHub is completely free with no account, subscription, or credit card required. Enter your Reel topic, select your niche, goal, and tone, and instantly receive up to 20 scored hooks across all 10 proven formats — each with a Scroll-Stopping Score, on-screen text overlay version, one-click Scroll Stopper enhancement, and camera delivery tips. Your top 5 hooks are automatically highlighted for fast A/B testing. Generate as many hook sets as you need for any topic or niche, with no usage limits.",
   },
 ];
 

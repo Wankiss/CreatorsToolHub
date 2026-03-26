@@ -40,7 +40,7 @@ const FAQS = [
   },
   {
     q: "How does the AI Prompt Generator work?",
-    a: "The AI Prompt Generator on Creator Toolbox lets you select your use case (content creation, email writing, social media, SEO, scripts, business, research, and more), describe what you want to create, specify your target audience, choose your desired tone, and set the output format. The generator then builds a structured, role-based prompt using proven prompt engineering principles — including a system role for the AI, clear context about the task, specific constraints on length and format, audience definition, tone guidance, and example anchors. The result is a ready-to-use prompt that you can copy and paste directly into ChatGPT, Claude, Gemini, or any other AI tool and receive a high-quality output immediately without prompt iteration.",
+    a: "The AI Prompt Generator on creatorsToolHub lets you select your use case (content creation, email writing, social media, SEO, scripts, business, research, and more), describe what you want to create, specify your target audience, choose your desired tone, and set the output format. The generator then builds a structured, role-based prompt using proven prompt engineering principles — including a system role for the AI, clear context about the task, specific constraints on length and format, audience definition, tone guidance, and example anchors. The result is a ready-to-use prompt that you can copy and paste directly into ChatGPT, Claude, Gemini, or any other AI tool and receive a high-quality output immediately without prompt iteration.",
   },
   {
     q: "How does the Midjourney Prompt Generator work?",
@@ -60,7 +60,7 @@ const FAQS = [
   },
   {
     q: "Is prompt engineering a real skill and is it worth learning?",
-    a: "Prompt engineering is one of the most practical and immediately applicable skills for creators and professionals in 2025. The difference between a beginner and an expert at using AI tools is almost entirely a function of how well they can communicate with the model — and prompt engineering is that communication skill. Studies and practitioner reports consistently show that well-engineered prompts produce outputs that require 70–80% less editing than basic prompts for the same task. For content creators, this translates directly into production speed: a creator with strong prompting skills can produce a week's worth of content drafts in the time an unpracticed creator spends editing a single AI output. The AI Prompt Generator on Creator Toolbox teaches prompting patterns through the outputs it generates — each prompt is an example of professional prompt structure.",
+    a: "Prompt engineering is one of the most practical and immediately applicable skills for creators and professionals in 2025. The difference between a beginner and an expert at using AI tools is almost entirely a function of how well they can communicate with the model — and prompt engineering is that communication skill. Studies and practitioner reports consistently show that well-engineered prompts produce outputs that require 70–80% less editing than basic prompts for the same task. For content creators, this translates directly into production speed: a creator with strong prompting skills can produce a week's worth of content drafts in the time an unpracticed creator spends editing a single AI output. The AI Prompt Generator on creatorsToolHub teaches prompting patterns through the outputs it generates — each prompt is an example of professional prompt structure.",
   },
   {
     q: "What is the best AI tool for content creators in 2025?",
@@ -68,7 +68,7 @@ const FAQS = [
   },
   {
     q: "Are these AI creator tools free to use?",
-    a: "Yes — the AI Prompt Generator and Midjourney Prompt Generator on Creator Toolbox are completely free with no account required, no subscription, and no usage limits. Generate as many prompts as you need for any content type, platform, or use case. The generated prompts are designed to work with both free and paid versions of AI tools — ChatGPT Free (GPT-4o mini), Claude Free, and Gemini Free all accept these prompts and produce high-quality outputs. For Midjourney, a paid subscription is required to use the image generation platform itself, but the prompt generator here is free and the prompts work immediately in Midjourney's Discord bot or web interface.",
+    a: "Yes — the AI Prompt Generator and Midjourney Prompt Generator on creatorsToolHub are completely free with no account required, no subscription, and no usage limits. Generate as many prompts as you need for any content type, platform, or use case. The generated prompts are designed to work with both free and paid versions of AI tools — ChatGPT Free (GPT-4o mini), Claude Free, and Gemini Free all accept these prompts and produce high-quality outputs. For Midjourney, a paid subscription is required to use the image generation platform itself, but the prompt generator here is free and the prompts work immediately in Midjourney's Discord bot or web interface.",
   },
 ];
 

@@ -433,7 +433,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is this Instagram Reel Idea Generator free to use?",
-    a: "Yes — the Instagram Reel Idea Generator on Creator Toolbox is completely free with no account, subscription, or credit card required. Select your niche, describe your target audience, choose your content pillars, primary goal, content style, experience level, and tone. The tool generates 12 unique Reel ideas immediately, each with a Title, Content Angle, Scroll-Stopping Hook, Format type (Talking Head, B-Roll, POV, Tutorial, Before/After, Storytime, Myth-Busting, Mistake Callout, or List), Target Audience, Goal (Reach, Saves, Engagement, or Sales), and a practical Filming Tip so you know exactly how to execute each idea. Use the filter tabs to view ideas grouped by format type for batch filming efficiency. Regenerate to get a fresh set of 12 ideas on demand.",
+    a: "Yes — the Instagram Reel Idea Generator on creatorsToolHub is completely free with no account, subscription, or credit card required. Select your niche, describe your target audience, choose your content pillars, primary goal, content style, experience level, and tone. The tool generates 12 unique Reel ideas immediately, each with a Title, Content Angle, Scroll-Stopping Hook, Format type (Talking Head, B-Roll, POV, Tutorial, Before/After, Storytime, Myth-Busting, Mistake Callout, or List), Target Audience, Goal (Reach, Saves, Engagement, or Sales), and a practical Filming Tip so you know exactly how to execute each idea. Use the filter tabs to view ideas grouped by format type for batch filming efficiency. Regenerate to get a fresh set of 12 ideas on demand.",
   },
 ];
 

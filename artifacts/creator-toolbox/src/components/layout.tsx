@@ -1,8 +1,33 @@
 import { ReactNode, useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Search, Sparkles, Youtube, Instagram, Type, Image as ImageIcon, Code, TrendingUp } from "lucide-react";
+import { Menu, X, Search, Youtube, Instagram, Code, TrendingUp, Zap, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+
+function BrandLogo({ size = 20, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-label="creatorsToolHub logo"
+    >
+      <rect width="32" height="32" rx="8" fill="currentColor" fillOpacity="0.12" />
+      <path
+        d="M16 5L19.5 12.2L27.5 13.4L21.75 19L23.2 27L16 23.2L8.8 27L10.25 19L4.5 13.4L12.5 12.2L16 5Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+      <circle cx="16" cy="16" r="4" fill="white" fillOpacity="0.9" />
+      <circle cx="16" cy="16" r="2" fill="currentColor" />
+    </svg>
+  );
+}
 
 export function Layout({ children }: { children: ReactNode }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,11 +56,11 @@ export function Layout({ children }: { children: ReactNode }) {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center gap-2">
-              <Link href="/" className="flex items-center gap-2 group">
-                <div className="bg-primary/10 p-2 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                  <Sparkles className="w-5 h-5" />
+              <Link href="/" className="flex items-center gap-2.5 group">
+                <div className="text-primary group-hover:scale-110 transition-transform duration-300">
+                  <BrandLogo size={32} />
                 </div>
-                <span className="font-display font-bold text-xl tracking-tight">Creator<span className="text-primary">Toolbox</span></span>
+                <span className="font-display font-bold text-xl tracking-tight">creators<span className="text-primary">ToolHub</span></span>
               </Link>
             </div>
 
@@ -106,14 +131,14 @@ export function Layout({ children }: { children: ReactNode }) {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="space-y-4">
-              <Link href="/" className="flex items-center gap-2">
-                <div className="bg-primary p-2 rounded-lg text-white">
-                  <Sparkles className="w-5 h-5" />
+              <Link href="/" className="flex items-center gap-2.5">
+                <div className="text-primary">
+                  <BrandLogo size={28} />
                 </div>
-                <span className="font-display font-bold text-xl text-white tracking-tight">CreatorToolbox</span>
+                <span className="font-display font-bold text-xl text-white tracking-tight">creators<span className="text-primary">ToolHub</span></span>
               </Link>
               <p className="text-muted-foreground/80 text-sm leading-relaxed max-w-xs">
-                The ultimate collection of free tools for content creators, YouTubers, and influencers to grow their audience.
+                The ultimate hub of free AI-powered tools for content creators, YouTubers, TikTokers, and influencers. Grow your audience at creatorstoolhub.com.
               </p>
             </div>
             
@@ -123,34 +148,36 @@ export function Layout({ children }: { children: ReactNode }) {
                 <li><Link href="/category/youtube" className="hover:text-white transition-colors flex items-center gap-2"><Youtube className="w-4 h-4"/> YouTube Tools</Link></li>
                 <li><Link href="/category/tiktok" className="hover:text-white transition-colors flex items-center gap-2"><TrendingUp className="w-4 h-4"/> TikTok Tools</Link></li>
                 <li><Link href="/category/instagram" className="hover:text-white transition-colors flex items-center gap-2"><Instagram className="w-4 h-4"/> Instagram Tools</Link></li>
-                <li><Link href="/category/ai" className="hover:text-white transition-colors flex items-center gap-2"><Code className="w-4 h-4"/> AI Creator</Link></li>
+                <li><Link href="/category/ai" className="hover:text-white transition-colors flex items-center gap-2"><Zap className="w-4 h-4"/> AI Creator Tools</Link></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-bold mb-6 text-white tracking-wide">Other Tools</h4>
+              <h4 className="font-bold mb-6 text-white tracking-wide">Popular Tools</h4>
               <ul className="space-y-3 text-sm text-muted-foreground/80">
-                <li><Link href="/category/image" className="hover:text-white transition-colors flex items-center gap-2"><ImageIcon className="w-4 h-4"/> Image Resizer</Link></li>
-                <li><Link href="/category/text" className="hover:text-white transition-colors flex items-center gap-2"><Type className="w-4 h-4"/> Text Formatters</Link></li>
-                <li><Link href="/blog" className="hover:text-white transition-colors">Creator Blog</Link></li>
+                <li><Link href="/tools/youtube-title-generator" className="hover:text-white transition-colors">YouTube Title Generator</Link></li>
+                <li><Link href="/tools/tiktok-viral-idea-generator" className="hover:text-white transition-colors">TikTok Viral Ideas</Link></li>
+                <li><Link href="/tools/ai-prompt-generator" className="hover:text-white transition-colors">AI Prompt Generator</Link></li>
+                <li><Link href="/tools/midjourney-prompt-generator" className="hover:text-white transition-colors">Midjourney Prompts</Link></li>
+                <li><Link href="/blog" className="hover:text-white transition-colors flex items-center gap-2"><BookOpen className="w-4 h-4"/> Creator Blog</Link></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-bold mb-6 text-white tracking-wide">Legal</h4>
+              <h4 className="font-bold mb-6 text-white tracking-wide">Company</h4>
               <ul className="space-y-3 text-sm text-muted-foreground/80">
                 <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
                 <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
                 <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
                 <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-                <li><Link href="/admin" className="hover:text-white transition-colors">Admin Dashboard</Link></li>
+                <li><Link href="/admin" className="hover:text-white transition-colors">Admin</Link></li>
               </ul>
             </div>
           </div>
           
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground/60 text-sm">
-              © {new Date().getFullYear()} Creator Toolbox. All rights reserved.
+              © {new Date().getFullYear()} creatorsToolHub — creatorstoolhub.com. All rights reserved.
             </p>
             {/* Footer Ad Slot */}
             <div className="w-full md:w-auto overflow-hidden rounded-lg">

@@ -31,6 +31,7 @@ import { InstagramHashtagGeneratorTool } from "./instagram-hashtag-generator";
 import { InstagramContentPlannerTool } from "./instagram-content-planner";
 import { InstagramReelIdeaGeneratorTool } from "./instagram-reel-idea-generator";
 import { AiPromptGeneratorTool } from "./ai-prompt-generator";
+import { MidjourneyPromptGeneratorTool } from "./midjourney-prompt-generator";
 
 export interface ToolRegistryEntry {
   component: React.ComponentType;
@@ -176,6 +177,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   },
   "ai-prompt-generator": {
     component: AiPromptGeneratorTool,
+    ownsSeoContent: true,
+  },
+  "midjourney-prompt-generator": {
+    component: MidjourneyPromptGeneratorTool,
     ownsSeoContent: true,
   },
 };

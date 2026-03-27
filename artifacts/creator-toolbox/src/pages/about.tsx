@@ -171,8 +171,47 @@ export default function About() {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* Founder */}
         <section className="py-20">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">The Person Behind creatorsToolHub</h2>
+              <p className="text-muted-foreground text-lg">Built by a creator, for creators.</p>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-card rounded-3xl border border-border/50 p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start"
+            >
+              <div className="flex-shrink-0 flex flex-col items-center gap-3">
+                <img
+                  src="/immanuels-avatar.png"
+                  alt="Immanuels — Founder of creatorsToolHub"
+                  className="w-28 h-28 rounded-full object-cover border-4 border-primary/20"
+                />
+                <div className="text-center">
+                  <p className="font-display font-bold text-foreground text-lg">Immanuels</p>
+                  <p className="text-xs text-muted-foreground font-medium">Founder, creatorsToolHub</p>
+                </div>
+              </div>
+              <div>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Hi — I'm Immanuels, a content creator strategist and digital growth enthusiast. I've spent years studying the YouTube algorithm, TikTok's For You page, and Instagram's Reels distribution system — experimenting with what actually grows channels versus what creators think grows channels.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  I built creatorsToolHub because I was frustrated. Every tool that actually helped — scriptwriters, title optimisers, hashtag generators — was locked behind a subscription that most beginner creators simply can't afford. I knew the AI to build these tools existed. So I built them, made them free, and put them all in one place.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Every tool on this platform is something I personally use or wish I'd had when I was starting out. The blog is where I share everything I've tested and learned — no fluff, no generic advice. Just honest strategy from someone who's been in the trenches.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-20 bg-muted/30 border-t border-border">
           <div className="container mx-auto px-4 max-w-2xl text-center">
             <h2 className="text-3xl font-display font-bold mb-5">Ready to create better content — for free?</h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">

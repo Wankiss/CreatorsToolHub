@@ -166,13 +166,6 @@ export function Layout({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col font-sans selection:bg-primary/20">
-      {/* Header Ad Slot */}
-      <div className="w-full bg-muted/30 py-4 border-b border-border hidden md:block">
-        <div className="container mx-auto px-4 max-w-7xl flex justify-center">
-          <div className="adsense-placeholder w-[728px] h-[90px]" />
-        </div>
-      </div>
-
       <header className="sticky top-0 z-50 w-full glass-effect border-b border-border/40">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex items-center justify-between h-16">
@@ -335,10 +328,6 @@ export function Layout({ children }: { children: ReactNode }) {
             <p className="text-muted-foreground/60 text-sm">
               © {new Date().getFullYear()} creatorsToolHub — creatorstoolhub.com. All rights reserved.
             </p>
-            {/* Footer Ad Slot */}
-            <div className="w-full md:w-auto overflow-hidden rounded-lg">
-               <div className="adsense-placeholder w-[320px] h-[50px] md:w-[728px] md:h-[90px] border-white/10 text-white/30" />
-            </div>
           </div>
         </div>
       </footer>

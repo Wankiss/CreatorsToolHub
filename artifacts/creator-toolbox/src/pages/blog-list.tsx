@@ -127,19 +127,29 @@ export default function BlogList() {
                         </span>
                       </div>
                     </div>
-                    {/* Decorative side panel */}
-                    <div className="w-full lg:w-72 bg-gradient-to-br from-primary/10 via-primary/5 to-background flex items-center justify-center p-10 text-center border-t lg:border-t-0 lg:border-l border-border/30">
-                      <div>
-                        <div className="text-6xl mb-3">
-                          {featured.tags.includes("YouTube Growth") ? "▶️" :
-                           featured.tags.includes("TikTok Growth") ? "🎵" :
-                           featured.tags.includes("Instagram Growth") ? "📸" :
-                           featured.tags.includes("AI Tools") ? "🤖" : "✍️"}
-                        </div>
-                        <div className="text-sm font-semibold text-muted-foreground">{featured.tags[0]}</div>
-                        <div className="mt-3 text-xs text-muted-foreground/70">{featured.readingTime} min read</div>
+                    {/* Cover image or decorative fallback */}
+                    {featured.coverImage ? (
+                      <div className="w-full lg:w-72 flex-shrink-0 overflow-hidden border-t lg:border-t-0 lg:border-l border-border/30">
+                        <img
+                          src={featured.coverImage}
+                          alt={featured.title}
+                          className="w-full h-52 lg:h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
                       </div>
-                    </div>
+                    ) : (
+                      <div className="w-full lg:w-72 bg-gradient-to-br from-primary/10 via-primary/5 to-background flex items-center justify-center p-10 text-center border-t lg:border-t-0 lg:border-l border-border/30">
+                        <div>
+                          <div className="text-6xl mb-3">
+                            {featured.tags.includes("YouTube Growth") ? "▶️" :
+                             featured.tags.includes("TikTok Growth") ? "🎵" :
+                             featured.tags.includes("Instagram Growth") ? "📸" :
+                             featured.tags.includes("AI Tools") ? "🤖" : "✍️"}
+                          </div>
+                          <div className="text-sm font-semibold text-muted-foreground">{featured.tags[0]}</div>
+                          <div className="mt-3 text-xs text-muted-foreground/70">{featured.readingTime} min read</div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </Card>
               </Link>
@@ -151,22 +161,33 @@ export default function BlogList() {
                 {rest.map(post => (
                   <Link key={post.id} href={`/blog/${post.slug}`}>
                     <Card className="h-full flex flex-col group cursor-pointer overflow-hidden border-border/50 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 rounded-2xl bg-card">
-                      <div className="p-6 flex flex-col h-full">
-                        {/* Category emoji accent */}
-                        <div className="flex items-start justify-between mb-4">
-                          <div className="flex flex-wrap gap-1.5">
-                            {post.tags.slice(0, 2).map(tag => (
-                              <span key={tag} className="text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-0.5 rounded-md">
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                          <span className="text-xl flex-shrink-0 ml-2">
+                      {/* Cover image or emoji accent */}
+                      {post.coverImage ? (
+                        <div className="overflow-hidden h-44 flex-shrink-0">
+                          <img
+                            src={post.coverImage}
+                            alt={post.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                      ) : (
+                        <div className="h-24 bg-gradient-to-br from-primary/10 via-primary/5 to-background flex items-center justify-center flex-shrink-0">
+                          <span className="text-4xl">
                             {post.tags.includes("YouTube Growth") ? "▶️" :
                              post.tags.includes("TikTok Growth") ? "🎵" :
                              post.tags.includes("Instagram Growth") ? "📸" :
                              post.tags.includes("AI Tools") ? "🤖" : "✍️"}
                           </span>
+                        </div>
+                      )}
+                      <div className="p-6 flex flex-col h-full">
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-1.5 mb-4">
+                          {post.tags.slice(0, 2).map(tag => (
+                            <span key={tag} className="text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-0.5 rounded-md">
+                              {tag}
+                            </span>
+                          ))}
                         </div>
 
                         <h2 className="text-xl font-bold font-display text-foreground group-hover:text-primary transition-colors mb-3 leading-snug line-clamp-2">

@@ -20,8 +20,60 @@ import { BarChart3, Wrench, FileText, Trash2, Edit, Plus, FolderOpen, Eye, EyeOf
 import { useQueryClient, useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 
+const ADMIN_PASSWORD = "ctHub2026!";
+
+function AdminGate({ children }: { children: React.ReactNode }) {
+  const [authenticated, setAuthenticated] = useState<boolean>(() => {
+    try { return sessionStorage.getItem("ctadmin") === "1"; } catch { return false; }
+  });
+  const [pw, setPw] = useState("");
+  const [error, setError] = useState(false);
+
+  if (authenticated) return <>{children}</>;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (pw === ADMIN_PASSWORD) {
+      try { sessionStorage.setItem("ctadmin", "1"); } catch {}
+      setAuthenticated(true);
+    } else {
+      setError(true);
+      setPw("");
+    }
+  };
+
+  return (
+    <Layout>
+      <div className="min-h-[70vh] flex items-center justify-center px-4">
+        <div className="w-full max-w-sm">
+          <div className="text-center mb-8">
+            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <Eye className="w-6 h-6 text-primary" />
+            </div>
+            <h1 className="text-2xl font-display font-bold text-foreground">Admin Access</h1>
+            <p className="text-muted-foreground text-sm mt-2">Enter the admin password to continue.</p>
+          </div>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <Input
+              type="password"
+              placeholder="Password"
+              value={pw}
+              autoFocus
+              onChange={e => { setPw(e.target.value); setError(false); }}
+              className={error ? "border-destructive" : ""}
+            />
+            {error && <p className="text-destructive text-sm text-center">Incorrect password.</p>}
+            <Button type="submit" className="w-full">Sign In</Button>
+          </form>
+        </div>
+      </div>
+    </Layout>
+  );
+}
+
 export default function AdminDashboard() {
   return (
+    <AdminGate>
     <Layout>
       <div className="container mx-auto px-4 py-12 max-w-7xl">
         <div className="mb-10">
@@ -50,6 +102,7 @@ export default function AdminDashboard() {
         </Tabs>
       </div>
     </Layout>
+    </AdminGate>
   );
 }
 

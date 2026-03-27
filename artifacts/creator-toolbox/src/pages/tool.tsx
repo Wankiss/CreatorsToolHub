@@ -241,9 +241,6 @@ export default function ToolPage() {
               )}
             </section>
 
-            {/* In-article AdSense Placeholder */}
-            <div className="adsense-placeholder w-full h-[280px]" />
-
             {/* SEO Content Sections — skipped when the custom component owns its own content */}
             {!customOwnsSeoContent && (
               <div className="prose prose-gray dark:prose-invert max-w-none prose-headings:font-display prose-h2:text-2xl prose-h3:text-xl">
@@ -279,9 +276,6 @@ export default function ToolPage() {
           <aside className="w-full lg:w-[336px] flex-shrink-0 space-y-8">
             <div className="sticky top-24 space-y-8">
 
-              {/* Sidebar AdSense Placeholder */}
-              <div className="adsense-placeholder w-[300px] h-[250px] mx-auto lg:mx-0" />
-
               {tool.relatedTools && tool.relatedTools.length > 0 && (
                 <div className="bg-muted/30 rounded-3xl p-6 border border-border">
                   <h3 className="font-bold font-display text-lg mb-4 flex items-center gap-2">
@@ -307,8 +301,6 @@ export default function ToolPage() {
                 </div>
               )}
 
-              {/* Bottom Sidebar AdSense */}
-              <div className="adsense-placeholder w-[300px] h-[600px] mx-auto lg:mx-0 hidden lg:flex" />
 
             </div>
           </aside>

@@ -394,11 +394,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── AD SLOT ──────────────────────────────────────────── */}
-      <div className="container mx-auto px-4 max-w-7xl py-10 flex justify-center">
-        <div className="adsense-placeholder w-[728px] h-[90px]" />
-      </div>
-
       {/* ── BENEFITS SECTION ─────────────────────────────────── */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 max-w-5xl">

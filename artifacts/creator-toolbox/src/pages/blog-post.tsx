@@ -97,6 +97,19 @@ export default function BlogPost() {
           </div>
         </header>
 
+        {/* Cover Image */}
+        {post.coverImage && (
+          <div className="container mx-auto px-4 max-w-4xl -mt-2 pb-4">
+            <div className="rounded-2xl overflow-hidden shadow-xl border border-border/30">
+              <img
+                src={post.coverImage}
+                alt={post.title}
+                className="w-full h-64 sm:h-80 md:h-96 object-cover"
+              />
+            </div>
+          </div>
+        )}
+
         {/* Content Layout */}
         <div className="container mx-auto px-4 max-w-7xl py-12">
           <div className="flex flex-col lg:flex-row gap-14">
@@ -107,9 +120,6 @@ export default function BlogPost() {
               <div className="text-xl text-muted-foreground leading-relaxed mb-8 pl-6 border-l-4 border-primary italic">
                 {post.excerpt}
               </div>
-
-              {/* AdSense placeholder — top of article */}
-              <div className="adsense-placeholder w-full h-[90px] my-8 rounded-xl" aria-label="Advertisement" />
 
               {/* Article body */}
               <div
@@ -124,9 +134,6 @@ export default function BlogPost() {
                   prose-ul:my-4 prose-ol:my-4"
                 dangerouslySetInnerHTML={{ __html: post.content }}
               />
-
-              {/* AdSense placeholder — mid article */}
-              <div className="adsense-placeholder w-full h-[250px] my-12 rounded-xl" aria-label="Advertisement" />
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-10 pt-8 border-t border-border">
@@ -160,6 +167,22 @@ export default function BlogPost() {
                   >
                     <Share2 className="w-3.5 h-3.5" /> Copy Link
                   </button>
+                </div>
+              </div>
+
+              {/* Author Bio */}
+              <div className="mt-10 bg-muted/40 rounded-2xl border border-border/60 p-6 flex gap-5 items-start">
+                <img
+                  src="/immanuels-avatar.png"
+                  alt="Immanuels"
+                  className="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-border"
+                />
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">About the Author</p>
+                  <h3 className="font-display font-bold text-lg text-foreground mb-2">{post.author}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Immanuels is a content creator strategist and digital growth enthusiast with hands-on experience growing YouTube channels, TikTok accounts, and Instagram pages across multiple niches. He founded creatorsToolHub to give every creator — regardless of budget — access to the professional-grade AI tools and strategies that actually move the needle. When he's not building tools, he's studying the algorithm, testing content formats, and sharing everything he learns.
+                  </p>
                 </div>
               </div>
 
@@ -231,8 +254,6 @@ export default function BlogPost() {
                   </Link>
                 </Card>
 
-                {/* AdSense placeholder */}
-                <div className="adsense-placeholder w-[268px] h-[600px] rounded-xl" aria-label="Advertisement" />
               </div>
             </aside>
           </div>

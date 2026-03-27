@@ -459,8 +459,6 @@ export function InstagramCategoryPage({ category }: Props) {
           {/* ─── Sidebar ─── */}
           <aside className="w-full lg:w-[336px] flex-shrink-0 space-y-8">
             <div className="sticky top-24 space-y-8">
-              <div className="adsense-placeholder w-full h-[280px]" />
-
               <div className="bg-card rounded-2xl border border-border p-6 shadow-sm">
                 <h3 className="font-bold text-lg mb-4">Why use these Instagram tools?</h3>
                 <ul className="space-y-3 text-sm text-muted-foreground">
@@ -512,7 +510,6 @@ export function InstagramCategoryPage({ category }: Props) {
                 </nav>
               </div>
 
-              <div className="adsense-placeholder w-full h-[600px]" />
             </div>
           </aside>
         </div>

@@ -8,6 +8,8 @@ import {
   ChevronDown, Search, Zap, BarChart2, ListChecks, Clock, ArrowUpRight,
 } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Tag Generation Engine ────────────────────────────────────────────────────
 
 const STOP_WORDS = new Set([
@@ -28,7 +30,7 @@ const PREFIXES = [
 
 const SUFFIXES = [
   "tutorial", "tips", "guide", "strategy", "explained",
-  "step by step", "for beginners", "2025", "2026",
+  "step by step", "for beginners", String(YEAR), String(YEAR + 1),
   "that works", "fast", "free", "the right way",
 ];
 
@@ -47,7 +49,7 @@ const INTENT_PATTERNS = [
   (kw: string) => `${kw} secrets`,
 ];
 
-const TRENDING_MODS = ["2025", "2026", "latest", "new", "updated", "fast", "free", "best", "pro"];
+const TRENDING_MODS = [String(YEAR - 1), String(YEAR), "latest", "new", "updated", "fast", "free", "best", "pro"];
 
 function extractCoreKeywords(title: string, mainKeyword: string): string[] {
   const combined = `${title} ${mainKeyword}`.toLowerCase();
@@ -337,7 +339,7 @@ export function YouTubeTagGeneratorTool() {
               <Input
                 value={videoTitle}
                 onChange={e => setVideoTitle(e.target.value)}
-                placeholder="e.g. How to Grow on YouTube in 2026"
+                placeholder={`e.g. How to Grow on YouTube in ${YEAR}`}
                 className="h-12 text-base bg-muted/50 border-muted-foreground/20 focus-visible:ring-primary/30 rounded-xl"
                 required
               />

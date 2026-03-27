@@ -3,6 +3,8 @@ import { Link } from "wouter";
 import { ToolCard } from "@/components/tool-card";
 import { ChevronDown } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 interface Tool {
   id: number;
   name: string;
@@ -60,11 +62,11 @@ const FAQS = [
   },
   {
     q: "Is prompt engineering a real skill and is it worth learning?",
-    a: "Prompt engineering is one of the most practical and immediately applicable skills for creators and professionals in 2025. The difference between a beginner and an expert at using AI tools is almost entirely a function of how well they can communicate with the model — and prompt engineering is that communication skill. Studies and practitioner reports consistently show that well-engineered prompts produce outputs that require 70–80% less editing than basic prompts for the same task. For content creators, this translates directly into production speed: a creator with strong prompting skills can produce a week's worth of content drafts in the time an unpracticed creator spends editing a single AI output. The AI Prompt Generator on creatorsToolHub teaches prompting patterns through the outputs it generates — each prompt is an example of professional prompt structure.",
+    a: `Prompt engineering is one of the most practical and immediately applicable skills for creators and professionals in ${YEAR}. The difference between a beginner and an expert at using AI tools is almost entirely a function of how well they can communicate with the model — and prompt engineering is that communication skill. Studies and practitioner reports consistently show that well-engineered prompts produce outputs that require 70–80% less editing than basic prompts for the same task. For content creators, this translates directly into production speed: a creator with strong prompting skills can produce a week's worth of content drafts in the time an unpracticed creator spends editing a single AI output. The AI Prompt Generator on creatorsToolHub teaches prompting patterns through the outputs it generates — each prompt is an example of professional prompt structure.`,
   },
   {
-    q: "What is the best AI tool for content creators in 2025?",
-    a: "The best AI tools for content creators in 2025 depend on the creation stage: For ideation and writing, ChatGPT (GPT-4o), Claude 3.5 Sonnet, and Gemini 1.5 Pro are the top performers for long-form content, scripts, captions, and copywriting. For image generation, Midjourney v6 leads for stylized and artistic outputs; Ideogram is strong for text-in-image; Flux is emerging as a photorealism leader. For video, Runway Gen-3 and Kling handle short-form video generation. For audio and voiceover, ElevenLabs is the industry standard. The AI Prompt Generator works across all language model tools, and the Midjourney Prompt Generator is specifically optimized for Midjourney's syntax — but the principles of good image prompting apply to Flux, Ideogram, and DALL-E as well.",
+    q: `What is the best AI tool for content creators in ${YEAR}?`,
+    a: `The best AI tools for content creators in ${YEAR} depend on the creation stage: For ideation and writing, ChatGPT (GPT-4o), Claude 3.5 Sonnet, and Gemini 1.5 Pro are the top performers for long-form content, scripts, captions, and copywriting. For image generation, Midjourney v6 leads for stylized and artistic outputs; Ideogram is strong for text-in-image; Flux is emerging as a photorealism leader. For video, Runway Gen-3 and Kling handle short-form video generation. For audio and voiceover, ElevenLabs is the industry standard. The AI Prompt Generator works across all language model tools, and the Midjourney Prompt Generator is specifically optimized for Midjourney's syntax — but the principles of good image prompting apply to Flux, Ideogram, and DALL-E as well.`,
   },
   {
     q: "Are these AI creator tools free to use?",
@@ -172,7 +174,7 @@ export function AiCategoryPage({ category }: Props) {
             <article className="mt-20 space-y-10 text-foreground">
               <header>
                 <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
-                  The Best Free AI Tools for Content Creators in 2025
+                  The Best Free AI Tools for Content Creators in {YEAR}
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   AI has fundamentally changed the content creation workflow — but only for creators who know
@@ -264,7 +266,7 @@ export function AiCategoryPage({ category }: Props) {
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Prompt engineering is the practice of crafting inputs that reliably produce the outputs you
                   need from AI systems. For content creators, it's one of the highest-leverage skills available
-                  in 2025 because it affects the output quality of every AI interaction — and creators who
+                  in {YEAR} because it affects the output quality of every AI interaction — and creators who
                   interact with AI tools daily see compounding returns on the time they invest in learning it.
                   The core principle is simple: AI models are pattern-matching systems that perform best when
                   given clear role definition, specific context, unambiguous task description, defined
@@ -296,7 +298,7 @@ export function AiCategoryPage({ category }: Props) {
                   How to Build an AI-Powered Content Workflow for Creators
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  The creators seeing the biggest productivity gains from AI in 2025 aren't using it to
+                  The creators seeing the biggest productivity gains from AI in {YEAR} aren't using it to
                   replace their creative process — they're using it to eliminate the slow, repetitive, or
                   blank-page stages of content production while keeping their authentic voice in the final
                   output. Here is a practical weekly AI content workflow that integrates prompt generation

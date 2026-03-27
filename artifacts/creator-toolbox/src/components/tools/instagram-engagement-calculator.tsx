@@ -9,6 +9,8 @@ import {
   Minus, Users, ToggleLeft, ToggleRight, ArrowUpRight,
 } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Niche =
@@ -262,12 +264,12 @@ const FAQ_ITEMS = [
     a: "Instagram engagement rate is the percentage of followers who actively interact with your content through likes, comments, or saves. The standard formula is: Engagement Rate (%) = (Likes + Comments + Saves) / Followers × 100. However, this tool uses a weighted formula that reflects the actual value each interaction type carries for the Instagram algorithm: Weighted Engagement Rate = (Likes + Comments×2 + Saves×3) / Followers × 100. Comments are weighted 2× because they require significantly more intent than a like. Saves are weighted 3× because they are Instagram's strongest algorithm signal — saves tell Instagram your content is valuable enough for a user to want to reference again, which triggers broader Explore and Reels distribution.",
   },
   {
-    q: "What is a good Instagram engagement rate in 2025?",
+    q: `What is a good Instagram engagement rate in ${YEAR}?`,
     a: "A good Instagram engagement rate varies significantly by account size. For nano accounts (1K–5K followers): under 2% is poor, 3–5% is average, 6–9% is good, and 10%+ is excellent. For micro accounts (5K–20K followers): under 1.5% is poor, 2–4% is average, 5–7% is good, and 8%+ is excellent. For mid-tier accounts (20K–100K followers): under 1% is poor, 1.5–3% is average, 3.5–5% is good, and 6%+ is excellent. For macro accounts (100K+): under 0.8% is poor, 1–2.5% is average, 3–4% is good, and 5%+ is excellent. Always compare your rate against accounts in your specific niche and follower tier — engagement benchmarks drop naturally as audience size grows.",
   },
   {
     q: "Why do saves matter more than likes for Instagram engagement?",
-    a: "Saves are Instagram's strongest engagement signal because they represent the highest level of user intent. When a user saves your post, they are telling Instagram they found it valuable enough to retrieve later — a much more deliberate action than a passive like or scroll-past. Instagram's algorithm uses saves as a primary quality signal for Explore page distribution and Reels reach. In 2025, posts with high save rates are distributed to 2–5× more non-followers than posts with equivalent likes but few saves. Strategically, carousel posts with educational or actionable content — step-by-step guides, lists, how-to tutorials — generate the highest save rates of any Instagram format.",
+    a: `Saves are Instagram's strongest engagement signal because they represent the highest level of user intent. When a user saves your post, they are telling Instagram they found it valuable enough to retrieve later — a much more deliberate action than a passive like or scroll-past. Instagram's algorithm uses saves as a primary quality signal for Explore page distribution and Reels reach. In ${YEAR}, posts with high save rates are distributed to 2–5× more non-followers than posts with equivalent likes but few saves. Strategically, carousel posts with educational or actionable content — step-by-step guides, lists, how-to tutorials — generate the highest save rates of any Instagram format.`,
   },
   {
     q: "How does engagement rate affect Instagram brand deal rates?",

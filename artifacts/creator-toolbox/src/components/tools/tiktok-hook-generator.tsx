@@ -8,6 +8,8 @@ import {
   ListChecks, Search, Copy, Check, Star, RefreshCw, Eye, Mic, ArrowUpRight,
 } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Niche = "fitness" | "business" | "tech" | "lifestyle" | "beauty" | "food" | "travel" | "gaming" | "education" | "finance" | "relationships" | "entertainment";
@@ -49,7 +51,7 @@ const HOOK_TEMPLATES: Record<HookType, (topic: string, niche: Niche, tone: Tone)
     `The ${topic} advice you've been following is outdated.`,
     `Most ${niche} content about ${topic} is lying to you.`,
     `I went from zero to results with this one ${topic} trick.`,
-    `This is the only ${topic} method that actually works in 2026.`,
+    `This is the only ${topic} method that actually works in ${YEAR}.`,
     `${topic.charAt(0).toUpperCase() + topic.slice(1)} is easier than you think — here's proof.`,
     `I tested every ${topic} strategy so you don't have to.`,
   ],

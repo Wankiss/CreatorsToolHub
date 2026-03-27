@@ -9,6 +9,8 @@ import {
   Link as LinkIcon, Calculator, ArrowUpRight,
 } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Niche =
@@ -301,7 +303,7 @@ function calcEarnings(
 
 const FAQ_ITEMS = [
   {
-    q: "How do Instagram creators make money in 2025?",
+    q: `How do Instagram creators make money in ${YEAR}?`,
     a: "Instagram creators earn through four primary revenue streams: (1) Brand Sponsorships — companies pay creators to feature their products in Reels, carousels, or Stories; this represents 60–80% of total income for most established creators; (2) Affiliate Marketing — creators earn a commission (typically 5–30%) on sales generated through unique tracking links in their bio, Stories, or Reels descriptions; (3) Instagram Subscriptions — creators charge followers a monthly fee ($2.99–$9.99) for exclusive content, subscriber-only Stories, and direct access; (4) Digital or Physical Product Sales — creators sell e-books, presets, courses, merchandise, or coaching directly to their audience. The most successful creators combine all four streams to reduce dependence on any single platform or brand.",
   },
   {
@@ -314,11 +316,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "What is the best niche for making money on Instagram?",
-    a: "The highest-earning niches on Instagram in 2025 are: (1) Finance and Business — highest CPMs ($15–$25), premium brand deals, high-intent affiliate audiences; (2) Tech / AI — strong brand demand from SaaS and software companies, highly engaged early-adopter audience; (3) Education — high content value signals to the algorithm, strong course and coaching monetization; (4) Fitness — supplement, apparel, and health product deals are abundant, strong affiliate product ecosystem; (5) Beauty — large brand budget, reliable affiliate commissions, strong subscription potential. The common thread in high-earning niches is an audience with purchasing intent and disposable income — creators who serve professionals, investors, or health-conscious buyers earn significantly more per follower than broad entertainment creators.",
+    a: `The highest-earning niches on Instagram in ${YEAR} are: (1) Finance and Business — highest CPMs ($15–$25), premium brand deals, high-intent affiliate audiences; (2) Tech / AI — strong brand demand from SaaS and software companies, highly engaged early-adopter audience; (3) Education — high content value signals to the algorithm, strong course and coaching monetization; (4) Fitness — supplement, apparel, and health product deals are abundant, strong affiliate product ecosystem; (5) Beauty — large brand budget, reliable affiliate commissions, strong subscription potential. The common thread in high-earning niches is an audience with purchasing intent and disposable income — creators who serve professionals, investors, or health-conscious buyers earn significantly more per follower than broad entertainment creators.`,
   },
   {
     q: "How much do Instagram brand deals pay?",
-    a: "Instagram brand deal rates in 2025 follow this general structure: Nano-influencers (1K–10K followers) — $50–$500 per Reel or carousel post, often paid in product; Micro-influencers (10K–100K) — $300–$3,000 per post, sometimes including Stories packages; Mid-tier (100K–500K) — $1,500–$10,000 per post with multi-deliverable packages; Macro (500K–1M) — $5,000–$25,000 per post; Celebrity tier (1M+) — $25,000–$500,000+ per post. Engagement rate significantly adjusts these rates — brands calculate cost-per-engagement, not just follower count. A micro-influencer with 6% engagement can earn 2–3× more per post than one with the same following at 1% engagement. Niche also matters enormously: finance creators earn 60–80% more per sponsored post than lifestyle creators with identical audiences.",
+    a: `Instagram brand deal rates in ${YEAR} follow this general structure: Nano-influencers (1K–10K followers) — $50–$500 per Reel or carousel post, often paid in product; Micro-influencers (10K–100K) — $300–$3,000 per post, sometimes including Stories packages; Mid-tier (100K–500K) — $1,500–$10,000 per post with multi-deliverable packages; Macro (500K–1M) — $5,000–$25,000 per post; Celebrity tier (1M+) — $25,000–$500,000+ per post. Engagement rate significantly adjusts these rates — brands calculate cost-per-engagement, not just follower count. A micro-influencer with 6% engagement can earn 2–3× more per post than one with the same following at 1% engagement. Niche also matters enormously: finance creators earn 60–80% more per sponsored post than lifestyle creators with identical audiences.`,
   },
   {
     q: "How do Instagram Subscriptions work for creators?",
@@ -326,7 +328,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What is engagement rate and why does it matter for Instagram income?",
-    a: "Engagement rate on Instagram is calculated as: (Likes + Comments + Saves + Shares) ÷ Reach × 100. A good engagement rate varies by account size: under 10K followers — 5–8% is healthy; 10K–100K — 3–6% is solid; 100K+ — 2–4% is good for larger accounts. Engagement rate directly impacts income in three ways: (1) Brand deal rates — brands calculate value using engagement, not just follower count; a 6% engagement rate can double your sponsorship fee; (2) Affiliate conversions — engaged followers click links and buy; (3) Instagram's Reels algorithm — higher engagement triggers broader distribution, increasing your organic reach to potential new followers and brand partners. Saves are weighted particularly heavily by Instagram's algorithm in 2025.",
+    a: "Engagement rate on Instagram is calculated as: (Likes + Comments + Saves + Shares) ÷ Reach × 100. A good engagement rate varies by account size: under 10K followers — 5–8% is healthy; 10K–100K — 3–6% is solid; 100K+ — 2–4% is good for larger accounts. Engagement rate directly impacts income in three ways: (1) Brand deal rates — brands calculate value using engagement, not just follower count; a 6% engagement rate can double your sponsorship fee; (2) Affiliate conversions — engaged followers click links and buy; (3) Instagram's Reels algorithm — higher engagement triggers broader distribution, increasing your organic reach to potential new followers and brand partners. Saves are weighted particularly heavily by Instagram's algorithm in ${YEAR}.`,
   },
   {
     q: "How much can Instagram affiliate marketing earn?",
@@ -986,7 +988,7 @@ export function InstagramMoneyCalculatorTool() {
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
               <Search className="w-4 h-4 text-primary flex-shrink-0" />
-              How Instagram Creators Actually Get Paid in 2025
+              How Instagram Creators Actually Get Paid in {YEAR}
             </h3>
             <p className="mb-3">
               Unlike YouTube, Instagram does not have a standard partner program that pays per view.

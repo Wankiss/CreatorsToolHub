@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 const POWER_WORDS = [
@@ -317,7 +319,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Should I include the current year in my YouTube title?",
-    a: "Including the current year (e.g., '2026') in your title is beneficial for time-sensitive topics where viewers care about recency — tutorials, rankings, tool comparisons, financial advice, and trend-based content. The year signals freshness, which both viewers and YouTube's algorithm reward: viewers in search results actively filter for recent content, and YouTube surfaces fresh videos for queries where recency matters. However, the year is a disadvantage for evergreen topics because it dates your content — a '2026 Guide' becomes less clickable in 2027. Our analyzer rewards year inclusion for niche-appropriate content. As a rule: use the year for fast-moving topics, omit it for timeless instructional content.",
+    a: `Including the current year (e.g., '${YEAR}') in your title is beneficial for time-sensitive topics where viewers care about recency — tutorials, rankings, tool comparisons, financial advice, and trend-based content. The year signals freshness, which both viewers and YouTube's algorithm reward: viewers in search results actively filter for recent content, and YouTube surfaces fresh videos for queries where recency matters. However, the year is a disadvantage for evergreen topics because it dates your content — a '${YEAR} Guide' becomes less clickable in ${YEAR + 1}. Our analyzer rewards year inclusion for niche-appropriate content. As a rule: use the year for fast-moving topics, omit it for timeless instructional content.`,
   },
   {
     q: "What is the difference between SEO score and CTR score in the title analyzer?",
@@ -445,7 +447,7 @@ const TEMPLATES = [
   { label: "Mistake Avoidance", pattern: "X Mistakes to Avoid in [Topic]", example: "7 YouTube Mistakes to Avoid as a Beginner" },
   { label: "Truth Reveal", pattern: "The Truth About [Topic] Nobody Tells You", example: "The Truth About YouTube Growth Nobody Tells You" },
   { label: "Before vs After", pattern: "Why [Common Belief] Is Wrong (And What to Do Instead)", example: "Why Posting Daily Is Wrong (And What to Do Instead)" },
-  { label: "Number + Result", pattern: "X [Niche] [Tips/Strategies/Hacks] That Actually Work in [Year]", example: "9 YouTube SEO Strategies That Actually Work in 2026" },
+  { label: "Number + Result", pattern: "X [Niche] [Tips/Strategies/Hacks] That Actually Work in [Year]", example: `9 YouTube SEO Strategies That Actually Work in ${YEAR}` },
   { label: "Reaction/Expose", pattern: "I Tried [Thing] for [Time] — Here's What Happened", example: "I Tried Posting on YouTube Every Day for 30 Days" },
   { label: "Challenge Format", pattern: "Can [Beginner/Anyone] [Achieve Big Goal] in [Time]?", example: "Can a Complete Beginner Hit 1K Subs in 90 Days?" },
   { label: "Secret Reveal", pattern: "The [Adjective] [Niche] Secret [Authority Figure] Won't Tell You", example: "The #1 YouTube Growth Secret Gurus Won't Tell You" },

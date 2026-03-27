@@ -8,6 +8,8 @@ import {
   TrendingUp, Zap, Shield, ListChecks, Search, Target, BarChart2, ArrowUpRight,
 } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Niche =
@@ -51,13 +53,13 @@ const NICHE_HASHTAGS: Record<Niche, {
     primary: ["#EntrepreneurLife", "#BusinessTips", "#StartupLife", "#SmallBusiness", "#BusinessMindset", "#MakeMoneyOnline", "#SideHustle", "#PassiveIncome"],
     secondary: ["#DigitalMarketing", "#OnlineBusiness", "#Freelancing", "#MarketingTips", "#ContentMarketing", "#GrowYourBusiness", "#BusinessStrategy", "#Entrepreneurship", "#SuccessMindset", "#WorkFromHome"],
     trending: ["#BusinessTok", "#HustleCulture", "#MoneyTok", "#GirlBoss", "#Founder"],
-    longTail: ["#HowToStartABusinessWithNoMoney", "#SmallBusinessOwnerTips", "#FreelancingForBeginners", "#PassiveIncomeIdeas2026", "#DropshippingTips", "#EcommerceSuccess", "#DigitalProductIdeas"],
+    longTail: ["#HowToStartABusinessWithNoMoney", "#SmallBusinessOwnerTips", "#FreelancingForBeginners", `#PassiveIncomeIdeas${YEAR}`, "#DropshippingTips", "#EcommerceSuccess", "#DigitalProductIdeas"],
   },
   tech: {
     primary: ["#TechTok", "#AITools", "#TechTips", "#ProductivityHacks", "#ChatGPT", "#ArtificialIntelligence", "#SoftwareTips", "#TechLife"],
     secondary: ["#FutureTech", "#Coding", "#AppReview", "#DigitalTools", "#WorkSmarter", "#AutomationTips", "#TechReview", "#Innovation", "#DigitalLife", "#TechHacks"],
     trending: ["#AIGenerated", "#ChatGPTTips", "#TechNews", "#TechInnovation", "#FutureTech"],
-    longTail: ["#BestAIToolsFor2026", "#FreeChatGPTTricks", "#ProductivityAppsYouNeedToKnow", "#HowToAutomate", "#AIToolsForCreators", "#BestTechGadgets", "#CodingForBeginners"],
+    longTail: [`#BestAIToolsFor${YEAR}`, "#FreeChatGPTTricks", "#ProductivityAppsYouNeedToKnow", "#HowToAutomate", "#AIToolsForCreators", "#BestTechGadgets", "#CodingForBeginners"],
   },
   beauty: {
     primary: ["#BeautyTok", "#MakeupTutorial", "#SkincareRoutine", "#GlowUp", "#MakeupTips", "#SkincareTok", "#BeautyHacks", "#NaturalBeauty"],
@@ -81,13 +83,13 @@ const NICHE_HASHTAGS: Record<Niche, {
     primary: ["#TravelTok", "#TravelHacks", "#HiddenGems", "#BudgetTravel", "#TravelTips", "#SoloTravel", "#TravelLife", "#Wanderlust"],
     secondary: ["#TravelBlogger", "#ExploreMore", "#AdventureTime", "#TravelVlog", "#TravelInspiration", "#TravelPhotography", "#BackpackerLife", "#RoadTrip", "#TravelGuide", "#TravelContent"],
     trending: ["#TravelWith", "#HiddenGem", "#TravelChallenge", "#TravelDiaries", "#TravelCreator"],
-    longTail: ["#BudgetTravelTips2026", "#SoloTravelSafety", "#HiddenGemsInEurope", "#CheapFlightHacks", "#HowToTravelCheap", "#BestBudgetDestinations", "#BackpackingTipsForBeginners"],
+    longTail: [`#BudgetTravelTips${YEAR}`, "#SoloTravelSafety", "#HiddenGemsInEurope", "#CheapFlightHacks", "#HowToTravelCheap", "#BestBudgetDestinations", "#BackpackingTipsForBeginners"],
   },
   gaming: {
     primary: ["#GamingTok", "#GamingTips", "#GamingLife", "#Gamer", "#GamersOfTikTok", "#Gaming", "#GameTips", "#VideoGames"],
     secondary: ["#GamingCommunity", "#TwitchStreamer", "#GameReview", "#PCGaming", "#ConsolGaming", "#FPS", "#BattleRoyale", "#RPG", "#GamingSetup", "#GameStreamer"],
     trending: ["#GamingMoments", "#ViralGamingClip", "#GameChallenge", "#ProGamer", "#NewGame"],
-    longTail: ["#HowToImproveAimFPS", "#BestGamingSetupUnder500", "#GamingTipsForBeginners", "#HowToGetBetterAtFortnite", "#WarzoneTipsAndTricks", "#BestRPGGames2026", "#FreeGamesToPlayOnPC"],
+    longTail: ["#HowToImproveAimFPS", "#BestGamingSetupUnder500", "#GamingTipsForBeginners", "#HowToGetBetterAtFortnite", "#WarzoneTipsAndTricks", `#BestRPGGames${YEAR}`, "#FreeGamesToPlayOnPC"],
   },
   education: {
     primary: ["#LearnOnTikTok", "#EduTok", "#DidYouKnow", "#Facts", "#MindBlown", "#LifeHack", "#LearningTikTok", "#Knowledge"],
@@ -99,13 +101,13 @@ const NICHE_HASHTAGS: Record<Niche, {
     primary: ["#FinanceTok", "#MoneyTips", "#PersonalFinance", "#Investing", "#SavingMoney", "#FinancialFreedom", "#MoneyMindset", "#WealthBuilding"],
     secondary: ["#BudgetTips", "#InvestingTips", "#StockMarket", "#CryptoTips", "#DebtFreeJourney", "#FinancialLiteracy", "#MoneyManagement", "#RealEstate", "#RetirementPlanning", "#PassiveIncome"],
     trending: ["#MoneyTok", "#FinanceTok", "#StockTok", "#CryptoTok", "#WealthTok"],
-    longTail: ["#HowToSaveMoneyFast", "#InvestingForBeginners2026", "#HowToGetOutOfDebt", "#BudgetingForBeginners", "#StockMarketForNewbies", "#FinancialFreedomTips", "#HowToInvestWithLittleMoney"],
+    longTail: ["#HowToSaveMoneyFast", `#InvestingForBeginners${YEAR}`, "#HowToGetOutOfDebt", "#BudgetingForBeginners", "#StockMarketForNewbies", "#FinancialFreedomTips", "#HowToInvestWithLittleMoney"],
   },
   fashion: {
     primary: ["#FashionTok", "#OOTD", "#StyleTips", "#OutfitIdeas", "#FashionTrends", "#FashionHacks", "#StyleInspo", "#Thrifting"],
     secondary: ["#FashionInspiration", "#OutfitOfTheDay", "#StreetStyle", "#CasualOutfits", "#ThriftFlip", "#BudgetFashion", "#FashionTips", "#CapsuleWardrobe", "#FashionContent", "#Outfit"],
     trending: ["#GRWM", "#OutfitCheck", "#StyleChallenge", "#FashionTrend", "#ThriftWithMe"],
-    longTail: ["#AffordableFashionTips", "#HowToStyleAnOutfit", "#ThriftingHauls2026", "#BuildACapsuleWardrobe", "#CheapFashionHacks", "#OutfitIdeasForWomen", "#HowToFindYourPersonalStyle"],
+    longTail: ["#AffordableFashionTips", "#HowToStyleAnOutfit", `#ThriftingHauls${YEAR}`, "#BuildACapsuleWardrobe", "#CheapFashionHacks", "#OutfitIdeasForWomen", "#HowToFindYourPersonalStyle"],
   },
   health: {
     primary: ["#HealthTok", "#GutHealth", "#WellnessTok", "#HealthyHabits", "#MentalHealth", "#NaturalHealth", "#HolisticHealth", "#HealthTips"],
@@ -123,7 +125,7 @@ const NICHE_HASHTAGS: Record<Niche, {
     primary: ["#EntertainmentTok", "#Storytime", "#PopCulture", "#Trending", "#Viral", "#Celebrity", "#MovieTok", "#TVTok"],
     secondary: ["#TikTokTrends", "#EntertainmentNews", "#BehindTheScenes", "#MovieReview", "#ShowRecommendations", "#PopCultureTok", "#CelebrityNews", "#Nostalgia", "#FandomTok", "#ReactionTok"],
     trending: ["#Storytime", "#WatchThis", "#FYP", "#ViralMoment", "#TrendingNow"],
-    longTail: ["#BestMoviesToWatchOnNetflix", "#TVShowRecommendations2026", "#CelebGossip", "#UnderRatedMovies", "#BestNetflixSeries", "#ViralMomentBreakdown", "#PopCultureExplained"],
+    longTail: ["#BestMoviesToWatchOnNetflix", `#TVShowRecommendations${YEAR}`, "#CelebGossip", "#UnderRatedMovies", "#BestNetflixSeries", "#ViralMomentBreakdown", "#PopCultureExplained"],
   },
 };
 
@@ -245,7 +247,7 @@ function generateHashtags(
     `content formats currently performing well on the For You Page, giving the algorithm additional ` +
     `context about your video's style. The long-tail hashtags target low-competition search queries — ` +
     `these are the hashtags your ideal viewer is actively searching, making them your best tool ` +
-    `for search-based discovery as TikTok continues to function more like a search engine in 2026.`;
+    `for search-based discovery as TikTok continues to function more like a search engine in ${YEAR}.`;
 
   const postingStrategy =
     `Use 5–8 hashtags total — this is TikTok's optimal range based on current algorithm behavior. ` +
@@ -278,15 +280,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "How many hashtags should I use on TikTok?",
-    a: "The optimal TikTok hashtag count in 2026 is 5–8 hashtags per video. Using too many hashtags (10+) dilutes your relevance signal and makes it harder for the algorithm to accurately categorize your content. Using too few (1–2) limits discoverability. The ideal combination is 2–3 niche-specific primary hashtags + 2–3 secondary hashtags + 1 long-tail search hashtag + 1 trending format tag. This tool automatically produces the optimal mix for your video.",
+    a: `The optimal TikTok hashtag count in ${YEAR} is 5–8 hashtags per video. Using too many hashtags (10+) dilutes your relevance signal and makes it harder for the algorithm to accurately categorize your content. Using too few (1–2) limits discoverability. The ideal combination is 2–3 niche-specific primary hashtags + 2–3 secondary hashtags + 1 long-tail search hashtag + 1 trending format tag. This tool automatically produces the optimal mix for your video.",
   },
   {
-    q: "Do TikTok hashtags still work in 2026?",
-    a: "Yes — but the strategy has evolved. TikTok now functions more like a search engine, so hashtags serve two purposes: (1) helping the algorithm understand and categorize your content so it shows it to the right audience, and (2) making your videos discoverable via TikTok Search. Generic hashtags like #FYP or #Viral alone no longer provide meaningful reach. Niche-specific hashtags (e.g., #FitnessTok, #FinanceTok) and long-tail search hashtags (e.g., #HowToSaveMoneyFast) are what drive real discoverability in 2026.",
+    q: `Do TikTok hashtags still work in ${YEAR}?`,
+    a: `Yes — but the strategy has evolved. TikTok now functions more like a search engine, so hashtags serve two purposes: (1) helping the algorithm understand and categorize your content so it shows it to the right audience, and (2) making your videos discoverable via TikTok Search. Generic hashtags like #FYP or #Viral alone no longer provide meaningful reach. Niche-specific hashtags (e.g., #FitnessTok, #FinanceTok) and long-tail search hashtags (e.g., #HowToSaveMoneyFast) are what drive real discoverability in ${YEAR}.`,
   },
   {
     q: "Should I use #FYP or #ForYouPage on TikTok?",
-    a: "Using #FYP or #ForYouPage as your primary hashtag strategy is ineffective in 2026. These tags are so oversaturated that they provide virtually no targeting value — they cannot help TikTok's algorithm understand what your content is about or who should see it. You can include them sparingly (maximum 1 per post) as a supplementary tag, but they should never be the foundation of your hashtag strategy. Niche and topic-specific hashtags are far more effective.",
+    a: `Using #FYP or #ForYouPage as your primary hashtag strategy is ineffective in ${YEAR}. These tags are so oversaturated that they provide virtually no targeting value — they cannot help TikTok's algorithm understand what your content is about or who should see it. You can include them sparingly (maximum 1 per post) as a supplementary tag, but they should never be the foundation of your hashtag strategy. Niche and topic-specific hashtags are far more effective.`,
   },
   {
     q: "What are long-tail hashtags on TikTok and why do they matter?",
@@ -908,7 +910,7 @@ export function TikTokHashtagGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> Why TikTok Hashtags Matter for Your Growth
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              TikTok's algorithm has evolved significantly — in 2026, the platform functions increasingly
+              TikTok's algorithm has evolved significantly — in {YEAR}, the platform functions increasingly
               like a search engine alongside its For You Page recommendation system. This means hashtags
               now serve two distinct purposes: helping the algorithm categorize your video for FYP
               distribution, and making your content discoverable through TikTok Search. A video posted

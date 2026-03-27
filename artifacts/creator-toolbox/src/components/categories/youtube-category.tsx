@@ -3,6 +3,8 @@ import { Link } from "wouter";
 import { ToolCard } from "@/components/tool-card";
 import { ChevronDown, ExternalLink } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 interface Tool {
   id: number;
   name: string;
@@ -167,10 +169,10 @@ export function YouTubeCategoryPage({ category }: Props) {
             <article className="mt-20 space-y-10 text-foreground">
               <header>
                 <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
-                  The Best Free YouTube Tools for Content Creators in 2025
+                  The Best Free YouTube Tools for Content Creators in {YEAR}
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Growing a YouTube channel in 2025 is equal parts creativity and strategy. Every viral video
+                  Growing a YouTube channel in {YEAR} is equal parts creativity and strategy. Every viral video
                   starts with a compelling title, ranks through smart keyword optimization, and earns through
                   ad revenue that smart creators calculate before they even hit record. This free YouTube
                   toolkit gives you {activeTools.length} purpose-built tools that cover every stage of the

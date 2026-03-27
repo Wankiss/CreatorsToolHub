@@ -3,6 +3,8 @@ import { Link } from "wouter";
 import { ToolCard } from "@/components/tool-card";
 import { ChevronDown, ExternalLink } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 interface Tool {
   id: number;
   name: string;
@@ -167,7 +169,7 @@ export function TikTokCategoryPage({ category }: Props) {
             <article className="mt-20 space-y-10 text-foreground">
               <header>
                 <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
-                  The Best Free TikTok Tools for Content Creators in 2025
+                  The Best Free TikTok Tools for Content Creators in {YEAR}
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   TikTok is the fastest-growing platform for content creators — but going viral isn't
@@ -508,7 +510,7 @@ export function TikTokCategoryPage({ category }: Props) {
                   </li>
                   <li className="flex gap-2 items-start">
                     <span className="flex-shrink-0">📈</span>
-                    <span>Optimized for TikTok's 2025 algorithm</span>
+                    <span>Optimized for TikTok's {YEAR} algorithm</span>
                   </li>
                   <li className="flex gap-2 items-start">
                     <span className="flex-shrink-0">🎯</span>

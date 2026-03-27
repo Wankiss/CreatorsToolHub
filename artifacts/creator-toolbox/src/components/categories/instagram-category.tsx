@@ -3,6 +3,8 @@ import { Link } from "wouter";
 import { ToolCard } from "@/components/tool-card";
 import { ChevronDown, ExternalLink } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 interface Tool {
   id: number;
   name: string;
@@ -33,15 +35,15 @@ const FAQS = [
     a: "The highest-impact Instagram tools for account growth are a hashtag generator (to expand reach on every post), a caption generator (to drive comments and saves), a hook generator (to stop the scroll on Reels), and an engagement calculator (to benchmark your performance). Start with hashtags and captions — they directly affect how Instagram's algorithm distributes your content to non-followers.",
   },
   {
-    q: "How do Instagram hashtags work in 2025?",
-    a: "Instagram's algorithm uses hashtags to categorize content and surface it to users who follow or search those tags. When you post with relevant hashtags, your content enters a hashtag feed where users can discover it independently of your follower count. In 2025, hashtag relevance and specificity matter more than sheer volume — a niche hashtag with 50,000 posts is often more effective than a viral one with 50 million because the competition is lower and the audience is more targeted.",
+    q: `How do Instagram hashtags work in ${YEAR}?`,
+    a: `Instagram's algorithm uses hashtags to categorize content and surface it to users who follow or search those tags. When you post with relevant hashtags, your content enters a hashtag feed where users can discover it independently of your follower count. In ${YEAR}, hashtag relevance and specificity matter more than sheer volume — a niche hashtag with 50,000 posts is often more effective than a viral one with 50 million because the competition is lower and the audience is more targeted.`,
   },
   {
     q: "How many hashtags should I use on Instagram?",
     a: "Instagram officially supports up to 30 hashtags per post, but research consistently shows that 8–15 well-targeted hashtags outperform batches of 30 generic ones. Use a tiered strategy: 3–5 broad niche hashtags (100K–1M posts), 4–6 mid-range hashtags (10K–100K posts), and 2–4 micro hashtags under 10K posts for highly targeted discovery. Our Instagram Hashtag Generator builds this tiered mix automatically based on your content niche.",
   },
   {
-    q: "What makes a great Instagram caption in 2025?",
+    q: `What makes a great Instagram caption in ${YEAR}?`,
     a: "A high-performing Instagram caption does three things: (1) opens with a hook that forces the viewer to tap 'more' — a bold statement, a surprising fact, or an incomplete thought; (2) delivers value or storytelling in the body that earns a save or share; and (3) ends with a micro-CTA that triggers comments — a question, a poll prompt, or a fill-in-the-blank. Captions that generate comments are weighted heavily by the algorithm, because comments signal deep audience engagement. Our Instagram Caption Generator structures captions around all three elements.",
   },
   {
@@ -166,10 +168,10 @@ export function InstagramCategoryPage({ category }: Props) {
             <article className="mt-20 space-y-10 text-foreground">
               <header>
                 <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
-                  The Best Free Instagram Tools for Content Creators in 2025
+                  The Best Free Instagram Tools for Content Creators in {YEAR}
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Growing on Instagram in 2025 is no longer about posting frequently and hoping for the best.
+                  Growing on Instagram in {YEAR} is no longer about posting frequently and hoping for the best.
                   The algorithm rewards content that earns engagement within the first hour, profiles that
                   convert visitors into followers, and Reels that hold attention past the 3-second mark. This
                   free Instagram toolkit gives you {activeTools.length} purpose-built tools covering every

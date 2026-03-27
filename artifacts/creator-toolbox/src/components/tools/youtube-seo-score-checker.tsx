@@ -368,7 +368,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Should I include the year in my YouTube title?",
-    a: "Yes — including the current year (e.g. 'YouTube SEO Tips 2026') significantly boosts CTR and search relevance. Viewers trust current content, so the year signals freshness. Titles with a year also tend to rank for year-specific searches, which have lower competition. Our SEO checker rewards year inclusion as part of the click-worthiness scoring.",
+    a: `Yes — including the current year (e.g. 'YouTube SEO Tips ${YEAR}') significantly boosts CTR and search relevance. Viewers trust current content, so the year signals freshness. Titles with a year also tend to rank for year-specific searches, which have lower competition. Our SEO checker rewards year inclusion as part of the click-worthiness scoring.`,
   },
 ];
 
@@ -547,7 +547,7 @@ export function YouTubeSeoScoreCheckerTool() {
                 <label className="text-sm font-bold text-foreground tracking-wide uppercase flex items-center gap-1.5">
                   Video Title <span className="text-red-500">*</span>
                 </label>
-                <Input value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g. How to Grow on YouTube Fast in 2026" className="h-12 text-base bg-muted/50 border-muted-foreground/20 focus-visible:ring-primary/30 rounded-xl" required />
+                <Input value={title} onChange={e => setTitle(e.target.value)} placeholder={`e.g. How to Grow on YouTube Fast in ${YEAR}`} className="h-12 text-base bg-muted/50 border-muted-foreground/20 focus-visible:ring-primary/30 rounded-xl" required />
                 <p className="text-xs text-muted-foreground">{title.length} characters {title.length >= 50 && title.length <= 70 ? "✅ optimal" : title.length > 70 ? "⚠️ too long" : title.length > 0 ? "⚠️ too short" : ""}</p>
               </div>
               <div className="space-y-2">
@@ -580,7 +580,7 @@ export function YouTubeSeoScoreCheckerTool() {
                 <label className="text-sm font-bold text-foreground tracking-wide uppercase">
                   Tags <span className="text-muted-foreground font-normal normal-case">(comma-separated)</span>
                 </label>
-                <Input value={tags} onChange={e => setTags(e.target.value)} placeholder="youtube seo, grow on youtube, youtube tips 2026" className="h-12 text-base bg-muted/50 border-muted-foreground/20 focus-visible:ring-primary/30 rounded-xl" />
+                <Input value={tags} onChange={e => setTags(e.target.value)} placeholder={`youtube seo, grow on youtube, youtube tips ${YEAR}`} className="h-12 text-base bg-muted/50 border-muted-foreground/20 focus-visible:ring-primary/30 rounded-xl" />
                 <p className="text-xs text-muted-foreground">{tags ? tags.split(",").filter(t => t.trim()).length : 0} tags (optimal: 10–20)</p>
               </div>
               <div className="space-y-2">
@@ -824,7 +824,7 @@ export function YouTubeSeoScoreCheckerTool() {
           </div>
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-primary" /> Why YouTube SEO Matters More Than Ever in 2026
+              <TrendingUp className="w-4 h-4 text-primary" /> Why YouTube SEO Matters More Than Ever in {YEAR}
             </h3>
             <p className="text-muted-foreground leading-relaxed">
               YouTube processes over 3 billion searches every month, making it the second largest search engine in the world after Google. Unlike social platforms that primarily distribute content through a feed, YouTube is a search-driven discovery platform — which means your video's metadata is the primary signal YouTube uses to decide when and to whom to show your content. A well-optimized video with a score of 80+ can rank for competitive keywords, appear in Google search results (which now show YouTube videos prominently), and continue generating views and revenue for years after publication. A poorly optimized video with the same quality content may get almost no organic reach. The difference isn't talent or production value — it's SEO. Our YouTube SEO Score Checker ensures you don't leave organic visibility on the table. The tool checks every optimization layer that YouTube's algorithm weighs, from keyword density and placement to psychological CTR triggers, and generates an optimized version of your title, description, and tags that you can apply immediately.

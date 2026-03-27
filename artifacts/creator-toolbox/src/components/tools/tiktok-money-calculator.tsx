@@ -9,6 +9,8 @@ import {
   Users, Eye, Check,
 } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Niche = "finance" | "tech" | "fitness" | "lifestyle" | "beauty" | "food" | "travel" | "gaming" | "education" | "entertainment";
@@ -216,7 +218,7 @@ function calcEarnings(
 const FAQ_ITEMS = [
   {
     q: "How much do TikTok creators make per 1,000 views?",
-    a: "TikTok's Creator Rewards Program pays creators approximately $0.20–$1.00 per 1,000 views in 2026, depending on content quality, audience location, niche, and video length. High-CPM niches like finance, tech, and education earn closer to $0.60–$1.00 per 1,000 views, while entertainment and lifestyle content typically earns $0.15–$0.40 per 1,000 views. However, Creator Rewards are just one income stream — brand deals and LIVE gifts typically generate 5–10× more revenue for creators with engaged audiences.",
+    a: `TikTok's Creator Rewards Program pays creators approximately $0.20–$1.00 per 1,000 views in ${YEAR}, depending on content quality, audience location, niche, and video length. High-CPM niches like finance, tech, and education earn closer to $0.60–$1.00 per 1,000 views, while entertainment and lifestyle content typically earns $0.15–$0.40 per 1,000 views. However, Creator Rewards are just one income stream — brand deals and LIVE gifts typically generate 5–10× more revenue for creators with engaged audiences.`,
   },
   {
     q: "How do TikTok creators actually make money?",
@@ -232,7 +234,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What is the TikTok Creator Rewards Program?",
-    a: "The TikTok Creator Rewards Program (formerly Creator Fund) is TikTok's direct payment program for creators. To qualify in 2026, you need: 10,000+ followers, 100,000+ video views in the last 30 days, 18+ years old, and account in a supported country. The payout rate is $0.20–$1.00 per 1,000 views, adjusted for content quality, watch time, originality, and audience location. Creators in finance, education, and tech typically earn higher per-view rates because their content attracts higher-value advertiser placements.",
+    a: `The TikTok Creator Rewards Program (formerly Creator Fund) is TikTok's direct payment program for creators. To qualify in ${YEAR}, you need: 10,000+ followers, 100,000+ video views in the last 30 days, 18+ years old, and account in a supported country. The payout rate is $0.20–$1.00 per 1,000 views, adjusted for content quality, watch time, originality, and audience location. Creators in finance, education, and tech typically earn higher per-view rates because their content attracts higher-value advertiser placements.`,
   },
   {
     q: "How much can you earn from TikTok LIVE gifts?",
@@ -785,7 +787,7 @@ export function TikTokMoneyCalculatorTool() {
             </h3>
             <p className="text-muted-foreground leading-relaxed">
               This TikTok Money Calculator estimates monthly earnings across three income streams using
-              industry benchmarks updated for 2026. Creator Rewards are calculated by multiplying your
+              industry benchmarks updated for {YEAR}. Creator Rewards are calculated by multiplying your
               monthly views (average views × posts per month) by a niche-adjusted CPM rate of $0.15–$1.00
               per 1,000 views. Finance and tech content earns at the higher end of this range due to
               higher-value advertisers, while entertainment content sits at the lower end. Brand deal
@@ -799,10 +801,10 @@ export function TikTokMoneyCalculatorTool() {
           </div>
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-primary" /> Understanding TikTok Monetization in 2026
+              <TrendingUp className="w-4 h-4 text-primary" /> Understanding TikTok Monetization in {YEAR}
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              TikTok monetization in 2026 is dominated by brand deals, which represent 70–90% of total
+              TikTok monetization in {YEAR} is dominated by brand deals, which represent 70–90% of total
               income for most successful creators. The Creator Rewards Program provides stable but smaller
               direct payouts — valuable for predictable baseline income but rarely sufficient as a sole
               revenue stream. LIVE gifts add meaningful supplementary income for creators who stream

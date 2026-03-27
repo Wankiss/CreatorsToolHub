@@ -332,7 +332,7 @@ export function YouTubeDescriptionGeneratorTool() {
               <Input
                 value={form.title}
                 onChange={set("title")}
-                placeholder="e.g. How to Grow on YouTube in 2026"
+                placeholder={`e.g. How to Grow on YouTube in ${YEAR}`}
                 className={`rounded-xl h-11 text-sm ${errors.title ? "border-destructive" : ""}`}
               />
               {errors.title && <p className="text-xs text-destructive mt-1">{errors.title}</p>}

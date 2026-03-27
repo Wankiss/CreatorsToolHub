@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Category = "Trending" | "Niche" | "Long-Tail";
@@ -44,7 +46,7 @@ const BROAD_HASHTAGS = [
 
 const LONG_TAIL_MODIFIERS = [
   "Tips", "Guide", "Tutorial", "Strategy", "Hacks", "Ideas", "ForBeginners",
-  "In2025", "In2026", "HowTo", "Step By Step", "Explained", "Secrets", "Mistakes",
+  `In${YEAR - 1}`, `In${YEAR}`, "HowTo", "Step By Step", "Explained", "Secrets", "Mistakes",
 ];
 
 // ─── Keyword extraction ───────────────────────────────────────────────────────
@@ -161,7 +163,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What's the difference between trending, niche, and long-tail YouTube hashtags?",
-    a: "Trending hashtags (#YouTube, #ContentCreator) have massive search volume and are used by millions of videos — they drive broad awareness but your video competes against an enormous pool. Niche hashtags (#YouTubeSEO, #GamingTips) are category-specific with moderate volume — they reach people actively interested in your topic and offer better ranking opportunities. Long-tail hashtags (#YouTubeGrowthTips2026, #HomeWorkoutForBeginners) are hyper-specific with low volume but high intent — viewers clicking these tags know exactly what they want and are more likely to watch, like, and subscribe.",
+    a: `Trending hashtags (#YouTube, #ContentCreator) have massive search volume and are used by millions of videos — they drive broad awareness but your video competes against an enormous pool. Niche hashtags (#YouTubeSEO, #GamingTips) are category-specific with moderate volume — they reach people actively interested in your topic and offer better ranking opportunities. Long-tail hashtags (#YouTubeGrowthTips${YEAR}, #HomeWorkoutForBeginners) are hyper-specific with low volume but high intent — viewers clicking these tags know exactly what they want and are more likely to watch, like, and subscribe.`,
   },
   {
     q: "Should I use the same hashtags on every video?",
@@ -401,7 +403,7 @@ export function YouTubeHashtagGeneratorTool() {
               value={topic}
               onChange={e => { setTopic(e.target.value); setTopicError(""); }}
               onKeyDown={e => e.key === "Enter" && handleGenerate()}
-              placeholder="e.g. How to grow on YouTube in 2026, Home workout for beginners…"
+              placeholder={`e.g. How to grow on YouTube in ${YEAR}, Home workout for beginners…`}
               className={`rounded-xl h-11 text-sm ${topicError ? "border-destructive" : ""}`}
             />
             {topicError && <p className="text-xs text-destructive mt-1">{topicError}</p>}
@@ -638,7 +640,7 @@ export function YouTubeHashtagGeneratorTool() {
             </p>
             <p className="text-muted-foreground leading-relaxed">
               The third layer is long-tail hashtags — highly specific combinations like
-              #HomeWorkoutForBeginners or #YouTubeGrowthTips2026. These drive low but highly qualified
+              #HomeWorkoutForBeginners or {`#YouTubeGrowthTips${YEAR}`}. These drive low but highly qualified
               traffic. A viewer clicking #HomeWorkoutForBeginners is looking for exactly what you've
               made. Long-tail hashtags also face far less competition, meaning your video can rank
               first for that tag even with a small channel. Use our{" "}

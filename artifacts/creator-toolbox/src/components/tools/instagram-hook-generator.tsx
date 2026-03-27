@@ -9,6 +9,8 @@ import {
   Target, Wand2, ArrowUpRight,
 } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Niche =
@@ -332,8 +334,8 @@ const FAQ_ITEMS = [
     a: "Hook delivery is as important as hook writing. Key delivery rules: (1) Say the hook in the first 0–1 seconds — never open with 'Hey guys,' 'So today,' or any greeting; (2) Display the hook as bold, high-contrast text overlay at the exact moment you say it — many viewers watch without sound, and the text carries your hook for them; (3) Match your vocal energy to the hook format — Bold Statement hooks require unwavering confidence, Relatable Frustration hooks need genuine exasperation, Story Tease hooks should feel conversational; (4) Make direct eye contact with the camera lens, not the screen; (5) Start mid-action when possible — walking, demonstrating, or reacting rather than standing still and speaking.",
   },
   {
-    q: "What is the best hook format for Instagram Reels in 2025?",
-    a: "Based on Instagram engagement data in 2025, the highest-performing hook formats are: (1) Relatable Frustration — hooks that voice a frustration the viewer already feels ('You try every content tip and nothing changes?') earn high saves and shares because audiences feel understood; (2) Curiosity Gap — hooks with a deliberate information gap ('Nobody tells you this about the algorithm…') force watch-through because the brain needs resolution; (3) POV hooks — immersive perspective hooks ('POV: Your Reel just hit 100K views') trigger strong engagement from audiences imagining themselves in the scenario. The best format for your account depends on your niche and audience: entertainment and lifestyle niches perform best with POV and Relatable Frustration, while business and education niches see strong results from How-To Promise and Mistake Callout hooks.",
+    q: `What is the best hook format for Instagram Reels in ${YEAR}?`,
+    a: `Based on Instagram engagement data in ${YEAR}, the highest-performing hook formats are: (1) Relatable Frustration — hooks that voice a frustration the viewer already feels ('You try every content tip and nothing changes?') earn high saves and shares because audiences feel understood; (2) Curiosity Gap — hooks with a deliberate information gap ('Nobody tells you this about the algorithm…') force watch-through because the brain needs resolution; (3) POV hooks — immersive perspective hooks ('POV: Your Reel just hit 100K views') trigger strong engagement from audiences imagining themselves in the scenario. The best format for your account depends on your niche and audience: entertainment and lifestyle niches perform best with POV and Relatable Frustration, while business and education niches see strong results from How-To Promise and Mistake Callout hooks.`,
   },
   {
     q: "What is the Scroll-Stopping Score in this tool?",
@@ -919,7 +921,7 @@ export function InstagramHookGeneratorTool() {
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
               <Search className="w-4 h-4 text-primary flex-shrink-0" />
-              The 10 Instagram Hook Formats That Drive Views in 2025
+              The 10 Instagram Hook Formats That Drive Views in {YEAR}
             </h3>
             <p className="mb-3">
               The ten hook formats in this generator are not arbitrary — each one activates a specific

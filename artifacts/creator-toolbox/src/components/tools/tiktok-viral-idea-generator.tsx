@@ -8,6 +8,8 @@ import {
   TrendingUp, Zap, Shield, ListChecks, Search, Flame, Target, Clock, ArrowUpRight,
 } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Data Engine ─────────────────────────────────────────────────────────────
 
 type Niche =
@@ -49,7 +51,7 @@ const NICHE_DATA: Record<Niche, {
     trends: [
       "Authentic 'real body' workouts outperform polished gym content by 3× on the FYP",
       "Short 15–30s exercise clips with on-screen reps/sets counters are dominating saves",
-      "'I tried this for 7 days' transformation content is getting massive watch time in 2026",
+      `'I tried this for 7 days' transformation content is getting massive watch time in ${YEAR}`,
     ],
     topics: ["workout routine", "fat loss", "muscle gain", "home gym", "nutrition hack", "morning routine", "gym mistake", "protein hack", "cardio shortcut", "rest day"],
     hashtags: ["#FitnessMotivation", "#WorkoutTips", "#FitnessHack", "#GymLife", "#HealthyLifestyle", "#FitTok", "#WeightLoss", "#HomeworkOut", "#BodyTransformation", "#FitnessJourney"],
@@ -77,7 +79,7 @@ const NICHE_DATA: Record<Niche, {
   },
   lifestyle: {
     trends: [
-      "'Soft life' and intentional living content is dominating lifestyle saves in 2026",
+      `'Soft life' and intentional living content is dominating lifestyle saves in ${YEAR}`,
       "Morning and evening routine videos with aesthetic transitions are getting massive completion rates",
       "Honest 'what nobody tells you' lifestyle content is outperforming aspirational content",
     ],
@@ -97,7 +99,7 @@ const NICHE_DATA: Record<Niche, {
   },
   food: {
     trends: [
-      "3-ingredient 'lazy but delicious' recipe content is getting massive saves in 2026",
+      `3-ingredient 'lazy but delicious' recipe content is getting massive saves in ${YEAR}`,
       "Honest restaurant and product reviews with unfiltered opinions are outperforming polished cooking videos",
       "High-protein, low-calorie meals presented in under 30 seconds are dominating food saves",
     ],
@@ -107,7 +109,7 @@ const NICHE_DATA: Record<Niche, {
   },
   travel: {
     trends: [
-      "'Hidden gem' destination reveals are the top-shared travel content in 2026",
+      `'Hidden gem' destination reveals are the top-shared travel content in ${YEAR}`,
       "Budget travel 'how I did this for $X' content is dominating engagement over luxury travel",
       "Travel mistake and warning content consistently outperforms aspirational travel videos",
     ],
@@ -147,7 +149,7 @@ const NICHE_DATA: Record<Niche, {
   },
   beauty: {
     trends: [
-      "'Get ready with me' with honest product reviews embedded mid-routine is the top beauty format in 2026",
+      `'Get ready with me' with honest product reviews embedded mid-routine is the top beauty format in ${YEAR}`,
       "Skincare 'what I stopped doing' content is getting significantly higher saves than 'what I started doing'",
       "Drugstore vs high-end product comparisons are driving the highest comment counts in beauty",
     ],
@@ -157,7 +159,7 @@ const NICHE_DATA: Record<Niche, {
   },
   health: {
     trends: [
-      "Gut health and inflammation content is the #1 growing health topic on TikTok in 2026",
+      `Gut health and inflammation content is the #1 growing health topic on TikTok in ${YEAR}`,
       "'Doctors won't tell you this' health content drives massive engagement — controversy + value is the formula",
       "Simple habit content ('I did X every day for 30 days') with visible results is dominating health saves",
     ],
@@ -400,7 +402,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How do I come up with TikTok video ideas that go viral?",
-    a: "Viral TikTok ideas come from combining a trending content format with a niche-specific topic that creates emotional resonance. The five most reliable viral formats in 2026 are: (1) calling out a common mistake, (2) revealing hidden information, (3) showing a before/after transformation, (4) telling a personal story, and (5) applying a trending format to your niche. Every idea this tool generates uses one of these proven formulas.",
+    a: `Viral TikTok ideas come from combining a trending content format with a niche-specific topic that creates emotional resonance. The five most reliable viral formats in ${YEAR} are: (1) calling out a common mistake, (2) revealing hidden information, (3) showing a before/after transformation, (4) telling a personal story, and (5) applying a trending format to your niche. Every idea this tool generates uses one of these proven formulas.`,
   },
   {
     q: "What type of TikTok content gets the most views?",
@@ -415,7 +417,7 @@ const FAQ_ITEMS = [
     a: "Posting 4–7 times per week is the optimal TikTok posting frequency for algorithm momentum. However, consistency matters more than volume — TikTok's algorithm systematically rewards accounts that maintain a regular posting schedule over accounts that post in bursts. More important than post frequency is content quality: one strong video per day beats three weak ones. Use batch filming to produce a week of content in a single session.",
   },
   {
-    q: "What TikTok video length performs best in 2026?",
+    q: `What TikTok video length performs best in ${YEAR}?`,
     a: "TikTok's algorithm currently distributes three video lengths most aggressively: 7–15 seconds (highest completion rate, best for hooks and quick tips), 30–60 seconds (best for storytelling and tutorial content with strong retention incentives), and 1–3 minutes (best for detailed content on the Creativity Program — pays creators per view). Avoid the 15–30 second range unless your content specifically demands it — TikTok's data shows this length has the lowest relative completion rate.",
   },
   {
@@ -989,7 +991,7 @@ export function TikTokViralIdeaGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> Why TikTok Video Ideas Matter for Growth
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              The TikTok algorithm in 2026 distributes content based on behavioral signals — specifically
+              The TikTok algorithm in {YEAR} distributes content based on behavioral signals — specifically
               completion rate, engagement rate, and re-watches. But generating those signals starts before
               the camera even turns on. A video built on a weak idea will lose viewers in the first 3 seconds
               regardless of production quality. A video built on a strong viral format, with a hook engineered

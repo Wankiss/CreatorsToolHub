@@ -9,6 +9,8 @@ import {
   BarChart2, Flame, Crosshair, Microscope, ArrowUpRight,
 } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Niche =
@@ -468,7 +470,7 @@ function TierBlock({
 
 const FAQ_ITEMS = [
   {
-    q: "How many hashtags should I use on Instagram in 2025?",
+    q: `How many hashtags should I use on Instagram in ${YEAR}?`,
     a: "Instagram's current best practice is 5–10 focused, highly relevant hashtags — not the 20–30 that was standard in earlier years. In 2024, Instagram's Head of Instagram Adam Mosseri explicitly stated that using 3–5 highly relevant hashtags performs better than using 20+ mixed-relevance tags. However, most experienced growth strategists recommend 8–15 hashtags as the optimal range — enough to cover three distinct tiers (broad, mid-range, micro) without diluting relevance. The most important principle is quality over quantity: 10 precisely relevant hashtags will consistently outperform 30 loosely related ones. Instagram's algorithm cross-references your content against your hashtag selection — mismatched hashtags actively suppress distribution rather than helping it.",
   },
   {
@@ -481,11 +483,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Should I use the same hashtags on every Instagram post?",
-    a: "No — Instagram's algorithm penalizes repetitive hashtag usage over time, and 2025 research consistently shows that rotating hashtag sets produces 30–50% more reach over a content series than using identical sets repeatedly. There are two reasons to rotate: first, using the same 30 hashtags on every post signals to Instagram that the hashtags may not be organically relevant to the specific content; second, rotating gives you data on which hashtag combinations drive the most engagement, reach, and follows, allowing you to optimize over time. This generator produces three distinct hashtag sets (A, B, C) per generation — use Set A on Monday's post, Set B on Wednesday's, and Set C on Friday's, then cycle back. After 6–8 posts per set, regenerate fresh sets.",
+    a: `No — Instagram's algorithm penalizes repetitive hashtag usage over time, and ${YEAR} research consistently shows that rotating hashtag sets produces 30–50% more reach over a content series than using identical sets repeatedly. There are two reasons to rotate: first, using the same 30 hashtags on every post signals to Instagram that the hashtags may not be organically relevant to the specific content; second, rotating gives you data on which hashtag combinations drive the most engagement, reach, and follows, allowing you to optimize over time. This generator produces three distinct hashtag sets (A, B, C) per generation — use Set A on Monday's post, Set B on Wednesday's, and Set C on Friday's, then cycle back. After 6–8 posts per set, regenerate fresh sets.`,
   },
   {
-    q: "Do hashtags still work on Instagram in 2025?",
-    a: "Yes — hashtags remain an effective discovery mechanism on Instagram in 2025, but their role has evolved. Instagram now uses hashtags as content classification signals more than as distribution engines. When you use relevant hashtags, Instagram's algorithm better understands your content category and serves it to users who already follow similar hashtag communities or engage with related content — even if they don't actively browse the hashtag feed. The biggest shift is that Instagram now also uses natural language processing on your caption text and visual content to classify posts — meaning hashtags work best when they reinforce (not contradict) the content and caption. Hashtags are no longer the primary discovery driver they were in 2018–2021, but they remain a meaningful secondary signal that increases organic reach by an estimated 12–20% when used correctly.",
+    q: `Do hashtags still work on Instagram in ${YEAR}?`,
+    a: `Yes — hashtags remain an effective discovery mechanism on Instagram in ${YEAR}, but their role has evolved. Instagram now uses hashtags as content classification signals more than as distribution engines. When you use relevant hashtags, Instagram's algorithm better understands your content category and serves it to users who already follow similar hashtag communities or engage with related content — even if they don't actively browse the hashtag feed. The biggest shift is that Instagram now also uses natural language processing on your caption text and visual content to classify posts — meaning hashtags work best when they reinforce (not contradict) the content and caption. Hashtags are no longer the primary discovery driver they were in 2018–2021, but they remain a meaningful secondary signal that increases organic reach by an estimated 12–20% when used correctly.`,
   },
   {
     q: "What are the best hashtags for Instagram Reels?",

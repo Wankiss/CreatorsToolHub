@@ -11,6 +11,8 @@ import {
   DollarSign, Users, ArrowUpRight,
 } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Niche =
@@ -409,8 +411,8 @@ function CaptionCard({ caption, index, onCopy, copiedId }: {
 
 const FAQ_ITEMS = [
   {
-    q: "What makes a good Instagram caption in 2025?",
-    a: "A high-performing Instagram caption in 2025 follows a three-part structure: a scroll-stopping hook in the first 1–2 lines, a body that delivers clear value or emotional resonance, and a specific micro call-to-action tailored to the engagement metric you want to grow. The first line is the most critical — it appears before the 'more' fold and determines whether users expand the caption. Hooks that perform best use curiosity gaps ('What nobody tells you about…'), mistake callouts ('You're making this mistake…'), POV framings, or bold contrarian statements. The body should use short lines with intentional line breaks to control reading pace — dense paragraph captions see significantly lower read-through rates. The CTA should match your goal: 'save this' for educational content, 'send this to someone who needs it' for shareable content, and specific questions for comment-driving captions.",
+    q: `What makes a good Instagram caption in ${YEAR}?`,
+    a: `A high-performing Instagram caption in ${YEAR} follows a three-part structure: a scroll-stopping hook in the first 1–2 lines, a body that delivers clear value or emotional resonance, and a specific micro call-to-action tailored to the engagement metric you want to grow. The first line is the most critical — it appears before the 'more' fold and determines whether users expand the caption. Hooks that perform best use curiosity gaps ('What nobody tells you about…'), mistake callouts ('You're making this mistake…'), POV framings, or bold contrarian statements. The body should use short lines with intentional line breaks to control reading pace — dense paragraph captions see significantly lower read-through rates. The CTA should match your goal: 'save this' for educational content, 'send this to someone who needs it' for shareable content, and specific questions for comment-driving captions.`,
   },
   {
     q: "How long should an Instagram caption be?",
@@ -426,7 +428,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How many hashtags should I use on Instagram?",
-    a: "Instagram's current best practice for hashtags is 5–10 focused, relevant hashtags — not the maximum of 30 that was common in earlier years. In 2024–2025, Instagram's Head of Instagram Adam Mosseri confirmed that using 3–5 highly relevant hashtags outperforms using 20–30 mixed-relevance hashtags. The most effective hashtag strategy mixes: 2–3 niche-specific hashtags with 10K–500K posts (high-relevance, reachable), 2–3 mid-size category tags with 500K–5M posts, and 1–2 broad discovery tags. Avoid banned or overused hashtags — they can suppress distribution. Most importantly: don't use hashtags that have no connection to your content. Instagram's algorithm cross-references content and hashtag relevance, and mismatched hashtags actively reduce distribution.",
+    a: `Instagram's current best practice for hashtags is 5–10 focused, relevant hashtags — not the maximum of 30 that was common in earlier years. In ${YEAR - 1}–${YEAR}, Instagram's Head of Instagram Adam Mosseri confirmed that using 3–5 highly relevant hashtags outperforms using 20–30 mixed-relevance hashtags. The most effective hashtag strategy mixes: 2–3 niche-specific hashtags with 10K–500K posts (high-relevance, reachable), 2–3 mid-size category tags with 500K–5M posts, and 1–2 broad discovery tags. Avoid banned or overused hashtags — they can suppress distribution. Most importantly: don't use hashtags that have no connection to your content. Instagram's algorithm cross-references content and hashtag relevance, and mismatched hashtags actively reduce distribution.`,
   },
   {
     q: "What is the difference between Instagram Reels captions and post captions?",

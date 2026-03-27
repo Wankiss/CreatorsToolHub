@@ -1,8 +1,9 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, Search, Youtube, Instagram, Code, TrendingUp, Zap, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { searchTools, TOOLS_INDEX, type ToolIndexEntry } from "@/lib/tools-index";
 
 function BrandLogo({ size = 20, className = "" }: { size?: number; className?: string }) {
   return (
@@ -29,16 +30,137 @@ function BrandLogo({ size = 20, className = "" }: { size?: number; className?: s
   );
 }
 
+function getCategoryColor(categorySlug: string) {
+  if (categorySlug.includes("youtube")) return "text-red-500";
+  if (categorySlug.includes("tiktok")) return "text-pink-500";
+  if (categorySlug.includes("instagram")) return "text-purple-500";
+  return "text-blue-500";
+}
+
+interface SearchDropdownProps {
+  query: string;
+  onSelect: (slug: string) => void;
+  onSubmit: () => void;
+}
+
+function SearchDropdown({ query, onSelect, onSubmit }: SearchDropdownProps) {
+  const results = query.length >= 2 ? searchTools(query).slice(0, 6) : [];
+
+  if (!results.length && query.length >= 2) {
+    return (
+      <div className="absolute top-full mt-2 left-0 right-0 bg-background border border-border rounded-xl shadow-xl z-50 overflow-hidden">
+        <div className="px-4 py-6 text-center text-sm text-muted-foreground">
+          No tools found for "{query}"
+        </div>
+        <button
+          onClick={onSubmit}
+          className="w-full px-4 py-3 text-sm text-primary font-medium border-t border-border hover:bg-muted/50 transition-colors text-left flex items-center gap-2"
+        >
+          <Search className="w-4 h-4" />
+          Search all tools for "{query}"
+        </button>
+      </div>
+    );
+  }
+
+  if (!results.length) return null;
+
+  return (
+    <div className="absolute top-full mt-2 left-0 right-0 bg-background border border-border rounded-xl shadow-xl z-50 overflow-hidden min-w-[320px]">
+      <div className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wide border-b border-border bg-muted/30">
+        Tools
+      </div>
+      {results.map(tool => (
+        <button
+          key={tool.slug}
+          onClick={() => onSelect(tool.slug)}
+          className="w-full px-4 py-3 text-left hover:bg-muted/50 transition-colors flex items-center gap-3 group"
+        >
+          <span className="text-xl flex-shrink-0 w-8 text-center">{tool.icon}</span>
+          <div className="flex-1 min-w-0">
+            <div className="text-sm font-medium text-foreground group-hover:text-primary transition-colors truncate">{tool.name}</div>
+            <div className="text-xs text-muted-foreground truncate">{tool.desc}</div>
+          </div>
+          <span className={`text-xs font-medium flex-shrink-0 ${getCategoryColor(tool.categorySlug)}`}>{tool.category}</span>
+        </button>
+      ))}
+      <button
+        onClick={onSubmit}
+        className="w-full px-4 py-3 text-sm text-primary font-medium border-t border-border hover:bg-muted/50 transition-colors text-left flex items-center gap-2"
+      >
+        <Search className="w-4 h-4" />
+        View all results for "{query}"
+      </button>
+    </div>
+  );
+}
+
 export function Layout({ children }: { children: ReactNode }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [mobileSearchQuery, setMobileSearchQuery] = useState("");
+  const [showMobileDropdown, setShowMobileDropdown] = useState(false);
   const [, setLocation] = useLocation();
+  const searchRef = useRef<HTMLDivElement>(null);
+  const mobileSearchRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setShowDropdown(false);
+      }
+      if (mobileSearchRef.current && !mobileSearchRef.current.contains(e.target as Node)) {
+        setShowMobileDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      setLocation(`/search?q=${encodeURIComponent(searchQuery)}`);
+      setShowDropdown(false);
+      setLocation(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
       setIsMobileMenuOpen(false);
+    }
+  };
+
+  const handleMobileSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (mobileSearchQuery.trim()) {
+      setShowMobileDropdown(false);
+      setIsMobileMenuOpen(false);
+      setLocation(`/search?q=${encodeURIComponent(mobileSearchQuery.trim())}`);
+    }
+  };
+
+  const handleSelectTool = (slug: string) => {
+    setShowDropdown(false);
+    setSearchQuery("");
+    setLocation(`/tools/${slug}`);
+  };
+
+  const handleMobileSelectTool = (slug: string) => {
+    setShowMobileDropdown(false);
+    setMobileSearchQuery("");
+    setIsMobileMenuOpen(false);
+    setLocation(`/tools/${slug}`);
+  };
+
+  const handleSubmitSearch = () => {
+    if (searchQuery.trim()) {
+      setShowDropdown(false);
+      setLocation(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
+
+  const handleMobileSubmitSearch = () => {
+    if (mobileSearchQuery.trim()) {
+      setShowMobileDropdown(false);
+      setIsMobileMenuOpen(false);
+      setLocation(`/search?q=${encodeURIComponent(mobileSearchQuery.trim())}`);
     }
   };
 
@@ -73,18 +195,33 @@ export function Layout({ children }: { children: ReactNode }) {
               <Link href="/blog" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Blog</Link>
             </nav>
 
-            {/* Desktop Search & Actions */}
+            {/* Desktop Search */}
             <div className="hidden md:flex items-center gap-4">
-              <form onSubmit={handleSearch} className="relative group">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
-                <Input 
-                  type="search" 
-                  placeholder="Search tools..." 
-                  className="pl-9 w-[200px] lg:w-[250px] bg-background/50 border-muted focus-visible:ring-primary/20 rounded-full"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </form>
+              <div ref={searchRef} className="relative">
+                <form onSubmit={handleSearch} className="relative group">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within:text-primary transition-colors pointer-events-none" />
+                  <Input
+                    type="text"
+                    placeholder="Search tools..."
+                    className="pl-9 w-[200px] lg:w-[260px] bg-background/50 border-muted focus-visible:ring-primary/20 rounded-full"
+                    value={searchQuery}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value);
+                      setShowDropdown(e.target.value.length >= 2);
+                    }}
+                    onFocus={() => searchQuery.length >= 2 && setShowDropdown(true)}
+                    onKeyDown={(e) => e.key === "Escape" && setShowDropdown(false)}
+                    autoComplete="off"
+                  />
+                </form>
+                {showDropdown && (
+                  <SearchDropdown
+                    query={searchQuery}
+                    onSelect={handleSelectTool}
+                    onSubmit={handleSubmitSearch}
+                  />
+                )}
+              </div>
             </div>
 
             {/* Mobile menu button */}
@@ -103,16 +240,31 @@ export function Layout({ children }: { children: ReactNode }) {
         {isMobileMenuOpen && (
           <div className="md:hidden glass-effect border-b border-border absolute w-full left-0 animate-in slide-in-from-top-2">
             <div className="px-4 pt-2 pb-6 space-y-4">
-              <form onSubmit={handleSearch} className="relative mt-2">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input 
-                  type="search" 
-                  placeholder="Search tools..." 
-                  className="pl-9 w-full rounded-xl"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </form>
+              <div ref={mobileSearchRef} className="relative mt-2">
+                <form onSubmit={handleMobileSearch}>
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+                  <Input
+                    type="text"
+                    placeholder="Search tools..."
+                    className="pl-9 w-full rounded-xl"
+                    value={mobileSearchQuery}
+                    onChange={(e) => {
+                      setMobileSearchQuery(e.target.value);
+                      setShowMobileDropdown(e.target.value.length >= 2);
+                    }}
+                    onFocus={() => mobileSearchQuery.length >= 2 && setShowMobileDropdown(true)}
+                    onKeyDown={(e) => e.key === "Escape" && setShowMobileDropdown(false)}
+                    autoComplete="off"
+                  />
+                </form>
+                {showMobileDropdown && (
+                  <SearchDropdown
+                    query={mobileSearchQuery}
+                    onSelect={handleMobileSelectTool}
+                    onSubmit={handleMobileSubmitSearch}
+                  />
+                )}
+              </div>
               <div className="flex flex-col space-y-3 pt-2">
                 <Link href="/category/youtube-tools" className="px-3 py-2 rounded-lg hover:bg-muted text-foreground font-medium" onClick={() => setIsMobileMenuOpen(false)}>YouTube Tools</Link>
                 <Link href="/category/tiktok-tools" className="px-3 py-2 rounded-lg hover:bg-muted text-foreground font-medium" onClick={() => setIsMobileMenuOpen(false)}>TikTok Tools</Link>

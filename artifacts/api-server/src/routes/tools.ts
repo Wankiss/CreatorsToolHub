@@ -1,7 +1,7 @@
 import { Router, type IRouter } from "express";
 import { db } from "@workspace/db";
 import { categoriesTable, toolsTable, blogPostsTable } from "@workspace/db/schema";
-import { eq, sql, ilike, or, desc, ne } from "drizzle-orm";
+import { eq, sql, ilike, or, desc, ne, inArray } from "drizzle-orm";
 import { executeTool } from "../lib/toolEngine.js";
 
 const router: IRouter = Router();
@@ -171,7 +171,8 @@ router.post("/tools/:slug/execute", async (req, res) => {
 router.get("/sitemap", async (_req, res) => {
   try {
     const tools = await db.select({ slug: toolsTable.slug, updatedAt: toolsTable.updatedAt }).from(toolsTable).where(eq(toolsTable.isActive, true));
-    const categories = await db.select({ slug: categoriesTable.slug }).from(categoriesTable);
+    const ALLOWED_SLUGS = ["youtube-tools", "tiktok-tools", "instagram-tools", "ai-creator-tools"];
+    const categories = await db.select({ slug: categoriesTable.slug }).from(categoriesTable).where(inArray(categoriesTable.slug, ALLOWED_SLUGS));
     const baseUrl = process.env.REPLIT_DOMAINS
       ? `https://${process.env.REPLIT_DOMAINS.split(",")[0]}`
       : "https://creator-toolbox.app";

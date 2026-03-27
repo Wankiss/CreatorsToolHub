@@ -1,9 +1,11 @@
 import { Router, type IRouter } from "express";
 import { db } from "@workspace/db";
 import { categoriesTable, toolsTable } from "@workspace/db/schema";
-import { eq, sql } from "drizzle-orm";
+import { eq, sql, inArray } from "drizzle-orm";
 
 const router: IRouter = Router();
+
+const ALLOWED_CATEGORY_SLUGS = ["youtube-tools", "tiktok-tools", "instagram-tools", "ai-creator-tools"];
 
 router.get("/categories", async (_req, res) => {
   try {
@@ -19,6 +21,7 @@ router.get("/categories", async (_req, res) => {
       })
       .from(categoriesTable)
       .leftJoin(toolsTable, eq(toolsTable.categoryId, categoriesTable.id))
+      .where(inArray(categoriesTable.slug, ALLOWED_CATEGORY_SLUGS))
       .groupBy(categoriesTable.id)
       .orderBy(categoriesTable.sortOrder);
 
@@ -32,6 +35,12 @@ router.get("/categories", async (_req, res) => {
 router.get("/categories/:slug", async (req, res) => {
   try {
     const { slug } = req.params;
+
+    if (!ALLOWED_CATEGORY_SLUGS.includes(slug)) {
+      res.status(404).json({ error: "not_found", message: "Category not found" });
+      return;
+    }
+
     const category = await db
       .select()
       .from(categoriesTable)

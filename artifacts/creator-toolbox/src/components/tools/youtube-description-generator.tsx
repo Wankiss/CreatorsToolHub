@@ -8,6 +8,8 @@ import {
   Hash, Clock, Link2, MessageSquare, Bell, ArrowUpRight,
 } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 interface FormData {

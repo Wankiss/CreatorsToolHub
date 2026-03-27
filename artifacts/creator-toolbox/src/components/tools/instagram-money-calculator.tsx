@@ -328,7 +328,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What is engagement rate and why does it matter for Instagram income?",
-    a: "Engagement rate on Instagram is calculated as: (Likes + Comments + Saves + Shares) ÷ Reach × 100. A good engagement rate varies by account size: under 10K followers — 5–8% is healthy; 10K–100K — 3–6% is solid; 100K+ — 2–4% is good for larger accounts. Engagement rate directly impacts income in three ways: (1) Brand deal rates — brands calculate value using engagement, not just follower count; a 6% engagement rate can double your sponsorship fee; (2) Affiliate conversions — engaged followers click links and buy; (3) Instagram's Reels algorithm — higher engagement triggers broader distribution, increasing your organic reach to potential new followers and brand partners. Saves are weighted particularly heavily by Instagram's algorithm in ${YEAR}.`,
+    a: `Engagement rate on Instagram is calculated as: (Likes + Comments + Saves + Shares) ÷ Reach × 100. A good engagement rate varies by account size: under 10K followers — 5–8% is healthy; 10K–100K — 3–6% is solid; 100K+ — 2–4% is good for larger accounts. Engagement rate directly impacts income in three ways: (1) Brand deal rates — brands calculate value using engagement, not just follower count; a 6% engagement rate can double your sponsorship fee; (2) Affiliate conversions — engaged followers click links and buy; (3) Instagram's Reels algorithm — higher engagement triggers broader distribution, increasing your organic reach to potential new followers and brand partners. Saves are weighted particularly heavily by Instagram's algorithm in ${YEAR}.`,
   },
   {
     q: "How much can Instagram affiliate marketing earn?",

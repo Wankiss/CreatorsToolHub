@@ -280,7 +280,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How many hashtags should I use on TikTok?",
-    a: `The optimal TikTok hashtag count in ${YEAR} is 5–8 hashtags per video. Using too many hashtags (10+) dilutes your relevance signal and makes it harder for the algorithm to accurately categorize your content. Using too few (1–2) limits discoverability. The ideal combination is 2–3 niche-specific primary hashtags + 2–3 secondary hashtags + 1 long-tail search hashtag + 1 trending format tag. This tool automatically produces the optimal mix for your video.",
+    a: `The optimal TikTok hashtag count in ${YEAR} is 5–8 hashtags per video. Using too many hashtags (10+) dilutes your relevance signal and makes it harder for the algorithm to accurately categorize your content. Using too few (1–2) limits discoverability. The ideal combination is 2–3 niche-specific primary hashtags + 2–3 secondary hashtags + 1 long-tail search hashtag + 1 trending format tag. This tool automatically produces the optimal mix for your video.`,
   },
   {
     q: `Do TikTok hashtags still work in ${YEAR}?`,

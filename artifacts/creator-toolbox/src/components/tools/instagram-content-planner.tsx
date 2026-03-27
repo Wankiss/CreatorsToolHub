@@ -10,6 +10,8 @@ import {
   Image, Radio, Clock, BarChart2, Lightbulb, Users, ArrowUpRight,
 } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Niche =

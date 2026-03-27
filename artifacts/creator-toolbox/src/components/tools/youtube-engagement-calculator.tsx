@@ -444,7 +444,7 @@ export function YouTubeEngagementCalculatorTool() {
           <Card className={`p-6 sm:p-8 rounded-3xl border ${result.performanceBg}`}>
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <div className="text-center">
-                <div className="text-7xl font-black" style={{ color: "inherit" }} className={result.performanceColor}>
+                <div className={`text-7xl font-black ${result.performanceColor}`}>
                   {result.engagementRate.toFixed(2)}%
                 </div>
                 <div className="text-sm font-semibold text-muted-foreground mt-1">Engagement Rate</div>

@@ -10,6 +10,8 @@ import {
   ArrowRight, Sparkles, ArrowUpRight,
 } from "lucide-react";
 
+const YEAR = new Date().getFullYear();
+
 // ─── Scoring Engine ───────────────────────────────────────────────────────────
 
 const POWER_WORDS = /\b(best|ultimate|how to|complete|proven|secret|top|free|easy|fast|step.by.step|beginner|guide|tips|tricks|tutorial|master|boost|grow|rank|viral|simple|quick)\b/i;

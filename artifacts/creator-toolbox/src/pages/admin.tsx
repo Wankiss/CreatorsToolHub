@@ -319,7 +319,7 @@ function BlogForm({ onSuccess, initialData }: { onSuccess: () => void; initialDa
     slug: initialData?.slug ?? "",
     excerpt: initialData?.excerpt ?? "",
     content: initialData?.content ?? "",
-    author: initialData?.author ?? "CreatorsToolHub Team",
+    author: initialData?.author ?? "Immanuels",
     tags: initialData?.tags?.join(", ") ?? "",
     metaTitle: initialData?.metaTitle ?? "",
     metaDescription: initialData?.metaDescription ?? "",

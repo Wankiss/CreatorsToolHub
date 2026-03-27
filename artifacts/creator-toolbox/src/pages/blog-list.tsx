@@ -111,7 +111,7 @@ export default function BlogList() {
                       <div className="flex items-center justify-between text-sm font-medium pt-6 border-t border-border/50">
                         <div className="flex items-center gap-4 text-muted-foreground">
                           <span className="flex items-center gap-1.5">
-                            <div className="w-5 h-5 rounded-full bg-gradient-to-br from-primary to-purple-400" />
+                            <img src="/immanuels-avatar.png" alt="Immanuels" className="w-5 h-5 rounded-full object-cover flex-shrink-0" />
                             {featured.author}
                           </span>
                           <span className="flex items-center gap-1.5">

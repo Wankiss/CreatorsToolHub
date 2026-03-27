@@ -20,7 +20,7 @@ const posts = [
     slug: "best-free-creator-tools-beginners-2026",
     excerpt: "Discover the best free creator tools for beginners in 2026. From YouTube scripts to TikTok hashtags — get everything you need to start creating without spending a dime.",
     tags: ["Creator Tips", "Free Tools", "Beginner Guide"],
-    author: "CreatorsToolHub Team",
+    author: "Immanuels",
     metaTitle: "Best Free Creator Tools for Beginners in 2026 | CreatorsToolHub",
     metaDescription: "Discover the best free creator tools for beginners in 2026. YouTube, TikTok, Instagram & AI tools — all free at CreatorsToolHub. Start creating today.",
     content: `
@@ -95,7 +95,7 @@ const posts = [
     slug: "how-to-write-youtube-script-fast-free-generator",
     excerpt: "Learn how to write a YouTube script fast using a free script generator. Save hours with proven templates and AI-powered tools that give you hooks, structure, and CTAs instantly.",
     tags: ["YouTube Growth", "Scripting", "Free Tools"],
-    author: "CreatorsToolHub Team",
+    author: "Immanuels",
     metaTitle: "How to Write a YouTube Script Fast (Free Generator) | CreatorsToolHub",
     metaDescription: "Learn how to write a YouTube script fast using a free script generator. Get attention-grabbing hooks, structured body content & strong CTAs in minutes.",
     content: `
@@ -180,7 +180,7 @@ const posts = [
     slug: "how-to-go-viral-on-youtube-beginner-2026",
     excerpt: "Want to go viral on YouTube as a beginner? Discover the proven strategies that actually work in 2026 — from irresistible titles to the posting frequency that triggers the algorithm.",
     tags: ["YouTube Growth", "Viral Content", "Beginner Guide"],
-    author: "CreatorsToolHub Team",
+    author: "Immanuels",
     metaTitle: "How to Go Viral on YouTube as a Beginner in 2026 | CreatorsToolHub",
     metaDescription: "Want to go viral on YouTube for beginners? Discover what actually works in 2026 — thumbnails, titles, hooks, and free tools to boost your reach.",
     content: `
@@ -272,7 +272,7 @@ const posts = [
     slug: "how-to-start-faceless-youtube-channel-2026",
     excerpt: "Learn how to start a faceless YouTube channel from scratch in 2026. Discover the best faceless YouTube channel ideas, free tools, and step-by-step strategy to earn money without showing your face.",
     tags: ["YouTube Growth", "Faceless Channel", "Beginner Guide"],
-    author: "CreatorsToolHub Team",
+    author: "Immanuels",
     metaTitle: "How to Start a Faceless YouTube Channel in 2026 | Complete Guide",
     metaDescription: "Start a faceless YouTube channel in 2026 with this complete step-by-step guide. Best niches, free tools, content strategy & monetization tips — no face required.",
     content: `
@@ -354,7 +354,7 @@ const posts = [
     slug: "best-free-ai-tools-content-creators-2026",
     excerpt: "Discover the best free AI tools for content creators in 2026. Generate scripts, captions, hashtags, viral ideas and more — all without spending a dollar.",
     tags: ["AI Tools", "Free Tools", "Content Creation"],
-    author: "CreatorsToolHub Team",
+    author: "Immanuels",
     metaTitle: "Best Free AI Tools for Content Creators 2026 | CreatorsToolHub",
     metaDescription: "Discover the best free AI tools for content creators in 2026. Scripts, captions, hashtags, viral ideas — all free. Start creating smarter today.",
     content: `
@@ -416,7 +416,7 @@ const posts = [
     slug: "how-to-go-viral-on-tiktok-2026",
     excerpt: "Want to go viral on TikTok? Here are the proven strategies that actually work in 2026 — from irresistible hooks to posting times, trends, and free tools to maximize your For You Page reach.",
     tags: ["TikTok Growth", "Viral Content", "Strategy"],
-    author: "CreatorsToolHub Team",
+    author: "Immanuels",
     metaTitle: "How to Go Viral on TikTok in 2026: Proven Strategies | CreatorsToolHub",
     metaDescription: "Learn how to go viral on TikTok in 2026. Proven strategies on hooks, posting times, trends & free tools to get on the For You Page — even with 0 followers.",
     content: `
@@ -500,7 +500,7 @@ const posts = [
     slug: "how-to-get-tiktok-video-ideas-every-day-free",
     excerpt: "Never run out of TikTok video ideas again. Learn how to use a free TikTok content generator and proven strategies to get fresh, viral content ideas every single day.",
     tags: ["TikTok Growth", "Content Ideas", "Free Tools"],
-    author: "CreatorsToolHub Team",
+    author: "Immanuels",
     metaTitle: "How to Get TikTok Video Ideas Every Day for Free | CreatorsToolHub",
     metaDescription: "Never run out of TikTok video ideas. Discover how a free TikTok content generator gives you fresh, viral ideas every day — for any niche.",
     content: `
@@ -585,7 +585,7 @@ const posts = [
     slug: "how-to-grow-tiktok-followers-fast-2026",
     excerpt: "Want to grow TikTok followers fast without dancing? This guide covers the content strategy, posting schedule, and free tools to grow your TikTok account in 2026 — whatever your niche.",
     tags: ["TikTok Growth", "Follower Growth", "Strategy"],
-    author: "CreatorsToolHub Team",
+    author: "Immanuels",
     metaTitle: "How to Grow TikTok Followers Fast in 2026 | No Dancing Required",
     metaDescription: "Grow TikTok followers fast in 2026 — no dancing needed. Learn the content strategy, posting frequency, and free tools that actually drive follower growth.",
     content: `
@@ -652,7 +652,7 @@ const posts = [
     slug: "how-to-create-content-using-ai-beginners-guide-2026",
     excerpt: "Learn how to create content using AI in 2026. This complete beginner's guide covers free AI tools for scripts, captions, ideas, hashtags and more — no experience or budget required.",
     tags: ["AI Tools", "Content Creation", "Beginner Guide"],
-    author: "CreatorsToolHub Team",
+    author: "Immanuels",
     metaTitle: "How to Create Content Using AI: Beginner's Guide 2026 | CreatorsToolHub",
     metaDescription: "Learn how to create content using AI in 2026. Free tools for scripts, captions, ideas & hashtags — complete beginner's guide. No experience or budget needed.",
     content: `
@@ -740,7 +740,7 @@ const posts = [
     slug: "viral-content-ideas-beginners-2026",
     excerpt: "Looking for viral content ideas as a beginner? Discover 50 proven content ideas for YouTube, TikTok, and Instagram that get views in 2026 — even with zero followers.",
     tags: ["Content Ideas", "Viral Content", "Beginner Guide"],
-    author: "CreatorsToolHub Team",
+    author: "Immanuels",
     metaTitle: "50 Viral Content Ideas for Beginners That Get Views in 2026",
     metaDescription: "Discover 50 viral content ideas for beginners that get views in 2026 — for YouTube, TikTok & Instagram. Start creating content that people actually want to watch.",
     content: `
@@ -845,7 +845,7 @@ const posts = [
     slug: "instagram-hashtag-strategy-2026-more-reach",
     excerpt: "Boost your Instagram reach with the right hashtag strategy in 2026. Learn the tiered approach used by top creators — and use a free hashtag generator to find the perfect tags for every post.",
     tags: ["Instagram Growth", "Hashtags", "Strategy"],
-    author: "CreatorsToolHub Team",
+    author: "Immanuels",
     metaTitle: "Instagram Hashtag Strategy 2026: More Reach on Every Post | CreatorsToolHub",
     metaDescription: "Boost your Instagram reach with the right hashtag strategy in 2026. Learn the tiered approach & use a free hashtag generator to maximize your post reach.",
     content: `
@@ -930,7 +930,7 @@ const posts = [
     slug: "youtube-seo-tips-beginners-2026",
     excerpt: "Rank higher on YouTube with these proven SEO tips for beginners in 2026. Learn title optimization, description strategy, tags, and thumbnail best practices to get more organic views.",
     tags: ["YouTube Growth", "SEO", "Beginner Guide"],
-    author: "CreatorsToolHub Team",
+    author: "Immanuels",
     metaTitle: "YouTube SEO Tips for Beginners That Work in 2026 | CreatorsToolHub",
     metaDescription: "Rank higher on YouTube with proven SEO tips for beginners in 2026. Title optimization, descriptions, tags & thumbnails — everything you need to get organic views.",
     content: `

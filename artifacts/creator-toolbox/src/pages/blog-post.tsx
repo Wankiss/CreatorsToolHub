@@ -82,9 +82,7 @@ export default function BlogPost() {
 
             <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground font-medium">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-purple-400 flex items-center justify-center text-xs text-white font-bold">
-                  {post.author.charAt(0)}
-                </div>
+                <img src="/immanuels-avatar.png" alt={post.author} className="w-7 h-7 rounded-full object-cover flex-shrink-0" />
                 <span className="text-foreground font-semibold">{post.author}</span>
               </div>
               <div className="flex items-center gap-1.5">

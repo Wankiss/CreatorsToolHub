@@ -34,6 +34,45 @@ artifacts-monorepo/
 └── package.json
 ```
 
+## Blog System
+
+### 12 SEO-Optimized Articles (seeded via `pnpm --filter @workspace/db run seed-blog`)
+1. What Are the Best Free Creator Tools for Beginners in 2026?
+2. How to Write a YouTube Script Fast Using a Free Script Generator
+3. How to Go Viral on YouTube as a Beginner in 2026
+4. How to Start a Faceless YouTube Channel: Complete Guide for 2026
+5. Best Free AI Tools for Content Creators in 2026 (Zero Cost, Maximum Output)
+6. How to Go Viral on TikTok in 2026: Strategies That Actually Work
+7. How to Get TikTok Video Ideas Every Single Day for Free
+8. How to Grow TikTok Followers Fast in 2026 (No Dancing Required)
+9. How to Create Content Using AI: The Complete Beginner's Guide for 2026
+10. 50 Viral Content Ideas for Beginners That Actually Get Views in 2026
+11. Instagram Hashtag Strategy 2026: Get More Reach on Every Post
+12. YouTube SEO Tips for Beginners That Actually Work in 2026
+
+### Blog Page Features
+- Hero section with tag filter tabs (YouTube Growth, TikTok Growth, Instagram Growth, AI Tools, Content Ideas, Free Tools, Beginner Guide, Strategy, SEO, Viral Content)
+- Featured post (first post) displayed prominently with a wide card
+- 3-column post grid below for remaining posts
+- Reading time, category emojis, and publish dates on every card
+- Bottom CTA section linking to the tools page
+
+### Blog Post Features
+- Clean article header with tags, author avatar, date, reading time
+- Lead excerpt with primary-colored left border
+- AdSense placeholders (top of article + sidebar 300x600)
+- Rich prose styling via @tailwindcss/typography
+- Social sharing buttons (Twitter, Facebook, copy link)
+- "Put This Into Practice" CTA box linking to tools
+- Related posts section (3 cards)
+- Sticky sidebar with newsletter + tools CTA + ad placeholder
+
+### Admin Blog Manager (at /admin → Blog Content tab)
+- Full CRUD: list all posts (including drafts), create, edit, delete
+- Blog form with title, slug, excerpt, HTML content, tags, meta SEO fields
+- Publish/draft toggle with live status badge
+- GET /api/admin/blog endpoint (not in OpenAPI spec — added manually to admin routes)
+
 ## Platform Features
 
 ### Tool Categories (6)

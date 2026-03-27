@@ -141,6 +141,27 @@ router.delete("/admin/tools/:id", async (req, res) => {
   }
 });
 
+router.get("/admin/blog", async (_req, res) => {
+  try {
+    const posts = await db
+      .select()
+      .from(blogPostsTable)
+      .orderBy(desc(blogPostsTable.createdAt));
+
+    const formatted = posts.map(p => ({
+      ...p,
+      tags: (() => { try { return JSON.parse(p.tags); } catch { return []; } })(),
+      publishedAt: p.publishedAt?.toISOString() ?? null,
+      createdAt: p.createdAt?.toISOString() ?? new Date().toISOString(),
+    }));
+
+    res.json({ posts: formatted, total: formatted.length });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "server_error", message: "Failed to fetch admin blog posts" });
+  }
+});
+
 router.post("/admin/blog", async (req, res) => {
   try {
     const { title, slug, excerpt, content, author, tags, metaTitle, metaDescription, isPublished } = req.body;

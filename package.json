@@ -4,7 +4,7 @@
   "license": "MIT",
   "packageManager": "pnpm@10.26.1",
   "scripts": {
-    "build": "npx --yes pnpm -r --if-present run build",
+    "build": "npx --yes pnpm --filter @workspace/creator-toolbox run build && npx --yes pnpm --filter @workspace/api-server run build",
     "typecheck:libs": "tsc --build",
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },

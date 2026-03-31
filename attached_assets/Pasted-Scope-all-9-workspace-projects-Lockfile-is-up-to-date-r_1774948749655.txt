@@ -1,0 +1,37 @@
+Scope: all 9 workspace projects
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +458
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 458, reused 458, downloaded 0, added 263
+Progress: resolved 458, reused 458, downloaded 0, added 458, done
+
+devDependencies:
++ prettier 3.8.1
++ typescript 5.9.3
+
+Done in 3.3s using pnpm v10.33.0
+
+> workspace@0.0.0 build /home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository
+> npx --yes pnpm -r --if-present run build
+
+Scope: 8 of 9 workspace projects
+artifacts/mockup-sandbox build$ vite build
+artifacts/mockup-sandbox build: failed to load config from /home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/artifacts/mockup-sandbox/vite.config.ts
+artifacts/mockup-sandbox build: error during build:
+artifacts/mockup-sandbox build: Error: BASE_PATH environment variable is required but was not provided.
+artifacts/mockup-sandbox build:     at file:///home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/artifacts/mockup-sandbox/node_modules/.vite-temp/vite.config.ts.timestamp-1774948653859-1c09a7150a929.mjs:155:9
+artifacts/mockup-sandbox build:     at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+artifacts/mockup-sandbox build:     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)
+artifacts/mockup-sandbox build:     at async loadConfigFromBundledFile (file:///home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/node_modules/.pnpm/vite@7.3.1_@types+node@25.3.5_jiti@2.6.1_lightningcss@1.31.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/node/chunks/config.js:35909:12)
+artifacts/mockup-sandbox build:     at async bundleAndLoadConfigFile (file:///home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/node_modules/.pnpm/vite@7.3.1_@types+node@25.3.5_jiti@2.6.1_lightningcss@1.31.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/node/chunks/config.js:35797:17)
+artifacts/mockup-sandbox build:     at async loadConfigFromFile (file:///home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/node_modules/.pnpm/vite@7.3.1_@types+node@25.3.5_jiti@2.6.1_lightningcss@1.31.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/node/chunks/config.js:35764:42)
+artifacts/mockup-sandbox build:     at async resolveConfig (file:///home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/node_modules/.pnpm/vite@7.3.1_@types+node@25.3.5_jiti@2.6.1_lightningcss@1.31.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/node/chunks/config.js:35413:22)
+artifacts/mockup-sandbox build:     at async createBuilder (file:///home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/node_modules/.pnpm/vite@7.3.1_@types+node@25.3.5_jiti@2.6.1_lightningcss@1.31.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/node/chunks/config.js:33875:19)
+artifacts/mockup-sandbox build:     at async CAC.<anonymous> (file:///home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/node_modules/.pnpm/vite@7.3.1_@types+node@25.3.5_jiti@2.6.1_lightningcss@1.31.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/node/cli.js:629:10)
+artifacts/mockup-sandbox build: Failed
+/home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/artifacts/mockup-sandbox:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @workspace/mockup-sandbox@2.0.0 build: `vite build`
+Exit status 1
+ ELIFECYCLE  Command failed with exit code 1.
+[31mERROR: Failed to build the application[0m

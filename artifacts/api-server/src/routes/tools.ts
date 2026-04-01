@@ -160,7 +160,7 @@ router.post("/tools/:slug/execute", async (req, res) => {
       res.status(400).json({ error: "bad_request", message: "inputs object is required" });
       return;
     }
-    const result = executeTool(slug, inputs as Record<string, string | number | boolean>);
+    const result = await executeTool(slug, inputs as Record<string, string | number | boolean>);
     res.json(result);
   } catch (err) {
     console.error(err);

@@ -173,9 +173,7 @@ router.get("/sitemap", async (_req, res) => {
     const tools = await db.select({ slug: toolsTable.slug, updatedAt: toolsTable.updatedAt }).from(toolsTable).where(eq(toolsTable.isActive, true));
     const ALLOWED_SLUGS = ["youtube-tools", "tiktok-tools", "instagram-tools", "ai-creator-tools"];
     const categories = await db.select({ slug: categoriesTable.slug }).from(categoriesTable).where(inArray(categoriesTable.slug, ALLOWED_SLUGS));
-    const baseUrl = process.env.REPLIT_DOMAINS
-      ? `https://${process.env.REPLIT_DOMAINS.split(",")[0]}`
-      : "https://creator-toolbox.app";
+    const baseUrl = process.env.SITE_URL ?? "https://creatorstoolhub.com";
 
     const urls = [
       { loc: baseUrl, lastmod: new Date().toISOString().split("T")[0], changefreq: "daily", priority: 1.0 },

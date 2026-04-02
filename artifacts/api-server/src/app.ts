@@ -15,9 +15,7 @@ app.use("/api", router);
 
 app.get("/sitemap.xml", async (_req, res) => {
   try {
-    const baseUrl = process.env.REPLIT_DOMAINS
-      ? `https://${process.env.REPLIT_DOMAINS.split(",")[0]}`
-      : "https://creator-toolbox.app";
+    const baseUrl = process.env.SITE_URL ?? "https://creatorstoolhub.com";
 
     const ALLOWED_SLUGS = ["youtube-tools", "tiktok-tools", "instagram-tools", "ai-creator-tools"];
     const [tools, categories, posts] = await Promise.all([

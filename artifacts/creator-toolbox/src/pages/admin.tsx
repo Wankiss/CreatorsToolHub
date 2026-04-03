@@ -16,7 +16,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
-import { BarChart3, Wrench, FileText, Trash2, Edit, Plus, FolderOpen, Eye, EyeOff } from "lucide-react";
+import { BarChart3, Wrench, FileText, Trash2, Edit, Plus, FolderOpen, Eye, EyeOff, Mail, ChevronDown, ChevronUp } from "lucide-react";
 import { useQueryClient, useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 
@@ -86,6 +86,7 @@ export default function AdminDashboard() {
             <TabsTrigger value="stats" className="rounded-lg px-6 py-2.5 data-[state=active]:shadow-sm"><BarChart3 className="w-4 h-4 mr-2" /> Overview</TabsTrigger>
             <TabsTrigger value="tools" className="rounded-lg px-6 py-2.5 data-[state=active]:shadow-sm"><Wrench className="w-4 h-4 mr-2" /> Tools Management</TabsTrigger>
             <TabsTrigger value="blog" className="rounded-lg px-6 py-2.5 data-[state=active]:shadow-sm"><FileText className="w-4 h-4 mr-2" /> Blog Content</TabsTrigger>
+            <TabsTrigger value="messages" className="rounded-lg px-6 py-2.5 data-[state=active]:shadow-sm"><Mail className="w-4 h-4 mr-2" /> Contact Messages</TabsTrigger>
           </TabsList>
 
           <TabsContent value="stats">
@@ -98,6 +99,10 @@ export default function AdminDashboard() {
           
           <TabsContent value="blog">
             <BlogManager />
+          </TabsContent>
+
+          <TabsContent value="messages">
+            <ContactMessages />
           </TabsContent>
         </Tabs>
       </div>
@@ -545,5 +550,121 @@ function ToolForm({ onSuccess, initialData }: { onSuccess: () => void, initialDa
         <Button type="submit" disabled={createMutation.isPending || updateMutation.isPending}>Save Tool</Button>
       </DialogFooter>
     </form>
+  );
+}
+
+function ContactMessages() {
+  const queryClient = useQueryClient();
+  const { toast } = useToast();
+  const [expanded, setExpanded] = useState<number | null>(null);
+
+  const { data, isLoading } = useQuery({
+    queryKey: ['/api/admin/messages'],
+    queryFn: async () => {
+      const res = await fetch('/api/admin/messages');
+      if (!res.ok) throw new Error('Failed to fetch');
+      return res.json() as Promise<{ messages: any[]; total: number }>;
+    },
+  });
+
+  const handleDelete = async (id: number) => {
+    if (!confirm("Delete this message? This cannot be undone.")) return;
+    try {
+      const res = await fetch(`/api/admin/messages/${id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error();
+      queryClient.invalidateQueries({ queryKey: ['/api/admin/messages'] });
+      toast({ title: "Message deleted" });
+      if (expanded === id) setExpanded(null);
+    } catch {
+      toast({ title: "Error", description: "Could not delete message", variant: "destructive" });
+    }
+  };
+
+  if (isLoading) return <Skeleton className="h-[400px] rounded-xl" />;
+
+  return (
+    <Card className="p-6">
+      <div className="flex justify-between items-center mb-6">
+        <div>
+          <h3 className="font-bold font-display text-xl">Contact Messages</h3>
+          <p className="text-sm text-muted-foreground mt-0.5">{data?.total ?? 0} total messages</p>
+        </div>
+      </div>
+
+      {!data?.messages.length ? (
+        <div className="text-center py-16 text-muted-foreground">
+          <Mail className="w-10 h-10 mx-auto mb-3 opacity-30" />
+          <p className="font-medium">No messages yet</p>
+          <p className="text-sm mt-1">Contact form submissions will appear here.</p>
+        </div>
+      ) : (
+        <div className="space-y-3">
+          {data.messages.map(msg => (
+            <div key={msg.id} className="rounded-xl border border-border overflow-hidden">
+              <div
+                className="flex items-center justify-between px-5 py-4 cursor-pointer hover:bg-muted/30 transition-colors"
+                onClick={() => setExpanded(expanded === msg.id ? null : msg.id)}
+              >
+                <div className="flex items-center gap-4 min-w-0">
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-4 h-4 text-primary" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-semibold text-sm truncate">{msg.name}</p>
+                    <p className="text-xs text-muted-foreground truncate">{msg.email}</p>
+                  </div>
+                  <span className="hidden sm:block text-sm font-medium text-foreground truncate max-w-[240px]">{msg.subject}</span>
+                </div>
+                <div className="flex items-center gap-3 flex-shrink-0 ml-3">
+                  <span className="text-xs text-muted-foreground hidden md:block">
+                    {msg.createdAt ? format(new Date(msg.createdAt), 'MMM d, yyyy · h:mm a') : ''}
+                  </span>
+                  <Button
+                    variant="ghost" size="icon"
+                    className="h-7 w-7 text-muted-foreground hover:text-destructive"
+                    onClick={e => { e.stopPropagation(); handleDelete(msg.id); }}
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                  </Button>
+                  {expanded === msg.id ? <ChevronUp className="w-4 h-4 text-muted-foreground" /> : <ChevronDown className="w-4 h-4 text-muted-foreground" />}
+                </div>
+              </div>
+
+              {expanded === msg.id && (
+                <div className="px-5 pb-5 border-t border-border bg-muted/20">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 mb-4 text-sm">
+                    <div>
+                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">From</p>
+                      <p className="font-medium">{msg.name}</p>
+                      <a href={`mailto:${msg.email}`} className="text-primary hover:underline text-sm">{msg.email}</a>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Subject</p>
+                      <p className="font-medium">{msg.subject}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Received</p>
+                      <p className="font-medium">{msg.createdAt ? format(new Date(msg.createdAt), 'MMM d, yyyy') : ''}</p>
+                      <p className="text-muted-foreground text-xs">{msg.createdAt ? format(new Date(msg.createdAt), 'h:mm a') : ''}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Message</p>
+                    <p className="text-sm leading-relaxed whitespace-pre-wrap bg-background rounded-lg p-4 border border-border">{msg.message}</p>
+                  </div>
+                  <div className="flex justify-end mt-4">
+                    <Button size="sm" asChild>
+                      <a href={`mailto:${msg.email}?subject=Re: ${encodeURIComponent(msg.subject)}`}>
+                        <Mail className="w-3.5 h-3.5 mr-2" /> Reply via Email
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </Card>
   );
 }

@@ -1,6 +1,6 @@
 import { Router, type IRouter } from "express";
 import { db } from "@workspace/db";
-import { categoriesTable, toolsTable, blogPostsTable, toolUsageLogsTable } from "@workspace/db/schema";
+import { categoriesTable, toolsTable, blogPostsTable, toolUsageLogsTable, contactMessagesTable } from "@workspace/db/schema";
 import { eq, sql, desc, gte } from "drizzle-orm";
 
 const router: IRouter = Router();
@@ -234,6 +234,30 @@ router.delete("/admin/blog/:id", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "server_error", message: "Failed to delete blog post" });
+  }
+});
+
+router.get("/admin/messages", async (_req, res) => {
+  try {
+    const messages = await db
+      .select()
+      .from(contactMessagesTable)
+      .orderBy(desc(contactMessagesTable.createdAt));
+    res.json({ messages, total: messages.length });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "server_error", message: "Failed to fetch messages" });
+  }
+});
+
+router.delete("/admin/messages/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    await db.delete(contactMessagesTable).where(eq(contactMessagesTable.id, id));
+    res.json({ success: true });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "server_error", message: "Failed to delete message" });
   }
 });
 

@@ -13,4 +13,7 @@ pnpm --filter @workspace/db run push-force
 echo "Seeding database..."
 pnpm --filter @workspace/db run seed
 
+echo "Seeding blog posts..."
+pnpm --filter @workspace/db run seed-blog
+
 echo "Build complete."

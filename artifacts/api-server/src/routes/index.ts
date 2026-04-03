@@ -5,6 +5,7 @@ import categoriesRouter from "./categories.js";
 import blogRouter from "./blog.js";
 import analyticsRouter from "./analytics.js";
 import adminRouter from "./admin.js";
+import contactRouter from "./contact.js";
 
 const router: IRouter = Router();
 
@@ -14,5 +15,6 @@ router.use(categoriesRouter);
 router.use(blogRouter);
 router.use(analyticsRouter);
 router.use(adminRouter);
+router.use(contactRouter);
 
 export default router;

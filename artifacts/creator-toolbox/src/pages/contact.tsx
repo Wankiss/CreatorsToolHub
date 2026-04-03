@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
-import { Mail, MessageSquare, Clock, HelpCircle, Sparkles, CheckCircle2 } from "lucide-react";
+import { Mail, MessageSquare, Clock, HelpCircle, Sparkles, CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -14,12 +14,37 @@ const TOPICS = [
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) return;
-    setSubmitted(true);
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.message || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -108,6 +133,7 @@ export default function Contact() {
                           value={form.name}
                           onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                           className="rounded-xl"
+                          disabled={loading}
                         />
                       </div>
                       <div>
@@ -118,6 +144,7 @@ export default function Contact() {
                           value={form.email}
                           onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                           className="rounded-xl"
+                          disabled={loading}
                         />
                       </div>
                     </div>
@@ -128,6 +155,7 @@ export default function Contact() {
                         value={form.subject}
                         onChange={e => setForm(f => ({ ...f, subject: e.target.value }))}
                         className="rounded-xl"
+                        disabled={loading}
                       />
                     </div>
                     <div>
@@ -137,11 +165,23 @@ export default function Contact() {
                         value={form.message}
                         onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
                         rows={6}
-                        className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring resize-none"
+                        disabled={loading}
+                        className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring resize-none disabled:opacity-50"
                       />
                     </div>
-                    <Button type="submit" size="lg" className="w-full rounded-xl font-semibold">
-                      Send Message
+
+                    {error && (
+                      <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                        {error}
+                      </p>
+                    )}
+
+                    <Button type="submit" size="lg" className="w-full rounded-xl font-semibold" disabled={loading}>
+                      {loading ? (
+                        <span className="flex items-center gap-2">
+                          <Loader2 className="w-4 h-4 animate-spin" /> Sending...
+                        </span>
+                      ) : "Send Message"}
                     </Button>
                     <p className="text-xs text-muted-foreground text-center">
                       By submitting this form, you agree to our{" "}

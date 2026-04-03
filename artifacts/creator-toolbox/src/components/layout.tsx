@@ -319,7 +319,6 @@ export function Layout({ children }: { children: ReactNode }) {
                 <li><Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
                 <li><Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link></li>
                 <li><Link href="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link></li>
-                <li><Link href="/admin" className="hover:text-white transition-colors">Admin</Link></li>
               </ul>
             </div>
           </div>

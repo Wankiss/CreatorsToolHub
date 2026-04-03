@@ -16,7 +16,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
-import { BarChart3, Wrench, FileText, Trash2, Edit, Plus, FolderOpen, Eye, EyeOff, Mail, Upload, X, ImageIcon } from "lucide-react";
+import { BarChart3, Wrench, FileText, Trash2, Edit, Plus, FolderOpen, Eye, EyeOff, Mail, Upload, X, ImageIcon, ChevronUp, ChevronDown } from "lucide-react";
 import { useQueryClient, useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 

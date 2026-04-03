@@ -1,0 +1,287 @@
+Scope: all 10 workspace projects
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +578
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 578, reused 578, downloaded 0, added 531
+Progress: resolved 578, reused 578, downloaded 0, added 578, done
+
+devDependencies:
++ prettier 3.8.1
++ typescript 5.9.3
+
+Done in 2.6s using pnpm v10.33.0
+
+> workspace@0.0.0 build /home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository
+> npx --yes pnpm --filter @workspace/creator-toolbox run build && npx --yes pnpm --filter @workspace/api-server run build
+
+
+> @workspace/creator-toolbox@0.0.0 build /home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/artifacts/creator-toolbox
+> vite build --config vite.config.ts
+
+vite v7.3.1 building client environment for production...
+transforming...
+src/components/ui/tooltip.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+src/components/ui/label.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+✓ 3203 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/public/index.html                     2.10 kB │ gzip:   0.85 kB
+dist/public/assets/index-C8O8R9FL.css    204.49 kB │ gzip:  28.91 kB
+dist/public/assets/index-CuIdjB4W.js   2,735.62 kB │ gzip: 772.18 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 7.19s
+
+> @workspace/api-server@0.0.0 build /home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/artifacts/api-server
+> pnpm --filter @workspace/db run push-force && pnpm --filter @workspace/db run seed && pnpm --filter @workspace/db run seed-blog && tsx ./build.ts
+
+
+> @workspace/db@0.0.0 push-force /home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/lib/db
+> drizzle-kit push --force --config ./drizzle.config.ts
+
+Reading config file '/home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/lib/db/drizzle.config.ts'
+Using 'pg' driver for database querying
+[⣷] Pulling schema from database...
+(node:3749423) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[2K[1G[⣯] Pulling schema from database...
+[2K[1G[⣟] Pulling schema from database...
+[2K[1G[⡿] Pulling schema from database...
+[2K[1G[⢿] Pulling schema from database...
+[2K[1G[⣻] Pulling schema from database...
+[2K[1G[⣽] Pulling schema from database...
+[2K[1G[⣷] Pulling schema from database...
+[2K[1G[⣯] Pulling schema from database...
+[2K[1G[⣟] Pulling schema from database...
+[2K[1G[⡿] Pulling schema from database...
+[2K[1G[⢿] Pulling schema from database...
+[2K[1G[⣻] Pulling schema from database...
+[2K[1G[⣽] Pulling schema from database...
+[2K[1G[⣷] Pulling schema from database...
+[2K[1G[⣯] Pulling schema from database...
+[2K[1G[✓] Pulling schema from database...
+[?25l
+Is contact_messages table created or renamed from another table?
+❯ + contact_messages                       create table
+  ~ tool_usage › contact_messages          rename table
+  ~ contact_submissions › contact_messages rename table
+> @workspace/db@0.0.0 seed /home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/lib/db
+> tsx ./src/seed.ts
+
+Seeding database...
+Inserting categories...
+(node:3770663) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Inserting tools...
+Seeded 4 categories and 34 tools.
+
+> @workspace/db@0.0.0 seed-blog /home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/lib/db
+> tsx ./src/seed-blog.ts
+
+Clearing existing blog posts...
+(node:3772150) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Inserting 12 blog posts...
+Seed failed: DrizzleQueryError: Failed query: insert into "blog_posts" ("id", "title", "slug", "excerpt", "content", "author", "tags", "meta_title", "meta_description", "cover_image", "faq_schema", "reading_time", "is_published", "published_at", "created_at", "updated_at") values (default, $1, $2, $3, $4, $5, $6, $7, $8, default, default, $9, $10, $11, default, default)
+params: What Are the Best Free Creator Tools for Beginners in 2026?,best-free-creator-tools-beginners-2026,Discover the best free creator tools for beginners in 2026. From YouTube scripts to TikTok hashtags — get everything you need to start creating without spending a dime.,<h2>Why the Right Tools Make All the Difference</h2>
+<p>Starting your creator journey feels overwhelming. You see other creators pumping out polished videos, viral TikToks, and perfectly captioned Instagram posts — and you wonder: <em>how are they doing all of this?</em></p>
+<p>The honest answer? They're not doing it alone. The most successful creators rely on tools to speed up their workflow, optimize their content, and stay consistent. The difference between them and a struggling beginner isn't talent — it's leverage.</p>
+<p>The good news: you don't need to spend money to get that same leverage. The best free creator tools are available right now, and in this guide, we're breaking down exactly what they are and how to use them.</p>
+
+<h2>What Are Free Creator Tools?</h2>
+<p>Free creator tools are software applications or web-based platforms that help content creators produce, optimize, and grow their content without any upfront cost. They cover everything from writing YouTube scripts and generating TikTok hashtags to calculating your Instagram engagement rate and planning your content calendar.</p>
+<p>In 2026, AI has made these tools exponentially more powerful. What used to require a marketing team or an expensive agency can now be done by a solo creator in minutes — completely free.</p>
+<p>At <strong>CreatorsToolHub</strong>, we've built 34+ free tools across YouTube, TikTok, Instagram, and AI content creation — all designed to help beginner and intermediate creators work smarter.</p>
+
+<h2>The 6 Categories of Free Creator Tools You Actually Need</h2>
+
+<h3>1. Content Idea Generators</h3>
+<p>Staring at a blank screen is every creator's worst nightmare. Content idea generators solve this instantly. You enter your niche, pick a content style, and the tool gives you a week's worth of video ideas in seconds.</p>
+<p>Our <a href="/tools/youtube-video-idea-generator">YouTube Video Idea Generator</a> and <a href="/tools/tiktok-viral-idea-generator">TikTok Viral Idea Generator</a> are among our most popular tools for this exact reason. Beginners use them to break through creative block and discover angles they never would have thought of on their own.</p>
+
+<h3>2. Script and Caption Writers</h3>
+<p>Writing scripts is time-consuming, especially when you're just getting started and don't have a template to follow. A script generator gives you a structured foundation — an attention-grabbing hook, a clear body, and a strong call-to-action — that you can then personalize with your own voice.</p>
+<p>Try our free <a href="/tools/youtube-script-generator">YouTube Script Generator</a> or <a href="/tools/tiktok-script-generator">TikTok Script Generator</a> to cut your prep time in half.</p>
+
+<h3>3. SEO and Hashtag Tools</h3>
+<p>Publishing content is only half the battle. If no one finds it, it doesn't matter how good it is. SEO and hashtag tools help you research the right keywords, generate optimized tags, and make sure your content is discoverable.</p>
+<p>The <a href="/tools/youtube-tag-generator">YouTube Tag Generator</a>, <a href="/tools/instagram-hashtag-generator">Instagram Hashtag Generator</a>, and <a href="/tools/tiktok-hashtag-generator">TikTok Hashtag Generator</a> are three tools every beginner should bookmark on day one.</p>
+
+<h3>4. Title and Hook Optimizers</h3>
+<p>Your title and hook determine whether someone clicks — or scrolls past. A compelling title on YouTube can triple your click-through rate. A strong hook on TikTok can double your watch time. These tools analyze what makes a title clickable and help you craft one that outperforms the competition.</p>
+<p>Check out the <a href="/tools/youtube-title-generator">YouTube Title Generator</a> and <a href="/tools/tiktok-hook-generator">TikTok Hook Generator</a> to start making content that demands attention.</p>
+
+<h3>5. Analytics and Calculator Tools</h3>
+<p>Understanding your performance is critical for growth. Tools that calculate your engagement rate, estimate your earnings, or score your SEO give you data-driven insight without needing to pay for a premium analytics platform.</p>
+<p>The <a href="/tools/youtube-money-calculator">YouTube Money Calculator</a>, <a href="/tools/instagram-engagement-calculator">Instagram Engagement Calculator</a>, and <a href="/tools/youtube-seo-score-checker">YouTube SEO Score Checker</a> are all free and incredibly useful for measuring where you stand.</p>
+
+<h3>6. Profile and Branding Tools</h3>
+<p>First impressions matter. Your channel name, username, and bio tell visitors exactly who you are and whether they should stick around. Branding tools help you generate memorable usernames, write compelling bios, and establish an identity that grows with you.</p>
+<p>Try the <a href="/tools/youtube-channel-name-generator">YouTube Channel Name Generator</a> or <a href="/tools/instagram-bio-generator">Instagram Bio Generator</a> to nail your brand identity before you publish your first post.</p>
+
+<h2>Common Mistakes Beginners Make Without the Right Tools</h2>
+<p>Not using creator tools doesn't just slow you down — it actively hurts your growth. Here are the most common mistakes beginners make:</p>
+<ul>
+  <li><strong>Skipping keyword research</strong>: Publishing content no one is searching for means zero organic traffic, no matter how good the video is.</li>
+  <li><strong>Using the wrong hashtags</strong>: Overused hashtags on Instagram and TikTok bury your content. Under-used hashtags mean no reach. The sweet spot requires research.</li>
+  <li><strong>Weak hooks</strong>: The first 3 seconds of a TikTok and the first line of a YouTube title determine whether anyone watches. Most beginners underestimate this.</li>
+  <li><strong>No content plan</strong>: Posting randomly whenever inspiration strikes leads to inconsistency, which kills growth on every platform.</li>
+</ul>
+<p>Each of these mistakes can be fixed with the right free tool — and all of them are available at CreatorsToolHub.</p>
+
+<h2>How to Build Your Free Creator Toolkit</h2>
+<p>You don't need to use every tool at once. Here's a simple starter toolkit for beginners:</p>
+<ol>
+  <li><strong>Week 1</strong>: Focus on ideas. Use the Video Idea Generator for your platform to plan your first 4 pieces of content.</li>
+  <li><strong>Week 2</strong>: Optimize for discovery. Use the Tag Generator, Hashtag Generator, and Title Generator to make sure your content is findable.</li>
+  <li><strong>Week 3</strong>: Improve your content quality. Use the Script Generator and Hook Generator to make every video more engaging.</li>
+  <li><strong>Week 4</strong>: Analyze and iterate. Use the Engagement Calculator and SEO Score Checker to see what's working.</li>
+</ol>
+<p>That's four weeks of focused work using completely free tools — and by the end, you'll have a system that grows with you.</p>
+
+<h2>Are Free Creator Tools Actually Good?</h2>
+<p>This is a fair question. Many free tools are watered-down versions of paid products. But the tools at CreatorsToolHub are built specifically for creators, with real use cases and no feature walls.</p>
+<p>We don't believe you should have to pay to figure out if content creation is right for you. The free creator tools on this platform are designed to deliver real, actionable results — not frustrating previews of something locked behind a paywall.</p>
+<p>Thousands of creators in 2026 are building full-time businesses using nothing but free tools, smart strategy, and consistency. You can too.</p>
+
+<h2>Start Building With Free Creator Tools Today</h2>
+<p>The best free creator tools aren't a secret. They're right here, and they're ready to use. Whether you're planning your first YouTube video, trying to go viral on TikTok, or building your Instagram following from zero — there's a free tool for every step of the journey.</p>
+<p>Head to the <a href="/tools">full tools page</a> to browse all 34+ free creator tools and find the ones that fit where you are right now. Your creator career doesn't have to wait.</p>,Immanuels,["Creator Tips","Free Tools","Beginner Guide"],Best Free Creator Tools for Beginners in 2026 | CreatorsToolHub,Discover the best free creator tools for beginners in 2026. YouTube, TikTok, Instagram & AI tools — all free at CreatorsToolHub. Start creating today.,6,true,2026-04-03T03:43:43.603Z
+    at NodePgPreparedQuery.queryWithCache (/home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/node_modules/.pnpm/drizzle-orm@0.45.1_@types+pg@8.18.0_pg@8.20.0/node_modules/src/pg-core/session.ts:73:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async seedBlog (/home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/lib/db/src/seed-blog.ts:1019:5) {
+  query: 'insert into "blog_posts" ("id", "title", "slug", "excerpt", "content", "author", "tags", "meta_title", "meta_description", "cover_image", "faq_schema", "reading_time", "is_published", "published_at", "created_at", "updated_at") values (default, $1, $2, $3, $4, $5, $6, $7, $8, default, default, $9, $10, $11, default, default)',
+  params: [
+    'What Are the Best Free Creator Tools for Beginners in 2026?',
+    'best-free-creator-tools-beginners-2026',
+    'Discover the best free creator tools for beginners in 2026. From YouTube scripts to TikTok hashtags — get everything you need to start creating without spending a dime.',
+    '<h2>Why the Right Tools Make All the Difference</h2>\n' +
+      '<p>Starting your creator journey feels overwhelming. You see other creators pumping out polished videos, viral TikToks, and perfectly captioned Instagram posts — and you wonder: <em>how are they doing all of this?</em></p>\n' +
+      "<p>The honest answer? They're not doing it alone. The most successful creators rely on tools to speed up their workflow, optimize their content, and stay consistent. The difference between them and a struggling beginner isn't talent — it's leverage.</p>\n" +
+      "<p>The good news: you don't need to spend money to get that same leverage. The best free creator tools are available right now, and in this guide, we're breaking down exactly what they are and how to use them.</p>\n" +
+      '\n' +
+      '<h2>What Are Free Creator Tools?</h2>\n' +
+      '<p>Free creator tools are software applications or web-based platforms that help content creators produce, optimize, and grow their content without any upfront cost. They cover everything from writing YouTube scripts and generating TikTok hashtags to calculating your Instagram engagement rate and planning your content calendar.</p>\n' +
+      '<p>In 2026, AI has made these tools exponentially more powerful. What used to require a marketing team or an expensive agency can now be done by a solo creator in minutes — completely free.</p>\n' +
+      "<p>At <strong>CreatorsToolHub</strong>, we've built 34+ free tools across YouTube, TikTok, Instagram, and AI content creation — all designed to help beginner and intermediate creators work smarter.</p>\n" +
+      '\n' +
+      '<h2>The 6 Categories of Free Creator Tools You Actually Need</h2>\n' +
+      '\n' +
+      '<h3>1. Content Idea Generators</h3>\n' +
+      "<p>Staring at a blank screen is every creator's worst nightmare. Content idea generators solve this instantly. You enter your niche, pick a content style, and the tool gives you a week's worth of video ideas in seconds.</p>\n" +
+      '<p>Our <a href="/tools/youtube-video-idea-generator">YouTube Video Idea Generator</a> and <a href="/tools/tiktok-viral-idea-generator">TikTok Viral Idea Generator</a> are among our most popular tools for this exact reason. Beginners use them to break through creative block and discover angles they never would have thought of on their own.</p>\n' +
+      '\n' +
+      '<h3>2. Script and Caption Writers</h3>\n' +
+      "<p>Writing scripts is time-consuming, especially when you're just getting started and don't have a template to follow. A script generator gives you a structured foundation — an attention-grabbing hook, a clear body, and a strong call-to-action — that you can then personalize with your own voice.</p>\n" +
+      '<p>Try our free <a href="/tools/youtube-script-generator">YouTube Script Generator</a> or <a href="/tools/tiktok-script-generator">TikTok Script Generator</a> to cut your prep time in half.</p>\n' +
+      '\n' +
+      '<h3>3. SEO and Hashtag Tools</h3>\n' +
+      "<p>Publishing content is only half the battle. If no one finds it, it doesn't matter how good it is. SEO and hashtag tools help you research the right keywords, generate optimized tags, and make sure your content is discoverable.</p>\n" +
+      '<p>The <a href="/tools/youtube-tag-generator">YouTube Tag Generator</a>, <a href="/tools/instagram-hashtag-generator">Instagram Hashtag Generator</a>, and <a href="/tools/tiktok-hashtag-generator">TikTok Hashtag Generator</a> are three tools every beginner should bookmark on day one.</p>\n' +
+      '\n' +
+      '<h3>4. Title and Hook Optimizers</h3>\n' +
+      '<p>Your title and hook determine whether someone clicks — or scrolls past. A compelling title on YouTube can triple your click-through rate. A strong hook on TikTok can double your watch time. These tools analyze what makes a title clickable and help you craft one that outperforms the competition.</p>\n' +
+      '<p>Check out the <a href="/tools/youtube-title-generator">YouTube Title Generator</a> and <a href="/tools/tiktok-hook-generator">TikTok Hook Generator</a> to start making content that demands attention.</p>\n' +
+      '\n' +
+      '<h3>5. Analytics and Calculator Tools</h3>\n' +
+      '<p>Understanding your performance is critical for growth. Tools that calculate your engagement rate, estimate your earnings, or score your SEO give you data-driven insight without needing to pay for a premium analytics platform.</p>\n' +
+      '<p>The <a href="/tools/youtube-money-calculator">YouTube Money Calculator</a>, <a href="/tools/instagram-engagement-calculator">Instagram Engagement Calculator</a>, and <a href="/tools/youtube-seo-score-checker">YouTube SEO Score Checker</a> are all free and incredibly useful for measuring where you stand.</p>\n' +
+      '\n' +
+      '<h3>6. Profile and Branding Tools</h3>\n' +
+      '<p>First impressions matter. Your channel name, username, and bio tell visitors exactly who you are and whether they should stick around. Branding tools help you generate memorable usernames, write compelling bios, and establish an identity that grows with you.</p>\n' +
+      '<p>Try the <a href="/tools/youtube-channel-name-generator">YouTube Channel Name Generator</a> or <a href="/tools/instagram-bio-generator">Instagram Bio Generator</a> to nail your brand identity before you publish your first post.</p>\n' +
+      '\n' +
+      '<h2>Common Mistakes Beginners Make Without the Right Tools</h2>\n' +
+      "<p>Not using creator tools doesn't just slow you down — it actively hurts your growth. Here are the most common mistakes beginners make:</p>\n" +
+      '<ul>\n' +
+      '  <li><strong>Skipping keyword research</strong>: Publishing content no one is searching for means zero organic traffic, no matter how good the video is.</li>\n' +
+      '  <li><strong>Using the wrong hashtags</strong>: Overused hashtags on Instagram and TikTok bury your content. Under-used hashtags mean no reach. The sweet spot requires research.</li>\n' +
+      '  <li><strong>Weak hooks</strong>: The first 3 seconds of a TikTok and the first line of a YouTube title determine whether anyone watches. Most beginners underestimate this.</li>\n' +
+      '  <li><strong>No content plan</strong>: Posting randomly whenever inspiration strikes leads to inconsistency, which kills growth on every platform.</li>\n' +
+      '</ul>\n' +
+      '<p>Each of these mistakes can be fixed with the right free tool — and all of them are available at CreatorsToolHub.</p>\n' +
+      '\n' +
+      '<h2>How to Build Your Free Creator Toolkit</h2>\n' +
+      "<p>You don't need to use every tool at once. Here's a simple starter toolkit for beginners:</p>\n" +
+      '<ol>\n' +
+      '  <li><strong>Week 1</strong>: Focus on ideas. Use the Video Idea Generator for your platform to plan your first 4 pieces of content.</li>\n' +
+      '  <li><strong>Week 2</strong>: Optimize for discovery. Use the Tag Generator, Hashtag Generator, and Title Generator to make sure your content is findable.</li>\n' +
+      '  <li><strong>Week 3</strong>: Improve your content quality. Use the Script Generator and Hook Generator to make every video more engaging.</li>\n' +
+      "  <li><strong>Week 4</strong>: Analyze and iterate. Use the Engagement Calculator and SEO Score Checker to see what's working.</li>\n" +
+      '</ol>\n' +
+      "<p>That's four weeks of focused work using completely free tools — and by the end, you'll have a system that grows with you.</p>\n" +
+      '\n' +
+      '<h2>Are Free Creator Tools Actually Good?</h2>\n' +
+      '<p>This is a fair question. Many free tools are watered-down versions of paid products. But the tools at CreatorsToolHub are built specifically for creators, with real use cases and no feature walls.</p>\n' +
+      "<p>We don't believe you should have to pay to figure out if content creation is right for you. The free creator tools on this platform are designed to deliver real, actionable results — not frustrating previews of something locked behind a paywall.</p>\n" +
+      '<p>Thousands of creators in 2026 are building full-time businesses using nothing but free tools, smart strategy, and consistency. You can too.</p>\n' +
+      '\n' +
+      '<h2>Start Building With Free Creator Tools Today</h2>\n' +
+      "<p>The best free creator tools aren't a secret. They're right here, and they're ready to use. Whether you're planning your first YouTube video, trying to go viral on TikTok, or building your Instagram following from zero — there's a free tool for every step of the journey.</p>\n" +
+      `<p>Head to the <a href="/tools">full tools page</a> to browse all 34+ free creator tools and find the ones that fit where you are right now. Your creator career doesn't have to wait.</p>`,
+    'Immanuels',
+    '["Creator Tips","Free Tools","Beginner Guide"]',
+    'Best Free Creator Tools for Beginners in 2026 | CreatorsToolHub',
+    'Discover the best free creator tools for beginners in 2026. YouTube, TikTok, Instagram & AI tools — all free at CreatorsToolHub. Start creating today.',
+    6,
+    true,
+    '2026-04-03T03:43:43.603Z'
+  ],
+  cause: error: column "faq_schema" of relation "blog_posts" does not exist
+      at /home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/node_modules/.pnpm/pg-pool@3.13.0_pg@8.20.0/node_modules/pg-pool/index.js:45:11
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async <anonymous> (/home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/node_modules/.pnpm/drizzle-orm@0.45.1_@types+pg@8.18.0_pg@8.20.0/node_modules/src/node-postgres/session.ts:149:14)
+      at async NodePgPreparedQuery.queryWithCache (/home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/node_modules/.pnpm/drizzle-orm@0.45.1_@types+pg@8.18.0_pg@8.20.0/node_modules/src/pg-core/session.ts:71:12)
+      at async seedBlog (/home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/lib/db/src/seed-blog.ts:1019:5) {
+    length: 134,
+    severity: 'ERROR',
+    code: '42703',
+    detail: undefined,
+    hint: undefined,
+    position: '139',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_target.c',
+    line: '1065',
+    routine: 'checkInsertTargets'
+  }
+}
+/home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/lib/db:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @workspace/db@0.0.0 seed-blog: `tsx ./src/seed-blog.ts`
+Exit status 1
+/home/u431367357/domains/creatorstoolhub.com/public_html/.builds/source/repository/artifacts/api-server:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @workspace/api-server@0.0.0 build: `pnpm --filter @workspace/db run push-force && pnpm --filter @workspace/db run seed && pnpm --filter @workspace/db run seed-blog && tsx ./build.ts`
+Exit status 1
+ ELIFECYCLE  Command failed with exit code 1.
+[31mERROR: Failed to build the application[0m

@@ -13,6 +13,7 @@ export const blogPostsTable = pgTable("blog_posts", {
   metaTitle: varchar("meta_title", { length: 500 }).notNull().default(""),
   metaDescription: text("meta_description").notNull().default(""),
   coverImage: text("cover_image").default(""),
+  faqSchema: text("faq_schema").default(""),
   readingTime: integer("reading_time").notNull().default(5),
   isPublished: boolean("is_published").notNull().default(false),
   publishedAt: timestamp("published_at"),

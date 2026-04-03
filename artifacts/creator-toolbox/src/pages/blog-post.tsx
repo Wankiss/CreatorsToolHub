@@ -1,9 +1,10 @@
 import { useParams, Link } from "wouter";
+import { useEffect } from "react";
 import { Layout } from "@/components/layout";
 import { useGetBlogPost, useListBlogPosts } from "@workspace/api-client-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card } from "@/components/ui/card";
-import { ChevronLeft, Calendar, Clock, User, ArrowRight, BookOpen, Share2 } from "lucide-react";
+import { ChevronLeft, Calendar, Clock, ArrowRight, BookOpen, Share2 } from "lucide-react";
 import { format } from "date-fns";
 
 export default function BlogPost() {
@@ -12,6 +13,37 @@ export default function BlogPost() {
   const { data: related } = useListBlogPosts({ limit: 4 });
 
   const relatedPosts = (related?.posts ?? []).filter(p => p.slug !== slug).slice(0, 3);
+
+  useEffect(() => {
+    if (!post?.faqSchema) return;
+    try {
+      const faqs = JSON.parse(post.faqSchema);
+      if (!Array.isArray(faqs) || faqs.length === 0) return;
+
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.id = `faq-schema-${post.slug}`;
+      script.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map((item: { question: string; answer: string }) => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.answer,
+          },
+        })),
+      });
+      document.head.appendChild(script);
+
+      return () => {
+        document.getElementById(`faq-schema-${post.slug}`)?.remove();
+      };
+    } catch {
+      // invalid JSON — skip
+    }
+  }, [post?.faqSchema, post?.slug]);
 
   const handleShare = async () => {
     if (navigator.share) {

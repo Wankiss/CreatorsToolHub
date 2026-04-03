@@ -164,14 +164,15 @@ router.get("/admin/blog", async (_req, res) => {
 
 router.post("/admin/blog", async (req, res) => {
   try {
-    const { title, slug, excerpt, content, author, coverImage, tags, metaTitle, metaDescription, isPublished } = req.body;
+    const { title, slug, excerpt, content, author, coverImage, faqSchema, tags, metaTitle, metaDescription, isPublished } = req.body;
     const words = content?.split(/\s+/).length || 0;
     const readingTime = Math.max(1, Math.ceil(words / 200));
 
     const [post] = await db.insert(blogPostsTable).values({
       title, slug, excerpt: excerpt || "", content: content || "",
-      author: author || "Creator Toolbox Team",
+      author: author || "Immanuels",
       coverImage: coverImage || "",
+      faqSchema: faqSchema || "",
       tags: JSON.stringify(tags || []),
       metaTitle: metaTitle || title, metaDescription: metaDescription || excerpt || "",
       readingTime, isPublished: isPublished ?? false,
@@ -193,7 +194,7 @@ router.put("/admin/blog/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
     const updates: Record<string, unknown> = {};
-    const { title, slug, excerpt, content, author, coverImage, tags, metaTitle, metaDescription, isPublished } = req.body;
+    const { title, slug, excerpt, content, author, coverImage, faqSchema, tags, metaTitle, metaDescription, isPublished } = req.body;
     if (title !== undefined) updates.title = title;
     if (slug !== undefined) updates.slug = slug;
     if (excerpt !== undefined) updates.excerpt = excerpt;
@@ -203,6 +204,7 @@ router.put("/admin/blog/:id", async (req, res) => {
     }
     if (author !== undefined) updates.author = author;
     if (coverImage !== undefined) updates.coverImage = coverImage;
+    if (faqSchema !== undefined) updates.faqSchema = faqSchema;
     if (tags !== undefined) updates.tags = JSON.stringify(tags);
     if (metaTitle !== undefined) updates.metaTitle = metaTitle;
     if (metaDescription !== undefined) updates.metaDescription = metaDescription;

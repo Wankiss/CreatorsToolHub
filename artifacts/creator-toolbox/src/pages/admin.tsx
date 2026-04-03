@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { Layout } from "@/components/layout";
 import { 
   useAdminGetStats, useAdminListTools, useAdminDeleteTool, 
@@ -16,9 +16,49 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
-import { BarChart3, Wrench, FileText, Trash2, Edit, Plus, FolderOpen, Eye, EyeOff, Mail, ChevronDown, ChevronUp } from "lucide-react";
+import { BarChart3, Wrench, FileText, Trash2, Edit, Plus, FolderOpen, Eye, EyeOff, Mail, Upload, X, ImageIcon } from "lucide-react";
 import { useQueryClient, useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
+
+const HARDCODED_AUTHOR = "Immanuels";
+
+function useCoverImageUpload(onUploaded: (objectPath: string) => void) {
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const { toast } = useToast();
+
+  const uploadFile = useCallback(async (file: File) => {
+    setIsUploading(true);
+    setUploadError(null);
+    try {
+      const metaRes = await fetch("/api/storage/uploads/request-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: file.name, size: file.size, contentType: file.type || "image/jpeg" }),
+      });
+      if (!metaRes.ok) throw new Error("Failed to get upload URL");
+      const { uploadURL, objectPath } = await metaRes.json();
+
+      const putRes = await fetch(uploadURL, {
+        method: "PUT",
+        body: file,
+        headers: { "Content-Type": file.type || "image/jpeg" },
+      });
+      if (!putRes.ok) throw new Error("Failed to upload to storage");
+
+      onUploaded(`/api/storage${objectPath}`);
+      toast({ title: "Image uploaded successfully" });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Upload failed";
+      setUploadError(msg);
+      toast({ title: "Upload failed", description: msg, variant: "destructive" });
+    } finally {
+      setIsUploading(false);
+    }
+  }, [onUploaded, toast]);
+
+  return { uploadFile, isUploading, uploadError };
+}
 
 const ADMIN_PASSWORD = "ctHub2026!";
 
@@ -371,14 +411,16 @@ function BlogForm({ onSuccess, initialData }: { onSuccess: () => void; initialDa
   const createMutation = useAdminCreateBlogPost();
   const updateMutation = useAdminUpdateBlogPost();
   const { toast } = useToast();
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [form, setForm] = useState({
     title: initialData?.title ?? "",
     slug: initialData?.slug ?? "",
     excerpt: initialData?.excerpt ?? "",
     content: initialData?.content ?? "",
-    author: initialData?.author ?? "Immanuels",
     tags: initialData?.tags?.join(", ") ?? "",
+    coverImage: initialData?.coverImage ?? "",
+    faqSchema: initialData?.faqSchema ?? "",
     metaTitle: initialData?.metaTitle ?? "",
     metaDescription: initialData?.metaDescription ?? "",
     isPublished: initialData?.isPublished ?? false,
@@ -386,10 +428,21 @@ function BlogForm({ onSuccess, initialData }: { onSuccess: () => void; initialDa
 
   const setField = (key: string, val: string | boolean) => setForm(f => ({ ...f, [key]: val }));
 
+  const { uploadFile, isUploading, uploadError } = useCoverImageUpload((objectPath) => {
+    setField("coverImage", objectPath);
+  });
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) await uploadFile(file);
+    e.target.value = "";
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const payload = {
       ...form,
+      author: HARDCODED_AUTHOR,
       tags: form.tags.split(",").map(t => t.trim()).filter(Boolean),
       slug: form.slug || form.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
       metaTitle: form.metaTitle || form.title,
@@ -413,37 +466,95 @@ function BlogForm({ onSuccess, initialData }: { onSuccess: () => void; initialDa
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 pt-2">
+      {/* Title & Slug */}
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-1.5 col-span-2">
           <Label>Title *</Label>
           <Input value={form.title} onChange={e => setField('title', e.target.value)} placeholder="How to Go Viral on TikTok in 2026" />
         </div>
-        <div className="space-y-1.5">
+        <div className="space-y-1.5 col-span-2">
           <Label>Slug (auto-generated if empty)</Label>
           <Input value={form.slug} onChange={e => setField('slug', e.target.value)} placeholder="how-to-go-viral-tiktok-2026" className="font-mono text-sm" />
         </div>
-        <div className="space-y-1.5">
-          <Label>Author</Label>
-          <Input value={form.author} onChange={e => setField('author', e.target.value)} />
+      </div>
+
+      {/* Author (read-only display) */}
+      <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-muted/40 border border-border/50">
+        <img src="/immanuels-avatar.png" alt="Immanuels" className="w-7 h-7 rounded-full object-cover flex-shrink-0" />
+        <div>
+          <p className="text-xs text-muted-foreground">Author</p>
+          <p className="text-sm font-semibold">{HARDCODED_AUTHOR}</p>
         </div>
       </div>
 
+      {/* Tags */}
       <div className="space-y-1.5">
         <Label>Tags (comma-separated)</Label>
         <Input value={form.tags} onChange={e => setField('tags', e.target.value)} placeholder="TikTok Growth, Viral Content, Strategy" />
       </div>
 
+      {/* Excerpt */}
       <div className="space-y-1.5">
         <Label>Excerpt (shown in listings) *</Label>
         <Textarea value={form.excerpt} onChange={e => setField('excerpt', e.target.value)} rows={2} placeholder="A compelling 1-2 sentence summary..." />
       </div>
 
+      {/* Cover Image Upload */}
+      <div className="space-y-2">
+        <Label>Cover Image</Label>
+        <div className="border-2 border-dashed border-border rounded-xl p-4 space-y-3">
+          {form.coverImage ? (
+            <div className="relative rounded-lg overflow-hidden border border-border">
+              <img src={form.coverImage} alt="Cover preview" className="w-full h-40 object-cover" />
+              <button
+                type="button"
+                onClick={() => setField('coverImage', '')}
+                className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm border border-border rounded-full p-1 hover:bg-destructive hover:text-destructive-foreground transition-colors"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center py-4 text-center">
+              <ImageIcon className="w-8 h-8 text-muted-foreground/40 mb-2" />
+              <p className="text-sm text-muted-foreground">No image selected</p>
+            </div>
+          )}
+          <div className="flex gap-2 items-center">
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange}
+              className="hidden"
+            />
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              disabled={isUploading}
+              onClick={() => fileInputRef.current?.click()}
+              className="flex items-center gap-2"
+            >
+              <Upload className="w-3.5 h-3.5" />
+              {isUploading ? "Uploading..." : form.coverImage ? "Replace Image" : "Upload Image"}
+            </Button>
+            {form.coverImage && (
+              <p className="text-xs text-muted-foreground truncate flex-1 font-mono">{form.coverImage}</p>
+            )}
+          </div>
+          {uploadError && <p className="text-xs text-destructive">{uploadError}</p>}
+        </div>
+      </div>
+
+      {/* Content */}
       <div className="space-y-1.5">
         <Label>Content (HTML) *</Label>
         <Textarea value={form.content} onChange={e => setField('content', e.target.value)} rows={12} placeholder="<h2>...</h2><p>...</p>" className="font-mono text-sm" />
         <p className="text-xs text-muted-foreground">Write full HTML content. Use &lt;h2&gt;, &lt;h3&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;a href&gt; etc.</p>
       </div>
 
+      {/* SEO Metadata */}
       <div className="border rounded-xl p-4 space-y-3 bg-muted/20">
         <p className="text-sm font-semibold text-muted-foreground">SEO Metadata (optional — auto-fills from title/excerpt)</p>
         <div className="space-y-1.5">
@@ -457,6 +568,26 @@ function BlogForm({ onSuccess, initialData }: { onSuccess: () => void; initialDa
         </div>
       </div>
 
+      {/* FAQ Schema (JSON-LD) */}
+      <div className="border rounded-xl p-4 space-y-3 bg-muted/20">
+        <div>
+          <p className="text-sm font-semibold text-muted-foreground">FAQ Schema (JSON-LD)</p>
+          <p className="text-xs text-muted-foreground mt-0.5">Paste an array of FAQ objects. Will be injected as structured data in the page &lt;head&gt;.</p>
+        </div>
+        <Textarea
+          value={form.faqSchema}
+          onChange={e => setField('faqSchema', e.target.value)}
+          rows={6}
+          placeholder={`[\n  { "question": "What is this tool?", "answer": "It's a free creator tool." },\n  { "question": "Is it free?", "answer": "Yes, completely free." }\n]`}
+          className="font-mono text-xs"
+        />
+        {form.faqSchema && (() => {
+          try { JSON.parse(form.faqSchema); return null; }
+          catch { return <p className="text-xs text-destructive">⚠ Invalid JSON — fix before saving</p>; }
+        })()}
+      </div>
+
+      {/* Publish toggle */}
       <div className="flex items-center space-x-2 py-3 border-t">
         <Switch id="published" checked={form.isPublished} onCheckedChange={c => setField('isPublished', c)} />
         <Label htmlFor="published" className="cursor-pointer">Publish immediately (make visible to readers)</Label>
@@ -464,7 +595,7 @@ function BlogForm({ onSuccess, initialData }: { onSuccess: () => void; initialDa
 
       <DialogFooter>
         <Button type="button" variant="outline" onClick={onSuccess}>Cancel</Button>
-        <Button type="submit" disabled={isPending || !form.title || !form.content || !form.excerpt}>
+        <Button type="submit" disabled={isPending || isUploading || !form.title || !form.content || !form.excerpt}>
           {isPending ? "Saving..." : initialData?.id ? "Update Post" : "Publish Post"}
         </Button>
       </DialogFooter>

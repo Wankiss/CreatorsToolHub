@@ -1,8 +1,13 @@
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL ?? undefined,
-  apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY ?? process.env.OPENAI_API_KEY ?? "missing",
+  baseURL: process.env.GITHUB_TOKEN
+    ? "https://models.inference.ai.azure.com"
+    : (process.env.AI_INTEGRATIONS_OPENAI_BASE_URL ?? undefined),
+  apiKey: process.env.GITHUB_TOKEN
+    ?? process.env.AI_INTEGRATIONS_OPENAI_API_KEY
+    ?? process.env.OPENAI_API_KEY
+    ?? "missing",
 });
 
 export interface ToolInput {

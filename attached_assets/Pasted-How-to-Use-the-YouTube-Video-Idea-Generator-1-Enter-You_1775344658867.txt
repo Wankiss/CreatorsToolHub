@@ -1,0 +1,95 @@
+How to Use the YouTube Video Idea Generator
+1
+Enter Your Niche and Audience
+Type your channel niche (e.g. 'fitness', 'personal finance', 'gaming') and optionally your target audience (e.g. 'beginners', 'entrepreneurs', 'teens'). The generator expands your niche into related content angles and keyword clusters specific to your category, producing ideas that feel native to your channel rather than generic.
+
+2
+Choose Your Content Goal and Tone
+Select the goal driving your next batch of content — growing subscribers, increasing engagement, going viral, educating your audience, or monetizing. Then pick your preferred tone (Educational, Entertaining, Controversial, Storytelling, or Motivational). The algorithm weights proven video formulas based on which combination you select, giving you ideas that match your strategy.
+
+3
+Set Your Idea Count and Generate
+Use the slider to choose how many ideas you want (5–30). Hit Generate Video Ideas and your personalized idea bank appears in seconds — each card shows a clickable title, concept description, virality score, the psychological reason it works, and a ready-to-use opening hook script. Toggle 'Include trending angles' to mix in currently trending content formats.
+
+4
+Save Favorites and Build Your Content Calendar
+Click the bookmark icon on any idea to save it to your Saved Ideas tab — your saved ideas persist in your browser between sessions. Copy any title directly to your clipboard. Use the Trending Formats tab to explore high-momentum content angles. Regenerate to get a completely fresh batch whenever you want different options.
+
+About This YouTube Video Idea Generator
+Why YouTube Creators Run Out of Ideas — And How to Fix It
+The single biggest reason YouTube channels stall or die is not poor video quality, bad editing, or inconsistent thumbnails — it's running out of ideas. When creators can't figure out what to film next, they delay uploading, the algorithm stops distributing their content, and audience growth stalls. The irony is that this happens even in niches with genuinely infinite content potential. The problem isn't a shortage of possible ideas — it's not having a system to surface those ideas on demand.
+
+The most prolific YouTube creators treat content ideation like a muscle, not a mood. They use structured brainstorming frameworks — proven video formulas applied to their niche's keyword space — rather than waiting for inspiration to strike. Our generator brings this same systematic approach to any creator: enter your niche, and a bank of ready-to-execute video ideas appears in seconds, each grounded in a formula with a documented track record for click-through rate, watch time, and engagement.
+
+The 12 Video Formulas Behind Every Successful YouTube Channel
+Every viral YouTube video — regardless of niche — uses one of a finite set of proven content formulas. Controversy videos challenge conventional wisdom and trigger immediate emotional engagement. Stop-warning videos use loss aversion psychology to compel immediate clicks. Curiosity-gap videos create an information void that viewers feel psychologically driven to fill. Personal story videos generate emotional investment and watch-time through authentic narrative.
+
+Experiment videos document a structured challenge with an uncertain outcome, creating natural suspense that boosts completion rate — YouTube's most heavily weighted ranking signal. Mistakes-listicle videos combine self-assessment anxiety (Am I making these mistakes?) with the relief of a clear solution. Comparison videos attract viewers at the decision stage, who are more engaged, more trusting, and more likely to click affiliate links. Trending topic videos receive algorithmic boosts during their relevance window and expose channels to entirely new audience segments.
+
+The generator applies all twelve formulas to your specific niche keywords, weights them according to your chosen goal and tone, and presents the best matches ranked by virality potential. Each idea also includes the opening hook — the first 10-second script that must immediately justify why the viewer clicked. Pair your ideas with an optimized YouTube title, keyword-rich video description, and strategic hashtags for a complete upload strategy.
+
+How to Build a 90-Day Content Calendar from Generated Ideas
+Generate a large batch (20–30 ideas), then sort them into three buckets: immediate uploads (trending ideas and high-virality formulas that benefit from timing), evergreen anchors (beginner guides, complete tutorials, comparison videos that drive consistent long-term search traffic), and future experiments (ideas that require more production planning like 30-day challenges or case studies).
+
+Save your favorites to the Saved Ideas tab — your idea bank persists across sessions. Aim to always have at least 4 weeks of approved ideas ready before filming begins, so content production never blocks your publishing schedule. Use Regenerate freely to explore variations and find angles you hadn't considered. A creator who publishes consistently from a well-organized idea bank will always outgrow a more talented creator who waits for inspiration. Build your channel brand alongside your content calendar for a complete creator strategy.
+
+Why Use This YouTube Video Idea Generator
+12 proven video formulas — not generic suggestions, but psychologically grounded templates
+Virality score (1–10) for each idea based on formula strength and niche match
+'Why It Works' explanation for every idea — understand the psychology before you film
+Suggested hook for every idea — your first 10 seconds written before you open a script doc
+5 content goals and 5 tone settings — tailored output for your specific strategy
+Trending Formats tab — formats with current algorithmic momentum built in
+Saved Ideas tab with localStorage persistence — your idea bank survives browser refresh
+5–30 idea count slider — generate as few or as many as your content calendar needs
+Works for any niche — 14 pre-built keyword pools plus smart auto-detection
+100% free, no account required, unlimited generation sessions
+Related YouTube Tools
+YouTube Script Generator
+Turn your best video ideas into full scripts with hooks, body, and strong CTAs.
+YouTube Title Generator
+Generate 40+ high-CTR title formulas for the video ideas you want to pursue.
+YouTube Hashtag Generator
+Find the perfect hashtags for each video idea to maximize discovery at upload.
+YouTube Channel Name Generator
+Generate a memorable brand name that matches your video content niche.
+Frequently Asked Questions
+
+1
+How do I come up with good YouTube video ideas consistently?
+
+
+2
+What makes a YouTube video idea 'viral'?
+
+
+3
+How often should I post new YouTube videos?
+
+
+4
+Should I choose trending topics or evergreen topics for my channel?
+
+
+5
+How do I know if a video idea will perform well before I film it?
+
+
+6
+What content goal should I focus on first: subscribers, views, or engagement?
+
+
+7
+How long should my YouTube videos be?
+
+
+8
+Can I generate video ideas for any niche with this tool?
+
+
+9
+Should my video titles be questions or statements?
+
+
+10
+Is this YouTube Video Idea Generator free to use?

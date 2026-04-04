@@ -1,0 +1,68 @@
+How to Use the YouTube Title Generator
+1
+Enter Your Video Topic
+Type your main topic or target keyword into the first field — for example, 'make money with AI' or 'YouTube SEO tips'. This is the foundation for all generated titles.
+
+2
+Set Your Preferences
+Choose your target audience, tone (educational, entertaining, professional, or shocking), and video type. These signals guide the title frameworks toward your specific content style.
+
+3
+Click Generate YouTube Titles
+Hit Generate and the tool instantly creates up to 20 SEO-optimized, high-CTR title variations scored 70 or above, sorted by relevance.
+
+4
+Pick, Copy, and Upload
+Browse the High SEO and High CTR groups, click any title to copy it, or use Copy All to grab the full set. Paste directly into YouTube Studio when publishing your video.
+
+About This YouTube Title Generator
+What This YouTube Title Generator Does
+This free YouTube title generator analyzes your topic and applies seven proven viral title frameworks — How-To, Number/List, Curiosity Gap, Speed/Shortcut, Beginner Guide, Warning/Mistake, and Discovery/Trend — to create titles optimized for both YouTube search ranking and click-through rate. Every title is internally scored across five factors: keyword placement, CTR potential, clarity, curiosity triggers, and character length. Only titles scoring 70 or above are shown.
+
+Why YouTube Titles Matter for Growth
+Your YouTube title is the single most important factor for both YouTube SEO and viewer click-through rate. A well-crafted title tells YouTube's algorithm what your video is about — improving search ranking and suggested video placement — while simultaneously convincing real viewers to click. Even a 1% improvement in CTR can double your video views over time. Our title generator is designed to maximize both simultaneously.
+
+Benefits of Using This Tool
+Generates titles using 7 proven viral YouTube frameworks
+Scores every title for SEO strength and CTR potential
+Splits output into High SEO and High CTR groups for A/B testing
+Includes curiosity triggers, power words, and numbers automatically
+Shows character count and length quality for each title
+100% free — no account, no limits, instant results
+Related YouTube Tools
+YouTube Tag Generator
+Generate SEO-optimized tags that reinforce your title keywords for better discoverability.
+YouTube Title Analyzer
+Score your generated titles for SEO power, CTR potential, and viral probability.
+YouTube Description Generator
+Write keyword-rich descriptions with chapters and CTAs that support your title.
+YouTube Hashtag Generator
+Create niche-targeted hashtags that align with your title for maximum search reach.
+Frequently Asked Questions
+
+1
+What is a YouTube Title Generator?
+
+
+2
+How do I write a good YouTube title?
+
+
+3
+How long should a YouTube title be?
+
+
+4
+What makes a YouTube title get more clicks?
+
+
+5
+Should I include numbers in YouTube titles?
+
+
+6
+What are the best YouTube title formulas?
+
+
+7
+Does this YouTube title generator use AI?

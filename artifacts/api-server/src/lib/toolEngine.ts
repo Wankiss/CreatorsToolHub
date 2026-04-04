@@ -103,12 +103,80 @@ Use emojis naturally as section headers. Keep the total description between 250�
 
 async function generateChannelNames(inputs: ToolInput): Promise<string[]> {
   const niche = String(inputs.niche || inputs.topic || "");
-  return aiGenerate(
-    `You are a branding expert specialising in YouTube channels. Generate creative, memorable YouTube channel names.
-Return ONLY a numbered list of 10 channel names, one per line, no explanations.
-Names should be catchy, easy to remember, brandable, and relevant to the niche.`,
-    `Channel niche: "${niche}"\n\nGenerate 10 creative YouTube channel names.`
-  );
+  const style = String(inputs.style || "Creative");
+  const length = String(inputs.length || "medium");
+  const includeKeyword = String(inputs.includeKeyword || "no") === "yes";
+
+  const lengthGuide = length === "short"
+    ? "single-word names only (1 word, 4–12 characters)"
+    : length === "invented"
+    ? "invented/brandable words — made-up but pronounceable, 5–12 characters"
+    : "two-word name combinations (2 words max)";
+
+  const keywordRule = includeKeyword
+    ? `Every name MUST contain the niche keyword or a direct variation of it.`
+    : `Names may or may not contain the niche keyword — prioritise brandability.`;
+
+  const styleGuide: Record<string, string> = {
+    Professional: "authoritative, trustworthy, clean — e.g. FinanceClear, LegalPath",
+    Creative: "imaginative, vibrant, energetic — e.g. PixelBloom, SparkVibe",
+    Fun: "playful, upbeat, friendly — e.g. SnackBytes, BuzzMode",
+    Minimalist: "simple, lowercase-aesthetic, elegant — e.g. muse, loom, drift",
+    Brandable: "invented ownable words, no dictionary meaning — e.g. Tubora, Streamiq",
+    Techy: "tech-forward, coding/AI feel — e.g. ByteForge, CodeStack",
+    Educational: "informative, clear, trusted — e.g. LearnLoop, KnowledgeCore",
+  };
+
+  const prompt = `You are a YouTube branding expert. Generate 30 unique YouTube channel names for the niche provided.
+Name style: ${style} (${styleGuide[style] || style})
+Name length: ${lengthGuide}
+${keywordRule}
+
+Return names in EXACTLY this format — three sections with section markers, each name on its own line, no numbers, no explanations:
+
+[BRANDABLE]
+Name1
+Name2
+Name3
+Name4
+Name5
+Name6
+Name7
+Name8
+Name9
+Name10
+
+[KEYWORD]
+Name1
+Name2
+Name3
+Name4
+Name5
+Name6
+Name7
+Name8
+Name9
+Name10
+
+[CREATIVE]
+Name1
+Name2
+Name3
+Name4
+Name5
+Name6
+Name7
+Name8
+Name9
+Name10
+
+BRANDABLE = invented words that are ownable and unique.
+KEYWORD = niche keyword + branding word combinations.
+CREATIVE = evocative combinations that strongly imply the niche without being literal.
+Every name must be unique, pronounceable, and suitable as a YouTube channel name.`;
+
+  const lines = await aiGenerate(prompt, `Channel niche: "${niche}"\n\nGenerate 30 unique YouTube channel names in the required format.`);
+  return [lines.join("\n")];
 }
 
 async function generateYouTubeHashtags(inputs: ToolInput): Promise<string[]> {

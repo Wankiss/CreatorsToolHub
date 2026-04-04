@@ -1,0 +1,92 @@
+How to Use the YouTube Keyword Generator
+1
+Enter Your Seed Keyword and Watch Real-Time Suggestions
+Type your main topic into the keyword field. As you type, a real-time dropdown shows six keyword expansion ideas based on common YouTube search patterns. You can click any suggestion to use it as your seed — or continue typing your own phrase. Then select your video niche and content type to shape the keyword generation toward your specific context.
+
+2
+Set Your Keyword Goal and Target Audience
+Choose your keyword priority: Balanced uses the opportunity score formula (Volume × 0.6 + Low Competition × 0.4) to surface the best overall keywords; High Volume maximizes reach; Low Competition maximizes rankability; Long-Tail filters to 4+ word phrases for niche-specific content. Add your target audience to personalize long-tail keyword variations — 'for beginners,' 'for entrepreneurs,' or any custom audience label.
+
+3
+Use Keyword Gap to Find Competitor Opportunities
+Enter a competitor's topic in the Keyword Gap field to identify keywords they're likely ranking for that your content hasn't targeted. The gap analysis compares keyword profiles and surfaces the highest-opportunity gaps — specific keywords you could create videos around to capture traffic your competitor is getting that you currently miss.
+
+4
+Apply Keywords Across Your Video Metadata
+Use the Best Keyword to Target in your title (front-loaded) and first description paragraph. Distribute 10–15 keywords from the results table across your video tags. Add 3–5 hashtags from the hashtag section to your description. Check the Title Suggestions section for ready-to-use SEO titles, and use description keywords as a reference when writing your video description.
+
+About This YouTube Keyword Generator
+Why YouTube Keyword Research Is the Foundation of Channel Growth
+YouTube is the world's second-largest search engine, processing over 3 billion searches per month. Unlike social media where content is pushed to viewers algorithmically based on past behavior, YouTube Search distributes content in direct response to what users actively look for. A video optimized for the right keyword can appear in the first 3 results for a term searched 10,000+ times per month — generating consistent, compounding organic views for years after publish. This is the core mechanism that separates channels that grow steadily through search traffic from channels that depend entirely on going viral to get discovered.
+
+The challenge is finding keywords that are both worth ranking for (enough people searching) and realistically rankable (not completely dominated by channels with millions of subscribers). This is the opportunity scoring problem our generator solves: Opportunity = (Volume × 0.6) + (Low Competition × 0.4). A perfect opportunity keyword has substantial monthly searches and competition your channel can actually beat. The Best Keyword to Target recommendation surfaces the single highest opportunity-score keyword from your results — the one to build your video, title, description, and tags around first.
+
+The Four Keyword Categories and When to Target Each
+High Opportunity keywords are the foundation — they balance search volume and competition scoring to surface the most efficient targets for your channel regardless of size. These include long-tail phrases with beginner, year, or niche modifiers that attract consistent search volume without requiring a massive existing subscriber base to rank. Use these as your primary keyword targets in video titles and descriptions.
+
+Trending keywords use current-year modifiers and niche-specific trending terms that are seeing elevated search interest. Publishing content around trending keywords within 24–48 hours of a trend peak can capture significant early traffic from both search and the YouTube feed as the algorithm distributes trending-adjacent content broadly. Use the YouTube Hashtag Generator to maximize discovery for trending content.
+
+Long-tail keywords are 4–6+ word phrases that are the single most important category for growing channels. Their longer length naturally filters out casual competition — most creators optimize only for short, broad terms — while their specificity attracts highly engaged viewers who know exactly what they want. A channel that systematically creates content for 50 long-tail keywords builds a durable, compounding search traffic foundation that continues generating views long after each video publishes.
+
+Question-based keywords capture the enormous "how to" and "what is" search volume that represents the majority of YouTube's information-seeking queries. These keywords perform particularly well in YouTube's suggested video feed because they signal a learning intent that the algorithm associates with high watch time and session duration. Pair question-based title keywords with comprehensive, well-structured answers to trigger YouTube's recommendation engine to extend viewer sessions. Use these alongside your title generator and description generator for a fully optimized video upload.
+
+Why Use This YouTube Keyword Generator
+Real-time keyword suggestions as you type — 6 instant expansion ideas
+Opportunity score formula: Volume × 0.6 + (100 − Competition) × 0.4
+4 keyword categories: High Opportunity, Trending, Long-Tail, Question-Based
+Keyword Gap analysis — find keywords competitors rank for that you're missing
+Trending keyword detection with 🔥 badge and year-specific modifiers
+Auto-formatted hashtag suggestions from top-opportunity keywords
+5 SEO-optimized title suggestions using your top keywords
+Description keyword list for natural, search-engine-friendly video descriptions
+Expandable results tables with copy-to-clipboard on every keyword
+100% free, instant results, no account required
+Related YouTube Tools
+YouTube Tag Generator
+Convert your best keywords into a full SEO tag set optimized for YouTube's algorithm.
+YouTube SEO Score Checker
+Score your title and description using the keywords you just discovered.
+YouTube Title Analyzer
+Analyze whether your keyword-optimized title has sufficient CTR power and SEO strength.
+YouTube Description Generator
+Write descriptions that naturally integrate your target keywords for search visibility.
+Frequently Asked Questions
+
+1
+What are YouTube keywords and why do they matter for SEO?
+
+
+2
+What is the difference between high-volume and long-tail YouTube keywords?
+
+
+3
+How do I find low-competition YouTube keywords for my niche?
+
+
+4
+How should I use keywords in my YouTube video for best SEO results?
+
+
+5
+What is the Keyword Gap feature and how should I use it?
+
+
+6
+How accurate are the search volume and competition scores in this tool?
+
+
+7
+How many keywords should I include in a YouTube video?
+
+
+8
+What makes a good 'opportunity keyword' on YouTube?
+
+
+9
+Should I use YouTube hashtags and how many should I add?
+
+
+10
+Is the YouTube Keyword Generator free to use?

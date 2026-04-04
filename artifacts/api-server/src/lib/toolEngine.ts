@@ -62,13 +62,41 @@ Mix broad and specific tags. Include variations and related terms.`,
 
 async function generateYouTubeDescription(inputs: ToolInput): Promise<string[]> {
   const topic = String(inputs.topic || "");
+  const topicSummary = String(inputs.topicSummary || "");
+  const keywords = String(inputs.keywords || "");
   const channel = String(inputs.channelName || "my channel");
+  const callToAction = String(inputs.callToAction || "Subscribe for more videos like this");
+  const timestamps = String(inputs.timestamps || "");
+  const includeSocialLinks = String(inputs.includeSocialLinks || "no") === "yes";
+
+  const userPrompt = [
+    `Video title: "${topic}"`,
+    topicSummary ? `Topic summary: "${topicSummary}"` : "",
+    keywords ? `Target keywords (weave naturally): ${keywords}` : "",
+    `Channel name: ${channel}`,
+    `Call-to-action: ${callToAction}`,
+    timestamps ? `Timestamps to include:\n${timestamps}` : "",
+    includeSocialLinks ? "Include a social links section with placeholder URLs for Website, Instagram, Twitter, and Discord." : "",
+    "\nWrite a complete, SEO-optimized YouTube description.",
+  ].filter(Boolean).join("\n");
+
   const lines = await aiGenerate(
-    `You are a YouTube content expert. Write a full, SEO-optimised YouTube video description.
-Include: a compelling intro paragraph, bullet points of what viewers will learn, placeholder timestamps,
-social media links section, relevant hashtags at the end. Use emojis naturally. Be specific and engaging.
-Return the entire description as one block of text (keep all newlines).`,
-    `Video topic: "${topic}"\nChannel name: "${channel}"\n\nWrite a complete YouTube description.`
+    `You are an expert YouTube SEO strategist and copywriter. Write a full, structured YouTube video description following this exact six-section format:
+
+1. HOOK (2-3 sentences): Place the primary keyword from the title in the very first sentence. Immediately communicate what viewers will gain. These first 150 characters are critical — they appear in search results.
+
+2. BODY (2-3 paragraphs): Expand on the video topic. Naturally weave in the target keywords and semantic variations — no stuffing. Write in a conversational, engaging tone that viewers and the algorithm both understand.
+
+3. TIMESTAMPS: If timestamps are provided, format them under an "⏱️ CHAPTERS" header. If none provided, skip this section.
+
+4. CALL TO ACTION: Include a subscribe request with the channel name, a notification bell 🔔 reminder, and the specific CTA provided. Keep it warm and genuine.
+
+5. SOCIAL LINKS: If requested, add a "📱 CONNECT WITH US" section with placeholder URLs for the specified platforms. If not requested, skip this section.
+
+6. HASHTAGS: End with 3–5 highly relevant hashtags based on the video title and keywords.
+
+Use emojis naturally as section headers. Keep the total description between 250–450 words. Return the entire description as one block of text preserving all newlines.`,
+    userPrompt
   );
   return [lines.join("\n")];
 }

@@ -2,7 +2,7 @@ import OpenAI from "openai";
 
 const openai = new OpenAI({
   baseURL: process.env.GITHUB_TOKEN
-    ? "https://models.inference.ai.azure.com"
+    ? "https://models.github.ai/inference"
     : (process.env.AI_INTEGRATIONS_OPENAI_BASE_URL ?? undefined),
   apiKey: process.env.GITHUB_TOKEN
     ?? process.env.AI_INTEGRATIONS_OPENAI_API_KEY
@@ -611,15 +611,15 @@ async function generateAIPrompts(inputs: ToolInput): Promise<string[]> {
   const platform = String(inputs.platform || "chatgpt");
   const wordCount = String(inputs.wordCount || "");
   return aiGenerate(
-    `You are a prompt engineering expert for content creators. Create highly effective AI prompts that produce excellent results.
-Return ONLY a numbered list of 5 prompts, one per line.
-Each prompt should be detailed, include role context, format instructions, specific constraints, and be ready to paste into an AI tool.`,
+    `You are an expert in crafting instructions for AI content tools. Your job is to write detailed, ready-to-use instructions for content creators.
+Return ONLY a numbered list of 5 items, one per line.
+Each item should include a role context, format instructions, specific constraints, and be ready to paste into an AI writing tool.`,
     `Content type: ${contentType}${niche ? `\nNiche: ${niche}` : ""}${audience ? `\nTarget audience: ${audience}` : ""}
 Goal: ${goal}
 Tone: ${tone}
 Platform: ${platform}${wordCount ? `\nWord count: ${wordCount}` : ""}
 
-Generate 5 high-quality AI prompts for this use case.`
+Generate 5 detailed AI instructions for this content creation use case.`
   );
 }
 
@@ -632,9 +632,9 @@ async function generateMidjourneyPrompts(inputs: ToolInput): Promise<string[]> {
   const perspective = String(inputs.perspective || "");
   const colorPalette = String(inputs.colorPalette || "");
   return aiGenerate(
-    `You are a Midjourney prompt expert for content creators. Generate detailed, effective Midjourney image generation prompts.
-Return ONLY a numbered list of 5 prompts, one per line.
-Each prompt should be a complete Midjourney-ready prompt including: subject description, style, lighting, mood, camera angle, and parameters like --ar 16:9 --v 6.
+    `You are an image generation expert for content creators. Generate detailed, effective Midjourney image generation instructions.
+Return ONLY a numbered list of 5 items, one per line.
+Each item should be a complete, ready-to-use Midjourney image instruction including: subject description, style, lighting, mood, camera angle, and parameters like --ar 16:9 --v 6.
 Make them specific and highly detailed for best image quality.`,
     `Visual type: ${visualType}
 Subject: "${subject}"
@@ -642,7 +642,7 @@ Art style: ${style}
 Mood: ${mood}
 Lighting: ${lighting}${perspective ? `\nPerspective: ${perspective}` : ""}${colorPalette ? `\nColor palette: ${colorPalette}` : ""}
 
-Generate 5 Midjourney prompts.`
+Generate 5 Midjourney image generation instructions.`
   );
 }
 

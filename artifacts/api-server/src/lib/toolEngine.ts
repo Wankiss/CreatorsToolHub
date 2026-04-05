@@ -480,13 +480,48 @@ Generate 90 hashtags (3 sets of 30, each with 5 broad + 10 mid + 15 micro).`
 }
 
 async function generateInstagramBio(inputs: ToolInput): Promise<string[]> {
-  const niche = String(inputs.niche || "lifestyle");
-  const name = String(inputs.name || "Creator");
+  const niche       = String(inputs.niche       || "lifestyle");
+  const valueprop   = String(inputs.valueprop   || "");
+  const audience    = String(inputs.audience    || "");
+  const ctaGoal     = String(inputs.ctaGoal     || "follow");
+  const credibility = String(inputs.credibility || "");
+  const keywords    = String(inputs.keywords    || "");
+  const name        = String(inputs.name        || "");
+
+  const ctaMap: Record<string, string> = {
+    follow:   "Follow for [benefit] / New posts [frequency] / Join [number]+ followers",
+    dm:       "DM me [word] / DM for [service] / Send me a message",
+    link:     "Link in bio ↓ / Get it below ↓ / Start here ↓",
+    freegift: "Free [resource] ↓ / Grab the free guide ↓ / Free [gift] in bio",
+    collab:   "Open to collabs / DM for partnerships / Work with me ↓",
+  };
+  const ctaHint = ctaMap[ctaGoal] ?? ctaMap.follow;
+
   return aiGenerate(
-    `You are an Instagram branding expert. Write compelling Instagram bios (max 150 characters each).
-Return ONLY 3 bio options, numbered 1-3, each on its own line.
-Use emojis, line breaks for readability, include a value proposition and call to action.`,
-    `Name: "${name}"\nNiche: "${niche}"\n\nWrite 3 Instagram bio options.`
+    `You are an elite Instagram branding strategist. Generate exactly 10 Instagram bio variations.
+
+TONE DISTRIBUTION — follow this exact order:
+- Bios 1, 2, 3: PROFESSIONAL — results-forward, credibility-driven, authority tone
+- Bios 4, 5: BOLD — contrarian, direct, no-fluff, differentiated positioning
+- Bios 6, 7: MINIMAL — clean, short, instantly scannable, aesthetic confidence
+- Bios 8, 9, 10: INSPIRATIONAL — identity-driven, aspirational, motivational
+
+STRICT RULES:
+- Every bio must be 150 characters or fewer (count carefully — Instagram's hard limit).
+- Apply the formula: [Who you help] + [Result you deliver] + [Credibility signal] + [CTA].
+- CTA style for this creator: ${ctaHint}
+- Use 1–3 emojis in Professional and Inspirational bios; 0–1 in Minimal; 1–2 in Bold.
+- Output ONLY the bio text, numbered 1–10, one per line.
+- No extra commentary, labels, or explanations — just the 10 numbered bios.`,
+
+    `Niche: ${niche}
+${valueprop   ? `What they help people achieve: ${valueprop}` : ""}
+${audience    ? `Target audience: ${audience}` : ""}
+${credibility ? `Credibility markers: ${credibility}` : ""}
+${keywords    ? `Keywords to include: ${keywords}` : ""}
+${name        ? `Creator name: ${name}` : ""}
+
+Generate 10 Instagram bios (150 chars max each): 3 Professional, 2 Bold, 2 Minimal, 3 Inspirational.`
   );
 }
 

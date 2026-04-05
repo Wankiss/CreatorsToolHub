@@ -94,6 +94,25 @@ async function migrate() {
     await addIfMissing("tools", "updated_at", "timestamp NOT NULL DEFAULT now()");
     await addIfMissing("tools", "short_description", "text DEFAULT ''");
 
+    await addIfMissing("categories", "seo_content", "text NOT NULL DEFAULT ''");
+    await addIfMissing("categories", "updated_at", "timestamp NOT NULL DEFAULT now()");
+    await addIfMissing("tools", "seo_content", "text NOT NULL DEFAULT ''");
+    await addIfMissing("tools", "how_to_guide", "text NOT NULL DEFAULT ''");
+    await addIfMissing("tools", "faq_content", "text NOT NULL DEFAULT ''");
+    await addIfMissing("tools", "example_outputs", "text NOT NULL DEFAULT ''");
+    await addIfMissing("tools", "tags", "text NOT NULL DEFAULT '[]'");
+    await addIfMissing("tools", "meta_title", "varchar(500) NOT NULL DEFAULT ''");
+    await addIfMissing("tools", "meta_description", "text NOT NULL DEFAULT ''");
+
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS "tool_usage_logs" (
+        "id" serial PRIMARY KEY,
+        "tool_id" integer REFERENCES "tools"("id"),
+        "tool_slug" varchar(255),
+        "created_at" timestamp NOT NULL DEFAULT now()
+      )
+    `);
+
     console.log("Migrations complete.");
   } finally {
     client.release();

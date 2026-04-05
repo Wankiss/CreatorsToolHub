@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import {
   Search, Sparkles, Youtube, Instagram, Music, Zap, ArrowRight, TrendingUp,
-  CheckCircle2, Star, Clock, Lightbulb, BarChart2, Flame, ChevronRight, Quote
+  CheckCircle2, Star, Clock, Lightbulb, BarChart2, Flame, ChevronRight
 } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
@@ -62,35 +62,6 @@ const BENEFITS = [
   { icon: <Star className="w-5 h-5 text-primary" />, text: "Built for beginner creators — works on day one, no experience needed" },
 ];
 
-const TESTIMONIALS = [
-  {
-    name: "Jordan K.",
-    handle: "@jordancreates",
-    platform: "YouTube · 24K subscribers",
-    avatar: "J",
-    color: "bg-red-500",
-    text: "I was spending 3 hours planning each video. Now I use the YouTube Script Generator free tool and I'm done in 20 minutes. Honestly the best free creator tool I've found — and I've tried a lot.",
-    stars: 5,
-  },
-  {
-    name: "Priya M.",
-    handle: "@priyaontiktok",
-    platform: "TikTok · 61K followers",
-    avatar: "P",
-    color: "bg-pink-500",
-    text: "The TikTok content generator on here is insane. I went from posting twice a week to posting every day — because planning takes me like 10 minutes now. And it's completely free, no signup. I tell every creator I know about this.",
-    stars: 5,
-  },
-  {
-    name: "Marcus T.",
-    handle: "@facelessmarkus",
-    platform: "Faceless YouTube · 8K subscribers",
-    avatar: "M",
-    color: "bg-violet-500",
-    text: "I started a faceless YouTube channel 3 months ago. creatorsToolHub gave me all my channel ideas, titles, and scripts. I didn't know what niche to pick — the faceless YouTube ideas tool sorted that out in minutes. Free AI tools for creators don't get better than this.",
-    stars: 5,
-  },
-];
 
 const PAIN_POINTS = [
   { icon: "😩", text: "You've been staring at a blank page for an hour with no idea what to post." },
@@ -473,57 +444,6 @@ export default function Home() {
             <Button variant="outline" asChild className="w-full rounded-xl">
               <Link href="/search">View All Free Tools</Link>
             </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS ─────────────────────────────────────── */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-14"
-          >
-            <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-5">
-              Creators love these free tools
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-              Real feedback from real creators using creatorsToolHub every day
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-            {TESTIMONIALS.map(({ name, handle, platform, avatar, color, text, stars }, i) => (
-              <motion.div
-                key={name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12 }}
-                className="bg-card border border-border/50 rounded-2xl p-7 flex flex-col gap-5 hover:shadow-lg hover:border-primary/30 transition-all"
-              >
-                <Quote className="w-8 h-8 text-primary/30" />
-                <p className="text-sm text-foreground leading-relaxed flex-1">"{text}"</p>
-                <div>
-                  <div className="flex gap-0.5 mb-3">
-                    {Array.from({ length: stars }).map((_, s) => (
-                      <Star key={s} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-full ${color} text-white font-bold flex items-center justify-center text-sm flex-shrink-0`}>
-                      {avatar}
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm">{name} <span className="text-muted-foreground font-normal">{handle}</span></p>
-                      <p className="text-xs text-muted-foreground">{platform}</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
-import { Mail, MessageSquare, Clock, HelpCircle, Sparkles, CheckCircle2, Loader2 } from "lucide-react";
+import { Mail, MessageSquare, Clock, HelpCircle, Sparkles, CheckCircle2, Loader2, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -103,6 +103,19 @@ export default function Contact() {
                   <div>
                     <p className="font-semibold text-sm">Response Time</p>
                     <p className="text-muted-foreground text-sm">We typically respond within 24–48 hours, Monday through Friday.</p>
+                  </div>
+                </div>
+
+                <div className="mt-5 p-5 rounded-2xl bg-muted/40 border border-border/40 flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-sm mb-1">Registered Address</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      creatorsToolHub<br />
+                      Badore, Ajah<br />
+                      Lagos State<br />
+                      Nigeria
+                    </p>
                   </div>
                 </div>
               </div>

@@ -147,10 +147,15 @@ export default function Privacy() {
 
             <Section title="11. Contact Us">
               <p>If you have any questions about this Privacy Policy or how we handle your data, please contact us:</p>
-              <div className="mt-3 p-4 rounded-xl bg-muted/40 border border-border/40">
+              <div className="mt-3 p-4 rounded-xl bg-muted/40 border border-border/40 space-y-1">
                 <p><strong>creatorsToolHub</strong></p>
                 <p>Email: <a href="mailto:hello@creatorstoolhub.com" className="text-primary hover:underline">hello@creatorstoolhub.com</a></p>
                 <p>Website: <a href="https://creatorstoolhub.com" className="text-primary hover:underline">creatorstoolhub.com</a></p>
+                <p className="pt-1">
+                  Badore, Ajah<br />
+                  Lagos State<br />
+                  Nigeria
+                </p>
               </div>
             </Section>
 

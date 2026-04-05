@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { useCanonical } from "@/hooks/use-canonical";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 import { Sparkles, Zap, Heart, Users, CheckCircle2, ArrowRight } from "lucide-react";

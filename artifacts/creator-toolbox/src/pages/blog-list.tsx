@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
+import { useCanonical } from "@/hooks/use-canonical";
 import { Layout } from "@/components/layout";
 import { useListBlogPosts } from "@workspace/api-client-react";
 import { Card } from "@/components/ui/card";
@@ -28,6 +29,7 @@ const TAG_ICONS: Record<string, React.ReactNode> = {
 };
 
 export default function BlogList() {
+  useCanonical("/blog");
   const [activeTag, setActiveTag] = useState("All");
   const { data, isLoading } = useListBlogPosts({ limit: 50 });
 

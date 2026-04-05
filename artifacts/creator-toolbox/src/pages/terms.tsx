@@ -1,3 +1,4 @@
+import { useCanonical } from "@/hooks/use-canonical";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
@@ -109,15 +110,20 @@ export default function Terms() {
             </Section>
 
             <Section title="11. Governing Law">
-              <p>These Terms are governed by and construed in accordance with applicable law. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts of the applicable territory. If any provision of these Terms is found to be unenforceable, the remaining provisions shall remain in full force and effect.</p>
+              <p>These Terms are governed by and construed in accordance with the laws of the Federal Republic of Nigeria. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts of Lagos State, Nigeria. If any provision of these Terms is found to be unenforceable, the remaining provisions shall remain in full force and effect.</p>
             </Section>
 
             <Section title="12. Contact">
               <p>If you have any questions about these Terms and Conditions, please contact us:</p>
-              <div className="mt-3 p-4 rounded-xl bg-muted/40 border border-border/40">
+              <div className="mt-3 p-4 rounded-xl bg-muted/40 border border-border/40 space-y-1">
                 <p><strong>creatorsToolHub</strong></p>
                 <p>Email: <a href="mailto:hello@creatorstoolhub.com" className="text-primary hover:underline">hello@creatorstoolhub.com</a></p>
                 <p>Website: <a href="https://creatorstoolhub.com" className="text-primary hover:underline">creatorstoolhub.com</a></p>
+                <p className="pt-1">
+                  Badore, Ajah<br />
+                  Lagos State<br />
+                  Nigeria
+                </p>
               </div>
             </Section>
 

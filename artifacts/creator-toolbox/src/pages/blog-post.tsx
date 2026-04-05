@@ -1,5 +1,6 @@
 import { useParams, Link } from "wouter";
 import { useEffect } from "react";
+import { useCanonical } from "@/hooks/use-canonical";
 import { Layout } from "@/components/layout";
 import { useGetBlogPost, useListBlogPosts } from "@workspace/api-client-react";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -9,6 +10,7 @@ import { format } from "date-fns";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
+  useCanonical(slug ? `/blog/${slug}` : "/blog");
   const { data: post, isLoading, error } = useGetBlogPost(slug || "");
   const { data: related } = useListBlogPosts({ limit: 4 });
 

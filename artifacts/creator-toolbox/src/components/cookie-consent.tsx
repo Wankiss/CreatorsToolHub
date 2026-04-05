@@ -18,6 +18,8 @@ const CONSENT_VERSION = "1.0";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
+const GA_ID = "G-PJSX8VZ5E9";
+
 export function getConsent(): CookieConsent | null {
   try {
     const raw = localStorage.getItem(CONSENT_KEY);
@@ -40,6 +42,31 @@ function saveConsent(prefs: Omit<CookieConsent, "necessary" | "consentDate" | "v
   };
   localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
   return consent;
+}
+
+let gaLoaded = false;
+
+function loadGoogleAnalytics() {
+  if (gaLoaded || typeof window === "undefined") return;
+  gaLoaded = true;
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(...args: unknown[]) { window.dataLayer.push(args); }
+  window.gtag = gtag;
+  gtag("js", new Date());
+  gtag("config", GA_ID);
+}
+
+declare global {
+  interface Window {
+    dataLayer: unknown[];
+    gtag: (...args: unknown[]) => void;
+  }
 }
 
 // ─── Toggle Switch ─────────────────────────────────────────────────────────
@@ -219,6 +246,7 @@ export function CookieConsentBanner() {
     const stored = getConsent();
     if (stored) {
       setConsent(stored);
+      if (stored.analytics) loadGoogleAnalytics();
     } else {
       // Small delay so it doesn't flash immediately on load
       const t = setTimeout(() => setVisible(true), 800);
@@ -230,6 +258,7 @@ export function CookieConsentBanner() {
     const c = saveConsent({ analytics: true, advertising: true });
     setConsent(c);
     setVisible(false);
+    loadGoogleAnalytics();
   };
 
   const handleRejectAll = () => {
@@ -243,6 +272,7 @@ export function CookieConsentBanner() {
     setConsent(c);
     setShowPreferences(false);
     setVisible(false);
+    if (prefs.analytics) loadGoogleAnalytics();
   };
 
   // Re-open preferences from cookie policy page (exposed via window)

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
+import { useCanonical } from "@/hooks/use-canonical";
 import { motion } from "framer-motion";
 import {
   Search, Sparkles, Youtube, Instagram, Music, Zap, ArrowRight, TrendingUp,

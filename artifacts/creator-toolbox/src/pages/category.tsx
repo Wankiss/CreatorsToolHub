@@ -1,4 +1,5 @@
 import { useParams } from "wouter";
+import { useCanonical } from "@/hooks/use-canonical";
 import { Layout } from "@/components/layout";
 import { ToolCard } from "@/components/tool-card";
 import { useGetCategoryBySlug } from "@workspace/api-client-react";
@@ -9,6 +10,7 @@ import { CATEGORY_REGISTRY } from "@/components/categories/category-registry";
 
 export default function CategoryPage() {
   const { slug } = useParams<{ slug: string }>();
+  useCanonical(slug ? `/category/${slug}` : "/");
   const { data: category, isLoading, error } = useGetCategoryBySlug(slug || "");
 
   if (isLoading) {

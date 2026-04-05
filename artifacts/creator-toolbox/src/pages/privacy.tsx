@@ -1,3 +1,4 @@
+import { useCanonical } from "@/hooks/use-canonical";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 import { Shield } from "lucide-react";
@@ -133,7 +134,7 @@ export default function Privacy() {
             </Section>
 
             <Section title="8. International Users">
-              <p>creatorsToolHub is operated from and targeted primarily at users in the United States and globally. If you are accessing our platform from outside the United States, please be aware that your information may be transferred to, stored, and processed in the United States. By using our platform, you consent to this transfer.</p>
+              <p>creatorsToolHub is operated globally and is accessible to users worldwide. Our servers and infrastructure may be hosted by third-party cloud providers located in various countries. If you are accessing our platform from outside Nigeria, please be aware that your information may be transferred to, stored, and processed in countries where our infrastructure providers operate, including but not limited to the United States and the European Union. By using our platform, you consent to this transfer.</p>
               <p className="mt-2">For users in the European Economic Area (EEA) and United Kingdom, we process data under the legal basis of legitimate interests (operating and improving our free creator tools platform) and, where applicable, consent (advertising cookies).</p>
             </Section>
 

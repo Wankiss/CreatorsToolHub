@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useCanonical } from "@/hooks/use-canonical";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 import { Mail, MessageSquare, Clock, HelpCircle, Sparkles, CheckCircle2, Loader2, MapPin } from "lucide-react";

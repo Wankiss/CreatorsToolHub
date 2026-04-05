@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "wouter";
+import { useCanonical } from "@/hooks/use-canonical";
 import { Layout } from "@/components/layout";
 import { useGetToolBySlug, useExecuteTool, useTrackToolUsage } from "@workspace/api-client-react";
 import { Button } from "@/components/ui/button";
@@ -125,6 +126,7 @@ function GenericToolInterface({ slug }: { slug: string }) {
 
 export default function ToolPage() {
   const { slug } = useParams<{ slug: string }>();
+  useCanonical(slug ? `/tools/${slug}` : "/tools");
   const { data: tool, isLoading, error } = useGetToolBySlug(slug || "", {
     query: {
       retry: (failureCount, err) => {

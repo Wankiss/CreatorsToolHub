@@ -1,0 +1,110 @@
+How to Use the AI Prompt Generator
+1
+Choose Your Content Type
+Select from 12 content formats — YouTube scripts, Instagram captions, TikTok scripts, blog posts, email newsletters, LinkedIn posts, and more. Each type generates a structurally different prompt tailored to that format's conventions.
+
+2
+Fill In Your Details
+Enter your niche, target audience, content goal, tone, and preferred AI platform (ChatGPT, Claude, or Gemini). Optional fields let you set word count, add a custom role, specify keywords, and include extra instructions.
+
+3
+Click Generate AI Prompt
+Hit Generate and the tool instantly builds a fully structured, role-based prompt — complete with persona assignment, format specifications, required components, and step-by-step AI instructions.
+
+4
+Copy and Paste Into Your AI Tool
+Click Copy Prompt and paste it directly into ChatGPT, Claude, or Gemini. No editing needed — the prompt is engineered to produce professional-quality output on the first attempt. Use Regenerate for alternative structures.
+
+About This AI Prompt Generator
+What This AI Prompt Generator Does
+This free AI Prompt Generator builds structured, role-based prompts for ChatGPT, Claude, and Gemini that produce professional-quality content on the first attempt. It covers 12 content types — from YouTube scripts and Instagram captions to email newsletters and blog posts — and applies proven prompt engineering principles: role assignment, format specification, tone direction, required component checklists, and sequential AI instructions. Every generated prompt is copy-paste ready with no editing required before running in your preferred AI tool.
+
+Why Prompt Quality Determines AI Output Quality
+The quality of any AI output is almost entirely determined by the quality of the prompt it receives. A vague input like "write me a YouTube script about fitness" produces a generic, unusable first draft. A structured prompt that specifies role, audience, tone, format, and required components produces a first draft that's 70–80% ready to publish. This generator applies the same prompt engineering framework used by professional AI consultants — role-based persona assignment, explicit output type definitions, mandatory component lists, and platform-specific formatting rules — to every prompt it creates.
+
+Benefits of Using This Tool
+Supports 12 content types across all major creator platforms
+Role-based prompts that activate professional AI output quality
+Tailored formatting rules for each content type and AI platform
+Required component checklists ensure no key element is missing
+Platform-specific output style for ChatGPT, Claude, and Gemini
+Include Example toggle for style-anchored prompts
+Optional keyword and extra instruction fields for full customization
+Regenerate for alternative prompt structures and variations
+100% free — no account, no limits, copy-paste ready output
+Works with free and paid versions of all major AI platforms
+Tips & Best Practices
+1
+Be specific about your output format — 'Write a 3-paragraph blog intro with a hook, problem, and promise' outperforms a vague 'write a blog intro' prompt by 10×.
+
+2
+Use the role-play prefix: 'Act as an expert [role]' — adding a persona shifts the AI's response to be more confident, specific, and authoritative in tone.
+
+3
+Include constraints to improve quality — 'Use simple language' / 'Avoid jargon' / 'Under 200 words' gives the AI a creative fence that consistently improves output.
+
+4
+Use chain prompting for complex tasks — break a big project into 3–5 sequential prompts where each output feeds into the next for much better final results.
+
+5
+Add 'in the style of [example]' to control tone — 'Write like a Harvard Business Review article' vs 'Write like a casual Twitter thread' changes everything.
+
+6
+Ask for alternatives: 'Give me 5 different versions' — variation expands your options and often surfaces unexpected directions you wouldn't have thought of.
+
+7
+Iterate in the same conversation — the AI remembers context, so refine with 'Make the third paragraph shorter' rather than starting a new prompt from scratch.
+
+Related AI Creator Tools
+Midjourney Prompt Generator
+Generate detailed, style-rich image prompts optimized for Midjourney's unique syntax and quality flags.
+
+TikTok Script Generator
+Use AI prompts to script full TikTok videos with hook, body, and CTA structured for maximum watch time.
+
+YouTube Script Generator
+Create long-form YouTube video scripts with AI-crafted structure, pacing, and audience retention techniques.
+
+Instagram Caption Generator
+Generate on-brand Instagram captions — a great next step after crafting your AI content prompts.
+
+Frequently Asked Questions
+
+1
+What is an AI prompt generator and how does it work?
+
+
+2
+What content types does the AI Prompt Generator support?
+
+
+3
+What is the difference between ChatGPT, Claude, and Gemini prompts?
+
+
+4
+What makes a good AI prompt for content creation?
+
+
+5
+Can I customize the generated prompt before using it?
+
+
+6
+Does the AI Prompt Generator work with free versions of ChatGPT and Claude?
+
+
+7
+What is a role-based AI prompt and why does it matter?
+
+
+8
+How many prompts can I generate for free?
+
+
+9
+What is the 'Include Example' toggle for?
+
+
+10
+Can I use the generated prompts for client work or commercial projects?

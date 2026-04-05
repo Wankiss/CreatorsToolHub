@@ -21,8 +21,9 @@ export interface ToolOutput {
 }
 
 async function aiGenerate(systemPrompt: string, userPrompt: string): Promise<string[]> {
+  const model = process.env.GITHUB_TOKEN ? "openai/gpt-4o-mini" : "gpt-4o-mini";
   const response = await openai.chat.completions.create({
-    model: "gpt-4o-mini",
+    model,
     messages: [
       { role: "system", content: systemPrompt },
       { role: "user", content: userPrompt },

@@ -327,12 +327,17 @@ Prioritize discoverability via both the For You Page algorithm and TikTok Search
 }
 
 async function generateTikTokUsernames(inputs: ToolInput): Promise<string[]> {
-  const niche = String(inputs.niche || inputs.name || "");
+  const niche = String(inputs.niche || "");
+  const name = String(inputs.name || "");
+  const tone = String(inputs.tone || "fun");
+  const keywords = String(inputs.keywords || "");
   return aiGenerate(
-    `You are a social media branding expert. Generate creative, catchy TikTok usernames.
-Return ONLY a numbered list of 10 usernames (with @ symbol), one per line, no explanations.
-Usernames should be short, memorable, and relevant to the creator's niche.`,
-    `Creator niche/name: "${niche}"\n\nGenerate 10 unique TikTok usernames.`
+    `You are a social media branding expert specializing in TikTok creator identity. Generate creative, brandable TikTok usernames.
+Return ONLY a list of 10 usernames (with @ symbol), one per line, no explanations, no numbering.
+Usernames must be: short (under 20 characters), memorable, easy to spell, and relevant to the creator's niche.
+Vary the styles: include personal brand names (e.g. @MiaFit), niche-based names (e.g. @FitLab), keyword twists, aesthetic names, bold names, and abstract single-word brands.
+Tone style: ${tone}. Do NOT use underscores or numbers unless essential.`,
+    `Creator niche: "${niche}"\nCreator name: "${name || "not specified"}"\nTone: "${tone}"\nKeywords to weave in: "${keywords || "none"}"\n\nGenerate 10 unique TikTok usernames.`
   );
 }
 

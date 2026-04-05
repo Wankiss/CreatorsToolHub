@@ -8,6 +8,20 @@ import { Card } from "@/components/ui/card";
 import { ChevronLeft, Calendar, Clock, ArrowRight, BookOpen, Share2 } from "lucide-react";
 import { format } from "date-fns";
 
+const SITE_URL = "https://creatorstoolhub.com";
+const SITE_NAME = "creatorsToolHub";
+
+function setMetaTag(selector: string, attrKey: string, attrVal: string, content: string) {
+  let el = document.querySelector<HTMLMetaElement>(selector);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attrKey, attrVal);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
+  return el;
+}
+
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   useCanonical(slug ? `/blog/${slug}` : "/blog");
@@ -16,6 +30,62 @@ export default function BlogPost() {
 
   const relatedPosts = (related?.posts ?? []).filter(p => p.slug !== slug).slice(0, 3);
 
+  // ── Full SEO: title, meta, OG, Twitter, Article JSON-LD ──
+  useEffect(() => {
+    if (!post) return;
+
+    const pageTitle = `${post.metaTitle || post.title} | ${SITE_NAME}`;
+    const description = post.metaDescription || post.excerpt;
+    const postUrl = `${SITE_URL}/blog/${post.slug}`;
+    const imageUrl = post.coverImage
+      ? (post.coverImage.startsWith("http") ? post.coverImage : `${SITE_URL}${post.coverImage}`)
+      : `${SITE_URL}/opengraph.jpg`;
+
+    const prevTitle = document.title;
+    document.title = pageTitle;
+
+    setMetaTag('meta[name="description"]',       "name",     "description",        description);
+    setMetaTag('meta[property="og:title"]',      "property", "og:title",           pageTitle);
+    setMetaTag('meta[property="og:description"]',"property", "og:description",     description);
+    setMetaTag('meta[property="og:image"]',      "property", "og:image",           imageUrl);
+    setMetaTag('meta[property="og:type"]',       "property", "og:type",            "article");
+    setMetaTag('meta[property="og:url"]',        "property", "og:url",             postUrl);
+    setMetaTag('meta[property="og:site_name"]',  "property", "og:site_name",       SITE_NAME);
+    setMetaTag('meta[name="twitter:card"]',      "name",     "twitter:card",       "summary_large_image");
+    setMetaTag('meta[name="twitter:title"]',     "name",     "twitter:title",      pageTitle);
+    setMetaTag('meta[name="twitter:description"]',"name",    "twitter:description",description);
+    setMetaTag('meta[name="twitter:image"]',     "name",     "twitter:image",      imageUrl);
+
+    const articleSchema = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": description,
+      "image": imageUrl,
+      "url": postUrl,
+      "datePublished": post.publishedAt,
+      "author": { "@type": "Person", "name": post.author, "url": SITE_URL },
+      "publisher": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": postUrl },
+      "keywords": post.tags.join(", "),
+    };
+
+    let articleScript = document.getElementById("blog-article-ld");
+    if (!articleScript) {
+      articleScript = document.createElement("script");
+      articleScript.setAttribute("type", "application/ld+json");
+      articleScript.id = "blog-article-ld";
+      document.head.appendChild(articleScript);
+    }
+    articleScript.textContent = JSON.stringify(articleSchema);
+
+    return () => {
+      document.title = prevTitle;
+      document.getElementById("blog-article-ld")?.remove();
+    };
+  }, [post]);
+
+  // ── FAQ structured data ──
   useEffect(() => {
     if (!post?.faqSchema) return;
     try {
@@ -31,10 +101,7 @@ export default function BlogPost() {
         "mainEntity": faqs.map((item: { question: string; answer: string }) => ({
           "@type": "Question",
           "name": item.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": item.answer,
-          },
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer },
         })),
       });
       document.head.appendChild(script);

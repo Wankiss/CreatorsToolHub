@@ -1,0 +1,105 @@
+How to Use the Instagram Hashtag Generator
+Step 1
+
+Enter your post topic and select your niche
+Type your specific post topic — 'weight loss tips for busy moms' generates more targeted hashtags than 'fitness'. Then select your content niche so the generator applies the correct hashtag pools, keyword variations, and tier-appropriate tags for your category.
+
+Step 2
+
+Choose content type and your goal
+Select Reel, Carousel, or Static Post — each content type adjusts the tier weighting. Reels get more broad discovery tags; carousels get more micro-niche tags. Then choose your goal: Reach (impressions), Engagement (comments and saves), Growth (follows), or Sales (buyer-intent tags).
+
+Step 3
+
+Get 3 rotating sets — 30 hashtags each
+Three distinct 30-hashtag sets are generated per click — Sets A, B, and C. Each contains 5 Broad, 10 Mid-Range, and 15 Micro hashtags. Use a different set on each post to avoid Instagram's repetition penalty and gather data on which sets drive the most reach and engagement.
+
+Step 4
+
+Copy tiers individually or all 30 at once
+Switch between Set A, B, and C using the tabs. Copy any individual tier (Broad, Mid, Micro) for testing specific hashtag strategies, or copy all 30 in one click. Use the batch copy buttons in the rotation guide to prepare hashtag sets for multiple posts in advance.
+
+Instagram Hashtag Generator — The Tiered Strategy That Actually Grows Accounts
+Why the 5 Broad + 10 Mid + 15 Micro Formula Works
+The tiered hashtag strategy generates more reach and engagement than random hashtag selection because it simultaneously targets three different audience segments with three different discovery behaviors. Broad hashtags with 500K+ posts function as visibility tools — they generate a brief burst of impressions from users browsing high-volume feeds, putting your content in front of a large general audience for seconds to minutes. Mid-range hashtags with 50K–500K posts are the strategic core — large enough to drive real traffic, specific enough for your content to remain visible for 1–6 hours before being buried. Micro hashtags under 50K posts are where real discovery compounds — your content can rank on the hashtag's Top Posts for hours to days, reaching a highly self-selected audience who is specifically interested in exactly your topic.
+
+The mathematical advantage is clear: a post using only broad hashtags gets brief impressions but rarely converts to follows or saves because the audience is too general. A post using only micro hashtags reaches a small but highly engaged niche — high conversion but low volume. The 5+10+15 distribution captures all three effects simultaneously, optimizing for impressions (broad), discoverability (mid), and community connection (micro). This is the same framework used by Instagram growth agencies charging $500–$2,000/month for hashtag research.
+
+The generator produces exactly 30 hashtags per set — historically the maximum Instagram allows, though current best practice recommends using 15–25 of the 30 depending on niche competitiveness. All 30 are provided so you can test different subset sizes and combinations systematically.
+
+How Content Type and Goal Change Your Optimal Hashtag Mix
+Instagram Reels are distributed primarily through the recommendation algorithm rather than hashtag feeds — this means broad and mid-range discovery tags matter more than micro hashtags for Reel reach. Reels benefit from 5–8 highly relevant hashtags rather than all 30, because Instagram's algorithm for Reels uses content signals (audio, visual, caption) as primary classification — hashtags serve as secondary confirmation. For Reels, the broad tier tags signal content category and the mid-range tags signal specific audience interest.
+
+Carousels are a fundamentally different format — they are browse-and-save content where users spend 30–90 seconds swiping through each slide. The Instagram algorithm distributes carousels through both hashtag feeds and Explore, and carousels continue receiving saves for days after posting. This makes the micro hashtag tier critically important for carousels — ranking on a niche hashtag feed means your carousel is discovered by users who are actively browsing that specific topic, making them highly likely to save and engage. For carousels, use all 30 hashtags weighted toward the micro tier.
+
+Goal selection adjusts which supplementary tags are added to each tier. Reach-optimized sets add broader discovery tags. Engagement-optimized sets add niche community tags. Growth-optimized sets add follow-oriented tags. Sales-optimized sets add buyer-intent hashtags used by people in a research or purchasing mindset. The goal adjustment is a secondary layer on top of the niche and topic matching — it fine-tunes each set's audience quality rather than changing the fundamental structure.
+
+The Hashtag Rotation System and Why It Matters
+Using identical hashtags on every post is one of the most common Instagram growth mistakes — and one that actively harms account performance over time. Instagram's spam detection system monitors repetitive behavior patterns, and accounts that use the same 20–30 hashtags on every consecutive post are flagged as potentially inauthentic, which reduces post distribution. More practically, rotating hashtags gives you real performance data — you can track which set (A, B, or C) consistently drives more reach, engagement, or follower growth, then optimize your future hashtag strategy based on actual results rather than guesswork.
+
+The three sets generated by this tool are specifically designed to be non-overlapping — each pulls from different segments of the niche hashtag pool with different topic and keyword expansions. Use Set A on your first post, Set B on your second, Set C on your third, then either return to Set A or regenerate fresh sets. After 6–8 posts per set (roughly 2–4 weeks of content depending on your posting frequency), regenerate to introduce new hashtag variations and keep the rotation fresh. This system also ensures that if any hashtag in a set becomes temporarily oversaturated or de-prioritized by the algorithm, the rotation automatically reduces your exposure to that risk.
+
+What This Instagram Hashtag Generator Includes
+30 hashtags per set in the proven 5 Broad + 10 Mid-Range + 15 Micro tier distribution — the formula used by top Instagram growth strategists
+3 rotating sets (A, B, C) generated simultaneously — use a different set on each post to avoid Instagram's repetition penalty and gather performance data
+4 goal types — Reach, Engagement, Growth, Sales — each adds goal-specific supplementary tags to the relevant tiers
+3 content type optimizations — Reel (weighted toward broad discovery), Carousel (weighted toward micro ranking), Static (balanced mix)
+15 supported niches — Fitness, Beauty, Business, Finance, Tech/AI, Education, Food, Travel, Lifestyle, Fashion, Relationships, Health, Entertainment, Coaching, Photography
+Topic-specific hashtag generation — your post topic is converted into camelCase, PascalCase, and long-tail variants automatically
+Keywords field — inject your specific niche terms into the micro tier for precise audience targeting
+Copy individual tiers (Broad, Mid, Micro) for testing — or copy all 30 hashtags at once for immediate use
+Tier descriptions with usage guidance — each tier card explains its post-volume range, visibility window, and best-use case
+Batch rotation guide — shows all 3 sets side by side with a posting schedule for content batching and systematic A/B testing
+Related Instagram Tools
+Instagram Caption Generator
+Write the captions that your hashtags will amplify — great copy combined with great tags maximizes every post.
+
+Instagram Hook Generator
+Craft first-line hooks that stop the scroll and drive the engagement that powers your hashtag rankings.
+
+Instagram Reel Idea Generator
+Generate Reel concepts worth hashtagging — high-quality content + targeted hashtags = maximum organic reach.
+
+Instagram Bio Generator
+Optimize your profile bio to convert the new followers your hashtagged posts attract to your page.
+
+Frequently Asked Questions
+
+1
+How many hashtags should I use on Instagram in 2026?
+
+
+2
+What is a tiered Instagram hashtag strategy?
+
+
+3
+What is the difference between broad, mid-range, and micro hashtags?
+
+
+4
+Should I use the same hashtags on every Instagram post?
+
+
+5
+Do hashtags still work on Instagram in 2026?
+
+
+6
+What are the best hashtags for Instagram Reels?
+
+
+7
+What are the best hashtags for Instagram Carousels?
+
+
+8
+How do I find the right hashtags for my niche?
+
+
+9
+Should I put hashtags in the caption or the first comment on Instagram?
+
+
+10
+Is this Instagram hashtag generator free?

@@ -449,12 +449,33 @@ Each idea should include the format (e.g., POV, Storytime, Tutorial, Trend), the
 // ─── Instagram Tools ───────────────────────────────────────────────────────────
 
 async function generateInstagramHashtags(inputs: ToolInput): Promise<string[]> {
-  const topic = String(inputs.topic || inputs.niche || "");
+  const topic       = String(inputs.topic       || inputs.niche || "");
+  const niche       = String(inputs.niche       || "lifestyle");
+  const contentType = String(inputs.contentType || "static");
+  const goal        = String(inputs.goal        || "reach");
+  const keywords    = String(inputs.keywords    || "");
+
   return aiGenerate(
-    `You are an Instagram growth expert. Generate a strategic mix of Instagram hashtags.
-Return ONLY a list of 30 hashtags (with # symbol), one per line, no extra text.
-Include a mix of: 5 mega hashtags (1M+ posts), 10 large (100K-1M), 10 medium (10K-100K), 5 niche (under 10K).`,
-    `Post topic/niche: "${topic}"\n\nGenerate 30 Instagram hashtags.`
+    `You are an Instagram hashtag strategist. Generate 3 rotating hashtag sets (A, B, C) of 30 hashtags each.
+
+STRUCTURE per set — follow this EXACTLY:
+- 5 Broad hashtags (500K–5M+ posts) for wide discovery
+- 10 Mid-Range hashtags (50K–500K posts) for targeted reach  
+- 15 Micro hashtags (1K–50K posts) for niche community ranking
+
+RULES:
+- Output exactly 90 hashtags total: Set A (lines 1–30), Set B (lines 31–60), Set C (lines 61–90).
+- Each hashtag on its own line, with # symbol, no numbering, no labels, no blank lines between sets.
+- Zero overlap across the three sets — every hashtag must be unique.
+- Content type: "${contentType}" — ${contentType === "reel" ? "weight toward broad/mid for Reels distribution" : contentType === "carousel" ? "weight toward micro for carousel ranking" : "balanced mix for static posts"}.
+- Goal: "${goal}" — ${goal === "engagement" ? "include community/conversation tags" : goal === "growth" ? "include follow-oriented tags" : goal === "sales" ? "include buyer-intent and product tags" : "include broad discovery tags"}.
+- Make hashtags specific to the topic and niche — no generic filler.`,
+
+    `Post topic: "${topic}"
+Niche: "${niche}"
+${keywords ? `Keywords to include: ${keywords}` : ""}
+
+Generate 90 hashtags (3 sets of 30, each with 5 broad + 10 mid + 15 micro).`
   );
 }
 

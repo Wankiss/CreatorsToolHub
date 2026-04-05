@@ -1,0 +1,111 @@
+
+How to Use the Midjourney Prompt Generator
+1
+Choose Your Visual Type
+Select from 12 use cases — YouTube Thumbnail, Instagram Post, Story, TikTok Cover, Course Cover, Logo, Banner, Pinterest Pin, and more. The tool automatically sets the correct aspect ratio for your chosen platform.
+
+2
+Describe Your Subject and Style
+Enter your subject or concept — be specific for better results (e.g., 'confident woman entrepreneur at a minimalist desk' vs. 'woman working'). Select your style, mood, lighting, and optional perspective and color palette.
+
+3
+Click Generate Midjourney Prompts
+Hit Generate and the tool instantly creates 4 optimized prompt variations — your selected style, plus photorealistic, clean minimal, and bold commercial alternatives — all in correct Midjourney syntax with parameters.
+
+4
+Copy and Paste Into Midjourney
+Click Copy on any prompt and paste it into Midjourney via the /imagine command in Discord or the Midjourney web interface. Use Copy All to grab all 4 variations for batch exploration.
+
+About This Midjourney Prompt Generator
+What This Midjourney Prompt Generator Does
+This free Midjourney Prompt Generator builds optimized, syntax-correct Midjourney prompts for 12 content creator use cases — from YouTube thumbnails and Instagram posts to course covers, logos, Pinterest pins, and brand identity visuals. It applies the correct aspect ratio for each platform automatically, generates 4 prompt variations per session (your chosen style, photorealistic, clean minimal, and bold commercial), and includes all required Midjourney syntax elements: subject descriptors, style keywords, mood and lighting terms, composition guidance, and parameters (--ar, --q 2, --v 6). Every prompt is ready to paste into Midjourney with no editing required.
+
+Why Midjourney Prompt Structure Determines Visual Quality
+Midjourney is a remarkably powerful image generation tool, but its output quality is entirely dependent on prompt structure. The platform interprets prompts extremely literally — missing a lighting descriptor produces flat, uninspired lighting; missing a composition term produces random framing; missing style descriptors produces generic results that don't match your creative intent. Professional Midjourney users spend months learning which descriptor combinations produce specific visual outputs. The order of descriptors matters too — Midjourney weights earlier descriptors more heavily than later ones, so subject and style come first, with secondary descriptors following. This generator packages expert prompt engineering knowledge into a free tool that produces professional results regardless of your Midjourney experience level.
+
+Benefits of Using This Tool
+12 visual type presets with auto-applied platform aspect ratios
+12 style options with professional descriptor expansions
+10 mood descriptors and 8 lighting configurations
+4 prompt variations per session across different style directions
+Correct Midjourney syntax — commas, descriptor order, parameters
+--ar, --q 2, --v 6 parameters automatically applied
+Copy individual prompts or Copy All for batch Midjourney sessions
+Explanation preview shows expected visual before generating
+Regenerate All for fresh variations without re-entering inputs
+100% free — no account, no limits, copy-paste ready output
+Tips & Best Practices
+1
+Include lighting in every image prompt — 'golden hour lighting', 'dramatic studio lighting', or 'soft window light' dramatically elevates the quality and mood of output.
+
+2
+Use style references: append '--style raw' for more realistic outputs or '--style expressive' for more artistic, painterly results tailored to your creative vision.
+
+3
+Specify the camera/lens type for photography-style prompts — 'shot on Sony A7IV, 85mm lens, f/1.8' produces dramatically more realistic and detailed portrait results.
+
+4
+Use the --ar flag for custom ratios — '--ar 9:16' for vertical TikTok/Reels content, '--ar 16:9' for YouTube thumbnails, '--ar 1:1' for Instagram square posts.
+
+5
+Add negative prompts with --no to exclude unwanted elements — '--no text, watermark, blur, low quality' keeps generations sharp and print-ready for professional use.
+
+6
+Weight your most important concept at the end of the prompt — Midjourney weights later terms more heavily, so put your key visual element last for best results.
+
+7
+Save your best prompts in a prompt library — great prompts are reusable creative assets; a 10-prompt template library can power weeks of consistent content creation.
+
+Related AI Creator Tools
+AI Prompt Generator
+Generate optimized text prompts for ChatGPT, Claude, and other AI tools to supercharge your content workflow.
+
+Instagram Reel Idea Generator
+Get AI-generated Reel concepts you can pair with Midjourney visuals for stunning, scroll-stopping content.
+
+TikTok Viral Idea Generator
+Discover trending TikTok concepts that pair perfectly with AI-generated visuals for maximum viral potential.
+
+YouTube Video Idea Generator
+Generate compelling YouTube video concepts to accompany your AI-crafted thumbnails and visual content.
+
+Frequently Asked Questions
+
+1
+What is a Midjourney prompt generator and why do I need one?
+
+
+2
+What is the correct Midjourney prompt syntax?
+
+
+3
+What do the Midjourney parameters --ar, --q, and --v mean?
+
+
+4
+What aspect ratio should I use for different content types?
+
+
+5
+What are the best Midjourney styles for YouTube thumbnails?
+
+
+6
+How do I generate Instagram-optimized Midjourney prompts?
+
+
+7
+Can I use Midjourney for free?
+
+
+8
+What makes a good Midjourney prompt for professional results?
+
+
+9
+How do I generate multiple Midjourney prompt variations?
+
+
+10
+How do I create a Midjourney prompt for a brand logo?

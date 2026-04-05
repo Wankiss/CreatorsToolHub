@@ -22,7 +22,7 @@ import { format } from "date-fns";
 
 const HARDCODED_AUTHOR = "Immanuels";
 
-function useCoverImageUpload(onUploaded: (objectPath: string) => void) {
+function useCoverImageUpload(onUploaded: (url: string) => void) {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const { toast } = useToast();
@@ -31,22 +31,21 @@ function useCoverImageUpload(onUploaded: (objectPath: string) => void) {
     setIsUploading(true);
     setUploadError(null);
     try {
-      const metaRes = await fetch("/api/storage/uploads/request-url", {
+      const formData = new FormData();
+      formData.append("image", file);
+
+      const res = await fetch("/api/uploads/image", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: file.name, size: file.size, contentType: file.type || "image/jpeg" }),
+        body: formData,
       });
-      if (!metaRes.ok) throw new Error("Failed to get upload URL");
-      const { uploadURL, objectPath } = await metaRes.json();
 
-      const putRes = await fetch(uploadURL, {
-        method: "PUT",
-        body: file,
-        headers: { "Content-Type": file.type || "image/jpeg" },
-      });
-      if (!putRes.ok) throw new Error("Failed to upload to storage");
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error ?? "Upload failed");
+      }
 
-      onUploaded(`/api/storage${objectPath}`);
+      const { url } = await res.json();
+      onUploaded(url);
       toast({ title: "Image uploaded successfully" });
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Upload failed";
@@ -499,13 +498,13 @@ function BlogForm({ onSuccess, initialData }: { onSuccess: () => void; initialDa
         <Textarea value={form.excerpt} onChange={e => setField('excerpt', e.target.value)} rows={2} placeholder="A compelling 1-2 sentence summary..." />
       </div>
 
-      {/* Cover Image Upload */}
+      {/* Cover Image */}
       <div className="space-y-2">
         <Label>Cover Image</Label>
         <div className="border-2 border-dashed border-border rounded-xl p-4 space-y-3">
           {form.coverImage ? (
             <div className="relative rounded-lg overflow-hidden border border-border">
-              <img src={form.coverImage} alt="Cover preview" className="w-full h-40 object-cover" />
+              <img src={form.coverImage} alt="Cover preview" className="w-full h-40 object-cover" onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} />
               <button
                 type="button"
                 onClick={() => setField('coverImage', '')}
@@ -520,6 +519,8 @@ function BlogForm({ onSuccess, initialData }: { onSuccess: () => void; initialDa
               <p className="text-sm text-muted-foreground">No image selected</p>
             </div>
           )}
+
+          {/* File Upload */}
           <div className="flex gap-2 items-center">
             <input
               ref={fileInputRef}
@@ -539,10 +540,18 @@ function BlogForm({ onSuccess, initialData }: { onSuccess: () => void; initialDa
               <Upload className="w-3.5 h-3.5" />
               {isUploading ? "Uploading..." : form.coverImage ? "Replace Image" : "Upload Image"}
             </Button>
-            {form.coverImage && (
-              <p className="text-xs text-muted-foreground truncate flex-1 font-mono">{form.coverImage}</p>
-            )}
+            <span className="text-xs text-muted-foreground">or paste a URL below</span>
           </div>
+
+          {/* URL Input */}
+          <Input
+            type="url"
+            value={form.coverImage}
+            onChange={e => setField('coverImage', e.target.value)}
+            placeholder="https://example.com/image.jpg"
+            className="text-sm font-mono"
+          />
+
           {uploadError && <p className="text-xs text-destructive">{uploadError}</p>}
         </div>
       </div>

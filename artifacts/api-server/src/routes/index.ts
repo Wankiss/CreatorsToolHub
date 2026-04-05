@@ -7,6 +7,7 @@ import analyticsRouter from "./analytics.js";
 import adminRouter from "./admin.js";
 import contactRouter from "./contact.js";
 import storageRouter from "./storage.js";
+import uploadRouter from "./upload.js";
 
 const router: IRouter = Router();
 
@@ -18,5 +19,6 @@ router.use(analyticsRouter);
 router.use(adminRouter);
 router.use(contactRouter);
 router.use(storageRouter);
+router.use(uploadRouter);
 
 export default router;

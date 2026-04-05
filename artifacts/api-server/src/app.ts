@@ -1,16 +1,23 @@
 import express, { type Express } from "express";
 import cors from "cors";
 import path from "path";
+import fs from "fs";
 import router from "./routes";
 import { db, toolsTable, categoriesTable, blogPostsTable } from "@workspace/db";
 import { eq, inArray } from "drizzle-orm";
 
 const app: Express = express();
 
+const UPLOADS_DIR = path.resolve(process.cwd(), "uploads");
+if (!fs.existsSync(UPLOADS_DIR)) {
+  fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+}
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/api/uploads", express.static(UPLOADS_DIR, { maxAge: "7d" }));
 app.use("/api", router);
 
 app.get("/sitemap.xml", async (_req, res) => {

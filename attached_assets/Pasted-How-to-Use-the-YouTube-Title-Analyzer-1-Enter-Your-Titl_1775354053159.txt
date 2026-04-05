@@ -1,0 +1,95 @@
+How to Use the YouTube Title Analyzer
+1
+Enter Your Title and Target Keyword
+Paste your YouTube title into the analyzer and optionally add the exact search term you want the video to rank for. The keyword field unlocks SEO scoring: the analyzer checks whether your keyword is present, how early in the title it appears, and whether the density feels natural rather than stuffed.
+
+2
+Select Niche and Analyze
+Choose your content category from the dropdown — the virality engine adjusts its power word scoring based on your niche, since high-CTR language differs between finance, gaming, and health content. Click Analyze Title to see your overall score and the four component metrics with detailed breakdowns.
+
+3
+Review Your Virality Engine Scores
+The three virality scores — Curiosity Gap, Emotional Intensity, and Uniqueness — measure dimensions beyond basic SEO and CTR. A strong overall score with a weak Curiosity Gap score means your title ranks but doesn't compel clicking. Use the specific improvement tips under each score to address the exact weakness.
+
+4
+Apply Suggestions and A/B Test
+Copy any of the five optimized title suggestions directly to YouTube Studio. For important videos, use the A/B Test tab to compare your original against an optimized version — the simulation scores both on all four dimensions and predicts which would earn more clicks in the first 48 hours after upload.
+
+About This YouTube Title Analyzer
+Why Your YouTube Title Determines 80% of Your Video's Success
+Of all the elements that determine whether a YouTube video succeeds or fails, the title carries disproportionate weight. It affects three critical metrics simultaneously: search ranking (SEO), click-through rate (CTR), and audience retention (through expectation setting). A video with average content but an outstanding title will consistently outperform a great video with a weak title — because the weak-titled video never gets seen. YouTube's own research indicates that CTR improvement from 4% to 7% on the same content can double the total views a video receives through algorithmic distribution.
+
+Our title analyzer scores your title on four independently weighted dimensions: SEO effectiveness (keyword placement and relevance), CTR potential (power words, curiosity gaps, emotional triggers, and formatting), readability (clarity and cognitive ease), and length optimization (ideal 50–60 characters). The virality engine then applies three additional measures — curiosity gap strength, emotional intensity, and title uniqueness — that capture the variables most closely associated with viral content spread beyond simple search traffic.
+
+The Four-Score System: SEO, CTR, Readability, and Length
+SEO Score measures whether your title is optimized for YouTube and Google search discovery. The most important factor is keyword front-loading — placing your primary search term in the first 40% of the title signals strong topical relevance to both algorithms. A title starting with your keyword consistently outperforms the same title with the keyword buried at the end. Our SEO score weights keyword presence at 40%, front-loading at 30%, and natural language quality at 30%.
+
+CTR Score models viewer psychology — the signals that make a thumbnail + title combination irresistible to click. Power words (ultimate, secret, proven, shocking) activate psychological triggers. Numbers create specificity that reduces click uncertainty. Curiosity gaps — information tension between what the viewer knows and what the title promises — are the single highest-weighted CTR factor because they create a cognitive discomfort that clicking resolves. Pair strong title optimization with a well-optimized YouTube description and relevant tags for complete video SEO.
+
+Readability and Length complete the picture. A title might score well on SEO and CTR but fail if it's grammatically awkward, uses excessive jargon, or runs so long that YouTube truncates it in search results. The 50–60 character ideal ensures your complete title displays on every device — mobile search, desktop homepage, suggested videos, and embedded players. Titles that extend beyond 70 characters often lose their most compelling hook to truncation precisely when a viewer is deciding whether to click.
+
+A/B Testing, Title Templates, and the Virality Engine
+The A/B testing simulation lets you compare two title variants before committing to one. The simulation weights CTR potential most heavily (40%) because in the first 24–48 hours after upload, YouTube's algorithm evaluates initial click rates from impression traffic to decide how broadly to distribute the video. A title that earns 7% CTR instead of 4% in this window gets significantly more algorithmic push — making early CTR the highest- leverage optimization point for new uploads.
+
+The 8 proven title templates capture formats that have generated millions of views across niches. The personal achievement format ("How I Made X in Y Days") works because it combines social proof, specificity, and implicit promise of replication. The mistake avoidance format ("X Mistakes to Avoid") creates personal urgency — every viewer immediately wonders if they're making those mistakes. Fill in these templates with your specific results, numbers, and niche topic, then run the result through the analyzer tab to verify it scores well before publishing. Use the YouTube Video Idea Generator to generate content concepts that pair perfectly with these high-performing title formulas.
+
+Why Use This YouTube Title Analyzer
+Four-score system: SEO, CTR, Readability, and Length analyzed independently
+Virality Engine: measures curiosity gap, emotional intensity, and title uniqueness
+Keyword front-loading detection with exact position percentage feedback
+Power word library with niche-specific vocabulary for each content category
+Curiosity gap detection for 24+ proven psychological trigger phrases
+5 optimized title suggestions: SEO, High-CTR, Shortened, Viral, and Template
+A/B testing simulation to predict which of two titles performs better
+8 proven title templates with fill-in-the-blank patterns and real examples
+Character count with live truncation warnings for mobile optimization
+100% free, instant results, no account required
+Related YouTube Tools
+YouTube Title Generator
+Generate 40+ title formulas and then bring them here to score and pick the best.
+YouTube Tag Generator
+Generate SEO-optimized tags that reinforce the high-scoring keywords in your title.
+YouTube SEO Score Checker
+Score your full title and description package together for maximum SEO coverage.
+YouTube Keyword Generator
+Find high-traffic keywords to incorporate into your title for better search ranking.
+Frequently Asked Questions
+
+1
+What makes a YouTube title rank higher in search?
+
+
+2
+How long should a YouTube title be for best SEO performance?
+
+
+3
+What are power words and how do they improve YouTube CTR?
+
+
+4
+What is a curiosity gap and why does it boost YouTube clicks?
+
+
+5
+Does including a number in a YouTube title really help performance?
+
+
+6
+Should I include the current year in my YouTube title?
+
+
+7
+What is the difference between SEO score and CTR score in the title analyzer?
+
+
+8
+How does the A/B title testing simulation work?
+
+
+9
+What is the virality engine and how is each score calculated?
+
+
+10
+Is the YouTube Title Analyzer free to use?

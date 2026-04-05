@@ -315,11 +315,14 @@ Analyse this YouTube title and provide a full performance report.`
 
 async function generateTikTokHashtags(inputs: ToolInput): Promise<string[]> {
   const topic = String(inputs.topic || inputs.niche || "");
+  const niche = String(inputs.niche || "");
+  const contentType = String(inputs.contentType || "tutorial");
   return aiGenerate(
-    `You are a TikTok growth expert. Generate high-performing TikTok hashtags.
-Return ONLY a list of 15 hashtags (with # symbol), one per line, no extra text.
-Mix viral general hashtags with niche-specific ones for maximum reach.`,
-    `Content topic/niche: "${topic}"\n\nGenerate 15 TikTok hashtags.`
+    `You are a TikTok SEO and hashtag strategy expert. Generate a high-performing, tiered hashtag set for TikTok.
+Return ONLY a list of 15 hashtags (with # symbol), one per line, no extra text, no numbering.
+Mix: 4-5 niche-specific primary hashtags, 4-5 broader secondary hashtags, 3 trending format hashtags relevant to the content style, and 2-3 long-tail search-optimized hashtags.
+Prioritize discoverability via both the For You Page algorithm and TikTok Search.`,
+    `Video topic: "${topic}"\nCreator niche: "${niche || topic}"\nContent style: "${contentType}"\n\nGenerate 15 strategic TikTok hashtags.`
   );
 }
 

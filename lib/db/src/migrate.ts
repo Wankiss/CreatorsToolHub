@@ -109,9 +109,12 @@ async function migrate() {
         "id" serial PRIMARY KEY,
         "tool_id" integer REFERENCES "tools"("id"),
         "tool_slug" varchar(255),
-        "created_at" timestamp NOT NULL DEFAULT now()
+        "ip_address" varchar(100),
+        "timestamp" timestamp NOT NULL DEFAULT now()
       )
     `);
+    await addIfMissing("tool_usage_logs", "ip_address", "varchar(100)");
+    await addIfMissing("tool_usage_logs", "timestamp", "timestamp NOT NULL DEFAULT now()");
 
     console.log("Migrations complete.");
   } finally {

@@ -342,13 +342,40 @@ Tone style: ${tone}. Do NOT use underscores or numbers unless essential.`,
 }
 
 async function generateTikTokBio(inputs: ToolInput): Promise<string[]> {
-  const niche = String(inputs.niche || "content");
-  const name = String(inputs.name || "Creator");
+  const niche     = String(inputs.niche     || "content creator");
+  const whatYouDo = String(inputs.whatYouDo || "");
+  const tone      = String(inputs.tone      || "casual");
+  const audience  = String(inputs.audience  || "");
+  const usp       = String(inputs.usp       || "");
+  const cta       = String(inputs.cta       || "");
+  const keywords  = String(inputs.keywords  || "");
+
   return aiGenerate(
-    `You are a social media copywriter. Write short, punchy TikTok bios (max 80 characters each).
-Return ONLY 3 bio options, numbered 1-3, each on its own line.
-Each bio should include emojis, convey personality, and have a clear call to action.`,
-    `Creator name: "${name}"\nNiche: "${niche}"\n\nWrite 3 TikTok bio options.`
+    `You are an expert TikTok profile copywriter who specialises in high-converting bios.
+Generate exactly 10 TikTok bio options, numbered 1–10, each on its own line with NO extra commentary.
+
+STRICT RULES:
+- Every bio must be 80 characters or fewer (count carefully — TikTok truncates at 80).
+- Produce variety across these 5 formula types (at least 2 bios per type):
+  1. "I help [audience] [result]" — direct benefit statement
+  2. "[Emoji] [Value Proposition]" — visual, scannable
+  3. "[Result] | [Niche]" — identity + niche clarity
+  4. "Follow for [specific benefit]" — CTA-first conversion
+  5. "[USP] + [CTA]" — authority-driven with a next-step ask
+- Match the tone: ${tone}
+- Use 1–3 emojis in at least 6 of the 10 bios; keep 2–3 bios emoji-free (minimal).
+- At least 4 bios must contain a clear call-to-action.
+- Do NOT exceed 80 characters on any bio — verify before outputting.
+- Output format: just the bio text on each numbered line, nothing else.`,
+
+    `Niche: ${niche}
+${whatYouDo ? `What the creator does: ${whatYouDo}` : ""}
+${audience   ? `Target audience: ${audience}` : ""}
+${usp        ? `Unique selling point: ${usp}` : ""}
+${cta        ? `Preferred CTA: ${cta}` : ""}
+${keywords   ? `Keywords to weave in: ${keywords}` : ""}
+
+Generate 10 high-converting TikTok bios (max 80 chars each).`
   );
 }
 

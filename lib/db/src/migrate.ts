@@ -81,6 +81,17 @@ async function migrate() {
       )
     `);
 
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS "contact_messages" (
+        "id" serial PRIMARY KEY,
+        "name" varchar(255) NOT NULL,
+        "email" varchar(255) NOT NULL,
+        "subject" varchar(500) DEFAULT '',
+        "message" text NOT NULL,
+        "created_at" timestamp NOT NULL DEFAULT now()
+      )
+    `);
+
     // Safely add any missing columns to existing tables
     const addIfMissing = async (table: string, column: string, definition: string) => {
       await client.query(`

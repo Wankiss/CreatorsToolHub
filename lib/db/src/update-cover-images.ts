@@ -11,6 +11,7 @@ const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const db = drizzle(pool);
 
 const COVER_IMAGES: Record<string, string> = {
+  // Original 12 seeded posts
   "youtube-seo-tips-beginners-that-work-2026":                  "/blog/youtube-seo-tips-beginners-that-work-2026.png",
   "instagram-hashtag-strategy-2026-get-more-reach":             "/blog/instagram-hashtag-strategy-2026-get-more-reach.png",
   "50-viral-content-ideas-beginners-get-views-2026":            "/blog/50-viral-content-ideas-beginners-get-views-2026.png",
@@ -23,6 +24,13 @@ const COVER_IMAGES: Record<string, string> = {
   "how-to-go-viral-on-youtube-beginner-2026":                   "/blog/how-to-go-viral-on-youtube-beginner-2026.png",
   "how-to-write-youtube-script-fast-free-script-generator":     "/blog/how-to-write-youtube-script-fast-free-script-generator.png",
   "best-free-creator-tools-beginners-2026":                     "/blog/best-free-creator-tools-beginners-2026.png",
+  // Extra posts — reuse the closest matching image
+  "faceless-youtube-channel-ideas-proven-niches-2026":          "/blog/how-to-start-faceless-youtube-channel-complete-guide-2026.png",
+  "instagram-hashtag-strategy-2026-more-reach":                 "/blog/instagram-hashtag-strategy-2026-get-more-reach.png",
+  "viral-content-ideas-beginners-2026":                         "/blog/50-viral-content-ideas-beginners-get-views-2026.png",
+  "how-to-go-viral-on-tiktok-2026":                             "/blog/how-to-go-viral-on-tiktok-2026-strategies-that-work.png",
+  "how-to-start-faceless-youtube-channel-2026":                 "/blog/how-to-start-faceless-youtube-channel-complete-guide-2026.png",
+  "how-to-write-youtube-script-fast-free-generator":            "/blog/how-to-write-youtube-script-fast-free-script-generator.png",
 };
 
 async function run() {

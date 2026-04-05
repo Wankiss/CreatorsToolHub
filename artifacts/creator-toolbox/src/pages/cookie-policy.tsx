@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
-import { Cookie } from "lucide-react";
+import { Cookie, Settings } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const LAST_UPDATED = "March 26, 2026";
 
@@ -126,6 +127,10 @@ export default function CookiePolicy() {
             <Section title="6. Managing Your Cookie Preferences">
               <p>You have several options to manage or disable cookies:</p>
               <div className="space-y-4 mt-3">
+                <div className="p-4 rounded-xl bg-primary/5 border border-primary/20">
+                  <h3 className="font-semibold mb-2 text-primary">Our Cookie Consent Tool</h3>
+                  <p>The easiest way to manage your preferences is to use our built-in consent tool. Click <strong>Manage Cookie Preferences</strong> in Section 7 below (or the banner shown on your first visit) to choose exactly which cookie categories you allow. Your choices are saved to your browser and respected on every page.</p>
+                </div>
                 <div className="p-4 rounded-xl bg-muted/40 border border-border/40">
                   <h3 className="font-semibold mb-2">Browser Settings</h3>
                   <p>Most web browsers allow you to control cookies through their settings. You can typically find these under Settings → Privacy → Cookies. You can choose to block all cookies, block only third-party cookies, or clear existing cookies. Note that blocking essential cookies may break parts of creatorsToolHub.</p>
@@ -141,8 +146,28 @@ export default function CookiePolicy() {
               </div>
             </Section>
 
-            <Section title="7. Cookie Consent">
-              <p>By continuing to use creatorsToolHub, you consent to our use of cookies as described in this Cookie Policy. If you do not agree to our use of cookies, you should adjust your browser settings accordingly or discontinue use of the platform. Please note that disabling certain cookies may affect the functionality of our free creator tools.</p>
+            <Section title="7. Your Consent &amp; Preferences">
+              <p>When you first visit creatorsToolHub, you are shown a cookie consent banner that gives you full control over which cookies you allow. You can:</p>
+              <ul className="list-disc list-inside mt-2 space-y-1 ml-2">
+                <li><strong>Accept All</strong> — allow necessary, analytics, and advertising cookies</li>
+                <li><strong>Reject Non-Essential</strong> — allow only strictly necessary cookies</li>
+                <li><strong>Manage Preferences</strong> — choose individually which categories to enable</li>
+              </ul>
+              <p className="mt-3">You can change your consent choices at any time using the button below. Your preference is stored in your browser and remembered on your next visit.</p>
+              <div className="mt-4">
+                <Button
+                  variant="outline"
+                  className="gap-2"
+                  onClick={() => {
+                    if (typeof (window as unknown as Record<string, unknown>).openCookiePreferences === "function") {
+                      (window as unknown as Record<string, () => void>).openCookiePreferences();
+                    }
+                  }}
+                >
+                  <Settings className="w-4 h-4" />
+                  Manage Cookie Preferences
+                </Button>
+              </div>
             </Section>
 
             <Section title="8. Changes to This Cookie Policy">

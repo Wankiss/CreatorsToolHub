@@ -1,0 +1,110 @@
+How to Use the TikTok Script Generator
+1
+Enter Your Video Idea
+Type your video topic or idea — the more specific the better. 'How I lost 10kg without the gym' generates sharper scripts than 'weight loss.' Include the core result, story, or insight your video will deliver. The generator uses your topic to power the hook formula, body structure, and CTA across all 3 script styles.
+
+2
+Choose Niche, Tone, and Length
+Select your niche from 15 options — each has niche-specific tips, mistakes, audience language, and emoji anchors built in. Pick your tone: Educational for how-to content, Bold for authority-driven delivery, Storytelling for narrative videos, Funny for entertainment, or Inspirational for motivational content. Then choose 15s, 30s, or 60s — the generator calibrates word count and structure automatically to match realistic speaking speed.
+
+3
+Review the Timing Breakdown
+Each script is broken into labeled sections: HOOK (with timestamp), BODY (with timestamp), and CTA (with timestamp). The Hook section is highlighted — it's the most important part. Each script also shows a Hook Score (1–10) and Retention Score (1–10) so you can immediately identify which script to prioritize. The word count shows whether the script will fit your selected duration.
+
+4
+Copy, Film, and Test
+Use the per-script copy buttons to copy the Hook only (for testing hooks before filming), the CTA only (for refining your endings), or the full script at once. Film all 3 script variations and test them — post each on different days and watch which one gets the highest 3-second retention rate and completion rate in TikTok Analytics. The script with the best retention becomes your template for future content in that format.
+
+About This TikTok Script Generator
+How This TikTok Script Generator Works
+This free TikTok Script Generator produces 3 complete script variations per generation, each using a different proven viral formula: "Stop Doing This," "Nobody Tells You," "Here's How I Did It," "If You're [Audience]," "3 Mistakes," and "This Changed Everything." Scripts are selected based on your chosen tone — Educational tone prioritizes structured teaching formats, Storytelling tone uses narrative-first approaches, Inspirational tone leads with transformation, Funny tone uses pattern interrupts and self-aware openers, and Bold tone stakes a controversial claim from the first word. Every script is auto-calibrated to your selected video length: 30–50 words for 15-second videos, 60–90 words for 30-second videos, and 120–160 words for 60-second videos — matching realistic conversational speaking speed. Each script passes an internal quality gate that evaluates the hook on three criteria: does the first line stop scrolling? Does it create curiosity or emotion? Does it invite interaction? Hooks that fail are automatically rewritten with a stronger pattern interrupt before being returned. Every result shows a Hook Score (1–10), Retention Score (1–10), and word count at a glance.
+
+Why Script Structure Determines TikTok Performance
+TikTok's algorithm has one primary objective: maximize total time spent on the platform. To achieve this, it uses completion rate — the percentage of viewers who watch your video to the end — as its most important content quality signal. A video that 60% of viewers watch to completion will be distributed exponentially wider than a video that 30% complete, even if both videos have the same total view count. This is why structure matters more than production quality on TikTok. A perfectly scripted video filmed on a phone will outperform a beautifully produced but poorly structured video every time. The hook determines whether a viewer watches past 3 seconds — which TikTok tracks as its primary distribution trigger. The body structure determines whether they watch to 75% — the threshold at which TikTok considers a video "highly retained." The CTA determines whether they comment or save — secondary signals that push the video into the next audience testing phase. Every element of a script is a metric. This generator builds scripts with each metric in mind: front-loaded hooks for 3-second retention, structured bodies for watch-through, and engagement-driven CTAs for the comment and save signals that unlock broader distribution.
+
+What This TikTok Script Generator Includes
+3 complete script variations per generation across 6 distinct viral formula styles
+Full 3-section structure per script: Hook, Body, and CTA with auto-generated timestamps
+Word count calibrated to 15s (30–50w), 30s (60–90w), or 60s (120–160w) speaking speed
+Hook Score (1–10) and Retention Score (1–10) for every script to identify the strongest option
+Internal quality gate: hooks are evaluated and auto-strengthened if they fail scroll-stop criteria
+15 niche options with niche-specific mistake lists, proven tips, and audience language
+5 tone modes (Educational, Funny, Bold, Storytelling, Inspirational) shaping script structure
+Copy buttons: Hook only, CTA only, and Full Script — paste directly into TikTok or notes app
+Optional fields: target audience, key message, custom CTA, and keywords for script personalization
+Regenerate button for unlimited fresh script variations on any topic
+Tips & Best Practices
+1
+Hook in the first 0.5 seconds — TikTok data shows 45% of viewers drop off in the first 3 seconds; your opening line is the single most important part of the script.
+
+2
+Script 60–90 second videos as your sweet spot — this length gets full credit in TikTok's monetization program and maintains strong completion rates.
+
+3
+Use a pattern interrupt every 15 seconds — a visual change, cut, or new point resets viewer attention and pushes completion rates above 80%.
+
+4
+Write scripts in second-person ('You need to know this') — direct address keeps viewers engaged and drives more saves and shares than third-person narration.
+
+5
+End every script with a loop-back to the opening hook — viewers who watch to the end and replay count as double-weight for the algorithm.
+
+6
+Prep a 'Part 2 bait' ending — 'I'll share the second step tomorrow' drives anticipation comments that boost your video for 24–48 hours after posting.
+
+7
+Script your pitch or CTA at the 80% mark — viewers who make it that far are your most engaged fans and far more likely to click, follow, or buy.
+
+Related TikTok Tools
+TikTok Hook Generator
+Generate scroll-stopping opening lines to pair with your scripts and ensure viewers stay past the first 3 seconds.
+
+TikTok Caption Generator
+Write compelling captions with hooks and CTAs to complement your video script and drive comments and shares.
+
+TikTok Viral Idea Generator
+Get niche-specific viral content concepts to plan your next script around proven trending formats.
+
+TikTok Hashtag Generator
+Find the optimal hashtag mix to maximize reach once your scripted video is published.
+
+Frequently Asked Questions
+
+1
+What is a TikTok script and why do you need one?
+
+
+2
+How long should a TikTok video script be?
+
+
+3
+What makes a TikTok hook go viral?
+
+
+4
+What is a re-hook and why does it matter for 60-second TikToks?
+
+
+5
+What is the best TikTok video structure?
+
+
+6
+How do I write TikTok scripts for different video lengths?
+
+
+7
+How do I write a TikTok CTA that actually works?
+
+
+8
+Can I use TikTok scripts for Instagram Reels and YouTube Shorts?
+
+
+9
+What is the 'open loop' technique in TikTok scripts?
+
+
+10
+Is this TikTok Script Generator free?

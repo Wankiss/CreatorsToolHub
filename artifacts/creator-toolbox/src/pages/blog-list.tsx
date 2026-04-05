@@ -3,7 +3,6 @@ import { Link } from "wouter";
 import { useCanonical } from "@/hooks/use-canonical";
 import { Layout } from "@/components/layout";
 import { useListBlogPosts } from "@workspace/api-client-react";
-import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowRight, BookOpen, Clock, TrendingUp, Zap, Star } from "lucide-react";
 import { format } from "date-fns";
@@ -27,6 +26,56 @@ const TAG_ICONS: Record<string, React.ReactNode> = {
   "TikTok Growth": <Zap className="w-3 h-3" />,
   "AI Tools": <Star className="w-3 h-3" />,
 };
+
+const TAG_GRADIENT: Record<string, string> = {
+  "YouTube Growth":   "from-red-500/20 via-rose-500/10 to-orange-400/10",
+  "TikTok Growth":    "from-pink-500/20 via-fuchsia-500/10 to-purple-400/10",
+  "Instagram Growth": "from-purple-500/20 via-pink-500/10 to-rose-400/10",
+  "AI Tools":         "from-blue-500/20 via-indigo-500/10 to-violet-400/10",
+  "SEO":              "from-green-500/20 via-emerald-500/10 to-teal-400/10",
+  "Viral Content":    "from-amber-500/20 via-orange-500/10 to-yellow-400/10",
+};
+
+const TAG_EMOJI: Record<string, string> = {
+  "YouTube Growth":   "▶️",
+  "TikTok Growth":    "🎵",
+  "Instagram Growth": "📸",
+  "AI Tools":         "🤖",
+  "SEO":              "🔍",
+  "Viral Content":    "🚀",
+  "Strategy":         "🎯",
+  "Content Ideas":    "💡",
+  "Free Tools":       "🛠️",
+  "Beginner Guide":   "🌱",
+};
+
+function getPostEmoji(tags: string[]) {
+  for (const tag of tags) {
+    if (TAG_EMOJI[tag]) return TAG_EMOJI[tag];
+  }
+  return "✍️";
+}
+
+function getPostGradient(tags: string[]) {
+  for (const tag of tags) {
+    if (TAG_GRADIENT[tag]) return TAG_GRADIENT[tag];
+  }
+  return "from-primary/15 via-primary/8 to-background";
+}
+
+function PostCoverFallback({ tags, className = "" }: { tags: string[]; className?: string }) {
+  const gradient = getPostGradient(tags);
+  const emoji = getPostEmoji(tags);
+  return (
+    <div className={`bg-gradient-to-br ${gradient} flex items-center justify-center relative overflow-hidden ${className}`}>
+      <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+      <div className="relative text-center">
+        <div className="text-5xl mb-2 drop-shadow-sm">{emoji}</div>
+        <div className="text-xs font-bold text-muted-foreground/60 uppercase tracking-widest">{tags[0] ?? "Article"}</div>
+      </div>
+    </div>
+  );
+}
 
 export default function BlogList() {
   useCanonical("/blog");
@@ -76,8 +125,11 @@ export default function BlogList() {
         </div>
 
         {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className="h-72 rounded-2xl" />)}
+          <div className="space-y-8">
+            <Skeleton className="h-80 rounded-2xl" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className="h-80 rounded-2xl" />)}
+            </div>
           </div>
         ) : filtered.length === 0 ? (
           <div className="text-center py-20 text-muted-foreground">
@@ -86,12 +138,26 @@ export default function BlogList() {
           </div>
         ) : (
           <>
-            {/* Featured Post */}
+            {/* ── Featured Post ── */}
             {featured && (
               <Link href={`/blog/${featured.slug}`}>
-                <Card className="group mb-10 overflow-hidden border-border/50 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 rounded-2xl bg-card cursor-pointer">
-                  <div className="flex flex-col lg:flex-row">
-                    <div className="flex-1 p-8 sm:p-10 flex flex-col justify-between">
+                <div className="group mb-10 overflow-hidden rounded-2xl border border-border/50 bg-card hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/8 transition-all duration-300 cursor-pointer">
+                  <div className="flex flex-col md:flex-row min-h-[280px]">
+                    {/* Image — left on md+, top on mobile */}
+                    <div className="w-full md:w-[340px] lg:w-[420px] flex-shrink-0 order-first">
+                      {featured.coverImage ? (
+                        <img
+                          src={featured.coverImage}
+                          alt={featured.title}
+                          className="w-full h-56 md:h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <PostCoverFallback tags={featured.tags} className="h-56 md:h-full" />
+                      )}
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 p-7 sm:p-9 flex flex-col justify-between">
                       <div>
                         <div className="flex flex-wrap gap-2 mb-4">
                           {featured.tags.slice(0, 2).map(tag => (
@@ -99,21 +165,22 @@ export default function BlogList() {
                               {tag}
                             </span>
                           ))}
-                          <span className="text-xs font-semibold text-amber-500 bg-amber-500/10 px-3 py-1 rounded-md border border-amber-500/20">
+                          <span className="text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-3 py-1 rounded-md border border-amber-500/20">
                             ⭐ Featured
                           </span>
                         </div>
                         <h2 className="text-2xl sm:text-3xl font-bold font-display text-foreground group-hover:text-primary transition-colors mb-4 leading-tight">
                           {featured.title}
                         </h2>
-                        <p className="text-muted-foreground leading-relaxed mb-6 line-clamp-3">
+                        <p className="text-muted-foreground leading-relaxed line-clamp-3 text-base">
                           {featured.excerpt}
                         </p>
                       </div>
-                      <div className="flex items-center justify-between text-sm font-medium pt-6 border-t border-border/50">
+
+                      <div className="flex items-center justify-between text-sm font-medium pt-6 mt-6 border-t border-border/50">
                         <div className="flex items-center gap-4 text-muted-foreground">
                           <span className="flex items-center gap-1.5">
-                            <img src="/immanuels-avatar.png" alt="Immanuels" className="w-5 h-5 rounded-full object-cover flex-shrink-0" />
+                            <img src="/immanuels-avatar.png" alt={featured.author} className="w-5 h-5 rounded-full object-cover flex-shrink-0" />
                             {featured.author}
                           </span>
                           <span className="flex items-center gap-1.5">
@@ -124,67 +191,39 @@ export default function BlogList() {
                             {format(new Date(featured.publishedAt), 'MMM d, yyyy')}
                           </span>
                         </div>
-                        <span className="text-primary flex items-center font-bold group-hover:translate-x-1 transition-transform">
+                        <span className="text-primary flex items-center font-bold group-hover:translate-x-1 transition-transform whitespace-nowrap">
                           Read Article <ArrowRight className="w-4 h-4 ml-1" />
                         </span>
                       </div>
                     </div>
-                    {/* Cover image or decorative fallback */}
-                    {featured.coverImage ? (
-                      <div className="w-full lg:w-72 flex-shrink-0 overflow-hidden border-t lg:border-t-0 lg:border-l border-border/30">
-                        <img
-                          src={featured.coverImage}
-                          alt={featured.title}
-                          className="w-full h-52 lg:h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-full lg:w-72 bg-gradient-to-br from-primary/10 via-primary/5 to-background flex items-center justify-center p-10 text-center border-t lg:border-t-0 lg:border-l border-border/30">
-                        <div>
-                          <div className="text-6xl mb-3">
-                            {featured.tags.includes("YouTube Growth") ? "▶️" :
-                             featured.tags.includes("TikTok Growth") ? "🎵" :
-                             featured.tags.includes("Instagram Growth") ? "📸" :
-                             featured.tags.includes("AI Tools") ? "🤖" : "✍️"}
-                          </div>
-                          <div className="text-sm font-semibold text-muted-foreground">{featured.tags[0]}</div>
-                          <div className="mt-3 text-xs text-muted-foreground/70">{featured.readingTime} min read</div>
-                        </div>
-                      </div>
-                    )}
                   </div>
-                </Card>
+                </div>
               </Link>
             )}
 
-            {/* Post Grid */}
+            {/* ── Post Grid ── */}
             {rest.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {rest.map(post => (
                   <Link key={post.id} href={`/blog/${post.slug}`}>
-                    <Card className="h-full flex flex-col group cursor-pointer overflow-hidden border-border/50 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 rounded-2xl bg-card">
-                      {/* Cover image or emoji accent */}
-                      {post.coverImage ? (
-                        <div className="overflow-hidden h-44 flex-shrink-0">
+                    <div className="group h-full flex flex-col overflow-hidden rounded-2xl border border-border/50 bg-card hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 cursor-pointer">
+
+                      {/* Cover image */}
+                      <div className="flex-shrink-0 h-48 overflow-hidden">
+                        {post.coverImage ? (
                           <img
                             src={post.coverImage}
                             alt={post.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
-                        </div>
-                      ) : (
-                        <div className="h-24 bg-gradient-to-br from-primary/10 via-primary/5 to-background flex items-center justify-center flex-shrink-0">
-                          <span className="text-4xl">
-                            {post.tags.includes("YouTube Growth") ? "▶️" :
-                             post.tags.includes("TikTok Growth") ? "🎵" :
-                             post.tags.includes("Instagram Growth") ? "📸" :
-                             post.tags.includes("AI Tools") ? "🤖" : "✍️"}
-                          </span>
-                        </div>
-                      )}
-                      <div className="p-6 flex flex-col h-full">
-                        {/* Tags */}
-                        <div className="flex flex-wrap gap-1.5 mb-4">
+                        ) : (
+                          <PostCoverFallback tags={post.tags} className="h-full" />
+                        )}
+                      </div>
+
+                      {/* Body */}
+                      <div className="p-5 flex flex-col flex-1">
+                        <div className="flex flex-wrap gap-1.5 mb-3">
                           {post.tags.slice(0, 2).map(tag => (
                             <span key={tag} className="text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-0.5 rounded-md">
                               {tag}
@@ -192,27 +231,27 @@ export default function BlogList() {
                           ))}
                         </div>
 
-                        <h2 className="text-xl font-bold font-display text-foreground group-hover:text-primary transition-colors mb-3 leading-snug line-clamp-2">
+                        <h2 className="text-lg font-bold font-display text-foreground group-hover:text-primary transition-colors mb-2.5 leading-snug line-clamp-2">
                           {post.title}
                         </h2>
 
-                        <p className="text-muted-foreground text-sm line-clamp-3 mb-6 flex-1 leading-relaxed">
+                        <p className="text-muted-foreground text-sm line-clamp-3 flex-1 leading-relaxed">
                           {post.excerpt}
                         </p>
 
-                        <div className="flex items-center justify-between text-xs font-medium pt-4 border-t border-border/50 mt-auto text-muted-foreground">
+                        <div className="flex items-center justify-between text-xs font-medium pt-4 mt-4 border-t border-border/50 text-muted-foreground">
                           <div className="flex items-center gap-3">
                             <span className="flex items-center gap-1">
                               <Clock className="w-3 h-3" /> {post.readingTime} min
                             </span>
                             <span>{format(new Date(post.publishedAt), 'MMM d, yyyy')}</span>
                           </div>
-                          <span className="text-primary flex items-center group-hover:translate-x-1 transition-transform text-sm font-semibold">
-                            Read <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                          <span className="text-primary flex items-center gap-0.5 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                            Read <ArrowRight className="w-3.5 h-3.5" />
                           </span>
                         </div>
                       </div>
-                    </Card>
+                    </div>
                   </Link>
                 ))}
               </div>

@@ -31,6 +31,8 @@ const COVER_IMAGES: Record<string, string> = {
   "how-to-go-viral-on-tiktok-2026":                             "/blog/how-to-go-viral-on-tiktok-2026-strategies-that-work.png",
   "how-to-start-faceless-youtube-channel-2026":                 "/blog/how-to-start-faceless-youtube-channel-complete-guide-2026.png",
   "how-to-write-youtube-script-fast-free-generator":            "/blog/how-to-write-youtube-script-fast-free-script-generator.png",
+  "youtube-seo-tips-beginners-2026":                            "/blog/youtube-seo-tips-beginners-that-work-2026.png",
+  "youtube-tags-in-2026-what-they-do-how-to-use-them-and-which-tools-work-best": "/blog/youtube-seo-tips-beginners-that-work-2026.png",
 };
 
 async function run() {

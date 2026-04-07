@@ -12,7 +12,8 @@
     "push-force": "drizzle-kit push --force --config ./drizzle.config.ts",
     "migrate": "tsx ./src/migrate.ts",
     "seed": "tsx ./src/seed.ts",
-    "seed-blog": "tsx ./src/seed-blog.ts"
+    "seed-blog": "tsx ./src/seed-blog.ts",
+    "update-cover-images": "tsx ./src/update-cover-images.ts"
   },
   "dependencies": {
     "drizzle-orm": "catalog:",

@@ -16,4 +16,7 @@ pnpm --filter @workspace/db run seed
 echo "Seeding blog posts..."
 pnpm --filter @workspace/db run seed-blog
 
+echo "Updating blog cover images..."
+pnpm --filter @workspace/db run update-cover-images
+
 echo "Build complete."

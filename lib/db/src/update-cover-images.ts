@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import { blogPostsTable } from "./schema/index.js";
-import { eq } from "drizzle-orm";
+import { and, eq, or, isNull } from "drizzle-orm";
 
 if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL is required");
@@ -41,7 +41,10 @@ async function run() {
     const result = await db
       .update(blogPostsTable)
       .set({ coverImage })
-      .where(eq(blogPostsTable.slug, slug))
+      .where(and(
+        eq(blogPostsTable.slug, slug),
+        or(isNull(blogPostsTable.coverImage), eq(blogPostsTable.coverImage, ""))
+      ))
       .returning({ id: blogPostsTable.id, title: blogPostsTable.title });
 
     if (result.length > 0) {

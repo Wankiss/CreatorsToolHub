@@ -5,6 +5,27 @@ import { eq, sql, desc, gte } from "drizzle-orm";
 
 const router: IRouter = Router();
 
+const TAG_COVER_DEFAULTS: [string, string][] = [
+  ["YouTube Growth",   "/blog/how-to-go-viral-on-youtube-beginner-2026.png"],
+  ["TikTok Growth",    "/blog/how-to-go-viral-on-tiktok-2026-strategies-that-work.png"],
+  ["Instagram Growth", "/blog/instagram-hashtag-strategy-2026-get-more-reach.png"],
+  ["AI Tools",         "/blog/best-free-ai-tools-content-creators-2026.png"],
+  ["SEO",              "/blog/youtube-seo-tips-beginners-that-work-2026.png"],
+  ["Creator Tips",     "/blog/best-free-creator-tools-beginners-2026.png"],
+  ["Free Tools",       "/blog/best-free-creator-tools-beginners-2026.png"],
+  ["Beginner Guide",   "/blog/best-free-creator-tools-beginners-2026.png"],
+  ["Scripting",        "/blog/how-to-write-youtube-script-fast-free-script-generator.png"],
+  ["Faceless",         "/blog/how-to-start-faceless-youtube-channel-complete-guide-2026.png"],
+];
+const FALLBACK_COVER = "/blog/best-free-creator-tools-beginners-2026.png";
+
+function getDefaultCoverImage(tags: string[]): string {
+  for (const [tag, img] of TAG_COVER_DEFAULTS) {
+    if (tags.includes(tag)) return img;
+  }
+  return FALLBACK_COVER;
+}
+
 router.get("/admin/stats", async (_req, res) => {
   try {
     const totalTools = await db.select({ count: sql<number>`count(*)::int` }).from(toolsTable);
@@ -167,11 +188,12 @@ router.post("/admin/blog", async (req, res) => {
     const { title, slug, excerpt, content, author, coverImage, faqSchema, tags, metaTitle, metaDescription, isPublished } = req.body;
     const words = content?.split(/\s+/).length || 0;
     const readingTime = Math.max(1, Math.ceil(words / 200));
+    const resolvedCover = coverImage || getDefaultCoverImage(tags || []);
 
     const [post] = await db.insert(blogPostsTable).values({
       title, slug, excerpt: excerpt || "", content: content || "",
       author: author || "Immanuels",
-      coverImage: coverImage || "",
+      coverImage: resolvedCover,
       faqSchema: faqSchema || "",
       tags: JSON.stringify(tags || []),
       metaTitle: metaTitle || title, metaDescription: metaDescription || excerpt || "",
@@ -203,7 +225,11 @@ router.put("/admin/blog/:id", async (req, res) => {
       updates.readingTime = Math.max(1, Math.ceil(content.split(/\s+/).length / 200));
     }
     if (author !== undefined) updates.author = author;
-    if (coverImage !== undefined) updates.coverImage = coverImage;
+    if (coverImage !== undefined) {
+      updates.coverImage = coverImage || getDefaultCoverImage(
+        tags !== undefined ? tags : []
+      );
+    }
     if (faqSchema !== undefined) updates.faqSchema = faqSchema;
     if (tags !== undefined) updates.tags = JSON.stringify(tags);
     if (metaTitle !== undefined) updates.metaTitle = metaTitle;

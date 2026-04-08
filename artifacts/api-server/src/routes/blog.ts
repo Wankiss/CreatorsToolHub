@@ -5,6 +5,28 @@ import { eq, sql, desc, and } from "drizzle-orm";
 
 const router: IRouter = Router();
 
+const TAG_COVER_DEFAULTS: [string, string][] = [
+  ["YouTube Growth",   "/blog/how-to-go-viral-on-youtube-beginner-2026.png"],
+  ["TikTok Growth",    "/blog/how-to-go-viral-on-tiktok-2026-strategies-that-work.png"],
+  ["Instagram Growth", "/blog/instagram-hashtag-strategy-2026-get-more-reach.png"],
+  ["AI Tools",         "/blog/best-free-ai-tools-content-creators-2026.png"],
+  ["SEO",              "/blog/youtube-seo-tips-beginners-that-work-2026.png"],
+  ["Creator Tips",     "/blog/best-free-creator-tools-beginners-2026.png"],
+  ["Free Tools",       "/blog/best-free-creator-tools-beginners-2026.png"],
+  ["Beginner Guide",   "/blog/best-free-creator-tools-beginners-2026.png"],
+  ["Scripting",        "/blog/how-to-write-youtube-script-fast-free-script-generator.png"],
+  ["Faceless",         "/blog/how-to-start-faceless-youtube-channel-complete-guide-2026.png"],
+];
+const FALLBACK_COVER = "/blog/best-free-creator-tools-beginners-2026.png";
+
+function resolveCoverImage(coverImage: string | null | undefined, tags: string[]): string {
+  if (coverImage) return coverImage;
+  for (const [tag, img] of TAG_COVER_DEFAULTS) {
+    if (tags.includes(tag)) return img;
+  }
+  return FALLBACK_COVER;
+}
+
 router.get("/blog", async (req, res) => {
   try {
     const limit = Math.min(Number(req.query.limit) || 10, 50);
@@ -35,11 +57,15 @@ router.get("/blog", async (req, res) => {
       .from(blogPostsTable)
       .where(eq(blogPostsTable.isPublished, true));
 
-    const formatted = posts.map(p => ({
-      ...p,
-      tags: (() => { try { return JSON.parse(p.tags); } catch { return []; } })(),
-      publishedAt: p.publishedAt?.toISOString() ?? new Date().toISOString(),
-    }));
+    const formatted = posts.map(p => {
+      const parsedTags = (() => { try { return JSON.parse(p.tags); } catch { return []; } })();
+      return {
+        ...p,
+        tags: parsedTags,
+        coverImage: resolveCoverImage(p.coverImage, parsedTags),
+        publishedAt: p.publishedAt?.toISOString() ?? new Date().toISOString(),
+      };
+    });
 
     res.json({ posts: formatted, total: total[0]?.count ?? 0 });
   } catch (err) {
@@ -63,9 +89,11 @@ router.get("/blog/:slug", async (req, res) => {
     }
 
     const p = posts[0];
+    const parsedTags = (() => { try { return JSON.parse(p.tags); } catch { return []; } })();
     res.json({
       ...p,
-      tags: (() => { try { return JSON.parse(p.tags); } catch { return []; } })(),
+      tags: parsedTags,
+      coverImage: resolveCoverImage(p.coverImage, parsedTags),
       publishedAt: p.publishedAt?.toISOString() ?? new Date().toISOString(),
     });
   } catch (err) {

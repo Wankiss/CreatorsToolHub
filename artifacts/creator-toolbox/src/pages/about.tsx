@@ -1,9 +1,13 @@
 import { Link } from "wouter";
+import { useEffect } from "react";
 import { useCanonical } from "@/hooks/use-canonical";
+import { useSeoMeta } from "@/hooks/use-seo-meta";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 import { Sparkles, Zap, Heart, Users, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const SITE_URL = "https://creatorstoolhub.com";
 
 const PILLARS = [
   {
@@ -39,6 +43,76 @@ const WHO_WE_SERVE = [
 ];
 
 export default function About() {
+  useCanonical("/about");
+
+  useSeoMeta({
+    title: "About creatorsToolHub — Free AI Tools for Content Creators",
+    description:
+      "creatorsToolHub is built by Immanuels — a content creator strategist who made 35+ free AI tools for YouTube, TikTok, and Instagram creators. No signup, no cost, ever.",
+    path: "/about",
+  });
+
+  // Person + AboutPage JSON-LD schema
+  useEffect(() => {
+    const personSchema = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Immanuels",
+      "url": `${SITE_URL}/about`,
+      "image": `${SITE_URL}/immanuels-avatar.png`,
+      "jobTitle": "Founder & Content Creator Strategist",
+      "description":
+        "Content creator strategist and digital growth enthusiast. Founder of creatorsToolHub — a free AI-powered tools platform for YouTube, TikTok, and Instagram creators.",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "creatorsToolHub",
+        "url": SITE_URL,
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/immanuels",
+        "https://twitter.com/creatorstoolhub",
+      ],
+      "knowsAbout": [
+        "YouTube SEO",
+        "TikTok growth strategies",
+        "Instagram content marketing",
+        "AI content creation",
+        "Content creator monetization",
+      ],
+    };
+
+    const aboutPageSchema = {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About creatorsToolHub",
+      "url": `${SITE_URL}/about`,
+      "description":
+        "creatorsToolHub is a free AI tools platform for content creators built by Immanuels, a content creator strategist and digital growth enthusiast.",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Immanuels",
+        "url": `${SITE_URL}/about`,
+      },
+    };
+
+    const personScript = document.createElement("script");
+    personScript.type = "application/ld+json";
+    personScript.id = "about-person-ld";
+    personScript.textContent = JSON.stringify(personSchema);
+    document.head.appendChild(personScript);
+
+    const pageScript = document.createElement("script");
+    pageScript.type = "application/ld+json";
+    pageScript.id = "about-page-ld";
+    pageScript.textContent = JSON.stringify(aboutPageSchema);
+    document.head.appendChild(pageScript);
+
+    return () => {
+      document.getElementById("about-person-ld")?.remove();
+      document.getElementById("about-page-ld")?.remove();
+    };
+  }, []);
+
   return (
     <Layout>
       <div className="bg-background">

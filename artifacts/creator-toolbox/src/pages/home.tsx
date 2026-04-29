@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { useCanonical } from "@/hooks/use-canonical";
+import { useSeoMeta } from "@/hooks/use-seo-meta";
 import { motion } from "framer-motion";
 import {
   Search, Sparkles, Youtube, Instagram, Music, Zap, ArrowRight, TrendingUp,
@@ -72,6 +73,14 @@ const PAIN_POINTS = [
 ];
 
 export default function Home() {
+  useCanonical("/");
+  useSeoMeta({
+    title: "Free AI Tools for Content Creators — YouTube, TikTok & Instagram",
+    description:
+      "35+ free AI-powered tools for YouTube, TikTok, and Instagram creators. Generate titles, scripts, captions, hashtags, and prompts instantly — no signup required.",
+    path: "/",
+  });
+
   const [search, setSearch] = useState("");
   const [, setLocation] = useLocation();
 

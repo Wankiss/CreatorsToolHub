@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { useCanonical } from "@/hooks/use-canonical";
+import { useSeoMeta } from "@/hooks/use-seo-meta";
 import { Layout } from "@/components/layout";
 import { useListBlogPosts } from "@workspace/api-client-react";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -79,6 +80,12 @@ function PostCoverFallback({ tags, className = "" }: { tags: string[]; className
 
 export default function BlogList() {
   useCanonical("/blog");
+  useSeoMeta({
+    title: "Creator Growth Blog — YouTube, TikTok & Instagram Tips 2026",
+    description:
+      "Free guides for content creators: YouTube SEO, TikTok growth strategies, Instagram tips, faceless channel ideas, and AI content tools. Updated for 2026.",
+    path: "/blog",
+  });
   const [activeTag, setActiveTag] = useState("All");
   const { data, isLoading } = useListBlogPosts({ limit: 50 });
 

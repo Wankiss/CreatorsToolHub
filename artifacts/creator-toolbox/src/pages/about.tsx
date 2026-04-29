@@ -128,7 +128,7 @@ export default function About() {
                 About creatorsToolHub
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                We built the free creator tools platform we always wished existed — a single hub where any creator can generate professional content in minutes, for free, without a subscription.
+                I built the free creator tools platform I always wished existed. One place where any creator can generate professional content in minutes, completely free, with no subscription needed.
               </p>
             </motion.div>
           </div>
@@ -140,16 +140,16 @@ export default function About() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
                 <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-6">
-                  Our Mission
+                  My Mission
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-5">
-                  creatorsToolHub exists for one reason: to level the playing field for content creators. For too long, the best AI writing tools, title optimizers, and content generators have been locked behind expensive subscriptions that most beginner creators simply can't afford.
+                  I built creatorsToolHub for one reason: to level the playing field for content creators. For too long, the best AI writing tools, title optimizers, and content generators have been locked behind expensive subscriptions that most beginner creators simply cannot afford.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-5">
-                  We believe that every creator — whether you have 0 subscribers or 100,000 — deserves access to the same powerful AI tools that help professionals create faster, smarter, and more consistently.
+                  I believe every creator, whether you have 0 subscribers or 100,000, deserves access to the same powerful AI tools that help professionals create faster, smarter, and more consistently.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Our platform offers 30+ free AI-powered tools covering YouTube automation tools, TikTok content generators, Instagram tools, and AI prompt generators. Every single one is free, unlimited, and requires no signup.
+                  creatorsToolHub now offers 35+ free AI-powered tools covering YouTube, TikTok, Instagram, and AI content creation. Every single one is free, unlimited, and requires no signup.
                 </p>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
@@ -158,7 +158,7 @@ export default function About() {
                     "Great content shouldn't be a privilege reserved for creators with big budgets."
                   </p>
                   <p className="text-muted-foreground text-sm">
-                    — The creatorsToolHub Team
+                    Nnaemeka Immanuels, Founder of creatorsToolHub
                   </p>
                 </div>
               </motion.div>
@@ -262,23 +262,23 @@ export default function About() {
               <div className="flex-shrink-0 flex flex-col items-center gap-3">
                 <img
                   src="/immanuels-avatar.png"
-                  alt="Immanuels — Founder of creatorsToolHub"
+                  alt="Nnaemeka Immanuels, Founder of creatorsToolHub"
                   className="w-28 h-28 rounded-full object-cover border-4 border-primary/20"
                 />
                 <div className="text-center">
-                  <p className="font-display font-bold text-foreground text-lg">Immanuels</p>
+                  <p className="font-display font-bold text-foreground text-lg">Nnaemeka Immanuels</p>
                   <p className="text-xs text-muted-foreground font-medium">Founder, creatorsToolHub</p>
                 </div>
               </div>
               <div>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Hi — I'm Immanuels, a content creator strategist and digital growth enthusiast. I've spent years studying the YouTube algorithm, TikTok's For You page, and Instagram's Reels distribution system — experimenting with what actually grows channels versus what creators think grows channels.
+                  Hi, I'm Nnaemeka Immanuels. I've spent years studying the YouTube algorithm, TikTok's For You page, and Instagram's Reels distribution system. I've been deep in the data, testing what actually grows channels versus what creators only think works. There's a big difference, and most of the advice online gets it wrong.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  I built creatorsToolHub because I was frustrated. Every tool that actually helped — scriptwriters, title optimisers, hashtag generators — was locked behind a subscription that most beginner creators simply can't afford. I knew the AI to build these tools existed. So I built them, made them free, and put them all in one place.
+                  I built creatorsToolHub because I was genuinely frustrated. Every tool that actually helped, from scriptwriters to title optimisers to hashtag generators, was locked behind a subscription most beginner creators simply cannot afford. I knew the AI to build these tools existed, so I built them myself, made them completely free, and put them all in one place.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Every tool on this platform is something I personally use or wish I'd had when I was starting out. The blog is where I share everything I've tested and learned — no fluff, no generic advice. Just honest strategy from someone who's been in the trenches.
+                  Every tool on this platform is something I personally use or wish I'd had when I was starting out. The blog is where I share everything I've tested and learned. No filler, no recycled tips you've already read a hundred times. Just honest strategy from someone who has been in the trenches and knows what actually moves the needle.
                 </p>
               </div>
             </motion.div>
@@ -288,7 +288,7 @@ export default function About() {
         {/* CTA */}
         <section className="py-20 bg-muted/30 border-t border-border">
           <div className="container mx-auto px-4 max-w-2xl text-center">
-            <h2 className="text-3xl font-display font-bold mb-5">Ready to create better content — for free?</h2>
+            <h2 className="text-3xl font-display font-bold mb-5">Ready to create better content, for free?</h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">
               No signup. No subscription. Just open a tool and start creating. creatorsToolHub is here whenever you need it.
             </p>

@@ -304,10 +304,10 @@ export default function BlogPost() {
                 <div>
                   <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">About the Author</p>
                   <Link href="/about" className="hover:text-primary transition-colors">
-                    <h3 className="font-display font-bold text-lg text-foreground mb-2">{post.author}</h3>
+                    <h3 className="font-display font-bold text-lg text-foreground mb-2">Nnaemeka Immanuels</h3>
                   </Link>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Immanuels is a content creator strategist and digital growth enthusiast with hands-on experience growing YouTube channels, TikTok accounts, and Instagram pages across multiple niches. He founded creatorsToolHub to give every creator — regardless of budget — access to the professional-grade AI tools and strategies that actually move the needle. When he's not building tools, he's studying the algorithm, testing content formats, and sharing everything he learns.
+                    Hi, I'm Nnaemeka Immanuels. I founded creatorsToolHub to give every creator access to the AI tools and strategies that actually grow channels, completely free. I've spent years testing what works on YouTube, TikTok, and Instagram, and everything I share on this blog comes from real experience. No filler, no recycled advice.
                   </p>
                   <Link href="/about" className="inline-flex items-center gap-1 text-primary text-sm font-semibold mt-3 hover:underline">
                     View full profile <ArrowRight className="w-3.5 h-3.5" />

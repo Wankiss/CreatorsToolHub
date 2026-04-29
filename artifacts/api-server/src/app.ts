@@ -158,13 +158,16 @@ app.get("/llms.txt", (_req, res) => {
 
 // ── 301 redirects for consolidated duplicate blog posts ──────────────────────
 const BLOG_REDIRECTS: Record<string, string> = {
-  "how-to-go-viral-on-tiktok-in-2026-understanding-tiktok-algorithm": "how-to-go-viral-on-tiktok-2026-strategies-that-work",
-  "instagram-hashtag-strategy-2026-more-reach":                        "instagram-hashtag-strategy-2026-get-more-reach",
-  "how-to-start-faceless-youtube-channel-2026":                        "how-to-start-faceless-youtube-channel-complete-guide-2026",
-  "youtube-seo-tips-beginners-2026":                                   "youtube-seo-tips-beginners-that-work-2026",
-  "best-free-ai-tools-for-content-creators-work-smarter-grow-faster":  "best-free-ai-tools-content-creators-2026",
-  "viral-content-ideas-beginners-2026":                                "50-viral-content-ideas-beginners-get-views-2026",
-  "how-to-write-youtube-script-fast-free-generator":                   "how-to-write-youtube-script-fast-free-script-generator",
+  "how-to-go-viral-on-tiktok-in-2026-understanding-tiktok-algorithm":          "how-to-go-viral-on-tiktok-2026-strategies-that-work",
+  "instagram-hashtag-strategy-2026-more-reach":                                 "instagram-hashtag-strategy-2026-get-more-reach",
+  "how-to-start-faceless-youtube-channel-2026":                                 "how-to-start-faceless-youtube-channel-complete-guide-2026",
+  "youtube-seo-tips-beginners-2026":                                            "youtube-seo-tips-beginners-that-work-2026",
+  "best-free-ai-tools-for-content-creators-work-smarter-grow-faster":           "best-free-ai-tools-content-creators-2026",
+  "viral-content-ideas-beginners-2026":                                         "50-viral-content-ideas-beginners-get-views-2026",
+  "how-to-write-youtube-script-fast-free-generator":                            "how-to-write-youtube-script-fast-free-script-generator",
+  // Near-duplicates added after audit:
+  "how-to-go-viral-on-tiktok-2026":                                             "how-to-go-viral-on-tiktok-2026-strategies-that-work",
+  "how-to-get-more-tiktok-followers-for-free-understand-tiktok-algorithm":      "how-to-grow-tiktok-followers-fast-2026",
 };
 
 // Must run before static SPA serving so crawlers receive 301, not index.html

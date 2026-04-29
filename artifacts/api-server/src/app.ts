@@ -1,4 +1,5 @@
 import express, { type Express } from "express";
+import compression from "compression";
 import cors from "cors";
 import path from "path";
 import fs from "fs";
@@ -8,6 +9,9 @@ import { eq, inArray } from "drizzle-orm";
 import { resolvePageMeta, buildHtml } from "./meta-injector";
 
 const app: Express = express();
+
+// ── Gzip compression for all responses ───────────────────────────────────────
+app.use(compression());
 
 const UPLOADS_DIR = path.resolve(process.cwd(), "uploads");
 if (!fs.existsSync(UPLOADS_DIR)) {
@@ -220,7 +224,16 @@ if (process.env.NODE_ENV === "production") {
   );
   const indexPath = path.join(staticDir, "index.html");
 
-  app.use(express.static(staticDir));
+  // Serve hashed assets (JS/CSS chunks) with 1-year immutable cache
+  app.use(
+    "/assets",
+    express.static(path.join(staticDir, "assets"), {
+      maxAge: "1y",
+      immutable: true,
+    }),
+  );
+  // Serve everything else (index.html, favicon, etc.) with no-cache
+  app.use(express.static(staticDir, { maxAge: 0 }));
 
   // ── SSR-lite: inject page-specific meta tags before serving index.html ────
   // Crawlers (Googlebot, GPTBot, ClaudeBot, PerplexityBot) read the first-byte

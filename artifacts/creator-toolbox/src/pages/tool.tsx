@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useParams, Link } from "wouter";
 import { useCanonical } from "@/hooks/use-canonical";
 import { useSeoMeta } from "@/hooks/use-seo-meta";
@@ -111,6 +111,7 @@ function GenericToolInterface({ slug }: { slug: string }) {
                   size="icon"
                   className="shrink-0 rounded-xl"
                   onClick={() => copyToClipboard(out, idx)}
+                  aria-label={copiedIndex === idx ? "Copied!" : "Copy to clipboard"}
                 >
                   {copiedIndex === idx ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 </Button>
@@ -356,7 +357,9 @@ export default function ToolPage() {
 
               {/* Custom or Generic Tool Interface */}
               {CustomInterface ? (
-                <CustomInterface />
+                <Suspense fallback={<div className="flex items-center justify-center py-16"><div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" role="status" aria-label="Loading tool" /></div>}>
+                  <CustomInterface />
+                </Suspense>
               ) : (
                 <GenericToolInterface slug={slug || ""} />
               )}

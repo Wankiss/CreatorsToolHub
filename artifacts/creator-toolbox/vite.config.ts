@@ -48,6 +48,33 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // React core — always needed, cache forever
+          if (id.includes("node_modules/react") || id.includes("node_modules/react-dom") || id.includes("node_modules/scheduler")) {
+            return "react-vendor";
+          }
+          // Animation library — heavy, rarely changes
+          if (id.includes("node_modules/framer-motion")) {
+            return "animations";
+          }
+          // TanStack Query
+          if (id.includes("node_modules/@tanstack")) {
+            return "query";
+          }
+          // Lucide icons
+          if (id.includes("node_modules/lucide-react")) {
+            return "icons";
+          }
+          // Radix UI primitives
+          if (id.includes("node_modules/@radix-ui")) {
+            return "ui";
+          }
+        },
+      },
+    },
   },
   server: {
     port,

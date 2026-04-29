@@ -1,40 +1,7 @@
-import { YouTubeTagGeneratorTool } from "./youtube-tag-generator";
-import { YouTubeTitleGeneratorTool } from "./youtube-title-generator";
-import { YouTubeMoneyCalculatorTool } from "./youtube-money-calculator";
-import { YouTubeThumbnailDownloaderTool } from "./youtube-thumbnail-downloader";
-import { YouTubeDescriptionGeneratorTool } from "./youtube-description-generator";
-import { YouTubeChannelNameGeneratorTool } from "./youtube-channel-name-generator";
-import { YouTubeHashtagGeneratorTool } from "./youtube-hashtag-generator";
-import { YouTubeVideoIdeaGeneratorTool } from "./youtube-video-idea-generator";
-import { YouTubeCpmCalculatorTool } from "./youtube-cpm-calculator";
-import { YouTubeTitleAnalyzerTool } from "./youtube-title-analyzer";
-import { YouTubeShortsRevenueCalculatorTool } from "./youtube-shorts-revenue-calculator";
-import { YouTubeKeywordGeneratorTool } from "./youtube-keyword-generator";
-import { YouTubeSeoScoreCheckerTool } from "./youtube-seo-score-checker";
-import { YouTubeScriptGeneratorTool } from "./youtube-script-generator";
-import { YouTubeEngagementCalculatorTool } from "./youtube-engagement-calculator";
-import { TikTokViralIdeaGeneratorTool } from "./tiktok-viral-idea-generator";
-import { TikTokHashtagGeneratorTool } from "./tiktok-hashtag-generator";
-import { TikTokMoneyCalculatorTool } from "./tiktok-money-calculator";
-import { TikTokHookGeneratorTool } from "./tiktok-hook-generator";
-import { TikTokBioGeneratorTool } from "./tiktok-bio-generator";
-import { TikTokCaptionGeneratorTool } from "./tiktok-caption-generator";
-import { TikTokScriptGeneratorTool } from "./tiktok-script-generator";
-import { TikTokUsernameGeneratorTool } from "./tiktok-username-generator";
-import { InstagramUsernameGeneratorTool } from "./instagram-username-generator";
-import { InstagramHookGeneratorTool } from "./instagram-hook-generator";
-import { InstagramMoneyCalculatorTool } from "./instagram-money-calculator";
-import { InstagramEngagementCalculatorTool } from "./instagram-engagement-calculator";
-import { InstagramCaptionGeneratorTool } from "./instagram-caption-generator";
-import { InstagramBioGeneratorTool } from "./instagram-bio-generator";
-import { InstagramHashtagGeneratorTool } from "./instagram-hashtag-generator";
-import { InstagramContentPlannerTool } from "./instagram-content-planner";
-import { InstagramReelIdeaGeneratorTool } from "./instagram-reel-idea-generator";
-import { AiPromptGeneratorTool } from "./ai-prompt-generator";
-import { MidjourneyPromptGeneratorTool } from "./midjourney-prompt-generator";
+import { lazy } from "react";
 
 export interface ToolRegistryEntry {
-  component: React.ComponentType;
+  component: React.LazyExoticComponent<React.ComponentType>;
   /**
    * When true the custom component renders its own How-to / About / FAQ
    * sections so tool.tsx should NOT render the DB-driven content blocks.
@@ -44,143 +11,144 @@ export interface ToolRegistryEntry {
 
 /**
  * Registry of custom tool interfaces keyed by tool slug.
- * Add new entries here as each tool gets a custom implementation.
+ * All components are lazy-loaded so each tool gets its own chunk —
+ * the visitor only downloads the code for the tool they visit.
  */
 export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
   "youtube-tag-generator": {
-    component: YouTubeTagGeneratorTool,
+    component: lazy(() => import("./youtube-tag-generator").then(m => ({ default: m.YouTubeTagGeneratorTool }))),
     ownsSeoContent: true,
   },
   "youtube-title-generator": {
-    component: YouTubeTitleGeneratorTool,
+    component: lazy(() => import("./youtube-title-generator").then(m => ({ default: m.YouTubeTitleGeneratorTool }))),
     ownsSeoContent: true,
   },
   "youtube-money-calculator": {
-    component: YouTubeMoneyCalculatorTool,
+    component: lazy(() => import("./youtube-money-calculator").then(m => ({ default: m.YouTubeMoneyCalculatorTool }))),
     ownsSeoContent: true,
   },
   "youtube-thumbnail-downloader": {
-    component: YouTubeThumbnailDownloaderTool,
+    component: lazy(() => import("./youtube-thumbnail-downloader").then(m => ({ default: m.YouTubeThumbnailDownloaderTool }))),
     ownsSeoContent: true,
   },
   "youtube-description-generator": {
-    component: YouTubeDescriptionGeneratorTool,
+    component: lazy(() => import("./youtube-description-generator").then(m => ({ default: m.YouTubeDescriptionGeneratorTool }))),
     ownsSeoContent: true,
   },
   "youtube-channel-name-generator": {
-    component: YouTubeChannelNameGeneratorTool,
+    component: lazy(() => import("./youtube-channel-name-generator").then(m => ({ default: m.YouTubeChannelNameGeneratorTool }))),
     ownsSeoContent: true,
   },
   "youtube-hashtag-generator": {
-    component: YouTubeHashtagGeneratorTool,
+    component: lazy(() => import("./youtube-hashtag-generator").then(m => ({ default: m.YouTubeHashtagGeneratorTool }))),
     ownsSeoContent: true,
   },
   "youtube-video-idea-generator": {
-    component: YouTubeVideoIdeaGeneratorTool,
+    component: lazy(() => import("./youtube-video-idea-generator").then(m => ({ default: m.YouTubeVideoIdeaGeneratorTool }))),
     ownsSeoContent: true,
   },
   "youtube-cpm-calculator": {
-    component: YouTubeCpmCalculatorTool,
+    component: lazy(() => import("./youtube-cpm-calculator").then(m => ({ default: m.YouTubeCpmCalculatorTool }))),
     ownsSeoContent: true,
   },
   "youtube-title-analyzer": {
-    component: YouTubeTitleAnalyzerTool,
+    component: lazy(() => import("./youtube-title-analyzer").then(m => ({ default: m.YouTubeTitleAnalyzerTool }))),
     ownsSeoContent: true,
   },
   "youtube-shorts-revenue-calculator": {
-    component: YouTubeShortsRevenueCalculatorTool,
+    component: lazy(() => import("./youtube-shorts-revenue-calculator").then(m => ({ default: m.YouTubeShortsRevenueCalculatorTool }))),
     ownsSeoContent: true,
   },
   "youtube-keyword-generator": {
-    component: YouTubeKeywordGeneratorTool,
+    component: lazy(() => import("./youtube-keyword-generator").then(m => ({ default: m.YouTubeKeywordGeneratorTool }))),
     ownsSeoContent: true,
   },
   "youtube-seo-score-checker": {
-    component: YouTubeSeoScoreCheckerTool,
+    component: lazy(() => import("./youtube-seo-score-checker").then(m => ({ default: m.YouTubeSeoScoreCheckerTool }))),
     ownsSeoContent: true,
   },
   "youtube-script-generator": {
-    component: YouTubeScriptGeneratorTool,
+    component: lazy(() => import("./youtube-script-generator").then(m => ({ default: m.YouTubeScriptGeneratorTool }))),
     ownsSeoContent: true,
   },
   "youtube-engagement-calculator": {
-    component: YouTubeEngagementCalculatorTool,
+    component: lazy(() => import("./youtube-engagement-calculator").then(m => ({ default: m.YouTubeEngagementCalculatorTool }))),
     ownsSeoContent: true,
   },
   "tiktok-viral-idea-generator": {
-    component: TikTokViralIdeaGeneratorTool,
+    component: lazy(() => import("./tiktok-viral-idea-generator").then(m => ({ default: m.TikTokViralIdeaGeneratorTool }))),
     ownsSeoContent: true,
   },
   "tiktok-hashtag-generator": {
-    component: TikTokHashtagGeneratorTool,
+    component: lazy(() => import("./tiktok-hashtag-generator").then(m => ({ default: m.TikTokHashtagGeneratorTool }))),
     ownsSeoContent: true,
   },
   "tiktok-money-calculator": {
-    component: TikTokMoneyCalculatorTool,
+    component: lazy(() => import("./tiktok-money-calculator").then(m => ({ default: m.TikTokMoneyCalculatorTool }))),
     ownsSeoContent: true,
   },
   "tiktok-hook-generator": {
-    component: TikTokHookGeneratorTool,
+    component: lazy(() => import("./tiktok-hook-generator").then(m => ({ default: m.TikTokHookGeneratorTool }))),
     ownsSeoContent: true,
   },
   "tiktok-bio-generator": {
-    component: TikTokBioGeneratorTool,
+    component: lazy(() => import("./tiktok-bio-generator").then(m => ({ default: m.TikTokBioGeneratorTool }))),
     ownsSeoContent: true,
   },
   "tiktok-caption-generator": {
-    component: TikTokCaptionGeneratorTool,
+    component: lazy(() => import("./tiktok-caption-generator").then(m => ({ default: m.TikTokCaptionGeneratorTool }))),
     ownsSeoContent: true,
   },
   "tiktok-script-generator": {
-    component: TikTokScriptGeneratorTool,
+    component: lazy(() => import("./tiktok-script-generator").then(m => ({ default: m.TikTokScriptGeneratorTool }))),
     ownsSeoContent: true,
   },
   "tiktok-username-generator": {
-    component: TikTokUsernameGeneratorTool,
+    component: lazy(() => import("./tiktok-username-generator").then(m => ({ default: m.TikTokUsernameGeneratorTool }))),
     ownsSeoContent: true,
   },
   "instagram-username-generator": {
-    component: InstagramUsernameGeneratorTool,
+    component: lazy(() => import("./instagram-username-generator").then(m => ({ default: m.InstagramUsernameGeneratorTool }))),
     ownsSeoContent: true,
   },
   "instagram-hook-generator": {
-    component: InstagramHookGeneratorTool,
+    component: lazy(() => import("./instagram-hook-generator").then(m => ({ default: m.InstagramHookGeneratorTool }))),
     ownsSeoContent: true,
   },
   "instagram-money-calculator": {
-    component: InstagramMoneyCalculatorTool,
+    component: lazy(() => import("./instagram-money-calculator").then(m => ({ default: m.InstagramMoneyCalculatorTool }))),
     ownsSeoContent: true,
   },
   "instagram-engagement-calculator": {
-    component: InstagramEngagementCalculatorTool,
+    component: lazy(() => import("./instagram-engagement-calculator").then(m => ({ default: m.InstagramEngagementCalculatorTool }))),
     ownsSeoContent: true,
   },
   "instagram-caption-generator": {
-    component: InstagramCaptionGeneratorTool,
+    component: lazy(() => import("./instagram-caption-generator").then(m => ({ default: m.InstagramCaptionGeneratorTool }))),
     ownsSeoContent: true,
   },
   "instagram-bio-generator": {
-    component: InstagramBioGeneratorTool,
+    component: lazy(() => import("./instagram-bio-generator").then(m => ({ default: m.InstagramBioGeneratorTool }))),
     ownsSeoContent: true,
   },
   "instagram-hashtag-generator": {
-    component: InstagramHashtagGeneratorTool,
+    component: lazy(() => import("./instagram-hashtag-generator").then(m => ({ default: m.InstagramHashtagGeneratorTool }))),
     ownsSeoContent: true,
   },
   "instagram-content-planner": {
-    component: InstagramContentPlannerTool,
+    component: lazy(() => import("./instagram-content-planner").then(m => ({ default: m.InstagramContentPlannerTool }))),
     ownsSeoContent: true,
   },
   "instagram-reel-idea-generator": {
-    component: InstagramReelIdeaGeneratorTool,
+    component: lazy(() => import("./instagram-reel-idea-generator").then(m => ({ default: m.InstagramReelIdeaGeneratorTool }))),
     ownsSeoContent: true,
   },
   "ai-prompt-generator": {
-    component: AiPromptGeneratorTool,
+    component: lazy(() => import("./ai-prompt-generator").then(m => ({ default: m.AiPromptGeneratorTool }))),
     ownsSeoContent: true,
   },
   "midjourney-prompt-generator": {
-    component: MidjourneyPromptGeneratorTool,
+    component: lazy(() => import("./midjourney-prompt-generator").then(m => ({ default: m.MidjourneyPromptGeneratorTool }))),
     ownsSeoContent: true,
   },
 };

@@ -221,6 +221,9 @@ export function Layout({ children }: { children: ReactNode }) {
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu"
                 className="p-2 rounded-md text-foreground hover:bg-muted focus:outline-none transition-colors"
               >
                 {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -231,7 +234,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
         {/* Mobile menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden glass-effect border-b border-border absolute w-full left-0 animate-in slide-in-from-top-2">
+          <div id="mobile-menu" className="md:hidden glass-effect border-b border-border absolute w-full left-0 animate-in slide-in-from-top-2">
             <div className="px-4 pt-2 pb-6 space-y-4">
               <div ref={mobileSearchRef} className="relative mt-2">
                 <form onSubmit={handleMobileSearch}>
@@ -290,7 +293,7 @@ export function Layout({ children }: { children: ReactNode }) {
             </div>
             
             <div>
-              <h4 className="font-bold mb-6 text-white tracking-wide">Top Categories</h4>
+              <h3 className="font-bold mb-6 text-white tracking-wide">Top Categories</h3>
               <ul className="space-y-3 text-sm text-muted-foreground/80">
                 <li><Link href="/category/youtube-tools" className="hover:text-white transition-colors flex items-center gap-2"><Youtube className="w-4 h-4"/> YouTube Tools</Link></li>
                 <li><Link href="/category/tiktok-tools" className="hover:text-white transition-colors flex items-center gap-2"><TrendingUp className="w-4 h-4"/> TikTok Tools</Link></li>
@@ -300,7 +303,7 @@ export function Layout({ children }: { children: ReactNode }) {
             </div>
 
             <div>
-              <h4 className="font-bold mb-6 text-white tracking-wide">Popular Tools</h4>
+              <h3 className="font-bold mb-6 text-white tracking-wide">Popular Tools</h3>
               <ul className="space-y-3 text-sm text-muted-foreground/80">
                 <li><Link href="/tools/youtube-title-generator" className="hover:text-white transition-colors">YouTube Title Generator</Link></li>
                 <li><Link href="/tools/tiktok-viral-idea-generator" className="hover:text-white transition-colors">TikTok Viral Ideas</Link></li>
@@ -311,7 +314,7 @@ export function Layout({ children }: { children: ReactNode }) {
             </div>
 
             <div>
-              <h4 className="font-bold mb-6 text-white tracking-wide">Company</h4>
+              <h3 className="font-bold mb-6 text-white tracking-wide">Company</h3>
               <ul className="space-y-3 text-sm text-muted-foreground/80">
                 <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
                 <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>

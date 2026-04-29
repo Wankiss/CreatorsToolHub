@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { useCanonical } from "@/hooks/use-canonical";
 import { useSeoMeta } from "@/hooks/use-seo-meta";
-import { motion } from "framer-motion";
 import {
   Search, Sparkles, Youtube, Instagram, Music, Zap, ArrowRight, TrendingUp,
   CheckCircle2, Star, Clock, Lightbulb, BarChart2, Flame, ChevronRight
@@ -13,6 +12,52 @@ import { Input } from "@/components/ui/input";
 import { ToolCard } from "@/components/tool-card";
 import { useGetPopularTools, useListCategories, useListBlogPosts } from "@workspace/api-client-react";
 import { Skeleton } from "@/components/ui/skeleton";
+
+// ── Lightweight scroll-reveal (replaces framer-motion whileInView) ──────────
+function InView({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.05 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "none" : "translateY(16px)",
+        transition: `opacity 0.5s ${delay}ms ease-out, transform 0.5s ${delay}ms ease-out`,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 
 const FEATURED_TOOLS = [
   {
@@ -63,7 +108,6 @@ const BENEFITS = [
   { icon: <CheckCircle2 className="w-5 h-5 text-primary" />, text: "100% free — no hidden fees, no subscriptions, no credit card, ever" },
   { icon: <Star className="w-5 h-5 text-primary" />, text: "Built for beginner creators — works on day one, no experience needed" },
 ];
-
 
 const PAIN_POINTS = [
   { icon: "😩", text: "You've been staring at a blank page for an hour with no idea what to post." },
@@ -123,53 +167,52 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/75 to-background" />
         </div>
 
-        <div className="container relative z-10 mx-auto px-4 max-w-4xl text-center">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
+        {/* Hero content: CSS animation, no framer-motion */}
+        <div className="container relative z-10 mx-auto px-4 max-w-4xl text-center animate-hero">
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-6 border border-primary/20">
-              <Sparkles className="w-4 h-4" />
-              <span>30+ Free Creator Tools — No Signup Required</span>
-            </div>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-6 border border-primary/20">
+            <Sparkles className="w-4 h-4" />
+            <span>30+ Free Creator Tools — No Signup Required</span>
+          </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-6 leading-[1.1] text-balance">
-              The Best <span className="gradient-text">Free Creator Tools</span> for YouTube, TikTok & Instagram
-            </h1>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-6 leading-[1.1] text-balance">
+            The Best <span className="gradient-text">Free Creator Tools</span> for YouTube, TikTok & Instagram
+          </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed text-balance">
-              Free AI tools for creators who want to grow faster — generate scripts, viral titles, hooks, captions, hashtags, and content ideas instantly. No subscription. No credit card. Ever.
-            </p>
+          <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed text-balance">
+            Free AI tools for creators who want to grow faster — generate scripts, viral titles, hooks, captions, hashtags, and content ideas instantly. No subscription. No credit card. Ever.
+          </p>
 
-            <p className="text-sm font-semibold text-primary mb-10 tracking-wide uppercase">
-              ✓ 100% Free &nbsp;·&nbsp; ✓ No Signup Required &nbsp;·&nbsp; ✓ Unlimited Use
-            </p>
+          <p className="text-sm font-semibold text-primary mb-10 tracking-wide uppercase">
+            ✓ 100% Free &nbsp;·&nbsp; ✓ No Signup Required &nbsp;·&nbsp; ✓ Unlimited Use
+          </p>
 
-            <form onSubmit={handleSearch} className="max-w-2xl mx-auto relative group flex items-center shadow-2xl shadow-primary/10 rounded-full bg-background border-2 border-primary/20 focus-within:border-primary transition-all p-2 mb-6">
-              <Search className="absolute left-6 w-5 h-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
-              <Input
-                type="text"
-                placeholder="Search free creator tools (e.g. YouTube Script Generator)"
-                className="w-full pl-14 pr-40 h-14 bg-transparent border-none text-base focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <Button type="submit" size="lg" className="absolute right-2 h-12 rounded-full px-6 font-semibold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5">
-                Search Tools
-              </Button>
-            </form>
+          <form onSubmit={handleSearch} className="max-w-2xl mx-auto relative group flex items-center shadow-2xl shadow-primary/10 rounded-full bg-background border-2 border-primary/20 focus-within:border-primary transition-all p-2 mb-6">
+            <Search className="absolute left-6 w-5 h-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
+            <Input
+              type="text"
+              placeholder="Search free creator tools (e.g. YouTube Script Generator)"
+              className="w-full pl-14 pr-40 h-14 bg-transparent border-none text-base focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <Button type="submit" size="lg" className="absolute right-2 h-12 rounded-full px-6 font-semibold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5">
+              Search Tools
+            </Button>
+          </form>
 
-            <div className="flex flex-wrap justify-center gap-3 text-sm text-muted-foreground">
-              {["YouTube Title Generator", "TikTok Viral Ideas", "AI Prompt Generator", "Instagram Hashtags", "Faceless YouTube Ideas"].map(q => (
-                <button
-                  key={q}
-                  onClick={() => setLocation(`/search?q=${encodeURIComponent(q)}`)}
-                  className="px-3 py-1.5 rounded-full bg-muted/60 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer border border-border/50"
-                >
-                  {q}
-                </button>
-              ))}
-            </div>
+          <div className="flex flex-wrap justify-center gap-3 text-sm text-muted-foreground">
+            {["YouTube Title Generator", "TikTok Viral Ideas", "AI Prompt Generator", "Instagram Hashtags", "Faceless YouTube Ideas"].map(q => (
+              <button
+                key={q}
+                onClick={() => setLocation(`/search?q=${encodeURIComponent(q)}`)}
+                className="px-3 py-1.5 rounded-full bg-muted/60 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer border border-border/50"
+              >
+                {q}
+              </button>
+            ))}
+          </div>
 
-          </motion.div>
         </div>
       </section>
 
@@ -195,45 +238,29 @@ export default function Home() {
       {/* ── PROBLEM SECTION ──────────────────────────────────── */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-14"
-          >
+          <InView className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-5">
               Sound familiar?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Every creator hits the same wall. The good news? It's not a talent problem — it's a tools problem.
             </p>
-          </motion.div>
+          </InView>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {PAIN_POINTS.map(({ icon, text }, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="flex items-start gap-4 bg-muted/40 rounded-2xl p-6 border border-border/50"
-              >
+              <InView key={i} delay={i * 100} className="flex items-start gap-4 bg-muted/40 rounded-2xl p-6 border border-border/50">
                 <span className="text-3xl mt-0.5 flex-shrink-0">{icon}</span>
                 <p className="text-base text-foreground leading-relaxed">{text}</p>
-              </motion.div>
+              </InView>
             ))}
           </div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center text-muted-foreground mt-10 text-lg"
-          >
-            If any of that hit close to home — you're in the right place. Let's fix it.
-          </motion.p>
+          <InView className="text-center mt-10">
+            <p className="text-muted-foreground text-lg">
+              If any of that hit close to home — you're in the right place. Let's fix it.
+            </p>
+          </InView>
         </div>
       </section>
 
@@ -241,11 +268,7 @@ export default function Home() {
       <section className="py-24 bg-primary/5 border-y border-primary/10 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/8 via-transparent to-transparent" />
         <div className="container relative mx-auto px-4 max-w-5xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <InView>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 text-primary font-semibold text-sm mb-6 border border-primary/25">
               <Zap className="w-4 h-4" />
               <span>Meet your unfair advantage</span>
@@ -273,36 +296,25 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </InView>
         </div>
       </section>
 
       {/* ── FEATURED TOOLS ───────────────────────────────────── */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-14"
-          >
+          <InView className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-5">
               Powerful Free Content Creation Tools
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               YouTube automation tools, TikTok content generators, and AI-powered prompts — all free, all instant.
             </p>
-          </motion.div>
+          </InView>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {FEATURED_TOOLS.map((tool, i) => (
-              <motion.div
-                key={tool.slug}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
+              <InView key={tool.slug} delay={i * 100}>
                 <Link href={`/tools/${tool.slug}`}>
                   <div className="group h-full bg-card border border-border/50 hover:border-primary/50 rounded-2xl p-7 flex flex-col gap-4 cursor-pointer hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
                     <div className="flex items-start justify-between gap-3">
@@ -328,7 +340,7 @@ export default function Home() {
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+              </InView>
             ))}
           </div>
 
@@ -343,27 +355,16 @@ export default function Home() {
       {/* ── CATEGORIES GRID ──────────────────────────────────── */}
       <section className="py-20 bg-muted/30 border-y border-border">
         <div className="container mx-auto px-4 max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-10"
-          >
+          <InView className="mb-10">
             <h2 className="text-3xl font-bold font-display tracking-tight mb-2">Free Tools by Platform</h2>
             <p className="text-muted-foreground">Pick your platform and start creating — every tool is free and ready to use right now</p>
-          </motion.div>
+          </InView>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {catsLoading
               ? Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-32 rounded-2xl" />)
               : categoriesData?.categories.map((cat, i) => (
-                <motion.div
-                  key={cat.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                >
+                <InView key={cat.id} delay={i * 100}>
                   <Link href={`/category/${cat.slug}`}>
                     <div className="group bg-card border border-border/50 hover:border-primary/50 rounded-2xl p-6 flex items-center gap-5 cursor-pointer hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 h-full">
                       <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all flex-shrink-0">
@@ -375,7 +376,7 @@ export default function Home() {
                       </div>
                     </div>
                   </Link>
-                </motion.div>
+                </InView>
               ))}
           </div>
         </div>
@@ -385,11 +386,7 @@ export default function Home() {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
+            <InView>
               <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-5">
                 What changes when you use free AI tools for creators
               </h2>
@@ -399,28 +396,19 @@ export default function Home() {
               <Button asChild size="lg" className="rounded-full px-8">
                 <Link href="/search">Start Using Free Tools <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
-            </motion.div>
+            </InView>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
+            <InView className="space-y-4">
               {BENEFITS.map(({ icon, text }, i) => (
-                <motion.div
+                <div
                   key={i}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 }}
                   className="flex items-start gap-4 p-4 rounded-xl bg-muted/40 border border-border/40"
                 >
                   <div className="mt-0.5 flex-shrink-0">{icon}</div>
                   <p className="text-sm text-foreground leading-relaxed">{text}</p>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </InView>
           </div>
         </div>
       </section>
@@ -444,15 +432,9 @@ export default function Home() {
             {toolsLoading
               ? Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className="h-64 rounded-2xl" />)
               : popularTools?.tools.map((tool, i) => (
-                <motion.div
-                  key={tool.id}
-                  initial={{ opacity: 0, scale: 0.97 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                >
+                <InView key={tool.id} delay={i * 50}>
                   <ToolCard tool={tool} />
-                </motion.div>
+                </InView>
               ))}
           </div>
 
@@ -468,11 +450,7 @@ export default function Home() {
       <section className="py-24 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
         <div className="container relative mx-auto px-4 max-w-4xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <InView>
             <h2 className="text-4xl md:text-6xl font-display font-bold tracking-tight mb-6 text-white">
               Start using free creator tools now
             </h2>
@@ -490,7 +468,7 @@ export default function Home() {
             <p className="text-white/50 text-sm mt-8">
               Join thousands of content creators using creatorsToolHub at creatorstoolhub.com — 100% free, always.
             </p>
-          </motion.div>
+          </InView>
         </div>
       </section>
 

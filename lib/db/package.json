@@ -17,7 +17,9 @@
     "update-blog-seo": "tsx ./src/update-blog-seo.ts",
     "unpublish-duplicates": "tsx ./src/unpublish-duplicate-posts.ts",
     "check-tool-content": "tsx ./src/check-tool-content.ts",
-    "update-tool-content": "tsx ./src/update-tool-content.ts"
+    "update-tool-content": "tsx ./src/update-tool-content.ts",
+    "update-tool-content-2": "tsx ./src/update-tool-content-2.ts",
+    "update-tool-content-3": "tsx ./src/update-tool-content-3.ts"
   },
   "dependencies": {
     "drizzle-orm": "catalog:",

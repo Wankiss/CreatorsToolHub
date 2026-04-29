@@ -10,7 +10,15 @@ import { resolvePageMeta, buildHtml } from "./meta-injector";
 
 const app: Express = express();
 
+// ── Trust Cloudflare's proxy headers ─────────────────────────────────────────
+// Cloudflare sits between users and the origin. Without this, req.ip returns
+// Cloudflare's edge IP instead of the real client IP. '1' means trust the
+// first forwarding hop (Cloudflare edge → origin).
+app.set("trust proxy", 1);
+
 // ── Gzip compression for all responses ───────────────────────────────────────
+// Cloudflare automatically re-compresses to Brotli when serving to browsers.
+// Our gzip handles the origin→Cloudflare leg.
 app.use(compression());
 
 const UPLOADS_DIR = path.resolve(process.cwd(), "uploads");
@@ -224,7 +232,9 @@ if (process.env.NODE_ENV === "production") {
   );
   const indexPath = path.join(staticDir, "index.html");
 
-  // Serve hashed assets (JS/CSS chunks) with 1-year immutable cache
+  // Serve hashed assets (JS/CSS chunks) with 1-year immutable cache.
+  // Cloudflare will also cache these at the edge — combined effect: ~0ms load
+  // for returning visitors regardless of their location.
   app.use(
     "/assets",
     express.static(path.join(staticDir, "assets"), {
@@ -232,10 +242,30 @@ if (process.env.NODE_ENV === "production") {
       immutable: true,
     }),
   );
-  // Serve static files (images, favicon, robots.txt, etc.) but NOT index.html.
-  // index: false ensures every HTML request falls through to the route handler
-  // below so the meta-injector always runs (including on the homepage `/`).
-  app.use(express.static(staticDir, { maxAge: 0, index: false }));
+
+  // Serve public images (hero, opengraph, etc.) with 30-day cache.
+  // Without this they'd fall through to the maxAge:0 general middleware.
+  app.use(
+    "/images",
+    express.static(path.join(staticDir, "images"), {
+      maxAge: "30d",
+      immutable: false,
+    }),
+  );
+
+  // Serve favicon and other static root files with 7-day cache.
+  app.use(
+    express.static(staticDir, {
+      maxAge: "7d",
+      index: false,
+      // Only cache known static file types — not HTML
+      setHeaders(res, filePath) {
+        if (filePath.endsWith(".html")) {
+          res.setHeader("Cache-Control", "no-store");
+        }
+      },
+    }),
+  );
 
   // ── SSR-lite: inject page-specific meta tags before serving index.html ────
   // Crawlers (Googlebot, GPTBot, ClaudeBot, PerplexityBot) read the first-byte
@@ -255,9 +285,15 @@ if (process.env.NODE_ENV === "production") {
       if (meta && indexTemplate) {
         const html = buildHtml(indexTemplate, meta);
         res.setHeader("Content-Type", "text/html; charset=utf-8");
-        res.setHeader("Cache-Control", "no-cache");
+        // s-maxage=300  → Cloudflare edge caches the rendered HTML for 5 min.
+        //                  After that, the next request re-fetches from origin.
+        // max-age=0     → Browsers always revalidate with Cloudflare (not origin).
+        // stale-while-revalidate=30 → Serve stale from edge while re-fetching
+        //                             silently — zero-latency revalidation.
+        res.setHeader("Cache-Control", "public, max-age=0, s-maxage=300, stale-while-revalidate=30");
         res.send(html);
       } else {
+        res.setHeader("Cache-Control", "public, max-age=0, s-maxage=300, stale-while-revalidate=30");
         res.sendFile(indexPath);
       }
     } catch (err) {

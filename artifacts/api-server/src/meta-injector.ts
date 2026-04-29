@@ -276,6 +276,7 @@ export async function resolvePageMeta(pathname: string): Promise<PageMeta | null
           description: toolsTable.description,
           slug:        toolsTable.slug,
           isActive:    toolsTable.isActive,
+          categoryId:  toolsTable.categoryId,
         })
         .from(toolsTable)
         .where(eq(toolsTable.slug, slug))
@@ -284,27 +285,71 @@ export async function resolvePageMeta(pathname: string): Promise<PageMeta | null
       if (!tool || !tool.isActive) return null;
 
       const canonical = `${SITE_URL}/tools/${slug}`;
+
+      // Derive platform label from categoryId for the platform-specific FAQ question
+      // categoryId: 1=YouTube, 2=TikTok, 3=Instagram, 4=AI Creator Tools
+      const isTikTok    = tool.categoryId === 2;
+      const isInstagram = tool.categoryId === 3;
+      const isAI        = tool.categoryId === 4;
+
+      const platformQA = isTikTok
+        ? { q: `Can I use the ${tool.name} for TikTok videos?`, a: `Yes. The ${tool.name} is built specifically for TikTok creators. It understands TikTok's short-form format, trending content patterns, and what actually gets views on the platform.` }
+        : isInstagram
+        ? { q: `Can I use the ${tool.name} for Instagram Reels?`, a: `Yes. The ${tool.name} works for all Instagram content formats including Reels, posts, carousels, and Stories. Results are optimised for Instagram's algorithm and audience behaviour.` }
+        : isAI
+        ? { q: `Which AI models work with the ${tool.name}?`, a: `The ${tool.name} generates prompts and content compatible with ChatGPT, Claude, Gemini, and other major AI tools. You can copy the output and paste it directly into any AI assistant.` }
+        : { q: `Can I use the ${tool.name} for YouTube Shorts?`, a: `Yes. The ${tool.name} works for both long-form YouTube videos and YouTube Shorts. Simply specify your format when entering your topic and the AI will tailor the output accordingly.` };
+
+      const faqSchema: object = {
+        "@context": "https://schema.org",
+        "@type":    "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name":  `Is the ${tool.name} free?`,
+            "acceptedAnswer": { "@type": "Answer", "text": `Yes, the ${tool.name} on creatorsToolHub is completely free. There is no signup, no subscription, and no usage limit. Open the tool, enter your details, and get results instantly — forever free.` },
+          },
+          {
+            "@type": "Question",
+            "name":  `How does the ${tool.name} work?`,
+            "acceptedAnswer": { "@type": "Answer", "text": `The ${tool.name} uses advanced AI to generate high-quality results based on your input. Enter your topic, keyword, or content idea, click Generate, and receive professional-quality output in seconds. No prompt engineering or technical knowledge required.` },
+          },
+          {
+            "@type": "Question",
+            "name":  `How many times can I use the ${tool.name}?`,
+            "acceptedAnswer": { "@type": "Answer", "text": `Unlimited. creatorsToolHub does not cap how many times you can use the ${tool.name}. Generate as many results as you need — the tool stays completely free with no daily limits or credit system.` },
+          },
+          {
+            "@type": "Question",
+            "name":  platformQA.q,
+            "acceptedAnswer": { "@type": "Answer", "text": platformQA.a },
+          },
+          {
+            "@type": "Question",
+            "name":  `Do I need to create an account to use the ${tool.name}?`,
+            "acceptedAnswer": { "@type": "Answer", "text": `No account is required. The ${tool.name} works instantly in your browser without any signup, email address, or payment information. Just open the page and start generating.` },
+          },
+        ],
+      };
+
       const meta: PageMeta = {
         title:       `Free ${tool.name}`,
         description: tool.description,
         canonical,
         schemas: [
           {
-            "@context":           "https://schema.org",
-            "@type":              "SoftwareApplication",
-            "name":               tool.name,
-            "url":                canonical,
+            "@context":            "https://schema.org",
+            "@type":               "SoftwareApplication",
+            "name":                tool.name,
+            "url":                 canonical,
             "applicationCategory": "WebApplication",
-            "operatingSystem":    "Web",
-            "offers":             { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "operatingSystem":     "Web",
+            "offers":              { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
             "isAccessibleForFree": true,
-            "description":        tool.description,
-            "creator": {
-              "@type": "Organization",
-              "name":  SITE_NAME,
-              "url":   SITE_URL,
-            },
+            "description":         tool.description,
+            "creator": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
           },
+          faqSchema,
         ],
       };
       setCached(cacheKey, meta);

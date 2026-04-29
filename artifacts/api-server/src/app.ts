@@ -5,6 +5,7 @@ import fs from "fs";
 import router from "./routes";
 import { db, toolsTable, categoriesTable, blogPostsTable } from "@workspace/db";
 import { eq, inArray } from "drizzle-orm";
+import { resolvePageMeta, buildHtml } from "./meta-injector";
 
 const app: Express = express();
 
@@ -206,9 +207,37 @@ if (process.env.NODE_ENV === "production") {
     process.cwd(),
     "artifacts/creator-toolbox/dist/public",
   );
+  const indexPath = path.join(staticDir, "index.html");
+
   app.use(express.static(staticDir));
-  app.get("/{*path}", (_req, res) => {
-    res.sendFile(path.join(staticDir, "index.html"));
+
+  // ── SSR-lite: inject page-specific meta tags before serving index.html ────
+  // Crawlers (Googlebot, GPTBot, ClaudeBot, PerplexityBot) read the first-byte
+  // HTML. React's useEffect meta tags are invisible to them. This intercepts
+  // every SPA route and replaces the generic meta tags with the correct ones
+  // for that URL — no full SSR, just the critical <head> content.
+  let indexTemplate: string | null = null;
+
+  app.get("/{*path}", async (req, res) => {
+    try {
+      // Read and cache the built index.html template once per process
+      if (!indexTemplate) {
+        indexTemplate = fs.readFileSync(indexPath, "utf-8");
+      }
+
+      const meta = await resolvePageMeta(req.path);
+      if (meta && indexTemplate) {
+        const html = buildHtml(indexTemplate, meta);
+        res.setHeader("Content-Type", "text/html; charset=utf-8");
+        res.setHeader("Cache-Control", "no-cache");
+        res.send(html);
+      } else {
+        res.sendFile(indexPath);
+      }
+    } catch (err) {
+      console.error("[meta-injector] error on", req.path, err);
+      res.sendFile(indexPath);
+    }
   });
 }
 

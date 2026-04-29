@@ -242,11 +242,36 @@ if (process.env.NODE_ENV === "production") {
   // for that URL — no full SSR, just the critical <head> content.
   let indexTemplate: string | null = null;
 
+  /**
+   * Inline the compiled Tailwind CSS into the HTML template so the browser
+   * never needs to make a separate blocking request for the stylesheet.
+   * Eliminates the ~300ms render-blocking CSS delay on first visit.
+   * The full CSS file is still served from /assets/ with a 1-year cache for
+   * cases where the browser fetches it independently.
+   */
+  function inlineCss(template: string): string {
+    try {
+      const assetsDir = path.join(staticDir, "assets");
+      const files = fs.readdirSync(assetsDir);
+      const cssFile = files.find(f => /^index-[^.]+\.css$/.test(f));
+      if (!cssFile) return template;
+      const css = fs.readFileSync(path.join(assetsDir, cssFile), "utf-8");
+      // Replace the blocking <link rel="stylesheet"> with an inline <style>
+      return template.replace(
+        /<link rel="stylesheet"[^>]*\/assets\/index-[^"]*\.css"[^>]*>/,
+        `<style>${css}</style>`,
+      );
+    } catch {
+      return template; // safe fallback
+    }
+  }
+
   app.get("/{*path}", async (req, res) => {
     try {
-      // Read and cache the built index.html template once per process
+      // Read, process (inline CSS), and cache the template once per process
       if (!indexTemplate) {
-        indexTemplate = fs.readFileSync(indexPath, "utf-8");
+        const raw = fs.readFileSync(indexPath, "utf-8");
+        indexTemplate = inlineCss(raw);
       }
 
       const meta = await resolvePageMeta(req.path);

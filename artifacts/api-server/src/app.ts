@@ -20,6 +20,104 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/uploads", express.static(UPLOADS_DIR, { maxAge: "7d" }));
 app.use("/api", router);
 
+// ── robots.txt ───────────────────────────────────────────────────────────────
+app.get("/robots.txt", (_req, res) => {
+  res.type("text/plain").send(
+`User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+Sitemap: https://creatorstoolhub.com/sitemap.xml`
+  );
+});
+
+// ── llms.txt ─────────────────────────────────────────────────────────────────
+app.get("/llms.txt", (_req, res) => {
+  res.type("text/plain").send(
+`# creatorsToolHub
+
+> creatorsToolHub is a free platform offering 35+ AI-powered tools for YouTube, TikTok, and Instagram content creators. All tools are completely free — no signup required.
+
+## Tools
+
+- [YouTube Title Generator](https://creatorstoolhub.com/tools/youtube-title-generator): Generate SEO-optimized, high-CTR YouTube titles using 7 proven viral frameworks.
+- [YouTube Tag Generator](https://creatorstoolhub.com/tools/youtube-tag-generator): Generate SEO tags for YouTube videos instantly. Free and unlimited.
+- [YouTube Script Generator](https://creatorstoolhub.com/tools/youtube-script-generator): Generate full YouTube video scripts with hook, body, and CTA.
+- [YouTube Hashtag Generator](https://creatorstoolhub.com/tools/youtube-hashtag-generator): Generate tiered hashtags for YouTube videos and Shorts.
+- [YouTube Description Generator](https://creatorstoolhub.com/tools/youtube-description-generator): Create keyword-rich YouTube video descriptions with chapters and CTAs.
+- [YouTube Keyword Generator](https://creatorstoolhub.com/tools/youtube-keyword-generator): Find high-volume YouTube keywords for any niche or topic.
+- [YouTube Money Calculator](https://creatorstoolhub.com/tools/youtube-money-calculator): Estimate YouTube channel earnings based on views, niche, and CPM.
+- [YouTube Video Idea Generator](https://creatorstoolhub.com/tools/youtube-video-idea-generator): Generate viral YouTube video ideas for any niche.
+- [YouTube Channel Name Generator](https://creatorstoolhub.com/tools/youtube-channel-name-generator): Generate unique, brandable YouTube channel name ideas.
+- [YouTube Title Analyzer](https://creatorstoolhub.com/tools/youtube-title-analyzer): Analyze and score your YouTube title for SEO and click-through rate.
+- [YouTube SEO Score Checker](https://creatorstoolhub.com/tools/youtube-seo-score-checker): Check and score your YouTube video's SEO optimization.
+- [YouTube Shorts Revenue Calculator](https://creatorstoolhub.com/tools/youtube-shorts-revenue-calculator): Estimate YouTube Shorts earnings based on views and RPM.
+- [YouTube CPM Calculator](https://creatorstoolhub.com/tools/youtube-cpm-calculator): Calculate YouTube CPM and estimated ad revenue.
+- [YouTube Engagement Calculator](https://creatorstoolhub.com/tools/youtube-engagement-calculator): Calculate your YouTube channel's engagement rate.
+- [YouTube Thumbnail Downloader](https://creatorstoolhub.com/tools/youtube-thumbnail-downloader): Download YouTube video thumbnails in high resolution for free.
+- [TikTok Hook Generator](https://creatorstoolhub.com/tools/tiktok-hook-generator): Generate scroll-stopping TikTok opening lines for any niche.
+- [TikTok Script Generator](https://creatorstoolhub.com/tools/tiktok-script-generator): Create short-form TikTok video scripts optimized for completion rate.
+- [TikTok Viral Idea Generator](https://creatorstoolhub.com/tools/tiktok-viral-idea-generator): Generate niche-specific TikTok content ideas with hooks and hashtags.
+- [TikTok Caption Generator](https://creatorstoolhub.com/tools/tiktok-caption-generator): Generate engaging TikTok captions with relevant hashtags.
+- [TikTok Hashtag Generator](https://creatorstoolhub.com/tools/tiktok-hashtag-generator): Generate trending TikTok hashtags to maximize reach and views.
+- [TikTok Money Calculator](https://creatorstoolhub.com/tools/tiktok-money-calculator): Estimate TikTok earnings based on views and engagement rate.
+- [TikTok Bio Generator](https://creatorstoolhub.com/tools/tiktok-bio-generator): Generate a compelling TikTok profile bio that attracts followers.
+- [TikTok Username Generator](https://creatorstoolhub.com/tools/tiktok-username-generator): Generate unique, catchy TikTok username ideas for any niche.
+- [Instagram Caption Generator](https://creatorstoolhub.com/tools/instagram-caption-generator): Generate engaging Instagram captions for posts and Reels.
+- [Instagram Hashtag Generator](https://creatorstoolhub.com/tools/instagram-hashtag-generator): Generate 30 tiered Instagram hashtags using broad, mid-range, and micro strategy.
+- [Instagram Bio Generator](https://creatorstoolhub.com/tools/instagram-bio-generator): Generate a compelling Instagram bio that converts visitors to followers.
+- [Instagram Hook Generator](https://creatorstoolhub.com/tools/instagram-hook-generator): Generate attention-grabbing Instagram Reel and post hooks.
+- [Instagram Reel Idea Generator](https://creatorstoolhub.com/tools/instagram-reel-idea-generator): Generate viral Instagram Reel ideas for any niche.
+- [Instagram Content Planner](https://creatorstoolhub.com/tools/instagram-content-planner): Plan a week of Instagram content with captions, hashtags, and posting times.
+- [Instagram Money Calculator](https://creatorstoolhub.com/tools/instagram-money-calculator): Estimate Instagram earnings based on followers and engagement rate.
+- [Instagram Username Generator](https://creatorstoolhub.com/tools/instagram-username-generator): Generate unique Instagram username ideas for any niche or brand.
+- [Instagram Engagement Calculator](https://creatorstoolhub.com/tools/instagram-engagement-calculator): Calculate your Instagram engagement rate for any post or profile.
+- [AI Prompt Generator](https://creatorstoolhub.com/tools/ai-prompt-generator): Generate structured prompts for ChatGPT, Claude, and Gemini.
+- [Midjourney Prompt Generator](https://creatorstoolhub.com/tools/midjourney-prompt-generator): Generate detailed Midjourney prompts for AI image creation.
+
+## Categories
+
+- [YouTube Tools](https://creatorstoolhub.com/category/youtube-tools): 15 free AI tools for YouTube creators covering SEO, monetization, scripts, and analytics.
+- [TikTok Tools](https://creatorstoolhub.com/category/tiktok-tools): 8 free AI tools for TikTok growth, content creation, and earnings estimation.
+- [Instagram Tools](https://creatorstoolhub.com/category/instagram-tools): 9 free AI tools for Instagram creators covering captions, hashtags, Reels, and monetization.
+- [AI Creator Tools](https://creatorstoolhub.com/category/ai-creator-tools): Free AI prompt generators for ChatGPT, Claude, Gemini, and Midjourney.
+
+## Blog
+
+- [YouTube Tags in 2026: What They Do, How to Use Them & Best Tools](https://creatorstoolhub.com/blog/youtube-tags-in-2026-what-they-do-how-to-use-them-and-which-tools-work-best)
+- [How to Go Viral on TikTok in 2026](https://creatorstoolhub.com/blog/how-to-go-viral-on-tiktok-2026-strategies-that-work)
+- [Faceless YouTube Channel Ideas: Proven Niches 2026](https://creatorstoolhub.com/blog/faceless-youtube-channel-ideas-proven-niches-2026)
+- [How to Grow TikTok Followers Fast in 2026](https://creatorstoolhub.com/blog/how-to-grow-tiktok-followers-fast-2026)
+- [Instagram Hashtag Strategy 2026: Get More Reach](https://creatorstoolhub.com/blog/instagram-hashtag-strategy-2026-get-more-reach)
+- [YouTube SEO Tips for Beginners That Work in 2026](https://creatorstoolhub.com/blog/youtube-seo-tips-beginners-that-work-2026)
+- [How to Start a Faceless YouTube Channel: Complete Guide 2026](https://creatorstoolhub.com/blog/how-to-start-faceless-youtube-channel-complete-guide-2026)
+- [Best Free AI Tools for Content Creators 2026](https://creatorstoolhub.com/blog/best-free-ai-tools-content-creators-2026)
+
+## Optional
+
+- [About](https://creatorstoolhub.com/about): About creatorsToolHub and its founder Immanuels.
+- [Blog](https://creatorstoolhub.com/blog): Creator growth guides covering YouTube, TikTok, and Instagram strategies.
+- [Sitemap](https://creatorstoolhub.com/sitemap.xml): Full XML sitemap of all URLs.`
+  );
+});
+
 // ── 301 redirects for consolidated duplicate blog posts ──────────────────────
 const BLOG_REDIRECTS: Record<string, string> = {
   "how-to-go-viral-on-tiktok-in-2026-understanding-tiktok-algorithm": "how-to-go-viral-on-tiktok-2026-strategies-that-work",

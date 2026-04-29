@@ -1,5 +1,6 @@
 import { useParams } from "wouter";
 import { useCanonical } from "@/hooks/use-canonical";
+import { useSeoMeta } from "@/hooks/use-seo-meta";
 import { Layout } from "@/components/layout";
 import { ToolCard } from "@/components/tool-card";
 import { useGetCategoryBySlug } from "@workspace/api-client-react";
@@ -12,6 +13,12 @@ export default function CategoryPage() {
   const { slug } = useParams<{ slug: string }>();
   useCanonical(slug ? `/category/${slug}` : "/");
   const { data: category, isLoading, error } = useGetCategoryBySlug(slug || "");
+
+  useSeoMeta({
+    title: category ? `Free ${category.name} — AI Tools for Content Creators` : "Free Creator Tools",
+    description: category?.description ?? "Free AI-powered tools for content creators. No signup required.",
+    path: slug ? `/category/${slug}` : "/",
+  });
 
   if (isLoading) {
     return (

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "wouter";
 import { useCanonical } from "@/hooks/use-canonical";
+import { useSeoMeta } from "@/hooks/use-seo-meta";
 import { Layout } from "@/components/layout";
 import { useGetToolBySlug, useExecuteTool, useTrackToolUsage } from "@workspace/api-client-react";
 import { Button } from "@/components/ui/button";
@@ -174,6 +175,41 @@ export default function ToolPage() {
     );
   }
 
+  const SITE_URL = "https://creatorstoolhub.com";
+
+  // ── Per-page SEO meta tags ──
+  useSeoMeta({
+    title: `Free ${tool.name}`,
+    description: tool.description,
+    path: `/tools/${tool.slug}`,
+  });
+
+  // ── SoftwareApplication schema ──
+  useEffect(() => {
+    if (!tool) return;
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": tool.name,
+      "url": `${SITE_URL}/tools/${tool.slug}`,
+      "description": tool.description,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web Browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+      "isAccessibleForFree": true,
+      "provider": { "@type": "Organization", "name": "creatorsToolHub", "url": SITE_URL },
+    };
+    let el = document.getElementById("tool-software-ld");
+    if (!el) {
+      el = document.createElement("script");
+      el.setAttribute("type", "application/ld+json");
+      el.id = "tool-software-ld";
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify(schema);
+    return () => { document.getElementById("tool-software-ld")?.remove(); };
+  }, [tool?.slug]);
+
   // Check if there's a custom interface registered for this slug
   const registryEntry: ToolRegistryEntry | undefined = slug ? TOOL_REGISTRY[slug] : undefined;
   const CustomInterface = registryEntry?.component;
@@ -181,13 +217,6 @@ export default function ToolPage() {
 
   return (
     <Layout>
-      {/* SEO Meta via Helmet-equivalent title */}
-      {typeof document !== "undefined" && (
-        (() => {
-          document.title = `Free ${tool.name} - ${tool.categoryName} | creatorsToolHub`;
-          return null;
-        })()
-      )}
 
       {/* Breadcrumbs */}
       <div className="bg-muted/30 border-b border-border py-4">

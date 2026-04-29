@@ -85,7 +85,7 @@ app.get("/llms.txt", (_req, res) => {
   res.type("text/plain").send(
 `# creatorsToolHub
 
-> creatorsToolHub is a free platform offering 35+ AI-powered tools for YouTube, TikTok, and Instagram content creators. All tools are completely free — no signup required.
+> creatorsToolHub is a free platform offering 35+ AI-powered tools for YouTube, TikTok, and Instagram content creators, built by Nnaemeka Immanuels. All tools are completely free — no signup required.
 
 ## Tools
 
@@ -141,10 +141,16 @@ app.get("/llms.txt", (_req, res) => {
 - [YouTube SEO Tips for Beginners That Work in 2026](https://creatorstoolhub.com/blog/youtube-seo-tips-beginners-that-work-2026)
 - [How to Start a Faceless YouTube Channel: Complete Guide 2026](https://creatorstoolhub.com/blog/how-to-start-faceless-youtube-channel-complete-guide-2026)
 - [Best Free AI Tools for Content Creators 2026](https://creatorstoolhub.com/blog/best-free-ai-tools-content-creators-2026)
+- [How to Go Viral on YouTube as a Beginner in 2026](https://creatorstoolhub.com/blog/how-to-go-viral-on-youtube-beginner-2026)
+- [How to Write a YouTube Script Fast with a Free Generator](https://creatorstoolhub.com/blog/how-to-write-youtube-script-fast-free-script-generator)
+- [How to Get TikTok Video Ideas Every Single Day for Free](https://creatorstoolhub.com/blog/how-to-get-tiktok-video-ideas-every-day-free)
+- [How to Create Content Using AI: Complete Beginner's Guide 2026](https://creatorstoolhub.com/blog/how-to-create-content-using-ai-beginners-guide-2026)
+- [50 Viral Content Ideas for Beginners That Actually Get Views in 2026](https://creatorstoolhub.com/blog/50-viral-content-ideas-beginners-get-views-2026)
+- [Best Free Creator Tools for Beginners in 2026](https://creatorstoolhub.com/blog/best-free-creator-tools-beginners-2026)
 
 ## Optional
 
-- [About](https://creatorstoolhub.com/about): About creatorsToolHub and its founder Immanuels.
+- [About](https://creatorstoolhub.com/about): About creatorsToolHub and its founder Nnaemeka Immanuels — content creator strategist and digital growth enthusiast.
 - [Blog](https://creatorstoolhub.com/blog): Creator growth guides covering YouTube, TikTok, and Instagram strategies.
 - [Sitemap](https://creatorstoolhub.com/sitemap.xml): Full XML sitemap of all URLs.`
   );

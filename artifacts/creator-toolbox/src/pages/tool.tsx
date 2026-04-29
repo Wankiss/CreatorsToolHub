@@ -139,6 +139,10 @@ export default function ToolPage() {
   });
   const trackMutation = useTrackToolUsage();
 
+  const SITE_URL = "https://creatorstoolhub.com";
+
+  // ── All hooks must be above early returns (Rules of Hooks) ──────────────────
+
   useEffect(() => {
     if (tool && slug) {
       trackMutation.mutate({ data: { toolSlug: slug, toolId: tool.id } });
@@ -146,42 +150,11 @@ export default function ToolPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tool?.id, slug]);
 
-  if (isLoading) {
-    return (
-      <Layout>
-        <div className="container mx-auto px-4 py-12 max-w-7xl">
-          <Skeleton className="h-8 w-64 mb-10" />
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-6">
-              <Skeleton className="h-64 w-full rounded-2xl" />
-              <Skeleton className="h-[400px] w-full rounded-2xl" />
-            </div>
-            <Skeleton className="h-[600px] w-full rounded-2xl" />
-          </div>
-        </div>
-      </Layout>
-    );
-  }
-
-  if (error || !tool) {
-    return (
-      <Layout>
-        <div className="container mx-auto px-4 py-24 text-center">
-          <h1 className="text-3xl font-bold mb-4">Tool not found</h1>
-          <p className="text-muted-foreground mb-8">The tool you are looking for doesn't exist.</p>
-          <Button asChild><Link href="/">Go Home</Link></Button>
-        </div>
-      </Layout>
-    );
-  }
-
-  const SITE_URL = "https://creatorstoolhub.com";
-
   // ── Per-page SEO meta tags ──
   useSeoMeta({
-    title: `Free ${tool.name}`,
-    description: tool.description,
-    path: `/tools/${tool.slug}`,
+    title: tool ? `Free ${tool.name}` : "Free Creator Tool",
+    description: tool?.description ?? "Free AI-powered tool for content creators. No signup required.",
+    path: slug ? `/tools/${slug}` : "/tools",
   });
 
   // ── SoftwareApplication schema ──
@@ -295,6 +268,38 @@ export default function ToolPage() {
     return () => { document.getElementById("tool-faq-ld")?.remove(); };
   }, [tool?.slug, tool?.name, tool?.categoryName]);
 
+  // ── Early returns AFTER all hooks ───────────────────────────────────────────
+
+  if (isLoading) {
+    return (
+      <Layout>
+        <div className="container mx-auto px-4 py-12 max-w-7xl">
+          <Skeleton className="h-8 w-64 mb-10" />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 space-y-6">
+              <Skeleton className="h-64 w-full rounded-2xl" />
+              <Skeleton className="h-[400px] w-full rounded-2xl" />
+            </div>
+            <Skeleton className="h-[600px] w-full rounded-2xl" />
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (error || !tool) {
+    return (
+      <Layout>
+        <div className="container mx-auto px-4 py-24 text-center">
+          <h1 className="text-3xl font-bold mb-4">Tool not found</h1>
+          <p className="text-muted-foreground mb-8">The tool you are looking for doesn't exist.</p>
+          <Button asChild><Link href="/">Go Home</Link></Button>
+        </div>
+      </Layout>
+    );
+  }
+
+  // ── Render ─────────────────────────────────────────────────────────────────
   // Check if there's a custom interface registered for this slug
   const registryEntry: ToolRegistryEntry | undefined = slug ? TOOL_REGISTRY[slug] : undefined;
   const CustomInterface = registryEntry?.component;

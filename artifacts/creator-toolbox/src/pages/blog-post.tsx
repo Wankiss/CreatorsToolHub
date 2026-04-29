@@ -201,6 +201,26 @@ export default function BlogPost() {
     }
   }, [post?.faqSchema, post?.slug]);
 
+  // ── BreadcrumbList schema ──
+  useEffect(() => {
+    if (!post) return;
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${SITE_URL}/blog` },
+        { "@type": "ListItem", "position": 3, "name": post.title,          "item": `${SITE_URL}/blog/${post.slug}` },
+      ],
+    };
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "blog-breadcrumb-ld";
+    el.textContent = JSON.stringify(schema);
+    document.head.appendChild(el);
+    return () => { document.getElementById("blog-breadcrumb-ld")?.remove(); };
+  }, [post?.slug]);
+
   const handleShare = async () => {
     if (navigator.share) {
       await navigator.share({ title: post?.title, url: window.location.href });

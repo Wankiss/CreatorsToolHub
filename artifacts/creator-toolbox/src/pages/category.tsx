@@ -1,6 +1,7 @@
 import { useParams } from "wouter";
 import { useCanonical } from "@/hooks/use-canonical";
 import { useSeoMeta } from "@/hooks/use-seo-meta";
+import { useEffect } from "react";
 import { Layout } from "@/components/layout";
 import { ToolCard } from "@/components/tool-card";
 import { useGetCategoryBySlug } from "@workspace/api-client-react";
@@ -8,6 +9,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { AlertCircle, FolderOpen } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { CATEGORY_REGISTRY } from "@/components/categories/category-registry";
+
+const SITE_URL = "https://creatorstoolhub.com";
 
 export default function CategoryPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -19,6 +22,25 @@ export default function CategoryPage() {
     description: category?.description ?? "Free AI-powered tools for content creators. No signup required.",
     path: slug ? `/category/${slug}` : "/",
   });
+
+  // ── BreadcrumbList schema ──
+  useEffect(() => {
+    if (!category || !slug) return;
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home",           "item": SITE_URL },
+        { "@type": "ListItem", "position": 2, "name": category.name,    "item": `${SITE_URL}/category/${slug}` },
+      ],
+    };
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "category-breadcrumb-ld";
+    el.textContent = JSON.stringify(schema);
+    document.head.appendChild(el);
+    return () => { document.getElementById("category-breadcrumb-ld")?.remove(); };
+  }, [slug, category?.name]);
 
   if (isLoading) {
     return (

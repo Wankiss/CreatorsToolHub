@@ -210,6 +210,26 @@ export default function ToolPage() {
     return () => { document.getElementById("tool-software-ld")?.remove(); };
   }, [tool?.slug]);
 
+  // ── BreadcrumbList schema ──
+  useEffect(() => {
+    if (!tool) return;
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home",              "item": SITE_URL },
+        { "@type": "ListItem", "position": 2, "name": tool.categoryName,   "item": `${SITE_URL}/category/${tool.categorySlug}` },
+        { "@type": "ListItem", "position": 3, "name": tool.name,           "item": `${SITE_URL}/tools/${tool.slug}` },
+      ],
+    };
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "tool-breadcrumb-ld";
+    el.textContent = JSON.stringify(schema);
+    document.head.appendChild(el);
+    return () => { document.getElementById("tool-breadcrumb-ld")?.remove(); };
+  }, [tool?.slug]);
+
   // ── FAQPage schema — generated for every tool automatically ──
   useEffect(() => {
     if (!tool) return;

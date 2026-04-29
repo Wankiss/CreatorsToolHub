@@ -102,6 +102,24 @@ export function buildHtml(template: string, meta: PageMeta): string {
   return html;
 }
 
+// ── Breadcrumb helper ─────────────────────────────────────────────────────────
+
+function breadcrumb(...items: { name: string; url: string }[]): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+      ...items.map((item, i) => ({
+        "@type": "ListItem",
+        "position": i + 2,
+        "name": item.name,
+        "item": item.url,
+      })),
+    ],
+  };
+}
+
 // ── Route resolvers ───────────────────────────────────────────────────────────
 
 /** Returns page-specific metadata for a given URL path, or null to fall back
@@ -225,7 +243,13 @@ export async function resolvePageMeta(pathname: string): Promise<PageMeta | null
         },
       };
 
-      const schemas: object[] = [articleSchema];
+      const schemas: object[] = [
+        articleSchema,
+        breadcrumb(
+          { name: "Blog", url: `${SITE_URL}/blog` },
+          { name: post.title, url: canonical },
+        ),
+      ];
 
       // FAQ schema
       if (post.faqSchema) {
@@ -286,11 +310,19 @@ export async function resolvePageMeta(pathname: string): Promise<PageMeta | null
 
       const canonical = `${SITE_URL}/tools/${slug}`;
 
-      // Derive platform label from categoryId for the platform-specific FAQ question
       // categoryId: 1=YouTube, 2=TikTok, 3=Instagram, 4=AI Creator Tools
       const isTikTok    = tool.categoryId === 2;
       const isInstagram = tool.categoryId === 3;
       const isAI        = tool.categoryId === 4;
+
+      const categoryName = isTikTok ? "TikTok Tools"
+        : isInstagram ? "Instagram Tools"
+        : isAI        ? "AI Creator Tools"
+        : "YouTube Tools";
+      const categorySlug = isTikTok ? "tiktok-tools"
+        : isInstagram ? "instagram-tools"
+        : isAI        ? "ai-creator-tools"
+        : "youtube-tools";
 
       const platformQA = isTikTok
         ? { q: `Can I use the ${tool.name} for TikTok videos?`, a: `Yes. The ${tool.name} is built specifically for TikTok creators. It understands TikTok's short-form format, trending content patterns, and what actually gets views on the platform.` }
@@ -350,6 +382,10 @@ export async function resolvePageMeta(pathname: string): Promise<PageMeta | null
             "creator": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
           },
           faqSchema,
+          breadcrumb(
+            { name: categoryName, url: `${SITE_URL}/category/${categorySlug}` },
+            { name: tool.name,    url: canonical },
+          ),
         ],
       };
       setCached(cacheKey, meta);
@@ -381,10 +417,14 @@ export async function resolvePageMeta(pathname: string): Promise<PageMeta | null
 
       if (!category) return null;
 
+      const canonical = `${SITE_URL}/category/${slug}`;
       const meta: PageMeta = {
         title:       `Free ${category.name} — AI Tools for Content Creators`,
         description: category.description ?? "Free AI-powered tools for content creators. No signup required.",
-        canonical:   `${SITE_URL}/category/${slug}`,
+        canonical,
+        schemas: [
+          breadcrumb({ name: category.name, url: canonical }),
+        ],
       };
       setCached(cacheKey, meta);
       return meta;

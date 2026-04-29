@@ -203,10 +203,10 @@ export default function BlogPost() {
             </h1>
 
             <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground font-medium">
-              <div className="flex items-center gap-2">
+              <Link href="/about" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                 <img src="/immanuels-avatar.png" alt={post.author} className="w-7 h-7 rounded-full object-cover flex-shrink-0" />
                 <span className="text-foreground font-semibold">{post.author}</span>
-              </div>
+              </Link>
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-4 h-4" />
                 {format(new Date(post.publishedAt), 'MMMM d, yyyy')}
@@ -294,17 +294,24 @@ export default function BlogPost() {
 
               {/* Author Bio */}
               <div className="mt-10 bg-muted/40 rounded-2xl border border-border/60 p-6 flex gap-5 items-start">
-                <img
-                  src="/immanuels-avatar.png"
-                  alt="Immanuels"
-                  className="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-border"
-                />
+                <Link href="/about" className="flex-shrink-0 hover:opacity-80 transition-opacity">
+                  <img
+                    src="/immanuels-avatar.png"
+                    alt="Immanuels"
+                    className="w-16 h-16 rounded-full object-cover border-2 border-border"
+                  />
+                </Link>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">About the Author</p>
-                  <h3 className="font-display font-bold text-lg text-foreground mb-2">{post.author}</h3>
+                  <Link href="/about" className="hover:text-primary transition-colors">
+                    <h3 className="font-display font-bold text-lg text-foreground mb-2">{post.author}</h3>
+                  </Link>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Immanuels is a content creator strategist and digital growth enthusiast with hands-on experience growing YouTube channels, TikTok accounts, and Instagram pages across multiple niches. He founded creatorsToolHub to give every creator — regardless of budget — access to the professional-grade AI tools and strategies that actually move the needle. When he's not building tools, he's studying the algorithm, testing content formats, and sharing everything he learns.
                   </p>
+                  <Link href="/about" className="inline-flex items-center gap-1 text-primary text-sm font-semibold mt-3 hover:underline">
+                    View full profile <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               </div>
 

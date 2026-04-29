@@ -147,6 +147,8 @@ app.get("/llms.txt", (_req, res) => {
 - [How to Create Content Using AI: Complete Beginner's Guide 2026](https://creatorstoolhub.com/blog/how-to-create-content-using-ai-beginners-guide-2026)
 - [50 Viral Content Ideas for Beginners That Actually Get Views in 2026](https://creatorstoolhub.com/blog/50-viral-content-ideas-beginners-get-views-2026)
 - [Best Free Creator Tools for Beginners in 2026](https://creatorstoolhub.com/blog/best-free-creator-tools-beginners-2026)
+- [YouTube Automation: Build a Profitable Faceless YouTube Channel 2026](https://creatorstoolhub.com/blog/youtube-automation-how-to-build-a-profitable-faceless-youtube-channel-2026)
+- [Free YouTube Shorts Keyword Generator: Find Viral Keywords Instantly](https://creatorstoolhub.com/blog/free-youtube-short-keyword-generator-find-viral-keywords-instantly)
 
 ## Optional
 

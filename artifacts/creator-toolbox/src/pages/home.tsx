@@ -109,11 +109,17 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-background pt-20 pb-28">
         <div className="absolute inset-0 z-0">
-          <img
-            src={`${import.meta.env.BASE_URL}images/hero-bg.png`}
-            alt="creatorsToolHub background"
-            className="w-full h-full object-cover opacity-[0.12] mix-blend-multiply"
-          />
+          <picture>
+            <source srcSet={`${import.meta.env.BASE_URL}images/hero-bg.webp`} type="image/webp" />
+            <source srcSet={`${import.meta.env.BASE_URL}images/hero-bg.jpg`} type="image/jpeg" />
+            <img
+              src={`${import.meta.env.BASE_URL}images/hero-bg.png`}
+              alt=""
+              aria-hidden="true"
+              fetchPriority="high"
+              className="w-full h-full object-cover opacity-[0.12] mix-blend-multiply"
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/75 to-background" />
         </div>
 

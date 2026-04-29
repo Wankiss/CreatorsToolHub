@@ -287,14 +287,14 @@ export function Layout({ children }: { children: ReactNode }) {
                 </div>
                 <span className="font-display font-bold text-xl text-white tracking-tight">creators<span className="text-primary">ToolHub</span></span>
               </Link>
-              <p className="text-muted-foreground/80 text-sm leading-relaxed max-w-xs">
+              <p className="text-slate-300 text-sm leading-relaxed max-w-xs">
                 The ultimate hub of free AI-powered tools for content creators, YouTubers, TikTokers, and influencers. Grow your audience at creatorstoolhub.com.
               </p>
             </div>
             
             <div>
               <h3 className="font-bold mb-6 text-white tracking-wide">Top Categories</h3>
-              <ul className="space-y-3 text-sm text-muted-foreground/80">
+              <ul className="space-y-3 text-sm text-slate-300">
                 <li><Link href="/category/youtube-tools" className="hover:text-white transition-colors flex items-center gap-2"><Youtube className="w-4 h-4"/> YouTube Tools</Link></li>
                 <li><Link href="/category/tiktok-tools" className="hover:text-white transition-colors flex items-center gap-2"><TrendingUp className="w-4 h-4"/> TikTok Tools</Link></li>
                 <li><Link href="/category/instagram-tools" className="hover:text-white transition-colors flex items-center gap-2"><Instagram className="w-4 h-4"/> Instagram Tools</Link></li>
@@ -304,7 +304,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
             <div>
               <h3 className="font-bold mb-6 text-white tracking-wide">Popular Tools</h3>
-              <ul className="space-y-3 text-sm text-muted-foreground/80">
+              <ul className="space-y-3 text-sm text-slate-300">
                 <li><Link href="/tools/youtube-title-generator" className="hover:text-white transition-colors">YouTube Title Generator</Link></li>
                 <li><Link href="/tools/tiktok-viral-idea-generator" className="hover:text-white transition-colors">TikTok Viral Ideas</Link></li>
                 <li><Link href="/tools/ai-prompt-generator" className="hover:text-white transition-colors">AI Prompt Generator</Link></li>
@@ -315,7 +315,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
             <div>
               <h3 className="font-bold mb-6 text-white tracking-wide">Company</h3>
-              <ul className="space-y-3 text-sm text-muted-foreground/80">
+              <ul className="space-y-3 text-sm text-slate-300">
                 <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
                 <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
                 <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
@@ -327,7 +327,7 @@ export function Layout({ children }: { children: ReactNode }) {
           </div>
           
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-muted-foreground/60 text-sm">
+            <p className="text-slate-400 text-sm">
               © {new Date().getFullYear()} creatorsToolHub — creatorstoolhub.com. All rights reserved.
             </p>
           </div>

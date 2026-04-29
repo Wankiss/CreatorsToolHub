@@ -1,15 +1,56 @@
 import { useParams, Link } from "wouter";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useCanonical } from "@/hooks/use-canonical";
 import { Layout } from "@/components/layout";
 import { useGetBlogPost, useListBlogPosts } from "@workspace/api-client-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card } from "@/components/ui/card";
-import { ChevronLeft, Calendar, Clock, ArrowRight, BookOpen, Share2 } from "lucide-react";
+import { ChevronLeft, Calendar, Clock, ArrowRight, BookOpen, Share2, Wrench } from "lucide-react";
 import { format } from "date-fns";
 
 const SITE_URL = "https://creatorstoolhub.com";
 const SITE_NAME = "creatorsToolHub";
+
+// ── Tag → relevant free tools (drives internal links to tool pages) ────────────
+const TAG_TOOLS: Record<string, { slug: string; name: string; desc: string }[]> = {
+  "YouTube Growth": [
+    { slug: "youtube-title-generator",    name: "YouTube Title Generator",    desc: "Generate high-CTR titles using 7 viral frameworks" },
+    { slug: "youtube-script-generator",   name: "YouTube Script Generator",   desc: "Get a full hook-to-CTA script in seconds" },
+    { slug: "youtube-tag-generator",      name: "YouTube Tag Generator",      desc: "Instant SEO tags for any video topic" },
+    { slug: "youtube-description-generator", name: "YouTube Description Generator", desc: "Keyword-rich descriptions with chapters and CTAs" },
+  ],
+  "TikTok Growth": [
+    { slug: "tiktok-hook-generator",      name: "TikTok Hook Generator",      desc: "Scroll-stopping opening lines for any niche" },
+    { slug: "tiktok-script-generator",    name: "TikTok Script Generator",    desc: "Short-form scripts optimised for completion rate" },
+    { slug: "tiktok-hashtag-generator",   name: "TikTok Hashtag Generator",   desc: "Trending hashtags to maximise reach and views" },
+    { slug: "tiktok-viral-idea-generator", name: "TikTok Viral Idea Generator", desc: "Niche-specific ideas with hooks and hashtags" },
+  ],
+  "Instagram Growth": [
+    { slug: "instagram-caption-generator",  name: "Instagram Caption Generator",  desc: "Engaging captions for posts and Reels" },
+    { slug: "instagram-hashtag-generator",  name: "Instagram Hashtag Generator",  desc: "30 tiered hashtags using broad, mid, and micro strategy" },
+    { slug: "instagram-hook-generator",     name: "Instagram Hook Generator",     desc: "Attention-grabbing Reel and post hooks" },
+    { slug: "instagram-reel-idea-generator",name: "Instagram Reel Idea Generator",desc: "Viral Reel ideas for any niche" },
+  ],
+  "AI Tools": [
+    { slug: "ai-prompt-generator",         name: "AI Prompt Generator",         desc: "Structured prompts for ChatGPT, Claude, and Gemini" },
+    { slug: "midjourney-prompt-generator",  name: "Midjourney Prompt Generator",  desc: "Detailed prompts for stunning AI image creation" },
+  ],
+  "SEO": [
+    { slug: "youtube-seo-score-checker",  name: "YouTube SEO Score Checker",  desc: "Check and score your video's SEO optimisation" },
+    { slug: "youtube-keyword-generator",  name: "YouTube Keyword Generator",  desc: "Find high-volume keywords for any niche" },
+    { slug: "youtube-title-analyzer",     name: "YouTube Title Analyzer",     desc: "Score your title for SEO and click-through rate" },
+  ],
+  "Faceless": [
+    { slug: "youtube-channel-name-generator", name: "YouTube Channel Name Generator", desc: "Unique, brandable channel name ideas" },
+    { slug: "youtube-video-idea-generator",   name: "YouTube Video Idea Generator",   desc: "Viral video ideas for any niche" },
+    { slug: "youtube-script-generator",       name: "YouTube Script Generator",       desc: "Full scripts without showing your face" },
+  ],
+  "Beginner Guide": [
+    { slug: "youtube-title-generator",    name: "YouTube Title Generator",    desc: "Generate high-CTR titles using 7 viral frameworks" },
+    { slug: "tiktok-hook-generator",      name: "TikTok Hook Generator",      desc: "Scroll-stopping opening lines for any niche" },
+    { slug: "instagram-caption-generator",name: "Instagram Caption Generator",desc: "Engaging captions for posts and Reels" },
+  ],
+};
 
 function setMetaTag(selector: string, attrKey: string, attrVal: string, content: string) {
   let el = document.querySelector<HTMLMetaElement>(selector);
@@ -26,9 +67,34 @@ export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   useCanonical(slug ? `/blog/${slug}` : "/blog");
   const { data: post, isLoading, error } = useGetBlogPost(slug || "");
-  const { data: related } = useListBlogPosts({ limit: 4 });
+  // Fetch a larger pool so tag-scoring has enough candidates to work with
+  const { data: related } = useListBlogPosts({ limit: 20 });
 
-  const relatedPosts = (related?.posts ?? []).filter(p => p.slug !== slug).slice(0, 3);
+  // Score every post by how many tags it shares with the current post,
+  // then pick the top 3 — so "Related Posts" is actually related.
+  const relatedPosts = useMemo(() => {
+    if (!post || !related?.posts) return [];
+    const postTags = new Set<string>(post.tags);
+    return related.posts
+      .filter(p => p.slug !== slug)
+      .map(p => ({
+        post: p,
+        score: (p.tags as string[]).filter(t => postTags.has(t)).length,
+      }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3)
+      .map(s => s.post);
+  }, [post, related, slug]);
+
+  // Pick up to 3 tool recommendations based on the post's primary tag
+  const recommendedTools = useMemo(() => {
+    if (!post?.tags?.length) return [];
+    for (const tag of post.tags) {
+      const tools = TAG_TOOLS[tag];
+      if (tools?.length) return tools.slice(0, 3);
+    }
+    return [];
+  }, [post?.tags]);
 
   // ── Full SEO: title, meta, OG, Twitter, Article JSON-LD ──
   useEffect(() => {
@@ -256,6 +322,31 @@ export default function BlogPost() {
                   prose-ul:my-4 prose-ol:my-4"
                 dangerouslySetInnerHTML={{ __html: post.content }}
               />
+
+              {/* Free Tools — internal links to relevant tool pages */}
+              {recommendedTools.length > 0 && (
+                <div className="mt-10 bg-muted/30 rounded-2xl border border-border/60 p-6">
+                  <div className="flex items-center gap-2 mb-5">
+                    <Wrench className="w-4 h-4 text-primary" />
+                    <h3 className="font-bold text-base text-foreground">Free tools to put this into practice</h3>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {recommendedTools.map(tool => (
+                      <Link key={tool.slug} href={`/tools/${tool.slug}`}>
+                        <div className="group bg-card rounded-xl border border-border/50 p-4 hover:border-primary/40 hover:shadow-sm transition-all h-full">
+                          <p className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors mb-1">
+                            {tool.name}
+                          </p>
+                          <p className="text-xs text-muted-foreground leading-relaxed">{tool.desc}</p>
+                          <span className="inline-flex items-center gap-1 text-xs text-primary font-semibold mt-2">
+                            Try free <ArrowRight className="w-3 h-3" />
+                          </span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-10 pt-8 border-t border-border">

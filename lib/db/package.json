@@ -13,7 +13,8 @@
     "migrate": "tsx ./src/migrate.ts",
     "seed": "tsx ./src/seed.ts",
     "seed-blog": "tsx ./src/seed-blog.ts",
-    "update-cover-images": "tsx ./src/update-cover-images.ts"
+    "update-cover-images": "tsx ./src/update-cover-images.ts",
+    "update-blog-seo": "tsx ./src/update-blog-seo.ts"
   },
   "dependencies": {
     "drizzle-orm": "catalog:",

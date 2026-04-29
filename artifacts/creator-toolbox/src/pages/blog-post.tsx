@@ -61,13 +61,34 @@ export default function BlogPost() {
       "@type": "BlogPosting",
       "headline": post.title,
       "description": description,
-      "image": imageUrl,
+      "image": { "@type": "ImageObject", "url": imageUrl, "width": 1200, "height": 630 },
       "url": postUrl,
       "datePublished": post.publishedAt,
-      "author": { "@type": "Person", "name": post.author, "url": SITE_URL },
-      "publisher": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
+      "dateModified": post.updatedAt ?? post.publishedAt,
+      "author": {
+        "@type": "Person",
+        "name": post.author,
+        "url": `${SITE_URL}/about`,
+        "sameAs": [
+          "https://www.linkedin.com/in/immanuels",
+          "https://twitter.com/creatorstoolhub"
+        ],
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": SITE_NAME,
+        "url": SITE_URL,
+        "logo": { "@type": "ImageObject", "url": `${SITE_URL}/favicon.svg` },
+      },
       "mainEntityOfPage": { "@type": "WebPage", "@id": postUrl },
       "keywords": post.tags.join(", "),
+      "articleSection": post.tags[0] ?? "Creator Tips",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".prose > p:first-of-type", "h2"],
+      },
     };
 
     let articleScript = document.getElementById("blog-article-ld");

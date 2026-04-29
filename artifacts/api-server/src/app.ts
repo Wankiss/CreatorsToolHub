@@ -13,6 +13,14 @@ if (!fs.existsSync(UPLOADS_DIR)) {
   fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 }
 
+// ── www → non-www canonical redirect (must be first) ─────────────────────────
+app.use((req, res, next) => {
+  if (req.hostname === "www.creatorstoolhub.com") {
+    return res.redirect(301, `https://creatorstoolhub.com${req.originalUrl}`);
+  }
+  next();
+});
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

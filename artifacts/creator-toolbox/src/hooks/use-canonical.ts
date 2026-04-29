@@ -13,7 +13,8 @@ export function useCanonical(path: string) {
     }
     link.href = href;
     return () => {
-      if (link) link.href = "";
+      // Reset to homepage canonical on unmount rather than leaving an empty href
+      if (link) link.href = SITE_URL;
     };
   }, [path]);
 }

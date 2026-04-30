@@ -3,8 +3,13 @@ import { useEffect, lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { CookieConsentBanner } from "@/components/cookie-consent";
 import NotFound from "@/pages/not-found";
+
+// Lazy-load the cookie consent banner — it never shows until 800ms after mount,
+// so deferring its parse/compile cost is safe and reduces initial TBT.
+const CookieConsentBanner = lazy(() =>
+  import("@/components/cookie-consent").then((m) => ({ default: m.CookieConsentBanner }))
+);
 
 const Home = lazy(() => import("@/pages/home"));
 const CategoryPage = lazy(() => import("@/pages/category"));
@@ -62,7 +67,9 @@ function App() {
           <Router />
         </WouterRouter>
         <Toaster />
-        <CookieConsentBanner />
+        <Suspense fallback={null}>
+          <CookieConsentBanner />
+        </Suspense>
       </TooltipProvider>
     </QueryClientProvider>
   );

@@ -157,7 +157,7 @@ function PreferencesModal({ onSave, onClose, initial }: PreferencesModalProps) {
   return (
     <div className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Cookie Preferences">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-background border border-border rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto cookie-slide-in">
+      <div className="relative bg-background border border-border rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto animate-in slide-in-from-bottom-4 duration-300">
         {/* Header */}
         <div className="sticky top-0 bg-background border-b border-border px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
           <div className="flex items-center gap-3">
@@ -306,7 +306,7 @@ export function CookieConsentBanner() {
           role="dialog"
           aria-label="Cookie consent"
           aria-live="polite"
-          className="fixed bottom-0 left-0 right-0 z-[9998] p-4 sm:p-6 cookie-slide-in"
+          className="fixed bottom-0 left-0 right-0 z-[9998] p-4 sm:p-6 animate-in slide-in-from-bottom-4 duration-500"
         >
           <div className="max-w-5xl mx-auto bg-background border border-border rounded-2xl shadow-2xl overflow-hidden">
             <div className="p-5 sm:p-6">

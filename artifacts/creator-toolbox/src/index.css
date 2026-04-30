@@ -152,17 +152,6 @@
   animation: hero-fade-in 0.55s ease-out both;
 }
 
-/* Cookie consent slide-in — composited transform+opacity only.
-   Replaces tw-animate-css slide-in-from-bottom which Lighthouse flags
-   as non-composited ("filter-related property may move pixels"). */
-@keyframes cookie-slide-in {
-  from { opacity: 0; transform: translateY(1rem); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.cookie-slide-in {
-  animation: cookie-slide-in 0.4s ease-out both;
-  will-change: transform, opacity;
-}
 
 @layer utilities {
   .text-balance {

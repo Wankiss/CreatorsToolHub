@@ -658,45 +658,13 @@ export async function resolvePageMeta(pathname: string): Promise<PageMeta | null
         : isAI        ? "ai-creator-tools"
         : "youtube-tools";
 
-      const platformQA = isTikTok
-        ? { q: `Can I use the ${tool.name} for TikTok videos?`, a: `Yes. The ${tool.name} is built specifically for TikTok creators. It understands TikTok's short-form format, trending content patterns, and what actually gets views on the platform.` }
-        : isInstagram
-        ? { q: `Can I use the ${tool.name} for Instagram Reels?`, a: `Yes. The ${tool.name} works for all Instagram content formats including Reels, posts, carousels, and Stories. Results are optimised for Instagram's algorithm and audience behaviour.` }
-        : isAI
-        ? { q: `Which AI models work with the ${tool.name}?`, a: `The ${tool.name} generates prompts and content compatible with ChatGPT, Claude, Gemini, and other major AI tools. You can copy the output and paste it directly into any AI assistant.` }
-        : { q: `Can I use the ${tool.name} for YouTube Shorts?`, a: `Yes. The ${tool.name} works for both long-form YouTube videos and YouTube Shorts. Simply specify your format when entering your topic and the AI will tailor the output accordingly.` };
-
-      const faqSchema: object = {
-        "@context": "https://schema.org",
-        "@type":    "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name":  `Is the ${tool.name} free?`,
-            "acceptedAnswer": { "@type": "Answer", "text": `Yes, the ${tool.name} on creatorsToolHub is completely free. There is no signup, no subscription, and no usage limit. Open the tool, enter your details, and get results instantly — forever free.` },
-          },
-          {
-            "@type": "Question",
-            "name":  `How does the ${tool.name} work?`,
-            "acceptedAnswer": { "@type": "Answer", "text": `The ${tool.name} uses advanced AI to generate high-quality results based on your input. Enter your topic, keyword, or content idea, click Generate, and receive professional-quality output in seconds. No prompt engineering or technical knowledge required.` },
-          },
-          {
-            "@type": "Question",
-            "name":  `How many times can I use the ${tool.name}?`,
-            "acceptedAnswer": { "@type": "Answer", "text": `Unlimited. creatorsToolHub does not cap how many times you can use the ${tool.name}. Generate as many results as you need — the tool stays completely free with no daily limits or credit system.` },
-          },
-          {
-            "@type": "Question",
-            "name":  platformQA.q,
-            "acceptedAnswer": { "@type": "Answer", "text": platformQA.a },
-          },
-          {
-            "@type": "Question",
-            "name":  `Do I need to create an account to use the ${tool.name}?`,
-            "acceptedAnswer": { "@type": "Answer", "text": `No account is required. The ${tool.name} works instantly in your browser without any signup, email address, or payment information. Just open the page and start generating.` },
-          },
-        ],
-      };
+      // NOTE: FAQPage schema is NOT injected server-side for tool pages.
+      // Each tool component injects its own rich, tool-specific FAQPage schema
+      // client-side (e.g. youtube-title-generator.tsx, tiktok-hashtag-generator.tsx).
+      // Injecting a generic FAQPage here AND in the component causes a
+      // "Duplicate field 'FAQPage'" GSC error that blocks FAQ rich results.
+      // The component-level schemas are richer (7 tool-specific Q&As vs 5 generic ones)
+      // and Google executes JS to find them — so SSR for FAQ is not needed here.
 
       const meta: PageMeta = {
         title:       `Free ${tool.name}`,
@@ -716,7 +684,6 @@ export async function resolvePageMeta(pathname: string): Promise<PageMeta | null
             "description":         tool.description,
             "creator": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
           },
-          faqSchema,
           breadcrumb(
             { name: categoryName, url: `${SITE_URL}/category/${categorySlug}` },
             { name: tool.name,    url: canonical },

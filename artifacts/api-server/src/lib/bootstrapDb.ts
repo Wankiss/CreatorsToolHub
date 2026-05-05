@@ -537,21 +537,11 @@ export async function bootstrapDb(): Promise<void> {
           isPublished: true,
           publishedAt: new Date(),
         })
-        .onConflictDoUpdate({
-          target: blogPostsTable.slug,
-          set: {
-            title: sql`excluded.title`,
-            excerpt: sql`excluded.excerpt`,
-            coverImage: sql`excluded.cover_image`,
-            faqSchema: sql`excluded.faq_schema`,
-            readingTime: sql`excluded.reading_time`,
-            // NOTE: isPublished and content are intentionally excluded here.
-            // Omitting isPublished prevents server restarts from overwriting
-            // manual publish/unpublish changes made via the admin API.
-            // Omitting content prevents seed data from overwriting posts
-            // that have been rewritten via the admin API.
-          },
-        });
+        .onConflictDoNothing();
+        // Posts are insert-only on conflict. If a post already exists (matched
+        // by slug), the seed data is silently skipped. This prevents server
+        // restarts from overwriting content, cover images, or publish state
+        // that were set via the admin API.
     }
 
     console.log("[bootstrap] Database bootstrap complete.");

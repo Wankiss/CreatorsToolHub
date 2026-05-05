@@ -101,7 +101,13 @@ app.use("/api", router);
 // ── robots.txt ───────────────────────────────────────────────────────────────
 app.get("/robots.txt", (_req, res) => {
   res.type("text/plain").send(
-`User-agent: *
+`# creatorstoolhub.com — AI crawlers explicitly permitted
+# Content-Signal: ai-input=yes (RAG/grounding/AI search answers permitted)
+# Content-Signal: ai-train=no  (training/fine-tuning NOT permitted)
+# Content-Signal: search=yes   (search indexing permitted)
+
+User-agent: *
+Content-Signal: search=yes,ai-input=yes,ai-train=no
 Allow: /
 
 User-agent: GPTBot
@@ -120,6 +126,15 @@ User-agent: Google-Extended
 Allow: /
 
 User-agent: Amazonbot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
 Allow: /
 
 Sitemap: https://creatorstoolhub.com/sitemap.xml`
@@ -179,22 +194,17 @@ app.get("/llms.txt", (_req, res) => {
 
 ## Blog
 
-- [YouTube Tags in 2026: What They Do, How to Use Them & Best Tools](https://creatorstoolhub.com/blog/youtube-tags-in-2026-what-they-do-how-to-use-them-and-which-tools-work-best)
-- [How to Go Viral on TikTok in 2026](https://creatorstoolhub.com/blog/how-to-go-viral-on-tiktok-2026-strategies-that-work)
-- [Faceless YouTube Channel Ideas: Proven Niches 2026](https://creatorstoolhub.com/blog/faceless-youtube-channel-ideas-proven-niches-2026)
-- [How to Grow TikTok Followers Fast in 2026](https://creatorstoolhub.com/blog/how-to-grow-tiktok-followers-fast-2026)
-- [Instagram Hashtag Strategy 2026: Get More Reach](https://creatorstoolhub.com/blog/instagram-hashtag-strategy-2026-get-more-reach)
-- [YouTube SEO Tips for Beginners That Work in 2026](https://creatorstoolhub.com/blog/youtube-seo-tips-beginners-that-work-2026)
-- [How to Start a Faceless YouTube Channel: Complete Guide 2026](https://creatorstoolhub.com/blog/how-to-start-faceless-youtube-channel-complete-guide-2026)
-- [Best Free AI Tools for Content Creators 2026](https://creatorstoolhub.com/blog/best-free-ai-tools-content-creators-2026)
-- [How to Go Viral on YouTube as a Beginner in 2026](https://creatorstoolhub.com/blog/how-to-go-viral-on-youtube-beginner-2026)
-- [How to Write a YouTube Script Fast with a Free Generator](https://creatorstoolhub.com/blog/how-to-write-youtube-script-fast-free-script-generator)
-- [How to Get TikTok Video Ideas Every Single Day for Free](https://creatorstoolhub.com/blog/how-to-get-tiktok-video-ideas-every-day-free)
-- [How to Create Content Using AI: Complete Beginner's Guide 2026](https://creatorstoolhub.com/blog/how-to-create-content-using-ai-beginners-guide-2026)
-- [50 Viral Content Ideas for Beginners That Actually Get Views in 2026](https://creatorstoolhub.com/blog/50-viral-content-ideas-beginners-get-views-2026)
-- [Best Free Creator Tools for Beginners in 2026](https://creatorstoolhub.com/blog/best-free-creator-tools-beginners-2026)
-- [YouTube Automation: Build a Profitable Faceless YouTube Channel 2026](https://creatorstoolhub.com/blog/youtube-automation-how-to-build-a-profitable-faceless-youtube-channel-2026)
-- [Free YouTube Shorts Keyword Generator: Find Viral Keywords Instantly](https://creatorstoolhub.com/blog/free-youtube-short-keyword-generator-find-viral-keywords-instantly)
+- [Instagram Hashtag Strategy 2026: Get More Reach on Every Post](https://creatorstoolhub.com/blog/instagram-hashtag-strategy-2026-get-more-reach): Instagram enforced a 5-hashtag cap in December 2025. This guide covers the updated strategy, niche hashtag tiers, and what the data says about hashtag reach in 2026.
+- [How to Use YouTube Tags to Get More Views in 2026](https://creatorstoolhub.com/blog/how-to-use-youtube-tags-to-get-more-views): Data-backed guide to YouTube tags in 2026 — what they do, how many to use, and which free tools generate the best tags for your niche.
+- [50 Content Creation Ideas for Beginners (Never Run Out of Things to Post)](https://creatorstoolhub.com/blog/content-creation-ideas-for-beginners): 50 proven content ideas for beginner creators across YouTube, TikTok, and Instagram — including hooks, formats, and free tools to produce each one.
+- [How to Write a YouTube Script for Beginners: Step-by-Step + Free Template](https://creatorstoolhub.com/blog/how-to-write-a-youtube-script-for-beginners): Step-by-step guide to writing a YouTube video script with hook, body, and CTA — includes a free template and script generator for any niche.
+- [Free Content Creation Tool Stack for Beginners: Build Your $0 Setup in 2026](https://creatorstoolhub.com/blog/free-content-creation-tool-stack-beginners): The complete free tool stack for beginner content creators in 2026 — covers YouTube, TikTok, Instagram, AI writing, and graphic design tools.
+- [Instagram Hashtags Not Working in 2026? Here's Why (and How to Fix It)](https://creatorstoolhub.com/blog/instagram-hashtags-not-working-2026): Why Instagram hashtags stop working and how to fix it — covers banned tags, the December 2025 5-tag cap, and the correct niche hashtag strategy.
+- [How to Get Your First 1,000 TikTok Followers (Complete 2026 Guide)](https://creatorstoolhub.com/blog/how-to-get-your-first-1000-tiktok-followers): Complete strategy for getting your first 1,000 TikTok followers in 2026 — posting frequency, niche selection, hook formulas, and content formats that grow accounts from zero.
+- [Free AI Tools for Beginner Content Creators: The No-Budget Starter Kit](https://creatorstoolhub.com/blog/free-ai-tools-for-beginner-content-creators): The best free AI tools for content creators in 2026 — covers script writing, caption generation, hashtag research, thumbnail creation, and video editing at zero cost.
+- [How to Start a Faceless YouTube Channel With AI (Complete Guide)](https://creatorstoolhub.com/blog/how-to-start-a-faceless-youtube-channel-with-ai): How to build a faceless YouTube channel using AI tools in 2026 — from niche selection and scripting to voiceover, editing, and monetization without showing your face.
+- [YouTube SEO Checklist for Beginners: 10 Steps to Rank Your Videos in 2026](https://creatorstoolhub.com/blog/youtube-seo-checklist-for-beginners): A 10-step YouTube SEO checklist for beginners covering title optimization, description keywords, tags, thumbnails, and audience retention signals that drive rankings.
+- [How to Get Views on YouTube With No Subscribers (What Actually Works)](https://creatorstoolhub.com/blog/how-to-get-views-on-youtube-with-no-subscribers): Proven strategies for getting YouTube views with zero subscribers — covers keyword research, search-optimized titles, thumbnail CTR, and content formats that rank from day one.
 
 ## Optional
 

@@ -4,6 +4,7 @@ import cors from "cors";
 import path from "path";
 import fs from "fs";
 import router from "./routes";
+import { fetchFromObjectStorage } from "./routes/upload.js";
 import { db, toolsTable, categoriesTable, blogPostsTable } from "@workspace/db";
 import { eq, inArray } from "drizzle-orm";
 import { resolvePageMeta, buildHtml } from "./meta-injector";
@@ -61,7 +62,40 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/uploads", express.static(UPLOADS_DIR, { maxAge: "7d" }));
+// Serve uploaded images — local disk first, Object Storage fallback on miss.
+// This means images survive Replit redeploys: the local file is gone but the
+// Object Storage copy is fetched, served, and re-cached locally for next time.
+app.get("/api/uploads/:filename", async (req, res) => {
+  const filename = req.params.filename;
+  // Strip any path traversal attempts
+  const safeName = path.basename(filename);
+  const localPath = path.join(UPLOADS_DIR, safeName);
+
+  // 1. Local disk hit (normal case after upload or after first Object Storage fetch)
+  if (fs.existsSync(localPath)) {
+    return res.sendFile(localPath, {
+      headers: { "Cache-Control": "public, max-age=604800" },
+    });
+  }
+
+  // 2. Local miss — try Object Storage (happens after a redeploy wipes disk)
+  try {
+    const obj = await fetchFromObjectStorage(safeName);
+    if (obj) {
+      // Re-cache locally so subsequent requests skip Object Storage
+      fs.writeFileSync(localPath, obj.buffer);
+      res.setHeader("Content-Type", obj.contentType);
+      res.setHeader("Cache-Control", "public, max-age=604800");
+      return res.send(obj.buffer);
+    }
+  } catch (err) {
+    console.error("[uploads] fallback fetch error:", err);
+  }
+
+  // 3. Not found anywhere
+  return res.status(404).json({ error: "Image not found" });
+});
+
 app.use("/api", router);
 
 // ── robots.txt ───────────────────────────────────────────────────────────────

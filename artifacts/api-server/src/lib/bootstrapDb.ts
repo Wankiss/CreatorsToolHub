@@ -542,12 +542,14 @@ export async function bootstrapDb(): Promise<void> {
           set: {
             title: sql`excluded.title`,
             excerpt: sql`excluded.excerpt`,
-            content: sql`excluded.content`,
             coverImage: sql`excluded.cover_image`,
             faqSchema: sql`excluded.faq_schema`,
             readingTime: sql`excluded.reading_time`,
-            isPublished: sql`excluded.is_published`,
-            publishedAt: sql`excluded.published_at`,
+            // NOTE: isPublished and content are intentionally excluded here.
+            // Omitting isPublished prevents server restarts from overwriting
+            // manual publish/unpublish changes made via the admin API.
+            // Omitting content prevents seed data from overwriting posts
+            // that have been rewritten via the admin API.
           },
         });
     }

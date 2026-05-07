@@ -119,7 +119,11 @@ export function buildHtml(template: string, meta: PageMeta): string {
     bodyHtml = "",
   } = meta;
 
-  const fullTitle = `${title} | ${SITE_NAME}`;
+  // Avoid double-branding: some metaTitles are stored with "| CreatorsToolHub"
+  // already appended. Check case-insensitively before adding again.
+  const fullTitle = title.toLowerCase().includes(`| ${SITE_NAME.toLowerCase()}`)
+    ? title
+    : `${title} | ${SITE_NAME}`;
   const t = esc(fullTitle);
   const d = esc(description);
   const c = esc(canonical);
@@ -435,7 +439,10 @@ function extractVideoObjects(content: string, publishedAt: Date | null): object[
 
 /** Returns page-specific metadata for a given URL path, or null to fall back
  *  to the unmodified index.html (404-ish pages, admin, etc.). */
-export async function resolvePageMeta(pathname: string): Promise<PageMeta | null> {
+export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | null> {
+  // Hostinger/LiteSpeed adds a trailing slash via 301, so /blog → /blog/.
+  // Normalise once so all route checks below work regardless of trailing slash.
+  const pathname = rawPathname.length > 1 ? rawPathname.replace(/\/$/, "") : rawPathname;
 
   // ── Homepage (/') ──────────────────────────────────────────────────────────
 

@@ -312,6 +312,7 @@ function buildCategoryBody(
 function buildBlogPostBody(post: {
   title: string;
   excerpt: string;
+  content: string;
   author: string;
   publishedAt: Date;
   tags: string;
@@ -339,7 +340,10 @@ function buildBlogPostBody(post: {
     <p style="font-size:0.875rem;color:#94a3b8;margin-bottom:1.25rem">
       By ${esc(post.author)}${dateStr ? ` · ${dateStr}` : ""}
     </p>
-    <p style="${S.desc}">${esc(post.excerpt)}</p>
+
+    <article style="color:#1e293b;line-height:1.75;font-size:1rem;margin-top:1.5rem">
+      ${post.content}
+    </article>
 
     <p style="margin-top:2rem">
       <a href="/blog" style="${S.crumbA}">More Articles</a> ·
@@ -512,6 +516,7 @@ export async function resolvePageMeta(pathname: string): Promise<PageMeta | null
           metaTitle:       blogPostsTable.metaTitle,
           metaDescription: blogPostsTable.metaDescription,
           excerpt:         blogPostsTable.excerpt,
+          content:         blogPostsTable.content,
           coverImage:      blogPostsTable.coverImage,
           author:          blogPostsTable.author,
           publishedAt:     blogPostsTable.publishedAt,
@@ -605,6 +610,7 @@ export async function resolvePageMeta(pathname: string): Promise<PageMeta | null
         bodyHtml: buildBlogPostBody({
           title:       post.title,
           excerpt:     post.excerpt,
+          content:     post.content ?? "",
           author:      post.author,
           publishedAt: post.publishedAt,
           tags:        post.tags,

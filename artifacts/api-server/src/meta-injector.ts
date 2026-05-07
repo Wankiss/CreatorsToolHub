@@ -40,7 +40,10 @@ interface PageMeta {
 
 // ── Simple in-memory cache (slug → {meta, expiresAt}) ─────────────────────────
 
-const CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes
+// Blog post pages that can be updated by the admin: 15 min TTL.
+// Static pages (homepage, blog list) use CACHE_TTL_STATIC_MS instead.
+const CACHE_TTL_MS        = 15 * 60 * 1000; // 15 min — dynamic pages
+const CACHE_TTL_STATIC_MS = 60 * 60 * 1000; // 60 min — homepage / blog list
 
 interface CacheEntry {
   meta:      PageMeta;
@@ -56,8 +59,8 @@ function getCached(key: string): PageMeta | null {
   return entry.meta;
 }
 
-function setCached(key: string, meta: PageMeta): void {
-  cache.set(key, { meta, expiresAt: Date.now() + CACHE_TTL_MS });
+function setCached(key: string, meta: PageMeta, ttl = CACHE_TTL_MS): void {
+  cache.set(key, { meta, expiresAt: Date.now() + ttl });
 }
 
 // ── HTML helpers ──────────────────────────────────────────────────────────────
@@ -405,7 +408,7 @@ export async function resolvePageMeta(pathname: string): Promise<PageMeta | null
       canonical:   SITE_URL,
       bodyHtml,
     };
-    setCached(cacheKey, meta);
+    setCached(cacheKey, meta, CACHE_TTL_STATIC_MS);
     return meta;
   }
 
@@ -431,7 +434,7 @@ export async function resolvePageMeta(pathname: string): Promise<PageMeta | null
       canonical:   `${SITE_URL}/blog`,
       bodyHtml,
     };
-    setCached(cacheKey, meta);
+    setCached(cacheKey, meta, CACHE_TTL_STATIC_MS);
     return meta;
   }
 

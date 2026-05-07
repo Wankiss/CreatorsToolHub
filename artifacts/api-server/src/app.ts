@@ -6,8 +6,29 @@ import fs from "fs";
 import router from "./routes";
 import { fetchFromObjectStorage } from "./routes/upload.js";
 import { db, toolsTable, categoriesTable, blogPostsTable } from "@workspace/db";
-import { eq, inArray } from "drizzle-orm";
+import { eq, inArray, sql } from "drizzle-orm";
 import { resolvePageMeta, buildHtml } from "./meta-injector";
+
+// ── Startup warmup ────────────────────────────────────────────────────────────
+// Runs in the background immediately on server start. Goals:
+//   1. Establish a live DB connection before the first real request arrives,
+//      eliminating the TCP+TLS+Postgres-auth cold-start penalty (~100–300 ms).
+//   2. Pre-populate the in-memory page-meta cache for the highest-traffic pages
+//      (homepage, blog list) so they always hit cache on the first real request.
+(async () => {
+  try {
+    // Warm the connection pool with a trivial query
+    await db.execute(sql`SELECT 1`);
+    // Pre-warm the highest-traffic SSR pages into the meta cache
+    await Promise.all([
+      resolvePageMeta("/"),
+      resolvePageMeta("/blog"),
+    ]);
+    console.log("[warmup] DB pool and page-meta cache ready");
+  } catch (err) {
+    console.warn("[warmup] non-fatal warmup error:", err);
+  }
+})();
 
 const app: Express = express();
 
@@ -329,15 +350,17 @@ if (process.env.NODE_ENV === "production") {
       if (meta && indexTemplate) {
         const html = buildHtml(indexTemplate, meta);
         res.setHeader("Content-Type", "text/html; charset=utf-8");
-        // s-maxage=300  → Cloudflare edge caches the rendered HTML for 5 min.
-        //                  After that, the next request re-fetches from origin.
-        // max-age=0     → Browsers always revalidate with Cloudflare (not origin).
-        // stale-while-revalidate=30 → Serve stale from edge while re-fetching
-        //                             silently — zero-latency revalidation.
-        res.setHeader("Cache-Control", "public, max-age=0, s-maxage=300, stale-while-revalidate=30");
+        // Homepage and blog list change infrequently — give Cloudflare a 30-min
+        // edge cache so every global PoP serves from memory after the first hit.
+        // Blog posts are cached 10 min (content could be updated by admin).
+        // stale-while-revalidate silently refreshes the edge copy in the background
+        // so users never wait on a synchronous origin fetch after cache expiry.
+        const isStaticRoute = req.path === "/" || req.path === "/blog";
+        const sMaxAge = isStaticRoute ? 1800 : 600;
+        res.setHeader("Cache-Control", `public, max-age=0, s-maxage=${sMaxAge}, stale-while-revalidate=60`);
         res.send(html);
       } else {
-        res.setHeader("Cache-Control", "public, max-age=0, s-maxage=300, stale-while-revalidate=30");
+        res.setHeader("Cache-Control", "public, max-age=0, s-maxage=1800, stale-while-revalidate=60");
         res.sendFile(indexPath);
       }
     } catch (err) {

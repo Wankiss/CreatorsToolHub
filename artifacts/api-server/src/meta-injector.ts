@@ -380,6 +380,57 @@ function buildBlogListBody(posts: { title: string; slug: string; excerpt: string
 </div>`;
 }
 
+// ── VideoObject extractor ─────────────────────────────────────────────────────
+// Parses YouTube embeds from a blog post's HTML content and returns an array
+// of VideoObject schema objects — one per embedded video.
+//
+// The embed template (geo_update3.py / EMBED_TPL) produces this structure:
+//   <iframe ... allowfullscreen title="{title}" aria-label="{desc}"></iframe>
+//   <noscript><a href="https://www.youtube.com/watch?v={vid}" ...>
+//     Watch: {title} on YouTube</a></noscript>
+//
+// We parse (positionally):
+//   • video ID  + title   → noscript href + link text
+//   • description         → iframe aria-label (falls back to title)
+//
+// uploadDate uses the post's publishedAt — the closest date we have without
+// hitting the YouTube Data API.
+
+function extractVideoObjects(content: string, publishedAt: Date | null): object[] {
+  if (!content) return [];
+
+  // Extract video IDs and titles from noscript fallback links
+  const nsPattern =
+    /href="https:\/\/www\.youtube\.com\/watch\?v=([A-Za-z0-9_-]{11})"[^>]*>Watch: ([^<]+) on YouTube/g;
+
+  // Extract descriptions from iframe aria-label (last two attrs before ></iframe>)
+  const ariaPattern = /title="[^"]+" aria-label="([^"]+)"><\/iframe>/g;
+
+  const vids: Array<{ id: string; title: string }> = [];
+  const descs: string[] = [];
+
+  let m: RegExpExecArray | null;
+  while ((m = nsPattern.exec(content))  !== null) vids.push({ id: m[1], title: m[2] });
+  while ((m = ariaPattern.exec(content)) !== null) descs.push(m[1]);
+
+  if (vids.length === 0) return [];
+
+  const dateStr = publishedAt
+    ? new Date(publishedAt).toISOString().split("T")[0]
+    : new Date().toISOString().split("T")[0];
+
+  return vids.map(({ id, title }, i) => ({
+    "@context":     "https://schema.org",
+    "@type":        "VideoObject",
+    "name":         title,
+    "description":  descs[i] ?? title,
+    "thumbnailUrl": `https://img.youtube.com/vi/${id}/maxresdefault.jpg`,
+    "uploadDate":   dateStr,
+    "embedUrl":     `https://www.youtube.com/embed/${id}`,
+    "url":          `https://www.youtube.com/watch?v=${id}`,
+  }));
+}
+
 // ── Route resolvers ───────────────────────────────────────────────────────────
 
 /** Returns page-specific metadata for a given URL path, or null to fall back
@@ -602,6 +653,12 @@ export async function resolvePageMeta(pathname: string): Promise<PageMeta | null
           }
         } catch { /* malformed — skip */ }
       }
+
+      // VideoObject schema — parsed from YouTube embeds in the post content.
+      // Each embedded video gets its own VideoObject so AI systems (and Google's
+      // Video Search) can discover and cite them as first-class entities.
+      const videoObjects = extractVideoObjects(post.content ?? "", post.publishedAt);
+      for (const vo of videoObjects) schemas.push(vo);
 
       const meta: PageMeta = {
         title,

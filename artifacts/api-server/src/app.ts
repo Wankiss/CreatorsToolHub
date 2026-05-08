@@ -318,6 +318,22 @@ if (process.env.NODE_ENV === "production") {
     }),
   );
 
+  // Serve blog images directly from the source public/blog directory.
+  // This allows new images pushed to git to be served immediately without
+  // requiring a full Vite rebuild (dist/ is not committed to git, so newly
+  // added public/blog/ images would 404 until the next build without this).
+  const sourceBlogDir = path.resolve(
+    process.cwd(),
+    "artifacts/creator-toolbox/public/blog",
+  );
+  app.use(
+    "/blog",
+    express.static(sourceBlogDir, {
+      maxAge: "30d",
+      immutable: false,
+    }),
+  );
+
   // Serve favicon and other static root files with 7-day cache.
   app.use(
     express.static(staticDir, {

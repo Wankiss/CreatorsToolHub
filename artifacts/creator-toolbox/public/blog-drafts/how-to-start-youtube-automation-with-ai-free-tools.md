@@ -50,6 +50,10 @@ The distinction matters for one practical reason: monetization. YouTube's review
 
 For the detailed video-by-video creation process, the how to start a faceless YouTube channel with AI guide covers that in detail.
 
+<figure style="margin:2rem 0;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+<iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href='https://www.youtube.com/embed/PAFpFrnNiys?autoplay=1'><img src='https://img.youtube.com/vi/PAFpFrnNiys/maxresdefault.jpg' alt='How to Start YouTube Automation with 100% FREE AI Tools 2026 Guide'><span>&#9654;</span></a>" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="How to Start YouTube Automation with 100% FREE AI Tools (2026 Guide)" aria-label="Step-by-step tutorial showing how to build a YouTube automation channel using only free AI tools in 2026"></iframe>
+<noscript><a href="https://www.youtube.com/watch?v=PAFpFrnNiys" target="_blank" rel="noopener">Watch: How to Start YouTube Automation with 100% FREE AI Tools (2026 Guide) on YouTube</a></noscript>
+</figure>
 
 ---
 
@@ -190,6 +194,11 @@ The [how to use YouTube tags](/blog/how-to-use-youtube-tags-to-get-more-views) p
 
 [ORIGINAL DATA] Every CreatorsToolHub tool listed above is free with no account required and no usage cap, making this one of the only complete free stacks documented in a single workflow.
 
+<figure style="margin:2rem 0;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+<iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href='https://www.youtube.com/embed/ydk4Qlys6ZY?autoplay=1'><img src='https://img.youtube.com/vi/ydk4Qlys6ZY/maxresdefault.jpg' alt='How I Create ORIGINAL YouTube Automation Videos Using ONLY Free AI Tools'><span>&#9654;</span></a>" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="How I Create ORIGINAL YouTube Automation Videos Using ONLY Free AI Tools" aria-label="Creator walkthrough showing how to produce original YouTube automation videos with only free AI tools, no paid subscriptions required"></iframe>
+<noscript><a href="https://www.youtube.com/watch?v=ydk4Qlys6ZY" target="_blank" rel="noopener">Watch: How I Create ORIGINAL YouTube Automation Videos Using ONLY Free AI Tools on YouTube</a></noscript>
+</figure>
+
 ---
 
 ## How Long Does It Take to Make Money with YouTube Automation?
@@ -274,6 +283,11 @@ This is where most creators rush and lose rankings. Use the YouTube Description 
 **6. Schedule and Publish**
 
 Upload to YouTube Studio and schedule the video 24-48 hours ahead. Don't publish immediately after finishing. A scheduled publish gives you time to review the final thumbnail and title with fresh eyes.
+
+<figure style="margin:2rem 0;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+<iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href='https://www.youtube.com/embed/R-TPLCmtGKA?autoplay=1'><img src='https://img.youtube.com/vi/R-TPLCmtGKA/maxresdefault.jpg' alt='YouTube Automation with Free AI Tools Full Course'><span>&#9654;</span></a>" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="YouTube Automation with Free AI Tools | Full Course" aria-label="Complete YouTube automation course using free AI tools, covering channel setup, scripting, voiceover, editing, and monetization"></iframe>
+<noscript><a href="https://www.youtube.com/watch?v=R-TPLCmtGKA" target="_blank" rel="noopener">Watch: YouTube Automation with Free AI Tools — Full Course on YouTube</a></noscript>
+</figure>
 
 ---
 

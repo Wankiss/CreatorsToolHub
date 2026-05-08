@@ -6,9 +6,9 @@ date: "2026-05-08"
 lastUpdated: "2026-05-08"
 author: "Immanuels"
 tags: ["YouTube Automation", "AI Tools", "YouTube Growth", "Faceless YouTube", "Free Tools", "Beginner Guide"]
-coverImage: "/blog/youtube-automation-ai-workflow-hero.png"
+coverImage: "/api/uploads/383b6250-d873-457e-ae76-b869a79fe872.png"
 coverImageAlt: "A creator at a dark desk using an AI Video Generator tool to automate YouTube content, with neon icons showing the Create-Automate-Upload-Repeat pipeline above the monitor"
-ogImage: "/blog/youtube-automation-ai-workflow-hero.png"
+ogImage: "/api/uploads/383b6250-d873-457e-ae76-b869a79fe872.png"
 metaTitle: "YouTube Automation with AI: Free Tools (2026)"
 metaDescription: "83% of creators now use AI in their workflow, but most still pay for tools they don't need. Here's how to run a full YouTube automation channel free in 2026."
 readingTime: 16
@@ -18,7 +18,7 @@ faqSchema: true
 isPublished: false
 ---
 
-![A creator at a dark desk using an AI Video Generator tool to automate YouTube content, with neon icons showing the Create-Automate-Upload-Repeat pipeline above the monitor](/blog/youtube-automation-ai-workflow-hero.png)
+![A creator at a dark desk using an AI Video Generator tool to automate YouTube content, with neon icons showing the Create-Automate-Upload-Repeat pipeline above the monitor](/api/uploads/383b6250-d873-457e-ae76-b869a79fe872.png)
 
 ---
 
@@ -57,7 +57,7 @@ For the detailed video-by-video creation process, the how to start a faceless Yo
 
 Not all automation channels are the same. Most beginners think "faceless YouTube" means one thing: an AI voice reading a script over stock footage. In practice, there are four distinct channel types, and they differ significantly in RPM, difficulty, and the tools they need.
 
-![Side-by-side comparison of a Traditional Creator filming with camera versus an AI Creator using prompt-based AI Studio to generate YouTube videos automatically](/blog/youtube-automation-traditional-vs-ai-creator.png)
+![Side-by-side comparison of a Traditional Creator filming with camera versus an AI Creator using prompt-based AI Studio to generate YouTube videos automatically](/api/uploads/1856ce4a-831e-476c-89cc-c1296fbf81b4.png)
 
 ### 1. AI Narration Channels
 
@@ -126,7 +126,7 @@ To stay safe: add a genuine editorial point of view to every script, vary your i
 
 AI tools save creators approximately 3 hours per piece of content ([Synthesia/HubSpot, 2025](https://www.synthesia.io/post/ai-statistics)). Here's how to build your entire automation stack without spending a dollar.
 
-![YouTube automation workflow diagram showing the 6-step process: Niche Research, Script AI, Voiceover AI, Video AI, Thumbnail, and Upload connected by arrows](/blog/youtube-automation-workflow-steps.png)
+![YouTube automation workflow diagram showing the 6-step process: Niche Research, Script AI, Voiceover AI, Video AI, Thumbnail, and Upload connected by arrows](/api/uploads/843e3f6b-35c5-43a7-b3a6-e9833473487b.png)
 
 ### Step 1: Niche and Keyword Research
 

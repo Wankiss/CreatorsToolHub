@@ -45,6 +45,8 @@ const COVER_IMAGES: Record<string, string> = {
   "free-content-creation-tool-stack-beginners":                 "/blog/2049-tool-stack-canva-capcut-chatgpt.png",
   "instagram-hashtag-strategy-2026-get-more-reach":             "/blog/instagram-hashtag-strategy-2026-get-more-reach.png",
   "instagram-hashtags-not-working-2026":                        "/blog/instagram-hashtag-strategy-2026-get-more-reach.png",
+  // YouTube automation post
+  "how-to-start-youtube-automation-with-ai-free-tools":         "/blog/youtube-automation-ai-workflow-hero.png",
 };
 
 async function run() {

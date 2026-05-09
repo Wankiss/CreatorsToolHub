@@ -227,7 +227,7 @@ DATABASE_URL=<value> pnpm tsx lib/db/src/update-cover-images.ts
 | Blog admin API | `POST/PUT /api/admin/blog` | No auth |
 | Image upload | `POST /api/uploads/image` | Multipart form |
 | Image serve | `/api/uploads/{uuid}.png` | Object Storage |
-| Deployed on | Replit (manual Deploy button) | |
+| Deployed on | Hostinger (VPS) | |
 
 ---
 

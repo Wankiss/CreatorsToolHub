@@ -1,6 +1,9 @@
 /**
- * Scraper routes — YouTube tag extraction runs directly in Node.js.
- * No Python service required. Uses fetch + regex on YouTube's page source.
+ * Scraper routes — YouTube tag extraction.
+ *
+ * Strategy (in order):
+ *  1. YouTube Data API v3 — reliable from any IP, requires YOUTUBE_API_KEY env var.
+ *  2. HTML scrape fallback — works on residential IPs; may return 0 tags from VPS.
  */
 
 import { Router, type IRouter } from "express";
@@ -50,13 +53,58 @@ function parseTags(html: string): string[] {
 }
 
 function parseTitle(html: string): string {
-  // Grab the first "title":"..." that looks like a real video title (5–300 chars)
   const match = html.match(/"title"\s*:\s*"([^"]{5,300})"/);
   if (match) return match[1];
-  // Fallback: <title> tag
   const titleTag = html.match(/<title>(.+?)<\/title>/s);
   if (titleTag) return titleTag[1].replace(/ - YouTube$/, "").trim();
   return "";
+}
+
+// ── Strategy 1: YouTube Data API v3 ──────────────────────────────────────────
+
+async function fetchViaDataApi(
+  videoId: string,
+  apiKey: string,
+): Promise<{ title: string; tags: string[] } | null> {
+  const url =
+    `https://www.googleapis.com/youtube/v3/videos` +
+    `?id=${encodeURIComponent(videoId)}&part=snippet&key=${encodeURIComponent(apiKey)}`;
+
+  const resp = await fetch(url, { signal: AbortSignal.timeout(10_000) });
+  if (!resp.ok) {
+    console.error(`[scraper] YouTube Data API returned ${resp.status}`);
+    return null;
+  }
+
+  const data = (await resp.json()) as {
+    items?: Array<{ snippet?: { title?: string; tags?: string[] } }>;
+  };
+
+  const item = data.items?.[0];
+  if (!item) return null; // video not found or private
+
+  return {
+    title: item.snippet?.title ?? "",
+    tags: item.snippet?.tags ?? [],
+  };
+}
+
+// ── Strategy 2: HTML scrape fallback ─────────────────────────────────────────
+
+async function fetchViaHtmlScrape(
+  videoId: string,
+): Promise<{ title: string; tags: string[] } | null> {
+  const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+  const resp = await fetch(watchUrl, {
+    headers: YT_HEADERS,
+    signal: AbortSignal.timeout(20_000),
+  });
+
+  if (resp.status === 404) return null;
+  if (!resp.ok) return null;
+
+  const html = await resp.text();
+  return { title: parseTitle(html), tags: parseTags(html) };
 }
 
 // ── Route: GET /api/scraper/extract-tags?url=<youtube-url> ───────────────────
@@ -82,39 +130,59 @@ router.get("/scraper/extract-tags", async (req, res) => {
     });
   }
 
-  const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
-
   try {
-    const resp = await fetch(watchUrl, {
-      headers: YT_HEADERS,
-      signal: AbortSignal.timeout(20_000),
-    });
-
-    if (resp.status === 404) {
+    // ── Path A: YouTube Data API v3 (preferred — works from any IP) ──────────
+    const apiKey = process.env.YOUTUBE_API_KEY;
+    if (apiKey) {
+      const result = await fetchViaDataApi(videoId, apiKey);
+      if (result !== null) {
+        return res.json({
+          videoId,
+          title: result.title,
+          tags: result.tags,
+          count: result.tags.length,
+          source: "api",
+        });
+      }
+      // null means video not found / private — surface that error
       return res.status(404).json({
         error: "Video not found. It may be private, deleted, or age-restricted.",
       });
     }
-    if (!resp.ok) {
-      return res.status(502).json({
-        error: `YouTube returned status ${resp.status}. Please try again.`,
+
+    // ── Path B: HTML scrape (fallback, residential IPs only) ─────────────────
+    console.warn(
+      "[scraper] YOUTUBE_API_KEY not set — falling back to HTML scrape. " +
+        "This will return 0 tags on VPS/datacenter servers.",
+    );
+
+    const result = await fetchViaHtmlScrape(videoId);
+    if (result === null) {
+      return res.status(404).json({
+        error: "Video not found. It may be private, deleted, or age-restricted.",
       });
     }
 
-    const html = await resp.text();
-    const tags = parseTags(html);
-    const title = parseTitle(html);
-
-    return res.json({ videoId, title, tags, count: tags.length });
+    return res.json({
+      videoId,
+      title: result.title,
+      tags: result.tags,
+      count: result.tags.length,
+      source: "scrape",
+    });
 
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
     console.error("[scraper] extract-tags error:", msg);
 
     if (msg.includes("timeout") || msg.includes("abort")) {
-      return res.status(504).json({ error: "YouTube took too long to respond. Please try again." });
+      return res
+        .status(504)
+        .json({ error: "YouTube took too long to respond. Please try again." });
     }
-    return res.status(502).json({ error: "Could not reach YouTube. Please try again." });
+    return res
+      .status(502)
+      .json({ error: "Could not reach YouTube. Please try again." });
   }
 });
 

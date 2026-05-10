@@ -16,11 +16,11 @@ import { Link } from "wouter";
 const FAQ_ITEMS = [
   {
     q: "What is a TikTok script and why do you need one?",
-    a: "A TikTok script is a structured written plan for your video that outlines every spoken line, visual cue, and section timing before you start filming. Scripting your TikTok videos is one of the highest-leverage improvements most creators can make because it eliminates filler words, ensures you hit your key point within the attention window, and allows you to engineer the hook, body, and CTA for maximum retention. Unscripted videos typically run 20–40% longer than necessary, and that extra length directly reduces completion rate — TikTok's most important content quality signal. A tight script keeps you on time, on message, and on algorithm.",
+    a: "A TikTok script is a structured written plan for your video that outlines every spoken line, visual cue, and section timing before you start filming. Scripting is one of the highest-leverage improvements most creators can make because it eliminates filler words, ensures you hit your key point within the attention window, and lets you engineer the hook, body, and CTA for maximum retention. TikTok for Business documentation identifies completion rate — the percentage of viewers who watch to the end — as a primary content quality signal that drives distribution. A tight script eliminates the pacing gaps and unearned padding that cause mid-video drop-off, keeping completion rate high and giving the algorithm the signal it needs to push your content wider.",
   },
   {
     q: "How long should a TikTok video script be?",
-    a: "Script length should match your video's target duration. For a 15-second video, write 30–50 words (2.5–3 words per second at a comfortable speaking pace). For a 30-second video, write 60–90 words. For a 60-second video, write 120–160 words. For a 90-second video, write 180–240 words. The most common scripting mistake is writing too much — a 200-word script for a 30-second video forces rushed delivery, which hurts watch time. Our generator auto-calibrates word count to your selected duration so you always have a script that fits. For monetization eligibility on TikTok's creator program, aim for 60–90 second videos consistently.",
+    a: "Script length should match your video's target duration. For a 15-second video, write 30–50 words (2.5–3 words per second at a comfortable speaking pace). For a 30-second video, write 60–90 words. For a 60-second video, write 120–160 words. For a 90-second video, write 180–240 words. The most common scripting mistake is writing too much — a 200-word script for a 30-second video forces rushed delivery, which hurts watch time. Our generator auto-calibrates word count to your selected duration so you always have a script that fits. For Creator Rewards Program eligibility — TikTok's primary monetization tier, which requires a minimum of 10,000 followers and 100,000 views in the past 30 days — videos must be at least 60 seconds long (TikTok Help Center). Aim for 60–90 seconds consistently if monetization is a goal.",
   },
   {
     q: "What makes a TikTok hook go viral?",
@@ -28,7 +28,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What is a re-hook and why does it matter for 60-second TikToks?",
-    a: "A re-hook is a secondary attention-retention line placed at approximately the 15–20 second mark of a longer video to recapture viewers who survived the opening hook but are considering scrolling away. Viewer dropout on TikTok is highest in the first 3 seconds, drops sharply, and then peaks again around the 15–20 second mark as viewers evaluate whether the video is delivering on its hook's promise. A re-hook at this point — typically a preview of the most valuable or surprising information coming later in the video — resets engagement and pushes completion rate significantly higher. For 60-second scripts, our generator includes at least one re-hook in the body section automatically.",
+    a: "A re-hook is a secondary attention-retention line placed at approximately the 15–20 second mark of a longer video to recapture viewers who survived the opening hook but are considering scrolling away. Viewer dropout on TikTok is highest in the first 3 seconds, drops sharply, and then is widely observed in TikTok Analytics around the 15–20 second mark as viewers evaluate whether the video is delivering on its hook's promise. A re-hook at this point — typically a preview of the most valuable or surprising information coming later in the video — resets engagement and supports a higher completion rate. For 60-second scripts, our generator includes at least one re-hook in the body section automatically.",
   },
   {
     q: "What is the best TikTok video structure?",
@@ -49,6 +49,10 @@ const FAQ_ITEMS = [
   {
     q: "What is the 'open loop' technique in TikTok scripts?",
     a: "The open loop technique is a scriptwriting method where you introduce a question, promise, or story setup early in the video but deliberately withhold the resolution until near the end. For example: opening with 'I made one change to my morning routine and it increased my productivity by 40% — I'll tell you exactly what it was in a second' creates an unresolved cognitive loop that the viewer's brain is uncomfortable leaving open. The psychological discomfort of unanswered questions — known as the Zeigarnik effect — drives viewers to watch longer in search of resolution, pushing completion rate higher. Our script generator builds open loops into the hook and re-hook sections for 60-second and longer scripts automatically.",
+  },
+  {
+    q: "What are the TikTok Creator Rewards Program requirements for monetization?",
+    a: "TikTok's Creator Rewards Program — the platform's primary monetization tier — requires creators to be at least 18 years old, hold a minimum of 10,000 followers, and have earned at least 100,000 video views in the past 30 days. Critically for scripting purposes, videos must be at least 60 seconds long to qualify for Creator Rewards payouts — videos shorter than 60 seconds are ineligible regardless of view count or engagement. The program pays based on views and engagement rate, with rates varying by niche and region. To check eligibility and apply, go to TikTok Studio → Creator Tools → Creator Rewards Program. This 60-second minimum is the primary reason our generator defaults to 60 seconds as the recommended duration and why scripting to that length consistently is the most direct path to monetization on the platform (TikTok Help Center, Creator Rewards Program).",
   },
   {
     q: "Is this TikTok Script Generator free?",
@@ -256,6 +260,9 @@ export function TikTokScriptGeneratorTool() {
               <Zap className="w-4 h-4 text-primary" /> How This TikTok Script Generator Works
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              TikTok reached 1.7 billion monthly active users globally as of 2024 (Statista), making it one of the largest content distribution platforms ever built. Unlike YouTube — which ranks content heavily on keyword metadata in titles and tags — TikTok distributes entirely on behavioral signals: completion rate, re-watches, shares, and saves. Script structure is the single most controllable lever a creator has over those signals.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               This free AI-powered TikTok Script Generator produces complete script variations per generation,
               each using a different proven viral formula: "Stop Doing This," "Nobody Tells You," "Here's
               How I Did It," "If You're [Audience]," "3 Mistakes," and "This Changed Everything." Scripts
@@ -286,12 +293,12 @@ export function TikTokScriptGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> Why Script Structure Determines TikTok Performance
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              TikTok's algorithm has one primary objective: maximize total time spent on the platform. To
-              achieve this, it uses completion rate — the percentage of viewers who watch your video to the
-              end — as its most important content quality signal. A video that 60% of viewers watch to
-              completion will be distributed exponentially wider than a video that 30% complete, even if
-              both videos have the same total view count.
+              TikTok for Business documentation identifies completion rate — the percentage of viewers who watch a video all the way through — as the platform's primary content quality signal for distribution decisions. A video that 60% of viewers complete will reach exponentially more accounts than one that 30% complete, even with the same initial seeding. Script structure is the direct mechanism through which creators influence that metric.
             </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              TikTok's algorithm has one primary objective: maximize total time spent on the platform. To
+              achieve this, it continuously promotes content that keeps viewers watching — and demotes content
+              that causes drop-off. Completion rate is the clearest proxy for that objective.</p>
             <p className="text-muted-foreground leading-relaxed mb-3">
               This is why structure matters more than production quality on TikTok. A well-scripted video
               filmed on a phone will consistently outperform a poorly structured video shot on professional
@@ -315,6 +322,29 @@ export function TikTokScriptGeneratorTool() {
               </Link>{" "}
               to find the trending concepts worth scripting.
             </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Search className="w-4 h-4 text-primary" /> TikTok as a Search Engine: Why Your Scripts Need to Be Discoverable
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              An Adobe 2022 survey found that 40% of Gen Z users prefer TikTok or Instagram over Google for everyday search queries — a shift that has accelerated as TikTok has expanded its in-app search bar and keyword indexing. TikTok now indexes spoken words via auto-captions, making the specific language in your script a direct factor in whether your video surfaces for TikTok search queries in your niche.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              High-performing scripts are now dual-purpose: engineered for FYP completion rate (algorithmic distribution) and optimized for TikTok Search (keyword discoverability). The practical implication: include your target search phrase naturally in the first five seconds of your script — the hook — where TikTok's auto-caption indexing assigns the highest relevance weight. A script built around "how to pay off credit card debt fast" stays focused and appears in TikTok search results when users type that exact phrase, compounding reach well beyond the initial FYP push.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Writing with a search term in mind also tightens the script. A focused topic produces a tighter hook, fewer pacing gaps, and a more useful body — all of which improve completion rate and therefore algorithmic distribution. Search optimization and FYP optimization pull in the same direction.
+            </p>
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Sources:</strong>{" "}
+                <a href="https://www.statista.com/statistics/1327116/number-of-monthly-active-tiktok-users-worldwide/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Statista 2024 — TikTok 1.7B Monthly Active Users</a>{" · "}
+                <a href="https://www.tiktok.com/business/en-US/blog" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok for Business — Completion Rate as Primary Distribution Signal</a>{" · "}
+                <a href="https://support.tiktok.com/en/using-tiktok/creator-tools/creator-rewards-program" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Help Center — Creator Rewards Program Requirements</a>{" · "}
+                <a href="https://business.adobe.com/blog/perspectives/adobe-2022-future-of-creativity-study" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Adobe 2022 — Gen Z Search Preferences</a>
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -358,11 +388,11 @@ export function TikTokScriptGeneratorTool() {
         </div>
         <div className="space-y-3">
           {[
-            { n: 1, tip: "Hook in the first 0.5 seconds — TikTok data shows 45% of viewers drop off in the first 3 seconds; your opening line is the single most important part of the script." },
+            { n: 1, tip: "Hook in the first 0.5 seconds — TikTok for Business identifies completion rate as the platform's primary distribution signal, and your opening line directly determines how many viewers stay long enough to drive that metric. No other script element matters more." },
             { n: 2, tip: "Script 60–90 second videos as your sweet spot — this length gets full credit in TikTok's monetization program and maintains strong completion rates." },
-            { n: 3, tip: "Use a pattern interrupt every 15 seconds — a visual change, cut, or new point resets viewer attention and pushes completion rates above 80%." },
+            { n: 3, tip: "Use a pattern interrupt every 15 seconds — a visual change, cut, or new talking point resets viewer attention and is one of the most reliable structural techniques for improving completion rate on 60-second and longer videos." },
             { n: 4, tip: "Write scripts in second-person ('You need to know this') — direct address keeps viewers engaged and drives more saves and shares than third-person narration." },
-            { n: 5, tip: "End every script with a loop-back to the opening hook — viewers who watch to the end and replay count as double-weight for the algorithm." },
+            { n: 5, tip: "End every script with a loop-back to the opening hook — viewers who watch to the end and immediately re-watch are signaling strong content quality to TikTok's algorithm, which uses re-watch behavior as a positive distribution signal." },
             { n: 6, tip: "Prep a 'Part 2 bait' ending — 'I'll share the second step tomorrow' drives anticipation comments that boost your video for 24–48 hours after posting." },
             { n: 7, tip: "Script your pitch or CTA at the 80% mark — viewers who make it that far are your most engaged fans and far more likely to click, follow, or buy." },
           ].map(({ n, tip }) => (

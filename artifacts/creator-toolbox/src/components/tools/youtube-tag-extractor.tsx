@@ -34,28 +34,28 @@ function extractVideoId(rawUrl: string): string | null {
 
 const FAQ_ITEMS = [
   {
-    q: "What are YouTube tags and do they still matter in 2026?",
-    a: "YouTube tags are keywords you add when uploading a video to help YouTube understand the topic and context of your content. In 2026, tags carry less algorithmic weight than your title and description, but they still help with discovery in two specific ways: they improve rankings for misspelled search queries and help YouTube's system categorize niche content where the title alone is ambiguous. Seeing a competitor's tags lets you understand their full keyword strategy — not just what's in their title.",
+    q: "Do YouTube tags still matter in 2026?",
+    a: "Tags play a supporting role, not a starring one. YouTube's own help documentation states they have a \"minimal\" impact on discovery — your title, thumbnail, and description carry far more weight. Where tags still earn their place: they measurably improve rankings for misspelled search queries, and a Briggsby study analyzing 3.8 million data points found videos using 200–300 characters of tags outperformed those with sparse or no tags, particularly in the first three months after upload.",
   },
   {
     q: "Are YouTube tags public? Can anyone see them?",
-    a: "YouTube removed visible tags from the public video page in 2021, so viewers cannot see them by scrolling the page. However, the tags are still embedded in the page's source code inside YouTube's ytInitialData JavaScript object. This tool reads that source data and surfaces the tags for any public video — the same method used by professional SEO tools like TubeBuddy and vidIQ.",
+    a: "Tags have been hidden from the public watch page since August 2012, when YouTube removed them to stop algorithm abuse — their words, not ours. The tags still exist in the page's source code inside YouTube's ytInitialData JavaScript object. This extractor reads that raw source data and returns the full tag list for any public video, the same underlying method used by paid tools like TubeBuddy and vidIQ. You just don't have to pay for it here.",
   },
   {
     q: "Why does this video show zero tags?",
-    a: "Many YouTube creators — including some of the largest channels — choose not to add any tags to their videos. This is a deliberate strategy: channels with strong brand recognition rely on titles, thumbnails, and watch signals rather than keyword tags. A zero-tag result is not an error. It means the creator uploaded that video without adding keywords in YouTube Studio.",
+    a: "Zero tags is not an error — it's a valid creator choice. Many large channels skip tags entirely and rely on title keywords, thumbnail click-through rate, and watch time signals to rank. According to a Briggsby study of 100,000 YouTube videos, roughly one-third of top-ranked videos don't include the exact target keyword in their tags at all. If a competitor shows zero tags, their growth engine is elsewhere: check their title structure and thumbnail strategy instead.",
   },
   {
     q: "How do I use competitor tags to grow my channel?",
-    a: "Extract tags from the top 3–5 videos ranking for your target keyword. Look for tags that appear across multiple competitor videos — these are the keywords YouTube's system has already validated as relevant to that topic. Add the most relevant ones to your own video. Do not copy every tag verbatim; use them as a research signal to identify the keyword variations and related topics you should be targeting.",
+    a: "Pull tags from the top 3–5 videos ranking for your target keyword. Cross-reference the lists and flag tags appearing in two or more of those videos — those are terms YouTube's algorithm has already validated as relevant to that search query. Add the most accurate ones to your own upload. Don't copy blindly; tags that don't match your actual video content can confuse YouTube's categorization system and hurt rather than help. Use them as a keyword research signal, not a copy-paste shortcut.",
   },
   {
     q: "How many tags should I add to my YouTube video?",
-    a: "YouTube allows up to 500 characters across all tags combined. Most high-performing videos use 8–15 tags covering: the exact target keyword, 2–3 keyword variations, 2–3 broader topic tags, and 1–2 channel-brand tags. Fewer focused tags outperform a long list of loosely related ones — YouTube's system weighs tag relevance against your video's actual content.",
+    a: "A Briggsby analysis of 100,000 YouTube videos found the 31–40 distinct tag range correlated with the strongest view performance, with optimal total character usage between 200–300 characters. YouTube Studio enforces a 500-character cap across all tags on a video. In practice: use enough tags to cover your primary keyword, 2–3 variations, 2–3 broader topic terms, and your channel brand — then stop. Padding with loosely related tags does not help and may dilute relevance signals.",
   },
   {
     q: "Does this tool work on YouTube Shorts?",
-    a: "Yes. Paste any YouTube Shorts URL (youtube.com/shorts/VIDEO_ID) into the extractor. Shorts support the same tag system as regular videos, though many Shorts creators rely on hashtags in the description instead. If a Shorts video shows zero tags, check the description for hashtags — those serve a similar discovery function for short-form content.",
+    a: "Yes. Paste any YouTube Shorts URL (youtube.com/shorts/VIDEO_ID) and the extractor pulls the full tag list the same way it does for long-form videos. Shorts support the same tag system, though many Shorts creators skip tags and use hashtags in the description instead — hashtags function as a separate discovery signal for short-form content. If a Shorts video returns zero tags, look at the first comment and description for hashtags to understand their keyword targeting.",
   },
 ];
 
@@ -293,13 +293,38 @@ export function YouTubeTagExtractorTool() {
         <h2 className="flex items-center gap-2 text-2xl font-bold font-display border-b border-border pb-4 mb-6">
           <HelpCircle className="text-primary w-6 h-6" /> How to Use the YouTube Tag Extractor
         </h2>
+        <p className="text-muted-foreground leading-relaxed mb-6 not-prose">
+          YouTube tags have been hidden from the public watch page since 2012 — but they're still
+          embedded in every video's source code. This tool reads that data in seconds. Here's
+          how to turn a competitor's tag list into a keyword research advantage.
+        </p>
         <ol className="space-y-4 not-prose">
           {[
-            { step: "1", title: "Copy the YouTube video URL", desc: "Go to any YouTube video — including a competitor's video. Copy the URL from the address bar, or right-click the video and select 'Copy video URL'." },
-            { step: "2", title: "Paste it into the tool", desc: "Paste the URL into the input field above. The extractor accepts youtube.com/watch?v=..., youtu.be/... short links, YouTube Shorts URLs, and embed links." },
-            { step: "3", title: "Click Extract Tags", desc: "The tool fetches the video's page and reads the hidden keyword data embedded in YouTube's source code. Results appear in under 3 seconds for most videos." },
-            { step: "4", title: "Copy the tags you want to use", desc: "Click any individual tag chip to copy it, or use 'Copy All Tags' to get the full list as a comma-separated string ready to paste into YouTube Studio." },
-            { step: "5", title: "Use the tags as keyword research", desc: "Look for tags that appear across multiple top-ranking videos for your target keyword. Those are the terms YouTube's algorithm has already validated as relevant. Use the most fitting ones in your own videos." },
+            {
+              step: "1",
+              title: "Find a top-ranking competitor video",
+              desc: "Search YouTube for your target keyword and open one of the top 3–5 results. These are the videos YouTube's algorithm has already decided are the most relevant — their tags are validated signals, not guesses.",
+            },
+            {
+              step: "2",
+              title: "Copy the video URL",
+              desc: "Copy the URL from your browser's address bar, or right-click the video and choose 'Copy video URL'. The extractor accepts standard watch links (youtube.com/watch?v=...), short links (youtu.be/...), YouTube Shorts URLs, and embed links.",
+            },
+            {
+              step: "3",
+              title: "Paste and click Extract Tags",
+              desc: "Paste the URL into the field above and click Extract Tags. The tool reads the keyword metadata embedded in YouTube's page source and returns the complete tag list — the same data that powers paid tools like TubeBuddy and vidIQ.",
+            },
+            {
+              step: "4",
+              title: "Copy the tags you need",
+              desc: "Click any tag chip to copy it individually, or hit 'Copy All Tags' for the full comma-separated list. That format pastes directly into the Tags field in YouTube Studio without any reformatting.",
+            },
+            {
+              step: "5",
+              title: "Cross-reference across multiple videos",
+              desc: "Run the tool on the top 3–5 ranking videos for your keyword. Tags appearing in two or more of those videos are the terms YouTube has already validated as relevant to that search query — prioritize those when tagging your own upload.",
+            },
           ].map(({ step, title, desc }) => (
             <li key={step} className="flex gap-4">
               <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">
@@ -319,26 +344,82 @@ export function YouTubeTagExtractorTool() {
         <h2 className="flex items-center gap-2 text-2xl font-bold font-display border-b border-border pb-4 mb-6">
           <FileText className="text-primary w-6 h-6" /> About the YouTube Tag Extractor
         </h2>
-        <div className="space-y-4 not-prose">
+        <div className="space-y-5 not-prose">
+
+          {/* Answer-first opener with citation capsule */}
           <p className="text-muted-foreground leading-relaxed">
-            YouTube removed visible tags from the public video interface in 2021, making it
-            impossible for creators to see a competitor's full keyword strategy just by watching
-            their videos. The tags are still there — embedded in the page's source code inside
-            YouTube's <code className="bg-muted px-1.5 py-0.5 rounded text-sm">ytInitialData</code> object —
-            but reading them requires a tool that can access and parse that raw data.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            This extractor reads that source data directly and returns the complete tag list for
-            any public YouTube video. No browser extension needed, no account required, and no
-            limit on how many videos you can check. The same underlying data powers paid tools
-            like TubeBuddy and vidIQ — this tool gives you that same extraction for free.
+            YouTube hid tags from the public watch page in August 2012 to stop creators from
+            keyword-stuffing their way into unrelated search results — Shiva Rajaraman, then
+            YouTube's Director of Product Management,{" "}
+            <a
+              href="https://blog.youtube/news-and-events/tags-removed-from-video-watch-pages/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              confirmed the decision on the YouTube Creator Blog
+            </a>
+            . The tags didn't disappear — they're still embedded in every video's page source
+            inside YouTube's <code className="bg-muted px-1.5 py-0.5 rounded text-sm">ytInitialData</code> JavaScript
+            object — they just became invisible to the naked eye.
           </p>
 
-          <div className="grid sm:grid-cols-3 gap-4 mt-6">
+          <p className="text-muted-foreground leading-relaxed">
+            This extractor reads that raw source data and returns the complete tag list for any
+            public YouTube video. No browser extension, no account, no limit on how many videos
+            you can check. Paid tools like TubeBuddy and vidIQ use the same underlying data —
+            the difference is we don't charge a monthly subscription for it.
+          </p>
+
+          {/* Why tags still matter — sourced */}
+          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-5">
+            <p className="font-semibold text-foreground mb-2 text-sm">Why tags still deserve attention in 2026</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              YouTube's official documentation states that tags "play a minimal role" in discovery
+              compared to your title and thumbnail. But "minimal" isn't zero.{" "}
+              <a
+                href="https://www.briggsby.com/reverse-engineering-youtube-search"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                A Briggsby study analyzing 3.8 million data points across 100,000 YouTube videos
+              </a>{" "}
+              found that videos using 200–300 characters of tags outperformed those with sparse
+              tags — and that tags provide "notable ranking benefits within the first three months"
+              after a video goes live, particularly for new channels without an established
+              watch-time history.{" "}
+              <a
+                href="https://backlinko.com/youtube-ranking-factors"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                Backlinko's analysis of 1.3 million YouTube videos
+              </a>{" "}
+              also confirms that keyword-matched tags show a "very small but measurable" correlation
+              with rankings. Small signal, real signal.
+            </p>
+          </div>
+
+          {/* Feature cards */}
+          <div className="grid sm:grid-cols-3 gap-4">
             {[
-              { icon: <Zap className="w-5 h-5" />, title: "Instant Results", desc: "Tags extracted from YouTube's page source in under 3 seconds — no waiting, no queues." },
-              { icon: <Shield className="w-5 h-5" />, title: "No Account Needed", desc: "Paste any public YouTube URL and get the tags. No sign-up, no extension, no API key." },
-              { icon: <TrendingUp className="w-5 h-5" />, title: "Real Competitor Data", desc: "See the exact keywords your top-ranking competitors are targeting — not AI guesses." },
+              {
+                icon: <Zap className="w-5 h-5" />,
+                title: "Real Tag Data",
+                desc: "Tags pulled directly from YouTube's page source — the same data source used by TubeBuddy and vidIQ, at no cost.",
+              },
+              {
+                icon: <Shield className="w-5 h-5" />,
+                title: "No Account Needed",
+                desc: "Paste any public YouTube URL and get the full tag list. No sign-up, no browser extension, no login required.",
+              },
+              {
+                icon: <TrendingUp className="w-5 h-5" />,
+                title: "Competitor Intelligence",
+                desc: "See the exact keyword strategy behind any top-ranking video — terms that don't appear in the title or description.",
+              },
             ].map(({ icon, title, desc }) => (
               <div key={title} className="bg-muted/40 rounded-2xl p-5 border border-border">
                 <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3">
@@ -350,32 +431,64 @@ export function YouTubeTagExtractorTool() {
             ))}
           </div>
 
-          <div className="bg-muted/40 border border-border rounded-2xl p-5 mt-2">
-            <p className="font-semibold text-foreground mb-2 flex items-center gap-2">
+          {/* When to use */}
+          <div className="bg-muted/40 border border-border rounded-2xl p-5">
+            <p className="font-semibold text-foreground mb-3 flex items-center gap-2">
               <ListChecks className="w-4 h-4 text-primary" /> When to use this tool
             </p>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> Before uploading a new video — extract tags from the top 3 ranking videos for your target keyword</li>
-              <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> Auditing older videos — check if your tags still match how YouTube categorises similar content</li>
-              <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> Competitor research — understand the full keyword scope of channels growing faster than yours</li>
-              <li className="flex items-start gap-2"><span className="text-primary mt-0.5">→</span> Finding keyword variations — tags often reveal long-tail phrases not visible in a video's title</li>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-0.5 shrink-0">→</span>
+                <span><strong className="text-foreground">Before uploading</strong> — pull tags from the top 3 ranking videos for your target keyword and cross-reference for overlap</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-0.5 shrink-0">→</span>
+                <span><strong className="text-foreground">Auditing existing videos</strong> — check whether your current tags still match how YouTube categorizes similar high-performing content</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-0.5 shrink-0">→</span>
+                <span><strong className="text-foreground">Competitor research</strong> — understand the full keyword scope of a channel growing faster than yours in your niche</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-0.5 shrink-0">→</span>
+                <span><strong className="text-foreground">Finding long-tail variations</strong> — tags often expose phrasing that never appears in titles, revealing how creators are capturing secondary search traffic</span>
+              </li>
             </ul>
           </div>
 
+          {/* Competition context stat */}
+          <div className="border-l-4 border-primary/40 pl-4 py-1">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              <strong className="text-foreground">Why this matters at scale:</strong>{" "}
+              <a
+                href="https://www.tubefilter.com/2019/05/07/number-hours-video-uploaded-to-youtube-per-minute/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                500 hours of video are uploaded to YouTube every single minute
+              </a>{" "}
+              — that's 720,000 hours of new content per day. In that environment, every metadata
+              signal you control is worth optimizing. Tags are free to use and take two minutes
+              to research. There's no good reason to skip them.
+            </p>
+          </div>
+
+          {/* Internal links */}
           <p className="text-muted-foreground leading-relaxed text-sm">
             For a complete YouTube SEO workflow, pair this tool with the{" "}
             <Link href="/tools/youtube-tag-generator" className="text-primary hover:underline font-medium">
               YouTube Tag Generator
             </Link>{" "}
-            (to build your own tag list from scratch),{" "}
+            to build your own tag list from scratch,{" "}
             <Link href="/tools/youtube-keyword-generator" className="text-primary hover:underline font-medium">
               YouTube Keyword Generator
             </Link>{" "}
-            (to validate search demand), and the{" "}
+            to validate search demand before you film, and the{" "}
             <Link href="/tools/youtube-seo-score-checker" className="text-primary hover:underline font-medium">
               YouTube SEO Score Checker
             </Link>{" "}
-            (to grade your video's full metadata before upload).
+            to grade your full video metadata before upload.
           </p>
         </div>
       </section>

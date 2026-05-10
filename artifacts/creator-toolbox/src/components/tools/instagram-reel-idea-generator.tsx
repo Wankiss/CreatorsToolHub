@@ -53,6 +53,10 @@ const FAQ_ITEMS = [
     q: "Is this Instagram Reel Idea Generator free to use?",
     a: "Yes — this Instagram Reel Idea Generator is completely free with no account required, no usage limits, and no premium tier. Enter your niche, audience, goal, experience level, and tone, and the AI generates 12 specific, filmable Reel ideas with hooks, formats, and filming tips in seconds. You can copy individual ideas or all ideas at once and regenerate as many times as needed for a fresh set. All 9 Reel format types, all 15 niches, all 4 goal modes, all 3 experience levels, and all 5 tone options are available on every generation at no cost.",
   },
+  {
+    q: "What signals does Instagram's algorithm use to rank and distribute Reels?",
+    a: "According to the Meta Transparency Center, Instagram ranks Reels using three categories of signals: watch-through signals (how much of the Reel viewers watch, including 3-second video views and full watch-through rate), engagement signals (likes, comments, saves, and shares), and video information (audio track used, captions, and hashtags). Of these, watch-through signals carry the most weight for non-follower distribution — meaning a Reel idea that keeps viewers watching to the end is more algorithmically valuable than one that generates comments but loses viewers at the 10-second mark. This is why idea structure, hook quality, and format selection matter before filming: they directly determine whether viewers watch through or scroll past in the first place. Instagram's Reels ranking documentation is available at the Meta Transparency Center (transparency.fb.com).",
+  },
 ];
 
 const FAQ_SCHEMA = {
@@ -251,6 +255,13 @@ export function InstagramReelIdeaGeneratorTool() {
               <Zap className="w-4 h-4 text-primary" /> Why Most Reel Ideas Fail Before They're Filmed
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              Instagram Reels are the primary surface for non-follower distribution, according to the{" "}
+              <a href="https://transparency.fb.com/features/ranking-and-content/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Meta Transparency Center</a>,
+              which documents watch-through rate as the leading ranking signal Instagram uses to push Reels beyond your existing follower base (2026). With{" "}
+              <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">2 billion monthly active users</a>{" "}
+              (Statista, 2024), a weak idea structure wastes the distribution potential Reels specifically offer — which is why most Reel ideas fail before a single frame is filmed.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               The biggest Reel idea problem is not a lack of ideas — it's a lack of specific, filmable
               ideas. Most creators stare at a blank page and think 'I need to create a fitness Reel' or
               'I should post something about my business today.' These are categories, not ideas. A
@@ -286,9 +297,17 @@ export function InstagramReelIdeaGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> Hooks, Batch Filming, and Building a Reel Library
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              The hook is the most important 2 seconds of any Reel. Instagram's algorithm measures
-              scroll-stop rate — what percentage of people who see your Reel in their feed stop and
-              watch instead of scrolling. A weak hook means low scroll-stop rate, which means the
+              The{" "}
+              <a href="https://transparency.fb.com/features/ranking-and-content/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Meta Transparency Center's Reels ranking documentation</a>{" "}
+              identifies watch-through signals — including 3-second video views and full watch-through rate — as
+              the primary factors Instagram uses to distribute Reels to non-followers (2026). This makes the
+              hook the most consequential element of any Reel: it determines whether a viewer watches past the
+              first 2 seconds and whether Instagram's distribution engine keeps pushing the content to new audiences.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              The hook is the most important 2 seconds of any Reel. The Meta Transparency Center documents
+              watch-through signals — including the percentage of viewers who watch your Reel to the end — as
+              a primary distribution factor. A weak hook means low watch-through rates, which means the
               algorithm stops distributing the Reel to new viewers no matter how good the content is
               after the first 3 seconds. A strong hook must create curiosity, tension, or surprise
               instantly. Every hook in this generator is under 12 words and tone-adjusted to your
@@ -309,6 +328,47 @@ export function InstagramReelIdeaGeneratorTool() {
               pressure of needing each individual Reel to succeed and gives you the volume needed for
               algorithmic consistency.
             </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Shield className="w-4 h-4 text-primary" /> What Instagram's Algorithm Actually Looks For When Ranking Reels
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              The{" "}
+              <a href="https://transparency.fb.com/features/ranking-and-content/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Meta Transparency Center</a>{" "}
+              documents three categories of signals Instagram uses to rank and distribute Reels: watch-through
+              signals (3-second video views and full watch-through rate), engagement signals (likes, comments,
+              saves, and shares), and video information (audio track, captions, and hashtags). Watch-through
+              signals are the primary driver for non-follower distribution. This is the ranking layer most
+              directly affected by idea structure and hook quality before a Reel is ever filmed.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              What this means for Reel idea selection: an idea that keeps viewers watching to the end is more
+              algorithmically valuable than one that generates comments but loses viewers at the 10-second
+              mark. Format choice is a direct factor here — Tutorial and List Reels with numbered structures
+              tend to earn higher watch-through rates because viewers want to reach the final tip. Storytime
+              and Before-and-After Reels sustain attention through narrative tension. Ideas without a clear
+              payoff lose viewers at the exact point the algorithm is measuring.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Saves and shares are the engagement signals with the strongest secondary distribution effect.
+              A Reel that earns saves — because it contains genuinely useful, reference-worthy information
+              — gets re-surfaced in Instagram's distribution system. Tutorial, List, and Myth-Busting formats
+              are structured to earn saves: viewers bookmark them to reference the steps later. Including at
+              least one save-worthy format in every content batch directly targets this ranking signal.
+            </p>
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Source documentation:</strong> Instagram's Reels ranking
+                signals — watch-through rate, engagement signals, and video information — are documented at
+                the{" "}
+                <a href="https://transparency.fb.com/features/ranking-and-content/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Meta Transparency Center</a>{" "}
+                (2026). Instagram Reels format guidelines are available in the{" "}
+                <a href="https://help.instagram.com/1038071743007909" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Instagram Help Center (Reels)</a>.
+                Instagram's 2 billion monthly active user base is documented by{" "}
+                <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Statista (2024)</a>.
+              </p>
+            </div>
           </div>
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">

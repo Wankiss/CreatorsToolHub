@@ -7,7 +7,7 @@ import { useAiTool } from "@/hooks/use-ai-tool";
 import {
   Sparkles, Copy, Check, Loader2, FileText, ListChecks,
   ChevronDown, Shield, Zap, ArrowUpRight, RefreshCw, Download,
-  Info, LayoutTemplate,
+  Info, LayoutTemplate, Lightbulb, TrendingUp,
 } from "lucide-react";
 import { Link } from "wouter";
 
@@ -16,43 +16,47 @@ import { Link } from "wouter";
 const FAQ_ITEMS = [
   {
     q: "What is a YouTube description and why does it matter?",
-    a: "A YouTube description is the text block below your video that tells viewers — and YouTube's algorithm — what your video is about. It serves two distinct purposes. For viewers, the first 150 characters appear in YouTube search results and on embedded players before the 'Show more' cutoff, acting as a preview that convinces people to click and watch. For the algorithm, the full description is one of the primary text signals YouTube reads to understand your video's topic, categorize it, and decide which search queries it should rank for. A well-written description with natural keyword placement, clear structure, and strong calls-to-action directly improves both search discoverability and viewer conversion.",
+    a: "A YouTube description is the text block below your video that serves two distinct purposes. For viewers, YouTube's Help Center confirms that the first few lines of your description appear in YouTube search results before the 'Show more' cutoff — this is your visible preview that determines whether someone clicks. For the algorithm, YouTube's Creator Academy states that 'a detailed description will help viewers find your video in search' — the full description text is one of the primary signals YouTube reads to understand your video's topic, categorize it, and match it to search queries. A well-written description with natural keyword placement in the opening lines, structured body paragraphs, chapters, and a clear CTA directly improves both search discoverability and viewer conversion.",
   },
   {
     q: "How do YouTube descriptions affect SEO?",
-    a: "YouTube descriptions affect SEO in three direct ways. First, keyword placement: YouTube reads your description to match your video to relevant search queries. Placing your primary keyword in the first one to two sentences is the single highest-impact SEO action you can take in your description. Second, semantic relevance: repeating keyword variations and related phrases throughout the body signals to the algorithm that your content comprehensively covers the topic, improving ranking potential for a wider range of related searches. Third, timestamps create indexed chapter titles — each chapter name is a separate keyword signal YouTube can surface in search. Our AI description generator handles all three automatically, placing keywords strategically and structuring every description for maximum algorithmic impact.",
+    a: "YouTube descriptions affect SEO in three direct ways. First, keyword placement: YouTube's Creator Academy confirms descriptions help the algorithm understand video content — placing your primary keyword in the first sentence gives the clearest possible topical signal. Second, semantic coverage: repeating keyword variations and related phrases throughout the body expands the range of search queries your video can rank for without keyword stuffing. Third, chapters: YouTube's Help Center confirms that timestamps in descriptions create named chapter sections that appear in the video progress bar and in search results. Each chapter title is a separate keyword signal YouTube can index and surface independently. Our AI description generator handles all three automatically, placing keywords strategically and structuring every description for maximum algorithmic impact.",
   },
   {
     q: "How long should a YouTube description be?",
-    a: "The ideal YouTube description length is 200–500 words. YouTube allows up to 5,000 characters, and longer descriptions do provide more keyword surface area — but quality matters far more than length. A 200-word description with naturally placed keywords and a clear structure outperforms a 1,000-word description full of keyword stuffing or filler text. The most important structural rule is the 150-character opening: whatever you write in the first two to three sentences will appear as the preview in search results and on embedded players. Make those sentences compelling and keyword-rich. Our AI generator produces descriptions in the 250–400 word range — enough to satisfy the algorithm's keyword scanning without sacrificing the readability that keeps viewers watching.",
+    a: "YouTube allows up to 5,000 characters in descriptions (YouTube Help Center) — but length alone doesn't drive rankings. YouTube's Creator Academy advises that detailed, well-written descriptions improve search visibility, and quality matters far more than character count. A 250-word description with naturally placed keywords and a clear structure outperforms a 1,000-word description full of filler or keyword stuffing. The structural priority is the opening: whatever appears in the first few lines (before 'Show more') is what viewers see in search results — make those lines compelling and keyword-rich. Our AI generator produces descriptions in the 250–400 word range, enough to give YouTube's algorithm sufficient topical context without sacrificing the readability that keeps viewers clicking.",
   },
   {
     q: "What keywords should I include in my YouTube description?",
-    a: "Every YouTube description should include three types of keywords: (1) Primary keyword — the main search phrase you want to rank for, placed in the first sentence. Example: if your video is about losing weight at home, your first sentence should naturally include 'how to lose weight at home'. (2) Secondary keywords — related phrases and topic variations that expand your ranking surface. These go in the body paragraphs and should feel natural, not forced. (3) Long-tail keywords — specific multi-word search phrases with lower competition. These are particularly valuable for newer channels because they target niche queries where you can realistically rank. Our AI description generator identifies and places all three types based on your video title and target keywords, handling keyword strategy automatically so you don't have to.",
+    a: "YouTube's Creator Academy confirms that descriptions help the algorithm understand what your video covers — which means your keyword strategy directly shapes which search queries you're eligible to rank for. Include three types: (1) Primary keyword — the main search phrase you want to rank for, placed in the first sentence. If your video is about losing weight at home, your opening line should naturally include that phrase. (2) Secondary keywords — related phrases and topic variations that expand your ranking surface; place these in the body paragraphs naturally. (3) Long-tail keywords — specific multi-word search phrases with lower competition. These are especially valuable for newer channels targeting niche queries where they can realistically rank. Our AI generator identifies and places all three types based on your video title and target keywords automatically.",
   },
   {
     q: "Do timestamps in descriptions help YouTube SEO?",
-    a: "Yes — timestamps (YouTube chapters) are one of the most underused SEO tools available to creators. When you add timestamps to your description, YouTube creates named chapter sections that appear in the video progress bar and in Google search results as video chapters. Each chapter title becomes an independent keyword signal YouTube can index and surface. A chapter titled 'YouTube SEO Tips for Beginners' can rank for that specific phrase in YouTube and Google search, giving your video multiple entry points beyond just the main title. YouTube creators who add well-named chapters consistently report higher impression counts because their videos appear for a broader range of related search queries. Our description generator formats timestamps automatically with the proper YouTube chapter syntax when you provide them.",
+    a: "Yes — and they do it on two platforms simultaneously. YouTube's Help Center confirms that timestamps in descriptions create named chapter sections that appear in the video progress bar and as chapter markers in YouTube search results. Additionally, Google's own documentation confirms that YouTube chapter timestamps can appear as video jump-links in Google Search results — giving your video entry points on the world's largest search engine beyond YouTube itself. Each chapter title is an independent keyword signal: a chapter called 'YouTube SEO Tips for Beginners' can surface for that specific phrase in both YouTube and Google search, multiplying your discoverability from a single video. Our description generator formats timestamps automatically with the proper YouTube chapter syntax when you provide them.",
   },
   {
     q: "Should I add hashtags to my YouTube description?",
-    a: "Yes — hashtags in YouTube descriptions serve two discovery functions. First, YouTube displays the first three hashtags above your video title, making them highly visible to viewers browsing your content. Second, clicking a hashtag takes viewers to a hashtag feed page where your video competes with other videos using the same hashtag — this is an additional discovery surface outside of regular search. Use 3–5 relevant hashtags per video rather than stuffing 15–20. Overstuffed hashtag sections can trigger YouTube's spam filter and actually reduce distribution. Focus on hashtags that match your content: your main topic, your niche, and one broad discovery hashtag. Our generator automatically creates 3–5 relevant hashtags based on your video title and keywords, placed at the end of the description where YouTube expects them.",
+    a: "Yes — with a specific structure. YouTube's Help Center confirms you can add up to 15 hashtags to a YouTube description, and the first three hashtags you add will appear above your video title — highly visible real estate that functions as a topic label before viewers even read your title. Clicking a hashtag takes viewers to a hashtag feed where your video competes with others on that topic — a separate discovery surface from search. YouTube's policies specify that hashtags must be relevant to your content; irrelevant hashtag stuffing violates YouTube's spam policy. In practice, 3–5 well-chosen hashtags covering your main topic, niche, and one broad category term consistently outperform padded lists of 15. Our generator produces 3–5 relevant hashtags automatically, placed at the end where YouTube's algorithm expects them.",
   },
   {
     q: "What makes a good YouTube call-to-action in a description?",
-    a: "A strong YouTube description call-to-action is specific, benefit-driven, and placed immediately after the main description body — before the timestamps and links section. The most effective CTAs combine a subscription request with a reason to subscribe ('Subscribe for weekly tips on growing your YouTube channel') and a notification reminder ('Hit the 🔔 to be notified when new videos drop'). Adding a direct subscribe link (youtube.com/@yourchannel?sub_confirmation=1) converts passive readers into subscribers without requiring them to click back to your channel page. Secondary CTAs — commenting, sharing, or visiting a related video or playlist — should appear lower in the description. Our AI generator includes a structured CTA section with a subscribe link placeholder and notification bell reminder in every description it creates.",
+    a: "A strong description CTA is specific, benefit-driven, and placed immediately after the main body — before the timestamps and links section. The most effective structure combines a subscription ask with a clear reason ('Subscribe for weekly fitness tips') plus a notification reminder ('Hit the 🔔 to get notified when new videos drop'). Adding a direct subscribe link in the format youtube.com/@yourchannel?sub_confirmation=1 converts passive readers into subscribers without requiring them to navigate to your channel page — this URL format triggers YouTube's subscribe confirmation popup automatically. Secondary CTAs (comment prompt, related video link, playlist) should appear lower in the description. Our AI generator includes a structured CTA section with subscribe link placeholder and notification bell in every description it creates.",
   },
   {
-    q: "How do I write a YouTube description that gets more views?",
-    a: "The descriptions that drive the most views do four things well: (1) Hook immediately — the first 150 characters must clearly communicate the video's value before the 'Show more' cutoff. Lead with what the viewer will get, not a generic intro. (2) Keyword placement — your primary search term should appear in the first sentence, with related keywords naturally woven throughout the body. (3) Include timestamps — chapter titles multiply the number of search queries your video can appear for and make longer videos more accessible, improving watch time. (4) Strong CTA — a clear subscribe request with a direct link converts viewers who found you through search into long-term audience members. Use our AI description generator to produce a complete draft hitting all four elements, then edit the first 150 characters to match your specific audience and tone.",
+    q: "Do YouTube descriptions appear in Google Search?",
+    a: "Partially — and in a more powerful way than most creators realize. Your description text itself doesn't appear verbatim in Google Search results. However, YouTube chapters created from your description timestamps DO appear in Google Search as video jump-links below the video result. Google's own documentation confirms that chapter timestamps help Google index and display specific segments of your video as jump-to links in search results. This means a chapter titled 'How to Lose Weight Without Equipment' can appear as a clickable link in Google Search independently, giving your video traffic from Google for that specific sub-topic even if the main video doesn't rank in the top results. This is one of the strongest SEO arguments for always including well-named timestamps in your descriptions.",
   },
   {
     q: "Can I use the same description for multiple videos?",
-    a: "No — copying identical descriptions across multiple videos is one of the most damaging SEO mistakes on YouTube. YouTube's algorithm reads each video's description as a unique signal for that specific piece of content. Reusing the same description tells the algorithm the videos are about the same topic, which creates internal competition between your own videos and reduces how effectively each one is distributed. Additionally, duplicate descriptions are a flag YouTube uses to identify low-quality or spam content, which can reduce distribution for your entire channel. Always generate a unique description for each video. Our AI description generator makes this fast — enter your video's specific title and keywords and get a fresh, unique description in seconds for every upload.",
+    a: "No — and YouTube's own policies explain why. YouTube's spam and deceptive practices policy explicitly states that duplicating metadata (including descriptions) across multiple videos can be treated as spam. Beyond the policy risk, reusing the same description defeats the algorithm's purpose: YouTube reads each video's description as a unique topical signal for that specific piece of content. Identical descriptions create topical ambiguity — the algorithm can't differentiate the videos' content profiles, which reduces how effectively it distributes each one. Always generate a unique description for each upload. Our AI description generator makes this fast — enter your specific video title and keywords and get a fresh, unique description in seconds.",
+  },
+  {
+    q: "How do I write a YouTube description that gets more views?",
+    a: "The descriptions that drive the most views execute four elements well: (1) Strong opening — the first few lines (shown in search results before 'Show more') must communicate the video's value immediately. Lead with what the viewer will gain, not a generic intro. YouTube's Help Center confirms these lines appear in search results, making them viewer-facing copy as much as SEO copy. (2) Keyword placement — your primary search term in the first sentence, related keywords naturally throughout the body. (3) Timestamps with well-named chapters — each chapter title is an additional keyword signal for YouTube search and can generate Google Search jump-link traffic. (4) Direct subscribe CTA with a subscribe confirmation link. Use our AI generator to build the complete draft, then refine the opening lines to match your specific channel voice.",
   },
   {
     q: "Is this YouTube description generator free?",
-    a: "Yes — this YouTube description generator is completely free to use with no account, no subscription, and no usage limits. Enter your video details and generate a complete, SEO-optimized description instantly. Every description includes a keyword-rich hook, structured body paragraphs, formatted timestamps (if you provide them), a subscribe call-to-action, social links, and 3–5 hashtags. You can regenerate as many times as you want for different writing style variations, edit the output directly in the text box, copy it to your clipboard, or download it as a TXT file for your description archive. No payment information or sign-up is ever required.",
+    a: "Yes — completely free with no account, no subscription, and no usage limits. Enter your video details and generate a complete, SEO-optimized description instantly. Every description includes a keyword-rich opening, structured body paragraphs, formatted timestamps (if you provide them), a subscribe CTA with notification reminder, optional social links, and 3–5 relevant hashtags. Regenerate for a different writing style, edit the output directly in the text box, copy to clipboard, or download as a TXT file for your description archive. No payment information or sign-up required.",
   },
 ];
 
@@ -339,99 +343,118 @@ export function YouTubeDescriptionGeneratorTool() {
           <h2 className="text-2xl font-bold font-display text-foreground">About This YouTube Description Generator</h2>
         </div>
         <div className="space-y-8">
+
+          {/* Section 1: What descriptions do */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Zap className="w-4 h-4 text-primary" /> What YouTube Descriptions Do for Your Channel
+              <Zap className="w-4 h-4 text-primary" /> What YouTube Descriptions Actually Do for Search Rankings
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              YouTube descriptions are far more than a summary box — they are one of the primary text
-              signals the YouTube algorithm reads to understand, categorize, and rank your video. When
-              you upload a video, YouTube cannot watch it. It reads your title, description, and tags
-              to determine what the video is about, which search queries it should appear for, and which
-              other videos to recommend it alongside. A description that naturally includes your target
-              keyword in the first sentence, with semantic variations throughout the body, gives the
-              algorithm the clearest possible signal — and directly improves your ranking potential
-              across YouTube search, suggested videos, and browse features.
+              YouTube's Creator Academy states directly: <em>"A detailed description will help viewers find your video in search."</em> That's the core mechanism — when you upload a video, YouTube reads your title, description, and tags together to determine what the video is about, which search queries it's eligible to rank for, and which other videos to recommend it alongside. YouTube's Help Center confirms that the first few lines of your description appear in YouTube search results before the "Show more" cutoff — making those opening sentences both an algorithmic keyword signal and viewer-facing copy that determines clicks.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Beyond SEO, descriptions are a direct conversion tool. The first 150 characters appear
-              in YouTube search results and on embedded players — this is your hook. A compelling
-              preview tells potential viewers exactly what they will gain from watching and gives them
-              a reason to click. Most creators spend 30+ minutes writing a single description manually.
-              This AI-powered generator produces a complete, optimized draft in under a minute — with
-              keyword placement, structured sections, and a strong call-to-action all handled automatically.
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              A description with your primary keyword in the first sentence, semantic variations in the body, well-named chapters, and a direct CTA is doing three jobs simultaneously: telling the algorithm what the video covers, showing up in search result previews with a compelling hook, and converting viewers who find you through search into subscribers. This AI generator handles all three — keyword strategy, structure, chapters, hashtags, and CTA — automatically, so every video you upload has a complete, optimized description from day one.
             </p>
+
+            {/* Citation capsule */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 text-sm text-muted-foreground leading-relaxed">
+              <strong className="text-foreground block mb-1">The description signals that move rankings</strong>
+              YouTube's{" "}
+              <a href="https://creatoracademy.youtube.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Creator Academy
+              </a>{" "}
+              confirms that detailed descriptions help viewers find videos in search, and that keyword placement in descriptions is one of the primary signals YouTube uses to categorize content. YouTube's{" "}
+              <a href="https://support.google.com/youtube/answer/57404" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Help Center
+              </a>{" "}
+              confirms that the first few lines appear in search results and that chapters from description timestamps can be indexed and surfaced in both YouTube and Google Search — making every well-named chapter an additional search entry point for your video.
+            </div>
           </div>
+
+          {/* Section 2: Three-layer description strategy */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Info className="w-4 h-4 text-primary" /> How Keywords, Timestamps, and Hashtags Work Together
+              <TrendingUp className="w-4 h-4 text-primary" /> The Three-Layer Description Strategy: Keywords, Chapters, and Hashtags
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              A high-performing YouTube description works on three levels simultaneously. First, it
-              targets search queries by placing your primary keyword in the first two sentences and
-              repeating semantic variations throughout the body — naturally, without stuffing. Second,
-              timestamps (chapters) create indexed sections that YouTube reads as additional keyword
-              signals. A video chapter titled "YouTube SEO Tips" can rank for that exact phrase
-              independently of the video's main title, multiplying your discoverability across multiple
-              search queries from a single video.
+              A high-performing YouTube description operates on three levels simultaneously, each targeting a different discovery surface:
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              Third, hashtags at the end of your description extend reach into YouTube's hashtag
-              discovery feed — a separate surface where viewers browse content by topic. YouTube
-              creators who implement all three consistently report 20–40% increases in impressions
-              from YouTube search. The compound effect is significant: more search traffic sends
-              engagement signals that push the video into the suggested feed, and suggested feed
-              traffic compounds indefinitely as long as the video retains viewers. Our AI description
-              generator structures all three layers automatically for every video you create.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <LayoutTemplate className="w-4 h-4 text-primary" /> The Six-Section Structure This Tool Uses
-            </h3>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              Every description generated by this tool follows a proven six-section structure optimized
-              for both YouTube SEO and viewer engagement. Section one is the <strong className="text-foreground">hook</strong> — an
-              opening paragraph that places your primary keyword in the first sentence and immediately
-              communicates the value of watching. Section two is the <strong className="text-foreground">body</strong> — two to three
-              paragraphs that expand on the topic, naturally weave in secondary keywords, and explain
-              the video's content in language both viewers and the algorithm understand.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Sections three through six complete the structure: <strong className="text-foreground">timestamps</strong> give viewers
-              navigation and give YouTube extra keyword signals from chapter titles;
-              the <strong className="text-foreground">call-to-action</strong> drives subscriptions, notifications, and comment
-              engagement; <strong className="text-foreground">social links</strong> cross-promote your platforms and add clickable
-              destinations; and <strong className="text-foreground">hashtags</strong> at the very end extend hashtag discovery reach.
-              This structure is used by top YouTube creators across virtually every niche — and this
-              tool applies it automatically so every video you publish has a professional-grade
-              description from day one. Pair it with our{" "}
+            <div className="grid sm:grid-cols-1 gap-3 mb-4">
+              {[
+                {
+                  layer: "Layer 1: Keyword Placement",
+                  detail: "Primary keyword in the first sentence — YouTube's Creator Academy confirms descriptions help the algorithm match content to search queries. Secondary keywords woven naturally through the body expand the range of related searches your video is eligible for.",
+                },
+                {
+                  layer: "Layer 2: Timestamps (Chapters)",
+                  detail: "YouTube's Help Center confirms chapters appear as named sections in the video progress bar and in YouTube search results. Google's documentation confirms they can also appear as video jump-links in Google Search — giving your video ranked entry points on the world's largest search engine beyond YouTube itself.",
+                },
+                {
+                  layer: "Layer 3: Hashtags",
+                  detail: "YouTube's Help Center allows up to 15 hashtags per description. The first three appear above your video title — highly visible topic labels that double as a separate hashtag discovery feed. Relevant hashtags extend reach to viewers browsing by topic rather than searching by keyword.",
+                },
+              ].map(({ layer, detail }) => (
+                <div key={layer} className="rounded-xl border border-border bg-muted/30 px-4 py-3">
+                  <div className="font-semibold text-sm text-foreground mb-1">{layer}</div>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{detail}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-muted-foreground leading-relaxed text-sm">
+              Our AI generator structures all three layers automatically. Pair the description with a keyword-optimized{" "}
               <Link href="/tools/youtube-tag-generator" className="text-primary hover:underline font-medium">
-                YouTube Tag Generator
+                tag set
               </Link>{" "}
-              and{" "}
+              and a high-CTR{" "}
               <Link href="/tools/youtube-title-generator" className="text-primary hover:underline font-medium">
-                YouTube Title Generator
+                video title
               </Link>{" "}
-              for a complete AI-powered SEO workflow.
+              for a complete pre-publish SEO workflow.
             </p>
           </div>
+
+          {/* Section 3: Six-section structure */}
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <LayoutTemplate className="w-4 h-4 text-primary" /> The Six-Section Structure Built Into Every Description
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Every description this generator produces follows a six-section structure that covers both the SEO and viewer-conversion functions of a well-written description:
+            </p>
+            <div className="grid sm:grid-cols-2 gap-3 mb-4">
+              {[
+                { section: "1. Hook (Opening Lines)", role: "Primary keyword in the first sentence. These lines appear in YouTube search results (YouTube Help Center) — they're viewer-facing copy as much as an SEO signal." },
+                { section: "2. Body Paragraphs", role: "2–3 paragraphs expanding the topic with secondary keywords woven naturally. Gives YouTube's algorithm topical depth and context for related query matching." },
+                { section: "3. Timestamps / Chapters", role: "Named chapters indexed by YouTube search and Google Search as jump-links (per YouTube Help Center + Google documentation). Each chapter title = a separate keyword entry point." },
+                { section: "4. Call-to-Action", role: "Subscribe request with a reason + notification bell reminder + subscribe confirmation link (youtube.com/@handle?sub_confirmation=1) that triggers YouTube's subscribe popup." },
+                { section: "5. Social Links", role: "Cross-platform links extending reach beyond YouTube. Optional — include when you have established presences to drive to." },
+                { section: "6. Hashtags", role: "Up to 15 allowed (YouTube Help Center); first 3 appear above your title. Topic, niche, and discovery hashtags placed at the end where YouTube's algorithm expects them." },
+              ].map(({ section, role }) => (
+                <div key={section} className="rounded-xl border border-border bg-muted/30 px-4 py-3">
+                  <div className="font-semibold text-sm text-foreground mb-1">{section}</div>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{role}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Section 4: Feature grid */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
               <Shield className="w-4 h-4 text-primary" /> Why Use This YouTube Description Generator
             </h3>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
-                "Powered by AI — places primary keyword in the first 1–2 sentences for maximum SEO impact",
-                "Naturally weaves secondary keywords throughout — no keyword stuffing, reads like a human wrote it",
-                "Formats timestamps with the ⏱️ emoji header in one click — ready to paste into YouTube Studio",
-                "Generates 3–5 relevant hashtags automatically from your keywords and video title",
-                "Includes a subscribe CTA with notification bell reminder in every generated description",
-                "Adds a social links section for cross-channel promotion with placeholder URLs",
-                "Regenerate button gives you a fresh variation with a different writing style",
-                "Download as TXT to build and archive your complete description library",
-                "Fully editable output — customize tone, add personal details, before copying to YouTube Studio",
-                "100% free, no account required, unlimited uses — generate as many descriptions as you need",
+                "Primary keyword placed in the first sentence — aligned with YouTube Creator Academy description guidance",
+                "Secondary keywords woven naturally throughout the body — no stuffing, reads like a human wrote it",
+                "Chapters formatted automatically — each title is an additional keyword signal for YouTube and Google Search",
+                "Hashtag generation: 3–5 relevant hashtags placed at the end, within YouTube Help Center's 15-tag limit",
+                "Subscribe CTA with confirmation link format (sub_confirmation=1) that triggers YouTube's subscribe popup",
+                "Chapters in descriptions appear as Google Search jump-links — maximizing cross-platform discoverability",
+                "Regenerate button gives a fresh variation with a different writing style and tone",
+                "Download as TXT to archive your complete description library for every video",
+                "Fully editable output — customize tone and personal details before copying to YouTube Studio",
+                "100% free, no account required, unlimited generations",
               ].map((text, i) => (
                 <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
                   <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
@@ -440,6 +463,32 @@ export function YouTubeDescriptionGeneratorTool() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Tips ─────────────────────────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Lightbulb className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips to Write Better YouTube Descriptions</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            "Put your primary keyword in the very first sentence — YouTube's Creator Academy confirms descriptions help the algorithm match content to search queries, and keyword placement in the opening lines carries the most weight. Don't bury your keyword in the third paragraph.",
+            "Name your chapters with searchable phrases, not generic labels — 'Introduction' gives YouTube no keyword signal; 'How to Lose Weight Without a Gym' does. Each chapter title is a separate keyword signal indexed by YouTube search and can appear as a Google Search jump-link.",
+            "Use the first three hashtags for your most important topics — YouTube's Help Center confirms the first three hashtags appear above your video title, making them highly visible. Put your most relevant topic hashtags first, not generic ones.",
+            "Add a subscribe confirmation link, not just a CTA — the URL format youtube.com/@yourchannel?sub_confirmation=1 triggers YouTube's built-in subscribe popup when clicked. This converts description readers into subscribers more effectively than text alone.",
+            "Write the opening lines as search-result copy, not a video summary — YouTube's Help Center confirms these lines appear in search results before 'Show more'. Treat them like a meta description: keyword-rich, benefit-focused, written to earn the click.",
+            "Don't duplicate descriptions across videos — YouTube's spam policy flags duplicate metadata. Beyond the policy risk, identical descriptions prevent the algorithm from building distinct topical profiles for each video, reducing how effectively it distributes them.",
+            "Generate your description before filming, not after — knowing your keywords and chapter structure before you record ensures your spoken content reinforces the same topical signals. YouTube's auto-captions process your spoken words too, and early keyword mention in your video amplifies the description's SEO signals.",
+          ].map((tip, i) => (
+            <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
+              <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <span className="text-sm text-muted-foreground">{tip}</span>
+            </div>
+          ))}
         </div>
       </section>
 

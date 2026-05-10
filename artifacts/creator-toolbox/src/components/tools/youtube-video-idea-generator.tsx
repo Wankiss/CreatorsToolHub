@@ -15,43 +15,47 @@ import { Link } from "wouter";
 const FAQ_ITEMS = [
   {
     q: "How do I come up with good YouTube video ideas consistently?",
-    a: "The most reliable system is to stop waiting for inspiration and start using structured frameworks. Every successful YouTube niche has a finite set of proven content formulas — beginner guides, common mistakes, product comparisons, experiments, trending topic reactions, and personal story formats. Apply those formulas to your niche's keyword space on a weekly basis rather than brainstorming from scratch. Our AI-powered generator does this automatically: enter your niche and it applies 12 proven video formulas to produce a full idea bank in seconds. Aim to keep at least 4 weeks of approved ideas ready before you start filming — a full content pipeline means production delays never stall your publishing schedule.",
+    a: "The most reliable system is to stop waiting for inspiration and start using structured frameworks. YouTube has 2.7 billion monthly active users (Statista, 2024) searching across its platform daily — every successful niche has a finite set of proven content formulas that tap into what those viewers are already looking for. YouTube's Creator Academy recommends creating content that your audience is actively searching for rather than content you assume they want. Apply proven video formulas — beginner guides, common mistakes, product comparisons, experiments — to your niche's keyword space consistently rather than brainstorming from scratch. Our AI generator does this automatically: enter your niche and it produces a full idea bank in seconds. Aim to always have at least 4 weeks of approved ideas ready before filming, so production delays never stall your schedule.",
   },
   {
-    q: "What makes a YouTube video idea 'viral'?",
-    a: "Viral ideas share three characteristics: a strong psychological trigger (curiosity gap, loss aversion, social proof, or controversy), a clear promise in the title that creates an expectation the video delivers on, and relevance to something the audience already cares about. The virality score in our generator (1–10) rates each idea based on formula strength and niche match — formulas like 'Stop Doing X' (loss aversion), 'The Truth About X' (controversy), and 'I Tried X for 30 Days' (experiment suspense) consistently outperform generic tutorial formats across nearly every niche. The opening hook is equally important — the first 10 seconds must justify why the viewer clicked or they'll leave and signal to YouTube's algorithm that your video underperformed.",
+    q: "What makes a YouTube video idea work?",
+    a: "High-performing video ideas share three characteristics: a strong psychological trigger (curiosity gap, loss aversion, social proof, or controversy), a clear promise the video actually delivers on, and relevance to a topic the audience is already actively searching for. YouTube's Creator Academy identifies audience retention — the percentage of the video viewers watch — as a primary performance signal. That means the idea and its execution need to work together: a great concept with a weak hook or misleading title generates clicks but poor retention, which suppresses distribution. Formats like 'I Tried X for 30 Days' (experiment suspense), 'Stop Doing X' (loss aversion), and 'The Truth About X' (curiosity + controversy) tend to drive both high CTR and strong retention because they set a specific expectation and deliver on it.",
   },
   {
     q: "How often should I post new YouTube videos?",
-    a: "Consistency matters more than frequency. Posting one video per week and never missing a week will outperform posting three videos in one week and then going silent for three. YouTube's algorithm rewards predictable upload schedules because they build subscriber expectations and create regular re-engagement signals. For most creators, one to two videos per week is the optimal balance between production quality and output volume. Whatever schedule you choose, commit to it — use a content calendar built from generated ideas so you're never scrambling for what to film next. The 90-Day Content Calendar framework described in our generator (immediate uploads, evergreen anchors, future experiments) gives you a structured system for maintaining consistency.",
+    a: "YouTube's Creator Academy advises maintaining a consistent publishing schedule — it builds subscriber expectations and creates regular re-engagement opportunities. Consistency matters more than raw frequency. Publishing one video per week without gaps outperforms bursting three videos in one week then going silent for a month. For most creators, one to two videos per week balances production quality against output volume sustainably. What matters equally is having your ideas ready before you need them — scrambling for content at upload time leads to weaker ideas, rushed execution, and inconsistent schedules. Use a content calendar built from generated ideas so the decision of what to film next is always answered weeks in advance.",
   },
   {
     q: "Should I choose trending topics or evergreen topics for my channel?",
-    a: "The winning strategy combines both. Trending topics generate immediate views and algorithm distribution — YouTube actively promotes content covering current events and trending searches. But trending views fade fast. Evergreen topics — beginner guides, complete tutorials, definitive comparisons — build a library of videos that continue driving search traffic for months or years. A balanced content calendar should have roughly 30% trending or timely content and 70% evergreen anchors. Our generator separates ideas into high-virality trending formats and search-optimized evergreen ideas so you can build this balance intentionally rather than posting randomly.",
+    a: "The strongest channels combine both deliberately. Trending topics — reactions to current events, timely news in your niche, YouTube's own trending searches — generate immediate algorithmic distribution because YouTube actively promotes content that aligns with what viewers are searching for right now. But trending views fade. Evergreen topics — beginner guides, complete tutorials, definitive comparisons — build a library that continues driving YouTube Search traffic for months or years with no additional effort. Many successful channels aim for roughly 70% evergreen content to compound long-term search traffic, with 30% trending or timely content for algorithmic momentum. Think of it as building an asset library alongside a discovery engine. YouTube Studio's Inspiration tab surfaces trending topics in your niche directly — use it to identify timely opportunities before generating your evergreen anchors.",
   },
   {
     q: "How do I know if a video idea will perform well before I film it?",
-    a: "Look at three signals before committing to a video idea: (1) Search demand — does the title phrase have existing searches on YouTube? Check YouTube's autocomplete and look at competing videos' view counts. (2) Formula strength — is the idea based on a proven content formula (curiosity gap, experiment, common mistakes, comparison) or is it a generic take? Proven formulas have documented click-through rate advantages. (3) Audience alignment — does the idea match what your existing subscribers came to your channel for? Our generator displays a virality score and the psychological reason why each idea works, giving you a pre-production signal before you invest time filming.",
+    a: "Check three signals before committing: (1) Search demand — type your title phrase into YouTube's search bar and observe the autocomplete suggestions. YouTube's autocomplete reflects real searches by real viewers; if your phrase doesn't autocomplete, search volume may be too low. (2) Competitor view counts — look at the top 5 videos on your topic. If similar videos have strong view counts relative to the channel's subscriber count, demand is validated. (3) Formula strength — is the idea built on a proven content structure (curiosity gap, experiment, common mistakes, comparison, definitive guide) or is it a generic take? Proven formulas have click-through rate advantages because viewers recognize and respond to familiar content signals. YouTube's Creator Academy recommends reviewing your own Analytics to identify which of your past videos' topics and formats drove the highest watch time — your historical data is your best predictor.",
   },
   {
     q: "What content goal should I focus on first: subscribers, views, or engagement?",
-    a: "Focus on engagement first. YouTube's algorithm distributes content based primarily on watch time and click-through rate — videos with strong engagement reach larger audiences organically, which drives both views and subscribers as downstream effects. A channel with 10,000 highly engaged subscribers consistently outperforms a channel with 100,000 passive subscribers in terms of reach and revenue. Our generator lets you select 'Increase Engagement' as your content goal — when selected, it weights your idea output toward storytelling, experiment, and educational formats that have documented watch-time advantages over viral clickbait formats, which tend to have high click-through rates but low retention.",
+    a: "Prioritize watch time and audience retention. YouTube's Creator Academy is explicit: 'audience retention — the percentage of a video that people watch — is one of the most important metrics on YouTube.' High retention signals value to the algorithm, which drives broader distribution, which generates views and subscribers as downstream results. A channel that optimizes for watch time first builds compounding organic reach — each well-retained video seeds the next one through YouTube's recommendation engine. Content types with the strongest retention track records are educational tutorials with clear structure, experiment videos with genuine suspense, and storytelling formats with personal narrative. Focus your idea selection on formats that match what your audience came to your channel for — relevance to existing viewers drives retention better than chasing trend volume.",
   },
   {
     q: "How long should my YouTube videos be?",
-    a: "Video length should match the content's natural scope, but there are strategic thresholds worth understanding. Videos over 8 minutes can include mid-roll ads, which significantly increases revenue per video — this is worth targeting if you're monetized. Videos between 10–20 minutes tend to perform well because they're long enough for YouTube to promote but short enough to maintain high average view duration percentages. Longer videos (30+ minutes) work well for tutorials, deep dives, and educational content where viewers are committed to learning. Shorter videos (3–7 minutes) suit news commentary, quick tips, and list formats. Match length to format rather than padding content — YouTube's algorithm penalizes low audience retention regardless of length.",
+    a: "Match video length to the content's natural scope — but there's one hard threshold worth planning around. YouTube's Help Center confirms that videos must be at least 8 minutes long to enable mid-roll ad placements, which are ads inserted mid-video rather than only at the start. For monetized creators, this threshold is worth targeting deliberately. Beyond that, the principle YouTube Creator Academy reinforces is that audience retention percentage matters more than absolute length — a 10-minute video where viewers watch 70% drives more distribution than a 20-minute video at 30%. Educational and tutorial content tends to support longer videos naturally. Short-form commentary and quick tips suit 4–7 minutes. Match the format to the idea, then check whether the natural length clears the mid-roll threshold if monetization is a priority.",
+  },
+  {
+    q: "Does YouTube Studio help with video idea research?",
+    a: "Yes — and most creators underuse it. YouTube Studio includes an Inspiration tab (under the Content section) that surfaces trending topics in your specific niche based on your channel's content history and audience. It shows what topics are gaining search momentum, what viewers on channels similar to yours are watching, and what types of videos are performing well in your category right now. This is first-party data from YouTube's own algorithm — more reliable than third-party trend tools because it reflects actual platform activity in your specific niche. Use it alongside YouTube's search autocomplete (which reflects real search queries) and your own Analytics section (which shows which of your past videos drove the highest watch time) to build a data-informed idea pipeline before generating creative angles with this tool.",
   },
   {
     q: "Can I generate video ideas for any niche with this tool?",
-    a: "Yes — our AI-powered YouTube Video Idea Generator works across all niches. The generator includes 14 pre-built keyword pools covering the most popular YouTube categories (finance, fitness, gaming, cooking, tech, beauty, business, travel, and more) plus smart auto-detection for niches you type in manually. The AI applies the same 12 proven video formulas to whichever niche you enter, weighting them based on your selected content goal and tone. Niche-specific ideas feel native to your channel rather than generic because the generator expands your niche input into related content angles and keyword clusters specific to your category before generating ideas.",
+    a: "Yes — the AI-powered YouTube Video Idea Generator works across all niches. Enter any niche — finance, fitness, gaming, cooking, tech, beauty, business, travel, parenting, education, or anything else — and the AI expands your input into related content angles and keyword clusters specific to your category before generating ideas. The tool applies proven video formulas to whatever niche you enter, weighting them based on your selected content type. The result feels native to your channel rather than generic because the AI understands topic adjacency — it doesn't just keyword-match, it contextualizes ideas within the broader content landscape of your niche.",
   },
   {
     q: "Should my video titles be questions or statements?",
-    a: "Both formats work — the choice should be driven by the formula you're using, not personal preference. Statement titles work best for controversy, warning, and authority formats: 'Stop Making These 7 Thumbnail Mistakes,' 'The Truth About Passive Income on YouTube,' 'I Made $10,000 in 30 Days — Here's How.' Question titles work best for curiosity-gap and validation formats: 'Is YouTube Still Worth It in 2025?', 'Can a New Creator Hit 1,000 Subscribers in 30 Days?', 'What Actually Happens When You Post Every Day?' The opening hook our generator provides for each idea matches the title format — so a statement title gets a declarative hook and a question title gets a suspense-building hook designed to delay the answer long enough to create engagement.",
+    a: "Both formats work — the choice should follow the formula, not personal preference. Statement titles suit controversy, warning, and authority formats: 'Stop Making These 7 Thumbnail Mistakes,' 'The Truth About Passive Income on YouTube.' Question titles suit curiosity-gap and validation formats: 'Is YouTube Still Worth It in 2026?', 'Can a New Creator Hit 1,000 Subscribers in 30 Days?' YouTube's Creator Academy notes that your title is a direct signal to viewers about what to expect — mismatching the title format to the content format creates a promise-delivery gap that drives early drop-off. Pick the format that naturally reflects what the video delivers, then use the YouTube Title Generator to refine the exact wording for maximum CTR.",
   },
   {
     q: "Is this YouTube Video Idea Generator free to use?",
-    a: "Yes — the YouTube Video Idea Generator is completely free with no account required, no signup, and unlimited generation sessions. The generator is powered by AI and runs entirely in your browser session. Generate as many ideas as you need — use the 5–30 idea count slider to control your output batch size, and hit Regenerate anytime you want a completely fresh set. Your saved ideas persist in localStorage between browser sessions so your idea bank is always available without an account.",
+    a: "Yes — completely free with no account required, no signup, and unlimited generation sessions. The generator is powered by AI and produces a full idea bank in seconds. Generate as many batches as you need, choosing different content types and niches freely. Hit Generate again for a completely fresh set of ideas whenever you want new options.",
   },
 ];
 
@@ -249,108 +253,103 @@ export function YouTubeVideoIdeaGeneratorTool() {
           <h2 className="text-2xl font-bold font-display text-foreground">About This YouTube Video Idea Generator</h2>
         </div>
         <div className="space-y-8">
+
+          {/* Section 1: Why systematized ideation matters */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Zap className="w-4 h-4 text-primary" /> Why YouTube Creators Run Out of Ideas — And How to Fix It
+              <Zap className="w-4 h-4 text-primary" /> Why YouTube's 2.7 Billion Users Create an Idea Problem — Not an Opportunity
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              The single biggest reason YouTube channels stall or die is not poor video quality, bad editing, or
-              inconsistent thumbnails — it's running out of ideas. When creators can't figure out what to film
-              next, they delay uploading, the algorithm stops distributing their content, and audience growth
-              stalls. The irony is that this happens even in niches with genuinely infinite content potential.
-              The problem isn't a shortage of possible ideas — it's not having a system to surface those ideas
-              on demand.
+              YouTube has <strong className="text-foreground">2.7 billion monthly active users</strong> (Statista, 2024) and over 800 million videos indexed on the platform. That scale means every niche is competitive, every generic topic is already covered, and the ideas that perform are the ones that find a specific angle, formula, or audience gap that others have missed. YouTube's Creator Academy frames this directly: it recommends creating content that your audience is actively searching for — which requires knowing both what they search and what's already well-covered before you film.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              The most prolific YouTube creators treat content ideation like a muscle, not a mood. They use
-              structured brainstorming frameworks — proven video formulas applied to their niche's keyword
-              space — rather than waiting for inspiration to strike. Our AI-powered generator brings this same
-              systematic approach to any creator: enter your niche, and a bank of ready-to-execute video ideas
-              appears in seconds, each grounded in a formula with a documented track record for click-through
-              rate, watch time, and subscriber growth.
+              The creators who publish consistently don't wait for inspiration — they use systematic frameworks. Every niche has a finite set of proven content formulas: beginner guides, common mistakes, product comparisons, 30-day experiments, controversial takes, definitive rankings. Apply those formulas to your niche's specific keyword space weekly, and you never face a blank calendar. Our generator does this automatically: enter your niche, choose your content type, and a bank of targeted ideas appears in seconds — each grounded in a formula with a documented track record for click-through rate and audience retention.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              The AI doesn't generate random suggestions — it applies the same 12 video formulas used by the
-              highest-performing channels in every category, weighted to your chosen content type and niche.
-              The result is an idea bank that feels like it was written by a creator who knows your channel,
-              not a generic list that could apply to anyone.
-            </p>
+
+            {/* Citation capsule */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 text-sm text-muted-foreground leading-relaxed">
+              <strong className="text-foreground block mb-1">What YouTube's own data says about ideation</strong>
+              YouTube's{" "}
+              <a href="https://creatoracademy.youtube.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Creator Academy
+              </a>{" "}
+              identifies audience retention — the percentage of a video that people watch — as one of the most important metrics on the platform, and explicitly recommends creating content your audience is actively searching for. With{" "}
+              <a href="https://www.statista.com/statistics/272014/global-social-networks-ranked-by-number-of-users/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                2.7 billion monthly users
+              </a>{" "}
+              (Statista, 2024) and 800M+ videos on the platform, the ideas that win aren't the most creative — they're the ones matched to proven formulas and aligned with what viewers are already searching for.
+            </div>
           </div>
+
+          {/* Section 2: The content formulas */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-primary" /> The 12 Video Formulas Behind Every Successful YouTube Channel
+              <TrendingUp className="w-4 h-4 text-primary" /> The Video Formulas Behind High-Retention YouTube Content
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Every viral YouTube video — regardless of niche — uses one of a finite set of proven content
-              formulas. Controversy videos challenge conventional wisdom and trigger immediate emotional
-              engagement. Stop-warning videos use loss aversion psychology to compel immediate clicks.
-              Curiosity-gap videos create an information void that viewers feel psychologically driven to fill.
-              Personal story videos generate emotional investment and watch-time through authentic narrative.
+              YouTube's Creator Academy identifies audience retention as a primary ranking signal — which means the ideas that drive the most distribution are the ones that keep viewers watching, not just the ones that get clicked. High-retention ideas consistently use one of a set of proven psychological structures that set a clear expectation and deliver on it fully. Our generator applies these formulas to your specific niche:
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              Experiment videos document a structured challenge with an uncertain outcome, creating natural
-              suspense that boosts completion rate — YouTube's most heavily weighted ranking signal.
-              Mistakes-listicle videos combine self-assessment anxiety with the relief of a clear solution.
-              Comparison videos attract viewers at the decision stage, who are more engaged and more likely to
-              click affiliate links. Trending topic videos receive algorithmic momentum when they're first to
-              cover a viral moment in your niche.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              The AI generator applies all twelve formulas to your specific niche keywords and presents the
-              best matches ranked by potential. Each idea also includes the core concept — the promise your
-              video must deliver on to retain viewers past the first 30 seconds. Pair your ideas with an{" "}
-              <Link href="/tools/youtube-title-generator" className="text-primary hover:underline font-medium">
-                optimized YouTube title
-              </Link>{" "}
-              and a keyword-rich{" "}
-              <Link href="/tools/youtube-description-generator" className="text-primary hover:underline font-medium">
-                video description
-              </Link>{" "}
-              for a complete upload strategy.
+            <div className="grid sm:grid-cols-2 gap-3 mb-4">
+              {[
+                { formula: "Curiosity Gap", example: "'What Actually Happens When You Post Every Day'", driver: "Creates an information void viewers feel compelled to fill — strong CTR and completion" },
+                { formula: "Loss Aversion", example: "'Stop Making These 5 YouTube Mistakes'", driver: "Activates the psychological pain of potential loss — high CTR from urgency" },
+                { formula: "Experiment / Challenge", example: "'I Tried X for 30 Days — Here's What Happened'", driver: "Uncertain outcome creates natural suspense that boosts average view duration" },
+                { formula: "Contrarian Take", example: "'The Truth About Passive Income on YouTube'", driver: "Challenges existing beliefs — strong click-through from viewers seeking validation" },
+                { formula: "Definitive Guide", example: "'The Complete Beginner's Guide to X in 2026'", driver: "High search volume, long-term traffic, high trust signal for new audiences" },
+                { formula: "Comparison / Ranking", example: "'Best Budget Cameras for YouTube in 2026 (Ranked)'", driver: "Attracts decision-stage viewers with high purchase and engagement intent" },
+              ].map(({ formula, example, driver }) => (
+                <div key={formula} className="rounded-xl border border-border bg-muted/30 px-4 py-3">
+                  <div className="font-semibold text-sm text-foreground mb-1">{formula}</div>
+                  <div className="text-xs text-primary mb-1 italic">{example}</div>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{driver}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-muted-foreground leading-relaxed text-sm">
+              Pair your idea with an{" "}
+              <Link href="/tools/youtube-title-generator" className="text-primary hover:underline font-medium">optimized YouTube title</Link>{" "}
+              and a{" "}
+              <Link href="/tools/youtube-script-generator" className="text-primary hover:underline font-medium">structured script</Link>{" "}
+              to convert each formula into a video that delivers on its promise and drives the retention YouTube's algorithm rewards.
             </p>
           </div>
+
+          {/* Section 3: YouTube Studio Inspiration tab — exclusive Tier 1 content */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Zap className="w-4 h-4 text-primary" /> How to Build a 90-Day Content Calendar from Generated Ideas
+              <Zap className="w-4 h-4 text-primary" /> How to Use YouTube Studio's Inspiration Tab Alongside This Generator
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Generate a large batch of ideas, then sort them into three buckets: immediate uploads (trending
-              ideas and high-virality formulas that benefit from timing), evergreen anchors (beginner guides,
-              complete tutorials, comparison videos that drive consistent long-term search traffic), and future
-              experiments (ideas that require more production planning like 30-day challenges or case studies).
+              Most creators don't know that YouTube Studio includes a built-in idea research tool. The <strong className="text-foreground">Inspiration tab</strong> — found in YouTube Studio under the Content section — surfaces trending topics in your specific niche based on your channel's content history and audience. It shows which topics are gaining search momentum in your category right now, pulled directly from YouTube's own algorithm data. This is first-party trend data that no third-party tool can replicate.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Use the Inspiration tab to identify timely topics with algorithmic momentum, then use this generator to build the creative angle — the formula, hook, and content structure — that turns a trending topic into a high-retention video. YouTube's own autocomplete search bar provides a second first-party signal: type your niche keyword into YouTube Search and observe what completions appear. Those completions represent real search queries from real viewers, making them the most reliable demand-validation tool available before you invest time in production.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Aim to always have at least 4 weeks of approved ideas ready before filming begins, so content
-              production never blocks your publishing schedule. Use Regenerate freely to explore variations
-              and find angles you hadn't considered. A creator who publishes consistently from a well-organized
-              idea bank will always outgrow a more talented creator who waits for inspiration. Build your
-              channel brand around a{" "}
-              <Link href="/tools/youtube-hashtag-generator" className="text-primary hover:underline font-medium">
-                consistent hashtag strategy
-              </Link>{" "}
-              and{" "}
-              <Link href="/tools/youtube-script-generator" className="text-primary hover:underline font-medium">
-                structured scripts
-              </Link>{" "}
-              to turn every idea into a polished, high-retention video.
+              Combine three layers: YouTube Studio Inspiration (trend data), YouTube autocomplete (demand validation), and this generator (formula + angle). Together they give you ideas that are timely, searched-for, and structured to retain viewers — the three variables that matter most to YouTube's distribution algorithm. Build your calendar with at least 4 weeks of approved ideas ready, turn them into scripts with the{" "}
+              <Link href="/tools/youtube-script-generator" className="text-primary hover:underline font-medium">Script Generator</Link>
+              , and optimize each upload with the{" "}
+              <Link href="/tools/youtube-seo-score-checker" className="text-primary hover:underline font-medium">SEO Score Checker</Link>.
             </p>
           </div>
+
+          {/* Section 4: Feature grid */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
               <Shield className="w-4 h-4 text-primary" /> Why Use This YouTube Video Idea Generator
             </h3>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
-                "Powered by AI — not template fill-in-the-blank, but genuinely personalized idea generation",
-                "12 proven video formulas applied to your niche — psychologically grounded content templates",
-                "Works for any niche — finance, fitness, gaming, beauty, tech, cooking, and more",
-                "Content type selector — tailor output to tutorials, reviews, vlogs, lists, or challenges",
-                "Target audience input — ideas speak directly to your specific viewer demographic",
-                "Copy All button — grab your full idea batch to paste into any content calendar tool",
-                "Instant AI generation — full idea bank in seconds, not hours of manual brainstorming",
+                "AI-powered idea generation grounded in proven content formulas — not generic brainstorming prompts",
+                "Content type selector — tutorial, review, vlog, list, story, challenge — each applies different formula weighting",
+                "Target audience input — ideas are framed for your specific viewer demographic, not a generic creator audience",
+                "Sourced to YouTube Creator Academy: ideas aligned with what audiences actively search for",
+                "Pairs with YouTube Studio Inspiration tab — use both together for trend + formula coverage",
+                "Works for any niche: finance, fitness, gaming, beauty, tech, cooking, education, business, and more",
+                "Copy All — grab your full idea batch to paste into any content calendar or project management tool",
                 "Unlimited regeneration — fresh batches on demand, no daily limits or paywalls",
-                "Related tool links — go from idea to title, script, hashtags, and description in one workflow",
-                "100% free, no account required, unlimited generation sessions",
+                "Full workflow integration: go from idea to title, script, tags, description, and SEO check in one session",
+                "100% free — no account, no signup, unlimited generation sessions",
               ].map((text, i) => (
                 <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
                   <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
@@ -372,13 +371,13 @@ export function YouTubeVideoIdeaGeneratorTool() {
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
           {[
-            "Be specific with your niche — 'personal finance for college students' produces more targeted ideas than just 'finance'.",
-            "Generate multiple batches — each generation uses different formula weightings, so three runs gives you 3× the creative range to choose from.",
-            "Use your best ideas as YouTube title prompts — take any generated concept straight into the YouTube Title Generator for 40+ headline variations.",
-            "Mix evergreen and trending ideas in your calendar — 70% evergreen anchors for long-term search traffic, 30% timely topics for algorithmic momentum.",
-            "The opening hook is as important as the idea itself — the first 10 seconds of your video must justify why the viewer clicked or they'll leave.",
-            "Pair high-virality ideas with strong thumbnails — a great idea with a poor thumbnail will underperform a mediocre idea with a compelling visual.",
-            "Use generated ideas to validate your niche — if strong ideas feel forced for your channel, that's a signal your niche may need refinement.",
+            "Be specific with your niche input — 'personal finance for college students' produces far more targeted ideas than just 'finance'. The more precisely you describe your audience and niche, the more the AI can match ideas to what that specific group is searching for.",
+            "Validate ideas using YouTube's own autocomplete — type your generated idea's title phrase into YouTube Search and observe the completions. Autocomplete reflects real viewer searches; if your phrase autocompletes with variations, search demand is confirmed before you film a single frame.",
+            "Check YouTube Studio's Inspiration tab before each filming batch — it surfaces trending topics in your niche based on your channel's history. First-party trend data from YouTube's algorithm is more reliable than any third-party tool for identifying what your specific audience is watching right now.",
+            "Mix evergreen and timely ideas in your calendar — many successful creators aim for roughly 70% evergreen content (tutorials, guides, comparisons) to compound search traffic long-term, with 30% timely or trending content for immediate algorithmic momentum. Treat this as a strategic guideline, not a rigid rule.",
+            "The opening hook is as important as the idea itself — YouTube's Creator Academy calls the first seconds 'critical.' An idea with a weak hook generates clicks but low retention, which suppresses distribution. Once you've chosen an idea, spend as much time on the hook as on the content plan.",
+            "Pair high-virality ideas with strong thumbnails — YouTube's Creator Academy explicitly calls thumbnails 'the most powerful marketing tool you have.' A great idea with a weak thumbnail underperforms a mediocre idea with a compelling visual. Idea selection and thumbnail concept should be planned together.",
+            "Use generated ideas to diagnose your niche fit — if strong content formulas feel forced or off-brand for your channel, that's a signal your niche definition may need narrowing. The best-performing channels have a clear, specific content promise that every video reinforces.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
               <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />

@@ -14,43 +14,47 @@ import { Link } from "wouter";
 const FAQ_ITEMS = [
   {
     q: "What is a YouTube Script Generator?",
-    a: "A YouTube Script Generator is an AI-powered tool that creates complete, structured video scripts from your topic, target audience, and style preferences. Instead of facing a blank page, you receive a ready-to-use script with a psychologically optimized hook, intro, structured body sections with pattern interrupts, mid-video call-to-action, and a closing outro — all calibrated to your target video length. Our generator uses proven frameworks from high-retention channels to produce scripts designed to maximize average view duration, which directly impacts YouTube's recommendation algorithm.",
+    a: "A YouTube Script Generator is an AI-powered tool that creates complete, structured video scripts from your topic, target audience, and style preferences. YouTube's Creator Academy identifies watch time and audience retention as the primary signals YouTube uses to decide how broadly to recommend a video — and scripted videos consistently outperform unscripted ones on both metrics. Our generator produces a ready-to-use script with a psychologically engineered hook, a value-previewing intro, structured body sections with built-in pattern interrupts, mid-video and end-of-video CTAs, and a closing outro — all calibrated to your chosen video length and tone. The result is a tighter, more confident video that holds viewer attention longer and signals higher quality to the algorithm.",
   },
   {
     q: "How do I write a YouTube script that keeps viewers watching?",
-    a: "Retention-optimized scripts follow a specific architecture: (1) An irresistible hook in the first 5–15 seconds that creates a curiosity gap or states a bold promise. (2) A concise intro that establishes relevance and previews value without giving everything away. (3) Structured main content broken into clear, named sections that signal progress. (4) Pattern interrupts every 20–40 seconds — perspective shifts, rhetorical questions, surprising data, or format changes that reset attention. (5) A mid-video CTA that feels natural rather than forced. (6) A strong end card with a specific next-step ask tied directly to what they just watched.",
+    a: "Retention-optimized scripts follow a specific architecture that YouTube's Creator Academy identifies as key to strong performance: (1) A hook in the first 5–15 seconds that creates a curiosity gap or states a specific, credible promise. (2) A concise intro that confirms relevance and previews value — without giving the answer away. (3) Structured main content broken into clearly named sections that signal progress and reduce cognitive load. (4) Pattern interrupts at regular intervals — perspective shifts, rhetorical questions, surprising data, or format changes that reset attention before it drifts. (5) A mid-video CTA that feels like a natural pause rather than an interruption. (6) A strong end CTA tied specifically to what the viewer just learned, linking to the next logical step.",
   },
   {
     q: "How long should a YouTube video script be?",
-    a: "Script length should be calibrated to your target video length at approximately 130–150 words per minute for normal conversational delivery. A 5-minute video requires roughly 650–750 words of spoken content; a 10-minute video needs 1,300–1,500 words; a 15-minute video requires 1,950–2,250 words. Our generator automatically calibrates output length to your selected video duration. Keep in mind that pauses, b-roll moments, and on-screen demonstrations reduce the actual words-per-minute pace, so the script length is always a starting framework rather than an exact target.",
+    a: "Script length should be calibrated to your target video length at approximately 130–150 words per minute for normal conversational delivery — a widely cited speaking rate benchmark across broadcast and presentation coaching. A 5-minute video requires roughly 650–750 words of spoken content; a 10-minute video needs 1,300–1,500 words; a 15-minute video requires 1,950–2,250 words. Our generator automatically calibrates output length to your selected duration. Keep in mind that pauses, b-roll moments, and on-screen demonstrations reduce the actual words-per-minute pace — treat the script length as a framework, not a rigid target. For monetization, YouTube's Help Center confirms videos must be at least 8 minutes long to enable mid-roll ad placements, making that a key script-length threshold for revenue-focused creators.",
   },
   {
     q: "What is a pattern interrupt in a YouTube script?",
-    a: "A pattern interrupt is any deliberate shift in content, tone, format, or delivery that disrupts the viewer's passive watching state and re-engages their attention. YouTube's research shows that viewer attention naturally drifts every 20–40 seconds. Pattern interrupts counteract this by introducing something unexpected: a surprising statistic, a direct question to the audience, a shift from instructional to storytelling mode, a sudden change in pacing, or a humorous aside. Every script our tool generates includes pattern interrupts at intervals calibrated to your chosen video length, because channels that consistently achieve 55%+ average view duration universally use this technique.",
+    a: "A pattern interrupt is any deliberate shift in content, tone, format, or delivery that disrupts the viewer's passive watching state and re-engages active attention. Viewer attention is not static — it naturally drifts during continuous passive media consumption, which is why the best-performing YouTube scripts are structured to introduce something unexpected at regular intervals: a surprising statistic, a direct question to the audience, a shift from instructional to storytelling mode, a change in pacing, or a brief humorous aside. Pattern interrupts are used deliberately by high-retention channels precisely because YouTube's Creator Academy identifies audience retention as one of the strongest signals driving video distribution. Every script our tool generates includes pattern interrupts at intervals calibrated to your chosen video length.",
   },
   {
     q: "What are the different YouTube script styles and when should I use each?",
-    a: "Tutorial scripts work best for how-to content, software walkthroughs, and skill-based topics — they follow a step-by-step structure with numbered sections. Listicle scripts ('7 Reasons…', '10 Best…') perform strongly for discovery because the format is clear and binge-able. Storytelling scripts open with a narrative arc and are most effective for personal brand channels, case studies, and inspirational content. Talking head scripts are structured for direct-to-camera delivery with strong conversational pacing, ideal for commentary and education. Documentary scripts use a journalistic framework with evidence-building narrative, best for investigative or deep-dive content. Choose based on your channel's existing style and what your audience expects.",
+    a: "Tutorial scripts work best for how-to content, software walkthroughs, and skill-based topics — they follow a step-by-step structure with numbered sections and transition cues. Listicle scripts ('7 Reasons…', '10 Best…') perform strongly for discovery content because the numbered format sets clear expectations and is highly binge-able. Storytelling scripts open with a narrative arc and work best for personal brand channels, case studies, and motivational content where emotional connection drives retention. Talking head scripts are structured for direct-to-camera delivery with strong conversational pacing, ideal for commentary and education. Documentary scripts use a journalistic evidence-building narrative, best for investigative or deep-dive content. Choose based on your channel's existing style, your audience's expectations, and which format aligns with your video's primary goal.",
   },
   {
     q: "How important is the YouTube video hook?",
-    a: "The hook is the single most important 15 seconds of your entire video. YouTube Analytics data consistently shows that 30–60% of viewers abandon a video within the first 30 seconds — the drop-off curve is steepest at the very beginning. A powerful hook does three things simultaneously: creates immediate curiosity or emotional tension, tells viewers exactly who the video is for, and signals production quality and creator confidence. The most effective hook formats are: the bold contrarian statement ('Everything you've been told about X is wrong'), the specific promise ('By the end of this video, you'll know exactly how to…'), and the dramatic open — starting mid-action before explaining how you got there.",
+    a: "The hook is the highest-leverage element of your entire script. YouTube's Creator Academy explicitly states that 'the first few seconds of your video are critical' — viewer retention curves consistently show the steepest drop-off point is within the first 30 seconds, before the algorithm has collected enough engagement data to confidently recommend the video further. A strong hook does three things simultaneously: creates immediate curiosity or emotional tension that makes stopping feel like a loss, establishes who the video is specifically for, and signals production confidence. The most effective hook formats are: the bold contrarian statement ('Everything you've been told about X is wrong'), the specific promise ('By the end of this video, you'll know exactly how to…'), and the dramatic open — starting mid-action before explaining the context.",
   },
   {
     q: "Should I read my YouTube script word for word?",
-    a: "Using your script as a rigid teleprompter read typically produces stiff, low-energy delivery that viewers notice negatively. The better approach is to use the script as a framework — internalize each section's core point and key phrases, then deliver it in your natural voice. Most successful YouTube creators use their script to prepare the logical structure and key lines (especially the hook and CTAs, which should be precise), then speak semi-improvised sentences that hit those beats naturally. The goal is sounding like you're talking to one person, not reading from a document. If you use a teleprompter, practice reading at a conversational pace with intentional pauses.",
+    a: "Using your script as a rigid teleprompter read typically produces stiff, low-energy delivery that viewers notice — and that signals low production confidence, which accelerates early drop-off. The better approach: use the script as a framework. Internalize each section's core point and key phrases, then deliver it in your natural voice. Most effective YouTube creators script their hook and CTAs precisely (because these need to land exactly right), then speak the body sections semi-improvised against a detailed outline. The goal is sounding like you're talking to one specific person, not reciting from a document. If you use a teleprompter, practice reading at a genuinely conversational pace with deliberate pauses — pacing is the most common teleprompter mistake.",
   },
   {
     q: "What is the best YouTube video length for views and monetization?",
-    a: "The optimal length depends on your goal. For maximum monetization, videos of 8+ minutes allow mid-roll ads, which can double or triple your ad revenue per video compared to videos under 8 minutes. The sweet spot for most educational and entertainment channels is 8–15 minutes — long enough for multiple ad slots but short enough to maintain high average view duration percentages. For algorithmic discovery, shorter videos (4–7 minutes) with very high retention rates can outperform longer videos in recommendations. The key metric is not length but average view duration as a percentage — a 10-minute video where viewers watch 70% on average outperforms a 20-minute video at 30%.",
+    a: "The optimal length depends on your goal. For monetization, YouTube's Help Center confirms that videos must be at least 8 minutes long to enable mid-roll ads — the ability to place ads in the middle of the video rather than just at the start. Mid-roll placements can substantially increase ad revenue per video because they generate additional impressions without requiring more views. For algorithmic discovery, shorter videos (4–7 minutes) with very high retention rates can outperform longer videos in recommendations — YouTube distributes based on watch time percentage, not absolute length. The key metric is average view duration as a percentage: a 10-minute video where viewers watch 70% outperforms a 20-minute video at 30%. For most educational channels, 8–12 minutes balances monetization eligibility with retention-friendly length.",
   },
   {
-    q: "How do I add keywords to my YouTube script for SEO?",
-    a: "YouTube's algorithm partially analyzes video transcripts (auto-generated captions) and chapter markers for topic context, so natural keyword integration in your script provides marginal SEO benefit. The most impactful placements are: the first 30 seconds of your script (which maps to the auto-generated description excerpt), chapter titles that align with search queries, and natural repetition of the main topic keyword throughout. The keyword field in our generator automatically weaves your specified keywords into the hook and intro sections. For maximum SEO impact, complement your script with an optimized title and description using our YouTube Title Generator and YouTube Description Generator — these have far more direct algorithmic weight.",
+    q: "Does including my keyword in my YouTube script help SEO?",
+    a: "Yes — with an important qualifier. YouTube generates automatic captions for every video and its Help Center confirms that captions help viewers and accessibility tools — and YouTube's systems use the transcript data to better understand video content. This means speaking your target keyword naturally within the first 30–60 seconds of your video (which maps to the earliest portion of the transcript) reinforces the topic signals in your title and description. Chapter markers tied to search-relevant phrases add additional indexed entry points. That said, YouTube's Creator Academy is clear that your title and description carry far more direct SEO weight than transcript keywords — script keyword integration is a secondary signal, not a primary ranking driver. The keyword field in our generator automatically weaves your specified keywords into the hook and intro sections where they carry the most transcript weight.",
   },
   {
     q: "What should I say in my YouTube video call-to-action?",
-    a: "The most effective CTAs are specific, value-connected, and placed at natural momentum points. Our scripts include two CTA placements: a mid-video CTA around the 50–60% mark that asks for a low-friction action (typically a like or a specific comment about the current topic), and an end CTA that links the next step to what the viewer just learned ('If you want to take this further, my video on [related topic] shows you exactly how to…'). Research consistently shows that asking for one specific action outperforms asking for likes, comments, subscriptions, and shares simultaneously. Choose the single action most important to your channel right now and make that the primary ask.",
+    a: "The most effective CTAs are specific, value-connected, and placed at natural momentum points rather than awkward pauses. YouTube's Creator Academy advises creators to ask viewers to take a specific action that connects directly to what they just watched — generic asks ('like and subscribe') underperform because they're disconnected from the content and interrupt the experience. Our scripts include two CTA placements: a mid-video CTA around the 50–60% mark asking for a low-friction action (typically a like or a topic-specific comment prompt tied to the video's subject), and an end CTA linking the next step to what the viewer just learned ('If you want to go deeper on this, my video on [related topic] covers exactly how to…'). The principle YouTube Creator Academy reinforces: one clear, specific ask beats four simultaneous requests every time.",
+  },
+  {
+    q: "How does a well-structured script affect YouTube revenue?",
+    a: "Script quality has a direct revenue impact beyond just views — through mid-roll ad delivery. YouTube's Help Center confirms that mid-roll ads (ads placed mid-video) require a minimum video length of 8 minutes. Scripted videos tend to be longer, more focused, and less likely to trigger early drop-off — meaning more viewers reach mid-roll ad positions. A video where 60% of viewers watch past the midpoint delivers fundamentally more ad impressions per view than one where most viewers leave at 30%. Beyond ad revenue, strong scripts also improve click-through on end screens, which drives more views on subsequent videos, compounds channel watch time, and accelerates the subscriber growth that unlocks additional YPP monetization tiers. Script quality is a revenue multiplier, not just an audience experience improvement.",
   },
 ];
 
@@ -412,56 +416,20 @@ export function YouTubeScriptGeneratorTool() {
           <h2 className="text-2xl font-bold font-display text-foreground">About This YouTube Script Generator</h2>
         </div>
         <div className="space-y-8">
+
+          {/* Section 1: How the generator works */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Zap className="w-4 h-4 text-primary" /> How the Script Generator Works
+              <Zap className="w-4 h-4 text-primary" /> Why Script Structure Directly Drives YouTube Distribution
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              This free YouTube Script Generator creates complete, professionally structured video scripts
-              using proven frameworks developed by top-performing YouTube creators and audience retention
-              specialists. Every script follows the same foundational architecture used by channels with
-              millions of subscribers: a psychologically-engineered hook in the first 5–15 seconds that
-              creates a curiosity gap or emotional tension, a concise intro that establishes relevance and
-              previews value, main content broken into clearly-titled sections for easy navigation, pattern
-              interrupts every 20–40 seconds to sustain attention, and CTAs placed at the exact moments
-              where viewer engagement peaks.
+              YouTube's Creator Academy identifies <strong className="text-foreground">watch time and audience retention</strong> as the primary signals the algorithm uses to decide how broadly to recommend a video — across Search, Suggested Videos, and the Home feed. A script isn't a writing exercise; it's the upstream decision that determines your retention curve before you film a single frame. Unscripted videos on the same topic routinely generate early drop-off from rambling, repeated points, and unfocused delivery — all of which suppress distribution. A well-structured script removes those failure points at the source.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Our AI doesn't just generate generic text — it selects the optimal structural framework for
-              your chosen style (tutorial, listicle, storytelling, talking head, or documentary) and adapts
-              pacing, tone, and word count to match your target video duration precisely. A 5-minute
-              tutorial script looks and reads fundamentally differently from a 15-minute storytelling script,
-              and the generator accounts for that at every level: section length, number of pattern
-              interrupts, CTA placement timing, and outro depth.
+              Our generator produces a complete script framework: a psychologically engineered hook in the first 5–15 seconds, a concise intro that previews value without giving the answer away, structured body sections with named transitions and pattern interrupts to maintain attention, CTAs at the moments where viewer engagement peaks, and an outro that drives the next action. The AI selects the optimal structure for your chosen style — tutorial, listicle, storytelling, talking head, or documentary — and adapts pacing and word count to match your target duration precisely.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              SEO keyword integration is woven naturally into the hook and intro sections — the parts of
-              your video that YouTube's caption-based indexing weighs most heavily — so your script
-              simultaneously optimizes for viewer retention and algorithmic discoverability without keyword
-              stuffing or unnatural phrasing.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-primary" /> Why a Good Script Dramatically Improves YouTube Performance
-            </h3>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              YouTube's algorithm ranks videos primarily on watch time and audience retention — specifically
-              the percentage of the video that average viewers watch. A well-scripted video routinely
-              achieves 50–70% average view duration, while an unscripted video on the same topic might see
-              25–35%. That difference is enormous: higher retention signals to YouTube that your video is
-              valuable, which causes it to be recommended more aggressively in Suggested Videos, Home feed,
-              and YouTube Search. This compounding effect means a single well-scripted video can generate
-              10–20× more total views than a poorly structured video on the same topic, simply because the
-              algorithm distributes it far more broadly.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              Beyond the algorithm, scripting directly impacts revenue. Scripted videos tend to be longer,
-              more focused, and less likely to trigger viewer drop-off before mid-roll ad placements.
-              Keeping viewers engaged past the 50% mark — where mid-roll ads are typically inserted — can
-              double or triple your ad revenue per video compared to a video where most viewers leave early.
-              Pair strong scripting with an optimized{" "}
+              SEO keyword integration is woven into the hook and intro sections — the first 30–60 seconds of spoken content, which maps to the highest-weight portion of YouTube's auto-generated transcript. YouTube's Help Center confirms captions are generated automatically for every video and used to improve content understanding, making natural keyword placement in your early script a genuine (if secondary) SEO signal. Pair your script with an optimized{" "}
               <Link href="/tools/youtube-title-generator" className="text-primary hover:underline font-medium">
                 title
               </Link>{" "}
@@ -469,31 +437,76 @@ export function YouTubeScriptGeneratorTool() {
               <Link href="/tools/youtube-description-generator" className="text-primary hover:underline font-medium">
                 description
               </Link>{" "}
-              to maximize both click-through rate and post-click retention simultaneously.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Scripting also eliminates one of the most damaging unscripted video habits: rambling. When
-              creators speak without a structure, they over-explain, repeat themselves, and lose the thread —
-              all of which drive viewer drop-off. A script holds you accountable to every sentence having a
-              purpose, which produces a tighter, more confident delivery that audiences respond to with
-              longer watch sessions and higher subscriber conversion rates.
+              for a complete pre-publish workflow.
             </p>
           </div>
 
+          {/* Section 2: The 8-minute threshold + revenue */}
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-primary" /> The 8-Minute Script Threshold That Changes Your Revenue Model
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              YouTube's Help Center confirms a hard threshold: videos must be <strong className="text-foreground">at least 8 minutes long</strong> to enable mid-roll ad placements — ads inserted mid-video rather than only at the start. This single structural decision fundamentally changes a video's revenue potential. A well-retained 8-minute video can generate substantially more ad revenue than a 5-minute video with the same view count, because mid-roll placements create additional impression opportunities without requiring additional traffic.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Scripted videos are structurally better suited to hitting and holding this threshold. Unscripted videos tend to run either too short (creators underestimate their speaking time) or artificially long (padding to hit 8 minutes with low-value filler that tanks retention). A script calibrated to 8–12 minutes reaches the mid-roll threshold with content that justifies the length — maintaining the retention curve that signals quality to the algorithm. Our generator includes a 10-minute option specifically designed around this monetization structure, with mid-roll CTA placement timed to the natural engagement peak around the 50–60% mark.
+            </p>
+
+            {/* Citation capsule */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 text-sm text-muted-foreground leading-relaxed">
+              <strong className="text-foreground block mb-1">The script-to-revenue connection</strong>
+              YouTube's{" "}
+              <a href="https://support.google.com/youtube/answer/72857" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Help Center
+              </a>{" "}
+              confirms that mid-roll ads require a minimum 8-minute video length. YouTube's{" "}
+              <a href="https://creatoracademy.youtube.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Creator Academy
+              </a>{" "}
+              identifies watch time and audience retention as the primary signals driving video distribution across Search, Suggested, and Home feed. A structured script is the upstream decision that determines both: it calibrates video length to the monetization threshold and structures content to sustain the retention that drives algorithmic reach.
+            </div>
+          </div>
+
+          {/* Section 3: The 5-part architecture */}
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <FileText className="w-4 h-4 text-primary" /> The Five-Part Script Architecture Built Into Every Generation
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Every script this generator produces follows a five-part architecture validated by YouTube's Creator Academy guidance on audience retention and viewer behavior. Each part has a specific function in the retention curve:
+            </p>
+            <div className="grid sm:grid-cols-1 gap-3 mb-4">
+              {[
+                { part: "1. Hook (0–15 sec)", role: "Create a curiosity gap or bold promise that makes stopping feel like a loss. YouTube Creator Academy calls the first seconds 'critical' — the steepest drop-off point is here." },
+                { part: "2. Intro (15 sec – 1 min)", role: "Confirm who the video is for, preview the structure, and establish credibility — without giving away the answer. Sets viewer expectation and reduces early exits." },
+                { part: "3. Body Sections", role: "Structured, named sections that signal progress. Pattern interrupts built in at regular intervals — perspective shifts, questions, data points, or format changes — to reset attention before it drifts." },
+                { part: "4. Mid-Video CTA", role: "Placed at the 50–60% mark where engagement is still high. Topic-specific ask (a comment prompt tied to the video's exact subject) rather than a generic 'like and subscribe'." },
+                { part: "5. End CTA + Outro", role: "One specific next-step ask linked directly to what the viewer just learned. YouTube Creator Academy: one clear action outperforms multiple simultaneous requests." },
+              ].map(({ part, role }) => (
+                <div key={part} className="rounded-xl border border-border bg-muted/30 px-4 py-3">
+                  <div className="font-semibold text-sm text-foreground mb-1">{part}</div>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{role}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Section 4: Feature grid */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
               <ListChecks className="w-4 h-4 text-primary" /> Benefits of Using This YouTube Script Generator
             </h3>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
-                "Generates complete scripts with hook, intro, body, CTA, and outro",
-                "5 tone options to match your channel style and audience personality",
-                "5 script styles: tutorial, listicle, storytelling, talking head, documentary",
-                "Pattern interrupts built in every 20–40 seconds for maximum retention",
-                "Calibrated word counts matched to your target video duration",
-                "SEO keyword integration woven naturally into hook and intro sections",
-                "Mid-video and end-video CTAs designed to drive likes, subs, and watch time",
-                "Bonus B-roll, on-screen text, and thumbnail text suggestions included",
+                "Five-part retention architecture (hook, intro, body, CTA, outro) based on YouTube Creator Academy guidance",
+                "8-minute script option calibrated to YouTube Help Center's mid-roll ad eligibility threshold",
+                "5 script styles: tutorial, listicle, storytelling, talking head, documentary — each with distinct structure",
+                "Pattern interrupts built in at regular intervals to sustain the retention curve YouTube's algorithm rewards",
+                "Keyword integration in hook and intro — the sections that map to the highest-weight transcript portion",
+                "Mid-video CTA timed to the 50–60% engagement peak, with topic-specific comment prompt formula",
+                "Auto-captions SEO: keywords spoken early in your script reinforce your title and description signals",
+                "Bonus B-roll, on-screen text, and thumbnail text suggestions included in every generation",
                 "Copy individual sections or the entire script with one click",
                 "100% free — no account required, unlimited script generations",
               ].map((text, i) => (
@@ -518,12 +531,12 @@ export function YouTubeScriptGeneratorTool() {
         <div className="grid sm:grid-cols-2 gap-3">
           {[
             "Use the Bonus tab after generating your script — the B-roll suggestions and on-screen text ideas are built to complement each section and save hours of editing planning.",
-            "Nail your hook first: rewrite it at least 2–3 times before filming. The first 15 seconds determine whether viewers stay, and a 10% improvement in 30-second retention compounds across every video.",
-            "Make videos at least 8 minutes long to enable mid-roll ad placements — this single change can double your ad revenue per video without requiring more views.",
-            "Use the keywords field to inject your primary search term naturally into the hook and intro — these sections are transcribed first by YouTube and carry the most SEO weight.",
-            "Read your script aloud before filming. Sentences that look fine on the page often sound unnatural when spoken — this is the fastest way to catch stiff phrasing.",
-            "Add a mid-video CTA asking a specific question in the comments (tied to the video topic) rather than a generic 'leave a comment below' — topic-specific prompts generate 3–5× more responses.",
-            "After scripting, generate your title with the YouTube Title Generator before you film — knowing your exact title first ensures your hook and intro language mirrors the promise your title makes.",
+            "Nail your hook first: rewrite it at least 2–3 times before filming. YouTube's Creator Academy calls the first seconds 'critical' — the retention curve drops most steeply before viewers reach the 30-second mark, making the hook the highest-leverage rewrite investment per word.",
+            "Target at least 8 minutes per video to enable mid-roll ads — YouTube's Help Center confirms this is the eligibility threshold. Script to this length with content that earns it, not filler: a 10-minute scripted video with genuine depth outperforms an 8-minute padded one on every metric.",
+            "Use the keywords field to inject your primary search term naturally into the hook and intro — YouTube generates automatic captions for every video, and keywords spoken early in your transcript reinforce the topic signals in your title and description.",
+            "Read your script aloud before filming. Sentences that look fine on the page often sound unnatural when spoken — this is the fastest way to catch stiff phrasing, run-on sentences, and tongue-twisting word combinations before they make it onto film.",
+            "Make your mid-video CTA a specific comment prompt tied to the exact topic you just covered — 'Tell me in the comments: which of these three approaches fits your situation?' performs better than 'leave a comment below' because it gives viewers something concrete to respond to.",
+            "Generate your title with the YouTube Title Generator before you film — knowing your exact title first ensures your hook and intro language mirrors the specific promise your title makes. A hook-title mismatch confuses viewers and accelerates early drop-off.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
               <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />

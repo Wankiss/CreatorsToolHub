@@ -214,12 +214,12 @@ function computeEngagement(
 
   // ── Improvements ───────────────────────────────────────────
   const improvements: string[] = [
-    `Add a "Save this for later" prompt to every educational carousel — creators who add explicit save CTAs see 2–4× higher save rates.`,
+    `Add a "Save this for later" prompt to every educational carousel — explicit save CTAs meaningfully increase save rates by directing viewer attention to the action.`,
     `End every caption with a direct question tied to the content (not 'what do you think?' — instead 'Which of these 3 strategies are you trying first?').`,
     `Reply to every comment within the first 60 minutes of posting — Instagram's algorithm rewards comment velocity and increases distribution to non-followers.`,
     `Post Reels as a carousel companion — publish the same content as both a Reel and a carousel within 24 hours to maximize both reach and saves.`,
     `A/B test your hooks — the first line of your caption is your hook. Strong hooks increase both comment and save rates because they pull readers into the full post.`,
-    `Collaborate with creators in adjacent niches — collab posts reach both audiences and typically achieve 40–80% higher engagement on the first 24 hours.`,
+    `Collaborate with creators in adjacent niches — collab posts reach both audiences simultaneously and consistently generate stronger early engagement than solo posts because two follower bases see the content.`,
   ];
 
   // ── What It Means ──────────────────────────────────────────
@@ -269,7 +269,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Why do saves matter more than likes for Instagram engagement?",
-    a: `Saves are Instagram's strongest engagement signal because they represent the highest level of user intent. When a user saves your post, they are telling Instagram they found it valuable enough to retrieve later — a much more deliberate action than a passive like or scroll-past. Instagram's algorithm uses saves as a primary quality signal for Explore page distribution and Reels reach. In ${YEAR}, posts with high save rates are distributed to 2–5× more non-followers than posts with equivalent likes but few saves. Strategically, carousel posts with educational or actionable content — step-by-step guides, lists, how-to tutorials — generate the highest save rates of any Instagram format.`,
+    a: `Saves are Instagram's strongest engagement signal because they represent the highest level of user intent. When a user saves your post, they are telling Instagram they found it valuable enough to retrieve later — a much more deliberate action than a passive like or scroll-past. According to Instagram's Help Center documentation on About Instagram Insights, saves are one of the four key engagement metrics Instagram tracks alongside likes, comments, and shares. Meta's Transparency Center confirms that saves are among the primary signals Instagram uses for Explore page distribution and Reels reach. Strategically, carousel posts with educational or actionable content — step-by-step guides, lists, how-to tutorials — generate the highest save rates of any Instagram format because viewers bookmark reference content more than opinion or entertainment posts.`,
   },
   {
     q: "How does engagement rate affect Instagram brand deal rates?",
@@ -298,6 +298,10 @@ const FAQ_ITEMS = [
   {
     q: "Is this Instagram engagement calculator free?",
     a: "Yes — the Instagram Engagement Calculator on creatorsToolHub is completely free with no account, subscription, or credit card required. Enter your followers, average likes, comments, and saves, and instantly get your weighted engagement rate, a performance label (Poor to Elite), a benchmark comparison against your follower tier and niche, a brand deal potential estimate with suggested pricing, strengths and weaknesses analysis, and 6 specific improvement recommendations. Toggle between Weighted mode (uses saves×3, comments×2) and Basic mode (standard unweighted calculation) to see how Instagram's algorithm weighs your interactions.",
+  },
+  {
+    q: "Where can I find likes, comments, and saves for my Instagram posts?",
+    a: "Instagram's Help Center documents the exact path to access individual post metrics: open your profile, tap the post you want to analyse, then tap View Insights beneath the post. This opens the Insights panel showing likes, comments, saves, shares, reach, and impressions for that specific post. Saves and shares appear under the Interactions section; reach and impressions appear under Discovery. For Reels, additional metrics are available: plays, watch-through rate, and 3-second video views. To calculate your average engagement rate accurately, pull these numbers from your last 10 posts and average each metric separately — this prevents viral outliers from skewing the result. Instagram Professional Dashboard (under Overview) provides account-level totals but does not calculate engagement rate directly; the per-post View Insights path is the only way to get the individual metric breakdown this calculator needs.",
   },
 ];
 
@@ -831,10 +835,10 @@ export function InstagramEngagementCalculatorTool() {
                   <MessageCircle className="w-4 h-4 text-primary" /> Priority: Drive More Comments
                 </h3>
                 <ul className="space-y-2">
-                  {["End every caption with a specific, opinion-inviting question ('Which of these 3 would you try first?') — generic CTAs generate 5× fewer comments than specific ones.",
+                  {["End every caption with a specific, opinion-inviting question ('Which of these 3 would you try first?') — specific questions generate significantly more comments than generic CTAs like 'What do you think?'.",
                     "Reply to every comment within the first 60 minutes of posting — comment velocity in the first hour is one of Instagram's key distribution triggers.",
                     "Pin your own comment immediately after publishing to seed the conversation and set the engagement tone.",
-                    "Take a clear position or make a specific claim in your content — content that invites agreement or disagreement generates 3× more comments than neutral content.",
+                    "Take a clear position or make a specific claim in your content — content that invites agreement or disagreement generates meaningfully more comments than neutral or non-committal posts.",
                   ].map((tip, i) => (
                     <li key={i} className="flex gap-2.5 p-3 rounded-xl bg-muted/40 border border-border text-sm text-muted-foreground">
                       <span className="w-5 h-5 rounded-lg bg-primary/10 text-primary font-bold text-xs flex items-center justify-center shrink-0">{i + 1}</span>
@@ -910,6 +914,17 @@ export function InstagramEngagementCalculatorTool() {
               Why the Weighted Engagement Formula Produces More Accurate Results
             </h3>
             <p className="mb-3">
+              Instagram's Help Center documentation on{" "}
+              <a href="https://help.instagram.com/788388387972460" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">About Instagram Insights</a>{" "}
+              identifies four key post-level engagement metrics: likes, comments, saves, and shares.
+              Meta's Transparency Center further confirms that saves are among the primary signals
+              Instagram uses to rank content for Explore and Reels distribution — meaning not all
+              interactions carry the same algorithmic weight. On a platform with{" "}
+              <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">2 billion monthly active users</a>{" "}
+              (Statista, 2024), the accounts that grow fastest are those that optimise for save-generating
+              content rather than treating all engagement types as equivalent.
+            </p>
+            <p className="mb-3">
               The standard Instagram engagement rate formula — (Likes + Comments + Saves) / Followers × 100 — treats all three interaction types equally. But they are not equal. A like takes one tap and less than a second of decision time. A comment requires a viewer to stop, think, and type a response — a deliberate act of engagement that signals genuine connection with the content. A save represents the highest level of engagement intent: the viewer found your content valuable enough to deliberately store for future reference.
             </p>
             <p className="mb-3">
@@ -925,6 +940,14 @@ export function InstagramEngagementCalculatorTool() {
               <Search className="w-4 h-4 text-primary flex-shrink-0" />
               How Follower Tier and Niche Both Affect Your Engagement Benchmark
             </h3>
+            <p className="mb-3">
+              Instagram's Professional Dashboard (accessible to any creator account) provides
+              account-level benchmarks under the Overview section, including reach, impressions, and
+              follower demographics — but it does not provide a direct engagement rate figure. Creators
+              must calculate this themselves from the per-post metrics available under Content You've
+              Shared. This calculator automates that calculation and applies the follower-tier and
+              niche adjustments that make the resulting number actually meaningful.
+            </p>
             <p className="mb-3">
               A 3% engagement rate means very different things for different accounts. For a nano creator with 2,000 followers, 3% is below average — their tight, personally connected audience should generate 6–9%. For a macro creator with 500,000 followers, 3% is exceptional — well above the 1–2.5% average for their tier. This calculator applies follower-tier-specific benchmarks that reflect these real-world differences: Nano (1K–5K), Micro (5K–20K), Mid-Tier (20K–100K), and Macro (100K+) each have separate performance thresholds.
             </p>
@@ -947,6 +970,56 @@ export function InstagramEngagementCalculatorTool() {
             <p>
               In practice, this means that improving your engagement rate from 2% to 4% doesn't just double your engagement metrics — it increases your per-post sponsorship rate by approximately 40% (from 1.0× to 1.4× multiplier) for the same follower count. For a creator with 50,000 followers in the fitness niche, this difference is approximately $500–$800 per sponsored Reel. The Brand Value tab shows you exactly which inputs are driving your current rate and what you would need to change to reach the next sponsorship tier.
             </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Search className="w-4 h-4 text-primary flex-shrink-0" />
+              How to Find Your Engagement Metrics in Instagram Insights
+            </h3>
+            <p className="mb-3">
+              Instagram's Help Center documents the exact path to access post-level engagement
+              metrics: go to your profile, tap the post you want to analyse, then tap View Insights
+              beneath the post. This opens the Insights panel for that individual post. The metrics
+              available include likes, comments, saves, shares, reach, impressions, and profile visits.
+              Saves and shares are listed under Interactions; reach and impressions are under Discovery.
+              For Reels specifically, you will also see plays, watch-through rate, and 3-second video
+              views — the metrics that most directly measure hook performance.
+            </p>
+            <p className="mb-3">
+              To calculate your average engagement rate accurately, pull the likes, comments, and saves
+              from your last 10 posts and average each metric separately. Using the last 10 posts (not
+              your all-time average) prevents viral outliers or old underperforming posts from skewing
+              the result. For the most accurate ongoing tracking, export these numbers to a simple
+              spreadsheet and update it after every post — a 30-day trend is more informative than any
+              single post's numbers.
+            </p>
+            <p className="mb-3">
+              Instagram's Professional Dashboard also provides account-level summary data under
+              Overview: total reach, accounts engaged, and total followers — but it does not calculate
+              engagement rate directly. The per-post View Insights path is the only way to get the
+              individual metric breakdown (likes, comments, saves as separate figures) needed for an
+              accurate weighted engagement rate calculation.
+            </p>
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong>Key sources:</strong>{" "}
+                <a href="https://help.instagram.com/788388387972460" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  Instagram Help Center — About Instagram Insights
+                </a>{" "}
+                documents the four post-level engagement metrics (likes, comments, saves, shares)
+                and the path to access them (Post → View Insights → Interactions). Meta's{" "}
+                <a href="https://transparency.fb.com/features/ranking-and-content/type-of-content/instagram-feed/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  Transparency Center
+                </a>{" "}
+                confirms that saves are among the primary signals Instagram uses for Explore and Reels
+                distribution ranking. Statista reported{" "}
+                <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  2 billion monthly active Instagram users
+                </a>{" "}
+                globally in 2024.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -992,9 +1065,9 @@ export function InstagramEngagementCalculatorTool() {
           {[
             { tip: "Instagram benchmarks engagement at 1–3% for accounts under 100K — if your rate is below 1%, prioritize niche content over growth until engagement recovers." },
             { tip: "Saves are Instagram's most powerful engagement signal — content that earns saves gets distributed to non-followers through the Explore page algorithm." },
-            { tip: "Post consistently to 3–5 formats (Feed, Reels, Stories, Carousels) — multi-format accounts see 60% higher overall engagement than single-format creators." },
+            { tip: "Post consistently across multiple formats (Feed, Reels, Stories, Carousels) — using Reels for reach and Carousels for saves works different distribution surfaces simultaneously rather than over-indexing on one format." },
             { tip: "Reply to every comment within the first hour of posting — early comment velocity signals quality to Instagram's algorithm and extends your organic reach." },
-            { tip: "Carousel posts get 3× more reach than single-image posts — use carousels for educational content, before/afters, and step-by-step guides." },
+            { tip: "Carousels drive the highest save rates of any Instagram format — use them for educational content, before/afters, and step-by-step guides that viewers will want to reference again." },
             { tip: "Track your engagement rate over time, not just per post — a declining trend over 30+ posts signals a content strategy issue worth addressing proactively." },
             { tip: "Run a 'Save this' CTA test vs. 'Comment below' across 10 posts — the winner reveals what action your specific audience is most likely to take." },
           ].map(({ tip }, i) => (

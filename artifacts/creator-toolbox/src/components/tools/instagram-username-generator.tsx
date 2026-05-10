@@ -23,7 +23,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How many characters can an Instagram username have?",
-    a: "Instagram usernames can be between 1 and 30 characters long, and can only contain letters, numbers, periods, and underscores — no spaces, hyphens, or special characters. However, the practical sweet spot for brand-building is 8–14 characters. Usernames shorter than 8 characters are almost universally taken on a platform with over 2 billion users. Usernames longer than 14 characters get truncated in Instagram's comment interface on smaller screens and are harder to remember and type. The generator keeps all suggested usernames within the optimal range and displays character counts so you never have to count manually.",
+    a: "Instagram usernames can be between 1 and 30 characters long, and can only contain letters, numbers, periods, and underscores — no spaces, hyphens, or special characters. These rules are documented in the Instagram Help Center under Managing Your Account. However, the practical sweet spot for brand-building is 8–14 characters. Usernames shorter than 8 characters are almost universally taken on a platform with 2 billion monthly active users (Statista, 2024). Usernames longer than 14 characters get truncated in Instagram's comment interface on smaller screens and are harder to remember and type. The generator keeps all suggested usernames within the optimal range and displays character counts so you never have to count manually.",
   },
   {
     q: "Should my Instagram username match my niche?",
@@ -31,7 +31,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Can I change my Instagram username after setting it?",
-    a: "Yes — Instagram allows you to change your username at any time from your profile settings. However, changing your username has real costs: all existing tagged posts, Story mentions, and external links to your old handle will break immediately. Anyone who tries to use your old tag will reach a dead end or, worse, a different account that claims the handle after you release it. Instagram's discovery algorithm can also take 2–4 weeks to fully re-index your new handle across search and recommendations, temporarily reducing your reach. For these reasons, it is worth investing time to choose the right username from the start rather than changing it after you've built an audience. Use the generator to shortlist 5–8 strong options, sleep on it for a day, check availability for each on Instagram, and then commit.",
+    a: "Yes — Instagram allows you to change your username at any time from your profile settings, as documented in the Instagram Help Center. However, changing your username has real costs: all existing tagged posts, Story mentions, and external links to your old handle will break immediately. Anyone who tries to use your old tag will reach a dead end or, worse, a different account that claims the handle after you release it. Instagram's discovery systems also need time to re-index your new handle across search and recommendations, which can temporarily affect your visibility. For these reasons, it is worth investing time to choose the right username from the start rather than changing it after you've built an audience. Use the generator to shortlist 5–8 strong options, sleep on it for a day, check availability for each on Instagram, and then commit.",
   },
   {
     q: "Does this tool check if an Instagram username is available?",
@@ -40,6 +40,10 @@ const FAQ_ITEMS = [
   {
     q: "What are the best Instagram username ideas for different niches?",
     a: "The best username style varies significantly by niche. For fitness and health creators, Bold/Viral and Keyword Twist handles work best — examples like fitflow, flexora, liftdaily signal the niche immediately and feel energetic. For beauty and lifestyle creators, Aesthetic handles with clean suffixes (glow.co, skinico, beautyly) perform well because they match the visual brand of the content. For business and finance creators, Abstract or Personal Brand handles (nexvest, wealthco, [name]grows) signal authority without being too narrow. For food creators, Niche-Based and Keyword Twist handles (bakewith[name], dailybite, crumbly) perform well. For travel creators, a mix of Personal Brand and Aesthetic styles works — handles that include a name feel personal and trustworthy. Enter your specific niche into the generator to get 20 ideas calibrated to your content category, scored and sorted across all six naming styles.",
+  },
+  {
+    q: "What are Instagram's official rules for usernames according to the Help Center?",
+    a: "Instagram's Help Center documents the following official username rules: usernames must be between 1 and 30 characters long; they can only contain letters (A–Z), numbers (0–9), periods (.), and underscores (_); spaces, hyphens, and other special characters are not permitted; usernames are not case-sensitive (so @JohnSmith and @johnsmith are treated as the same handle); each username must be unique across the platform. The Help Center also documents that you can change your username at any time from Settings → Account → Username, but notes that changing it breaks any existing mentions and external links using the old handle. Importantly, Instagram distinguishes the username from the separate Name field (the bold display name on your profile), which supports spaces, emoji, and symbols, and is the field Instagram's search indexes for keyword discovery. You can find these rules at help.instagram.com under the Manage Your Account section.",
   },
 ];
 
@@ -212,12 +216,13 @@ export function InstagramUsernameGeneratorTool() {
               <Zap className="w-4 h-4 text-primary" /> What Makes a Perfect Instagram Username?
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Your Instagram username is the single most permanent element of your presence on the
-              platform. It appears in every comment you leave, every Story mention, every Reel credit,
-              every tagged post, and every link someone shares. Unlike your bio, your profile photo, or
-              your content style — which can evolve freely — your username is the anchor of your entire
-              Instagram identity. Getting it right the first time prevents the painful process of
-              rebuilding brand recognition after a change.
+              Instagram's Help Center documents that usernames can be up to 30 characters long and may
+              only contain letters, numbers, periods, and underscores. On a platform with{" "}
+              <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">2 billion monthly active users</a>{" "}
+              globally (Statista, 2024), the username you pick is the single most permanent element of
+              your presence — it appears in every comment, Story mention, Reel credit, tagged post, and
+              external link anyone ever shares. Getting it right the first time prevents the difficult
+              process of rebuilding brand recognition after a change.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
               A perfect Instagram username satisfies five criteria simultaneously. First, it is memorable
@@ -248,6 +253,13 @@ export function InstagramUsernameGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> Instagram Username Strategy: Choosing a Handle That Grows With You
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              Instagram's Help Center advises choosing a username that "represents you or your business"
+              — a deliberate distinction that captures the two main strategy paths every creator faces.
+              Personal-name handles and niche-keyword handles each have advantages depending on where
+              you want your account to be in three to five years, and the right choice determines whether
+              your handle helps or limits you as your content evolves.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               The decision between a personal-name-based handle and a niche-keyword handle is one of
               the most common dilemmas for new Instagram creators — and the right answer depends entirely
               on your long-term content strategy. If you are building a personal brand where you are the
@@ -270,6 +282,55 @@ export function InstagramUsernameGeneratorTool() {
               side-by-side, generate multiple rounds to maximise variety, shortlist 5–8 options, and
               check availability directly on Instagram before committing.
             </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-primary" /> How Instagram's Username and Name Field Work Differently for Search
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Instagram's Help Center distinguishes between two separate identity fields that most
+              creators treat as the same thing. Your username (the @handle) is your unique identifier —
+              it appears in your profile URL, every mention, and every tag. Your Name field (the
+              display name that appears in bold above your bio) is a separate 30-character field that
+              serves a completely different function: it is the field Instagram's search algorithm
+              indexes when deciding which profiles to surface for keyword queries.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              This distinction matters for your username strategy. Because the username itself is
+              primarily a brand identifier rather than a search-ranking signal, you can optimise it
+              for memorability and cross-platform consistency without worrying whether it contains
+              the right keywords. Put your searchable keyword phrases in the Name field instead — for
+              example, a username like @alexcreates paired with a Name field of "Alex | Travel
+              Photography Tips" gets you the discoverability of a keyword handle without locking you
+              into a niche your content might outgrow.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              The Name field allows spaces, symbols, and emoji — unlike the username — which gives you
+              room to include niche descriptors, location signals, or specialisation phrases that would
+              be impossible in a handle. Instagram's Help Center confirms that the Name field is one of
+              the primary places users can search to find your profile. Use this pairing strategy: pick
+              a clean, brand-forward username with the generator, then write a keyword-rich Name field
+              that does the search discovery work your handle doesn't need to do.
+            </p>
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong>Key sources:</strong>{" "}
+                <a href="https://help.instagram.com/1793730484426623" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  Instagram Help Center — Edit Your Profile
+                </a>{" "}
+                documents the distinction between username (alphanumeric, max 30 chars, URL-forming)
+                and the Name field (30 chars, supports spaces and symbols, searchable). The Help Center
+                on{" "}
+                <a href="https://help.instagram.com/271656673175566" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  changing your username
+                </a>{" "}
+                details the consequences of handle changes. Statista reported{" "}
+                <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  2 billion monthly active Instagram users
+                </a>{" "}
+                globally in 2024.
+              </p>
+            </div>
           </div>
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
@@ -311,10 +372,10 @@ export function InstagramUsernameGeneratorTool() {
             "Keep your Instagram username under 20 characters — shorter handles fit completely in Reels overlays and Stories mentions without being truncated on any device.",
             "Match your TikTok and YouTube handles exactly where possible — cross-platform brand consistency reduces friction when fans try to find you from other apps.",
             "Use the Name Field (separate from username) for keyword-rich phrases — Instagram searches the Name Field, so 'Travel Photographer | Landscape Tips' beats just your name.",
-            "Avoid too many underscores or numbers — usernames with 0–1 special characters have 35% higher recall than those with multiple separators.",
+            "Avoid too many underscores or numbers — handles with 0–1 special characters are significantly easier to remember and type correctly than those with multiple separators or digit substitutions.",
             "Test your handle for unintended readings — say your proposed username out loud multiple times before finalising to catch any awkward combinations.",
             "Claim your handle on all platforms the same day — Instagram, TikTok, YouTube, X, and Pinterest consistency protects your brand from impersonators.",
-            "Don't change your username frequently — algorithm adjustments after handle changes can reduce discovery reach for 2–4 weeks post-change.",
+            "Don't change your username frequently — Instagram's search and recommendation systems need time to re-index your new handle, and existing mentions and external links to your old handle break the moment you change it.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
               <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />

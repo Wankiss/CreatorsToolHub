@@ -218,11 +218,11 @@ function calcEarnings(
 const FAQ_ITEMS = [
   {
     q: "How much do TikTok creators make per 1,000 views?",
-    a: `TikTok's Creator Rewards Program pays creators approximately $0.20–$1.00 per 1,000 views in ${YEAR}, depending on content quality, audience location, niche, and video length. High-CPM niches like finance, tech, and education earn closer to $0.60–$1.00 per 1,000 views, while entertainment and lifestyle content typically earns $0.15–$0.40 per 1,000 views. However, Creator Rewards are just one income stream — brand deals and LIVE gifts typically generate 5–10× more revenue for creators with engaged audiences.`,
+    a: `TikTok's Creator Rewards Program pays creators in the range of $0.20–$1.00 per 1,000 views in ${YEAR}, based on industry benchmarks reported by Influencer Marketing Hub and creator community data. Actual rates vary by content quality, audience location, niche, video length, and originality score. High-CPM niches like finance, tech, and education trend toward the higher end of that range, while entertainment and lifestyle content sits lower. Importantly, videos must be at least 60 seconds long to qualify for Creator Rewards payouts (TikTok Help Center) — shorter videos are ineligible regardless of view count. Creator Rewards are also just one stream: brand partnerships typically represent a larger share of total income for creators with engaged audiences.`,
   },
   {
     q: "How do TikTok creators actually make money?",
-    a: "TikTok creators earn through three primary streams: (1) Creator Rewards — direct payments from TikTok based on views, watch time, and engagement (requires 10K followers and 100K views in 30 days to qualify); (2) Brand Deals and Sponsorships — payments from companies to feature their product or service in a video, which represent 70–90% of total income for most creators; (3) LIVE Gifts — virtual gifts sent by viewers during LIVE streams, which TikTok converts to real money. Additional income comes from affiliate marketing, merchandise, and selling digital products or services.",
+    a: "TikTok creators earn through three primary streams: (1) Creator Rewards — direct payments from TikTok based on views, watch time, and engagement. To qualify, creators need 10,000+ followers, 100,000+ views in the past 30 days, be 18+, and post videos at least 60 seconds long (TikTok Help Center). (2) Brand Deals and Sponsorships — payments from companies to feature their product or service in a video. For most creators with engaged audiences, brand partnerships represent the largest share of total income. (3) LIVE Gifts — virtual gifts sent by viewers during LIVE streams, which TikTok converts to real money. Additional income comes from affiliate marketing, merchandise, and selling digital products or services.",
   },
   {
     q: "How many TikTok followers do you need to make money?",
@@ -234,7 +234,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What is the TikTok Creator Rewards Program?",
-    a: `The TikTok Creator Rewards Program (formerly Creator Fund) is TikTok's direct payment program for creators. To qualify in ${YEAR}, you need: 10,000+ followers, 100,000+ video views in the last 30 days, 18+ years old, and account in a supported country. The payout rate is $0.20–$1.00 per 1,000 views, adjusted for content quality, watch time, originality, and audience location. Creators in finance, education, and tech typically earn higher per-view rates because their content attracts higher-value advertiser placements.`,
+    a: `The TikTok Creator Rewards Program (which replaced the original Creator Fund) is TikTok's direct payment program for eligible creators. Per TikTok's Help Center, qualifications in ${YEAR} are: 10,000+ followers, 100,000+ video views in the last 30 days, 18+ years old, account in a supported country, and videos must be at least 60 seconds long. Shorter videos do not qualify for payouts regardless of view count. The payout rate varies by content quality, watch time, originality score, and audience location — with finance, education, and tech content trending toward higher rates due to higher-value advertiser demand in those niches (TikTok Help Center).`,
   },
   {
     q: "How much can you earn from TikTok LIVE gifts?",
@@ -245,16 +245,20 @@ const FAQ_ITEMS = [
     a: "Finance and investing content earns the highest CPMs ($0.60–$1.00/1K views) and commands the most expensive brand deals on TikTok. The full niche ranking from highest to lowest earnings potential is: Finance > Tech/AI > Education > Beauty > Fitness > Lifestyle > Travel > Food > Gaming > Entertainment. High-earning niches share common traits: high-value audiences (professionals, investors, high-income individuals), advertisers willing to pay premium rates to reach those audiences, and content that encourages saving/sharing behavior.",
   },
   {
+    q: "What is the TikTok Creator Marketplace and how does it affect earnings?",
+    a: "The TikTok Creator Marketplace (TTCM) is TikTok's official platform connecting brands with creators for paid partnerships. Per TikTok's Help Center, creators need a minimum of 10,000 followers and must be 18+ to be eligible. Once approved, your profile becomes searchable by brands who use the marketplace to find, vet, and contact creators directly. TTCM provides brands with your audience demographics, engagement rates, and historical performance data, which makes it easier to justify higher rates in negotiations. For creators, being listed increases inbound brand deal volume significantly — brands approaching you through TTCM are already budget-committed and actively seeking partnerships, which typically means faster deal closure than cold outreach. To access the Creator Marketplace, go to TikTok Studio → Creator Tools → Creator Marketplace. Building a complete profile with a clear niche description and rate card inside TTCM is one of the most direct actions you can take to increase your brand deal income.",
+  },
+  {
     q: "Is the TikTok money calculator accurate?",
     a: "This calculator provides realistic estimated ranges based on industry benchmarks for TikTok Creator Rewards CPMs, brand deal market rates, and LIVE gift earnings. Actual earnings vary significantly based on audience location, content quality, posting consistency, engagement rate, and the specific brands you work with. The calculator uses conservative estimates and always returns ranges rather than single figures — real TikTok income is highly variable. Use these numbers as a planning baseline, not a guaranteed income projection. Always verify current rates directly with TikTok and brands you're working with.",
   },
   {
     q: "How do I increase my TikTok earnings?",
-    a: "The five most effective ways to increase TikTok earnings are: (1) Improve engagement rate — end every video with a direct question, as engagement above 5% significantly increases brand deal rates; (2) Post more consistently — 5–7 videos per week maximizes monthly views and Creator Rewards; (3) Go LIVE regularly — even weekly LIVE sessions add $50–$500+ per month with no production cost; (4) Pitch brands directly — don't wait for inbound deals, proactive outreach generates 3–5× more sponsorship revenue; (5) Diversify income streams — add affiliate links, a newsletter, or a digital product to reduce dependence on a single revenue source.",
+    a: "The five most effective ways to increase TikTok earnings are: (1) Improve engagement rate — end every video with a direct question to drive comments; higher engagement directly improves both Creator Rewards distribution and the rates brands are willing to pay for sponsorships. (2) Post more consistently — more videos mean more monthly views, which scales Creator Rewards linearly. (3) Go LIVE regularly — even weekly LIVE sessions add meaningful supplementary income with no extra production cost; TikTok Help Center documents that viewers can send gifts during LIVEs that convert to real earnings. (4) Pitch brands directly — don't wait only for inbound deals; proactive outreach to brands in your niche substantially expands your sponsorship pipeline beyond what the TikTok Creator Marketplace alone generates. (5) Diversify income streams — add affiliate links, a newsletter, or a digital product to reduce dependence on any single revenue source.",
   },
   {
     q: "How does TikTok engagement rate affect earnings?",
-    a: "Engagement rate is one of the most important factors in TikTok monetization. High engagement (5%+) increases earnings in two key ways: (1) Creator Rewards — TikTok's algorithm distributes videos with higher engagement more broadly, increasing total monthly views and therefore Creator Rewards payouts; (2) Brand deals — brands calculate value-per-dollar using engagement rate, not just follower count. A creator with 100K followers and 8% engagement can charge 2–3× more per sponsored post than a creator with the same audience but 2% engagement. Engagement rate is calculated as: (Likes + Comments + Shares) ÷ Views × 100.",
+    a: "Engagement rate is one of the most important factors in TikTok monetization. High engagement (5%+) increases earnings in two key ways: (1) Creator Rewards — TikTok for Business documentation identifies completion rate and engagement as primary distribution signals, meaning higher engagement leads to broader reach and more monthly views; (2) Brand deals — brands increasingly evaluate value using engagement rate alongside follower count. A creator with 100K followers and strong engagement can command meaningfully higher rates per sponsored post than a creator with the same audience size but minimal interaction — the gap can be substantial depending on niche and brand category. Engagement rate is calculated as: (Likes + Comments + Shares) ÷ Views × 100.",
   },
 ];
 
@@ -785,8 +789,11 @@ export function TikTokMoneyCalculatorTool() {
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
               <Zap className="w-4 h-4 text-primary" /> How TikTok Earnings Are Calculated
             </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              TikTok's Creator Rewards Program requires a minimum of 10,000 followers, 100,000 video views in the past 30 days, and videos at least 60 seconds long to qualify for payouts (TikTok Help Center). On a platform with 1.7 billion monthly active users globally as of 2024 (Statista), the revenue opportunity spans three distinct income streams — each with different mechanics, eligibility thresholds, and scaling characteristics.
+            </p>
             <p className="text-muted-foreground leading-relaxed">
-              This TikTok Money Calculator estimates monthly earnings across three income streams using
+              This TikTok Money Calculator estimates monthly earnings across those three income streams using
               industry benchmarks updated for {YEAR}. Creator Rewards are calculated by multiplying your
               monthly views (average views × posts per month) by a niche-adjusted CPM rate of $0.15–$1.00
               per 1,000 views. Finance and tech content earns at the higher end of this range due to
@@ -803,20 +810,41 @@ export function TikTokMoneyCalculatorTool() {
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-primary" /> Understanding TikTok Monetization in {YEAR}
             </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Influencer Marketing Hub's 2025 TikTok report identifies brand partnerships and sponsorships as the dominant income source for most established TikTok creators — consistently generating more revenue than Creator Rewards for accounts with engaged, niche-specific audiences. This pattern holds across most content categories, with Creator Rewards providing a stable baseline and brand deals providing the upside that scales with audience quality.
+            </p>
             <p className="text-muted-foreground leading-relaxed">
-              TikTok monetization in {YEAR} is dominated by brand deals, which represent 70–90% of total
-              income for most successful creators. The Creator Rewards Program provides stable but smaller
-              direct payouts — valuable for predictable baseline income but rarely sufficient as a sole
-              revenue stream. LIVE gifts add meaningful supplementary income for creators who stream
-              consistently. The most important factor separating high-earning creators from average ones
-              is not follower count — it's engagement rate and niche authority. A finance creator with
-              50,000 followers and 7% engagement will consistently out-earn a lifestyle creator with
-              300,000 followers and 1.5% engagement, both in Creator Rewards CPMs and brand deal rates.
+              The most important factor separating high-earning creators from average ones
+              is not follower count alone — it's engagement rate and niche authority. A finance creator with
+              50,000 followers and strong engagement can out-earn a lifestyle creator with significantly more followers but minimal audience interaction, both in Creator Rewards distribution reach and in brand deal rates that advertisers are willing to pay for high-value audiences.
               This calculator reflects that reality by weighting engagement as a core variable across all
               three income streams, giving you a realistic picture of your actual earning potential rather
               than a vanity metric based purely on follower count. Use the niche profitability index and
               monetization score to identify where your specific account has the most room to grow.
             </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Star className="w-4 h-4 text-primary" /> How to Land Brand Deals and Use the TikTok Creator Marketplace
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Brand deals become accessible once you reach 10,000 followers — the threshold at which TikTok's Creator Marketplace (TTCM) opens and brands begin to find creators through TikTok's official partnership platform (TikTok Help Center). At this milestone, two paths generate sponsorship revenue: inbound inquiries through TTCM, where brands actively search for creators by niche and audience demographics, and outbound pitching, where you approach brands directly with a media kit and rate card.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              To maximize brand deal income, complete your Creator Marketplace profile with your niche, audience breakdown, and posting cadence. Brands use TTCM's creator analytics — including your historical engagement rate and audience location data — to evaluate whether your profile fits their campaign. A well-optimized TTCM profile reduces the friction in the deal process and increases inbound inquiry volume from brands already allocated budget for creator partnerships.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              For outbound pitching, a one-page media kit showing your niche, follower count, average views, engagement rate, and audience demographics is the standard deliverable brands expect. Rate guidance: niche is the primary variable, with finance and tech content commanding significantly higher per-post rates than entertainment or food content for the same follower count. Always quote a range rather than a single figure to preserve negotiation flexibility.
+            </p>
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Sources:</strong>{" "}
+                <a href="https://support.tiktok.com/en/using-tiktok/creator-tools/creator-rewards-program" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Help Center — Creator Rewards Program Requirements</a>{" · "}
+                <a href="https://support.tiktok.com/en/using-tiktok/creator-tools/tiktok-creator-marketplace" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Help Center — Creator Marketplace Eligibility and Access</a>{" · "}
+                <a href="https://influencermarketinghub.com/tiktok-money-calculator/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Influencer Marketing Hub 2025 — TikTok Creator Earnings Benchmarks</a>{" · "}
+                <a href="https://www.statista.com/statistics/1327116/number-of-monthly-active-tiktok-users-worldwide/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Statista 2024 — TikTok Monthly Active Users (1.7B)</a>
+              </p>
+            </div>
           </div>
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">

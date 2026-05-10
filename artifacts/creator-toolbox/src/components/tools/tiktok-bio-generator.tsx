@@ -68,11 +68,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Should I use emojis in my TikTok bio?",
-    a: "Yes — strategically. Emojis serve three functions in a TikTok bio: they add visual personality, break up text for faster scanning, and can replace words (saving precious characters). Research on social profiles consistently shows that bios with 1–3 well-chosen emojis see higher engagement from profile visitors than plain-text equivalents. The optimal approach is using emojis that reinforce your niche (🏋️ for fitness, 💰 for finance, 🍳 for food) rather than decorative emojis that add no meaning. Avoid emoji overload — more than 3 emojis typically feels cluttered and reduces readability. Our generator produces a mix of emoji-rich and minimal bios so you can test both styles against your audience.",
+    a: "Yes — strategically. Emojis serve three functions in a TikTok bio: they add visual personality, break up text for faster scanning, and can replace words (saving precious characters). The optimal approach is using emojis that reinforce your niche (🏋️ for fitness, 💰 for finance, 🍳 for food) rather than decorative emojis that add no meaning. Emojis each count as 1–2 characters toward TikTok's 80-character bio limit, as documented in TikTok's Help Center ('Edit your profile'). Avoid emoji overload — more than 3 emojis typically feels cluttered and reduces readability. Our generator produces a mix of emoji-rich and minimal bios so you can test both styles against your audience.",
   },
   {
     q: "What is a TikTok bio call-to-action?",
-    a: "A TikTok bio call-to-action (CTA) is a short instruction that tells profile visitors what to do next. The most effective CTAs are specific and benefit-connected: 'Follow for daily money tips,' 'Free guide in bio ↓,' or 'New recipe every Sunday.' Generic CTAs like 'Follow me!' significantly underperform compared to benefit-driven alternatives that answer 'what's in it for me?' Research shows that bios with a specific CTA convert profile visitors to followers at 2–4× the rate of bios without one. The ↓ arrow emoji pointing to the link-in-bio is a particularly effective CTA trigger because it draws the eye downward and signals there's more value waiting.",
+    a: "A TikTok bio call-to-action (CTA) is a short instruction that tells profile visitors what to do next. The most effective CTAs are specific and benefit-connected: 'Follow for daily money tips,' 'Free guide in bio ↓,' or 'New recipe every Sunday.' Generic CTAs like 'Follow me!' underperform compared to benefit-driven alternatives that answer 'what's in it for me?' — because they give the viewer a concrete reason to act. The ↓ arrow emoji pointing to the link-in-bio is a particularly effective CTA trigger because it draws the eye downward and signals there's more value waiting. TikTok's Help Center notes that your bio and profile link are the primary off-platform conversion tools available to creators.",
   },
   {
     q: "What are the best TikTok bio formulas that convert?",
@@ -84,7 +84,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How often should I update my TikTok bio?",
-    a: "Update your TikTok bio whenever your content focus shifts significantly, when you launch a new series or product, or when you're testing a new positioning angle. Beyond those event-driven updates, refreshing your bio quarterly is a good practice — a fresh bio signals an active creator to profile visitors and often improves follow conversion rates from people who've visited your profile before. When testing bios, run each version for at least 7 days and monitor your profile-to-follow conversion rate in TikTok Analytics (Profile → Analytics → Followers → Profile Views). A high-performing bio typically achieves a 5–15% conversion rate; anything below 3% is a signal to regenerate and test a new approach.",
+    a: "Update your TikTok bio whenever your content focus shifts significantly, when you launch a new series or product, or when you're testing a new positioning angle. Beyond those event-driven updates, refreshing your bio quarterly is a good practice — a fresh bio signals an active creator to profile visitors and often improves follow conversion rates from people who've visited your profile before. When testing bios, run each version for at least 7 days and monitor profile performance in TikTok Analytics (Creator Tools → Analytics → Followers → Profile Views). If profile views are rising but follower growth is flat, that's a strong signal your bio isn't converting — regenerate and test a new formula or CTA.",
   },
   {
     q: "Can I use the same bio on Instagram, YouTube, and TikTok?",
@@ -93,6 +93,10 @@ const FAQ_ITEMS = [
   {
     q: "Is this TikTok bio generator free?",
     a: "Yes — the TikTok Bio Generator is completely free to use with no account required, no signup, and no usage limits. Every generation produces 10 bio variations across 5 proven high-converting formula types, all validated to TikTok's 80-character limit. Filter results by emoji bios, CTA bios, or minimal bios to find exactly the style that fits your brand. Use the Regenerate button to get a fresh set of 10 bios any time you want more options. The character count bar on each bio shows you instantly how close each option is to the 80-character limit, colour-coded green, yellow, and orange for readability.",
+  },
+  {
+    q: "Does your TikTok bio affect your visibility in TikTok Creator Marketplace?",
+    a: "Yes — your TikTok bio is the first text brands read when they discover your profile through TikTok Creator Marketplace (TTCM). According to TikTok's Creator Marketplace documentation, brands can search for creators by niche, content category, and audience demographic. Your bio functions as your professional pitch to potential brand partners: it signals your content focus, audience, and credibility. Creators eligible for TTCM — 18+, 10,000+ followers, meeting TikTok's community guidelines, as documented in TikTok Help Center — should treat their bio as a brand partnership asset. A bio that clearly states your niche and audience (e.g., 'Fitness content for women 25–40 | 50K+ TikTok') makes you more discoverable and more appealing to relevant brands conducting creator searches.",
   },
 ];
 
@@ -438,6 +442,9 @@ export function TikTokBioGeneratorTool() {
               <Zap className="w-4 h-4 text-primary" /> What This TikTok Bio Generator Does
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              TikTok's Help Center documents a strict 80-character limit for profile bios — the only text field a visitor sees before deciding to follow. On a platform with over 1.7 billion monthly active users (Statista, 2024), your bio is the single piece of text that converts a video viewer into a follower. Every character counts, and the structure of how you use those 80 characters determines whether a curious visitor stays or leaves.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               This free TikTok Bio Generator produces 10 bio variations for your profile using five proven
               high-converting formula structures: "I help [audience] [result]" for direct benefit
               communication, "[Emoji] [Value Proposition]" for visual scannability, "[Result] | [Niche]"
@@ -469,17 +476,14 @@ export function TikTokBioGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> Why Your TikTok Bio Directly Affects Your Follower Growth
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              TikTok's discovery model — documented in TikTok Newsroom's recommendation system overview — is built around video-first distribution, not profile browsing. Most new followers find a video on the For You Page first, then visit your profile to decide whether to follow. Your bio is the moment of conversion: it answers three questions a visitor has in under three seconds — who are you, what do they get from following, and why should they follow now?
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               TikTok's growth model is fundamentally different from other platforms. Most new followers
               don't find you through your profile — they find a video first and then visit your profile
               to decide whether to follow. This means your bio has one job: convert a curious viewer who
               already likes your content into a committed follower. A profile visit that doesn't convert
-              to a follow is a missed growth opportunity — and at scale, that gap becomes enormous.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              Research consistently shows that creators with a clear, benefit-driven bio convert profile
-              visitors at 5–15%, while vague or blank bios convert at 1–3%. At 10,000 profile visits per
-              month, the difference between a 3% and 10% conversion rate is 700 additional followers every
-              single month — entirely from the same traffic, with no extra content creation required. Pair
+              to a follow is a missed growth opportunity — and at scale, that gap becomes significant. Pair
               a strong bio with a{" "}
               <Link href="/tools/tiktok-hook-generator" className="text-primary hover:underline font-medium">
                 high-retention hook strategy
@@ -491,12 +495,42 @@ export function TikTokBioGeneratorTool() {
               to maximise both discoverability and profile conversion simultaneously.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              A great bio also impacts your link-in-bio click rate. Creators who pair a specific CTA in
-              their bio ("Free guide ↓") with a link-in-bio landing page see 3–5× more link clicks than
-              creators who leave the bio CTA vague or absent. If you're monetising through a newsletter,
-              product, or affiliate offer, your bio is the primary driver of off-platform traffic — and
-              optimising it costs nothing beyond the 2 minutes it takes to update your profile.
+              A strong bio also impacts your link-in-bio click rate. Creators who pair a specific CTA in
+              their bio ("Free guide ↓") with a link-in-bio landing page give visitors a clear reason to
+              click through. If you're monetising through a newsletter, product, or affiliate offer, your
+              bio is the primary gateway to off-platform traffic — and optimising it costs nothing beyond
+              the 2 minutes it takes to update your profile.
             </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <ListChecks className="w-4 h-4 text-primary" /> How to Use Your Bio to Get Discovered by Brands and Viewers
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              TikTok's Creator Marketplace (TTCM) is the official platform where brands search for creators to partner with. When a brand searches by niche or content category inside TTCM, your profile bio is one of the first things they read. According to TikTok's Creator Marketplace documentation, TTCM is available to creators who are 18 or older, meet the 10,000-follower threshold, and comply with TikTok's community guidelines (TikTok Help Center). A bio that clearly states your content focus, audience, and authority signals ("Certified PT | Women's fitness content") makes your profile stand out in brand searches.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Beyond brand partnerships, your bio text contributes to how you appear in TikTok's creator search — the feature that lets users find creators by topic. Including niche-specific keywords in your bio (not just emojis) improves your chances of appearing when users search for creators in your category. TikTok Help Center's profile guidance notes that the name and bio fields are indexed for search. A bio that combines a clear niche keyword, a value proposition, and a CTA serves both human visitors and TikTok's search categorization simultaneously.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              The practical workflow: use this generator to create 10 bio variations, test the top 2–3 by updating your profile and checking TikTok Analytics (Profile Views → Followers) after 7 days each. For brand-facing profiles, prioritise bios using the "[USP/Credential] + [CTA]" formula — credentialed bios with a clear link-in-bio CTA perform best in creator marketplace contexts where brands evaluate credibility quickly.
+            </p>
+
+            {/* Citation capsule */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Sources:</strong>{" "}
+                <a href="https://support.tiktok.com/en/using-tiktok/growing-your-audience/edit-your-profile" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Help Center — Edit your profile</a>
+                {" "}documents the 80-character bio limit and profile fields indexed for creator search.{" "}
+                <a href="https://creatormarketplace.tiktok.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Creator Marketplace</a>
+                {" "}documentation covers eligibility (18+, 10K followers) and how brands discover creators.{" "}
+                <a href="https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Newsroom — How TikTok recommends videos for you</a>
+                {" "}explains the video-first discovery model underlying profile visit patterns.{" "}
+                <a href="https://www.statista.com/statistics/1299771/tiktok-global-mau/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Statista (2024)</a>
+                {" "}— TikTok monthly active users: 1.7 billion globally.
+              </p>
+            </div>
           </div>
 
           <div>
@@ -538,10 +572,10 @@ export function TikTokBioGeneratorTool() {
           {[
             "Keep your TikTok bio to 80 characters — users see only the first 80 on mobile before it truncates; front-load your value proposition.",
             "Include a niche-specific keyword in the first sentence (e.g., 'Fitness coach helping busy moms') — this makes you searchable in TikTok's creator discovery.",
-            "Add a clear call-to-action with your link — 'New videos daily ↓' or 'Free guide in bio' consistently drive 3–5× more link clicks than plain descriptions.",
-            "Use 1–3 relevant emojis to add personality without clutter — emojis can increase profile engagement by up to 20% vs plain text bios.",
-            "Update your bio seasonally or when launching a new series — a fresh bio signals an active creator and increases follow conversions from profile visits.",
-            "Add your content posting frequency ('5× per week') — consistency claims like this increase follow rates from profile visitors by up to 30%.",
+            "Add a clear call-to-action with your link — 'New videos daily ↓' or 'Free guide in bio' gives profile visitors a specific reason to click through to your link.",
+            "Use 1–3 relevant emojis to add personality without clutter — emojis reinforce your niche at a glance and break up text for faster scanning within the 80-character limit.",
+            "Update your bio seasonally or when launching a new series — a fresh bio signals an active creator and can improve follow conversions from repeat profile visitors.",
+            "Add your content posting frequency ('5× per week') — consistency signals give visitors a concrete reason to follow rather than just 'maybe check back later'.",
             "If you have a link, make it a link-in-bio tool that aggregates your top offers — single links with a landing page convert far better than a bare URL.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">

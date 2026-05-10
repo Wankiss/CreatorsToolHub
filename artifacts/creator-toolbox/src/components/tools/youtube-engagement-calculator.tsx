@@ -185,43 +185,47 @@ function computeEngagement(
 const FAQ_ITEMS = [
   {
     q: "What is YouTube engagement rate and how is it calculated?",
-    a: "YouTube engagement rate is the percentage of viewers who actively interacted with your video through likes, comments, or shares. It is calculated using the formula: Engagement Rate (%) = ((Likes + Comments + Shares) / Total Views) × 100. For example, if a video has 10,000 views, 300 likes, 50 comments, and 20 shares, the engagement rate is ((300 + 50 + 20) / 10,000) × 100 = 3.7%. This metric tells you how actively your audience is engaging with your content beyond just watching it.",
+    a: "YouTube engagement rate measures the percentage of viewers who actively interacted with your video — through likes, comments, or shares — rather than just watching passively. The formula is: Engagement Rate (%) = ((Likes + Comments + Shares) ÷ Total Views) × 100. Example: a video with 10,000 views, 300 likes, 50 comments, and 20 shares has an engagement rate of ((300 + 50 + 20) ÷ 10,000) × 100 = 3.7%. YouTube's recommendation engine processes over 80 billion signals daily to decide what to show each viewer (YouTube Blog, 2024). Engagement metrics are among the strongest of those signals — they directly tell YouTube's algorithm whether real viewers found your content worth reacting to, which determines how broadly it gets recommended beyond your existing subscribers.",
   },
   {
     q: "What is a good YouTube engagement rate?",
-    a: "A good YouTube engagement rate varies by niche, but the general benchmarks are: under 1% is poor, 1–3% is average, 3–6% is good, 6–10% is excellent, and above 10% is viral. For niche-specific benchmarks: Gaming and Entertainment channels typically see 3–7%; Education and Tech channels average 2–4%; Finance and Business channels average 1.5–3.5% due to the more passive nature of their viewers. Always compare your engagement rate against your specific niche rather than a universal standard.",
+    a: "A 2024 Influencer Marketing Hub analysis found the average YouTube engagement rate across all niches is approximately 3.48%. Using that as the baseline: under 1% is poor, 1–3% is below average, 3–5% is average to good, 5–8% is excellent, and above 8% is top-performer territory. Benchmarks vary meaningfully by niche — Gaming and Entertainment channels typically see 3–6%; Education and Tech average 2–4%; Finance channels average 1.5–3.5% because finance viewers tend to consume passively rather than interact. Always benchmark against your specific niche. A 2.5% engagement rate in Finance is genuinely strong; the same 2.5% in Gaming suggests there's significant room to improve.",
   },
   {
     q: "Why does my YouTube video have high views but low engagement?",
-    a: "High views with low engagement usually signals one of three problems: (1) an audience-content mismatch where people clicked but the content didn't match the title's promise; (2) weak calls-to-action — the video never explicitly asked viewers to like, comment, or share; or (3) passive viewers arriving through suggested video recommendations rather than active search, meaning they're less invested. Fix this by ensuring your hook delivers on the title's promise, adding explicit engagement CTAs at 30 seconds and at the end, and asking a specific question that invites comments.",
+    a: "High views with low engagement almost always signals one of three problems: (1) Audience-content mismatch — viewers clicked based on the thumbnail or title, but the video didn't deliver what they expected. When that happens, they scroll away without engaging. (2) No calls-to-action — the video never explicitly asked viewers to like, comment, or share. YouTube's own Creator Academy notes that direct CTAs meaningfully improve engagement rates. (3) Passive discovery traffic — viewers arriving through Shorts recommendations or broad suggested feeds are less invested than viewers who searched specifically for your topic. Fix: ensure your hook delivers on your title's promise within the first 30 seconds, add explicit engagement prompts at 30–60 seconds and again at the end, and ask a specific question that invites a comment rather than a generic 'comment below.'",
   },
   {
     q: "Does YouTube engagement rate affect search rankings?",
-    a: "Yes — engagement metrics are among the strongest ranking signals in YouTube's algorithm. Specifically, YouTube's algorithm weighs likes as positive sentiment signals, comments as community engagement indicators, shares as external reach amplifiers, and overall engagement rate as a quality-of-content signal. Higher engagement tells YouTube that real viewers found the video valuable, which causes it to be recommended more aggressively in Suggested Videos, the Home feed, and YouTube Search. Even a modest improvement in engagement rate from 2% to 4% can dramatically increase organic reach.",
+    a: "Yes — engagement signals directly influence how YouTube distributes your video. YouTube's official Creator Academy states that likes, comments, shares, and saves all factor into how the algorithm recommends content. Specifically: likes signal positive sentiment, comments indicate active community engagement, shares signal external reach value, and saves (playlist adds) signal that viewers considered the content worth returning to. Together, these engagement signals tell YouTube's algorithm that real people found the video valuable — which triggers broader distribution in Suggested Videos, the Home feed, and YouTube Search. YouTube processes over 80 billion of these signals daily (YouTube Blog, 2024), which is why even a modest improvement in engagement rate — especially in the first 24–48 hours after publishing — meaningfully affects how far a video travels.",
   },
   {
     q: "How do I increase my YouTube like rate?",
-    a: "To increase your YouTube like rate: (1) Ask for likes explicitly at two points — around the 30-second mark when viewers are already invested, and again at the end; (2) Deliver high value in the first 60 seconds to build goodwill before asking; (3) Create an emotional moment — humor, surprise, or a useful revelation — that naturally makes viewers want to respond; (4) Improve your hook so more viewers watch past 30 seconds, since viewers who stay are significantly more likely to like. A 1% like rate means 1 in 100 viewers liked — setting a simple target of 3–5% with strategic CTAs is achievable for most channels.",
+    a: "To increase your YouTube like rate: (1) Ask explicitly at two moments — around 30–60 seconds in, when viewers are already invested enough to stay, and again at the end. Asking once at the very end misses viewers who leave early. (2) Deliver your highest-value insight in the first 90 seconds — viewers who feel they've already gotten something useful are more likely to like the video. (3) Create an emotional moment — humor, a surprising reveal, or a genuinely useful tip — that triggers a positive reaction before you ask. (4) Improve your hook so more people watch past the 30-second mark; viewers who stay longer are dramatically more likely to like. A like rate below 1.5% usually means the CTA is missing or poorly positioned, not that viewers disliked the content.",
   },
   {
     q: "How do I get more comments on my YouTube videos?",
-    a: "To increase your YouTube comment rate: (1) End every major section with a direct, specific question — 'What's your take on this? Tell me in the comments' is too generic; instead try 'Comment below: which of these 3 methods have you tried?' (2) Pin a comment immediately after publishing to seed the conversation; (3) Reply to every comment in the first hour of publishing — comment velocity signals YouTube to push the video to more people; (4) Introduce a debatable or polarizing point that invites multiple perspectives; (5) Ask viewers to share their own experience or results, which is more compelling than asking for a generic opinion.",
+    a: "Comment rate is the hardest engagement metric to move — most videos average well under 0.5% comment rate. The highest-leverage tactics: (1) Ask a specific, answerable question mid-video and again in the outro. 'Let me know in the comments' is too generic; 'Comment your #1 challenge with X' gives viewers a clear prompt to respond to. (2) Pin a comment immediately after publishing that seeds the conversation — it signals to new viewers that discussion is happening here. (3) Respond to early comments within the first few hours of publishing; comment velocity (how quickly comments come in) is a signal YouTube uses to assess whether to push a video further. (4) Introduce a debatable point or share a contrarian opinion — content that sparks mild disagreement generates significantly more comments than content that everyone nods along to.",
   },
   {
     q: "What is a YouTube share rate and why does it matter?",
-    a: "YouTube share rate is the percentage of viewers who shared your video on other platforms or via direct link, calculated as (Shares / Views) × 100. It matters because shares are the strongest organic growth signal — each share exposes your video to a new audience that hasn't discovered your channel yet. Even a 0.5% share rate on a video with 100,000 views generates 500 new distribution events. Shares also help YouTube's algorithm understand that your content is high-value, which increases its recommendations. A share rate of 0.3%+ is generally considered good, and 1%+ is excellent.",
+    a: "Share rate is the percentage of viewers who shared your video elsewhere, calculated as (Shares ÷ Views) × 100. It's the most powerful organic growth signal in the engagement mix — each share exposes your video to an audience that's never heard of your channel, without any algorithmic gatekeeping. A 0.3% share rate on a video with 100,000 views generates 300 organic distribution events; at 1%, that's 1,000. Shares also carry weight in YouTube's recommendation algorithm because they indicate external validation — viewers thought the content was good enough to stake their own credibility on by recommending it. A share rate above 0.3% is solid; above 1% indicates content with genuine viral characteristics. Content that solves a specific, shareable problem — or contains a memorable stat or insight — consistently outperforms general content on share rate.",
+  },
+  {
+    q: "What are the most underrated YouTube engagement signals?",
+    a: "Most creators focus only on likes and comments, but two engagement signals consistently get overlooked. First: saves (adding a video to a playlist). YouTube's Creator Academy identifies saves as an engagement signal because they indicate a viewer considered the content worth revisiting — a stronger intent signal than a like. Videos with high save rates tend to have longer algorithmic lifespans. Second: watch-through rate (the percentage of the video viewers actually watch). While not a traditional 'engagement' metric, YouTube weights it heavily because it indicates whether viewers stayed for the content rather than just clicking. A video with 4% engagement but 65% average watch-through outperforms a video with 6% engagement but 25% watch-through in long-term recommendations. Track both in YouTube Studio alongside your like and comment rates.",
   },
   {
     q: "How does video length affect YouTube engagement rate?",
-    a: "Video length has a significant effect on engagement metrics. Short videos (under 5 minutes) typically achieve higher engagement rates because viewers who watch to the end are more likely to interact — but they reach fewer retention milestones. Long videos (over 20 minutes) naturally see lower like and comment rates as a percentage of views, but generate more total watch time per view, which is also an important ranking signal. For engagement rate optimization, videos in the 7–15 minute range tend to balance watch time, like rate, and comment rate most effectively for most niches.",
+    a: "Video length has a direct, measurable effect on each engagement sub-metric. Shorter videos (under 5 minutes) tend to produce higher like and comment rates as a percentage of views because viewers who stay to the end are self-selected and motivated — but they generate less total watch time per view. Longer videos (over 20 minutes) naturally see lower engagement rates because more passive viewers who drop off early pull the percentage down, even if the absolute number of engaged viewers is higher. For most niches, videos in the 8–15 minute range balance watch time accumulation, like rate, and comment rate most effectively — long enough to build rapport and deliver real value, short enough to keep completion rates healthy. Check your average view duration in YouTube Studio: if most viewers leave before your CTA, shorten the video first.",
   },
   {
     q: "How soon after uploading should I expect engagement on YouTube?",
-    a: "YouTube videos typically receive 50–70% of their total engagement within the first 48–72 hours of publication. This early engagement window is critical because YouTube's algorithm uses it to determine how broadly to distribute the video. A strong first 48 hours of likes, comments, and shares signals that the video is resonating and causes YouTube to push it to more people. To maximize early engagement: publish during your audience's peak hours, send the video to your email list or community, reply to every comment quickly, and run a poll or community post to drive traffic to the new video.",
+    a: "The first 24–48 hours after publishing are the most critical window for engagement. YouTube's algorithm uses early signal density — how quickly likes, comments, and shares accumulate — to determine the video's initial distribution radius. A video that gets strong engagement in the first day signals to YouTube that the content is resonating with existing subscribers, which prompts the algorithm to test it with non-subscriber audiences. To maximize this window: publish during your audience's peak activity hours (check YouTube Studio Analytics → Audience for your channel's specific peak), send an email or community post to notify subscribers immediately, and respond to early comments quickly to keep comment velocity high. A video that fails to generate early traction often gets limited algorithmic distribution even if the content quality is high.",
   },
   {
-    q: "What is the difference between YouTube engagement rate and view rate?",
-    a: "View rate (or click-through rate) measures how many people clicked on your video after seeing the thumbnail — it's about attracting viewers. Engagement rate measures how many of those viewers actively interacted with the video through likes, comments, or shares — it's about connecting with viewers. A video can have a high view rate (lots of clicks from a compelling thumbnail) but a low engagement rate (viewers didn't connect with the content). Both matter: view rate drives volume, engagement rate drives quality signals. Our engagement calculator focuses on measuring and improving the engagement rate, which is the deeper indicator of audience connection.",
+    q: "What is the difference between YouTube engagement rate and click-through rate?",
+    a: "Click-through rate (CTR) measures how many people clicked your video after seeing the thumbnail in their feed — it's about attracting attention at the point of discovery. Engagement rate measures what percentage of those viewers actively interacted with the video after watching — it's about whether the content connected. A high CTR with low engagement means your thumbnail and title are strong but the content isn't delivering on the promise. A low CTR with high engagement means your content is excellent but you're not getting enough impressions to grow. Both matter for different reasons: CTR determines how many viewers you attract; engagement rate determines how YouTube values those viewers' reaction. YouTube's algorithm uses both — CTR to test initial reach, engagement rate to determine sustained distribution. Improving engagement rate almost always has a larger long-term impact on channel growth than optimizing CTR alone.",
   },
 ];
 
@@ -614,10 +618,10 @@ export function YouTubeEngagementCalculatorTool() {
         </div>
         <div className="grid sm:grid-cols-2 gap-4">
           {[
-            { step: 1, title: "Enter Your Video Metrics", desc: "Find your video's stats in YouTube Studio under Analytics. Enter the total views, likes, and comments for the video you want to analyze. Shares are optional — if you leave the field blank, the tool will estimate shares based on your like count and niche." },
-            { step: 2, title: "Select Your Channel Niche", desc: "Choose the niche that best describes your channel. The engagement calculator uses niche-specific benchmarks — for example, Finance channels typically see 1.5–3.5% engagement while Gaming channels average 3–6%. This ensures your score is compared fairly." },
-            { step: 3, title: "Add Optional Context", desc: "Optionally enter your video length in minutes and the number of days since you uploaded the video. These context factors help the tool give more accurate insights — a 3-day-old video and a 6-month-old video should be interpreted differently." },
-            { step: 4, title: "Analyze and Act on Results", desc: "Click Calculate Engagement Rate to instantly see your overall engagement rate, breakdown by likes/comments/shares, performance rating, niche benchmark comparison, strengths, weaknesses, and a personalized 5-step growth strategy." },
+            { step: 1, title: "Enter Your Video Metrics", desc: "Open YouTube Studio → Analytics → select your video → Overview tab. Enter total views, likes, and comments. Shares are optional — if left blank, the tool estimates shares using niche-calibrated ratios. The cross-niche average engagement rate is 3.48% (IMH, 2024) — use that as your starting baseline." },
+            { step: 2, title: "Select Your Channel Niche", desc: "Choose your niche carefully — it determines which benchmark your score is measured against. Finance channels average 1.5–3.5%; Gaming and Entertainment average 3–6%. A 2.5% rate is excellent in Finance and below average in Gaming. Niche context is everything." },
+            { step: 3, title: "Add Optional Context", desc: "Enter your video length in minutes and days since upload for more accurate interpretation. A 2-day-old video with 3% engagement is performing very differently from a 6-month-old video with the same rate — the tool accounts for both when generating insights." },
+            { step: 4, title: "Analyze and Act on Results", desc: "Click Calculate to see your engagement rate, per-metric breakdown (like rate, comment rate, share rate), niche benchmark comparison, strengths, weaknesses, and a personalized growth strategy. Focus on whichever sub-metric is furthest below its benchmark first." },
           ].map(({ step, title, desc }) => (
             <div key={step} className="flex gap-4 p-5 rounded-2xl bg-muted/40 border border-border hover:border-primary/30 transition-colors">
               <div className="w-9 h-9 rounded-xl bg-primary text-primary-foreground font-bold text-sm flex items-center justify-center shrink-0">{step}</div>
@@ -639,22 +643,71 @@ export function YouTubeEngagementCalculatorTool() {
           <h2 className="text-2xl font-bold font-display text-foreground">About This YouTube Engagement Calculator</h2>
         </div>
         <div className="space-y-8">
+
+          {/* Section 1: How it's calculated */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
               <Zap className="w-4 h-4 text-primary" /> How the Engagement Rate Is Calculated
             </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              The industry-standard formula is: <strong className="text-foreground">Engagement Rate (%) = ((Likes + Comments + Shares) ÷ Total Views) × 100</strong>. A 2024 Influencer Marketing Hub analysis of YouTube channels found the cross-niche average sits at approximately 3.48% — meaning roughly 35 out of every 1,000 viewers interact with a video in some way. Most creators only track likes, missing the full picture.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              This tool breaks the overall rate into three sub-metrics: <strong className="text-foreground">Like Rate</strong> (Likes ÷ Views × 100), <strong className="text-foreground">Comment Rate</strong> (Comments ÷ Views × 100), and <strong className="text-foreground">Share Rate</strong> (Shares ÷ Views × 100). Each tells a different story: like rate reflects immediate positive sentiment; comment rate reflects whether the content triggered enough of a reaction for someone to type a response; share rate reflects whether viewers thought the content was worth their personal reputation to distribute.
+            </p>
             <p className="text-muted-foreground leading-relaxed">
-              This free YouTube Engagement Calculator uses the industry-standard engagement rate formula: <strong className="text-foreground">Engagement Rate (%) = ((Likes + Comments + Shares) / Total Views) × 100</strong>. The tool then breaks this down into three individual rate metrics: <strong className="text-foreground">Like Rate</strong> (Likes / Views × 100), <strong className="text-foreground">Comment Rate</strong> (Comments / Views × 100), and <strong className="text-foreground">Share Rate</strong> (Shares / Views × 100). If shares aren't available — which is common since YouTube Studio doesn't always display share counts directly — the tool estimates shares using niche-specific multipliers based on industry research: Entertainment channels typically see shares of 10–15% of likes, Education channels 5–8%, Tech channels 6–10%, and Finance channels 4–7%. This estimated value is clearly flagged in your results. The performance rating system then adjusts the thresholds based on your selected niche, since a 3% engagement rate is considered good for Education but only average for Gaming.
+              If shares aren't available — YouTube Studio doesn't always display share counts in an easily accessible view — the tool estimates shares using niche-specific ratios based on published channel data: Entertainment channels typically see shares at 10–15% of their like count, Education 5–8%, Tech 6–10%, Finance 4–7%. Any estimated value is clearly flagged in your results. Performance ratings adjust by niche: a 3% rate is good for Education, only average for Gaming, where the benchmark sits at 3–6%.
             </p>
           </div>
+
+          {/* Section 2: Why it matters */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-primary" /> Why YouTube Engagement Rate Matters for Channel Growth
+              <TrendingUp className="w-4 h-4 text-primary" /> Why Engagement Rate Is a More Honest Metric Than Views
             </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              YouTube's recommendation engine processes over <strong className="text-foreground">80 billion signals every day</strong> to decide what to recommend to each viewer (YouTube Blog, 2024). Engagement metrics — likes, comments, shares, and saves — are among the strongest signals in that system. A video with 100,000 views and 2% engagement tells YouTube something very different from a video with 100,000 views and 0.4% engagement: the first is actively resonating with viewers; the second suggests people clicked but didn't connect.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              High engagement directly expands distribution. When a video's engagement rate is strong relative to its niche benchmark, YouTube's algorithm tests it with progressively larger non-subscriber audiences — which compounds into more views, more subscribers, and higher RPM over time. Low engagement, even on a video with high initial views, tends to suppress long-term distribution as the algorithm interprets the lack of interaction as a signal that the content didn't satisfy viewers. Tracking engagement rate per video — not just total views — is the clearest diagnostic tool for understanding which topics, formats, and presentation styles are actually building your channel versus just filling time.
+            </p>
+            {/* Citation capsule */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 text-sm text-muted-foreground leading-relaxed">
+              <strong className="text-foreground block mb-1">Engagement by the numbers</strong>
+              YouTube processes{" "}
+              <a href="https://blog.youtube" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                80+ billion recommendation signals daily
+              </a>{" "}
+              (YouTube Blog, 2024), with likes, comments, shares, and saves among the strongest. The{" "}
+              <a href="https://influencermarketinghub.com/youtube-engagement-rate/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                cross-niche average YouTube engagement rate is approximately 3.48%
+              </a>{" "}
+              (Influencer Marketing Hub, 2024), with top performers in high-engagement niches like Gaming and Entertainment reaching 6–10%. Finance and Education channels consistently benchmark lower (1.5–4%) due to more passive viewer behavior — making niche-adjusted scoring essential for accurate performance assessment.
+            </div>
+          </div>
+
+          {/* Section 3: The signal most creators ignore */}
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Star className="w-4 h-4 text-primary" /> The Engagement Signal Most Creators Ignore: Saves
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Most creators optimize only for likes and comments. But YouTube's Creator Academy identifies <strong className="text-foreground">saves (adding a video to a playlist)</strong> as a distinct engagement signal — and arguably the strongest one. A save indicates that a viewer considered the content worth returning to, which is a higher-intent signal than a like. Videos with strong save rates tend to have longer algorithmic distribution windows because they signal "reference content" rather than "one-time entertainment."
+            </p>
             <p className="text-muted-foreground leading-relaxed">
-              YouTube's algorithm uses engagement signals as one of its primary ranking factors for both search rankings and suggested video placement. When viewers like, comment on, or share your video, it sends a direct quality signal to YouTube's algorithm that real people found the content valuable — which causes it to be shown to progressively larger audiences. High engagement rates also directly improve your video's long-term performance: videos with engagement rates above 4% tend to continue accumulating views for months or years after publication because the algorithm keeps recommending them. In contrast, videos with views but very low engagement often get "de-ranked" over time as the algorithm interprets the lack of interaction as a sign that viewers didn't actually enjoy the content. Beyond the algorithm, a high comment rate builds community and increases the likelihood that engaged viewers will return for future videos, subscribe, and become loyal fans. Tracking your engagement rate for each video — rather than just raw view counts — gives you the clearest signal of which topics, formats, and presentation styles actually resonate with your audience.
+              You can see your save rate in YouTube Studio under Analytics → Engagement. If your like rate is healthy but your save rate is low, it usually means your content is enjoyable but not perceived as reference material worth keeping. Fixing this means creating content with lasting utility — tutorials, ranked lists, reference guides — rather than content that's valuable once. Pair high-save content with a strong{" "}
+              <a href="/tools/youtube-title-generator" className="text-primary hover:underline font-medium">
+                title strategy
+              </a>{" "}
+              and{" "}
+              <a href="/tools/youtube-tag-generator" className="text-primary hover:underline font-medium">
+                optimized tags
+              </a>{" "}
+              to maximize both initial discovery and long-term algorithmic reach.
             </p>
           </div>
+
+          {/* Section 4: Feature grid */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
               <Shield className="w-4 h-4 text-primary" /> Benefits of Using This YouTube Engagement Calculator
@@ -662,14 +715,14 @@ export function YouTubeEngagementCalculatorTool() {
             <div className="grid sm:grid-cols-2 gap-3">
               {[
                 "Calculates exact engagement rate using the industry-standard likes + comments + shares formula",
-                "Compares your results against niche-specific benchmarks, not generic averages",
-                "Estimates share counts based on niche patterns when actual data isn't available",
-                "Detects specific strengths (strong like rate, high comment rate) tied to your exact numbers",
-                "Identifies precise weaknesses with context-aware explanations, not generic advice",
-                "Generates tailored recommendations for increasing likes, comments, and shares separately",
-                "Accounts for video age — a 3-day-old video is interpreted differently than a 6-month-old one",
-                "Accounts for video length — longer videos naturally see lower but deeper engagement",
-                "Provides a 5-step personalized growth strategy based on your specific metric gaps",
+                "Benchmarks against niche-specific averages — not a single universal threshold that ignores niche context",
+                "Estimates share counts using niche-calibrated ratios when actual data isn't available",
+                "Breaks results into like rate, comment rate, and share rate so you know which metric to fix first",
+                "Identifies specific strengths and weaknesses tied to your exact numbers — not generic advice",
+                "Generates separate recommendations for increasing likes, comments, and shares independently",
+                "Accounts for video age — early-stage and mature videos are benchmarked differently",
+                "Accounts for video length — longer videos are expected to have lower but deeper engagement",
+                "Produces a personalized growth strategy based on your specific metric gaps",
                 "100% free — no account, no limits, instant calculations for any video",
               ].map((text, i) => (
                 <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
@@ -692,13 +745,13 @@ export function YouTubeEngagementCalculatorTool() {
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
           {[
-            "Aim for a like rate above 3% — YouTube's algorithm treats this as a strong positive signal and boosts your video's distribution to new audiences.",
-            "A comment rate above 0.5% indicates a highly engaged community — it improves recommendations and long-term channel authority more than raw views.",
-            "Save rate (adds to playlist) is an underrated metric — it signals high-value content and is weighted heavily in YouTube's search ranking algorithm.",
-            "Reply to every comment in the first 24 hours after publishing — this trains the algorithm to extend your video's recommendation window significantly.",
-            "Post on a consistent schedule — channels that upload regularly see 40–80% higher average engagement rates than sporadic uploaders.",
-            "Use a strong call-to-action at the 30% mark of your video — viewers are most engaged early to mid-video, making this the optimal prompt point.",
-            "End screens and cards linking to related videos reduce bounce rate — lower bounce rate improves session watch time, a key YouTube ranking factor.",
+            "The average YouTube engagement rate across all niches is 3.48% (Influencer Marketing Hub, 2024). If you're below this, focus on your like CTA first — it's the fastest metric to move with a simple script change.",
+            "Place your like CTA at two points: around 30–60 seconds in (when invested viewers are still watching) and at the end. Asking only at the end misses every viewer who drops off before the outro.",
+            "Save rate (adds to playlist) is the most underrated engagement metric. YouTube's Creator Academy identifies saves as a distinct quality signal — content that gets saved has longer algorithmic distribution than content that only gets liked.",
+            "Respond to early comments within the first few hours of publishing. Comment velocity — how quickly comments accumulate — is a signal YouTube uses to assess whether to expand a video's initial distribution radius.",
+            "Ask a specific, answerable question in your video — not 'let me know what you think' but 'which of these 3 approaches would you try first?' Specific prompts generate 3–5× more comment responses than open-ended ones.",
+            "Check average view duration in YouTube Studio before assuming your engagement strategy is the problem. If most viewers leave before 30 seconds, fix the hook first — engagement CTAs can't reach viewers who've already left.",
+            "End screens linking to related videos keep viewers in session — longer session watch time is a YouTube ranking factor per the YouTube Creator Academy, and it compounds over time as your content library grows.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
               <Zap className="w-4 h-4 text-primary mt-0.5 shrink-0" />

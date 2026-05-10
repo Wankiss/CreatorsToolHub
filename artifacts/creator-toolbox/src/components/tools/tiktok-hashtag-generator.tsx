@@ -19,7 +19,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How many hashtags should I use on TikTok?",
-    a: "Current best practice in 2026 is to use between 3 and 7 hashtags per video. TikTok's own creator research suggests that using too many hashtags (15+) does not significantly increase reach and can make your caption feel cluttered. A focused set of 5–7 tags — mixing one or two broad niche hashtags, two or three mid-range topic hashtags, and one or two long-tail search hashtags — consistently outperforms both zero-hashtag posts and hashtag-stuffed captions. Our generator's 'Copy Optimal Set' feature gives you the ideal 7-hashtag combination in one click.",
+    a: "Current best practice in 2026 is to use between 3 and 7 hashtags per video. TikTok's creator guidance and community benchmarking consistently point to focused, relevant hashtag sets over mass-hashtag approaches — using 15+ hashtags can dilute the algorithm's understanding of your content category and make your caption feel cluttered without a meaningful reach benefit. A targeted set of 5–7 tags — mixing one or two broad niche hashtags, two or three mid-range topic hashtags, and one or two long-tail search hashtags — gives the algorithm clear categorization signals while keeping your caption readable. Our generator is built around this tiered approach for every set it produces.",
   },
   {
     q: "Do TikTok hashtags still work in 2026?",
@@ -31,7 +31,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What are long-tail hashtags on TikTok and why do they matter?",
-    a: "Long-tail hashtags on TikTok are specific, multi-word tags that describe exactly what your video is about — for example, #budgetmealprep or #beginneryogaforflexibility rather than just #food or #yoga. They matter because TikTok Search has grown dramatically as a discovery channel, particularly among 18–34 year olds who use TikTok to find tutorials, reviews, and how-to content. Long-tail hashtags match the exact search phrases these users type, making your videos discoverable to highly relevant audiences who are actively looking for your content. The competition on long-tail hashtags is also much lower than on broad tags, which means new and smaller accounts can realistically rank for them.",
+    a: "Long-tail hashtags on TikTok are specific, multi-word tags that describe exactly what your video is about — for example, #budgetmealprep or #beginneryogaforflexibility rather than just #food or #yoga. They matter because TikTok Search has grown substantially as a discovery channel: an Adobe 2022 survey found that 40% of Gen Z users prefer TikTok or Instagram over Google for everyday searches including tutorials, reviews, and how-to content. Long-tail hashtags match the exact phrases these users type into TikTok Search, making your videos discoverable to high-intent audiences actively looking for your specific content. The competition on long-tail hashtags is also much lower than on broad tags, which means smaller and newer accounts can realistically appear in search results for them.",
   },
   {
     q: "What is the difference between primary, secondary, and trending hashtags?",
@@ -39,7 +39,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How do TikTok hashtags affect the For You Page algorithm?",
-    a: "TikTok's algorithm uses hashtags as one of several signals during the initial distribution phase of a new video. When you post, TikTok shows your video to a small seed audience — typically 200–500 viewers — and watches how they respond. If watch time, completion rate, and engagement are strong, the video gets pushed to a larger audience. Niche-specific hashtags help TikTok select the right seed audience in the first place. A fitness hashtag tells the algorithm to test your video with users who already engage with fitness content, which increases the likelihood of strong early engagement and further distribution. Without relevant hashtags, TikTok has to infer your content category from video analysis alone, which can delay or reduce initial distribution.",
+    a: "TikTok's algorithm uses hashtags as one of several signals during the initial distribution phase of a new video. According to TikTok's Newsroom documentation ('How TikTok recommends videos for you'), the system evaluates video information — including captions and hashtags — alongside user interaction signals to categorize and route content to relevant audiences. When you post, TikTok shows your video to a small initial audience and watches how they respond. If watch time, completion rate, and engagement are strong, the video gets pushed to a broader audience. Niche-specific hashtags help TikTok route your video to users already engaging with your content category — increasing the likelihood of strong early signals that drive wider distribution. Without relevant hashtags, TikTok has to infer your content category from video analysis alone, which can slow or limit initial distribution.",
   },
   {
     q: "How do I find trending TikTok hashtags for my niche?",
@@ -47,7 +47,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Should I put hashtags in the caption or comments on TikTok?",
-    a: "Put your hashtags in the caption, not the comments. TikTok's algorithm reads caption text as part of the video metadata used for classification and distribution — hashtags in the comments do not carry the same algorithmic weight. The caption limit on TikTok is 2,200 characters, which is more than enough for a strong hook or description plus 5–7 targeted hashtags. A good caption structure is: attention-grabbing opening line or question, brief description or CTA, then your hashtag set. Avoid putting hashtags on a separate line — integrating them naturally or grouping them at the end of the caption both work well in 2026.",
+    a: "Put your hashtags in the caption, not the comments. TikTok's official recommendation is to include hashtags in your caption as part of your video's metadata — captions are read by the algorithm as video information signals used for classification and audience matching (TikTok Newsroom). The caption limit on TikTok is 2,200 characters, which is more than enough for a strong opening hook or description plus 5–7 targeted hashtags. A good caption structure is: attention-grabbing opening line or question, brief description or CTA, then your hashtag set at the end. Integrating hashtags naturally at the end of your caption — rather than as a separate line — is the most common approach among high-performing creators in 2026.",
+  },
+  {
+    q: "How do I use TikTok's Creative Center to research hashtags?",
+    a: "TikTok's Creative Center is TikTok's own free hashtag research tool, available at ads.tiktok.com/business/creativecenter/hashtag/home — no advertising account required to browse hashtag data. To use it: go to TikTok Creative Center → Inspiration → Hashtag, then search your niche keyword or content topic. The tool shows each hashtag's total view count, 7-day and 30-day trend trajectory, related hashtags, and the regional audience breakdown using that tag. Filter by country to see which hashtags are trending specifically in your target audience's location — a hashtag trending in the US may have entirely different competition levels than the same tag in the UK or Australia. The Creative Center is the most authoritative source of hashtag trend data available because it's TikTok's own platform — use it to validate and supplement the hashtags generated by this tool before posting.",
   },
   {
     q: "Are these TikTok hashtag tools free to use?",
@@ -297,6 +301,9 @@ export function TikTokHashtagGeneratorTool() {
               <Zap className="w-4 h-4 text-primary" /> What This AI TikTok Hashtag Generator Does
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              TikTok's Newsroom documentation confirms that "video information" — including captions, sounds, and hashtags — is one of the three main signal categories the algorithm uses to categorize and route content to relevant audiences. On a platform with 1.7 billion monthly active users as of 2024 (Statista), hashtags directly affect which of those users your video reaches during the critical initial distribution phase, making them one of the few variables a creator can control before posting.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               This free AI TikTok Hashtag Generator builds a multi-tier hashtag strategy for your video
               using niche-specific data, content-type signals, and search behavior patterns. The tiers
               work together as a complete discoverability system: Primary hashtags signal to TikTok's
@@ -328,28 +335,39 @@ export function TikTokHashtagGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> Why TikTok Hashtags Matter for Your Growth
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              TikTok's algorithm has evolved significantly — in 2026, the platform functions increasingly
-              like a search engine alongside its For You Page recommendation system. This means hashtags
-              now serve two distinct purposes: helping the algorithm categorize your video for FYP
-              distribution, and making your content discoverable through TikTok Search.
+              An Adobe 2022 survey found that 40% of Gen Z users now prefer TikTok or Instagram over Google for everyday searches — tutorials, product recommendations, how-to content, and local discovery. This behavioral shift means TikTok hashtags in 2026 serve a dual function: helping the algorithm categorize your video for For You Page distribution, and indexing your content in TikTok Search for long-term organic discovery.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              A video posted with well-chosen niche hashtags gets categorized faster in the algorithm's
-              initial distribution wave — typically the first 1–3 hours after posting, which determines
-              whether your video gets pushed to a broader audience or stalls. Without relevant hashtags,
-              TikTok relies solely on video analysis to determine your audience, which is less precise
-              and can delay distribution.
+              A video posted with well-chosen niche hashtags gets categorized more precisely during the algorithm's initial distribution phase. According to TikTok's published recommendation documentation (TikTok Newsroom), the system uses video information — including hashtags — to match content to the audiences most likely to engage with it. That early audience match directly determines whether your video earns the completion rate and engagement signals needed for broader distribution. Without relevant hashtags, TikTok infers your content category from video analysis alone, which can slow or limit how precisely it routes your content.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              At the same time, TikTok Search has grown dramatically as a discovery channel. Younger
-              audiences increasingly use TikTok to search for tutorials, product reviews, and
-              recommendations rather than Google. Long-tail hashtags that match real search phrases
-              make your videos discoverable to high-intent viewers who are actively looking for exactly
-              what your content covers — these viewers engage more deeply and convert to followers at
-              higher rates than passive FYP viewers.
+              Long-tail hashtags serve the search function specifically. Viewers who find your video through a TikTok search query are actively looking for your exact content — they arrive with intent rather than passive scroll behavior. This means they tend to watch more of the video, engage at higher rates, and are more likely to follow your account than a viewer who encountered the same video passively on the FYP. Combining FYP-targeted primary hashtags with search-optimized long-tail hashtags gives every video both immediate distribution reach and sustained long-term discoverability.
             </p>
           </div>
 
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-primary" /> How to Research and Validate Hashtags Using TikTok's Own Tools
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              TikTok's Creative Center (ads.tiktok.com/business/creativecenter/hashtag/home) is TikTok's own free hashtag research platform — no advertising account required. It shows real-time view counts, 7-day and 30-day trend trajectories, related hashtags, and regional audience data for any hashtag you search. It's the most authoritative source of TikTok hashtag data available because it draws directly from TikTok's own platform analytics rather than third-party estimates.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              To use it effectively: navigate to TikTok Creative Center → Inspiration → Hashtag, then search your niche keyword. Filter results by region to see which hashtags are actually trending in your target audience's country — a hashtag with massive views globally may have saturated competition in your specific market, while a region-specific tag might have strong engagement with far less competition. Check the 7-day trend line: a hashtag with rising view counts over the past week is a better target than one with a flat or declining curve regardless of total view count.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              The workflow that produces the best hashtag sets combines both tools: use this AI generator to get a complete tiered strategy instantly, then cross-check your top 3–5 hashtags in TikTok Creative Center to confirm they're trending positively in your region before you post. This takes under two minutes per video and gives you a strategy built on both AI-powered relevance matching and real-time TikTok trend data.
+            </p>
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Sources:</strong>{" "}
+                <a href="https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Newsroom — How TikTok Recommends Videos (video information signals)</a>{" · "}
+                <a href="https://ads.tiktok.com/business/creativecenter/hashtag/home" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Creative Center — Official Hashtag Trend Research Tool</a>{" · "}
+                <a href="https://business.adobe.com/blog/perspectives/adobe-2022-future-of-creativity-study" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Adobe 2022 — 40% of Gen Z Prefer TikTok/Instagram Over Google for Search</a>{" · "}
+                <a href="https://www.statista.com/statistics/1327116/number-of-monthly-active-tiktok-users-worldwide/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Statista 2024 — TikTok Monthly Active Users (1.7B)</a>
+              </p>
+            </div>
+          </div>
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
               <Shield className="w-4 h-4 text-primary" /> Benefits of Using This TikTok Hashtag Generator

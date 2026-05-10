@@ -16,43 +16,43 @@ import { Link } from "wouter";
 const FAQ_ITEMS = [
   {
     q: "What are YouTube hashtags and how do they work?",
-    a: "YouTube hashtags are metadata tags prefixed with # that you add to your video title or description. When a viewer clicks a hashtag, they land on a dedicated hashtag search page showing all videos tagged with that term, ranked by relevance and watch time. This creates a secondary discovery pathway alongside standard keyword search — exposing your content to viewers who find topics by browsing hashtags rather than searching. YouTube also uses hashtags as one of the categorization signals it reads when deciding which suggested video slots your content appears in, making accurate hashtags an important part of your overall discoverability strategy.",
+    a: "YouTube hashtags are # keywords you add to your video title or description to improve discoverability. According to YouTube's official Help Center, hashtags create a secondary discovery channel: when a viewer clicks one, they reach a dedicated hashtag search page ranking all videos with that tag by relevance and watch time. YouTube also reads hashtags as content categorization signals when deciding which suggested video and home feed slots to place your video in — a distribution pathway that drives more total views than search alone for most established channels.",
   },
   {
     q: "How many hashtags should I use on a YouTube video?",
-    a: "The ideal number of YouTube hashtags is between 3 and 15 per video. Using more than 15 hashtags triggers YouTube's spam detection filter, which can cause YouTube to ignore all hashtags on that video entirely — the opposite of what you want. Focus on quality over quantity: 5–10 well-chosen hashtags covering all three tiers (trending, niche, and long-tail) outperform 50 generic tags every time. If you're targeting YouTube Shorts specifically, 3–5 hashtags is the sweet spot, including the #Shorts tag to help YouTube classify your content for the Shorts feed.",
+    a: "YouTube's official documentation states that videos with more than 60 hashtags have all their hashtags ignored entirely. Most industry guides incorrectly repeat a 15-hashtag limit — that figure has no source in YouTube's actual policy pages. In practice, 3–5 well-chosen hashtags in your description outperform a padded list of 20+. YouTube's own policy also warns that over-tagging 'may result in the removal of your video from your uploads or from search' — so quality over quantity is enforced at the platform level.",
   },
   {
     q: "Where should I put hashtags in my YouTube video?",
-    a: "Place hashtags at the very end of your video description, below your main content, links, and calls-to-action. YouTube automatically picks the first three hashtags from your description and displays them above your video title as clickable links — so put your most important hashtags first. You can also add one or two hashtags directly in the video title for maximum visibility, but this is most effective for highly searched terms. Avoid scattering hashtags throughout the description body, as this looks spammy and disrupts the reading flow for viewers who expand the description.",
+    a: "YouTube's Help Center confirms that up to three hashtags 'considered most engaging' appear as clickable links above your video title — so your most important hashtags go first in the description. Place all hashtags at the very end of your description, below your main content and links. You can also add one or two in the video title itself for maximum visibility, but this works best for high-search terms where the hashtag doubles as a keyword. Avoid scattering hashtags mid-description — it disrupts the reading experience for viewers who expand the description.",
   },
   {
     q: "Do YouTube hashtags affect SEO rankings?",
-    a: "Yes, indirectly but meaningfully. Hashtags don't directly boost your ranking in standard YouTube keyword search results, but they strengthen the content categorization signals YouTube's algorithm uses to decide where to place your video in the suggested video sidebar and home feed. Accurate, relevant hashtags help YouTube correctly identify your content category and serve it to viewers who have engaged with similar content — which is often where the majority of views come from for established creators. They also create a separate hashtag search ranking where your video can appear first even with a small channel, especially for niche and long-tail hashtags.",
+    a: "Hashtags don't directly boost standard YouTube keyword search rankings, but they add to the content categorization signals YouTube uses to place your video in suggested video slots and the home feed. YouTube videos appear in Google SERPs for 791.3 million search queries in the US alone, according to Semrush's 2024 analysis — and YouTube is cited in 29.5% of Google AI Overviews, the highest of any domain. Hashtags strengthen the metadata layer that helps YouTube (and Google) categorize your content correctly across all those surfaces.",
   },
   {
     q: "What's the difference between trending, niche, and long-tail YouTube hashtags?",
-    a: "Trending hashtags (#YouTube, #ContentCreator, #VideoMarketing) are high-volume platform-wide tags that signal your content belongs in the mainstream creator ecosystem. They rarely rank your video at the top alone because competition is enormous, but they trigger related video suggestions. Niche hashtags (#HomeWorkout, #TechReview, #DigitalMarketing) are category-specific — mid-volume tags with strong audience relevance that offer the best balance of traffic and ranking opportunity. Long-tail hashtags (#HomeWorkoutForBeginners, #YouTubeGrowthTips2026) are highly specific combinations with minimal competition. Small channels can rank first for these tags and attract highly qualified viewers actively looking for exactly what you've made.",
+    a: "Trending hashtags (#YouTube, #ContentCreator) are high-volume platform-wide tags with fierce competition — they signal ecosystem membership and trigger related video suggestions but rarely rank your video alone. Niche hashtags (#HomeWorkout, #TechReview) are category-specific mid-volume tags offering the best balance of relevance and ranking opportunity. Long-tail hashtags (#HomeWorkoutForBeginners, #YouTubeGrowthTips2026) have minimal competition — small channels can rank first for these tags immediately and capture highly qualified viewers looking for exactly what you've created. Use all three tiers together.",
   },
   {
     q: "Should I use the same hashtags on every video?",
-    a: "No — using identical hashtag sets on every video is a common mistake that signals low-quality, repetitive optimization to the platform. YouTube's algorithm de-emphasizes channels that use the same hashtags repeatedly across unrelated videos. Your broad trending hashtags (#YouTube, #ContentCreator) can be reused, but your niche and long-tail hashtags should be customized for each video's specific topic, angle, and target audience. This signals to YouTube that each video is a distinct, properly categorized piece of content — which improves hashtag search rankings and suggested video placement for each upload.",
+    a: "No. YouTube's spam policies flag channels that apply identical metadata repeatedly across unrelated content — misleading hashtags can result in video removal and, with repeat violations, channel strikes (three strikes in 90 days results in channel termination, per YouTube's official Spam Policy). Your broad trending hashtags can be reused, but your niche and long-tail hashtags should be customized for each video's specific topic. Each upload needs hashtags that accurately describe that specific video — not a template pasted from your last one.",
   },
   {
     q: "Can hashtags help my YouTube Shorts get more views?",
-    a: "Yes — hashtags are especially effective on YouTube Shorts because the Shorts feed uses hashtags as one of its primary content categorization signals. Using 3–5 relevant hashtags on each Short can significantly improve its placement in the hashtag-browsing section of the Shorts feed. The #Shorts hashtag itself signals to YouTube that the video is formatted as a Short and should be distributed through the Shorts discovery system. Niche-specific hashtags on Shorts work particularly well because the Shorts audience tends to browse by interest category, making topic-specific hashtags a direct path to getting in front of the right viewers.",
+    a: "Yes — and the Shorts opportunity is significant. YouTube Shorts reached 200 billion daily views in 2026, up from 70 billion in early 2024, according to YouTube CEO Neal Mohan's annual letters. Todd Sherman, YouTube's Shorts Product Lead, confirmed in a 2024 Creator Insider session that hashtags 'can be helpful' for Shorts — particularly event-based and topic-specific content. Niche hashtags work especially well on Shorts because that audience actively browses by interest category, making accurate topic hashtags a direct route to the right viewers.",
   },
   {
     q: "What hashtags should I avoid on YouTube?",
-    a: "Avoid irrelevant trending hashtags used to hijack traffic — using #Gaming on a cooking video might drive clicks, but those viewers instantly bounce when they see unrelated content, spiking your bounce rate and suppressing your video across all discovery channels. Never use more than 15 hashtags per video. Avoid banned or restricted hashtag terms. Skip generic spam tags like #viral, #trending, or #fyp that don't describe your actual content and are so oversaturated that they provide zero ranking benefit. Also avoid competitor brand names or misleading terms — YouTube's spam policies can result in reduced visibility or strikes for deliberately deceptive hashtag use.",
+    a: "YouTube's official Help Center states that misleading or unrelated hashtags — using #Gaming on a cooking video, for example — may result in removal of your video or playlist. Beyond that policy risk, irrelevant hashtags backfire algorithmically: viewers who click an unrelated hashtag and immediately leave spike your bounce rate, signaling to YouTube that your video disappoints its audience, which suppresses your reach across all discovery channels. Also avoid exceeding 60 hashtags, using hashtags with spaces (they won't function), or spamming saturated tags like #viral or #fyp that describe zero specific content.",
   },
   {
     q: "How do I find the best hashtags for my YouTube niche?",
-    a: "The fastest method is to use our AI-powered YouTube Hashtag Generator — enter your video topic and select your niche, and the tool generates a complete three-tier hashtag set (trending, niche-specific, and long-tail) tailored to your content in seconds. You can also manually research hashtags by browsing the descriptions of top-performing videos in your niche to see which tags they use, then checking the hashtag search pages to assess how much competition exists for each term. Hashtags where your content quality can genuinely compete with the top 10 results are the sweet spot — big enough to be worth targeting, small enough for a mid-size channel to rank.",
+    a: "Start with this tool — enter your video topic, select your niche, and the AI builds a complete three-tier hashtag set (trending, niche, long-tail) in seconds. For manual research: open the top 3–5 ranking videos for your target keyword and read their descriptions for hashtags, then click those hashtag links to assess competition. Hashtags where your video quality can realistically compete with the top 10 results are the sweet spot. Cross-reference hashtags appearing in multiple top videos — those are already validated by YouTube's ranking system.",
   },
   {
     q: "Is the YouTube Hashtag Generator free to use?",
-    a: "Yes — the YouTube Hashtag Generator is completely free with no account required, no signup, and no usage limits. The AI-powered generator creates a full trending, niche, and long-tail hashtag set for any video topic or content category in seconds. Generate as many hashtag sets as you need, select only the most relevant ones using the individual hashtag picker, and copy them directly into YouTube Studio. There are no premium tiers, watermarks, or daily limits — just instant, AI-generated hashtags whenever you need them.",
+    a: "Yes — completely free, no account required, no usage limits. The AI-powered generator creates a full trending, niche, and long-tail hashtag set for any video topic or content category in seconds. Select individual hashtags or copy the full list as a space-separated block ready to paste into YouTube Studio. No premium tiers, no watermarks, no daily caps. Generate as many sets as your upload schedule demands.",
   },
 ];
 
@@ -352,24 +352,31 @@ export function YouTubeHashtagGeneratorTool() {
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-primary" /> How YouTube Hashtags Improve Discoverability
             </h3>
+            {/* Answer-first citation capsule */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mb-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                YouTube videos appear in Google SERPs for{" "}
+                <a href="https://www.semrush.com/blog/youtube-stats/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">791.3 million search queries in the US alone (Semrush, 2024)</a>
+                {" "}— and YouTube is cited in{" "}
+                <a href="https://searchengineland.com/youtube-ai-search-citations-data-462830" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">29.5% of Google AI Overviews, the highest citation rate of any domain (BrightEdge, 2024–2025)</a>.
+                {" "}Hashtags strengthen the metadata layer that helps both YouTube and Google categorize your content correctly across every one of those surfaces.
+              </p>
+            </div>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              YouTube hashtags function as a secondary discovery system that runs parallel to standard keyword search.
-              When a viewer clicks a hashtag on any video, they land on a dedicated hashtag search page that displays all
-              videos tagged with that term — ordered by relevance and watch time rather than pure keyword match. This
-              creates a discovery pathway that can expose your content to viewers who never would have found it through
-              search alone, because they were browsing content by topic rather than searching for a specific phrase.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              The algorithm uses hashtags as one of the signals it reads when categorizing your video. Accurate, relevant
-              hashtags help YouTube understand your content category and serve it to the right suggested video slots —
-              the "Up Next" sidebar and the home feed for viewers who have engaged with similar content. Mismatched or
-              spammy hashtags (using #viral or #fyp on a finance tutorial) confuse this categorization and can actively
-              reduce your reach by placing your video in the wrong audience feed.
+              According to{" "}
+              <a href="https://support.google.com/youtube/answer/6390658" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                YouTube's official Help Center
+              </a>
+              , hashtags create a dedicated discovery channel: clicking any hashtag opens a search page ranking all videos
+              with that tag by relevance and watch time. That's a discovery pathway entirely separate from standard keyword
+              search — one that reaches viewers who browse by topic rather than type a query. YouTube also reads hashtags
+              as content categorization signals when placing your video in suggested video slots and the home feed.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Our AI-powered generator analyzes your video topic and selected niche to build a hashtag set that accurately
-              signals your content category to YouTube's algorithm — improving both hashtag search placement and suggested
-              video distribution simultaneously. Use these alongside your{" "}
+              Mismatched hashtags work against you. Using #viral or #fyp on a finance tutorial confuses YouTube's
+              categorization system and can suppress your video across all discovery channels. Accurate hashtags that
+              genuinely reflect your video's topic are what drive distribution — not volume. Pair these with a
+              keyword-optimized{" "}
               <Link href="/tools/youtube-description-generator" className="text-primary hover:underline font-medium">
                 YouTube description
               </Link>{" "}
@@ -377,7 +384,7 @@ export function YouTubeHashtagGeneratorTool() {
               <Link href="/tools/youtube-title-generator" className="text-primary hover:underline font-medium">
                 video title
               </Link>{" "}
-              to build a fully optimized video page.
+              for compounding metadata signals.
             </p>
           </div>
 
@@ -386,30 +393,28 @@ export function YouTubeHashtagGeneratorTool() {
               <Zap className="w-4 h-4 text-primary" /> The Three-Layer Hashtag Strategy
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              The most effective YouTube hashtag strategies use three layers simultaneously. The first layer is broad
-              trending hashtags — tags like #YouTube, #ContentCreator, and #VideoMarketing that have enormous search
-              volume. These won't rank your video on their own because the competition is fierce, but they signal to the
-              platform that your content belongs in the mainstream creator ecosystem and can trigger related video
-              suggestions.
+              Effective YouTube hashtag strategies stack three layers simultaneously. Layer one: broad trending hashtags
+              — #YouTube, #ContentCreator, #VideoMarketing. These won't rank your video alone (competition is enormous)
+              but signal platform-wide ecosystem membership and can trigger related video suggestions to the right
+              audience pools. Use 2–3 of these per video.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              The second layer is niche hashtags specific to your content category. A fitness creator using #HomeWorkout
-              and #FitnessMotivation reaches people actively browsing fitness content. A tech reviewer using #TechReview
-              and #GadgetUnboxing lands in front of technology enthusiasts. These mid-volume hashtags offer the best
-              balance of audience relevance and ranking opportunity — large enough to drive meaningful traffic, specific
-              enough for your video to rank near the top. Reinforce these same keywords in your{" "}
+              Layer two is niche hashtags specific to your content category. A fitness creator using #HomeWorkout and
+              #FitnessMotivation reaches viewers actively browsing fitness content. A tech reviewer using #TechReview
+              and #GadgetUnboxing lands in front of the technology enthusiast audience. Mid-volume niche hashtags offer
+              the best ranking opportunity — large enough to drive meaningful traffic, specific enough to actually
+              compete. Reinforce the same keywords in your{" "}
               <Link href="/tools/youtube-description-generator" className="text-primary hover:underline font-medium">
                 video description
               </Link>{" "}
               for compounding SEO value.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              The third layer is long-tail hashtags — highly specific combinations like #HomeWorkoutForBeginners or
-              #YouTubeGrowthTips2026. These drive low but highly qualified traffic. A viewer clicking
-              #HomeWorkoutForBeginners is looking for exactly what you've made. Long-tail hashtags also face far less
-              competition, meaning your video can rank first for that tag even with a small channel. Our AI generator
-              automatically creates all three layers in one generation — giving you a complete, balanced hashtag strategy
-              for every video without manual research.
+              Layer three is long-tail hashtags — highly specific combinations like #HomeWorkoutForBeginners or
+              #YouTubeGrowthTips2026. Competition is minimal; a new channel can rank first for these immediately.
+              A viewer clicking #HomeWorkoutForBeginners is looking for exactly what you made — that intent alignment
+              drives both watch time and subscriber conversion. The AI generator builds all three layers in one pass,
+              so you get a balanced strategy for every upload without hours of manual research.
             </p>
           </div>
 
@@ -418,17 +423,24 @@ export function YouTubeHashtagGeneratorTool() {
               <AlertCircle className="w-4 h-4 text-primary" /> Hashtag Mistakes That Kill Your YouTube Reach
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Over-hashtagging is the most common YouTube hashtag mistake. Using more than 15 hashtags triggers YouTube's
-              spam filter and can cause YouTube to ignore all hashtags on that video. The irony is that creators who use
-              50+ hashtags trying to maximize exposure often get zero hashtag benefit. Keep it between 5–15, focusing on
-              quality over quantity.
+              The most common hashtag mistake — repeated across almost every YouTube SEO guide — is the claim that
+              using more than 15 hashtags gets all of them ignored. That figure is wrong.{" "}
+              <a href="https://support.google.com/youtube/answer/6390658" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                YouTube's official Help Center
+              </a>{" "}
+              states the actual threshold is <strong>more than 60 hashtags</strong>, at which point YouTube ignores
+              every hashtag on the video. It also warns that over-tagging "may result in the removal of your video
+              from your uploads or from search." The practical best practice is still 3–5 focused hashtags — not
+              because 15 triggers a filter, but because quality beats quantity every time.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              The second major mistake is using irrelevant trending hashtags to hijack traffic. Using #Gaming on a cooking
-              video might drive clicks, but those viewers immediately bounce when they see unrelated content — spiking
-              your bounce rate and signaling to YouTube that your video disappoints its audience. This suppresses your
-              video across all discovery channels, not just the misused hashtag. Always ensure every hashtag accurately
-              describes your actual video content. Combine strong hashtag strategy with keyword-optimized{" "}
+              The second critical mistake is using irrelevant trending hashtags to hijack traffic. YouTube's spam
+              policy explicitly states that misleading hashtags "may result in the removal of your video or playlist."
+              Beyond the policy risk, irrelevant hashtags backfire algorithmically: viewers who click an off-topic
+              hashtag and immediately leave spike your bounce rate, signaling to YouTube that your video disappoints
+              its audience — which suppresses your reach across every discovery channel, not just the misused hashtag.
+              Every hashtag must accurately describe your actual video content. Combine solid hashtag strategy with
+              keyword-optimized{" "}
               <Link href="/tools/youtube-tag-generator" className="text-primary hover:underline font-medium">
                 video tags
               </Link>{" "}
@@ -436,7 +448,7 @@ export function YouTubeHashtagGeneratorTool() {
               <Link href="/tools/youtube-title-generator" className="text-primary hover:underline font-medium">
                 title
               </Link>{" "}
-              for a complete discoverability package.
+              for a complete discoverability stack.
             </p>
           </div>
 
@@ -477,13 +489,13 @@ export function YouTubeHashtagGeneratorTool() {
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
           {[
-            "Use 5–15 hashtags per video — more than 15 triggers YouTube's spam filter and can cause all your hashtags to be ignored entirely.",
-            "Place hashtags at the end of your description — YouTube automatically turns the first 3 into clickable links above your video title.",
-            "Mix all three tiers: 2–3 trending hashtags for ecosystem signaling, 4–6 niche hashtags for category placement, and 2–4 long-tail hashtags for qualified traffic.",
-            "Customize hashtags for each video — using the same set on every video signals repetitive content to the algorithm and reduces hashtag ranking benefit.",
-            "Match your hashtags to your actual content — mismatched hashtags cause audience bounce, which suppresses your video across all discovery channels.",
-            "Use the same keywords in both your hashtags and description — the algorithm reads both, so consistent keyword signals strengthen your content category match.",
-            "#Shorts is a must-have hashtag for YouTube Shorts content — it signals your video for Shorts feed distribution and unlocks the Shorts discovery system.",
+            "Keep hashtags between 3–5 per video. YouTube's official limit before all hashtags are ignored is 60 — but quality consistently beats quantity. Five targeted hashtags outperform twenty generic ones.",
+            "Place hashtags at the end of your description — YouTube surfaces up to three of the most engaging ones as clickable links above your video title, so lead with your strongest.",
+            "Mix all three tiers: 2–3 trending hashtags for ecosystem signaling, 3–5 niche hashtags for category placement, and 2–3 long-tail hashtags for high-intent qualified traffic.",
+            "Customize hashtags for each video — applying identical hashtag sets to unrelated videos is flagged as repetitive spam behavior under YouTube's policy and reduces hashtag ranking benefit.",
+            "Match your hashtags to your actual content. YouTube's Help Center states that misleading hashtags may result in video removal. Accurate hashtags also prevent bounce-rate damage from mismatched audiences.",
+            "Reinforce hashtag keywords in your description — YouTube reads both signals, so consistent keyword usage across hashtags and description text strengthens your content category match.",
+            "YouTube Shorts averaged 200 billion daily views in 2026 (YouTube CEO annual letter). Topic-specific hashtags help Shorts surface to the right interest-based audience segments in the feed.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
               <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />

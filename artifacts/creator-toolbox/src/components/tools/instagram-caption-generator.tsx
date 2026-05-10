@@ -47,11 +47,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "What is the best time to post on Instagram for caption engagement?",
-    a: "The best posting time for caption engagement is when your specific audience is most active and in a reading mindset — not scrolling passively. For most audiences, this means Tuesday through Friday between 9–11am and 6–9pm in their timezone. Avoid posting at the exact moment your audience first opens Instagram (typically 7–8am) — users in the early morning scroll quickly and rarely stop to read long captions. Evening windows (6–9pm) tend to produce higher comment rates because users have more time and are more mentally present. The most reliable approach is to check your Instagram Insights under Audience for your specific followers' active hours and test posting 30–60 minutes before the peak — this allows the algorithm time to begin distributing your post before engagement velocity peaks.",
+    a: "The best posting time for caption engagement is when your specific audience is most active and in a reading mindset — not scrolling passively. General patterns in creator communities suggest mid-week mornings and evenings tend to outperform early morning or late-night slots, but your audience may differ significantly. The most reliable approach is to check your own Instagram Insights: Professional Dashboard → Total Followers → Most Active Times, as documented in Instagram Help Center under 'About Instagram Insights.' Test posting at your audience's peak active hour and track whether saves, comments, and shares increase. Individual audience data from Insights will always outperform general benchmark recommendations.",
   },
   {
     q: "Is this Instagram caption generator free?",
     a: "Yes — this Instagram caption generator is completely free with no account required, no usage limits, and no watermarks on the output. Enter your topic, set your niche, goal, tone, content type, and length, and the AI generates 10 caption styles with Hook Scores, Engagement Scores, and Viral Scores in seconds. You can copy individual captions, hashtags only, or the full caption and hashtag set in one click. There are no daily generation limits and no premium tier required for any of the features — all 10 caption styles, all goal settings, all tone modes, and the full scoring system are available for free on every generation.",
+  },
+  {
+    q: "Does Instagram index caption text for in-app search?",
+    a: "Yes — Instagram indexes caption text for its in-app search engine, which means keyword-rich captions improve your content's discoverability beyond hashtags alone. According to Instagram Help Center's 'Search on Instagram' documentation, users searching for topics in the Search tab see relevant posts based on caption keywords, hashtags, and account information. This is particularly important for Reels, which Instagram's recommendation system surfaces in Search, Explore, and Reels Feed based on relevance signals including caption text. Writing captions with 2–3 natural mentions of your primary topic keyword (e.g., 'fat loss tips', 'beginner workout') increases the likelihood of your content appearing in relevant search results — functioning similarly to on-page SEO but within Instagram's own search environment.",
   },
 ];
 
@@ -231,9 +235,11 @@ export function InstagramCaptionGeneratorTool() {
               <Zap className="w-4 h-4 text-primary" /> Why Caption Structure Determines Your Post's Reach
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              According to Meta's Transparency Center and Instagram Help Center, Instagram's recommendation algorithm evaluates posts based on engagement signals — specifically saves, comments, shares, and how long users spend with the content. On a platform with over 2 billion monthly active users (Statista, 2024), posts that generate strong early engagement in those signals are distributed to significantly larger non-follower audiences through Explore, Reels recommendations, and Search.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               Instagram captions are not passive decoration for your visual content — they are an active
-              lever for algorithmic distribution. Every Instagram post is evaluated within its first
-              30–60 minutes by a combination of engagement signals: saves, comments, shares, and
+              lever for algorithmic distribution. Posts are evaluated by a combination of engagement signals: saves, comments, shares, and
               time-on-post (how long someone stays reading your caption before scrolling). Posts with
               high early engagement scores are pushed to a significantly larger non-follower audience
               through Explore and Reels recommendations.
@@ -262,6 +268,9 @@ export function InstagramCaptionGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> How Goal, CTA Type, and Content Type Affect Caption Performance
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              Instagram Help Center's guidance on "About Instagram Insights" documents four primary engagement metrics — saves, shares, comments, and profile visits — each of which signals different content value to the algorithm. Captions that are intentionally written to drive one of these specific metrics outperform generic captions because they give the viewer a clear, frictionless action to take.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               The most common mistake in Instagram caption writing is using a generic CTA — "drop a
               comment below" or "let me know what you think" — regardless of what the post is actually
               optimised for. Each goal requires a fundamentally different caption strategy. Educational
@@ -287,6 +296,40 @@ export function InstagramCaptionGeneratorTool() {
               automatically — no guesswork required.
             </p>
           </div>
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <ArrowUpRight className="w-4 h-4 text-primary" /> How Instagram Indexes Caption Text for Search and Explore Discovery
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Instagram Help Center's "Search on Instagram" documentation confirms that caption text is indexed by Instagram's in-app search engine. When users search for topics, Instagram surfaces posts containing relevant keywords in captions and hashtags — making your caption a searchability asset, not just an engagement tool. Including 2–3 natural keyword mentions of your primary topic (e.g., "morning workout routine," "healthy breakfast ideas") increases your content's relevance for those search queries within Instagram.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Meta's Transparency Center, in its "How Instagram Ranks Reels" documentation, identifies relevance signals including the text associated with a post — captions, hashtags, and sounds. This means captions written with specific topical language perform better in Reels recommendations for users who have engaged with similar content. The practical implication: writing captions that clearly identify your topic, audience, and key concept helps Instagram's algorithm categorize your content for both search and recommendation distribution.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Use this generator to produce keyword-aware captions that serve both engagement and discoverability goals. The Educational goal setting produces captions structured around specific topic keywords and save-driving value, which is the format Instagram's search and recommendation systems respond to most strongly. Pair with the{" "}
+              <Link href="/tools/instagram-hashtag-generator" className="text-primary hover:underline font-medium">
+                Instagram Hashtag Generator
+              </Link>{" "}
+              to build the complete discoverability stack — caption keywords for search, hashtags for topic clustering.
+            </p>
+
+            {/* Citation capsule */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Sources:</strong>{" "}
+                <a href="https://help.instagram.com/277764416232998" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Instagram Help Center — Search on Instagram</a>
+                {" "}confirms caption text is indexed for in-app search results.{" "}
+                <a href="https://transparency.fb.com/features/ranking/instagram/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Meta Transparency Center — How Instagram Ranks Content</a>
+                {" "}documents engagement signals (saves, shares, comments) and relevance signals used for Reels and Explore distribution.{" "}
+                <a href="https://help.instagram.com/788388387972460" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Instagram Help Center — About Instagram Insights</a>
+                {" "}documents the four primary engagement metrics Instagram measures per post.{" "}
+                <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Statista (2024)</a>
+                {" "}— Instagram monthly active users: 2 billion globally.
+              </p>
+            </div>
+          </div>
+
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
               <Shield className="w-4 h-4 text-primary" /> What This AI Instagram Caption Generator Includes
@@ -329,7 +372,7 @@ export function InstagramCaptionGeneratorTool() {
             "Save your best hashtags for the first comment, not the caption — this keeps captions clean and readable while preserving full discoverability.",
             "Use a mix of 10–15 hashtags (not 30) — Instagram's algorithm has deprioritised hashtag stuffing; 10–15 targeted hashtags outperform 30 generic ones.",
             "Add a CTA in every caption ('Save this for later' / 'Tag a friend who needs this') — saves are Instagram's highest-weight ranking signal for Explore placement.",
-            "Write captions in a consistent brand voice — profiles with a recognisable tone receive 2–3× more word-of-mouth shares than inconsistent accounts.",
+            "Write captions in a consistent brand voice — profiles with a recognisable tone build stronger audience expectations, making it easier for followers to engage predictably and refer your account to others.",
             "For Reels, keep the caption to 1–3 lines — Reel captions appear over the video, and longer text blocks cover the visual and reduce completion rate.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">

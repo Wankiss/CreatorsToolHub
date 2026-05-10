@@ -27,43 +27,47 @@ const LENGTHS = [
 const FAQ_ITEMS = [
   {
     q: "How do I choose a good YouTube channel name?",
-    a: "Choose a YouTube channel name that passes five tests: (1) Say it out loud — if someone can't repeat it after hearing it once, it's too hard. (2) Type it from memory — if there's ambiguity about how to spell it, that's lost traffic. (3) Search it on YouTube — if the name returns no large channels, you have a clear lane. (4) Check it on Instagram, TikTok, and Twitter — brand consistency across platforms multiplies discovery. (5) Ask if it scales — a channel called 'DailyVlog2024' is trapped by its name; a channel called 'LifeWithMike' grows with you. Our AI generator applies these principles automatically, producing names in three strategic categories: brandable invented words, keyword-rich names, and creative hybrids. Generate 30–50 options, shortlist your top five, run the availability check on YouTube, and claim the matching social handles before you announce the name publicly.",
+    a: "With over 115 million YouTube channels on the platform (Statista, 2025), your channel name is the first thing viewers use to decide whether to click, subscribe, or search for you again. A good name passes five practical tests: (1) Say it out loud — if someone can't repeat it after hearing it once, it's too hard. (2) Type it from memory — spelling ambiguity means lost search traffic. (3) Search it on YouTube — if no large channel uses it, you have a clear lane. (4) Check Instagram, TikTok, and Twitter — consistent handles across platforms multiply discovery. (5) Ask if it scales — 'DailyVlog2024' traps you; 'LifeWithMike' grows with you. A TunePocket study of trending channels found 43.31% have names between 10 and 15 characters, suggesting that the mid-length range hits the sweet spot of memorability and clarity. Our generator applies these principles automatically, producing names in three strategic categories: brandable invented words, keyword-rich names, and creative hybrids.",
   },
   {
     q: "Should my YouTube channel name include keywords?",
-    a: "Including your niche keyword in your channel name provides a small but real SEO benefit — particularly in the early months when your channel lacks watch time and subscriber authority. YouTube reads your channel name as a topical signal, and a channel called 'FitnessForge' will appear marginally more often in fitness-adjacent searches than 'QuantumMike' at the same subscriber count. That said, keyword stuffing in a channel name is actively harmful. Names like 'Best Fitness YouTube Channel 2024' look spammy to viewers and the algorithm, and they age poorly. The optimal approach is a name that either contains the niche keyword naturally (FitnessForge, TechPulse) or strongly implies the niche (IronLab for fitness, ByteForge for tech). Use the 'Always include niche keyword' toggle in our generator to explore this balance — it generates names that weave in the keyword while maintaining brand strength.",
+    a: "Including your niche keyword in your channel name provides a small but real SEO benefit — particularly in the early months before your channel has watch time and subscriber authority. YouTube reads your channel name as a topical signal, so a channel called 'FitnessForge' will appear more often in fitness-adjacent searches than 'QuantumMike' at the same subscriber count. That said, keyword stuffing a channel name is harmful. Names like 'Best Fitness YouTube Channel 2024' look spammy to viewers and the algorithm, and they age badly. The optimal approach: a name that contains the niche keyword naturally (FitnessForge, TechPulse) or strongly implies it (IronLab for fitness, ByteForge for tech). Use the 'Always include niche keyword' toggle in our generator to explore this balance — it produces names that weave in the keyword while maintaining brand strength.",
   },
   {
     q: "How long should a YouTube channel name be?",
-    a: "The ideal YouTube channel name is 2–12 characters (1–2 words). Shorter names are more memorable, easier to type from search, and more consistent across social handles. Most of YouTube's biggest channels follow this rule: MrBeast (7 chars), MKBHD (5 chars), Veritasium (10 chars). Names longer than 15 characters start to look cluttered in the YouTube header, and they're harder for viewers to remember after a single discovery. Single-word brandable names (Tubora, ByteForge) are the gold standard for longevity and cross-platform consistency. Two-word combinations (Tech Pulse, Iron Lab) work well for niches where a single word doesn't convey enough context. Avoid three-word names unless one word is very short (The SketchBook). Our generator's length selector lets you specify Short (single-word), Medium (two-word), or Invented (brandable) to focus the output on your preference.",
+    a: "Data from a TunePocket analysis of trending YouTube channels found that 43.31% have names between 10 and 15 characters, and 42.45% use two-word combinations. That puts the practical sweet spot at two words totaling roughly 10-15 characters — long enough to convey a brand identity, short enough to be typed from memory. Real examples match this pattern: MrBeast (7 chars), Veritasium (10), MKBHD (5). Names longer than 20 characters start to look cluttered in the YouTube header and are harder for viewers to recall after a single exposure. Single-word brandable names work well for long-term brand equity; two-word combinations work for niches where one word doesn't convey enough context. Our generator's length selector lets you specify Short (1 word), Medium (2 words), or Invented (brandable) to target the right range.",
   },
   {
-    q: "What makes a channel name 'brandable'?",
-    a: "A brandable YouTube channel name is one that is unique, ownable, and memorable independent of its literal meaning. Brandable names are not dictionary words used in their standard sense — they are invented combinations, modified spellings, or evocative words that carry no pre-existing associations. 'Veritasium' is Latin for 'element of truth' — interesting, but most viewers don't know that. What makes it brandable is that it's completely unique, easy to say, and carries no conflicting meaning. When someone searches 'Veritasium' on YouTube, only one result comes up. That exclusivity is the core of a brandable name. The criteria: (1) Unique — searchable with zero competing results. (2) Pronounceable — works as spoken word. (3) Spellable — viewers can type it from memory. (4) Domain-available — a matching .com or .co strengthens the brand. (5) Handle-consistent — same name available on Instagram and TikTok. Our 'Brandable Names' category generates invented words specifically designed to meet all five criteria.",
+    q: "What's the difference between a YouTube channel name and a YouTube handle?",
+    a: "YouTube has two distinct identities that most creators confuse. Your channel name is your display name — up to 100 characters, shown on your channel page and in the subscription feed. Your @handle is your unique username — between 3 and 30 characters using only letters, numbers, underscores, hyphens, and periods (per YouTube's Help Center). The handle is what appears in Shorts, comments, search results, and your channel URL (youtube.com/@yourhandle). Crucially, channel names are not unique — multiple channels can share the same display name. Handles are unique: once claimed, no one else can use yours. When choosing a channel name, always check that a matching or near-matching handle is available at the same time. A strong brand has the same identity in both fields. Our generator produces names short enough to work as both a display name and a handle.",
   },
   {
     q: "Can I change my YouTube channel name later?",
-    a: "Yes — YouTube allows you to change your channel name, but there are meaningful costs to doing so. Viewers who found you under the old name may not recognize the new one when it appears in their subscription feed. Any press mentions, backlinks, or social shares using the old name continue to point to a brand that no longer exists. If you've built more than 1,000 subscribers under a name, changing it creates measurable audience confusion. That said, many successful channels have rebranded — the key is doing it decisively and announcing it across all platforms simultaneously. The best approach is to invest time in your name before you launch. Our generator produces 20–50 options per session; spending 20 minutes generating and shortlisting options before your first video is far less painful than rebranding after 10,000 subscribers.",
+    a: "Yes, but YouTube's official rules impose two significant constraints most creators don't know about. First, YouTube's Help Center states you can only change your channel name twice within any 14-day period — after two changes, you're locked out until the window resets. Second — and more important — changing your channel name removes your verification badge (the gray checkmark). If you've earned verification, a name change strips it immediately; you'd need to re-qualify. Beyond the platform rules, there's audience confusion: viewers who found you under the old name may not recognize the new one in their subscription feed. The practical advice: invest 20-30 minutes choosing a name before your first video. Our generator produces 20-50 options per session — use it to shortlist five candidates and pick the strongest before you ever publish.",
   },
   {
     q: "Should my YouTube name match my username on other platforms?",
-    a: "Yes — cross-platform handle consistency is one of the most important and most overlooked brand decisions a creator makes. When a viewer discovers your YouTube channel and wants to follow you on Instagram or TikTok, they will type your exact channel name into the search bar. If your handle is different on each platform, you lose that follow. Consistent handles also make your brand much stronger in Google search — when someone searches your channel name, results from YouTube, Instagram, TikTok, Twitter, and your website all reinforce each other instead of pointing to different identities. Before finalizing any channel name, search for the matching handle on Instagram, TikTok, Twitter/X, and check if the .com domain is available. Use our generator's results and immediately run the YouTube search check, then manually verify the social handles before committing.",
+    a: "Yes — cross-platform handle consistency is one of the most overlooked brand decisions a creator makes. When a viewer discovers your YouTube channel and searches for you on Instagram or TikTok, they'll type your channel name exactly. If your handle is different, you lose that follow entirely. Consistent handles also strengthen Google search: when someone searches your channel name, results from YouTube, Instagram, TikTok, Twitter, and your website all reinforce each other instead of pointing to different identities. Before finalizing any channel name, search for the matching handle on Instagram, TikTok, Twitter/X, and check .com domain availability. Claim all handles simultaneously — they're first-come, first-served and can disappear the moment you start publicly promoting a name.",
+  },
+  {
+    q: "What makes a channel name 'brandable'?",
+    a: "A brandable YouTube channel name is unique, ownable, and memorable independent of its literal meaning. Brandable names are not standard dictionary words — they're invented combinations, modified spellings, or evocative words with no pre-existing associations. 'Veritasium' is Latin for 'element of truth,' but viewers don't need to know that: it's completely unique, easy to say, and returns one result when searched. That exclusivity is what makes it brandable. The five criteria: (1) Unique — zero competing channels use it. (2) Pronounceable — works as a spoken word. (3) Spellable — viewers can type it from memory. (4) Domain-available — a matching .com strengthens the brand. (5) Handle-consistent — same name available on Instagram and TikTok. YouTube's largest channels — MrBeast, Kurzgesagt, Veritasium — all use invented or non-descriptive names. Our 'Brandable Names' category generates invented words engineered to meet all five criteria.",
   },
   {
     q: "How many YouTube channel name ideas should I generate before deciding?",
-    a: "Generate at least 30–50 name ideas before shortlisting. The first 5–10 names that come to mind are the most obvious — they're the same names your competitors considered. Generating 30+ options forces exploration into less obvious territory where stronger, more unique names live. From those 30–50, shortlist your top 5. Then run each through four checks: (1) YouTube search — does a major channel already use it? (2) Instagram/TikTok search — is the handle available? (3) Domain check — is the .com available? (4) Pronunciation test — say it to someone who hasn't seen it written. From your shortlist, you should have 1–2 names that pass all four checks. Our generator produces 20–50 unique options per session, grouped into three strategy categories, making the shortlisting process faster and more structured than brainstorming manually.",
+    a: "Generate at least 30-50 name ideas before shortlisting. The first 5-10 names that come to mind are the most obvious — the same ones your competitors already considered. Generating 30+ options pushes into less obvious territory where stronger, more unique names live. From that pool, shortlist your top 5 and run each through four checks: (1) YouTube search — does a major channel already use it? (2) Instagram/TikTok search — is the handle available? (3) Domain check — is the .com available? (4) Pronunciation test — say it aloud to someone who hasn't seen it written. From a shortlist of five, you should find 1-2 names that pass all four checks. Our generator produces 20-50 unique options per session grouped into three strategy categories, making the shortlisting process faster and more structured than manual brainstorming.",
   },
   {
     q: "What YouTube channel name styles work best for different niches?",
-    a: "Different niches respond to different naming conventions, and our generator's seven style modes are tuned accordingly. Professional and Educational styles work well for finance, law, health, and business channels where authority and trust drive subscriptions — names like 'FinanceClear' or 'LegalEssentials'. Creative and Fun styles fit gaming, lifestyle, comedy, and vlog channels where personality is the draw — names like 'ChaosChapters' or 'SparkMode'. Techy style is optimized for software, coding, AI, and gadget channels — names like 'ByteForge' or 'CodeStack'. Minimalist style produces clean, concise names ideal for design, photography, and minimalist lifestyle channels. Brandable style generates invented words that work across any niche when long-term brand strength is the priority. Select the style that matches how you want viewers to feel when they first see your channel name — that first impression shapes whether they click.",
+    a: "Different niches respond to different naming conventions, and our generator's seven style modes are tuned accordingly. Professional and Educational styles work well for finance, law, health, and business channels where authority and trust drive subscriptions — think 'FinanceClear' or 'LegalEssentials'. Creative and Fun styles fit gaming, lifestyle, comedy, and vlog channels where personality is the draw — think 'ChaosChapters' or 'SparkMode'. Techy style is optimized for software, coding, AI, and gadget channels — names like 'ByteForge' or 'CodeStack'. Minimalist style produces clean, concise names ideal for design, photography, and lifestyle channels. Brandable style generates invented words that work across any niche when long-term brand equity is the priority. Select the style that matches how you want viewers to feel on their first impression of your channel — that reaction shapes whether they click.",
   },
   {
     q: "Is this YouTube channel name generator free?",
-    a: "Yes — this YouTube channel name generator is completely free to use with no account, no subscription, and no usage limits. Enter your channel niche, select your preferred style and name length, and generate 20–50 unique name ideas instantly. You can save favorites with the heart icon, copy names, search YouTube for availability directly from the results, and regenerate as many times as you need to find the perfect name. Every name group — Brandable, Keyword, and Creative — is generated fresh each session, giving you different results even for the same niche. No payment information or sign-up is ever required.",
+    a: "Yes — this YouTube channel name generator is completely free to use with no account, no subscription, and no usage limits. Enter your channel niche, select your preferred style and name length, and generate 20-50 unique name ideas instantly. Save favorites with the heart icon, copy names with one click, search YouTube for availability directly from the results, and regenerate as many times as you need. Every name group — Brandable, Keyword, and Creative — is generated fresh each session, so you get different results even for the same niche. No payment information or sign-up is ever required.",
   },
   {
     q: "How do I check if a YouTube channel name is available?",
-    a: "Click the Search icon next to any name in our results to instantly search YouTube for that exact name — you'll see immediately whether an existing channel already uses it. A channel name is effectively 'available' if no channel with significant subscribers (10,000+) uses the identical name. Even if a small inactive channel has the name, you may be able to use it if they have under 1,000 subscribers and haven't posted in years. After checking YouTube, search for the same name on Instagram, TikTok, and Twitter/X, and check the .com domain availability. Claim all handles simultaneously when you find a name that clears every platform — social handles are first-come, first-served and can disappear overnight once you start promoting a name publicly.",
+    a: "Click the Search icon next to any name in our results to instantly search YouTube for that exact name — you'll see right away whether an existing channel already uses it. A name is effectively available if no channel with significant subscribers (10,000+) uses it identically. Even if a small inactive channel holds the name, you may be able to use it if they have under 1,000 subscribers and haven't posted in years. After checking YouTube, separately verify your intended @handle is unclaimed (handles are unique — channel names are not). Then check Instagram, TikTok, Twitter/X, and the .com domain. Claim all handles simultaneously when a name clears every platform — social handles are first-come, first-served and can disappear overnight once you start promoting publicly.",
   },
 ];
 
@@ -375,22 +379,22 @@ export function YouTubeChannelNameGeneratorTool() {
             {
               step: 1,
               title: "Enter Your Channel Niche",
-              desc: "Type your channel topic into the niche field — for example 'fitness', 'tech reviews', 'travel vlog', or 'personal finance'. The AI uses your niche to expand related keywords and build names that feel native to your content area and audience.",
+              desc: "Type your channel topic into the niche field — for example 'fitness', 'tech reviews', 'travel vlog', or 'personal finance'. The more specific your niche, the stronger the name output. 'Budget travel in Southeast Asia' generates better names than just 'travel'.",
             },
             {
               step: 2,
               title: "Choose Your Style and Length",
-              desc: "Select one of seven naming styles (Professional, Creative, Fun, Minimalist, Brandable, Techy, or Educational) and your preferred name length (Short single-word, Medium two-word, or Invented brandable). Toggle 'Always include niche keyword' to ensure your niche appears in every generated name.",
+              desc: "Select one of seven naming styles (Professional, Creative, Fun, Minimalist, Brandable, Techy, or Educational) and your preferred name length (Short single-word, Medium two-word, or Invented brandable). Research shows 42.45% of trending channels use two-word names — Medium is a strong default for most niches.",
             },
             {
               step: 3,
-              title: "Generate Channel Names",
-              desc: "Hit Generate and the AI instantly creates 20–50 unique name ideas grouped into three categories: Brandable Names (invented, ownable words), Keyword Names (niche keyword + branding word), and Creative Names (evocative combinations). Use the filter tabs to browse each group separately.",
+              title: "Generate and Browse by Category",
+              desc: "Hit Generate and the AI creates 20-50 unique name ideas grouped into three categories: Brandable Names (invented, ownable words), Keyword Names (niche keyword + brand word), and Creative Names (evocative combinations). Use the filter tabs to compare each group separately.",
             },
             {
               step: 4,
-              title: "Save Favorites, Copy, and Check Availability",
-              desc: "Click the heart icon to save names to your Favorites tab. Hit Copy to grab a name to your clipboard. Click Search to instantly check YouTube for that name and see if any channel already uses it. Use Shuffle or Regenerate to discover new combinations.",
+              title: "Check Availability Across All Platforms",
+              desc: "Click the Search icon to check YouTube instantly. Then manually verify the same name as a @handle on YouTube, and as a username on Instagram, TikTok, and Twitter/X. Claim all handles simultaneously — once you announce a name publicly, matching handles can be taken within hours.",
             },
           ].map(({ step, title, desc }) => (
             <div key={step} className="flex gap-4 p-5 rounded-2xl bg-muted/40 border border-border hover:border-primary/30 transition-colors">
@@ -413,102 +417,165 @@ export function YouTubeChannelNameGeneratorTool() {
           <h2 className="text-2xl font-bold font-display text-foreground">About This YouTube Channel Name Generator</h2>
         </div>
         <div className="space-y-8">
-          <div>
-            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Zap className="w-4 h-4 text-primary" /> Why Your YouTube Channel Name Is Your Most Important Brand Asset
-            </h3>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              Your YouTube channel name is the foundation of everything you build as a creator. It's
-              the first thing a viewer sees when they discover your content, the name they search when
-              they want to find you again, and the brand you carry across every platform where you
-              promote your videos. A weak channel name is one of the most common — and most fixable —
-              reasons channels struggle to build a loyal audience. A strong channel name makes people
-              remember you, trust your brand, and actively recommend you to others.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              The best YouTube channel names share five characteristics: they are short and easy to
-              pronounce; they clearly imply the content category; they are unique enough to search
-              directly; they work as a brand name across Instagram, TikTok, and a website domain; and
-              they age well — they sound just as relevant in five years as they do today. Generic,
-              keyword-stuffed names like "BestYouTubeTechVideos2024" signal a hobbyist, while names
-              like "TechPulse" or "ByteForge" signal a serious brand. Our AI channel name generator
-              applies all five criteria automatically across 20–50 unique suggestions per session.
-            </p>
-          </div>
 
+          {/* Section 1: Why it matters */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Info className="w-4 h-4 text-primary" /> Naming Strategies: From Keyword Names to Brandable Inventions
+              <Zap className="w-4 h-4 text-primary" /> Why Your Channel Name Determines Whether You Get Found
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              There are three distinct strategies for naming a YouTube channel, each with different
-              trade-offs between discoverability and brand strength. <strong className="text-foreground">Keyword names</strong> (like
-              "FitnessLab" or "TechExplained") are immediately understood and slightly easier to rank
-              for in YouTube search — viewers know exactly what to expect. The downside is crowded
-              competition; hundreds of channels may use similar combinations.
+              There are over 115 million YouTube channels competing for viewer attention (Statista, 2025). In that
+              environment, your channel name is the first filter — the thing a viewer searches when they want to
+              find you again, the brand they share when recommending you to a friend, and the handle they look up
+              on Instagram after discovering you on YouTube. A name that's hard to spell, easy to confuse, or
+              cluttered with keywords makes every one of those follow-up moments harder.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              <strong className="text-foreground">Creative hybrid names</strong> (like "IronPulse" or "CodeNation") balance
-              recognizability with uniqueness. They use evocative words that suggest the niche without
-              being literal — a fitness channel named "IronPulse" communicates strength and energy
-              without just saying "fitness". These names are harder for competitors to copy and easier
-              to trademark.
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Research from TunePocket analyzing trending YouTube channels found that 43.31% have names between
+              10 and 15 characters, and 42.45% use two-word combinations. That's not coincidence — two-word names
+              hit the practical sweet spot between enough context to convey a brand identity and short enough to
+              be typed from memory. Think MrBeast (7 chars), Veritasium (10), or MKBHD (5). Each is unique,
+              pronounceable, and completely ownable. Generic names like "BestYouTubeTechChannel2024" signal a
+              hobbyist; names like "TechPulse" or "ByteForge" signal a real brand.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">Brandable invented names</strong> (like "Tubora", "Streamiq", or "Fitora") are
-              the highest-risk, highest-reward strategy. They have no inherent meaning, but they are
-              100% unique, completely ownable across all platforms, and effortlessly memorable once a
-              viewer encounters your content twice. YouTube's biggest channels — MrBeast, Veritasium,
-              Kurzgesagt — all use invented or non-descriptive names that became powerful brands
-              through content quality alone. Our generator produces all three categories in every
-              session, grouped for easy comparison.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Search className="w-4 h-4 text-primary" /> SEO Tips for YouTube Channel Names
-            </h3>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              YouTube treats your channel name as a ranking signal. Including your primary niche
-              keyword in your channel name can give a small but measurable SEO boost — particularly
-              in early discovery before your channel has enough authority to rank on content alone. A
-              fitness channel named "FitnessForge" will appear in fitness-related searches more readily
-              than one named "JohnSmith" with no topical signal in the name itself.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              However, avoid making your channel name too keyword-heavy. Names like "Best Fitness
-              YouTube Channel 2024" look spammy to both viewers and the algorithm. The sweet spot is
-              a 1–2 word name that either contains the niche keyword or strongly implies it. Use our
-              generator with the "Always include niche keyword" toggle to explore names that blend
-              keyword relevance with brandability. Pair a strong channel name with our{" "}
-              <a href="/tools/youtube-description-generator" className="text-primary hover:underline font-medium">
-                YouTube Description Generator
+            {/* Citation capsule */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 text-sm text-muted-foreground leading-relaxed">
+              <strong className="text-foreground block mb-1">By the numbers</strong>
+              With{" "}
+              <a href="https://www.statista.com/statistics/272014/global-social-networks-ranked-by-number-of-users/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                115 million+ YouTube channels
               </a>{" "}
-              and{" "}
-              <a href="/tools/youtube-tag-generator" className="text-primary hover:underline font-medium">
-                Tag Generator
+              (Statista, 2025), a channel name must stand out in search, subscriptions, and cross-platform discovery.
+              A{" "}
+              <a href="https://www.tunepocket.com/youtube-channel-name-statistics/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                TunePocket study of trending channels
               </a>{" "}
-              for a complete channel SEO foundation.
+              found 43.31% have names between 10–15 characters and 42.45% use two-word combinations — patterns
+              reflecting what audiences find easiest to search, share, and remember.
+            </div>
+          </div>
+
+          {/* Section 2: Handle vs Channel Name — EXCLUSIVE CONTENT */}
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Info className="w-4 h-4 text-primary" /> Channel Name vs. @Handle: The Distinction Every New Creator Misses
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              YouTube gives every channel two separate identities, and most creators don't realize they need to
+              manage both from day one.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 mb-4">
+              <div className="rounded-xl border border-border bg-muted/30 p-4">
+                <div className="font-semibold text-foreground mb-2 text-sm">Channel Name (Display Name)</div>
+                <ul className="space-y-1.5 text-sm text-muted-foreground">
+                  <li className="flex gap-2"><Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />Up to 100 characters</li>
+                  <li className="flex gap-2"><Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />Shown on your channel page and in the subscription feed</li>
+                  <li className="flex gap-2"><Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" /><strong>Not unique</strong> — multiple channels can share the same name</li>
+                  <li className="flex gap-2"><Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />Can contain spaces, punctuation, and special characters</li>
+                </ul>
+              </div>
+              <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
+                <div className="font-semibold text-foreground mb-2 text-sm">@Handle (Unique Username)</div>
+                <ul className="space-y-1.5 text-sm text-muted-foreground">
+                  <li className="flex gap-2"><Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />3–30 characters only</li>
+                  <li className="flex gap-2"><Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />Letters, numbers, underscores, hyphens, periods</li>
+                  <li className="flex gap-2"><Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" /><strong>Globally unique</strong> — one handle per creator, first-come, first-served</li>
+                  <li className="flex gap-2"><Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />Appears in Shorts, comments, search, and your channel URL (youtube.com/@handle)</li>
+                </ul>
+              </div>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              When you pick a channel name, always verify a matching @handle is available at the same time — because
+              handles are unique and first-come, first-served. A brand named "TechPulse" with the handle
+              @TechPulse2024 instead of @TechPulse looks fragmented. Our generator produces names between 6 and 20
+              characters specifically so they work as both a display name and a clean handle without modification.
             </p>
           </div>
 
+          {/* Section 3: Four naming strategies */}
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Search className="w-4 h-4 text-primary" /> Four Naming Strategies — and When to Use Each
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Every successful YouTube channel name fits one of four strategies. Choose based on where you are
+              in your creator journey and how much brand-building work you're prepared to do.
+            </p>
+            <div className="space-y-3">
+              {[
+                {
+                  title: "Personal Brand Names",
+                  example: "MrBeast · Mark Rober · Marques Brownlee",
+                  desc: "Your real name or a personal nickname. Works best if you're the face of the channel and your niche will evolve over time. Scales with you, never becomes outdated, and builds a genuine parasocial connection. Downside: zero built-in discoverability — search won't surface 'JohnSmith' for fitness queries.",
+                },
+                {
+                  title: "Descriptive / Keyword Names",
+                  example: "FitnessBlender · Cooking With Dog · TED-Ed",
+                  desc: "Channel name includes the niche keyword directly. Gives YouTube an immediate topical signal and helps with early discovery before you have watch-time authority. Best for educational, instructional, or niche-specific channels. Risk: can feel generic and age poorly if your content scope expands.",
+                },
+                {
+                  title: "Creative / Hybrid Names",
+                  example: "IronPulse · CodeNation · FinanceClear",
+                  desc: "Evocative words that imply the niche without stating it literally. Balances recognizability with uniqueness. Harder for competitors to copy, easier to trademark. Works for any niche where you want brand strength without being boxed in by a keyword.",
+                },
+                {
+                  title: "Invented / Brandable Names",
+                  example: "Veritasium · Kurzgesagt · MKBHD",
+                  desc: "Coined words with no pre-existing meaning. Highest long-term brand value — 100% unique, fully ownable, memorable after two exposures. Requires more content-driven brand-building to establish meaning. Best for creators committed to a distinctive, platform-spanning brand identity.",
+                },
+              ].map(({ title, example, desc }, i) => (
+                <div key={i} className="rounded-xl border border-border bg-muted/30 p-4">
+                  <div className="font-semibold text-foreground text-sm mb-0.5">{title}</div>
+                  <div className="text-xs text-primary font-medium mb-2">{example}</div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Section 4: Name change consequences */}
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Shield className="w-4 h-4 text-primary" /> What Happens When You Change Your Channel Name
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              YouTube allows channel name changes, but two official rules catch most creators off guard.
+              First, per{" "}
+              <a href="https://support.google.com/youtube/answer/2657964" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
+                YouTube's Help Center
+              </a>
+              , you can only change your channel name <strong className="text-foreground">twice within any 14-day period</strong> — after two
+              changes, the option locks until the window resets. Second — and more costly for established channels —
+              <strong className="text-foreground"> changing your channel name removes your verification badge</strong>. The gray checkmark
+              that signals a verified creator disappears on name change and requires re-qualification.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Beyond the platform rules, there's audience friction: viewers who subscribed under your old name see
+              an unfamiliar brand name in their feed and may not recognize you. Any backlinks, press coverage, or
+              social shares pointing to the old name continue referencing a brand that no longer exists. The cleaner
+              path is to invest time in the name before your first video. Generate 30-50 options here, shortlist five
+              candidates that pass the four-platform availability check, and pick the strongest one before you ever
+              publish — that 20-minute decision prevents a costly rebrand later.
+            </p>
+          </div>
+
+          {/* Section 5: Feature grid */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-              <Shield className="w-4 h-4 text-primary" /> Why Use This YouTube Channel Name Generator
+              <Zap className="w-4 h-4 text-primary" /> Why Use This YouTube Channel Name Generator
             </h3>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
-                "Powered by AI — generates 20–50 unique names per session with different results every time",
-                "Three name groups: Brandable, Keyword, and Creative — each with a different branding strategy",
+                "Powered by AI — generates 20-50 unique names per session with different results every time",
+                "Three name groups: Brandable, Keyword, and Creative — each with a distinct branding strategy",
                 "Seven naming styles (Professional, Creative, Fun, Minimalist, Brandable, Techy, Educational)",
                 "Niche keyword expansion — the AI understands your content area and related vocabulary",
-                "Save favorites with the heart icon for easy shortlist comparison before committing",
+                "Save favorites with the heart icon for shortlist comparison before committing",
                 "One-click YouTube search to check name availability directly from any result",
-                "Shuffle button randomizes name order for a fresh perspective on the same results",
-                "Regenerate with variation — each session produces different names even for the same niche",
+                "Shuffle button randomizes name order for a fresh look at the same results",
+                "Names sized for dual use as both a display name and a @handle (6-20 chars)",
                 "Works for any niche — gaming, tech, fitness, beauty, business, education, and more",
-                "100% free, no account required, unlimited name generation — use it as many times as you need",
+                "100% free, no account required, unlimited name generation",
               ].map((text, i) => (
                 <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
                   <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />

@@ -65,7 +65,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What are the best hashtags for Instagram Carousels?",
-    a: "Carousels are browse-and-save content where users spend 30–90 seconds swiping through slides — Instagram distributes carousels through both hashtag feeds and Explore, and they continue receiving saves for days after posting. This makes micro hashtags critically important for carousels: ranking on a niche hashtag feed means your carousel is discovered by users actively browsing that specific topic, who are predisposed to save valuable reference content. For carousels, aim for the full 25–30 hashtags with the complete 5+10+15 tiered distribution. The micro tier (15 hashtags) is your primary ranking vehicle — focus these on highly specific sub-topic terms that match exactly what your carousel teaches or shows. Our generator's Carousel mode automatically weights toward the micro tier.",
+    a: "Carousels are browse-and-save content where users spend significantly more time per post than on single images — Instagram distributes carousels through both hashtag feeds and Explore, and they continue receiving saves for days after posting. This makes micro hashtags critically important for carousels: ranking on a niche hashtag feed means your carousel is discovered by users actively browsing that specific topic, who are predisposed to save valuable reference content. For carousels, aim for the full 25–30 hashtags with the complete 5+10+15 tiered distribution. The micro tier (15 hashtags) is your primary ranking vehicle — focus these on highly specific sub-topic terms that match exactly what your carousel teaches or shows. Our generator's Carousel mode automatically weights toward the micro tier.",
   },
   {
     q: "How do I find the right hashtags for my niche?",
@@ -73,11 +73,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "Should I put hashtags in the caption or the first comment on Instagram?",
-    a: "Functionally, hashtags work identically whether placed in the caption or the first comment — Instagram confirmed this and tests have consistently shown no ranking difference between the two placements. The practical choice comes down to aesthetic preference and content strategy. Placing hashtags in the caption keeps everything in one place and is easier to manage, but it can make long captions feel cluttered. Placing hashtags in the first comment immediately after posting keeps your caption clean and focused on the content copy. If your caption strategy relies on a hook-body-CTA format where whitespace and clean copy matter (especially for carousels), first-comment hashtags are the better choice. If you want simplicity and speed, caption hashtags are equally effective and easier to manage at scale.",
+    a: "Functionally, hashtags work identically whether placed in the caption or the first comment — Instagram's head Adam Mosseri has confirmed via his own Instagram content that placement (caption vs. first comment) does not affect reach. Practical choice comes down to aesthetic preference and content strategy. Placing hashtags in the caption keeps everything in one place and is easier to manage, but it can make long captions feel cluttered. Placing hashtags in the first comment immediately after posting keeps your caption clean and focused on the content copy. If your caption strategy relies on a hook-body-CTA format where whitespace and clean copy matter (especially for carousels), first-comment hashtags are the better choice. If you want simplicity and speed, caption hashtags are equally effective and easier to manage at scale.",
   },
   {
     q: "Is this Instagram hashtag generator free?",
     a: "Yes — the Instagram Hashtag Generator is completely free with no account required, no signup, and no usage limits. Every generation produces 3 rotating sets of 30 hashtags each (90 unique hashtags total), distributed across the proven 5 Broad + 10 Mid-Range + 15 Micro tier structure. Use a different set on each post to avoid Instagram's repetition penalty and gather real performance data. Copy individual tiers (Broad, Mid, Micro) for testing specific hashtag strategies, or copy all 30 in one click for immediate use. Regenerate as many times as you need to find the perfect hashtag mix for your niche, topic, and content goals.",
+  },
+  {
+    q: "What does Instagram officially recommend for hashtag usage?",
+    a: "Instagram's head Adam Mosseri has publicly stated that he recommends using fewer, more relevant hashtags rather than maxing out at 30. In a widely referenced Instagram Reel and via his own posts, Mosseri suggested that 3–5 highly specific hashtags tend to perform better for Reels than filling all 30 slots — because the Reels algorithm classifies content primarily through visual and audio signals, with hashtags serving as a secondary confirmation rather than a primary distribution driver. For static posts and carousels, Instagram's creator guidance on the creators.instagram.com resource hub supports using hashtags strategically as a discovery tool, with emphasis on relevance and specificity over volume. The practical takeaway: for Reels use 5–8 of the most relevant hashtags from the broad and mid tiers; for carousels and static posts, a fuller tiered set of 15–25 tags remains appropriate.",
   },
 ];
 
@@ -399,6 +403,9 @@ export function InstagramHashtagGeneratorTool() {
               <Zap className="w-4 h-4 text-primary" /> Why the 5 Broad + 10 Mid + 15 Micro Formula Works
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              Meta's Transparency Center documents hashtags as one of the signals Instagram uses to classify and recommend content — alongside caption text, audio, and visual cues. On a platform with over 2 billion monthly active users (Statista, 2024), using a structured hashtag mix exposes your content to three distinct audience segments simultaneously rather than concentrating all reach in a single, highly competitive channel.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               The tiered hashtag strategy generates more reach and engagement than random hashtag selection
               because it simultaneously targets three different audience segments with three different
               discovery behaviors. Broad hashtags with 500K+ posts function as visibility tools — they
@@ -440,6 +447,9 @@ export function InstagramHashtagGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> How Content Type and Goal Change Your Optimal Hashtag Mix
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              Instagram's head Adam Mosseri has specifically addressed Reels hashtag strategy, recommending fewer, more relevant hashtags rather than using the full 30 slots — because Reels distribution relies primarily on content signals (visual, audio, caption) rather than hashtag volume. For carousels and static posts, Instagram's creators.instagram.com resource hub supports using hashtags as a broader discovery tool where relevance and specificity remain the priority.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               Instagram Reels are distributed primarily through the recommendation algorithm rather than
               hashtag feeds — this means broad and mid-range discovery tags matter more than micro
               hashtags for Reel reach. Reels benefit from 5–8 highly relevant hashtags rather than all
@@ -450,7 +460,7 @@ export function InstagramHashtagGeneratorTool() {
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
               Carousels are fundamentally different — they are browse-and-save content where users spend
-              30–90 seconds swiping through each slide. The Instagram algorithm distributes carousels
+              more time swiping through each slide compared to static posts. The Instagram algorithm distributes carousels
               through both hashtag feeds and Explore, and carousels continue receiving saves for days
               after posting. This makes the micro hashtag tier critically important for carousels —
               ranking on a niche hashtag feed means your carousel is discovered by users actively browsing
@@ -471,6 +481,9 @@ export function InstagramHashtagGeneratorTool() {
               <BarChart2 className="w-4 h-4 text-primary" /> The Hashtag Rotation System and Why It Matters
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              Instagram's spam detection systems, documented in Meta's Help Center under "Spam on Instagram," monitor repetitive behavior patterns. Accounts that copy-paste the same hashtag block on every consecutive post risk being flagged as inauthentic, which can reduce post distribution. The three non-overlapping sets generated by this tool are specifically designed to rotate hashtag pools while maintaining consistent niche relevance.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               Using identical hashtags on every post is one of the most common Instagram growth mistakes
               — and one that actively harms account performance over time. Instagram's spam detection
               system monitors repetitive behavior patterns, and accounts that use the same 20–30 hashtags
@@ -479,7 +492,7 @@ export function InstagramHashtagGeneratorTool() {
               non-overlapping — each pulls from different segments of the niche hashtag pool with
               different topic and keyword expansions.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed mb-3">
               Use Set A on your first post, Set B on your second, Set C on your third, then either return
               to Set A or regenerate fresh sets. After 6–8 posts per set, regenerate to introduce new
               hashtag variations and keep the rotation fresh. Tracking which set delivers the most reach,
@@ -487,6 +500,21 @@ export function InstagramHashtagGeneratorTool() {
               hashtag combinations resonate most with your audience — a compounding advantage that
               creators who copy-paste the same tags every time never develop.
             </p>
+
+            {/* Citation capsule */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Sources:</strong>{" "}
+                <a href="https://transparency.fb.com/features/ranking/instagram/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Meta Transparency Center — How Instagram Ranks Content</a>
+                {" "}documents hashtags as one of the classification signals used for content distribution.{" "}
+                <a href="https://www.instagram.com/mosseri/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Adam Mosseri (@mosseri)</a>
+                {" "}— Instagram's head has publicly recommended fewer, more relevant hashtags for Reels over filling all 30 slots.{" "}
+                <a href="https://creators.instagram.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Instagram for Creators</a>
+                {" "}(creators.instagram.com) provides official guidance on hashtag strategy for different content formats.{" "}
+                <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Statista (2024)</a>
+                {" "}— Instagram monthly active users: 2 billion globally.
+              </p>
+            </div>
           </div>
 
           <div>

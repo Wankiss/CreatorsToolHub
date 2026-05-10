@@ -52,6 +52,10 @@ const FAQ_ITEMS = [
     q: "How do I create a Midjourney prompt for a brand logo?",
     a: "For brand logos in Midjourney, select 'Logo / Brand Asset' in the Visual Type dropdown — the generator applies --ar 1:1 and logo-optimized descriptor combinations. Describe your brand concept specifically (e.g., 'minimalist mountain peak lettermark for outdoor adventure brand'). Use style options like 'clean minimal', 'flat design', or 'geometric illustration'. Add --no text, watermark, photo-realistic to prevent Midjourney from adding unreadable text or photographic elements. Note that Midjourney cannot reliably generate specific text or letterforms — use its logo outputs as a starting visual concept that a designer then refines in vector tools, rather than a production-ready logo file.",
   },
+  {
+    q: "What does Midjourney's official documentation say about writing good prompts?",
+    a: "Midjourney's official Prompt Basics documentation (docs.midjourney.com) establishes that shorter, more direct prompts often produce better results than lengthy, complex instructions — because the model responds to each word as a visual weight. The docs identify three structural elements every prompt should include: subject (what the main focus is), medium (art style or rendering type), and environment (setting, lighting, mood). For parameters, the official documentation covers --ar (aspect ratio), --v (model version, currently v6), --q (quality), --style raw (for more literal rendering), and --no (negative prompts to exclude elements). This generator applies all documented structural principles automatically — subject, medium, environment, and all core parameters — so every output follows Midjourney's own recommended prompt architecture.",
+  },
 ];
 
 const FAQ_SCHEMA = {
@@ -259,6 +263,19 @@ export function MidjourneyPromptGeneratorTool() {
         </Card>
       )}
 
+      {/* ── YouTube Embed 1 ──────────────────────────────────── */}
+      <figure style={{margin:"2rem 0",position:"relative",paddingBottom:"56.25%",height:0,overflow:"hidden",borderRadius:"12px"}}>
+        <iframe style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",border:0}}
+          srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href='https://www.youtube.com/embed/vUj4VNXXC1c?autoplay=1'><img src='https://img.youtube.com/vi/vUj4VNXXC1c/maxresdefault.jpg' alt='The ULTIMATE Beginners Guide to Midjourney in 2025'><span>&#9654;</span></a>"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title="The ULTIMATE Beginners Guide to Midjourney in 2025"
+          aria-label="Complete beginner guide to Midjourney covering prompts, parameters, aspect ratios, and getting professional quality images">
+        </iframe>
+        <noscript><a href="https://www.youtube.com/watch?v=vUj4VNXXC1c" target="_blank" rel="noopener">Watch: The ULTIMATE Beginners Guide to Midjourney in 2025 on YouTube</a></noscript>
+      </figure>
+
       {/* ── How to Use ───────────────────────────────────────── */}
       <section className="mt-8">
         <div className="flex items-center gap-3 mb-6">
@@ -299,13 +316,22 @@ export function MidjourneyPromptGeneratorTool() {
               <Zap className="w-4 h-4 text-primary" /> What This AI-Powered Midjourney Prompt Generator Does
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              This free Midjourney Prompt Generator is powered by AI and builds optimized, syntax-correct
-              Midjourney prompts for 12 content creator use cases — from YouTube thumbnails and Instagram
-              posts to course covers, logos, Pinterest pins, and brand identity visuals. It applies the
-              correct aspect ratio for each platform automatically, generates 4 prompt variations per
-              session (your chosen style, photorealistic, clean minimal, and bold commercial), and
-              includes all required Midjourney syntax elements: subject description, style modifiers,
-              mood, lighting, composition, and parameters.
+              Generating new visual assets is the #2 AI use case among creators at 52%, according to the{" "}
+              <a href="https://news.adobe.com/news/2025/10/adobe-max-2025-creators-survey" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Adobe October 2025 Creators Survey</a>{" "}
+              (n=16,000 creators, 8 countries). The bottleneck for most creators is not access to image AI
+              — Midjourney is widely available — it's the prompt syntax.{" "}
+              <a href="https://docs.midjourney.com/hc/en-us/articles/32023408776205-Prompt-Basics" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Midjourney's official Prompt Basics documentation</a>{" "}
+              identifies subject, medium, and environment as the three structural elements every prompt
+              needs — plus correctly ordered parameters. This generator builds all of that automatically.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              This free Midjourney Prompt Generator builds optimized, syntax-correct prompts for 12
+              content creator use cases — from YouTube thumbnails and Instagram posts to course covers,
+              logos, Pinterest pins, and brand identity visuals. It applies the correct aspect ratio
+              for each platform automatically, generates 4 prompt variations per session (your chosen
+              style, photorealistic, clean minimal, and bold commercial), and includes all required
+              Midjourney syntax elements: subject description, style modifiers, mood, lighting,
+              composition, and parameters.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Every prompt includes the essential Midjourney parameters automatically applied: --ar
@@ -320,12 +346,21 @@ export function MidjourneyPromptGeneratorTool() {
               <ImageIcon className="w-4 h-4 text-primary" /> Why Midjourney Prompt Structure Determines Visual Quality
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Midjourney is a remarkably powerful image generation tool, but its output quality is
-              entirely dependent on prompt structure. The platform interprets prompts extremely
-              literally — missing a lighting descriptor produces flat, uninspired lighting; missing
-              a composition term produces random framing; missing style descriptors produces generic
-              results that don't match your creative intent. Professional Midjourney users spend
-              months learning which descriptor combinations produce specific visual outcomes.
+              <a href="https://docs.midjourney.com/hc/en-us/articles/32023408776205-Prompt-Basics" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Midjourney's official documentation</a>{" "}
+              states that "words and phrases at the end of a prompt are weighted more heavily" and that
+              "shorter, more direct prompts" often outperform lengthy instructions. It also establishes
+              that every prompt element — subject, medium, environment, lighting, mood — contributes
+              independently to the final image as a weighted visual modifier. Missing any one of them
+              doesn't just weaken the image; it lets Midjourney fill that gap with its own defaults,
+              which rarely match your creative intent.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Midjourney's output quality is entirely dependent on prompt structure. The platform
+              interprets prompts extremely literally — missing a lighting descriptor produces flat,
+              uninspired lighting; missing a composition term produces random framing; missing style
+              descriptors produces generic results that don't match your creative intent. This generator
+              eliminates that guesswork by constructing prompts using descriptor patterns that align
+              with Midjourney's actual weighting system.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
               Our AI analyzes your inputs — visual type, subject, style, mood, and lighting — and
@@ -343,6 +378,69 @@ export function MidjourneyPromptGeneratorTool() {
               type, so every prompt is immediately ready for its intended platform.
             </p>
           </div>
+          {/* YouTube Embed 2 */}
+          <figure style={{margin:"1rem 0 2rem",position:"relative",paddingBottom:"56.25%",height:0,overflow:"hidden",borderRadius:"12px"}}>
+            <iframe style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",border:0}}
+              srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href='https://www.youtube.com/embed/r2JQTh8y3yk?autoplay=1'><img src='https://img.youtube.com/vi/r2JQTh8y3yk/maxresdefault.jpg' alt='Midjourney Beginner Tutorial in 16 Minutes 2025'><span>&#9654;</span></a>"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Midjourney - Beginner Tutorial in 16 MINS! [2025]"
+              aria-label="16-minute Midjourney beginner tutorial covering how to write prompts, use parameters, and generate professional quality images">
+            </iframe>
+            <noscript><a href="https://www.youtube.com/watch?v=r2JQTh8y3yk" target="_blank" rel="noopener">Watch: Midjourney Beginner Tutorial in 16 MINS 2025 on YouTube</a></noscript>
+          </figure>
+
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Shield className="w-4 h-4 text-primary" /> What Midjourney's Official Documentation Says About Prompt Parameters
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Midjourney's official parameter documentation at{" "}
+              <a href="https://docs.midjourney.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">docs.midjourney.com</a>{" "}
+              covers four parameters that directly control image quality and platform fit.{" "}
+              <strong className="text-foreground">--ar</strong> (aspect ratio) sets the image dimensions:
+              16:9 for YouTube thumbnails, 9:16 for TikTok and Instagram Stories, 1:1 for Instagram feed
+              posts, 2:3 for Pinterest pins.{" "}
+              <strong className="text-foreground">--v 6</strong> specifies Midjourney's current flagship
+              model — the most capable version for understanding natural language descriptions and
+              producing photorealistic outputs.{" "}
+              <strong className="text-foreground">--q 2</strong> increases render quality at the cost
+              of slightly longer generation time — recommended for any image you plan to publish.{" "}
+              <strong className="text-foreground">--no</strong> is the negative prompt flag — appending
+              "--no text, watermark, blur" tells Midjourney to exclude those elements from the output.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              The documentation also distinguishes <strong className="text-foreground">--style raw</strong>{" "}
+              (produces more literal, less stylized interpretations of prompts — best for photorealism
+              and commercial photography) from the default aesthetic mode (which applies Midjourney's
+              own stylistic interpretation). For creator content where brand consistency matters —
+              YouTube thumbnails, Instagram visuals — --style raw combined with detailed lighting and
+              composition descriptors tends to produce more predictable, on-brand outputs.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Most Midjourney tutorials skip the official documentation and jump to copying prompt
+              formulas. The problem with formula-copying is that it doesn't generalize — a formula
+              that works for one subject often fails on another because Midjourney's prompt weights
+              shift based on descriptor combinations. Understanding the actual parameter system
+              documented by Midjourney is what makes prompt writing transferable across any subject,
+              style, or platform. This generator applies that documented system as its underlying
+              architecture, not a surface-level formula.
+            </p>
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Source documentation:</strong>{" "}
+                Midjourney prompt structure (subject, medium, environment, parameters) is documented at{" "}
+                <a href="https://docs.midjourney.com/hc/en-us/articles/32023408776205-Prompt-Basics" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Midjourney Prompt Basics</a>.
+                Parameter reference (--ar, --v, --q, --style, --no) is covered in the{" "}
+                <a href="https://docs.midjourney.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Midjourney official documentation</a>.
+                Generating new visual assets is the #2 AI use case among creators at 52% —{" "}
+                <a href="https://news.adobe.com/news/2025/10/adobe-max-2025-creators-survey" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Adobe / Harris Poll Creators Survey, October 2025</a>{" "}
+                (n=16,000, 8 countries).
+              </p>
+            </div>
+          </div>
+
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
               <Shield className="w-4 h-4 text-primary" /> Benefits of Using This Tool

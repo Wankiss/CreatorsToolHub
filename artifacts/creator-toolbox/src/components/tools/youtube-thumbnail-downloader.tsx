@@ -60,43 +60,43 @@ function buildThumbnailUrl(videoId: string, key: string): string {
 const FAQ_ITEMS = [
   {
     q: "What is a YouTube thumbnail?",
-    a: "A YouTube thumbnail is the static preview image displayed before a video plays — it is the first visual impression viewers get when browsing YouTube search results, homepages, and suggested videos. Thumbnails are typically 1280×720 pixels (16:9 aspect ratio) and are one of the biggest factors influencing whether someone clicks on a video.",
+    a: "A YouTube thumbnail is the static preview image shown beside every video in search results, the homepage feed, and suggested video panels. According to YouTube's official Help Center, 90% of the best-performing videos on the platform use custom thumbnails — making it one of the most impactful metadata decisions a creator controls. YouTube's impressions data shows half of all channels operate at a 2–10% click-through rate; a stronger thumbnail is often the fastest way to move within that range.",
   },
   {
     q: "How do I download a YouTube thumbnail for free?",
-    a: "Paste any YouTube video URL into the downloader above and click 'Get Thumbnails'. The tool instantly shows all available resolution versions — Max Resolution, SD, HQ, MQ, and Default — with individual download buttons. Click 'Download' on any card to save it as a JPG file. No account or software installation is needed.",
+    a: "Paste any YouTube video URL into the downloader above and click 'Get Thumbnails'. The tool instantly checks all five resolution versions — Max Resolution (1280×720), SD (640×480), HQ (480×360), MQ (320×180), and Default (120×90) — and shows only the ones that actually exist for that video. Click 'Download' on any card to save it as a JPG. No account or software installation needed.",
   },
   {
     q: "What is the difference between maxresdefault and hqdefault?",
-    a: "maxresdefault.jpg is the highest quality thumbnail at 1280×720 pixels — this is the standard HD thumbnail. However, not all videos have this size available (especially older or low-view videos). hqdefault.jpg is always available at 480×360 pixels and is the most reliable fallback. The tool automatically detects which resolutions exist and hides unavailable ones.",
+    a: "maxresdefault.jpg is the highest available quality at 1280×720 pixels — the standard HD thumbnail displayed on desktop and TV. Not every video has it: older uploads and freshly published videos sometimes lack this resolution. hqdefault.jpg at 480×360 is the most reliably available fallback. The downloader checks each resolution using native browser image loading and hides any that don't exist, so you only see what's actually there.",
   },
   {
     q: "Why is the Max Resolution thumbnail not showing?",
-    a: "YouTube only generates a maxresdefault thumbnail for videos that have been processed for HD playback. Older videos, newly uploaded videos, or videos with very low view counts may only have hqdefault or lower-quality thumbnails available. The downloader checks each resolution and displays only the ones that exist.",
+    a: "YouTube generates the maxresdefault thumbnail only for videos processed for HD playback. Older uploads, brand-new videos still being processed, or content with very low view counts may only have hqdefault or smaller versions available. This is YouTube's CDN behavior, not a tool limitation — the downloader checks all five resolutions and surfaces every one that exists for the video you pasted.",
   },
   {
     q: "Can I download thumbnails from private or unlisted YouTube videos?",
-    a: "No — YouTube thumbnail images are served from img.youtube.com, which only exposes thumbnails for public and unlisted videos. Private videos are fully restricted and their thumbnail URLs return a 404 error, so the tool cannot retrieve them.",
+    a: "Unlisted videos: yes — their thumbnails are publicly accessible via img.youtube.com because the video itself is technically accessible to anyone with the link. Private videos: no — they return a 404 from YouTube's thumbnail CDN and the tool cannot retrieve them. Age-restricted or region-blocked videos may also be unavailable depending on your location.",
   },
   {
     q: "Is it legal to download YouTube thumbnails?",
-    a: "Thumbnails are typically protected by copyright and belong to the video creator or their rights holders. Downloading them for personal reference, competitive research, or presentation mockups is generally acceptable. However, republishing or using someone else's thumbnail commercially without permission may infringe on their copyright. Always create your own original thumbnails for your videos.",
+    a: "Thumbnails are creative works protected by copyright — they belong to the video creator or their rights holders, not YouTube and not the public. Downloading for personal reference, competitive research, design mood boards, or archiving your own content is widely considered acceptable fair use. Republishing, modifying, or using someone else's thumbnail commercially without permission is copyright infringement. The practical rule: use downloaded thumbnails to learn and get inspired; always create original thumbnails for your own videos.",
   },
   {
     q: "What resolution should my YouTube thumbnail be?",
-    a: "YouTube's recommended thumbnail resolution is 1280×720 pixels with a 16:9 aspect ratio and a maximum file size of 2MB. Use JPG or PNG format. This size displays correctly across all devices — desktop, mobile, and TV — and is sharp enough that text and faces remain readable even at smaller sizes.",
+    a: "YouTube's official Help Center (updated 2026) recommends 3840×2160 pixels (4K) as the ideal upload resolution — not the old 1280×720 figure that still circulates widely. The minimum accepted width is 640px. The 16:9 aspect ratio is required. Accepted formats are JPG, GIF, and PNG. Maximum file size is 50MB on desktop and 2MB on mobile. Uploading at 4K future-proofs your thumbnail for high-resolution displays; YouTube down-scales it appropriately for each surface.",
   },
   {
     q: "What formats does this YouTube thumbnail downloader support?",
-    a: "The downloader supports all standard YouTube URL formats: youtube.com/watch?v=VIDEO_ID, youtu.be/VIDEO_ID, youtube.com/shorts/VIDEO_ID, and youtube.com/embed/VIDEO_ID. Paste any of these formats and the tool will automatically extract the video ID and retrieve all available thumbnails.",
+    a: "The downloader accepts all standard YouTube URL formats: youtube.com/watch?v=VIDEO_ID, youtu.be/VIDEO_ID (short links), youtube.com/shorts/VIDEO_ID, and youtube.com/embed/VIDEO_ID. Paste any of these and the tool extracts the video ID automatically, then constructs and checks all five thumbnail resolution URLs on YouTube's img.youtube.com CDN.",
   },
   {
     q: "Can I copy the thumbnail URL instead of downloading?",
-    a: "Yes — each thumbnail card has a 'Copy URL' button that copies the direct image link to your clipboard. You can then paste the URL directly into Canva, Figma, Photoshop, or any other design tool to pull the thumbnail in without downloading the file locally first.",
+    a: "Yes — each thumbnail card has a 'Copy URL' button that copies the direct img.youtube.com image link to your clipboard. Paste that URL directly into Canva, Figma, Adobe Express, or Photoshop to pull the image in without saving it locally. This is useful when you want to reference a thumbnail in a design file without cluttering your downloads folder.",
   },
   {
-    q: "How do I make better YouTube thumbnails?",
-    a: "The most effective YouTube thumbnails share four traits: a close-up, expressive face; bold, high-contrast text (3–5 words maximum); a single focal point; and colors that stand out against YouTube's white background. Study your competitors' top-performing thumbnails using this downloader, identify visual patterns that drive clicks, and apply those patterns to your own designs.",
+    q: "How do I use downloaded thumbnails to improve my own CTR?",
+    a: "Download the thumbnails from the top 5–10 videos ranking for your target keyword. Look for repeating patterns: color palette, text position, face expression style, background complexity, and contrast level. These patterns are validated by real viewer click behavior — they work in that niche. Then deliberately differentiate: if every top video uses a dark background, test a light one. YouTube's Test & Compare feature (available in YouTube Studio) lets you A/B test two thumbnails against each other using live impression data, so you can verify which design actually converts better before committing.",
   },
 ];
 
@@ -545,77 +545,95 @@ export function YouTubeThumbnailDownloaderTool() {
         <div className="space-y-8">
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Zap className="w-4 h-4 text-primary" /> What Are YouTube Thumbnails?
+              <Zap className="w-4 h-4 text-primary" /> Why YouTube Thumbnails Are Your Highest-Leverage Asset
             </h3>
+            {/* Citation capsule — answer-first */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mb-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <a href="https://support.google.com/youtube/answer/12340300" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">YouTube's official Help Center</a> states that <strong className="text-foreground">90% of the best-performing videos on YouTube use custom thumbnails</strong>. The same documentation confirms that half of all channels operate at a 2–10% impressions click-through rate. Your thumbnail is the single variable that separates those two outcomes — it's what the viewer sees before they decide whether your video exists for them at all.
+              </p>
+            </div>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              A thumbnail isn't decoration. It is the first metadata signal a viewer evaluates — before the title, before the channel name, before anything else loads. YouTube's algorithm amplifies this: higher CTR from early impressions triggers wider distribution, which compounds into more impressions, more clicks, and more watch time. The thumbnail starts that loop. Everything else sustains it.
+            </p>
             <p className="text-muted-foreground leading-relaxed">
-              A YouTube thumbnail is the preview image shown beside every video in YouTube search results,
-              the homepage feed, and suggested video panels. It is the single most important visual element
-              a creator controls — studies show that over 90% of top-performing YouTube videos have custom
-              thumbnails. A compelling thumbnail can increase click-through rate (CTR) from 2% to 10% or
-              higher, which directly signals to YouTube's algorithm that your content deserves wider
-              distribution.
+              <a href="https://support.google.com/youtube/answer/72431" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">YouTube's current official specifications (updated 2026)</a> recommend uploading thumbnails at <strong className="text-foreground">3840×2160 pixels (4K)</strong> — not the outdated 1280×720 figure that still appears across most guides. Minimum accepted width is 640px, 16:9 ratio required, formats: JPG, GIF, or PNG, maximum file size 50MB on desktop and 2MB on mobile.
             </p>
           </div>
+
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-primary" /> Why Content Creators Download YouTube Thumbnails
+              <TrendingUp className="w-4 h-4 text-primary" /> Who Downloads YouTube Thumbnails and Why
             </h3>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              There are many legitimate reasons a YouTube creator or content marketer might need to download
-              a thumbnail. The most common use case is competitive research — studying what visual styles,
-              color palettes, text placements, and facial expressions drive clicks in a specific niche.
-              By downloading and analyzing the top 10 thumbnails in your niche, you can reverse-engineer
-              what works and apply those principles to your own designs.
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              This tool is used across a broader range of workflows than most people expect:
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Other common uses include: creating media kits or press releases that feature existing video
-              content; embedding thumbnails in blog posts, newsletters, or presentations to preview video
-              content; backing up your own channel's thumbnails for archiving; and using thumbnails as
-              mood board references when briefing graphic designers.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Image className="w-4 h-4 text-primary" /> How This YouTube Thumbnail Downloader Works
-            </h3>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              YouTube stores thumbnails for every public video on its own content delivery network at
-              img.youtube.com. The URLs follow a predictable pattern: the video ID embedded in the path
-              followed by the quality key (maxresdefault, sddefault, hqdefault, mqdefault, or default).
-              This tool uses a regex to safely extract the video ID from any YouTube URL format you paste —
-              including youtube.com/watch, youtu.be short links, Shorts URLs, and embed links — and
-              constructs all five thumbnail URLs automatically.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Not every quality level exists for every video. Older videos and freshly uploaded content
-              sometimes lack the maxresdefault (1280×720) thumbnail. To handle this gracefully, the
-              downloader checks each resolution in real time using native browser image loading — if an
-              image returns an error, that card is automatically hidden, so you only see resolutions
-              that actually exist. The download button fetches the full image and saves it locally as a
-              JPG with a descriptive filename including the video ID and quality level.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-              <Shield className="w-4 h-4 text-primary" /> Why Use This Thumbnail Downloader
-            </h3>
-            <div className="grid sm:grid-cols-2 gap-3">
+            <div className="grid sm:grid-cols-2 gap-3 mb-4">
               {[
-                "Downloads all 5 YouTube thumbnail resolutions at once",
-                "Automatically hides unavailable resolutions — no broken images",
-                "Supports all YouTube URL formats including Shorts and embed links",
-                "One-click download with descriptive filename (VIDEO_ID-quality.jpg)",
-                "Copy thumbnail URL to clipboard for use in design tools",
-                "Fullscreen preview before downloading — see every detail",
-                "100% client-side — no data sent to any server, completely private",
-                "Mobile responsive — works on phones and tablets",
-              ].map((text, i) => (
-                <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
-                  <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                  <span className="text-sm text-muted-foreground">{text}</span>
+                { who: "YouTubers & Creators", why: "Competitive research — download the top 10 thumbnails ranking for a target keyword and reverse-engineer which visual patterns drive clicks in that niche." },
+                { who: "Graphic Designers", why: "Mood board reference — pull real thumbnails when briefing clients or building design systems for YouTube channels." },
+                { who: "Content Marketers", why: "Blog and newsletter embeds — use thumbnail URLs directly in articles to preview linked YouTube content without hosting images separately." },
+                { who: "Channel Managers", why: "Archive and backup — download your own channel's thumbnails before migrating platforms or refreshing branding." },
+              ].map(({ who, why }) => (
+                <div key={who} className="p-4 rounded-xl bg-muted/40 border border-border">
+                  <p className="font-semibold text-foreground text-sm mb-1">{who}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{why}</p>
                 </div>
               ))}
             </div>
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4">
+              <p className="text-sm font-semibold text-foreground mb-1">The competitor research workflow</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Download thumbnails from the top 5 ranking videos for your keyword. Look for repeating patterns: color palette, text placement, face vs. no face, background complexity. A{" "}
+                <a href="https://www.searchenginejournal.com/do-faces-help-youtube-thumbnails-heres-what-the-data-says/563944/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  2025 study of 300,000 YouTube videos by 1of10 Media (published in Search Engine Journal)
+                </a>{" "}
+                found that face impact on CTR is niche-dependent — faces significantly help in Finance content but can hurt in Business content. Download real thumbnails from your specific niche to understand what actually drives clicks there, not what a general rule predicts.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Image className="w-4 h-4 text-primary" /> How This Thumbnail Downloader Works
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              YouTube stores thumbnails for every public video on its content delivery network at <code className="bg-muted px-1.5 py-0.5 rounded text-xs">img.youtube.com</code>. The URL structure is predictable:{" "}
+              <code className="bg-muted px-1.5 py-0.5 rounded text-xs">img.youtube.com/vi/VIDEO_ID/QUALITY_KEY.jpg</code> — where the quality key is one of: <code className="bg-muted px-1 py-0.5 rounded text-xs">maxresdefault</code>, <code className="bg-muted px-1 py-0.5 rounded text-xs">sddefault</code>, <code className="bg-muted px-1 py-0.5 rounded text-xs">hqdefault</code>, <code className="bg-muted px-1 py-0.5 rounded text-xs">mqdefault</code>, or <code className="bg-muted px-1 py-0.5 rounded text-xs">default</code>. You can construct these URLs manually for any public video if you know the ID.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              This tool does that work automatically. It safely extracts the video ID from any YouTube URL format you paste — standard watch links, youtu.be short links, Shorts URLs, embed links — constructs all five resolution URLs, and checks each one using native browser image loading. If a resolution doesn't exist for that video, the card is hidden automatically. You only see what's actually available.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              The download runs entirely in your browser. No data is sent to any server — the thumbnail comes directly from YouTube's CDN to your device. The saved file is named <code className="bg-muted px-1 py-0.5 rounded text-xs">youtube-thumbnail-VIDEO_ID-quality.jpg</code> so you can immediately identify the source video and resolution without opening the file.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Shield className="w-4 h-4 text-primary" /> A Note on Copyright
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              YouTube thumbnails are creative works protected by copyright — they belong to the video creator or their rights holders. Some tools incorrectly describe thumbnails as "public domain" because the URLs are publicly accessible. Accessibility is not the same as license.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-3 mb-4">
+              {[
+                { label: "✓ Generally acceptable", items: ["Competitive research and design inspiration", "Mood boards and briefing documents", "Blog or newsletter embeds linking to the video", "Backing up your own channel's thumbnails"] },
+                { label: "✗ Requires creator permission", items: ["Publishing or sharing someone else's thumbnail as your own", "Commercial use in ads, merchandise, or paid content", "Modifying and republishing another creator's thumbnail", "Using a thumbnail to misrepresent the original video"] },
+              ].map(({ label, items }) => (
+                <div key={label} className="p-4 rounded-xl bg-muted/40 border border-border">
+                  <p className="font-semibold text-foreground text-sm mb-2">{label}</p>
+                  <ul className="space-y-1">
+                    {items.map(item => (
+                      <li key={item} className="text-xs text-muted-foreground leading-relaxed">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground bg-muted/40 rounded-xl p-3 border border-border">
+              This is general guidance, not legal advice. If you have specific questions about using a thumbnail commercially, consult a qualified IP attorney.
+            </p>
           </div>
         </div>
       </section>
@@ -630,13 +648,13 @@ export function YouTubeThumbnailDownloaderTool() {
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
           {[
-            "Study thumbnails from videos with 500K+ views in your niche before designing yours — high view counts validate which visual styles actually drive clicks.",
-            "High-contrast thumbnails (light text on dark background or vice versa) perform better at small sizes — thumbnails must be readable at 120×90 pixels on mobile.",
-            "Human faces showing exaggerated emotions drive 30–40% higher CTR than text-only or abstract thumbnails — emotion is the most powerful click trigger.",
-            "Limit thumbnail text to 5 words maximum — it must be instantly readable at mobile thumbnail size without zooming in or squinting.",
-            "Check competitor thumbnail color palettes in your niche, then deliberately choose a contrasting scheme — standing out in search beats blending in.",
-            "Use YouTube Studio's A/B thumbnail test feature — run each variation for at least 2 weeks before making a final decision based on real click data.",
-            "Download your top 10 highest-performing video thumbnails and identify visual patterns — replicate those consistent elements in new thumbnails for brand continuity.",
+            "Download the top 5 thumbnails ranking for your target keyword before designing yours — these are validated by real viewer CTR in your specific niche, not by generic design rules.",
+            "Design for the smallest display size first. YouTube shows thumbnails at 120×90 pixels on mobile — if your text isn't readable at that size, it won't drive clicks there.",
+            "Faces help in some niches, not all. A 2025 study of 300,000 YouTube videos found face impact is category-specific: faces lift CTR in Finance content but can reduce it in Business content. Test in your niche before assuming faces always win.",
+            "Limit thumbnail text to 4–5 words maximum — enough to reinforce the title's promise, not enough to clutter the visual. Text competes with your image at small sizes.",
+            "Check competitor color palettes, then deliberately contrast. If every top video in your niche uses dark backgrounds and red accents, a clean white thumbnail with black text immediately stands out in that feed.",
+            "Use YouTube Studio's Test & Compare feature to A/B test two thumbnails against real impressions data. YouTube rotates both versions and shows which earns higher CTR — letting viewer behavior decide, not your gut.",
+            "Archive your best-performing thumbnails by downloading them here. When you rebrand or refresh a channel, these files help a designer understand which visual language actually converted for your audience.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
               <Zap className="w-4 h-4 text-primary mt-0.5 shrink-0" />

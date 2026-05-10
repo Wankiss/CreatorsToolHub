@@ -280,7 +280,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What YouTube niches have the highest CPM?",
-    a: "Finance and investing content consistently earns the highest YouTube CPM, typically ranging from $15–40+ per 1,000 monetized views. Business, tech, and digital marketing content follow closely at $10–30. These niches command premium rates because advertisers targeting high-income audiences — financial products, SaaS software, business tools — pay significantly more per ad impression than consumer brands. Gaming and entertainment content sits at the opposite end ($2–10) because the primary advertiser base is gaming peripheral brands and apps with smaller ad budgets. Niche CPM also varies by season — Q4 (October–December) typically sees CPM rates 40–80% higher than Q1.",
+    a: "Finance and investing content consistently earns the highest YouTube CPM, typically ranging from $15–40+ per 1,000 monetized views, according to Influencer Marketing Hub's 2025 benchmarks. Business, tech, and digital marketing content follow closely at $10–30. These niches command premium rates because advertisers targeting high-income audiences — financial products, SaaS software, business tools — pay significantly more per ad impression than consumer brands. Gaming and entertainment content sits at the opposite end ($2–10 CPM) because the primary advertiser pool is gaming peripheral brands and app companies with smaller budgets. Niche CPM also varies by season — Q4 (October–December) consistently produces the highest CPM rates of the year as brands push peak holiday advertising budgets, per IAB annual ad spend data, making it the most lucrative publishing window for monetized channels.",
   },
   {
     q: "How does audience location affect YouTube earnings?",
@@ -304,11 +304,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "How accurate is this YouTube CPM Calculator?",
-    a: "Our calculator models the key variables that determine YouTube earnings — niche base CPM ranges, audience location multipliers, engagement scoring, and ad format multipliers — based on publicly available CPM data and creator-reported analytics. The results represent realistic ranges rather than exact predictions because actual CPM fluctuates daily based on real-time ad auction dynamics that no external tool can access. The min/max range format shows you the realistic floor and ceiling for your earnings, and the mid-point estimate gives you a working baseline. For precise figures, compare our estimates against your actual YouTube Studio Revenue tab data — most creators find our ranges accurate to within 20–30%.",
+    a: "Our calculator models the key variables that determine YouTube earnings — niche base CPM ranges sourced from Influencer Marketing Hub's 2025 benchmarks, audience location multipliers, engagement scoring, and ad format multipliers — to produce realistic revenue ranges rather than exact predictions. Actual CPM fluctuates daily based on real-time ad auction dynamics that no external tool can access. The min/max range format shows the realistic floor and ceiling for your earnings, and the mid-point estimate gives you a working baseline for planning. For precise figures, compare our estimates against your actual YouTube Studio Revenue tab, where your real CPM and RPM are updated monthly — your Studio data is always the most accurate reference once your channel is monetized.",
   },
   {
     q: "Is this YouTube CPM Calculator free to use?",
     a: "Yes — the YouTube CPM Calculator is completely free with no account, no signup, and no usage limits. Calculate your estimated CPM, RPM, and earnings range for any combination of views, niche, audience location, and engagement level. The dynamic suggestions update automatically based on your inputs to show exactly where your biggest revenue opportunities are. All calculations run instantly in your browser.",
+  },
+  {
+    q: "How do mid-roll ads affect YouTube CPM and revenue?",
+    a: "Mid-roll ads are the most impactful ad format for per-video revenue on YouTube — they allow multiple ad breaks within a single video rather than relying solely on pre-roll. YouTube's Help Center specifies that mid-roll ads become available once your video reaches 8 minutes in length. A 12-minute video can serve 2–3 mid-roll breaks in addition to the pre-roll, which means multiple ad impressions per view instead of one — directly multiplying the revenue generated per viewing session compared to a video under 8 minutes. The practical implication: if you can naturally extend your video format from 7 to 8–10 minutes without padding, you unlock the most significant per-video revenue increase available to monetized creators. Enable mid-roll ads in YouTube Studio under Monetization → Ad formats, then choose manual ad break placements or enable automatic placement to let YouTube optimize timing based on natural content pauses.",
   },
 ];
 
@@ -748,21 +752,10 @@ export function YouTubeCpmCalculatorTool() {
               <Zap className="w-4 h-4 text-primary" /> Understanding CPM vs RPM — What Creators Actually Earn
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              The single most misunderstood concept in YouTube monetization is the gap between CPM and
-              what actually lands in your bank account. CPM — Cost Per Mille — is what advertisers pay
-              YouTube for 1,000 ad impressions. YouTube keeps 45% of this as its revenue share and
-              passes 55% to you. But that's only part of the picture. Not every video view serves an
-              ad. Ad blockers, YouTube Premium subscribers, very short views, and viewers in
-              low-advertiser-density regions all reduce the percentage of your views that generate
-              ad revenue. This is why RPM — Revenue Per Mille — is the metric that actually matters
-              for income planning. RPM accounts for all of these reductions and tells you what you
-              earn per 1,000 total views, regardless of whether those views were monetized.
+              YouTube's Help Center confirms creators receive 55% of all ad revenue generated on their content — but the gap between that figure and actual deposited income is wider than most creators expect. Not every view generates an ad impression: ad blockers (used by a substantial share of desktop viewers), YouTube Premium subscribers, very short view sessions, and viewers in low-inventory regions all reduce what percentage of your total views actually trigger a monetized ad play. This "monetized play rate" — which typically falls between 40–70% for established channels — is why RPM is always substantially lower than CPM. RPM accounts for YouTube's 45% cut and all non-monetized views to tell you what you earn per 1,000 total views, not just per 1,000 ad impressions.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              A creator with 500,000 views and a $12 CPM might earn only $3–4 RPM after accounting
-              for the 45% YouTube cut, ad-blocked views, and non-monetizable viewers. Our calculator
-              applies all of these reduction factors to give you a revenue range that reflects what
-              creators with similar metrics actually report in their YouTube Studio earnings dashboards.
+              A creator with 500,000 monthly views and a $12 niche CPM might generate only $3–4 RPM after applying the 45% YouTube revenue share and a 55–60% monetized play rate. Our calculator applies all of these reduction factors — the 55/45 split from YouTube's Help Center, niche CPM ranges from Influencer Marketing Hub's 2025 data, and geographic multipliers — to produce a revenue range that reflects real creator earnings rather than inflated advertiser-side CPM figures.
             </p>
           </div>
           <div>
@@ -770,28 +763,10 @@ export function YouTubeCpmCalculatorTool() {
               <BarChart2 className="w-4 h-4 text-primary" /> The Four Variables That Determine Your YouTube CPM
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Our calculator uses a weighted scoring formula: CPM = Base × Location Multiplier ×
-              Engagement Multiplier × Ad Type Multiplier. Each variable has a documented and
-              measurable impact on what advertisers are willing to bid for placement on your content.
+              Niche is the single biggest CPM variable on YouTube. According to Influencer Marketing Hub's 2025 benchmarks, finance and investing channels command $15–40+ CPM while gaming and entertainment channels earn $2–10 CPM — a gap large enough that a finance creator with 100,000 views can realistically out-earn an entertainment creator with 500,000 views. Our calculator models this with the formula: CPM = Base × Location × Engagement × Ad Type, giving you a transparent breakdown of each variable's contribution.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              <strong className="text-foreground">Niche</strong> is the foundation. Finance and
-              investing content commands $15–40 CPM because advertisers selling investment platforms,
-              credit cards, and wealth management services pay premium rates to reach high-income
-              audiences. Gaming content earns $3–10 CPM because the primary advertiser pool is gaming
-              peripherals and app companies with more modest ad budgets. The gap between the highest
-              and lowest-paying niches on YouTube is larger than most creators realize — a finance
-              creator with 100K views earns more than an entertainment creator with 1M views in many
-              cases.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              <strong className="text-foreground">Audience location</strong> creates multipliers
-              ranging from 0.3x to 2.2x over the baseline CPM. The United States is the world's most
-              valuable YouTube advertising market — US viewers can trigger CPM rates 80–120% higher
-              than the global average because American advertisers dominate YouTube's ad auction
-              system. UK, Canada, and Australia are close behind as Tier 1 markets. India and Nigeria
-              represent enormous YouTube audiences but trigger CPM rates 40–70% below baseline due
-              to lower local advertising spend. Pair CPM optimization with a strong{" "}
+              <strong className="text-foreground">Audience location</strong> creates multipliers ranging from approximately 0.3× to 2.2× over the baseline CPM. The United States is the world's most valuable YouTube advertising market — US viewers trigger premium CPM rates because American advertisers dominate YouTube's ad auction and compete fiercely for high-intent audiences. UK, Canada, and Australia are close behind as Tier 1 markets. India and Nigeria represent enormous YouTube audiences but trigger lower CPM rates due to smaller local advertising budgets. Pair CPM optimization with a strong{" "}
               <Link href="/tools/youtube-video-idea-generator" className="text-primary hover:underline font-medium">
                 content strategy
               </Link>{" "}
@@ -802,13 +777,7 @@ export function YouTubeCpmCalculatorTool() {
               to maximize both reach and earnings.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">Engagement and ad types</strong> multiply the base
-              further. High-engagement channels — longer watch time, higher comment rates, stronger
-              click-through on cards and end screens — signal to YouTube's algorithm that your content
-              is high-quality, placing it in better-paying ad distribution tiers. Non-skippable ads
-              add approximately 18% to effective CPM because they guarantee 100% ad completion.
-              Enabling all four ad formats (skippable, non-skippable, display, and bumper) creates the
-              maximum ad inventory per video and is almost always the right choice for monetized channels.
+              <strong className="text-foreground">Engagement and ad types</strong> multiply the base further. High-engagement channels — longer watch time, higher comment rates, stronger click-through on cards — signal to YouTube's algorithm that your content is high-quality, placing it in better-paying ad distribution tiers. Non-skippable ads add approximately 18% to effective CPM because they guarantee 100% ad completion. Enabling all four ad formats (skippable, non-skippable, display, and bumper) creates the maximum ad inventory per video. And once your videos reach 8 minutes — the threshold YouTube's Help Center specifies for mid-roll eligibility — you unlock multiple ad breaks per viewing session, which is the single most impactful per-video revenue lever available.
             </p>
           </div>
           <div>
@@ -816,17 +785,10 @@ export function YouTubeCpmCalculatorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> How to Use CPM Data to Make Real Revenue Decisions
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              The projections table in our calculator shows earnings at 1K, 10K, 100K, and 1M views,
-              giving you a clear picture of how your current CPM scales with audience growth. This is
-              useful for setting realistic monthly revenue targets and understanding exactly how many
-              views you need to hit income goals.
+              The projections table in our calculator models your estimated earnings at 1K, 10K, 100K, and 1M views simultaneously — giving you a concrete framework for setting monthly revenue targets and understanding how many views you need to hit specific income milestones. YouTube Creator Academy identifies watch time and audience retention as the primary signals the algorithm uses to evaluate and distribute content. Channels that improve these metrics consistently earn higher CPM rates over time as they qualify for better-performing ad distribution tiers.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              The Smart Revenue Insights section automatically identifies your biggest untapped revenue
-              opportunities — whether that's enabling more ad formats, shifting content strategy toward
-              higher-CPM topics, improving audience retention to reach the High engagement tier, or
-              creating content that specifically targets high-value geographic markets. Use these
-              insights alongside your{" "}
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              The Smart Revenue Insights section automatically identifies your biggest untapped revenue opportunities — whether that's enabling more ad formats, shifting content toward higher-CPM topics, improving audience retention to reach the High engagement tier, or targeting content that resonates with high-value geographic markets. Use these insights alongside your{" "}
               <Link href="/tools/youtube-description-generator" className="text-primary hover:underline font-medium">
                 YouTube description
               </Link>{" "}
@@ -836,6 +798,19 @@ export function YouTubeCpmCalculatorTool() {
               </Link>{" "}
               to build a channel that maximizes both discoverability and ad revenue simultaneously.
             </p>
+            <div className="mt-4 bg-primary/5 border border-primary/20 rounded-2xl p-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Sources behind this calculator:</strong>{" "}
+                The 55/45 revenue split is confirmed by{" "}
+                <a href="https://support.google.com/youtube/answer/72902" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">YouTube's Help Center</a>.{" "}
+                Niche CPM benchmarks ($2–10 for gaming/entertainment, $15–40+ for finance) are sourced from{" "}
+                <a href="https://influencermarketinghub.com/youtube-money-calculator/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">Influencer Marketing Hub's 2025 data</a>.{" "}
+                The 8-minute mid-roll ad eligibility threshold is specified in{" "}
+                <a href="https://support.google.com/youtube/answer/94522" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">YouTube's Help Center ad format documentation</a>.{" "}
+                Q4 peak CPM seasonality is per{" "}
+                <a href="https://www.iab.com/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">IAB annual digital ad spend data</a>.
+              </p>
+            </div>
           </div>
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
@@ -875,11 +850,11 @@ export function YouTubeCpmCalculatorTool() {
         <div className="grid sm:grid-cols-2 gap-3">
           {[
             "Use your actual YouTube Studio RPM data for accuracy — go to Analytics › Revenue to find your real numbers and override the estimated CPM.",
-            "Target high-CPM niches like finance, tech, or SaaS — these consistently pay 5–15× more per 1,000 views than entertainment or gaming.",
+            "Target high-CPM niches like finance, tech, or business — Influencer Marketing Hub's 2025 benchmarks show finance channels earning $15–40 CPM versus $2–10 for gaming and entertainment. That gap means a finance channel with 100K views can realistically out-earn an entertainment channel with 500K views.",
             "Enable all ad formats (skippable, non-skippable, bumper, overlay) in monetization settings — each format adds incrementally to your total RPM.",
             "US, UK, Canadian, and Australian audiences drive 2–5× higher CPMs — create content that resonates with English-speaking markets to maximize earnings.",
-            "Videos 8+ minutes long can include mid-roll ads, which significantly increases ad revenue per video beyond what pre-roll alone generates.",
-            "Q4 (October–December) CPMs spike 30–50% as advertisers flood platforms with holiday budgets — schedule your best content for this window.",
+            "Make videos 8 minutes or longer — YouTube's Help Center specifies 8 minutes as the minimum length for mid-roll ad eligibility. A 10–12 minute video can serve 2–3 mid-roll breaks per view, multiplying ad impressions per session without requiring more subscribers or views.",
+            "Q4 (October–December) consistently produces the highest CPMs of the year as brands push peak holiday budgets, per IAB annual ad spend data. Schedule your most monetizable, longest-form content for November and December to capture peak advertiser demand across every niche.",
             "Improving click-through rate and average view duration signals quality to YouTube, attracting premium advertisers and raising your effective CPM over time.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">

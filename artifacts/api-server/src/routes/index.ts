@@ -8,10 +8,12 @@ import adminRouter from "./admin.js";
 import contactRouter from "./contact.js";
 import storageRouter from "./storage.js";
 import uploadRouter from "./upload.js";
+import scraperRouter from "./scraper.js";
 
 const router: IRouter = Router();
 
 router.use(healthRouter);
+router.use(scraperRouter);
 router.use(toolsRouter);
 router.use(categoriesRouter);
 router.use(blogRouter);

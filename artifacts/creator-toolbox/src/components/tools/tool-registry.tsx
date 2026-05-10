@@ -15,6 +15,10 @@ export interface ToolRegistryEntry {
  * the visitor only downloads the code for the tool they visit.
  */
 export const TOOL_REGISTRY: Record<string, ToolRegistryEntry> = {
+  "youtube-tag-extractor": {
+    component: lazy(() => import("./youtube-tag-extractor").then(m => ({ default: m.YouTubeTagExtractorTool }))),
+    ownsSeoContent: true,
+  },
   "youtube-tag-generator": {
     component: lazy(() => import("./youtube-tag-generator").then(m => ({ default: m.YouTubeTagGeneratorTool }))),
     ownsSeoContent: true,

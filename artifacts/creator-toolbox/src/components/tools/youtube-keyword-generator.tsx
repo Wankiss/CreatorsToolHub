@@ -15,7 +15,7 @@ import { Link } from "wouter";
 const FAQ_ITEMS = [
   {
     q: "What are YouTube keywords and why do they matter for SEO?",
-    a: "YouTube keywords are the specific words and phrases that viewers type into YouTube's search bar when looking for content. YouTube — the world's second-largest search engine — processes over 3 billion searches per month, and its algorithm uses the keywords in your video's title, description, and tags to decide which search queries your video should appear for. A video optimized for the right keyword can rank in the top 3 results for a term searched thousands of times per month, generating consistent organic views for years after publishing. Without keyword optimization, even excellent content gets buried — the algorithm has no clear signal about what your video is about or who should see it.",
+    a: "YouTube keywords are the specific words and phrases that viewers type into YouTube's search bar when looking for content. YouTube is the world's second-largest search engine, with 2.7 billion monthly logged-in users as of 2024 (Statista), and its algorithm uses the keywords in your video's title, description, and tags to decide which search queries your video should appear for. A Backlinko analysis of 1.3 million YouTube videos found that the keyword appearing in the video title is the single strongest correlating factor with ranking position — making keyword research the highest-leverage optimization activity before publishing. A video optimized for the right keyword can rank in the top 3 results for a term searched thousands of times per month, generating consistent organic views for years. Without keyword optimization, even excellent content gets buried — the algorithm has no clear signal about what your video is about or who should see it.",
   },
   {
     q: "What is the difference between high-volume and long-tail YouTube keywords?",
@@ -52,6 +52,10 @@ const FAQ_ITEMS = [
   {
     q: "Is the YouTube Keyword Generator free to use?",
     a: "Yes — the YouTube Keyword Generator is completely free with no account required, no signup, and no usage limits. The AI-powered tool generates keyword suggestions, opportunity scores, trending keywords, long-tail phrases, question-based keywords, hashtag suggestions, and SEO title ideas for any topic or niche in seconds. Generate as many keyword sets as you need — for every video, every niche, and every content format. There are no premium tiers or daily limits.",
+  },
+  {
+    q: "Does YouTube have a built-in keyword research tool I should be using?",
+    a: "Yes — YouTube Studio includes a built-in Research tab (open YouTube Studio, click Analytics in the left sidebar, then select the Research tab) that surfaces real keyword data specific to your channel and audience. Unlike third-party tools, it shows actual search terms viewers type on YouTube with relative volume indicators (low, medium, high) and a 'content gaps' filter that highlights queries with high search demand but few matching videos — your clearest signal for untapped content opportunities. Switch between 'Your viewers' search terms' (what your existing audience searches beyond your current content) and 'YouTube search terms' (broader platform-wide keyword discovery). This is Tier 1 data sourced directly from YouTube, which is why it should be your first stop before any external keyword tool, including this one. Use our generator afterward to expand on the seed keywords you discover in YouTube Studio.",
   },
 ];
 
@@ -343,16 +347,11 @@ export function YouTubeKeywordGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> Why YouTube Keyword Research Is the Foundation of Channel Growth
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              YouTube is the world's second-largest search engine, processing over 3 billion searches per month. Unlike
-              social media where content is pushed to viewers algorithmically based on past behavior, YouTube Search
-              distributes content in direct response to what users actively look for. A video optimized for the right
-              keyword can appear in the first 3 results for a term searched 10,000+ times per month — generating
-              consistent, compounding organic views for years after publishing. This is what separates channels that
-              grow through search from channels entirely dependent on the volatile algorithmic feed.
+              A Backlinko analysis of 1.3 million YouTube videos found that keyword placement in the video title has the strongest correlation with ranking position of any single metadata element — making keyword research the highest-leverage activity for search-driven channel growth. YouTube is the world's second-largest search engine, with 2.7 billion monthly users (Statista, 2024), and unlike social media where content is pushed algorithmically, YouTube Search distributes content in direct response to what users actively type. A video optimized for the right keyword can appear in the first 3 results for a term searched thousands of times per month — generating consistent, compounding organic views for years after publishing.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
               The challenge is finding keywords that are both worth ranking for (enough people searching) and
-              realistically rankable (not completely dominated by channels with millions of subscribers). This is the
+              realistically rankable (not dominated by channels with millions of subscribers). This is the
               opportunity scoring problem our AI generator solves: Opportunity = (Volume × 0.6) + (Low Competition × 0.4).
               A perfect opportunity keyword has substantial monthly searches and competition your channel can actually beat.
               The Best Keyword recommendation surfaces the single highest-scoring target for your exact topic, niche,
@@ -377,42 +376,57 @@ export function YouTubeKeywordGeneratorTool() {
               <Zap className="w-4 h-4 text-primary" /> The Four Keyword Categories and When to Target Each
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              <strong className="text-foreground">High Opportunity keywords</strong> are the foundation — they balance
-              search volume and competition scoring to surface the most efficient targets for your channel regardless of
-              size. These include long-tail phrases with beginner, year, or niche modifiers that attract consistent search
-              volume without requiring a massive existing subscriber base to rank. Use these as your primary keyword
-              targets in video titles and descriptions.
+              Long-tail keywords — 4–6+ word phrases with audience modifiers, difficulty levels, or year references — are the single most important keyword category for channels with under 100,000 subscribers. YouTube Creator Academy encourages creators to "create content that audiences are searching for," and long-tail phrases represent the most efficient path to that goal: their specificity filters out casual competition (most creators optimize only for broad single-word terms) while attracting viewers with highly specific intent who are more likely to watch fully and subscribe.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              <strong className="text-foreground">Trending keywords</strong> use current-year modifiers and
-              niche-specific terms that are seeing elevated search interest. Publishing content around trending keywords
-              within 24–48 hours of a trend peak can capture significant early traffic from both search and the YouTube
-              feed. Use the{" "}
+              <strong className="text-foreground">High Opportunity keywords</strong> balance search volume and competition
+              to surface the most efficient targets for any channel size. These include long-tail phrases with beginner,
+              year, or niche modifiers that attract consistent search volume without requiring a massive subscriber base
+              to rank. Use these as your primary keyword targets in video titles and descriptions.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              <strong className="text-foreground">Trending keywords</strong> use current-year modifiers and niche-specific
+              terms with elevated search interest. Publishing content around trending keywords quickly can capture early
+              traffic from both search and the YouTube feed. Use the{" "}
               <Link href="/tools/youtube-hashtag-generator" className="text-primary hover:underline font-medium">
                 YouTube Hashtag Generator
               </Link>{" "}
               to maximize discovery for trending content.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              <strong className="text-foreground">Long-tail keywords</strong> are 4–6+ word phrases that are the single
-              most important category for growing channels. Their longer length naturally filters out casual competition —
-              most creators optimize only for short, broad terms — while their specificity attracts highly engaged viewers
-              who know exactly what they want. A channel that systematically creates content for 50 long-tail keywords
-              builds a durable, compounding search traffic foundation that continues generating views long after publish.
-              Validate your long-tail keyword choices with our{" "}
+            <p className="text-muted-foreground leading-relaxed">
+              <strong className="text-foreground">Question-based keywords</strong> capture the enormous "how to" and
+              "what is" search volume that represents the majority of YouTube's information-seeking queries. They perform
+              particularly well in YouTube's suggested feed because they signal a learning intent the algorithm associates
+              with high watch time. Validate your keyword choices with our{" "}
               <Link href="/tools/youtube-seo-score-checker" className="text-primary hover:underline font-medium">
                 YouTube SEO Score Checker
               </Link>{" "}
               to confirm your title and description are properly optimized.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">Question-based keywords</strong> capture the enormous "how to" and
-              "what is" search volume that represents the majority of YouTube's information-seeking queries. These
-              keywords perform particularly well in YouTube's suggested video feed because they signal a learning intent
-              that the algorithm associates with high watch time and session duration. Pair question-based title keywords
-              with comprehensive, well-structured answers to trigger YouTube's recommendation engine to extend viewer
-              sessions — one of the strongest growth signals on the platform.
+          </div>
+
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Search className="w-4 h-4 text-primary" /> YouTube Studio Research Tab: The Built-In Keyword Tool Most Creators Miss
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              YouTube Studio includes a built-in Research tab that gives creators access to real keyword data — search terms viewers actually type on YouTube, with relative volume indicators and a content gap filter that surfaces high-demand queries with few matching videos. It's the only keyword research tool sourced directly from YouTube's own search data, which is why it should anchor any keyword strategy before you layer on external generators. To access it: open YouTube Studio, click Analytics in the left sidebar, then select the Research tab.
             </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Two filters make it especially powerful. "Your viewers' search terms" shows what your existing audience searches for beyond your current content — these are warm-audience keywords your channel is positioned to rank for but hasn't targeted yet. "YouTube search terms" opens up broader platform-wide keyword discovery, uncovering topics your audience actively searches that you've never covered. The content gap filter within both views highlights queries where search demand significantly outpaces available video supply — your clearest, most data-backed signal for what to create next.
+            </p>
+            <div className="mt-4 bg-primary/5 border border-primary/20 rounded-2xl p-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Key sources behind this tool's methodology:</strong>{" "}
+                The title keyword placement finding is from{" "}
+                <a href="https://backlinko.com/youtube-ranking-factors" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">Backlinko's analysis of 1.3 million YouTube videos</a>.{" "}
+                YouTube Creator Academy's guidance to{" "}
+                <a href="https://creatoracademy.youtube.com" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">"create content audiences search for"</a>{" "}
+                underpins the long-tail and opportunity scoring approach. The YouTube Studio Research tab data is{" "}
+                <a href="https://support.google.com/youtube/answer/9602605" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">documented in YouTube's Help Center</a>{" "}
+                and represents the only first-party keyword data source YouTube makes available to creators.
+              </p>
+            </div>
           </div>
 
           <div>
@@ -421,7 +435,7 @@ export function YouTubeKeywordGeneratorTool() {
             </h3>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
-                "AI-powered keyword research — generates opportunity-scored suggestions tailored to your topic and niche",
+                "AI-powered keyword research — opportunity-scored suggestions tailored to your topic and niche",
                 "Opportunity score formula: Volume × 0.6 + (100 − Competition) × 0.4 for balanced targeting",
                 "4 keyword priority modes: High Opportunity, Trending, Long-Tail, and Question-Based",
                 "Keyword Gap analysis — surface competitor keywords your content is missing",
@@ -452,13 +466,13 @@ export function YouTubeKeywordGeneratorTool() {
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
           {[
-            "Front-load your primary keyword in the video title — put the keyword in the first 3–4 words for the strongest SEO signal.",
-            "Use 'Long-Tail' mode if your channel is under 10K subscribers — you'll get far better ranking results targeting specific 5–6 word phrases than competing for broad terms.",
-            "Say your primary keyword in the first 30 seconds of your video — YouTube's auto-captions are indexed by the algorithm and reinforce your metadata keywords.",
-            "Run Keyword Gap analysis against your top 3 competitors once per month to discover new content opportunities before they get saturated.",
-            "Add 10–15 of your generated keywords as video tags in YouTube Studio — use your primary keyword first, then secondary and related terms.",
-            "Combine this tool with the YouTube Hashtag Generator — the keyword research here and the hashtag generation complement each other to cover both search and browsing discovery.",
-            "Publish keyword-optimized content within 48 hours of a trending topic's peak — the algorithm distributes trending-adjacent content broadly during that window.",
+            "Front-load your primary keyword in the video title — Backlinko's analysis of 1.3 million YouTube videos found title keyword placement is the single strongest correlating factor with ranking position. Aim for the first 3–4 words.",
+            "Use 'Long-Tail' mode if your channel is under 100,000 subscribers — targeting specific 5–6 word phrases with audience modifiers (for beginners, without equipment, on a budget) delivers far better ranking results than competing for broad, high-authority terms.",
+            "Use YouTube's autocomplete before any keyword tool — type your seed keyword into YouTube's search bar and record every autocomplete suggestion. Each suggestion is a real query from real users, pulled directly from YouTube's search data. These are your highest-confidence keyword opportunities.",
+            "Run Keyword Gap analysis against your top 3 competitors once per month — identify keywords they're likely ranking for that your content hasn't targeted. Each gap is a content opportunity already proven to drive traffic in your niche.",
+            "Add 10–15 of your generated keywords as video tags in YouTube Studio, always putting your primary keyword first. Backlinko's 1.3 million video study found the first tag carries the strongest weight as YouTube's primary keyword signal for the video.",
+            "Pair this tool with the YouTube Hashtag Generator — keywords drive search discovery while hashtags power YouTube's browse and trending feeds. Together they cover both routes viewers take to find your content.",
+            "After publishing, check YouTube Studio's Analytics → Research tab — it shows actual search terms your viewers type, with volume indicators and a content gap filter. Any high-volume gap query your channel hasn't covered is a data-backed brief for your next video.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
               <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />

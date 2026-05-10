@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useAiTool } from "@/hooks/use-ai-tool";
 import {
   Sparkles, Copy, Check, Loader2, Tag, ListChecks,
-  ChevronDown, Shield, Zap, ArrowUpRight, Info,
+  ChevronDown, Shield, Zap, ArrowUpRight, Info, Lightbulb, TrendingUp,
 } from "lucide-react";
 import { Link } from "wouter";
 
@@ -15,31 +15,39 @@ import { Link } from "wouter";
 const FAQ_ITEMS = [
   {
     q: "What is a YouTube Tag Generator?",
-    a: "A YouTube Tag Generator is an AI-powered tool that automatically creates a set of SEO-optimized tags for your YouTube video based on your title and target keyword. Instead of manually brainstorming keywords, the generator analyzes your video topic, identifies relevant search phrases, builds long-tail variations, and surfaces trending keyword modifiers — all in seconds. Our tool is powered by AI, which means it goes beyond simple keyword matching to understand search intent and produce tags that reflect how real viewers describe and search for your type of content.",
+    a: "A YouTube Tag Generator is an AI-powered tool that creates a set of SEO-optimized tags for your YouTube video based on your title and target keyword. YouTube has 2.7 billion monthly active users (Statista, 2024) searching across the world's second-largest search engine, and its algorithm processes over 80 billion signals daily (YouTube Blog, 2024) to determine which videos surface for each query. Tags are part of those signals — they help the algorithm understand your video's topic when the title alone is ambiguous. Our generator analyzes your video topic, identifies relevant search phrases, builds long-tail variations, and surfaces topical modifiers — all in seconds, at no cost.",
   },
   {
     q: "How do YouTube tags help videos rank?",
-    a: "YouTube tags are metadata signals that help YouTube's algorithm understand what your video is about and which search queries it should be surfaced for. When you upload a video, YouTube processes your title, description, and tags together to build a content profile. Tags reinforce the topic signals in your title and fill in semantic gaps — for example, if your title mentions 'how to lose weight fast', tags like 'weight loss tips for beginners', 'fat burning exercises', and 'diet for weight loss' clarify the content's depth and breadth. Strong tags improve your chances of appearing in YouTube search results, suggested video feeds, and browse features, especially for newer videos that haven't yet built up watch time authority.",
+    a: "YouTube's Help Center confirms that tags help the algorithm understand your video's content — particularly useful when your keyword has common misspellings or when the title alone doesn't fully convey the topic. When you upload a video, YouTube reads your title, description, and tags together to build a content profile. Tags reinforce the topicality signals in your title and fill semantic gaps — for example, a title like 'How to Lose Weight Fast' paired with tags like 'weight loss for beginners', 'fat burning at home', and 'diet tips for women' clarifies the content's depth and audience. This is especially valuable for new videos that haven't yet built watch time authority — strong tags give the algorithm more to work with while early engagement data accumulates.",
   },
   {
     q: "How many tags should I use on YouTube?",
-    a: "YouTube allows up to 500 characters total for tags, which typically works out to 10–20 tags depending on their length. Most experienced creators use 10–15 well-chosen tags rather than trying to max out the character limit. Quality matters far more than quantity — 12 highly relevant tags will outperform 40 loosely related ones. A good tag set for a single video should include: 2–3 exact-match tags mirroring your title keywords, 4–6 broader topic tags covering the niche, 3–4 long-tail variation tags targeting specific search phrases, and 1–2 branded tags if you have an established channel. Our AI tag generator produces a curated, relevance-ranked set you can paste directly into YouTube Studio.",
+    a: "YouTube allows up to 500 characters total for all tags combined (YouTube Help Center) — which typically works out to 10–20 tags depending on phrase length. A Backlinko study of 1.3 million YouTube videos found no strong correlation between tag count and rankings — relevance matters far more than volume. In practice, 8–15 focused, relevant tags consistently outperform both too-few and too-many approaches. Structure your tag set in three tiers: (1) 2–3 exact-match tags mirroring your title keyword verbatim, (2) 4–6 broader topic or category tags, and (3) 3–4 long-tail phrase tags targeting specific search queries. One more critical detail: Backlinko's research found that YouTube weights the first tag most heavily as the primary keyword signal — always lead with your most important keyword phrase as tag number one.",
   },
   {
-    q: "Are YouTube tags still important for SEO?",
-    a: "Yes — YouTube tags still matter for SEO in 2026, though their role has evolved. YouTube's public guidance confirms that tags help the platform understand video content and are particularly valuable for videos on topics where the title alone may be ambiguous. Tags are less important than they were five years ago because YouTube's AI has gotten better at inferring context from titles and descriptions, but they still contribute to discoverability — especially for new channels without an established watch history. The biggest mistake creators make is ignoring tags entirely or adding completely irrelevant tags. Well-researched tags that reinforce your title and description keyword strategy remain a consistent ranking signal across YouTube search and suggested videos.",
+    q: "Are YouTube tags still important for SEO in 2026?",
+    a: "Yes — with an important caveat that most tag guides won't tell you. YouTube's Help Center says directly: 'Tags can be useful if the content of your video is commonly misspelled. Otherwise, tags play a minimal role in your video's discovery.' That's an honest admission from YouTube itself. Tags matter most in three specific scenarios: (1) your keyword is frequently misspelled or has multiple accepted phrasings, (2) your title is short or ambiguous and doesn't give the algorithm enough topic context on its own, and (3) you're a new channel without established watch time history and need every metadata signal working for you. For established channels with strong watch time and CTR, tags have less marginal impact — but they never hurt when relevant, and irrelevant tags can actively confuse the algorithm.",
   },
   {
     q: "What are the best tags for YouTube videos?",
-    a: "The best YouTube tags share three characteristics: relevance, specificity, and search volume. Start with exact-match tags that directly mirror your video title keyword — these are your highest-priority tags. Then add long-tail variations that describe what viewers are actually searching for (e.g., 'how to start a YouTube channel with no money', 'YouTube channel ideas for beginners 2026'). Include broad category tags (e.g., 'YouTube tips', 'content creation', 'social media growth') to help YouTube place your video in the right content cluster. Avoid generic tags like 'video' or 'YouTube' — they're too competitive and don't help the algorithm contextualize your content. Always prioritize tags you'd realistically want to rank for in YouTube search.",
+    a: "The best YouTube tags are relevant, specific, and layered across three categories. YouTube's Creator Academy advises using tags that accurately reflect your video's content — avoid tags designed to game the algorithm with irrelevant popular keywords. Start with exact-match tags that directly mirror your title keyword — place this as your first tag, since Backlinko's 1.3M video study found YouTube weights the first tag most heavily. Add long-tail variations describing what viewers actually search for (e.g., 'how to start a YouTube channel with no money', 'YouTube ideas for beginners 2026'). Include 2–3 broad category tags (e.g., 'YouTube tips', 'content creation') to help YouTube cluster your video in the right topic neighborhood. Avoid ultra-generic tags like 'video' or 'YouTube' — too competitive, no contextual value.",
   },
   {
     q: "Can I use the same tags on every video?",
-    a: "No — you should never copy and paste identical tags across all your videos. YouTube's algorithm expects your tags to reflect the specific content of each individual video. Reusing the exact same tag set signals that your metadata isn't tailored to the content, which can reduce how effectively YouTube distributes each video. That said, you can and should reuse a few core brand or niche tags across your channel (e.g., your channel name, your main topic category) — what you want to avoid is reusing the entire tag set verbatim. Use our AI tag generator to create a fresh, video-specific tag set for each upload. The tool generates tags based on your actual video title and target keyword, ensuring every tag set is unique and relevant.",
+    a: "No — reusing identical tags across all your videos reduces how effectively YouTube distributes each one. YouTube's algorithm expects tags to reflect the specific content of each video — a uniform tag set signals that your metadata isn't tailored to the content. That said, 2–3 evergreen channel tags (your channel name, your core niche) can appropriately appear on every video. What to avoid is copying the entire tag set verbatim from one video to the next. YouTube's Creator Academy guidance emphasizes accurate, content-specific metadata — and tags are part of that. Use the AI generator to create a fresh tag set for each upload based on its specific title and keyword, keeping only your channel-level brand tags constant.",
+  },
+  {
+    q: "What does YouTube's own guidance say about tags?",
+    a: "YouTube's Help Center is more candid about tags than most SEO guides acknowledge. The official text states: 'Tags can be useful if the content of your video is commonly misspelled. Otherwise, tags play a minimal role in your video's discovery.' YouTube also advises against using tags that aren't relevant to your content — irrelevant tags can be penalized. This doesn't mean tags are useless — it means their primary value is topical reinforcement (for ambiguous or short titles) and misspelling coverage, not as a primary ranking driver. Your title and description carry far more ranking weight. Use tags to complete your metadata picture — they're one piece of a six-category optimization, not the whole strategy.",
+  },
+  {
+    q: "Should I copy the tags from competitor videos?",
+    a: "No — directly copying competitor tags is a low-value strategy and potentially counterproductive. YouTube's algorithm evaluates tag relevance against your specific video's content — tags pulled from a competitor's video may not match your video's actual topic well enough to help, and irrelevant tags can confuse the algorithm. YouTube's Help Center explicitly states: 'We recommend using tags that are relevant to your content.' The better approach: use competitor videos to understand the keyword territory, then build a tag set around your video's specific title and angle. Long-tail tags where your video has a differentiated angle or specific audience focus will outperform generic tags copied from the highest-view video in your niche. Our AI generator builds tags from your actual title and keyword — not from guessing what another video used.",
   },
   {
     q: "Does this YouTube tag generator use AI?",
-    a: "Yes — this YouTube tag generator is fully powered by AI. When you enter your video title and target keyword, our AI analyzes the topic to understand search intent, identifies core keyword phrases, generates long-tail variations targeting niche queries, and surfaces trending modifiers that real viewers use when searching YouTube. The AI produces a curated list of SEO-optimized tags in seconds — no manual keyword research or guesswork required. All tags are ranked by relevance so you can quickly identify which ones to prioritize. The tool is completely free to use with no account or subscription required.",
+    a: "Yes — this tag generator is fully powered by AI. When you enter your video title and target keyword, the AI analyzes the topic to understand search intent, identifies core keyword phrases, generates long-tail variations targeting niche queries, and surfaces topical modifiers that real viewers use when searching YouTube. It's designed to produce a first-tag-priority set — meaning the most important exact-match keyword appears first in the output, aligned with Backlinko's finding that YouTube weights the first tag most heavily. The output is a curated, relevance-ranked list ready to paste directly into YouTube Studio. Completely free, no account required.",
   },
 ];
 
@@ -249,24 +257,21 @@ export function YouTubeTagGeneratorTool() {
           <h2 className="text-2xl font-bold font-display text-foreground">About This YouTube Tag Generator</h2>
         </div>
         <div className="space-y-8">
+
+          {/* Section 1: What the tool does */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Zap className="w-4 h-4 text-primary" /> What This AI YouTube Tag Generator Does
+              <Zap className="w-4 h-4 text-primary" /> How This AI YouTube Tag Generator Works
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              This free YouTube tag generator is powered by AI and analyzes your video title and target
-              keyword to produce a curated list of SEO-optimized tags. Unlike basic keyword tools that
-              return generic suggestions, our AI understands search intent — it extracts core phrases
-              from your title, generates long-tail keyword variations that reflect how real viewers
-              search on YouTube, and injects trending modifiers that boost relevance across search,
-              suggested videos, and browse features.
+              YouTube's algorithm processes over <strong className="text-foreground">80 billion signals every day</strong> (YouTube Blog, 2024) to match videos to search queries — and tags are one of those signals. YouTube's Help Center confirms tags help the algorithm understand video content, especially when the title alone is short or ambiguous. This AI generator analyzes your video title and target keyword, extracts core search phrases, builds long-tail variations that reflect how real viewers search, and outputs a relevance-ranked tag set ready to paste into YouTube Studio.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              The result is a diverse, high-quality tag set that helps YouTube's algorithm understand
-              exactly what your video is about — in under a second. Each generated tag is designed to
-              complement your title and description, creating a consistent keyword signal that improves
-              your video's chances of ranking in search and being recommended to the right audience.
-              Use it alongside our{" "}
+              One design detail that separates this generator from basic tag tools: it outputs the most important exact-match keyword as the first tag — aligned with{" "}
+              <a href="https://backlinko.com/youtube-ranking-factors" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Backlinko's study of 1.3 million YouTube videos
+              </a>
+              , which found that YouTube weights the first tag most heavily as the primary keyword signal. Every other tag in the set is structured around it — broad category tags to cluster the content, long-tail variations to capture specific queries, and niche modifiers to reach the right audience. Use it alongside our{" "}
               <Link href="/tools/youtube-title-generator" className="text-primary hover:underline font-medium">
                 YouTube Title Generator
               </Link>{" "}
@@ -274,62 +279,102 @@ export function YouTubeTagGeneratorTool() {
               <Link href="/tools/youtube-description-generator" className="text-primary hover:underline font-medium">
                 YouTube Description Generator
               </Link>{" "}
-              for a complete, AI-powered SEO workflow for every video you publish.
+              for a full pre-publish SEO workflow.
             </p>
           </div>
+
+          {/* Section 2: When tags matter (honest take with YouTube Help Center source) */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Info className="w-4 h-4 text-primary" /> Why YouTube Tags Matter for SEO
+              <Info className="w-4 h-4 text-primary" /> What YouTube Actually Says About Tags (And When They Matter Most)
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Tags are one of the signals YouTube uses to categorize your video content and determine
-              which search queries it should appear for. When you upload a video, YouTube reads your
-              title, description, and tags together to build a content profile. Proper YouTube SEO tags
-              help the algorithm match your video to viewer intent, improving your chances of appearing
-              in search results, suggested videos, and browse features.
+              Most tag guides overstate how much tags drive rankings. YouTube's own Help Center is more direct: <em>"Tags can be useful if the content of your video is commonly misspelled. Otherwise, tags play a minimal role in your video's discovery."</em> That's YouTube's own characterization — and understanding it is the difference between a smart tag strategy and one based on outdated advice.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              Combined with a strong title and keyword-rich description, well-chosen tags can
-              meaningfully boost video discoverability — especially for newer channels that haven't yet
-              built the watch time authority needed to rank purely on engagement signals. Tags fill in
-              semantic gaps that your title can't cover alone: if your title is "How to Lose Weight
-              Fast", tags like "weight loss for beginners", "fat burning at home", and "diet tips 2026"
-              expand the range of searches your video is eligible to rank for.
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Tags matter most in three situations: (1) your keyword has common spelling variations or alternate phrasings that viewers type differently, (2) your title is short or doesn't fully convey the topic's depth, and (3) you're a newer channel without an established watch time history — in which case every metadata signal carries more weight. A{" "}
+              <a href="https://backlinko.com/youtube-ranking-factors" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Backlinko analysis of 1.3 million YouTube videos
+              </a>{" "}
+              confirmed that relevance matters far more than tag count — 8–12 highly relevant tags consistently outperform 40 loosely related ones. YouTube caps tags at <strong className="text-foreground">500 total characters</strong> (YouTube Help Center), reinforcing that quality over quantity is the intended approach.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Long-tail tags — specific multi-word phrases with lower competition — are particularly
-              valuable for new videos. While broad tags like "weight loss" face enormous competition
-              from established channels, a long-tail tag like "weight loss workout at home for beginners
-              without equipment" targets a specific query where your video can realistically appear in
-              the top results, even with a small channel. Our AI tag generator is specifically designed
-              to surface these high-opportunity long-tail variations alongside your core tags. Pair
-              strong tags with a great{" "}
-              <Link href="/tools/youtube-keyword-generator" className="text-primary hover:underline font-medium">
-                keyword strategy
-              </Link>{" "}
-              and{" "}
-              <Link href="/tools/youtube-seo-score-checker" className="text-primary hover:underline font-medium">
-                SEO score check
-              </Link>{" "}
-              before publishing for best results.
-            </p>
+
+            {/* Citation capsule */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 text-sm text-muted-foreground leading-relaxed">
+              <strong className="text-foreground block mb-1">The tag hierarchy that actually moves rankings</strong>
+              YouTube's{" "}
+              <a href="https://support.google.com/youtube/answer/2797468" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Help Center
+              </a>{" "}
+              confirms tags help the algorithm understand video content, with a 500-character total cap. A{" "}
+              <a href="https://backlinko.com/youtube-ranking-factors" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Backlinko study of 1.3 million YouTube videos
+              </a>{" "}
+              found that YouTube treats the first tag as the primary keyword signal — making your first tag the highest-impact tagging decision you make. Relevance to the video's actual content, not tag volume, is the variable that moves the needle.
+            </div>
           </div>
+
+          {/* Section 3: The first tag rule — exclusive content */}
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-primary" /> The First Tag Rule: Why Tag Order Matters
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Most creators treat all their tags as equal — they're not. Backlinko's study of 1.3 million YouTube videos found a consistent pattern: YouTube appears to weight the <strong className="text-foreground">first tag</strong> most heavily, treating it as the primary keyword signal for the video. This means your first tag should always be your exact target keyword, phrased exactly as you'd want to rank for it — not a variation, not a broad category, the precise search phrase.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="rounded-xl border border-red-200 bg-red-50/50 dark:bg-red-900/10 dark:border-red-800/30 p-4">
+                <div className="font-semibold text-sm text-foreground mb-2">Common Mistake</div>
+                <ul className="space-y-1 text-xs text-muted-foreground">
+                  {[
+                    "First tag: 'how to lose weight' (too broad)",
+                    "Random order with no keyword hierarchy",
+                    "Generic category tags placed first",
+                    "Channel name as the first tag",
+                    "Copying competitor tags without relevance check",
+                  ].map((s, i) => (
+                    <li key={i} className="flex items-start gap-1.5">
+                      <span className="text-red-400 mt-0.5 shrink-0 font-bold">✕</span>{s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
+                <div className="font-semibold text-sm text-foreground mb-2">Best Practice</div>
+                <ul className="space-y-1 text-xs text-muted-foreground">
+                  {[
+                    "First tag: exact keyword phrase verbatim",
+                    "Second tag: closest long-tail variation",
+                    "Third–sixth: broad topic/category tags",
+                    "Seventh–tenth: niche long-tail phrases",
+                    "Last 1–2: channel brand tags (if established)",
+                  ].map((s, i) => (
+                    <li key={i} className="flex items-start gap-1.5">
+                      <Check className="w-3 h-3 text-primary mt-0.5 shrink-0" />{s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 4: Feature grid */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
               <Shield className="w-4 h-4 text-primary" /> Benefits of Using This Tool
             </h3>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
-                "Powered by AI — generates relevant, SEO-optimized keyword tags instantly",
-                "Creates long-tail YouTube tags that target niche search queries with lower competition",
-                "Understands search intent, not just keyword matching — tags reflect how viewers search",
-                "Helps improve YouTube video discoverability across search, suggested, and browse feeds",
-                "Produces a diverse tag mix: broad category tags, specific topic tags, and long-tail variants",
-                "Saves hours of manual keyword research per video upload",
-                "Click-to-copy tags individually or copy all tags at once for YouTube Studio",
-                "Works for any niche — YouTube growth, cooking, gaming, fitness, tech, finance, and more",
-                "No keyword tool subscription needed — free with no account or usage limits",
-                "Use it alongside title and description generators for a complete SEO workflow",
+                "First-tag-priority output — exact keyword appears first, aligned with Backlinko's 1.3M video study finding",
+                "Generates long-tail tags targeting niche queries where new channels can realistically rank",
+                "Understands search intent: tags reflect how real viewers phrase searches, not just keyword matching",
+                "Three-tier tag structure: exact-match, broad category, and long-tail variations per video",
+                "500-character limit awareness — tag sets are designed to fit YouTube's tag field budget",
+                "Honest tag strategy: built on YouTube Help Center guidance, not outdated SEO myths",
+                "Click-to-copy individual tags or copy all tags at once for YouTube Studio",
+                "Works for any niche — fitness, gaming, finance, cooking, tech, beauty, and more",
+                "No subscription or keyword tool needed — free with no account or usage limits",
+                "Pairs with title and description generators for a complete metadata SEO workflow",
               ].map((text, i) => (
                 <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
                   <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
@@ -338,6 +383,32 @@ export function YouTubeTagGeneratorTool() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Lightbulb className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips to Get the Most from Your YouTube Tags</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            "Always place your exact target keyword as the first tag — Backlinko's 1.3M video study found YouTube weights the first tag most heavily as the primary keyword signal. Every other tag in your set should be built around that anchor.",
+            "Keep your total tags under 400 characters even though YouTube allows 500 — leaving buffer room ensures you're using only your highest-relevance phrases rather than padding with marginal tags that add no topical value.",
+            "Include your keyword's most common misspellings as a tag — YouTube's Help Center cites this as the primary use case where tags directly impact discovery. If your niche keyword is commonly typed wrong, a misspelling tag can capture those searches.",
+            "Use long-tail tags (3–5 word phrases) for new videos — broad single-word tags like 'fitness' or 'cooking' face massive competition from established channels. A long-tail tag like 'home workout for beginners no equipment' targets a specific query where a new video can realistically rank.",
+            "Don't copy tags from competitor videos — YouTube's algorithm evaluates tag relevance against your specific video's content. Tags from a competitor's different angle or audience will likely be misaligned with your content, reducing their effectiveness.",
+            "Generate a fresh tag set for every upload — reusing identical tags across videos signals to YouTube that your metadata isn't tailored to the content. Keep 1–2 brand tags consistent, but regenerate the rest for each new video's specific topic.",
+            "Pair tags with a keyword-optimized title and description — YouTube Help Center confirms tags play a 'minimal role' outside of specific scenarios. Your title and description carry far more ranking weight; tags complete the picture but don't compensate for weak metadata elsewhere.",
+          ].map((tip, i) => (
+            <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
+              <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <span className="text-sm text-muted-foreground">{tip}</span>
+            </div>
+          ))}
         </div>
       </section>
 

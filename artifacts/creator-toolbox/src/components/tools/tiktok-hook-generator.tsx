@@ -16,7 +16,7 @@ import { Link } from "wouter";
 const FAQ_ITEMS = [
   {
     q: "What is a TikTok hook and why does it matter?",
-    a: "A TikTok hook is the opening line, visual, or statement that appears in the first 1–3 seconds of your video. It is the single most important element of any TikTok video because TikTok's algorithm measures what percentage of viewers watch past the first three seconds — and uses that 3-second view rate as one of its primary distribution signals. A strong hook that holds 80%+ of viewers past the opening gets pushed to progressively larger audiences. A weak hook that loses viewers immediately causes the algorithm to stop distributing the video, regardless of how good the rest of the content is. Your hook is not just a creative choice — it is an algorithmic lever.",
+    a: "A TikTok hook is the opening line, visual, or statement that appears in the first 1–3 seconds of your video. It is the single most important element of any TikTok video because TikTok's algorithm measures what percentage of viewers watch past the first three seconds — and uses that 3-second view rate as one of its primary distribution signals, as documented in TikTok's creator guidance (TikTok Help Center, 'Understanding your analytics'). A hook that holds strong early retention gets pushed to progressively larger audiences. A weak hook that loses viewers immediately causes the algorithm to stop distributing the video, regardless of how good the rest of the content is. Your hook is not just a creative choice — it is an algorithmic lever.",
   },
   {
     q: "What makes a TikTok hook go viral?",
@@ -40,7 +40,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How do TikTok hooks affect the For You Page algorithm?",
-    a: "TikTok's For You Page algorithm runs multiple distribution waves after a video is posted. In the first wave (typically 200–500 views), the algorithm shows your video to a small test audience and measures behavioral signals — primarily 3-second view rate, completion rate, and engagement rate. If the 3-second view rate exceeds approximately 60–70%, the algorithm considers the hook effective and pushes the video to a second, larger wave. Each wave uses progressively better signals, but the first wave data is critical because it determines whether the video ever reaches a significant audience. A hook that fails the first wave effectively caps the video's potential reach.",
+    a: "TikTok's For You Page algorithm runs multiple distribution waves after a video is posted. According to TikTok Newsroom ('How TikTok recommends videos for you'), the algorithm evaluates behavioral signals — including 3-second view rate, completion rate, and engagement rate — to decide whether to expand distribution. It shows your video to an initial test audience and measures those signals before pushing to progressively larger waves. Each wave uses stronger quality signals, but the first distribution window is critical because it determines whether the video ever reaches a significant audience. A hook that loses viewers immediately in that first window effectively caps the video's potential reach.",
   },
   {
     q: "Can I use the same hook for multiple TikTok videos?",
@@ -53,6 +53,10 @@ const FAQ_ITEMS = [
   {
     q: "Is this TikTok hook generator free?",
     a: "Yes — the TikTok Hook Generator is completely free with no account, no signup, and no usage limits. Generate as many hooks as you need across any niche, content type, and tone combination. Every output includes the hook text, a Scroll-Stopping Score, hook type label, on-screen text overlay version, voiceover delivery tips, and camera presence advice — all at zero cost. Our full suite of TikTok tools including the Viral Idea Generator, Script Generator, Caption Generator, and Hashtag Generator are all free with no restrictions.",
+  },
+  {
+    q: "Where can I find my hook's 3-second view rate in TikTok Analytics?",
+    a: "TikTok provides a dedicated Video Details breakdown inside Creator Tools. To access it: open the TikTok app → tap Profile → tap the three-line menu (top right) → Creator Tools → Analytics → tap any video → scroll to the 'Video Details' section. There you'll find the 3-second view rate (labeled 'Watched full video' and time-based retention data). TikTok's Help Center ('Understanding your analytics') documents each metric. Use this data to compare hooks A/B tested across different video uploads: the hook with the highest early retention rate is your winner and becomes the template for future content in that category.",
   },
 ];
 
@@ -259,6 +263,9 @@ export function TikTokHookGeneratorTool() {
               <Zap className="w-4 h-4 text-primary" /> What This TikTok Hook Generator Does
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              TikTok's recommendation system — documented in TikTok Newsroom's "How TikTok recommends videos for you" — evaluates 3-second view rate as one of its core behavioral signals, alongside completion rate and engagement. On a platform with over 1.7 billion monthly active users (Statista, 2024), the first three seconds of your video determine whether the algorithm distributes it beyond the initial test audience. A hook that captures early attention triggers the distribution cascade; a weak one stops it cold.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               This free AI-powered TikTok Hook Generator produces scroll-stopping video openers using five
               proven viral hook formulas: Question Hooks (curiosity gap), Bold Statement Hooks (confident
               authority), Shock/Surprise Hooks (pattern interruption), Story Hooks (narrative tension), and
@@ -289,16 +296,11 @@ export function TikTokHookGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> Why TikTok Hooks Are Your Most Important Content Asset
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              TikTok's algorithm uses the 3-second view rate as one of its strongest early distribution
-              signals. If fewer than 60% of viewers watch past the first three seconds of your video, the
-              algorithm interprets this as a quality signal and reduces distribution in subsequent waves.
-              The inverse is equally true: a video with a strong hook that holds 80%+ of viewers past the
-              3-second mark gets pushed to progressively larger audiences — first hundreds, then thousands,
-              then potentially millions through the For You Page cascade.
+              TikTok for Business documentation confirms that completion rate and early engagement are the behavioral signals the algorithm weighs most heavily when deciding whether to expand distribution. The 3-second view rate — visible inside Creator Tools → Analytics → Video Details — is the clearest leading indicator of hook quality, and it directly predicts whether a video moves to the next distribution wave.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Most creators spend 90% of their time on the video content and 10% on the hook. The
-              highest-growth creators invert this ratio — they spend as much time crafting and testing
+              Most creators spend the majority of their time on the video content and little on the hook. The
+              highest-growth creators flip this priority — they spend as much time crafting and testing
               their hook as they do producing the rest of the video, because the hook determines whether
               anyone sees the content at all. Our AI hook generator compresses the ideation time from
               minutes to seconds, giving you a bank of high-quality, scored hooks to test against your
@@ -312,15 +314,43 @@ export function TikTokHookGeneratorTool() {
             <p className="text-muted-foreground leading-relaxed">
               The A/B testing strategy built into our results tab gives you a clear process: generate 3–5
               hooks, post the same video with different openers on different days, and compare 3-second
-              retention rates after 48 hours. Two videos with identical content but different hooks
-              regularly show 3–10x differences in view counts — this is the clearest evidence that hook
-              quality is the primary driver of TikTok performance, not production quality, posting time,
-              or follower count. Use our{" "}
+              retention rates after 48 hours. Creators regularly find meaningful differences in early retention between videos with identical content but different hooks — this is the clearest evidence that hook
+              quality is a primary driver of TikTok performance alongside production quality and content relevance. Use our{" "}
               <Link href="/tools/tiktok-viral-idea-generator" className="text-primary hover:underline font-medium">
                 TikTok Viral Idea Generator
               </Link>{" "}
               to find the trending concepts that deserve your best hooks.
             </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Search className="w-4 h-4 text-primary" /> How to Measure Hook Performance Using TikTok's Own Analytics
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              TikTok provides native analytics specifically for measuring hook effectiveness, documented in the TikTok Help Center under "Understanding your analytics." The 3-second view rate is accessible at Creator Tools → Analytics → tap any video → Video Details → Video Breakdown. This metric shows the percentage of viewers who watched at least three seconds — the earliest and most direct measure of how well your hook performed during the initial distribution window.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Use these metrics to run structured hook A/B tests: film the same core content with two or three different opening hooks, post them on separate days, and compare 3-second view rates after 48 hours. The hook with the highest rate wins and becomes your baseline formula for future videos in that content category. TikTok's Analytics also shows a video retention curve — the point where viewers drop off tells you not just whether your hook worked, but whether the pacing of your body content is holding attention after the opening.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Beyond individual video analytics, TikTok's Creator Academy (learn.tiktok.com) publishes guidance on interpreting video metrics and improving content quality. Combining the AI-generated hooks from this tool with systematic analytics review inside TikTok Studio creates a feedback loop: generate and test, measure with TikTok's official metrics, identify the winning formula, and iterate.
+            </p>
+
+            {/* Citation capsule */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Sources:</strong>{" "}
+                <a href="https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Newsroom — How TikTok recommends videos for you</a>
+                {" "}documents completion rate and engagement as primary distribution signals.{" "}
+                <a href="https://support.tiktok.com/en/using-tiktok/growing-your-audience/understanding-your-analytics" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Help Center — Understanding your analytics</a>
+                {" "}documents the 3-second view rate and Video Details breakdown.{" "}
+                <a href="https://www.tiktok.com/business/en-US/blog/short-form-video-advertising" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok for Business</a>
+                {" "}confirms completion rate as a key performance signal.{" "}
+                <a href="https://www.statista.com/statistics/1299771/tiktok-global-mau/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Statista (2024)</a>
+                {" "}— TikTok monthly active users: 1.7 billion globally.
+              </p>
+            </div>
           </div>
         </div>
       </section>

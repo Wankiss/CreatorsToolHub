@@ -223,31 +223,39 @@ function SliderInput({ label, value, min, max, step, onChange, format }: {
 const FAQ_ITEMS = [
   {
     q: "How much does YouTube pay per 1,000 views?",
-    a: "YouTube pays creators based on RPM (Revenue per 1,000 views), which typically ranges from $0.50 to $10+ depending on your niche, audience location, and ad engagement. Finance and business channels can earn $5–$15 RPM, while entertainment or gaming channels typically earn $0.50–$3 RPM. YouTube keeps approximately 45% of ad revenue.",
+    a: "YouTube pays creators based on RPM (Revenue Per Mille — revenue per 1,000 views), not CPM. YouTube's Help Center confirms that creators receive 55% of ad revenue generated on their content, with YouTube retaining 45%. RPM varies widely by niche and audience location: finance and business channels in Tier 1 countries typically achieve $4–$15 RPM, while entertainment and gaming channels more commonly see $1–$3 RPM (Influencer Marketing Hub, 2025). These figures represent what creators actually receive — after YouTube's cut and accounting for non-monetized views — not the advertiser-side CPM, which is always higher.",
+  },
+  {
+    q: "What are the YouTube Partner Program requirements to start earning?",
+    a: "YouTube's Help Center specifies two YPP tiers. For the standard tier (full ad revenue): 1,000 subscribers plus 4,000 valid public watch hours in the past 12 months, OR 1,000 subscribers plus 10 million valid public Shorts views in the past 90 days. For the lower-tier (fan-funding features only — Super Thanks, Super Chats, channel memberships, and Shopping): 500 subscribers plus 3 public uploads in 90 days plus either 3,000 watch hours or 3 million Shorts views. Both tiers require compliance with YouTube's monetization policies and an approved AdSense account. The lower-tier unlocks fan-funding but not ad revenue — ad revenue requires the full 1,000-subscriber threshold.",
   },
   {
     q: "How much does a YouTuber with 1 million views make?",
-    a: "A YouTuber with 1 million monthly views can earn anywhere from $500 to $15,000+ per month from ad revenue alone, depending on niche and audience geography. Finance creators in Tier 1 countries could earn $8,000–$15,000, while entertainment channels with a global audience might earn $700–$2,000 from the same view count.",
+    a: "With 1 million monthly views, ad revenue estimates range from roughly $1,000 to $15,000+ per month — primarily driven by niche and audience geography, not view count alone. A finance channel with a US-based audience might achieve $8,000–$15,000. The same view count on a gaming or entertainment channel with a global audience typically generates $1,000–$3,000. These figures use the creator's 55% revenue share (YouTube Help Center) and niche CPM ranges from Influencer Marketing Hub's 2025 benchmarks. The calculator above lets you model your specific niche and audience tier for a personalized estimate.",
   },
   {
     q: "What is the difference between CPM and RPM on YouTube?",
-    a: "CPM (Cost Per Mille) is what advertisers pay per 1,000 ad impressions. RPM (Revenue Per Mille) is what creators actually receive per 1,000 video views after YouTube takes its 45% cut and accounting for the monetized play rate. RPM is typically 30–60% lower than CPM.",
+    a: "CPM (Cost Per Mille) is what advertisers pay per 1,000 ad impressions — this is the advertiser-side figure and always higher than what creators receive. RPM (Revenue Per Mille) is what creators actually earn per 1,000 total video views, after two adjustments: YouTube retains 45% of ad revenue (confirmed by YouTube's Help Center), and not every view generates an ad (the 'monetized play rate' — typically 40–70% of views). The result is that RPM is substantially lower than CPM: a $10 CPM niche might yield $3–$5 RPM after YouTube's cut and non-monetized views. Our calculator uses RPM — the figure that actually matters for creator income planning — rather than the inflated advertiser-side CPM.",
   },
   {
     q: "What is a good YouTube RPM?",
-    a: "A good YouTube RPM depends on your niche. For most creators, $2–$5 RPM is average. Finance, investing, and business channels can achieve $8–$20 RPM, while gaming or entertainment channels typically see $1–$3 RPM. Tier 1 audience locations significantly boost RPM.",
+    a: "RPM benchmarks vary substantially by niche. Influencer Marketing Hub's 2025 data shows finance and investing channels averaging the highest RPMs ($8–$20+), followed by business/marketing ($6–$15), tech ($4–$12), health/fitness ($3–$8), education ($3–$8), and gaming/entertainment ($1–$3). These are creator-side RPM figures — after YouTube's 45% cut. Tier 1 audience geography (US, UK, Canada, Australia) produces significantly higher RPMs than Tier 3–4 markets for the same niche because advertisers pay more per impression to reach those audiences. The calculator models both niche and geography simultaneously to give a combined RPM estimate.",
   },
   {
     q: "How does audience location affect YouTube earnings?",
-    a: "Audience location has a massive impact on YouTube earnings. Advertisers pay much more to reach viewers in the USA, UK, Canada, and Australia (Tier 1) than in developing markets. A channel with the same view count can earn 3–4x more revenue with a Tier 1 audience compared to a Tier 3 or Tier 4 audience.",
+    a: "Audience geography is one of the two biggest drivers of YouTube ad revenue (alongside niche). Advertisers pay a premium to reach viewers in high-income markets: US, UK, Canada, and Australia (Tier 1) command the highest CPMs because their audiences have higher purchasing power and advertiser demand is most competitive. The same video generating 100,000 views from a Tier 1 audience can earn 3–4× more than the identical view count from a Tier 3 audience (India, Philippines, Indonesia) or 4–5× more than Tier 4 (parts of Africa, South Asia). Creators can see their audience geography in YouTube Studio's Analytics tab under 'Geography' — this data helps you understand whether a niche or content strategy shift toward Tier 1 audiences would meaningfully impact revenue.",
   },
   {
     q: "Can YouTubers earn money beyond ad revenue?",
-    a: "Yes — most successful YouTubers earn the majority of their income outside of ads. Additional revenue streams include brand sponsorships ($20–$50 per 1,000 views), affiliate marketing commissions, channel memberships, merchandise sales, and digital products. Our calculator includes estimates for these income sources.",
+    a: "Yes — and for most established creators, ad revenue is only a portion of total income. The main additional streams: (1) Brand sponsorships — rates vary widely based on niche, engagement rate, and audience demographics; finance and tech niches command the highest sponsorship CPMs. (2) Affiliate marketing — commissions from product recommendations, often 5–30% of referred sales. (3) Channel memberships — requires YPP eligibility and 1,000 subscribers (YouTube Help Center); members pay a recurring monthly fee for perks. (4) Super Thanks and Super Chats — viewers pay to highlight comments on standard videos or during live streams. (5) Merchandise — YouTube's Shopping integration lets eligible creators sell products directly from the channel. Our calculator models sponsorships, affiliates, and memberships alongside ad revenue for a full income picture.",
+  },
+  {
+    q: "Why is my actual YouTube revenue different from calculator estimates?",
+    a: "Several variables affect real-world revenue that no calculator can predict precisely: (1) Seasonal ad demand — Q4 (October–December) consistently sees the highest digital advertising spending of the year, per IAB annual data, as brands push holiday budgets. January–February are historically the lowest. (2) Content-specific engagement — advertisers pay higher CPMs for videos where viewers watch through longer and engage with ads, not just any view. (3) Ad format mix — skippable ads, non-skippable ads, bumper ads, and display ads pay differently. (4) Your specific audience demographics beyond geography — age, household income, and purchasing intent all affect what advertisers bid. Use this calculator for planning ranges, not precise predictions — the low-to-high range intentionally captures this real-world variability.",
   },
   {
     q: "Is this YouTube money calculator accurate?",
-    a: "This calculator provides realistic estimates based on industry-standard CPM ranges, YouTube's 45% revenue share, typical monetized play rates, and geographic multipliers. Actual earnings vary based on your specific content, engagement rate, seasonal ad demand, and audience demographics. Use these figures as a planning guide rather than a guarantee.",
+    a: "This calculator provides realistic planning estimates using YouTube's confirmed 55/45 revenue split (YouTube Help Center), niche CPM ranges from Influencer Marketing Hub's 2025 benchmarks, and geographic tier multipliers derived from industry ad-spend data. It calculates RPM — the creator-side figure — rather than inflated advertiser CPM. Actual earnings vary based on your specific content quality, audience engagement, seasonal ad demand, and exact viewer demographics. Treat the low-to-high range as a realistic band for planning purposes, and use your own YouTube Studio Analytics RPM data once you're monetized for a personalized baseline.",
   },
 ];
 
@@ -727,7 +735,7 @@ export function YouTubeMoneyCalculatorTool() {
               <Zap className="w-4 h-4 text-primary" /> How This YouTube Money Calculator Works
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              This YouTube CPM calculator uses realistic industry data to estimate creator earnings. It calculates RPM (Revenue per 1,000 views) by combining your channel's niche CPM range, audience geographic multiplier, and monetized play rate — then applies YouTube's standard 45% revenue share. The result is a low, average, and high monthly earnings range that reflects real-world creator income rather than inflated advertiser-side CPM figures.
+              YouTube's Help Center confirms creators receive 55% of all ad revenue generated on their content — the single most important number in any earnings estimate. This calculator applies that exact figure alongside niche-specific CPM benchmarks from Influencer Marketing Hub's 2025 research and four geographic tier multipliers to compute RPM (Revenue Per Mille — what you earn per 1,000 total video views). The result is a low, average, and high monthly earnings range that reflects real creator income rather than the inflated advertiser-side CPM figures most other calculators display.
             </p>
           </div>
           <div>
@@ -735,19 +743,38 @@ export function YouTubeMoneyCalculatorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> Why RPM Matters More Than CPM
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Most YouTube earnings calculators show CPM — what advertisers pay — which is much higher than what creators actually receive. Our calculator uses RPM (what creators earn after YouTube's cut and accounting for non-monetized plays), giving you a far more accurate estimate of your real YouTube income. Finance and business creators in Tier 1 countries can achieve $8–$20 RPM, while gaming or entertainment channels typically see $1–$3 RPM.
+              Finance and investing channels in Tier 1 markets typically achieve $8–$20 RPM, while gaming and entertainment channels see $1–$3 RPM, according to Influencer Marketing Hub's 2025 benchmarks — a difference of 5–10× driven entirely by niche and audience geography. Most YouTube earnings calculators display CPM (the advertiser-side figure), which is always higher than what creators receive. RPM accounts for two reductions: YouTube retains 45% of ad revenue (YouTube Help Center), and only 40–70% of total views actually generate an ad impression. Our calculator uses RPM throughout — the only figure that matters for real income planning.
             </p>
           </div>
           <div>
+            <h3 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
+              <Shield className="w-4 h-4 text-primary" /> How Revenue Seasonality Affects Your YouTube Earnings
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">
+              The calendar is one of the most predictable drivers of YouTube revenue variance. Q4 (October–December) consistently produces the highest CPMs of the year — per IAB annual ad spend data, Q4 is the peak digital advertising quarter across the industry as brands push holiday budgets. January and February are historically the lowest months. This means a creator averaging $3,000/month in Q3 can realistically see $3,800–$4,500 from the same content volume in December, then drop below $2,500 in January. The practical implication: schedule your most monetizable, longest-form content for October–December to capture peak CPMs, and use Q1 for audience-building series that don't depend solely on ad revenue.
+            </p>
+            <div className="mt-4 bg-primary/5 border border-primary/20 rounded-2xl p-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Sources used in this calculator:</strong>{" "}
+                YouTube's{" "}
+                <a href="https://support.google.com/youtube/answer/72902" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">Help Center</a>{" "}
+                confirms creators receive 55% of ad revenue (YouTube retains 45%). Niche RPM ranges — from $1–$3 for entertainment to $8–$20+ for finance — are sourced from{" "}
+                <a href="https://influencermarketinghub.com/youtube-money-calculator/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">Influencer Marketing Hub's 2025 benchmarks</a>.{" "}
+                Geography multipliers reflect the reality that Tier 1 audiences (US, UK, Canada, Australia) generate up to 4× more ad revenue than Tier 4 markets for identical view counts. Q4 peak seasonality is per{" "}
+                <a href="https://www.iab.com/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">IAB annual digital ad spend data</a>.
+              </p>
+            </div>
+          </div>
+          <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-              <Shield className="w-4 h-4 text-primary" /> What This Tool Includes
+              <Check className="w-4 h-4 text-primary" /> What This Tool Includes
             </h3>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
-                "Niche-specific CPM ranges based on real advertiser data",
-                "4-tier geographic multiplier for audience location",
-                "RPM calculation with YouTube's 45% revenue share",
-                "Sponsorship income estimates ($20–$100 per 1K views)",
+                "Niche-specific CPM ranges based on Influencer Marketing Hub 2025 data",
+                "4-tier geographic multiplier for audience location impact",
+                "RPM calculation with YouTube's confirmed 45% revenue share",
+                "Sponsorship income modeling ($10–$100 per 1K views)",
                 "Affiliate marketing revenue projection",
                 "Channel membership income estimator",
                 "Monthly and yearly earnings with low/average/high ranges",
@@ -773,13 +800,13 @@ export function YouTubeMoneyCalculatorTool() {
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
           {[
-            "Diversify beyond AdSense — top creators earn only 40–60% from ads; the rest comes from sponsorships, affiliates, memberships, and merchandise.",
-            "Finance, tech, and SaaS niches consistently earn 5–10× more ad revenue per 1,000 views than entertainment or gaming — niche selection matters enormously.",
-            "Channel memberships become viable around 10,000 subscribers — even a 1% conversion at $4.99/month adds meaningful, predictable recurring monthly income.",
-            "Sponsorship rates typically run $20–$50 per 1,000 views — always negotiate based on your engaged audience and niche, not raw view count alone.",
-            "Enable Super Thanks, Super Chats (if streaming), and merch shelf once eligible — these passive income layers compound with zero extra content effort.",
-            "Q4 ad budgets spike 30–50% — schedule your most monetizable, highest-quality content for November and December to capitalize on peak advertiser spending.",
-            "Focus on audience retention above 50% — advertisers pay more for content where viewers genuinely watch through, rewarding longer engagement with higher CPMs.",
+            "Diversify beyond AdSense — for most established creators, brand sponsorships, affiliate commissions, channel memberships, and merchandise together match or exceed ad revenue. The calculator's Additional Income Sources panel lets you model each stream side by side.",
+            "Finance, tech, and business channels typically achieve $8–$20 RPM versus $1–$3 RPM for gaming and entertainment, per Influencer Marketing Hub's 2025 benchmarks — a 5–10× gap for identical view counts. Niche selection is the single biggest lever on your YouTube ad earnings.",
+            "Channel memberships require 1,000 subscribers and full YPP eligibility to activate (YouTube Help Center) — but even a 0.5–1% conversion rate at the platform minimum price adds predictable recurring income that doesn't require producing extra content.",
+            "Sponsorship rates vary widely by niche and engagement. The calculator models $10–$100 per 1,000 views — negotiate based on your audience's engagement rate and demographic fit to the brand, not raw view count alone.",
+            "Enable Super Thanks, Super Chats (if live streaming), and the merch shelf once eligible — these income layers require no extra content and accumulate alongside ad revenue with every video you publish.",
+            "Q4 (October–December) consistently drives the highest CPMs of the year as brands push holiday budgets, per IAB annual ad spend data. Schedule your most monetizable, longest-form content for November and December to capture peak advertiser demand.",
+            "Audience retention directly affects your CPM — advertisers bid more for placements on videos where viewers watch through, because those viewers actually see the ads. YouTube Creator Academy identifies watch time and retention as the primary monetization and ranking signals.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
               <Zap className="w-4 h-4 text-primary mt-0.5 shrink-0" />

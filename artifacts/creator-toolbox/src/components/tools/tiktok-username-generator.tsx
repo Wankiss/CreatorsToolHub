@@ -22,7 +22,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How many characters can a TikTok username have?",
-    a: "TikTok usernames can be between 2 and 24 characters long. However, just because TikTok allows 24 characters doesn't mean you should use them all. Research on social media handles consistently shows that usernames under 15 characters have significantly higher recall rates — viewers can remember and search for shorter names more easily after seeing your content. For maximum discoverability and word-of-mouth growth, aim for a username between 6 and 15 characters. This length is short enough to be memorable, long enough to be distinctive, and stays fully visible in TikTok's comment section and duet/stitch overlays without being truncated.",
+    a: "TikTok usernames can be between 2 and 24 characters long per TikTok's official guidelines (TikTok Help Center). However, just because TikTok allows 24 characters doesn't mean you should use them all. Shorter usernames are consistently easier for viewers to remember, type correctly, and share verbally — all of which directly impact how effectively your handle spreads through word-of-mouth. For maximum discoverability and organic growth, aim for a username between 6 and 15 characters. This length is short enough to be memorable, long enough to be distinctive, and stays fully visible in TikTok's comment section and duet/stitch overlays without being truncated.",
   },
   {
     q: "Should my TikTok username match my niche?",
@@ -30,11 +30,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "Can I change my TikTok username after setting it?",
-    a: "Yes, TikTok allows you to change your username — but there are consequences worth understanding before you do. TikTok's algorithm can penalize handle changes with temporary reach drops that last 2–4 weeks after the change, as the platform re-indexes your profile and content under the new identifier. You also lose any brand recognition you've built under your old name, and any external links, @mentions in comments, or influencer content that tagged your old handle will no longer connect to your profile. For these reasons, it's worth taking the time to choose the right username from the start — which is exactly what this generator is designed to help you do. If you're changing your name because your current handle is weak, the ideal time to do it is before you have a significant following rather than after.",
+    a: "Yes, TikTok allows you to change your username — but with two important restrictions worth understanding. First, TikTok enforces a 30-day cooldown between username changes, so once you change your handle, you're locked in for at least a month (TikTok Help Center). Second, many creators report temporary reach drops after a username change as the platform re-indexes their profile under the new identifier. You also lose any brand recognition built under your old handle, and external links, @mentions in comments, and influencer content that tagged your previous name will no longer connect to your profile. For these reasons, it's worth getting your username right from the start — which is exactly what this generator helps you do. If you do need to change it, do so before you have a significant following rather than after.",
   },
   {
     q: "Does this tool check if a TikTok username is available?",
     a: "This generator creates username ideas but does not connect to TikTok's live availability database. To check availability, take your favorite suggestions from this tool and search for them directly in the TikTok app — go to the search bar and type the username to see if an account exists. You can also try opening TikTok.com/@yourusername in a browser. If the profile page doesn't exist, the name is likely available. We recommend shortlisting your top 3–5 names from this generator, then checking all of them for availability on TikTok before also checking Instagram, YouTube, and X (Twitter) to secure a consistent cross-platform handle.",
+  },
+  {
+    q: "What are TikTok's official username rules?",
+    a: "TikTok's official username rules, per the TikTok Help Center, are: usernames must be between 2 and 24 characters; they can contain letters, numbers, underscores (_), and periods (.); they cannot contain spaces; they cannot start with a period or underscore; and they cannot end with a period. TikTok also reserves the right to reclaim usernames that violate community guidelines or impersonate other users. Critically, you can only change your username once every 30 days — so whichever handle you claim, you're committed to it for at least a month before you can switch. This 30-day lock is the strongest argument for taking username selection seriously before you hit publish on your first video. Use this generator to explore your full range of options, then check availability and claim your chosen handle the same day.",
   },
   {
     q: "What are the best TikTok username ideas for different niches?",
@@ -100,7 +104,7 @@ const TIPS = [
   },
   {
     num: 2,
-    tip: "Avoid underscores and numbers unless your core brand uses them — clean alphanumeric names have 40% higher recall after a viewer sees your content.",
+    tip: "Avoid underscores and numbers unless your core brand uses them — clean alphanumeric-only usernames are significantly easier for viewers to remember and type correctly, which directly affects how well your handle travels through word-of-mouth.",
   },
   {
     num: 3,
@@ -316,12 +320,10 @@ export function TikTokUsernameGeneratorTool() {
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3">What Makes a TikTok Username Great</h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              A TikTok username is the single piece of text that follows you everywhere on the platform
-              — in search results, comment sections, Duets, Stitches, and on your profile. Most creators
-              make the mistake of choosing a username based on availability alone, settling for something
-              like "user847261" or "johnsmith_official_2023". These usernames are invisible. They're
-              impossible to remember after one glance, they don't communicate your niche, and they
-              actively hurt your ability to build a recognizable brand even when your content is strong.
+              TikTok allows usernames between 2 and 24 characters, but the platform's best-performing creator handles consistently stay under 15 — short enough to recall, type, and share verbally without friction (TikTok Help Center). A username is the one piece of text that follows you everywhere on TikTok: search results, comment sections, Duets, Stitches, and your profile. Choosing it well is a one-time decision with permanent compounding returns.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Most creators make the mistake of choosing a username based on availability alone, settling for something like "user847261" or "johnsmith_official_2023". These usernames are invisible. They're impossible to remember after one glance, they don't communicate your niche, and they actively hurt your ability to build a recognizable brand even when your content is strong.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
               The best TikTok usernames pass three instant tests. First, can someone remember it the
@@ -343,13 +345,7 @@ export function TikTokUsernameGeneratorTool() {
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3">Why Your Username Directly Affects TikTok Growth</h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              TikTok is a discovery platform. Unlike Instagram, where most of your audience comes from
-              followers you've already converted, TikTok pushes content to people who have never heard
-              of you — and when they see your video, the very first thing they look at after the content
-              itself is your username. A strong username creates an instant subconscious response:
-              "I know what this person does, and I want to see more." A weak username creates friction:
-              "Who is this?" That fraction-of-a-second impression directly affects your profile visit
-              rate, and your profile visit rate directly affects your follower conversion rate.
+              TikTok reached 1.7 billion monthly active users globally as of 2024 (Statista), making it the most discovery-driven platform at scale. Unlike Instagram — where most new followers come from people already in your orbit — TikTok pushes content to strangers who have never heard of you. The first thing they see after your video is your username. A strong handle creates an instant response: "I know what this person does, and I want more." A weak one creates friction: "Who is this?" That fraction-of-a-second impression directly shapes your profile visit rate, and your profile visit rate directly shapes your follower conversion rate.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
               Your username also affects searchability. When someone hears about you from a friend and
@@ -391,6 +387,27 @@ export function TikTokUsernameGeneratorTool() {
                   <span className="text-sm text-muted-foreground">{text}</span>
                 </div>
               ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3">How to Claim Your Username and Lock It Down Cross-Platform</h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Once you have a shortlist from this generator, check availability directly in the TikTok app by searching each handle in the search bar. If no account appears, the username is likely unclaimed. You can also open TikTok.com/@yourusername in a browser — if the profile page is empty, the name is available. Check your top three to five options rather than your single favorite, since some will already be taken.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              The moment you find an available handle you want, claim it the same day — then immediately secure the same username on Instagram, YouTube, and X (Twitter). Cross-platform consistency is one of the highest-leverage brand decisions a creator can make. When your handle matches everywhere, every piece of content you publish on any platform reinforces the same name. Viewers who find you on TikTok can locate you on YouTube without effort. Journalists, brand partners, and podcast hosts can tag you accurately across platforms. The alternative — different handles on different platforms — leaks every referral that tries to find you.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Remember TikTok's 30-day change restriction: once you update your username, you can't change it again for a month. This makes the upfront selection process the highest-value use of a few minutes in your creator career. Use this generator to explore thoroughly, then commit confidently.
+            </p>
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Sources:</strong>{" "}
+                <a href="https://support.tiktok.com/en/using-tiktok/followers-and-following/changing-your-username" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Help Center — Username Rules and Change Policy</a>{" · "}
+                <a href="https://support.tiktok.com/en/using-tiktok/creating-videos/usernames-on-tiktok" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Help Center — Official Username Guidelines (2–24 characters)</a>{" · "}
+                <a href="https://www.statista.com/statistics/1327116/number-of-monthly-active-tiktok-users-worldwide/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Statista 2024 — TikTok Monthly Active Users (1.7B)</a>
+              </p>
             </div>
           </div>
         </div>

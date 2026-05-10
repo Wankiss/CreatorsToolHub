@@ -31,11 +31,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "What is the best Instagram posting time in 2026?",
-    a: "The best Instagram posting time depends on two factors: your audience's location and time zone, and your specific goal. For general guidance, the highest-engagement windows are Tuesday through Friday, 9–11am and 6–9pm in your audience's primary time zone. Morning windows (9–11am) produce higher save rates because users are in a more deliberate browsing mindset. Evening windows (6–9pm) produce higher comment rates because users are more present and conversational. Saturday and Sunday mornings can produce strong reach for accounts with global audiences where weekend behaviour varies. The single most reliable method is to check your Instagram Professional Dashboard under Audience to find when your specific followers are most active, then post 30–60 minutes before the peak to allow the algorithm time to begin distributing before engagement velocity peaks. This planner generates goal-optimised posting times for every scheduled post.",
+    a: "The best Instagram posting time depends on your specific audience — not generic industry benchmarks. Instagram's own guidance, documented in the Professional Dashboard, directs creators to check the Audience section under Insights to find when their particular followers are most active. The path is: Professional Dashboard → Total Followers → Most Active Times. This shows you hour-by-hour and day-by-day activity for your account specifically, which is more reliable than any third-party average because it reflects your actual follower base rather than a composite of all Instagram users. Morning windows generally see more deliberate browsing behaviour, while evening windows tend to see higher comment activity — but your own Insights data should always override general guidance. This planner generates goal-optimised posting times as a starting point; adjust them to match your Professional Dashboard data once you have at least 90 days of posting history.",
   },
   {
     q: "What type of content performs best on Instagram in 2026?",
-    a: "In 2026, the three highest-performing content types on Instagram serve different objectives and should be used in combination rather than isolation. Reels generate the most reach — they are the primary format through which Instagram distributes content to non-followers via Explore, the Reels tab, and interest-based home feed recommendations. A strong Reel can expose your account to tens of thousands of new potential followers in 48 hours. Carousels generate the most saves and shares — they are the strongest format for educational content, step-by-step guides, and list posts, and consistently earn 3–5× more saves than static posts on equivalent topics. Saves are Instagram's highest-weight ranking signal for Explore placement. Stories generate the strongest existing-audience relationships — polls, question boxes, and behind-the-scenes updates create daily micro-touchpoints that convert passive followers into engaged community members. This planner distributes your posting schedule across all three formats at ratios optimised for your selected goal.",
+    a: "In 2026, the three highest-performing content types on Instagram serve different objectives and should be used in combination rather than isolation. Reels generate the most reach — they are the primary format through which Instagram distributes content to non-followers via Explore, the Reels tab, and interest-based home feed recommendations, as documented in Meta's Transparency Center Reels ranking documentation. Carousels generate strong saves and shares — they are well-suited for educational content, step-by-step guides, and list posts, and tend to earn meaningfully more saves than static posts on equivalent topics because viewers save them for future reference. Saves are among the engagement signals Instagram uses to determine Explore eligibility. Stories generate the strongest existing-audience relationships — polls, question boxes, and behind-the-scenes updates create daily micro-touchpoints that convert passive followers into engaged community members. This planner distributes your posting schedule across all three formats at ratios optimised for your selected goal.",
   },
   {
     q: "How do I use content pillars to plan an Instagram calendar?",
@@ -47,11 +47,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "What is the difference between Reels, Carousels, and Stories for strategy?",
-    a: "Each Instagram format serves a distinct role in the audience relationship funnel and should be used for different strategic objectives. Reels are the top-of-funnel format — their primary job is reach and discoverability. Instagram surfaces Reels to non-followers through Explore, the Reels tab, and interest-based feed recommendations. Use Reels when your goal is attracting new followers, going viral in your niche, or maximising overall impressions. Carousels are the mid-funnel format — their primary job is depth, authority, and save-driving. A well-structured 7–10 slide carousel delivers more value than a single post on the same topic and generates 3–5× more saves. Use Carousels for educational content, step-by-step guides, and list posts. Stories are the relationship layer — they don't reach non-followers and don't generate saves or shares, but they create something more valuable for retention: daily micro-engagement with your existing audience that builds the sense of a direct relationship. Use Stories for polls, behind-the-scenes, soft CTAs, and community-building that converts passive followers into loyal ones.",
+    a: "Each Instagram format serves a distinct role in the audience relationship funnel and should be used for different strategic objectives. Reels are the top-of-funnel format — their primary job is reach and discoverability. Meta's Transparency Center documents that Instagram surfaces Reels to non-followers through Explore, the Reels tab, and interest-based feed recommendations based on watch-through and engagement signals. Use Reels when your goal is attracting new followers, maximising impressions, or reaching new audiences in your niche. Carousels are the mid-funnel format — their primary job is depth, authority, and save-driving. A well-structured 7–10 slide carousel delivers more value than a single post on the same topic and earns meaningfully more saves because viewers bookmark multi-slide posts for future reference. Use Carousels for educational content, step-by-step guides, and list posts. Stories are the relationship layer — they don't reach non-followers and don't generate saves or shares, but they create something more valuable for retention: daily micro-engagement with your existing audience that builds the sense of a direct relationship. Use Stories for polls, behind-the-scenes, soft CTAs, and community-building that converts passive followers into loyal ones.",
   },
   {
     q: "Is this Instagram content planner free to use?",
     a: "Yes — this Instagram Content Planner is completely free with no account required, no usage limits, and no premium tier. Enter your niche, target audience, posting frequency, primary goal, and content style, and the AI generates a complete 4-week content calendar with day-by-day posting plans, topic suggestions, hooks, post types, goals, and optimal posting times in seconds. The full calendar includes a separate Story plan with 3–5 ideas per week, experience-level-specific growth tips, and a 4-week narrative arc. You can copy any individual week to clipboard as formatted text ready for Notion, Google Docs, or your scheduling tool. Regenerate as many times as needed for fresh topic variations on the same structure, with no limits.",
+  },
+  {
+    q: "What does Instagram officially recommend for content planning and posting frequency?",
+    a: "Instagram's official creator guidance is published at creators.instagram.com — a dedicated resource hub maintained by Instagram covering content formats, growth strategy, and monetisation. The platform's consistent position, reinforced through Adam Mosseri (Head of Instagram) in his public communications, is that consistency matters for account growth and that using multiple formats (Reels for reach, Carousels for saves, Stories for relationship-building) serves different distribution surfaces simultaneously. For posting times specifically, Instagram's own recommended method — documented in the Professional Dashboard — is to check the Most Active Times section under Insights → Total Followers rather than relying on third-party averages, because your audience's peak activity hours vary by account, niche, and geography. Instagram does not publish an official recommended posting frequency, but its general guidance for creators focuses on sustainable consistency over volume.",
   },
 ];
 
@@ -254,6 +258,15 @@ export function InstagramContentPlannerTool() {
               <Zap className="w-4 h-4 text-primary" /> Why Content Planning Beats Posting on Inspiration
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              Instagram's own guidance — published through creators.instagram.com and reinforced by
+              Adam Mosseri, Head of Instagram — consistently emphasises posting consistency as a key
+              factor in how accounts grow over time. On a platform with{" "}
+              <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">2 billion monthly active users</a>{" "}
+              globally (Statista, 2024), the accounts that surface in recommendations aren't always
+              the most talented — they're the ones the algorithm has learned to trust through sustained,
+              predictable posting behaviour.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               Instagram growth is not random. The accounts that grow consistently are almost never the
               ones with the most creative ideas or the most natural talent on camera. They are the ones
               with a system. Content planning is that system. When you know exactly what you're posting
@@ -289,6 +302,14 @@ export function InstagramContentPlannerTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> The Content Type Distribution Strategy — Why 4 Formats Are Better Than 1
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              Meta's Transparency Center separately documents how Instagram ranks content in Feed,
+              Explore, and Reels — and the signals that drive distribution differ meaningfully by
+              format. Watch-through rate matters most for Reels; saves and shares matter most for
+              Feed posts and Carousels; interaction rate with polls and stickers matters most for
+              Stories. Using only one format means optimising for only one set of distribution signals
+              and ignoring the rest of the funnel.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               Every Instagram format exists to serve a different stage of the audience relationship
               funnel — optimising only one format means optimising only one part of the funnel. Reels
               are the top-of-funnel format: they reach people who don't follow you through Instagram's
@@ -298,12 +319,12 @@ export function InstagramContentPlannerTool() {
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
               Carousels are the mid-funnel format — they deliver depth, build authority, and generate
-              the two signals Instagram weights most heavily: saves and shares. A well-constructed
-              carousel with 7–10 slides consistently achieves 3–5× more saves than a single static
-              image on the same topic, and saves are the strongest signal Instagram uses to determine
-              Explore eligibility. Stories are an entirely separate layer — they don't appear in feeds
-              and aren't distributed to non-followers, but they generate daily micro-engagement with
-              your existing audience that builds the sense of a direct relationship.
+              saves and shares. A well-constructed carousel with 7–10 slides earns meaningfully more
+              saves than a single static image on the same topic because viewers bookmark multi-slide
+              reference posts for later — and saves are among the strongest signals Instagram uses to
+              determine Explore eligibility. Stories are an entirely separate layer — they don't appear
+              in feeds and aren't distributed to non-followers, but they generate daily micro-engagement
+              with your existing audience that builds the sense of a direct relationship.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               This planner distributes your posting schedule across Reels, Carousels, Static posts,
@@ -311,6 +332,57 @@ export function InstagramContentPlannerTool() {
               working all parts of the funnel simultaneously, not accidentally over-indexing on one
               format at the expense of others.
             </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-primary" /> What Instagram's Own Resources Say About Content Planning and Posting Frequency
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Instagram provides official guidance for creators through creators.instagram.com — a
+              dedicated resource hub covering strategy, content formats, monetisation, and growth.
+              The platform's consistent position, reinforced through Adam Mosseri's public
+              communications, is that consistency of posting matters for account health, and that
+              using multiple content formats (Reels, Carousels, Stories) serves different audience
+              segments and distribution surfaces simultaneously.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Meta's Transparency Center documentation on Instagram's ranking systems covers how
+              content is distributed in Feed, Explore, and the Reels tab separately — each with its
+              own ranking signals. The documentation confirms that the algorithm uses engagement
+              signals from each piece of content to decide whether to expand its distribution beyond
+              the initial audience. This means the planning decisions you make — which format to use,
+              what goal a post serves, and when to post — directly determine which ranking signals
+              your content can generate.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              The Professional Dashboard's Most Active Times feature (under Insights → Total
+              Followers) gives creators platform-native data about when their specific audience is
+              online — Instagram's own recommended method for choosing posting times over any
+              third-party generalisation. Reviewing this data alongside your top-performing content
+              types (viewable under Content You've Shared in Insights) gives you everything needed
+              to make informed planning decisions without relying on external tools.
+            </p>
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong>Key sources:</strong>{" "}
+                <a href="https://creators.instagram.com" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  creators.instagram.com
+                </a>{" "}
+                is Instagram's official creator resource hub covering content strategy, format
+                guidance, and growth advice. Meta's{" "}
+                <a href="https://transparency.fb.com/features/ranking-and-content/type-of-content/instagram-feed/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  Transparency Center
+                </a>{" "}
+                documents how Instagram ranks Feed, Explore, and Reels content separately, with
+                different ranking signals for each format. Instagram Professional Dashboard's Most
+                Active Times (under Total Followers in Insights) is Instagram's own recommended
+                tool for identifying your audience's peak activity hours. Statista reported{" "}
+                <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  2 billion monthly active Instagram users
+                </a>{" "}
+                globally in 2024.
+              </p>
+            </div>
           </div>
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">

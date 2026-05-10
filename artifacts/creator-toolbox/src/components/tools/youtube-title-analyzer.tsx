@@ -20,11 +20,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "How long should a YouTube title be for best SEO performance?",
-    a: "The optimal YouTube title length is 50–60 characters. Titles in this range display in full across all surfaces — mobile search, desktop homepage, suggested video panels, and embedded players — without truncation. Titles below 40 characters often lack enough keyword and context information to rank competitively. Titles above 70 characters are cut off by YouTube's display, which means your most compelling hook or call-to-action may disappear precisely when a viewer is deciding whether to click. Our length score tracks your character count live and alerts you when you approach the truncation threshold.",
+    a: "The optimal YouTube title length is 47–60 characters. Briggsby's research into YouTube ranking factors identified 47–50 characters as the statistical sweet spot for ranking performance, while the full display window before truncation extends to roughly 60 characters across most surfaces. Titles in this range display in full on mobile search, desktop homepage, suggested video panels, and embedded players. Titles below 40 characters often lack enough keyword and context information to rank competitively. Titles above 70 characters are cut off mid-sentence, meaning your most compelling hook may disappear precisely when a viewer is deciding whether to click. Our length score tracks your character count live and flags both the under-length and over-length thresholds.",
   },
   {
     q: "What are power words and how do they improve YouTube CTR?",
-    a: "Power words are psychologically charged terms that trigger emotional responses and reduce click hesitation. Words like 'ultimate,' 'secret,' 'proven,' 'shocking,' and 'finally' activate curiosity, urgency, and authority signals in viewer psychology. Our analyzer maintains a niche-specific power word library because high-CTR language differs by content category — 'shocking' performs well in news and entertainment, while 'proven' and 'step-by-step' convert better in education and finance. Including even one strong power word in your title can improve CTR by 20–40% compared to a neutral title covering the same content.",
+    a: "Power words are psychologically charged terms that trigger emotional responses and reduce click hesitation. Words like 'ultimate,' 'secret,' 'proven,' 'shocking,' and 'finally' activate curiosity, urgency, and authority signals in viewer psychology. BuzzSumo's analysis of 100 million headlines found that emotionally resonant language consistently outperforms neutral, descriptive titles in engagement — a principle that applies directly to YouTube title CTR. Our analyzer maintains a niche-specific power word library because high-CTR language differs by content category — 'shocking' performs well in news and entertainment, while 'proven' and 'step-by-step' convert better in education and finance. The exact CTR lift from a single power word varies by niche, thumbnail quality, and topic — treat power words as one component of a strong title, not a guaranteed percentage improvement on their own.",
   },
   {
     q: "What is a curiosity gap and why does it boost YouTube clicks?",
@@ -49,6 +49,10 @@ const FAQ_ITEMS = [
   {
     q: "What is the virality engine and how is each score calculated?",
     a: "The Virality Engine measures three dimensions that our four-score system doesn't fully capture: Curiosity Gap strength (the information tension created by the title), Emotional Intensity (the charge and energy of the language used), and Title Uniqueness (how differentiated your title is from typical content in your niche). Curiosity Gap is scored by detecting 24+ proven psychological trigger phrase patterns. Emotional Intensity scores the cumulative charge of all power words, action verbs, and superlatives present. Uniqueness penalizes overused templates and rewards novel phrasing. Each metric is scored 0–100, and our AI engine is trained to produce suggestions that improve specific weak scores.",
+  },
+  {
+    q: "How does my YouTube title work with my thumbnail to boost click-through rate?",
+    a: "YouTube Creator Academy explicitly identifies the thumbnail as 'the most powerful marketing tool you have to grow your channel on YouTube' — but thumbnails and titles don't work independently. They form a combined first impression that viewers process in under a second. The most effective title and thumbnail pairs use one of two strategies: (1) Complement — the thumbnail shows the outcome visually while the title names it verbally (thumbnail: dramatic before/after transformation; title: 'I Changed One Habit and Lost 20 lbs'). (2) Curiosity gap — the thumbnail teases something the title doesn't fully explain, or vice versa, so the viewer must click to resolve the tension. Optimizing your title in isolation — even to a perfect score — will underperform if the thumbnail doesn't reinforce or contrast the title's promise. Use this analyzer to maximize your title's CTR signals, then treat the thumbnail as the visual answer to the question your title asks.",
   },
   {
     q: "Is the YouTube Title Analyzer free to use?",
@@ -232,31 +236,16 @@ export function YouTubeTitleAnalyzerTool() {
         <div className="space-y-8">
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Zap className="w-4 h-4 text-primary" /> Why Your YouTube Title Determines 80% of Your Video's Success
+              <Zap className="w-4 h-4 text-primary" /> Why Your YouTube Title Is the Highest-Leverage SEO Signal You Control
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Of all the elements that determine whether a YouTube video succeeds or fails, the title carries
-              disproportionate weight. It affects three critical metrics simultaneously: search ranking (SEO),
-              click-through rate (CTR), and audience retention — through the expectation setting a title creates.
-              A video with average content but an outstanding title will consistently outperform a great video
-              with a weak title, because the weak-titled video never gets seen. YouTube's own research indicates
-              that CTR improvement directly correlates with algorithmic distribution — a video earning 7% CTR
-              gets dramatically more impressions than one earning 4% CTR on the same topic.
+              A Backlinko analysis of 1.3 million YouTube videos found that keyword placement in the video title has the strongest correlation with ranking position of any single metadata element — placing title optimization above tags, descriptions, and engagement metrics as the first variable to get right before publishing. The title affects three critical outcomes simultaneously: search ranking (whether the algorithm surfaces your video for relevant queries), click-through rate (whether viewers choose your video over the alternatives it's shown alongside), and audience retention — through the expectation that your title sets and whether the video delivers on it.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Our AI-powered title analyzer scores your title on four independently weighted dimensions: SEO
-              effectiveness (keyword placement and relevance), CTR potential (power words, curiosity gaps,
-              emotional triggers, and formatting), readability (clarity and cognitive ease), and length
-              optimization (ideal 50–60 characters). The virality engine then applies three additional
-              AI-driven measures — curiosity gap strength, emotional intensity, and title uniqueness — that
-              capture the variables most closely associated with viral performance across all niches.
+              YouTube Creator Academy confirms that CTR directly influences how broadly the algorithm distributes a video — a higher CTR in the first hours after upload signals to YouTube that viewers find the content compelling, triggering wider distribution. Our AI title analyzer scores four independently weighted dimensions — SEO effectiveness (keyword placement and relevance), CTR potential (power words, curiosity gaps, emotional triggers), readability (clarity and cognitive ease), and length optimization (ideal 47–60 characters per Briggsby's research) — so you can see exactly which dimension is limiting your title's performance.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Every score comes with specific, actionable improvement tips. Rather than telling you a title is
-              "weak," our AI tells you exactly which element to change and why — whether that's moving your
-              keyword earlier, adding a curiosity trigger, shortening by 12 characters, or swapping a neutral
-              verb for a higher-charge alternative. The five optimized title suggestions are generated fresh
-              by AI for your specific input, not pulled from templates.
+              Every score comes with specific, actionable improvement tips. Rather than telling you a title is "weak," our AI identifies exactly which element to change — whether that's moving your keyword earlier, adding a curiosity trigger, trimming to display fully on mobile, or swapping a neutral verb for a higher-charge alternative. The five optimized title suggestions are generated fresh for your specific input, not pulled from fixed templates.
             </p>
           </div>
           <div>
@@ -264,32 +253,17 @@ export function YouTubeTitleAnalyzerTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> The Four-Score System: SEO, CTR, Readability, and Length
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              <strong className="text-foreground">SEO Score</strong> measures whether your title is optimized
-              for YouTube and Google search discovery. The most important factor is keyword front-loading —
-              placing your primary search term in the first 40% of the title signals strong topical relevance
-              to both algorithms. A title starting with your keyword consistently outperforms the same title
-              with the keyword buried at the end. Our SEO score weights keyword presence at 40%, front-loading
-              at 30%, and natural language quality at 30%.
+              Front-loading your keyword — placing it within the first 40% of your title — is the most impactful single change you can make to a YouTube title's SEO performance. Backlinko's 1.3 million video study found title keyword placement to be the single strongest ranking correlator on YouTube, and Briggsby's research identified 47–50 characters as the optimal length for ranking performance, with the full display window extending to roughly 60 characters before truncation. These two data points define the core of our SEO and length scoring.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              <strong className="text-foreground">CTR Score</strong> models viewer psychology — the signals
-              that make a thumbnail + title combination irresistible to click. Power words activate
-              psychological triggers. Numbers create specificity that reduces click uncertainty. Curiosity
-              gaps — information tension between what the viewer knows and what the title promises — are the
-              single highest-weighted CTR factor because they create a cognitive discomfort that clicking
-              resolves. Pair strong title CTR with a great{" "}
+              <strong className="text-foreground">SEO Score</strong> measures whether your title is optimized for YouTube and Google search discovery — keyword presence, front-loading position, and natural language quality. <strong className="text-foreground">CTR Score</strong> models viewer psychology: power words activate emotional triggers, numbers create specificity that reduces click uncertainty, and curiosity gaps — information tension between what the viewer knows and what the title promises — are weighted most heavily because they create cognitive discomfort that only clicking resolves. Pair strong title CTR with a great{" "}
               <Link href="/tools/youtube-tag-generator" className="text-primary hover:underline font-medium">
                 tag strategy
               </Link>{" "}
               to maximize both reach and conversion.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">Readability and Length</strong> complete the picture. A
-              title might score well on SEO and CTR but fail if it's grammatically awkward, uses excessive
-              jargon, or runs so long that YouTube truncates it in search results. The 50–60 character ideal
-              ensures your complete title displays on every device — mobile search, desktop homepage, suggested
-              videos, and embedded players. Titles that extend beyond 70 characters often lose their most
-              compelling hook to truncation precisely when a viewer is deciding whether to click.
+              <strong className="text-foreground">Readability and Length</strong> complete the picture. A title might score well on SEO and CTR but fail if it's grammatically awkward, uses excessive jargon, or runs long enough that YouTube truncates it mid-sentence in search results. The 47–60 character range (per Briggsby) ensures your complete title displays on every device — mobile search, desktop homepage, suggested videos, and embedded players. Titles that exceed 70 characters often lose their most compelling hook to truncation precisely when a viewer is deciding whether to click.
             </p>
           </div>
           <div>
@@ -297,33 +271,58 @@ export function YouTubeTitleAnalyzerTool() {
               <Sparkles className="w-4 h-4 text-primary" /> A/B Testing, Title Templates, and the AI Virality Engine
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              The A/B testing simulation lets you compare two title variants before committing to one. The
-              simulation weights CTR potential most heavily (40%) because in the first 24–48 hours after
-              upload, YouTube's algorithm evaluates initial click rates from impression traffic to decide how
-              broadly to distribute the video. A title that earns 7% CTR instead of 4% in this window gets
-              significantly more algorithmic push — making early CTR the highest-leverage optimization point
-              for new uploads.
+              YouTube Creator Academy identifies the thumbnail as "the most powerful marketing tool you have to grow your channel" — but the title determines whether the algorithm surfaces your video in the first place, and then works alongside the thumbnail to convert that impression into a click. The A/B testing simulation in our analyzer weights CTR potential most heavily (40%) because in the first 24–48 hours after upload, YouTube's algorithm evaluates initial click rates from impression traffic to decide how broadly to distribute the video. A title that earns higher CTR in this early window triggers wider algorithmic distribution — making pre-publish title optimization the highest-leverage moment in the entire content workflow.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              The proven title templates capture formats that have generated millions of views across niches.
-              The personal achievement format ("How I Made X in Y Days") works because it combines social
-              proof, specificity, and an implicit promise of replication. The mistake avoidance format
-              ("X Mistakes to Avoid") creates personal urgency — every viewer immediately wonders if they're
-              making those mistakes. Fill in these templates with your specific results, numbers, and niche
-              topic, then run them through the analyzer to see how well they score before publishing.
+              The proven title templates capture formats that have generated millions of views across niches. The personal achievement format ("How I Made X in Y Days") works because it combines social proof, specificity, and an implicit promise of replication. The mistake avoidance format ("X Mistakes to Avoid") creates personal urgency — every viewer immediately wonders if they're making those mistakes. Fill in these templates with your specific results, numbers, and niche topic, then run them through the analyzer to score before publishing.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              The AI Virality Engine scores three dimensions that go beyond standard SEO and CTR metrics.
-              Curiosity Gap detects 24+ proven psychological trigger phrase patterns that create information
-              tension. Emotional Intensity scores the cumulative charge of all power words, action verbs, and
-              superlatives present. Uniqueness penalizes overused templates and rewards novel phrasing that
-              stands out in crowded search results. Use the virality scores together with a strong{" "}
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              The AI Virality Engine scores three dimensions beyond standard SEO and CTR metrics. Curiosity Gap detects 24+ proven psychological trigger phrase patterns that create information tension. Emotional Intensity scores the cumulative charge of all power words, action verbs, and superlatives. Uniqueness penalizes overused templates and rewards novel phrasing that stands out in crowded search results. Use the virality scores with a strong{" "}
               <Link href="/tools/youtube-title-generator" className="text-primary hover:underline font-medium">
                 title generator
               </Link>{" "}
-              workflow: generate 40+ title candidates, then use this analyzer to score and select the best.
+              workflow: generate multiple title candidates, then use this analyzer to score and select the best before publishing.
             </p>
+            <div className="mt-2 bg-primary/5 border border-primary/20 rounded-2xl p-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Sources behind this analyzer's methodology:</strong>{" "}
+                The title keyword ranking correlation is from{" "}
+                <a href="https://backlinko.com/youtube-ranking-factors" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">Backlinko's analysis of 1.3 million YouTube videos</a>.{" "}
+                Optimal title length (47–50 characters for ranking performance) is from{" "}
+                <a href="https://briggsby.com/reverse-engineering-youtube-search" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">Briggsby's YouTube search ranking research</a>.{" "}
+                The thumbnail "most powerful marketing tool" quote and CTR-to-distribution relationship are from{" "}
+                <a href="https://creatoracademy.youtube.com" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">YouTube Creator Academy</a>.{" "}
+                Power word engagement data references{" "}
+                <a href="https://buzzsumo.com/resources/hundred-million-best-headlines-study/results/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">BuzzSumo's 100 million headline analysis</a>.
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Tips & Best Practices ────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Zap className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">Tips for Writing High-Performing YouTube Titles</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            "Front-load your primary keyword in the first 3–4 words — Backlinko's analysis of 1.3 million YouTube videos found title keyword placement is the single strongest correlating factor with ranking position on YouTube.",
+            "Keep your title between 47 and 60 characters — Briggsby's research identified 47–50 characters as the ranking sweet spot, and anything beyond 60 risks truncation on mobile search before viewers read your hook.",
+            "Match your title to your thumbnail, not duplicate it — YouTube Creator Academy calls the thumbnail 'the most powerful marketing tool' on the platform. The most effective pairs either complement (title + thumbnail show the same outcome two ways) or create a curiosity gap together.",
+            "Use odd numbers when listing tips or items — '7 Mistakes' and '5 Ways' consistently outperform their even-number counterparts because they read as less curated and more authentic to viewers deciding whether to click.",
+            "Add a year to evergreen how-to titles — a tutorial titled 'YouTube SEO Tips That Actually Work in 2026' will outrank the same title without the year in date-filtered searches, signaling freshness to both the algorithm and viewers.",
+            "Test two title variants on every important video — analyze both here before publishing. YouTube's algorithm evaluates early CTR in the first 24–48 hours to determine how broadly to distribute the video, making pre-publish title choice the highest-leverage optimization window.",
+            "Say your primary keyword in the first 30 seconds of your video — YouTube indexes your auto-generated captions, and spoken keywords in the opening reinforce the title's topical signal to the algorithm.",
+          ].map((tip, i) => (
+            <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
+              <Zap className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <span className="text-sm text-muted-foreground">{tip}</span>
+            </div>
+          ))}
         </div>
       </section>
 

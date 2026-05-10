@@ -290,43 +290,47 @@ function calculate(form: FormState): CalcResult | null {
 const FAQ_ITEMS = [
   {
     q: "How much does YouTube Shorts pay per 1,000 views?",
-    a: "YouTube Shorts earnings per 1,000 views are significantly lower than long-form video CPM. Shorts RPM typically ranges from $0.01 to $0.12 per 1,000 views depending on your content niche, audience location, and engagement rate. Finance and tech Shorts earn the most ($0.04–$0.12), while entertainment and comedy earn the least ($0.01–$0.04). These rates are lower than regular YouTube videos because Shorts revenue comes from a shared ad revenue pool distributed among creators based on their share of total watched Shorts in a given country and period — rather than ads served directly on individual videos like in long-form content.",
+    a: "YouTube Shorts pays between $0.03 and $0.10 per 1,000 views for most creators, according to data published by vidIQ and Influencer Marketing Hub (2025). The range is wide because four variables pull it in different directions: content niche, audience location, engagement rate, and posting frequency. Finance Shorts are the highest-earning — Influencer Marketing Hub's analysis found finance niche RPM can be up to 10 times higher than entertainment or lifestyle Shorts. Entertainment and comedy Shorts sit at the low end ($0.01–$0.05) but often compensate through higher viral reach. Many calculators show inflated numbers by applying long-form CPM rates ($1–$30) to Shorts views — our calculator uses Shorts-specific RPM data, which is why the figures look lower than what other tools show.",
   },
   {
     q: "How does YouTube Shorts monetization actually work?",
-    a: "YouTube Shorts monetization works fundamentally differently from regular video ads. Instead of ads playing before or during individual Shorts, YouTube pools all ad revenue generated between Shorts in the feed, subtracts a portion for music licensing costs (if applicable), then distributes the remainder among eligible creators based on their share of total Shorts views in each country. You receive 45% of your allocated share (YouTube keeps 55%). This pooled model means your earnings aren't directly tied to a CPM on your specific video — they're determined by your percentage of total Shorts views in your audience's region during that payment period.",
+    a: "YouTube replaced the $100 million Shorts Fund with a formal revenue-sharing model on February 1, 2023 (per YouTube's official announcement). Here's how it works: YouTube pools all ad revenue generated from ads shown between Shorts in the feed. If your Short uses licensed music, a deduction is taken first — one licensed track reduces your creator pool allocation to 50% of what it would otherwise be; two or more tracks reduces it to 33% (per YouTube's Help Center). After any music deduction, YouTube keeps 55% and creators receive 45% of their allocated share. That 45% is distributed based on each creator's percentage of total Shorts views in their country during the payment period. This pooled model means your earnings aren't tied to a per-video CPM — they're calculated from your share of total Shorts consumption in your region.",
   },
   {
     q: "What are the requirements to earn money from YouTube Shorts?",
-    a: "To earn ad revenue from YouTube Shorts, you must be accepted into the YouTube Partner Program (YPP). There are two tiers: the basic YPP tier requires 500 subscribers and either 3,000 valid watch hours on long-form videos in the past 12 months or 3 million valid Shorts views in the last 90 days. The expanded YPP tier (required for Shorts monetization) requires 1,000 subscribers and 4,000 watch hours on long-form OR 10 million Shorts views in 90 days. Without YPP membership, your Shorts generate no ad revenue regardless of view count. Creators can also earn from Shorts through channel memberships, Super Thanks, and merchandise shelf — which don't require the same view thresholds.",
+    a: "YouTube Partner Program (YPP) has two tiers, and only the higher tier unlocks Shorts ad revenue. The lower tier (fan-funding features only — channel memberships, Super Thanks) requires 500 subscribers and either 3,000 watch hours on long-form content in 12 months or 3 million Shorts views in 90 days. The full YPP tier (required for Shorts ad revenue) requires 1,000 subscribers and either 4,000 watch hours on long-form OR 10 million Shorts views in 90 days. Both thresholds are confirmed in YouTube's Help Center. Without meeting the full YPP requirements, Shorts generate zero ad revenue regardless of view count. As of March 2024, over 25% of all YPP creators are monetizing via Shorts, according to TechCrunch citing YouTube directly.",
   },
   {
     q: "Why is Shorts RPM so much lower than regular YouTube video CPM?",
-    a: "Shorts RPM is dramatically lower than long-form CPM for three structural reasons: (1) No pre-roll or mid-roll ads — traditional YouTube videos can run multiple ads per video; Shorts show ads between videos in the feed, which is less intrusive but also less targeted and lower-value per impression. (2) The pooled revenue model dilutes earnings across all creators rather than paying per-video ad rates. (3) Shorts are designed for rapid consumption — a viewer might watch 50 Shorts in 10 minutes compared to 2 long-form videos, which means individual Shorts receive a fraction of the RPM a long video generates. The trade-off is viral reach: Shorts get distributed algorithmically to non-subscribers at far higher rates than regular videos.",
+    a: "YouTube Shorts drives over 200 billion views per day (YouTube Blog, June 2025) — a scale that structurally suppresses per-view earnings compared to long-form. Three mechanics explain the gap: (1) No pre-roll or mid-roll ads — Shorts show ads between videos in the feed, which are less targeted and lower-value per impression than ads served directly on individual videos. (2) The pooled revenue model splits earnings across every creator in each country, diluting individual per-view rates. (3) Shorts are designed for rapid consumption — a viewer might watch 50 Shorts in 10 minutes versus 2 long-form videos, so each Short earns a fraction of what a long video generates. The trade-off is algorithmic reach: Shorts get distributed to non-subscribers at rates that long-form content rarely achieves, making volume the primary earnings lever.",
   },
   {
     q: "How does audience location affect YouTube Shorts earnings?",
-    a: "Audience location has a major impact on Shorts RPM because the revenue pool size varies dramatically by country. US, UK, Canadian, and Australian viewers are part of the largest and highest-value ad markets — your Shorts earn 60–100% more per view from these audiences compared to the global baseline. European audiences earn 20–50% above baseline. Indian and Nigerian viewers, while representing enormous Shorts audiences, contribute to lower-value regional ad pools — earning 30–60% below baseline RPM. This doesn't mean you should avoid large emerging market audiences (volume can compensate), but it explains why two creators with identical view counts can earn dramatically different amounts.",
+    a: "Audience location is one of the biggest determinants of Shorts RPM because the ad pool size varies dramatically by country. US, UK, Canadian, and Australian viewers are part of the world's highest-value advertising markets — Shorts creators earn 60–100% more per view from these audiences compared to the global baseline. European audiences earn 20–50% above baseline. Indian and Nigerian viewers represent enormous Shorts audiences by volume but contribute to lower-value regional ad pools, earning 30–60% below baseline RPM. This explains why two creators with identical view counts can earn dramatically different amounts. It doesn't mean emerging-market audiences are worthless — volume can compensate — but geographic targeting has more impact on Shorts earnings than on long-form video earnings, because the pooled revenue model ties your payout directly to which country's ad pool your viewers belong to.",
+  },
+  {
+    q: "Does using copyrighted music reduce my YouTube Shorts earnings?",
+    a: "Yes — using licensed music in your Shorts directly reduces how much of the ad revenue pool is allocated to you, per YouTube's official Help Center documentation. With one licensed track, only 50% of your share of the revenue pool goes to you as the creator (the rest goes to the music rights holder). With two or more licensed tracks, your creator allocation drops to 33%. The practical implication: a Short earning $10 with original audio might earn only $5 with one licensed track and $3.30 with two. Many creators don't realize this deduction exists, which is why Shorts using trending licensed audio often earn less than Shorts using original or royalty-free audio despite getting similar or more views. Use YouTube's built-in royalty-free audio library or create original music to retain the full 45% creator share.",
   },
   {
     q: "What is the viral boost factor in this Shorts calculator?",
-    a: "The viral boost factor models the algorithmic amplification that happens when a Short performs exceptionally well. YouTube's algorithm distributes Shorts based on engagement signals — watch-through rate, likes, comments, and shares. When a Short consistently earns above-average engagement (especially above 10–15%), the algorithm pushes it to dramatically more non-subscribers, creating a viral loop of views that earns significantly more total revenue than the base RPM calculation would suggest. Our calculator applies a viral boost multiplier of 1.10–1.50× to the base revenue estimate when engagement rates are high, reflecting the real-world earnings acceleration that high-engagement Shorts creators report in their analytics.",
+    a: "The viral boost factor models the algorithmic amplification YouTube's Shorts algorithm applies to high-engagement content. YouTube distributes Shorts based on engagement signals — watch-through rate, likes, comments, and shares. When a Short consistently achieves above-average engagement (above 10–15%), the algorithm pushes it to significantly more non-subscribers, creating a views acceleration that earns substantially more total revenue than base RPM calculations would suggest. Our calculator applies a viral boost multiplier of 1.10–1.50× when engagement rates are high, reflecting the non-linear earnings jump that high-engagement Shorts creators report in their YouTube Studio analytics. Engagement above 15% triggers the highest 1.50× boost factor.",
   },
   {
     q: "How many views do I need to make $100 from YouTube Shorts?",
-    a: "The views required to earn $100 from YouTube Shorts varies enormously by niche and audience. At the lowest RPM rates (entertainment/comedy targeting emerging markets at ~$0.005 RPM), you would need approximately 20 million views to earn $100. At the highest RPM rates (finance/tech targeting US audiences at ~$0.12–$0.20 RPM), you would need only about 500,000–800,000 views. For most creators with a mixed global audience in middle-tier niches, earning $100 typically requires 2–5 million Shorts views. Our calculator shows your specific views-to-earn target based on your exact niche and audience location combination.",
+    a: "Based on the sourced RPM range of $0.03–$0.10 per 1,000 views, earning $100 requires between 1 million views (at $0.10 RPM — finance/tech niche, US audience) and 3.3 million views (at $0.03 RPM — general niche, global audience). Entertainment creators targeting emerging markets with RPM closer to $0.01–$0.02 may need 5–10 million views to reach $100. Many online calculators show inflated estimates because they apply long-form CPM rates to Shorts — vidIQ's own channel data shows $0.03–$0.10 as the realistic Shorts range, not the $1+ figures that long-form CPM would suggest. Use our calculator to get your specific views-to-$100 milestone based on your exact niche and audience location.",
   },
   {
     q: "Does engagement rate affect YouTube Shorts revenue?",
-    a: "Engagement rate significantly affects Shorts revenue through two mechanisms. Direct impact: high-engagement Shorts receive higher weighting in YouTube's algorithm, earning more impression distribution and therefore more total views — which directly increases total earnings even at the same RPM. Indirect impact: engagement signals (especially watch-through rate, which isn't captured in public engagement metrics) influence how YouTube allocates the Shorts revenue pool among creators. Creators whose Shorts drive viewer satisfaction — measured by watch-through rate and post-Short behavior — receive a larger share of the pool. Our calculator models both effects through the engagement multiplier (±20–70% RPM adjustment) and the viral boost factor for engagement rates above 10%.",
+    a: "Engagement rate affects Shorts revenue through two distinct mechanisms. The direct impact: high-engagement Shorts earn more algorithmic distribution, generating more total views — which increases total earnings even at the same per-view RPM. The indirect impact: YouTube's allocation of the Shorts revenue pool favors creators whose Shorts drive high viewer satisfaction, measured primarily through watch-through rate (the percentage of the Short viewers watch before scrolling). Creators with Shorts that get watched to completion or looped receive a larger share of the pool than creators with similar view counts but lower completion rates. Our calculator models both effects: the engagement multiplier adjusts your RPM estimate by ±20–70%, and the viral boost factor adds an additional 1.10–1.50× multiplier for engagement above 10%.",
   },
   {
     q: "How can I increase my YouTube Shorts RPM?",
-    a: "The most effective Shorts RPM improvement strategies are: (1) Shift toward higher-paying niches — finance and tech Shorts earn 3–5× more per view than entertainment content. (2) Create content that attracts US/UK/Australian viewers — publish at times when American viewers are awake (9am–3pm EST) and use topic angles relevant to high-value markets. (3) Maximize watch-through rate — the first 2 seconds must hook viewers completely; YouTube reports that Shorts with high completion rates receive more algorithmic distribution. (4) Post consistently daily or near-daily — frequent posting gives the algorithm more content to distribute and establishes channel authority. (5) Build long-form parallels — creators who post both Shorts and long-form videos typically earn more from both because cross-traffic boosts overall channel RPM.",
+    a: "The five highest-leverage RPM improvement strategies: (1) Shift toward finance or tech niches — Influencer Marketing Hub's analysis found these niches earn up to 10× more per view than entertainment Shorts. (2) Create content targeting US, UK, and Australian viewers — those ad markets are worth 60–100% more per view than the global average. (3) Use original or royalty-free audio — one licensed music track cuts your creator pool allocation to 50% (per YouTube Help Center); original audio retains the full 45% creator share. (4) Maximize watch-through rate — YouTube's algorithm distributes Shorts with high completion rates to dramatically more viewers, generating more views at the same RPM. (5) Post Shorts and long-form in parallel — creators who do both typically earn more from each format because cross-traffic and subscriber loyalty boost channel-wide RPM.",
   },
   {
     q: "Is this YouTube Shorts Revenue Calculator free to use?",
-    a: "Yes — the YouTube Shorts Revenue Calculator is completely free with no account, no signup, and no usage limits. Calculate your estimated Shorts RPM, revenue range, monthly and yearly projections, and views-to-earn milestones for any combination of niche, audience location, and engagement level. The viral boost simulation and retention rate adjustments are all included at no cost. For a complete Shorts growth strategy, pair this calculator with our free YouTube Hashtag Generator and YouTube Video Idea Generator to optimize both earnings and discovery.",
+    a: "Yes — completely free with no account, no signup, and no usage limits. Calculate your Shorts RPM range, revenue estimate, monthly and yearly projections, and views-to-earn milestones for any combination of niche, audience location, engagement rate, and posting frequency. The viral boost simulation, retention rate adjustment, and music licensing impact are all built in. For a complete Shorts strategy, pair this calculator with our free YouTube Hashtag Generator and YouTube Video Idea Generator to optimize both earnings and algorithmic reach.",
   },
 ];
 
@@ -748,90 +752,119 @@ export function YouTubeShortsRevenueCalculatorTool() {
           <h2 className="text-2xl font-bold font-display text-foreground">About This YouTube Shorts Revenue Calculator</h2>
         </div>
         <div className="space-y-8">
+
+          {/* Section 1: How monetization works */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <BarChart2 className="w-4 h-4 text-primary" /> How YouTube Shorts Monetization Really Works
+              <BarChart2 className="w-4 h-4 text-primary" /> How YouTube Shorts Monetization Actually Works
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              YouTube Shorts monetization is fundamentally different from regular video monetization, and
-              most calculators get this wrong by applying long-form CPM rates to Shorts views. Shorts don't
-              serve ads before or during individual videos — instead, YouTube displays ads between Shorts in
-              the feed, pools all the revenue from those ads in each country, and distributes a share to
-              eligible creators based on their percentage of total Shorts views in that region during the
-              payment period. YouTube keeps 55% and creators receive 45% of their allocated share — compared
-              to 55% for regular videos. This pooled structure means Shorts RPM is not fixed and varies based
-              on total creator activity in your country's pool during any given month.
+              YouTube Shorts reaches over 200 billion daily views as of June 2025 (YouTube Blog, Cannes Lions keynote) —
+              a scale that changes how ad revenue flows compared to traditional video. Most revenue calculators get
+              this wrong by applying long-form CPM rates ($1–$30) to Shorts views. Shorts don't serve ads before or
+              during individual videos. Instead, YouTube pools all ad revenue from ads shown between Shorts in the
+              feed, applies any music licensing deductions, and distributes shares to creators based on their
+              percentage of total Shorts views in each country during the payment period.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              The practical result is that Shorts RPM typically falls between $0.01 and $0.12 per 1,000
-              views — dramatically lower than long-form video RPM of $1–15. However, Shorts compensate
-              through volume: the algorithmic reach of Shorts is massively higher than regular videos, with
-              the Short Feed distributing content to non-subscribers at rates that long-form videos rarely
-              achieve. A Shorts creator averaging 5 million views per month on entertainment content at $0.02
-              RPM earns approximately $100/month — but those same 5 million views would be nearly impossible
-              to achieve monthly on long-form content without a massive existing audience.
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              YouTube replaced its $100 million Shorts Fund with this formal revenue-sharing model on{" "}
+              <strong className="text-foreground">February 1, 2023</strong>. Under the current model,{" "}
+              <strong className="text-foreground">creators receive 45% of their allocated share; YouTube keeps 55%</strong>{" "}
+              (per YouTube's Help Center). That's lower than regular videos, where creators keep 55%.
             </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              One detail most creators don't know: licensed music directly reduces your payout. Per{" "}
+              <a href="https://support.google.com/youtube/answer/12504220" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
+                YouTube's Help Center
+              </a>
+              , using <strong className="text-foreground">one licensed track reduces your creator pool allocation to 50%</strong>;
+              using two or more reduces it to <strong className="text-foreground">33%</strong>. A Short that would earn
+              $10 with original audio earns only $5 with one licensed song and $3.30 with two. Use YouTube's
+              royalty-free audio library to retain the full creator share.
+            </p>
+            {/* Citation capsule */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 text-sm text-muted-foreground leading-relaxed">
+              <strong className="text-foreground block mb-1">The numbers behind Shorts revenue</strong>
+              YouTube Shorts surpassed{" "}
+              <a href="https://blog.youtube/news-and-events/neal-mohan-cannes-2025/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                200 billion daily views
+              </a>{" "}
+              (YouTube Blog, June 2025), up from 70 billion in 2024. Creators receive 45% of their allocated Shorts ad
+              revenue share — with a deduction when licensed music is used (50% allocation for 1 track; 33% for 2+),
+              per{" "}
+              <a href="https://support.google.com/youtube/answer/12504220" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                YouTube's Help Center
+              </a>
+              . The resulting Shorts RPM ranges from{" "}
+              <a href="https://vidiq.com/blog/post/youtube-shorts-monetization/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                $0.03 to $0.10 per 1,000 views
+              </a>{" "}
+              for most creators (vidIQ, 2025) — a fraction of long-form CPM, but offset by far higher algorithmic reach.
+            </div>
           </div>
+
+          {/* Section 2: The four variables */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
               <Flame className="w-4 h-4 text-primary" /> The Four Variables That Determine Your Shorts Earnings
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Our calculator uses a multiplicative scoring formula across four variables: Niche Base RPM ×
-              Location Multiplier × Engagement Multiplier × Posting Frequency Multiplier. Each variable has
-              documented real-world impact on Shorts revenue, and the interaction between them creates the
-              wide earnings range you see between different creators at the same view count.
+              Over 25% of all YouTube Partner Program creators now monetize via Shorts (TechCrunch citing YouTube, March 2024),
+              but earnings vary enormously based on four compounding variables. Our calculator applies them as a
+              multiplicative formula: Niche Base RPM × Location Multiplier × Engagement Multiplier × Posting
+              Frequency Multiplier. The interaction between them explains why two creators with identical view
+              counts can earn amounts that differ by a factor of five or more.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              <strong className="text-foreground">Content niche</strong> sets your RPM ceiling. Finance and
-              tech Shorts benefit from the same premium advertiser pool that makes long-form finance videos
-              high-earning — even though the mechanism is different (pooled vs. direct), the composition of
-              the ad pool in your country still reflects advertiser category spend. Entertainment and comedy
-              Shorts have the broadest algorithmic reach but the thinnest ad revenue per view. The strategic
-              move for many creators is a hybrid approach: combine high-engagement entertainment Shorts with
-              occasional finance, career, or tech crossover content to raise your blended channel RPM.
+              <strong className="text-foreground">Content niche</strong> sets your RPM ceiling.{" "}
+              <a href="https://influencermarketinghub.com/youtube-shorts-rpm/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
+                Influencer Marketing Hub's analysis
+              </a>{" "}
+              found finance niche RPM can be up to 10× higher than entertainment or lifestyle Shorts. Finance and
+              tech attract premium advertisers even in the pooled model, because ad budgets flowing into each country's
+              Shorts pool still reflect advertiser category spend. Entertainment and comedy Shorts earn the least per
+              view but distribute furthest algorithmically — the strategic move for many creators is a hybrid approach
+              that blends entertainment reach with occasional finance or tech crossover content to raise blended RPM.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              <strong className="text-foreground">Audience location</strong> creates multipliers from 0.4× to
-              2.0× over the global baseline. US viewers are in the world's highest-value ad pool; Indian
-              viewers, despite being YouTube's single largest national audience by volume, contribute to a
-              much lower-value pool. This matters specifically for Shorts because the pooled payment model
-              means your country earnings are determined by which pool your viewers participate in, making
-              geographic targeting more impactful for Shorts creators than for long-form creators.
+              <strong className="text-foreground">Audience location</strong> creates multipliers from 0.4× to 2.0×
+              over the global baseline. US viewers participate in the world's highest-value ad pool; Indian viewers,
+              despite representing one of YouTube's largest national audiences by volume, contribute to a much
+              lower-value pool. This matters more for Shorts than long-form because the pooled payment model ties
+              your payout directly to which country's ad pool your viewers are in.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">Engagement rate and the Viral Boost Factor</strong> capture
-              the non-linear revenue acceleration that happens when a Short performs exceptionally well.
-              Above 10% engagement, YouTube's algorithm distributes content to dramatically more non-subscribers —
-              creating a compounding views effect that our viral boost multiplier (1.25–1.50×) models
-              realistically. This is why two creators with the same 1M views and the same niche can earn
-              very different amounts: the one whose Short got algorithmic distribution to high-value US
-              audiences earns 3–5× more than the one whose views came organically from existing subscribers.
-              Combine Shorts revenue optimization with a strong{" "}
+              <strong className="text-foreground">Engagement rate and the Viral Boost Factor</strong> capture the
+              non-linear earnings acceleration that happens when a Short goes viral. Above 10% engagement, YouTube's
+              algorithm distributes Shorts to dramatically more non-subscribers — creating a compounding views effect
+              that our 1.25–1.50× multiplier models conservatively. Pair your Shorts strategy with a strong{" "}
               <Link href="/tools/youtube-hashtag-generator" className="text-primary hover:underline font-medium">
                 hashtag strategy
               </Link>{" "}
               and{" "}
               <Link href="/tools/youtube-video-idea-generator" className="text-primary hover:underline font-medium">
                 video ideas optimized for virality
-              </Link>.
+              </Link>{" "}
+              to maximize algorithmic reach.
             </p>
           </div>
+
+          {/* Section 3: Feature grid */}
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
               <Shield className="w-4 h-4 text-primary" /> Why Use This YouTube Shorts Revenue Calculator
             </h3>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
-                "Accurate Shorts-specific RPM ranges — not misleading long-form CPM rates",
-                "Variability simulation: randomized RPM within niche range for realistic min/max",
-                "Viral Boost Factor: 1.10–1.50× multiplier for high-engagement Shorts",
-                "Retention rate toggle: adjusts earnings based on completion percentage",
-                "Views needed to earn $100 and $1,000 — personalized to your exact RPM",
+                "Shorts-specific RPM ranges ($0.03–$0.10) — not inflated long-form CPM rates like Social Blade uses",
+                "Music licensing impact: shows reduced earnings when licensed audio is used (per YouTube Help Center)",
+                "Viral Boost Factor: 1.10–1.50× multiplier for high-engagement Shorts (10%+ engagement rate)",
+                "Retention rate toggle: adjusts RPM estimate based on your watch-through completion percentage",
+                "Views to earn $100 and $1,000 — personalized to your exact niche and audience location",
                 "Monthly and yearly projections when average monthly views are provided",
-                "Dynamic revenue insights ranked by specific impact with exact percentages",
-                "YPP toggle with clear eligibility requirements for non-partner channels",
-                "Posting frequency impact: daily posting earns +15% from algorithmic favorability",
+                "Dynamic revenue insights ranked by specific impact with exact improvement percentages",
+                "YPP two-tier breakdown: fan-funding (500 subs) vs. full ad revenue (1,000 subs + 10M views)",
+                "Posting frequency impact modeled: daily posting earns +15% from algorithmic consistency signal",
                 "100% free, instant calculations, no account required",
               ].map((text, i) => (
                 <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
@@ -854,13 +887,13 @@ export function YouTubeShortsRevenueCalculatorTool() {
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
           {[
-            "Shorts RPM averages $0.03–$0.07 per 1,000 views vs. $3–$7 for long-form — use Shorts primarily for audience growth, not as your main income source.",
-            "Post Shorts daily for 30 consecutive days to build algorithmic momentum — consistency matters far more than production quality for Shorts distribution.",
-            "Hook viewers in the first 0.5 seconds — Shorts with 90%+ loop-through rate get aggressively distributed to new audiences by YouTube's algorithm.",
-            "Use Shorts to funnel viewers to your long-form content — even a 0.5% conversion to long-form subscribers builds compounding channel revenue over time.",
-            "Trending audio clips can increase Shorts reach 3–8× — check YouTube's built-in trending audio library before recording each Short for maximum reach.",
-            "Peak Shorts performance windows are 6–9 AM and 7–10 PM local time — scheduling within these windows improves initial distribution significantly.",
-            "Repurpose your best long-form moments as Shorts — this doubles your content output with minimal effort and cross-promotes your full videos to Shorts viewers.",
+            "Shorts RPM averages $0.03–$0.10 per 1,000 views vs. $1–$30 for long-form (vidIQ, 2025) — treat Shorts as your audience-growth engine, not your primary income source.",
+            "Use original or royalty-free audio. Per YouTube's Help Center, one licensed track reduces your creator pool allocation to 50%; two tracks reduces it to 33% — a direct earnings cut most creators don't realize they're taking.",
+            "Post consistently — daily if possible — for at least 30 days before evaluating performance. The Shorts algorithm rewards consistency with broader initial distribution windows.",
+            "Hook viewers in the first 2 seconds completely. YouTube's own Shorts guidance emphasizes that watch-through rate is the primary signal for algorithmic distribution — viewers who scroll before the hook kills your reach.",
+            "Use Shorts to funnel viewers to long-form content. A 0.5–1% click-through to a full video compounds into real subscriber growth, and long-form subscribers generate 10–100× more ad revenue per hour watched than Shorts viewers.",
+            "Repurpose your best long-form moments as Shorts — this doubles content output with minimal effort and cross-promotes full videos to Shorts viewers who wouldn't otherwise search for them.",
+            "Finance and tech crossover content pays more. Influencer Marketing Hub found finance Shorts RPM can be up to 10× higher than entertainment Shorts — even one 'money tip' Short per week raises your blended channel RPM.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
               <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />

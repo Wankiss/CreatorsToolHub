@@ -44,7 +44,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Do TikTok captions affect views and reach?",
-    a: "Yes — TikTok captions directly influence both initial reach and sustained distribution in two ways. First, the algorithm reads caption text alongside audio transcription and hashtags to classify content into topic clusters and determine which audiences to test your video against. A caption with clear topical keywords helps TikTok place your content in front of the right initial test audience, which leads to higher engagement rates in the first distribution wave. Second, captions drive comment volume — and comment rate is one of TikTok's strongest indicators of content quality. A caption with an effective question CTA can generate 3–5× more comments than a caption without one, and that comment volume directly signals to the algorithm that the video deserves wider distribution.",
+    a: "Yes — TikTok captions directly influence both initial reach and sustained distribution in two ways. First, the algorithm reads caption text alongside audio transcription and hashtags to classify content into topic clusters and determine which audiences to test your video against, as documented in TikTok Newsroom's 'How TikTok recommends videos for you.' A caption with clear topical keywords helps TikTok place your content in front of the right initial test audience, which leads to higher engagement rates in the first distribution wave. Second, captions drive comment volume — and comment rate is one of TikTok's strongest indicators of content quality. A caption with an effective question CTA drives meaningfully more comments than a caption without one, and that comment volume directly signals to the algorithm that the video deserves wider distribution.",
   },
   {
     q: "How many emojis should I use in a TikTok caption?",
@@ -53,6 +53,10 @@ const FAQ_ITEMS = [
   {
     q: "Is this TikTok Caption Generator free?",
     a: "Yes — the TikTok Caption Generator is completely free with no account, no signup, and no usage limits. Generate as many caption sets as you need across any niche, goal, tone, and audience combination. Every generation produces 10 caption variations across 10 distinct style formats, each with a Viral Score (Hook, Engagement, Clarity), 7 curated hashtags, and individual copy buttons — all at zero cost. Our full suite of TikTok tools including the Hook Generator, Script Generator, Viral Idea Generator, and Hashtag Generator are all free with no restrictions.",
+  },
+  {
+    q: "How do I research which keywords to use in TikTok captions?",
+    a: "TikTok's Creative Center includes a Keyword Insights tool that shows which words and phrases are trending in captions and video content across the platform. Access it at ads.tiktok.com/business/creativecenter → Inspiration → Keyword Insights. No ad account is required. You can filter by industry, time period (7-day or 30-day trends), and region to find keywords your target audience is actively engaging with. TikTok Newsroom's recommendation documentation confirms that caption keywords are part of the 'video information' signals the algorithm reads to categorize and distribute content. Use Creative Center Keyword Insights to identify 2–3 high-engagement keywords to include naturally in your captions before posting.",
   },
 ];
 
@@ -257,6 +261,9 @@ export function TikTokCaptionGeneratorTool() {
               <Zap className="w-4 h-4 text-primary" /> How This TikTok Caption Generator Works
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              TikTok Newsroom's algorithm documentation lists caption text — alongside sounds and hashtags — as part of the "video information" signals the platform uses to categorize and distribute content. On a platform with over 1.7 billion monthly active users (Statista, 2024), the right caption keywords help TikTok route your video to the audience most likely to engage with it during the critical first distribution window.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               This free AI-powered TikTok Caption Generator produces 10 caption variations across 10
               distinct style formats: Punchy Hook, POV Style, Storytelling, Question Hook, Hot Take,
               Relatable, Educational, Challenge, Listicle, and Emotional. Each caption is built using your
@@ -286,6 +293,9 @@ export function TikTokCaptionGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> Why TikTok Captions Directly Impact Your Reach
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
+              According to TikTok Newsroom's recommendation documentation, captions contribute to the "video information" signals the algorithm reads to categorize content — alongside sounds and hashtags. A caption with clear topical keywords helps TikTok match your video to the right audience during its initial test distribution, improving engagement rates in the first wave and increasing the likelihood of wider distribution.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
               TikTok's algorithm evaluates content across multiple signals, and captions contribute to two
               of the most important: content classification and engagement volume. The algorithm reads
               caption text alongside hashtags and audio to determine which audience segments to test your
@@ -297,9 +307,9 @@ export function TikTokCaptionGeneratorTool() {
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
               The second way captions drive reach is through comment volume. Comment rate is one of TikTok's
-              strongest content quality signals — a video that generates 50 comments tells the algorithm
-              something different from a video with 2 comments, even if both have the same view count. A
-              caption with an effective question CTA or opinion prompt can generate 3–5× more comments than
+              strongest content quality signals — a video that generates significant comments tells the algorithm
+              something different from one with very few, even if both have the same view count. A
+              caption with an effective question CTA or opinion prompt drives meaningfully more comments than
               a caption without one. Complement your caption strategy with our{" "}
               <Link href="/tools/tiktok-hook-generator" className="text-primary hover:underline font-medium">
                 TikTok Hook Generator
@@ -317,6 +327,34 @@ export function TikTokCaptionGeneratorTool() {
               </Link>{" "}
               for maximum cohesion between your opening hook, content body, and caption.
             </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Search className="w-4 h-4 text-primary" /> How to Find High-Performing Caption Keywords with TikTok Creative Center
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              TikTok's Creative Center includes a Keyword Insights tool — accessible at ads.tiktok.com/business/creativecenter → Inspiration → Keyword Insights — that shows which words and phrases are trending in captions and video content across the platform. No advertising account is required. You can filter by industry vertical, time range (7-day or 30-day trends), and region to identify keywords your target audience is actively engaging with right now.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              TikTok Newsroom's algorithm documentation confirms that captions are part of the "video information" signal the platform reads to categorize content. Using Creative Center to identify 2–3 high-engagement keywords, then incorporating them naturally into your caption, helps the algorithm route your video to the right audience cluster during initial distribution. This is the same keyword research principle that powers TikTok's trending sounds and hashtag tools, applied specifically to caption text.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              The practical workflow: use this generator to create your caption structure (hook line, CTA, hashtags), then cross-check your 1–2 primary topic keywords against Creative Center Keyword Insights to confirm they're trending in your region. If a keyword is declining in the 30-day trend view, consider a synonym that's ascending. Combine the AI-generated structure with Creative Center keyword validation for the highest-confidence captions.
+            </p>
+
+            {/* Citation capsule */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Sources:</strong>{" "}
+                <a href="https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Newsroom — How TikTok recommends videos for you</a>
+                {" "}confirms captions are part of the "video information" signal used for content classification and distribution.{" "}
+                <a href="https://ads.tiktok.com/business/creativecenter/inspiration/topads/pc/en" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">TikTok Creative Center — Keyword Insights</a>
+                {" "}(ads.tiktok.com/business/creativecenter) provides trending keyword data for captions — no ad account required.{" "}
+                <a href="https://www.statista.com/statistics/1299771/tiktok-global-mau/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Statista (2024)</a>
+                {" "}— TikTok monthly active users: 1.7 billion globally.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -366,7 +404,7 @@ export function TikTokCaptionGeneratorTool() {
             { n: 4, tip: "Keep captions short and punchy (under 150 characters) — the best-performing TikToks often have minimal caption text, letting the video speak first." },
             { n: 5, tip: "Include a CTA every 3–4 posts — 'Follow for part 2' and 'Link in bio for the full guide' work best when tied to genuine value." },
             { n: 6, tip: "Use 'POV:', 'Tell me why', or 'The way' trends in captions to signal participation in trending formats and boost algorithmic reach." },
-            { n: 7, tip: "Time-stamp your series episodes in captions ('Part 3 of 5') — serialized content drives 2–3× more profile visits and follow conversions." },
+            { n: 7, tip: "Time-stamp your series episodes in captions ('Part 3 of 5') — serialized content gives viewers a clear reason to visit your profile and follow for the next installment." },
           ].map(({ n, tip }) => (
             <div key={n} className="flex gap-4 p-4 rounded-xl bg-muted/40 border border-border hover:border-primary/30 transition-colors">
               <div className="w-7 h-7 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">{n}</div>

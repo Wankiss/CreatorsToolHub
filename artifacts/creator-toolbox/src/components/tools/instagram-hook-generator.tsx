@@ -15,7 +15,7 @@ import { Link } from "wouter";
 const FAQ_ITEMS = [
   {
     q: "What is an Instagram Reel hook and why does it matter?",
-    a: "An Instagram Reel hook is the opening element of your video — the line you say, the text that appears on screen, or the visual action that happens in the first 1–3 seconds. It is the single most important creative decision you make for any Reel, because Instagram's algorithm distributes content in waves — and the first wave's performance determines whether your video ever reaches a non-follower audience at all. The key metric Instagram measures in that first wave is hook rate: the percentage of initial viewers who watch past the 3-second mark. A Reel with a hook rate above 80% signals compelling content and triggers a larger second distribution wave. A hook rate below 50% causes the algorithm to stop distribution entirely. A mediocre Reel with an excellent hook will consistently outperform an excellent Reel with a mediocre hook — the algorithm never gets to evaluate the rest of the content if viewers scroll away in the first 3 seconds.",
+    a: "An Instagram Reel hook is the opening element of your video — the line you say, the text that appears on screen, or the visual action that happens in the first 1–3 seconds. It is the single most important creative decision you make for any Reel, because Instagram's algorithm distributes content in waves — and the first wave's performance determines whether your video ever reaches a non-follower audience at all. According to Meta's Transparency Center documentation on how Instagram ranks Reels, watch-through signals (how much of the video viewers watch) are among the primary factors the algorithm uses to decide whether to expand distribution. A hook that retains early viewers triggers a larger second distribution wave; a weak hook that causes immediate scrolling caps the video's reach before the algorithm can evaluate the rest of the content.",
   },
   {
     q: "What makes an Instagram Reel hook scroll-stopping?",
@@ -35,7 +35,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How do Instagram Reel hooks affect the algorithm?",
-    a: "Instagram's content distribution algorithm evaluates Reels in sequential waves. In the first wave, your Reel is shown to a small initial audience segment — typically a fraction of your followers. The algorithm measures hook rate (percentage watching past 3 seconds), watch-through rate (percentage watching to completion), and early engagement (comments, saves, shares in the first 30–60 minutes). If the first wave produces strong signals, the algorithm distributes to a second, larger wave of followers and similar-interest non-followers. If those signals are also strong, it escalates to Explore and Reels recommendations. Hook quality directly controls whether this escalation process begins — a weak hook kills distribution at the first wave before the algorithm can evaluate anything else. This is why hook optimisation has a disproportionate impact on Reel reach compared to any other production element.",
+    a: "Instagram's content distribution algorithm evaluates Reels in sequential waves. In the first wave, your Reel is shown to a small initial audience segment — typically a fraction of your followers. The algorithm measures hook rate (percentage watching past 3 seconds), watch-through rate (percentage watching to completion), and early engagement (comments, saves, and shares). If the first wave produces strong signals, the algorithm distributes to a second, larger wave of followers and similar-interest non-followers. If those signals are also strong, it escalates to Explore and Reels recommendations. Hook quality directly controls whether this escalation process begins — a weak hook kills distribution at the first wave before the algorithm can evaluate anything else. This is why hook optimisation has a disproportionate impact on Reel reach compared to any other production element.",
   },
   {
     q: "What are scroll stoppers and how do I use them?",
@@ -52,6 +52,10 @@ const FAQ_ITEMS = [
   {
     q: "Is this Instagram hook generator free?",
     a: "Yes — this Instagram Hook Generator is completely free with no account required, no usage limits, and no premium tier. Enter your Reel topic, niche, target audience, goal, and tone, and the AI generates up to 20 hooks across all 10 proven formats in seconds. Every hook includes a Scroll-Stopping Score, an on-screen text overlay version, and a camera delivery tip. The Top 5 tab, Scroll Stopper feature, Copy All button, and By Format browser are all available at no cost on every generation. Regenerate as many times as needed without any throttling or daily limits.",
+  },
+  {
+    q: "What does Instagram's official documentation say about how Reels are ranked?",
+    a: "Meta's Transparency Center publishes documentation specifically explaining how Instagram ranks Reels. According to that documentation, Instagram evaluates Reels based on signals including watch-through rate (how much of the video viewers watch), engagement signals (likes, comments, saves, and shares), and information about the audio and video itself. The documentation covers both how content is ranked in Feed and in the Reels tab. For creators, the most actionable takeaway is that watch-through signals — driven primarily by hook strength — are identified as key ranking factors. This is why optimising the first three seconds of every Reel has a disproportionate effect on organic reach. You can read the full Instagram Reels ranking documentation at Meta's Transparency Center (transparency.fb.com), under Features → Ranking and Content → Type of Content → Reels on Instagram.",
   },
 ];
 
@@ -241,13 +245,22 @@ export function InstagramHookGeneratorTool() {
               whether your video ever reaches a non-follower audience at all.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              The key metric Instagram measures in that first wave is hook rate: the percentage of
-              initial viewers who watch past the 3-second mark. A Reel with a hook rate above 80%
-              signals compelling content — Instagram responds by pushing the video to a larger second
-              wave. A hook rate below 50% causes distribution to stop entirely. A mediocre Reel with
-              an excellent hook will consistently outperform an excellent Reel with a mediocre hook —
-              the algorithm never evaluates the rest of the content if viewers scroll away in the first
-              3 seconds.
+              According to Meta's Transparency Center, Instagram ranks Reels by measuring watch-through
+              signals — how long viewers watch and how much of the video they complete. These signals
+              determine whether Instagram distributes a Reel to a second, larger audience wave after the
+              initial test group. Statista reported{" "}
+              <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">2 billion monthly active Instagram users</a>{" "}
+              globally in 2024, meaning the pool of potential viewers that watch-through signals unlock
+              is enormous — but only for content that retains those first viewers past the opening seconds.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              The key metric the algorithm evaluates in that first wave is watch-through rate: how long
+              initial viewers stay with the content. A hook that keeps early viewers watching signals
+              compelling content; Instagram responds by distributing to a larger second wave. A hook
+              that causes immediate scrolling caps the video's reach before the algorithm can evaluate
+              anything else. A mediocre Reel with an excellent hook will consistently outperform an
+              excellent Reel with a mediocre hook — the algorithm never sees the rest of the video if
+              viewers leave in the first three seconds.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               This generator addresses the hook problem systematically — rather than defaulting to weak
@@ -269,19 +282,21 @@ export function InstagramHookGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> How to Deliver Your Instagram Hook for Maximum Watch-Through Rate
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Writing a strong hook is half the work — delivery determines whether the words land. The
-              most common delivery mistake is starting with any version of "Hey guys, welcome back" or
-              "So today I want to talk about" — phrases that train the viewer's brain to expect
-              non-urgent content and trigger the scroll reflex before the hook is even delivered.
-              Instead, begin speaking the hook before the camera is even in position, or cut to yourself
-              already mid-hook. The first frame should show you already in motion.
+              Delivery determines whether a strong hook actually works in practice. Meta's Transparency
+              Center documentation confirms that watch-through signals are among Instagram's primary
+              Reels ranking factors — but only viewers who stop scrolling can generate any signal at
+              all. Getting someone to stop requires a hook delivered with the same urgency it reads on
+              the page: no preamble, no setup, no "welcome back." Begin speaking the hook before the
+              camera is even in position, or cut to yourself already mid-hook so the first frame shows
+              you already in motion.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Display your hook as high-contrast text overlay at the exact moment you say it.
-              Approximately 60% of Instagram Reels are watched without sound in the first viewing —
-              if the hook only exists as spoken audio, it fails to reach that majority. Bold white text
-              on a semi-transparent dark background, or large black text on a bright background, are
-              the two most legible formats across all content types and viewing conditions.
+              Display your hook as high-contrast text overlay at the exact moment you say it. A large
+              share of Reels are watched without sound on the first viewing — a well-documented behavior
+              across short-form video platforms — meaning a hook that lives only in the audio track
+              fails to reach viewers watching on mute. Bold white text on a semi-transparent dark
+              background, or large black text on a bright background, are the two most legible formats
+              across all content types and viewing conditions.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Use the Scroll Stopper feature to prepend phrases like "Wait…", "Stop scrolling —", or
@@ -291,6 +306,52 @@ export function InstagramHookGeneratorTool() {
               specific camera delivery tip for every hook it produces, so you know not just what to
               say, but exactly how to say it.
             </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Film className="w-4 h-4 text-primary" /> How to Read Hook Performance in Instagram Professional Dashboard
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Instagram Professional Dashboard provides two metrics that directly measure hook
+              effectiveness: 3-second video views and watch-through rate. To access them, open your
+              professional account, tap Professional Dashboard, select any Reel, then tap See Insights
+              followed by Video Performance. The 3-second video views metric shows how many viewers
+              watched past the three-second mark — the clearest available platform measure of hook
+              effectiveness. Watch-through rate shows what percentage of viewers watched to completion,
+              capturing both hook strength and content quality together.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              To isolate hook performance from content performance, compare the 3-second view rate
+              across multiple Reels posted in the same week. A Reel with a high 3-second rate but low
+              overall completion rate signals a strong hook pulling viewers in but content that doesn't
+              deliver — tighten the Reel body. A Reel with low 3-second views but high completion
+              among those who watch signals weak hook selection, not weak content production. Use this
+              pattern weekly to build a personal dataset of which hook formats — Curiosity Gap,
+              Contrarian Take, How-To Promise — produce consistently strong 3-second view rates for
+              your specific niche and audience, then prioritise those formats in the generator.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Meta's Transparency Center documentation on how Instagram ranks Reels confirms that
+              watch-through signals are primary distribution factors. The dashboard data is the bridge
+              between knowing this in theory and acting on it in practice — reviewing it after every
+              Reel gives you platform-native feedback that no third-party analytics tool can replicate.
+            </p>
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong>Key sources:</strong>{" "}
+                <a href="https://transparency.fb.com/features/ranking-and-content/type-of-content/reels-on-instagram/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  Meta's Transparency Center
+                </a>{" "}
+                documents that Instagram ranks Reels based on watch-through signals (how long viewers
+                watch) as a primary distribution factor. Instagram Professional Dashboard surfaces
+                3-second video views and watch-through rate under Video Performance — the two metrics
+                that directly measure hook effectiveness. Statista reported{" "}
+                <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  2 billion monthly active Instagram users
+                </a>{" "}
+                globally in 2024.
+              </p>
+            </div>
           </div>
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">

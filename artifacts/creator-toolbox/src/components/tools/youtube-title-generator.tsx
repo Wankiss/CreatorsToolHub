@@ -15,31 +15,31 @@ import { Link } from "wouter";
 const FAQ_ITEMS = [
   {
     q: "What is a YouTube Title Generator?",
-    a: "A YouTube Title Generator is an AI-powered tool that creates optimized video title options based on your topic, target audience, and tone. Instead of manually brainstorming titles, you enter your keyword or video concept and the generator applies proven viral title frameworks — How-To, Number/List, Curiosity Gap, Speed/Shortcut, Beginner Guide, Warning/Mistake, and Discovery/Trend — to produce multiple high-performing variations in seconds. Each title is scored internally for keyword placement, CTR potential, clarity, curiosity triggers, and character length. Only titles hitting a threshold score are shown, so every result you see is production-ready.",
+    a: "A YouTube Title Generator is an AI-powered tool that creates optimized title options based on your topic, audience, and tone. It applies proven title frameworks — How-To, Number/List, Curiosity Gap, Speed/Shortcut, Beginner Guide, Warning/Mistake, and Discovery/Trend — and scores each output for keyword placement, CTR potential, clarity, and character length before showing results. This matters because YouTube's recommendation system processes over 80 billion signals per day (per YouTube's official blog) — and your title is the first signal both the algorithm and the viewer evaluate.",
   },
   {
     q: "How do I write a good YouTube title?",
-    a: "A great YouTube title does three things simultaneously: it tells YouTube's algorithm what the video is about (for search ranking), it convinces a viewer to click (for CTR), and it accurately represents the content (for watch time and retention). Practically, this means: include your target keyword near the beginning, keep the title between 50–70 characters, use a proven formula (number list, how-to, curiosity gap, or warning), and add emotional power words. Avoid clickbait that doesn't deliver — YouTube penalizes videos where high CTR is followed by early viewer drop-off. The best titles make a specific promise and deliver on it.",
+    a: "A strong YouTube title does three things at once: signals relevance to YouTube's algorithm for search and recommended placements, earns a click from a real viewer, and accurately represents the content so watch time holds. YouTube's Help Center warns directly that clickbait — high CTR followed by early drop-off — reduces recommendations. In practice: place your keyword within the first five words, target 47–50 characters (the average length of top-ranking videos per Briggsby's 3.8 million data point study), use a proven formula, and make a specific promise you actually deliver.",
   },
   {
     q: "How long should a YouTube title be?",
-    a: "The ideal YouTube title length is 50–70 characters. Titles shorter than 50 characters often lack enough keyword context for the algorithm and feel vague to viewers. Titles longer than 70 characters get truncated in search results and on mobile — the most important part of your title, including your keyword and hook, must appear in the first 60 characters to remain visible. Our generator displays the character count for every title it produces and flags titles that fall outside the optimal range, so you never have to count manually.",
+    a: "YouTube allows up to 100 characters per title, but Briggsby's analysis of 100,000 YouTube videos found top-performing titles averaged 47–48 characters, with performance degrading beyond 50 characters. Practically: desktop search results truncate at roughly 60–70 characters, mobile home feed at 40–50 characters, and the suggested video sidebar at 50–60. Your keyword and main hook must land within the first 50 characters to remain visible across all surfaces. Shorter isn't always better — vague titles under 30 characters often lack the context the algorithm needs to rank them accurately.",
   },
   {
     q: "What makes a YouTube title get more clicks?",
-    a: "Click-through rate is driven by four psychological triggers: (1) Curiosity gap — the viewer feels compelled to watch because they don't yet know the answer ('The real reason most YouTubers fail'). (2) Self-relevance — the title addresses a problem or goal the viewer has right now ('How to rank on YouTube with zero subscribers'). (3) Specificity — specific numbers, timeframes, or outcomes are more credible than vague promises ('7 title formulas' vs 'some title formulas'). (4) Urgency or novelty — 'in 2026,' 'nobody talks about this,' or 'stop doing this' create a sense that the information is new or time-sensitive. Our AI title generator weights all four triggers when scoring titles for CTR potential.",
+    a: "YouTube's own Help Center states that clicks are a strong signal the system uses to decide who sees your video next — but only when paired with strong watch time. Four psychological triggers drive clicks: (1) Curiosity gap — the viewer must watch to get the answer. (2) Self-relevance — the title names a problem or goal they have right now. (3) Specificity — concrete numbers and outcomes ('7 frameworks' vs 'some frameworks') are more credible. (4) Urgency or novelty — 'in 2026' or 'nobody talks about this' signals the information is new. All four are weighted in this generator's internal scoring.",
   },
   {
     q: "Should I include numbers in YouTube titles?",
-    a: "Yes — titles with numbers consistently outperform titles without them across most niches. Numbers work because they set a concrete expectation ('7 mistakes' is more credible than 'many mistakes'), signal structured content that's easy to consume, and stand out visually in a list of search results. Odd numbers — 7, 9, 11 — tend to perform better than even numbers, possibly because they feel less like rounded estimates. Large numbers create authority ('50 YouTube tips') while small numbers create speed ('3 steps'). Use numbers when your content is genuinely list-based or step-based — don't force them into titles where they feel artificial.",
+    a: "Yes — and the data backs it. BuzzSumo's analysis of 100 million headlines found that numbered list formats dominated top-performing content, with '10' ranking as the single best-performing number, followed by 5, 15, and 7. Nine of the top 20 best-performing headline numbers in that study were odd. The reason: specific numbers set a concrete expectation ('7 mistakes' is more credible than 'common mistakes'), signal structured consumable content, and stop the eye when scanning a results page. Use numbers when your content is genuinely list-based — don't force them into titles where they feel artificial.",
   },
   {
     q: "What are the best YouTube title formulas?",
-    a: "The seven highest-performing YouTube title formulas are: (1) How-To — 'How to [achieve result] [without drawback]'. (2) Number/List — '[N] [things] that [result]'. (3) Curiosity Gap — 'The [real/hidden/truth about] [topic]'. (4) Speed/Shortcut — 'How I [achieved result] in [timeframe]'. (5) Beginner Guide — '[Topic] for beginners: [complete/full] guide'. (6) Warning/Mistake — '[N] mistakes [audience] makes with [topic]'. (7) Discovery/Trend — 'Why [new thing] is [changing/replacing] [old thing]'. Our AI title generator applies all seven frameworks to your topic and returns the best-scoring titles from each category, so you can pick the formula that best fits your video's content.",
+    a: "The seven highest-performing YouTube title frameworks are: (1) How-To — 'How to [achieve result] without [drawback]'. (2) Number/List — '[N] [things] that [outcome]'. (3) Curiosity Gap — 'The real reason [common belief is wrong]'. (4) Speed/Shortcut — 'How I [achieved result] in [timeframe]'. (5) Beginner Guide — '[Topic] for beginners: the complete guide'. (6) Warning/Mistake — '[N] mistakes [audience] makes with [topic]'. (7) Discovery/Trend — 'Why [new approach] is replacing [old approach]'. This generator applies all seven to your topic and returns only results that score above the threshold across five optimization factors.",
   },
   {
     q: "Does this YouTube title generator use AI?",
-    a: "Yes — our YouTube Title Generator is powered by AI, which means it generates contextually relevant, unique titles rather than filling in a fixed template. When you enter your topic, tone, and target audience, the AI analyzes the combination and produces titles that match your specific content angle. It applies the seven proven title frameworks, scores each result across five optimization factors (keyword placement, CTR potential, clarity, curiosity triggers, and character length), and returns only the highest-scoring variations. The result is a set of titles that feel tailored to your channel — not generic fill-in-the-blank outputs. The tool is 100% free, with no account required and unlimited generation sessions.",
+    a: "Yes. The generator produces contextually relevant titles based on your specific topic, audience, and tone — not fill-in-the-blank templates. It applies the seven title frameworks, scores each result across five factors (keyword placement, CTR potential, clarity, curiosity triggers, character length), and returns only the highest-scoring variations. The tool is completely free, with no account required and no generation limits. Backlinko's analysis of 1.3 million YouTube videos confirms that title optimization is one of the few metadata factors with measurable impact on both search rankings and click-through rate.",
   },
 ];
 
@@ -241,26 +241,34 @@ export function YouTubeTitleGeneratorTool() {
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
               <Zap className="w-4 h-4 text-primary" /> What This AI YouTube Title Generator Does
             </h3>
+            {/* Citation capsule — answer-first */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mb-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                YouTube's recommendation system processes{" "}
+                <a href="https://blog.youtube/inside-youtube/on-youtubes-recommendation-system/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  over 80 billion signals per day
+                </a>{" "}
+                when deciding which videos to surface — and your title is the first metadata signal both the algorithm and the viewer evaluate.{" "}
+                <a href="https://www.briggsby.com/reverse-engineering-youtube-search" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  Briggsby's study of 3.8 million data points across 100,000 YouTube videos
+                </a>{" "}
+                found that top-ranking titles average 47–48 characters and that over 90% use broad-match keyword variations — not just exact-match terms — confirming that relevance and structure matter more than keyword stuffing.
+              </p>
+            </div>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              This free AI YouTube title generator analyzes your topic and applies seven proven viral
-              title frameworks — How-To, Number/List, Curiosity Gap, Speed/Shortcut, Beginner Guide,
-              Warning/Mistake, and Discovery/Trend — to create titles optimized for both YouTube search
-              ranking and click-through rate. The AI doesn't fill in a fixed template; it generates
-              contextually relevant titles that match your specific topic, audience, and tone.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-3">
-              Every title is internally scored across five factors: keyword placement, CTR potential,
-              clarity, curiosity triggers, and character length. Only titles scoring 70 or above are
-              shown — so every result in your output is production-ready. The AI groups titles into
-              High SEO and High CTR categories so you can make an informed choice depending on whether
-              you're prioritizing search discovery or click-through rate.
+              This generator applies seven proven title frameworks — How-To, Number/List, Curiosity Gap,
+              Speed/Shortcut, Beginner Guide, Warning/Mistake, and Discovery/Trend — to your specific
+              topic, audience, and tone. It doesn't fill in fixed templates; it produces contextually
+              relevant variations that match your content angle. Every title is scored across five
+              factors (keyword placement, CTR potential, clarity, curiosity triggers, character length)
+              and only results hitting the threshold are shown.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Run your best title through the{" "}
               <Link href="/tools/youtube-seo-score-checker" className="text-primary hover:underline font-medium">
                 YouTube SEO Score Checker
               </Link>{" "}
-              to verify its full optimization before publishing, or pair it with a{" "}
+              to verify full optimization before publishing, or pair it with a{" "}
               <Link href="/tools/youtube-description-generator" className="text-primary hover:underline font-medium">
                 keyword-rich description
               </Link>{" "}
@@ -271,25 +279,43 @@ export function YouTubeTitleGeneratorTool() {
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-primary" /> Why YouTube Titles Matter for Growth
             </h3>
+            {/* Citation capsule — answer-first */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mb-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <a href="https://www.tubefilter.com/2018/01/11/youtube-most-watch-time-driven-by-recommendations/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  70% of all YouTube watch time is driven by YouTube's own recommendation algorithm
+                </a>{" "}
+                — more than search and subscriptions combined, according to YouTube's Chief Product Officer at CES 2018.{" "}
+                <a href="https://blog.youtube/inside-youtube/on-youtubes-recommendation-system/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  YouTube's official blog confirms
+                </a>{" "}
+                that recommendations drive "even more" viewership than channel subscriptions or search. Your title is the primary text signal the algorithm uses to decide whether your video belongs in that recommendation pool.
+              </p>
+            </div>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Your YouTube title is the single most important factor for both YouTube SEO and viewer
-              click-through rate. A well-crafted title tells YouTube's algorithm what your video is
-              about — improving search ranking and suggested video placement — while simultaneously
-              convincing real viewers to click. Even a 1% improvement in CTR can double your video
-              views over time, because YouTube's algorithm amplifies content that earns strong early
-              click signals by distributing it to progressively larger audiences.
+              YouTube's Help Center is explicit that CTR and watch time work together — not independently.
+              A title that drives clicks but fails to hold viewers will receive fewer recommendations,
+              not more. That's why clickbait is self-defeating:{" "}
+              <a href="https://support.google.com/youtube/answer/7628154" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                YouTube's own documentation
+              </a>{" "}
+              states that the platform "will recommend a video if it is relevant AND if the video's
+              average view duration indicates that viewers find it interesting." Your title needs to earn
+              the click and set an expectation the video can actually meet.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              The title is also the first and often only thing a viewer reads before deciding to click.
-              A title that doesn't make a clear, compelling promise — or that buries the keyword — loses
-              views to competing videos with identical content but better-crafted metadata. Most creators
-              spend hours producing a video and minutes writing the title. Our AI title generator closes
-              that gap: enter your topic and get a bank of optimized titles in seconds.
+              Most creators spend hours producing a video and minutes writing the title. That imbalance
+              is where views are lost.{" "}
+              <a href="https://support.google.com/youtube/answer/7628154" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                YouTube's official CTR benchmarks
+              </a>{" "}
+              show that half of all channels operate between 2% and 10% impressions CTR — a wide band
+              where a stronger title can meaningfully shift your position without changing anything
+              else about the video.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Titles that rank in YouTube search continue driving organic views for months or years —
-              making strong title optimization one of the highest-ROI activities a creator can invest in.
-              Use the generator before every upload, and pair each title with targeted{" "}
+              Titles that rank in YouTube search compound over time — driving organic views for months
+              after upload. Use the generator before every upload, and pair each title with targeted{" "}
               <Link href="/tools/youtube-hashtag-generator" className="text-primary hover:underline font-medium">
                 hashtags
               </Link>{" "}
@@ -337,13 +363,13 @@ export function YouTubeTitleGeneratorTool() {
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
           {[
-            "Put your target keyword in the first 5 words — YouTube weighs early keyword placement heavily for search ranking.",
-            "Keep titles between 50–70 characters — long enough to convey value, short enough not to be truncated on mobile.",
-            "Use specific numbers whenever your content is list-based — '7 mistakes' outperforms 'common mistakes' consistently.",
-            "Test two title options using YouTube's A/B thumbnail and title feature — even a small CTR difference compounds into major view gains.",
-            "Generate multiple batches with different tone settings and compare — the Shocking tone often produces higher-CTR titles for the same topic.",
-            "Pair your title with a thumbnail that reinforces the same promise — visual and text consistency is the single strongest CTR combination.",
-            "Include the year ('in 2026') for reviews, comparisons, and guides where recency matters — it signals freshness and increases clicks.",
+            "Put your keyword in the first 5 words. Backlinko's study flags early keyword placement as a 'Power Tip' for a marginal SEO boost, and Briggsby's data shows 38–45% of top-ranking videos use exact-match keywords in titles.",
+            "Target 47–50 characters. Briggsby's 3.8 million data point study found top-performing titles averaged 47–48 characters. Desktop search truncates at ~70 characters; mobile home feed at ~50.",
+            "Use specific numbers. BuzzSumo's 100 million headline study found numbered list formats dominated top-performing content — '10' is the single best-performing number, followed by 5, 15, and 7.",
+            "Never clickbait. YouTube's Help Center states the platform recommends videos where 'average view duration indicates viewers find it interesting' — high CTR with low watch time triggers fewer recommendations.",
+            "Try multiple tones. Generate with Engaging, then Shocking, then Educational settings and compare. The same topic often yields a meaningfully higher-CTR title under a different tone instruction.",
+            "Match your thumbnail. Visual and title consistency is the strongest CTR signal combination — the thumbnail creates the emotional hook, the title delivers the specific promise.",
+            "Add the year for time-sensitive content. 'In 2026' on reviews, comparisons, and guides signals freshness to both viewers and YouTube's algorithm, which uses recency as a relevance signal.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
               <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />

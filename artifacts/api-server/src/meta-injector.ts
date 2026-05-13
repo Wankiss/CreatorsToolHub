@@ -461,8 +461,8 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
     } catch { /* fall back to no body */ }
 
     const meta: PageMeta = {
-      title:       "Free AI Tools for Content Creators — YouTube, TikTok & Instagram",
-      description: "35+ free AI-powered tools for YouTube, TikTok, and Instagram creators. Generate titles, scripts, captions, hashtags, and prompts instantly — no signup required.",
+      title:       "Free AI Tools for Content Creators",
+      description: "35+ free AI tools for YouTube, TikTok & Instagram creators. Generate titles, scripts, captions, hashtags, and prompts instantly — no signup required.",
       canonical:   SITE_URL,
       bodyHtml,
     };
@@ -487,7 +487,7 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
     } catch { /* fall back to no body */ }
 
     const meta: PageMeta = {
-      title:       "Creator Growth Blog — YouTube, TikTok & Instagram Tips 2026",
+      title:       "Creator Growth Blog 2026",
       description: "Free guides for content creators: YouTube SEO, TikTok growth strategies, Instagram tips, faceless channel ideas, and AI content tools. Updated for 2026.",
       canonical:   `${SITE_URL}/blog`,
       bodyHtml,
@@ -500,8 +500,8 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
 
   if (pathname === "/about") {
     return {
-      title:       "About creatorsToolHub — Free AI Tools for Content Creators",
-      description: "creatorsToolHub is built by Nnaemeka Immanuels — a content creator strategist who made 35+ free AI tools for YouTube, TikTok, and Instagram creators. No signup, no cost, ever.",
+      title:       "About creatorsToolHub",
+      description: "creatorsToolHub is built by Nnaemeka Immanuels — 35+ free AI tools for YouTube, TikTok & Instagram creators. No signup, no subscription, ever.",
       canonical:   `${SITE_URL}/about`,
       bodyHtml: `<div style="${S.wrap}">
   ${navHtml()}
@@ -558,6 +558,44 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
     </p>
   </main>
 </div>`,
+    };
+  }
+
+  // ── Legal pages ───────────────────────────────────────────────────────────
+
+  if (pathname === "/privacy") {
+    return {
+      title:       "Privacy Policy",
+      description: "Read the creatorsToolHub Privacy Policy. Learn how we collect data, use cookies, and keep your information safe. Free tools, no signup required.",
+      canonical:   `${SITE_URL}/privacy`,
+      bodyHtml: `<div style="${S.wrap}">${navHtml()}<main style="${S.main}"><h1 style="${S.h1}">Privacy Policy</h1><p style="${S.desc}">This Privacy Policy explains how creatorsToolHub collects, uses, and protects your information when you use our free AI creator tools. We use Google Analytics for traffic insights and Google AdSense to fund the platform.</p><p style="margin-top:1.5rem"><a href="/" style="${S.crumbA}">Back to All Tools</a></p></main></div>`,
+    };
+  }
+
+  if (pathname === "/terms") {
+    return {
+      title:       "Terms & Conditions",
+      description: "Read creatorsToolHub's Terms and Conditions. Covers acceptable use, AI-generated content ownership, advertising consent, and your rights as a user.",
+      canonical:   `${SITE_URL}/terms`,
+      bodyHtml: `<div style="${S.wrap}">${navHtml()}<main style="${S.main}"><h1 style="${S.h1}">Terms &amp; Conditions</h1><p style="${S.desc}">These Terms govern your access to and use of creatorsToolHub's free AI creator tools at creatorstoolhub.com. By using our platform you agree to these terms.</p><p style="margin-top:1.5rem"><a href="/" style="${S.crumbA}">Back to All Tools</a></p></main></div>`,
+    };
+  }
+
+  if (pathname === "/disclaimer") {
+    return {
+      title:       "Disclaimer",
+      description: "Important disclaimer for creatorsToolHub users. AI-generated content should be reviewed before publishing. No guarantees of viral performance or earnings.",
+      canonical:   `${SITE_URL}/disclaimer`,
+      bodyHtml: `<div style="${S.wrap}">${navHtml()}<main style="${S.main}"><h1 style="${S.h1}">Disclaimer</h1><p style="${S.desc}">creatorsToolHub provides AI-generated content for informational and creative purposes only. Outputs should be reviewed before publication. We make no guarantees of viral performance, revenue, or platform-specific results.</p><p style="margin-top:1.5rem"><a href="/" style="${S.crumbA}">Back to All Tools</a></p></main></div>`,
+    };
+  }
+
+  if (pathname === "/cookie-policy") {
+    return {
+      title:       "Cookie Policy",
+      description: "Learn how creatorsToolHub uses cookies including Google Analytics and AdSense. Manage your cookie preferences at any time — no account required.",
+      canonical:   `${SITE_URL}/cookie-policy`,
+      bodyHtml: `<div style="${S.wrap}">${navHtml()}<main style="${S.main}"><h1 style="${S.h1}">Cookie Policy</h1><p style="${S.desc}">creatorsToolHub uses cookies for essential site operation, Google Analytics traffic analysis, and Google AdSense advertising. You can manage your cookie preferences at any time using our built-in consent tool.</p><p style="margin-top:1.5rem"><a href="/" style="${S.crumbA}">Back to All Tools</a></p></main></div>`,
     };
   }
 

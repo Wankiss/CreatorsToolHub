@@ -119,9 +119,9 @@ const PAIN_POINTS = [
 export default function Home() {
   useCanonical("/");
   useSeoMeta({
-    title: "Free AI Tools for Content Creators — YouTube, TikTok & Instagram",
+    title: "Free AI Tools for Content Creators",
     description:
-      "35+ free AI-powered tools for YouTube, TikTok, and Instagram creators. Generate titles, scripts, captions, hashtags, and prompts instantly — no signup required.",
+      "35+ free AI tools for YouTube, TikTok & Instagram creators. Generate titles, scripts, captions, hashtags, and prompts instantly — no signup required.",
     path: "/",
   });
 

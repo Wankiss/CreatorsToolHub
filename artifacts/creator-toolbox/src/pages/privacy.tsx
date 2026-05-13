@@ -1,4 +1,5 @@
 import { useCanonical } from "@/hooks/use-canonical";
+import { useSeoMeta } from "@/hooks/use-seo-meta";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 import { Shield } from "lucide-react";
@@ -24,6 +25,14 @@ function Sub({ title, children }: { title: string; children: React.ReactNode }) 
 }
 
 export default function Privacy() {
+  useCanonical("/privacy");
+  useSeoMeta({
+    title: "Privacy Policy",
+    description:
+      "Read the creatorsToolHub Privacy Policy. Learn how we handle your data, use cookies, and keep your information safe. Free tools, no signup required.",
+    path: "/privacy",
+  });
+
   return (
     <Layout>
       <div className="bg-background">

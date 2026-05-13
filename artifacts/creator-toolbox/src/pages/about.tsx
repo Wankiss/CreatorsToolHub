@@ -46,9 +46,9 @@ export default function About() {
   useCanonical("/about");
 
   useSeoMeta({
-    title: "About creatorsToolHub — Free AI Tools for Content Creators",
+    title: "About creatorsToolHub",
     description:
-      "creatorsToolHub is built by Immanuels — a content creator strategist who made 35+ free AI tools for YouTube, TikTok, and Instagram creators. No signup, no cost, ever.",
+      "creatorsToolHub is built by Nnaemeka Immanuels — 35+ free AI tools for YouTube, TikTok & Instagram creators. No signup, no subscription, ever.",
     path: "/about",
   });
 
@@ -57,7 +57,7 @@ export default function About() {
     const personSchema = {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Immanuels",
+      "name": "Nnaemeka Immanuels",
       "url": `${SITE_URL}/about`,
       "image": `${SITE_URL}/immanuels-avatar.png`,
       "jobTitle": "Founder & Content Creator Strategist",

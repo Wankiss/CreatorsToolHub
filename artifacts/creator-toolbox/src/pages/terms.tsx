@@ -1,4 +1,5 @@
 import { useCanonical } from "@/hooks/use-canonical";
+import { useSeoMeta } from "@/hooks/use-seo-meta";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
@@ -15,6 +16,14 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 export default function Terms() {
+  useCanonical("/terms");
+  useSeoMeta({
+    title: "Terms & Conditions",
+    description:
+      "Read creatorsToolHub's Terms and Conditions. Covers acceptable use, AI-generated content ownership, advertising, and your rights as a user.",
+    path: "/terms",
+  });
+
   return (
     <Layout>
       <div className="bg-background">

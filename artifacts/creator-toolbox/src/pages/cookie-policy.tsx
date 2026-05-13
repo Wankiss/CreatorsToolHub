@@ -1,3 +1,5 @@
+import { useCanonical } from "@/hooks/use-canonical";
+import { useSeoMeta } from "@/hooks/use-seo-meta";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 import { Cookie, Settings } from "lucide-react";
@@ -23,6 +25,14 @@ const COOKIE_TABLE = [
 ];
 
 export default function CookiePolicy() {
+  useCanonical("/cookie-policy");
+  useSeoMeta({
+    title: "Cookie Policy",
+    description:
+      "Learn how creatorsToolHub uses cookies including Google Analytics and AdSense. Manage your cookie preferences at any time — no account required.",
+    path: "/cookie-policy",
+  });
+
   return (
     <Layout>
       <div className="bg-background">

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCanonical } from "@/hooks/use-canonical";
+import { useSeoMeta } from "@/hooks/use-seo-meta";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 import { Mail, MessageSquare, Clock, HelpCircle, Sparkles, CheckCircle2, Loader2, MapPin } from "lucide-react";
@@ -14,6 +15,14 @@ const TOPICS = [
 ];
 
 export default function Contact() {
+  useCanonical("/contact");
+  useSeoMeta({
+    title: "Contact creatorsToolHub",
+    description:
+      "Have a question, feedback, or tool suggestion? Contact the creatorsToolHub team at hello@creatorstoolhub.com. We respond within 48 hours.",
+    path: "/contact",
+  });
+
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");

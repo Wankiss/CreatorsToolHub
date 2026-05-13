@@ -1,3 +1,5 @@
+import { useCanonical } from "@/hooks/use-canonical";
+import { useSeoMeta } from "@/hooks/use-seo-meta";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 import { AlertTriangle } from "lucide-react";
@@ -14,6 +16,14 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 export default function Disclaimer() {
+  useCanonical("/disclaimer");
+  useSeoMeta({
+    title: "Disclaimer",
+    description:
+      "Important disclaimer for creatorsToolHub users. AI-generated content should be reviewed before publishing. No guarantees of viral performance or earnings.",
+    path: "/disclaimer",
+  });
+
   return (
     <Layout>
       <div className="bg-background">

@@ -195,29 +195,90 @@ function buildHomepageBody(tools: { name: string; slug: string; categoryId: numb
     <span style="${S.badge}">35+ Free Tools — No signup required</span>
     <h1 style="${S.h1}">Free AI Tools for Content Creators</h1>
     <p style="${S.desc}">
-      35+ free AI-powered tools for YouTube, TikTok, and Instagram creators.
-      Generate titles, scripts, captions, hashtags, and prompts instantly —
-      no signup, no subscription, no usage limits.
+      creatorsToolHub gives you 35+ free AI-powered tools built for YouTube, TikTok,
+      Instagram, and AI content creation. Generate titles that get clicked, scripts
+      that hold attention, captions that drive engagement, hashtags that expand reach,
+      and prompts that get real results from AI tools — all instantly, with no signup,
+      no subscription, and no usage limits. Every tool works directly in your browser.
     </p>
 
-    <h2 style="${S.h2}">YouTube Tools</h2>
+    <h2 style="${S.h2}">Free YouTube Tools</h2>
+    <p style="${S.desc}">
+      YouTube is the world's second-largest search engine — your title, tags, and
+      description are ranking signals just like a blog post's SEO. Our free YouTube
+      tools help you optimize every one: write click-worthy titles that balance search
+      keywords with curiosity-driven copy, extract the exact tags top-performing videos
+      in your niche use, and generate full video scripts built around the hook-body-CTA
+      structure that retains viewers past the 30-second mark. Whether you're starting
+      your first channel or optimizing an established one, these tools cut prep time
+      from hours to minutes.
+    </p>
     ${toolList(youtube)}
+    <p style="margin-bottom:1.5rem">
+      <a href="/category/youtube-tools" style="${S.crumbA}">Browse all ${youtube.length} free YouTube tools →</a>
+    </p>
 
-    <h2 style="${S.h2}">TikTok Tools</h2>
+    <h2 style="${S.h2}">Free TikTok Tools</h2>
+    <p style="${S.desc}">
+      TikTok's For You Page algorithm rewards relevance and consistency above follower
+      count — the right hashtags and captions move the needle more than how long you've
+      been posting. Our free TikTok tools generate trending hashtag sets targeted to
+      your specific niche, write captions in TikTok's native short-form voice, and
+      suggest video ideas matched to what's performing in your category right now.
+      Every tool is built specifically for TikTok's format, not adapted from longer-form
+      platforms like YouTube or blog content strategies.
+    </p>
     ${toolList(tiktok)}
+    <p style="margin-bottom:1.5rem">
+      <a href="/category/tiktok-tools" style="${S.crumbA}">Browse all ${tiktok.length} free TikTok tools →</a>
+    </p>
 
-    <h2 style="${S.h2}">Instagram Tools</h2>
+    <h2 style="${S.h2}">Free Instagram Tools</h2>
+    <p style="${S.desc}">
+      Instagram reach now depends on keyword-rich captions and Reels optimization —
+      the hashtag-only strategy that worked before 2023 no longer drives discovery on
+      its own. Our free Instagram tools help you adapt to the current algorithm: generate
+      niche hashtag sets that reach targeted audiences instead of oversaturated tags with
+      millions of posts, write Reels captions structured for saves and shares, and build
+      a profile bio that converts visitors into followers. Whether you're growing a
+      personal brand or a business account, these tools cut research time from hours
+      to seconds.
+    </p>
     ${toolList(instagram)}
+    <p style="margin-bottom:1.5rem">
+      <a href="/category/instagram-tools" style="${S.crumbA}">Browse all ${instagram.length} free Instagram tools →</a>
+    </p>
 
-    <h2 style="${S.h2}">AI Creator Tools</h2>
+    <h2 style="${S.h2}">Free AI Creator Tools</h2>
+    <p style="${S.desc}">
+      AI tools like ChatGPT, Gemini, and Midjourney are now standard in the creator
+      workflow — but the output quality depends entirely on the quality of the prompt.
+      Our free AI creator tools generate optimized prompts for image generation
+      (Midjourney, DALL·E, Stable Diffusion, Flux), structure content briefs that get
+      usable AI outputs on the first attempt, and help you build a faster content
+      pipeline without any prompt engineering experience. Copy the prompt, paste it
+      into your AI tool of choice, and get results that actually match your vision.
+    </p>
     ${toolList(ai)}
+    <p style="margin-bottom:1.5rem">
+      <a href="/category/ai-creator-tools" style="${S.crumbA}">Browse all ${ai.length} free AI creator tools →</a>
+    </p>
 
     <h2 style="${S.h2}">Why Content Creators Use creatorsToolHub</h2>
+    <p style="${S.desc}">
+      creatorsToolHub was built with one rule: every tool stays free, forever. There are
+      no trial periods, no freemium gates, and no credit card fields anywhere on the
+      platform. Open any tool, enter your topic or keyword, and get professional-quality
+      AI-generated output in seconds — on desktop or mobile. The platform is funded by
+      non-intrusive Google AdSense ads, which means creators never pay anything.
+    </p>
     <ul style="padding-left:1.2rem;color:#475569;line-height:2">
-      <li>Completely free — no credit card, no trial, no subscription</li>
+      <li>Completely free — no credit card, no trial, no subscription, ever</li>
       <li>No account required — open any tool and start instantly</li>
-      <li>AI-powered results trained on what actually works on each platform</li>
-      <li>Works for YouTube, TikTok, Instagram, and AI content tools</li>
+      <li>AI-powered results optimised for each platform's current algorithm</li>
+      <li>35+ tools covering YouTube, TikTok, Instagram, and AI content creation</li>
+      <li>Works in any browser on desktop, tablet, and mobile</li>
+      <li>No daily limits, no usage caps, no watermarks on generated content</li>
     </ul>
 
     <p style="margin-top:2rem">
@@ -225,7 +286,7 @@ function buildHomepageBody(tools: { name: string; slug: string; categoryId: numb
       <a href="/category/tiktok-tools" style="${S.crumbA}">TikTok Tools</a> ·
       <a href="/category/instagram-tools" style="${S.crumbA}">Instagram Tools</a> ·
       <a href="/category/ai-creator-tools" style="${S.crumbA}">AI Creator Tools</a> ·
-      <a href="/blog" style="${S.crumbA}">Blog</a>
+      <a href="/blog" style="${S.crumbA}">Creator Blog</a>
     </p>
   </main>
 </div>`;

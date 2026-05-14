@@ -2,7 +2,6 @@
   "name": "workspace",
   "version": "0.0.0",
   "license": "MIT",
-  "packageManager": "pnpm@11.1.1",
   "scripts": {
     "build": "npx --yes pnpm --filter @workspace/creator-toolbox run build && npx --yes pnpm --filter @workspace/api-server run build",
     "typecheck:libs": "tsc --build",

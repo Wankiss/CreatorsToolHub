@@ -539,10 +539,10 @@ export default function Home() {
                     </Link>
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-3">
-                    YouTube is the world's second-largest search engine — every title, tag, and description is a ranking signal just like a blog post's SEO. Our free YouTube tools help you optimise every one: write click-worthy titles that balance search keywords with curiosity-driven copy, extract the exact tags top-performing videos in your niche use, and generate full video scripts built around the hook-body-CTA structure that retains viewers past the 30-second mark.
+                    Most creators obsess over camera gear and miss the thing that actually drives views. YouTube is the world's second-largest search engine. Your title, tags, and description are ranking signals, just like a blog post. Get those wrong and even great videos don't get found.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Whether you're starting your first channel or optimising an established one, these tools cut prep time from hours to minutes — completely free with no signup required.
+                    Our free YouTube tools fix that. Write titles that balance search keywords with curiosity-driven copy that earns the click. Pull the exact tags top-performing videos in your niche are using. Generate full scripts built around the hook-body-CTA structure that keeps viewers watching past the 30-second mark. Whether you're just starting out or scaling an established channel, these tools cut your prep time from hours to minutes.
                   </p>
                   <Link href="/category/youtube-tools" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
                     Browse all free YouTube tools <ChevronRight className="w-4 h-4" />
@@ -566,10 +566,10 @@ export default function Home() {
                     </Link>
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-3">
-                    TikTok's For You Page algorithm rewards relevance and consistency above follower count — the right hashtags and captions move the needle more than how long you've been posting. Our free TikTok tools generate trending hashtag sets targeted to your specific niche, write captions in TikTok's native short-form voice, and suggest video ideas matched to what's performing in your category right now.
+                    Here's what most TikTok guides won't tell you: your follower count matters less than your hashtags and captions. TikTok's For You Page rewards relevance and consistency. A fresh account with the right niche hashtags will outperform a 10k-follower account posting the wrong content. Every time.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Every tool is built specifically for TikTok's short-form format, not adapted from YouTube or blog content strategies.
+                    Our free TikTok tools generate trending hashtag sets targeted to your specific niche, write captions in TikTok's short-form voice, and suggest video ideas based on what's actually performing in your category right now. Built for TikTok's format. Not adapted from YouTube or repurposed from a blog generator.
                   </p>
                   <Link href="/category/tiktok-tools" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
                     Browse all free TikTok tools <ChevronRight className="w-4 h-4" />
@@ -593,10 +593,10 @@ export default function Home() {
                     </Link>
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-3">
-                    Instagram reach now depends on keyword-rich captions and Reels optimisation — the hashtag-only strategy that worked before 2023 no longer drives discovery on its own. Our free Instagram tools help you adapt to the current algorithm: generate niche hashtag sets that reach targeted audiences instead of oversaturated tags with millions of posts, write Reels captions structured for saves and shares, and build a profile bio that converts visitors into followers.
+                    The Instagram hashtag strategy you learned in 2021 is dead. Since the algorithm shifted, reach runs on keyword-rich captions and Reels optimisation. If you're still copy-pasting the same 30 tags on every post, you're essentially invisible.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Whether you're growing a personal brand or a business account, these tools cut research time from hours to seconds.
+                    Our free Instagram tools help you adapt. Generate niche hashtag sets that reach targeted audiences instead of oversaturated tags with tens of millions of posts. Write Reels captions structured for saves and shares. Build a bio that converts profile visitors into followers. Whether you're growing a personal brand or a business account, the research that used to take an hour now takes seconds.
                   </p>
                   <Link href="/category/instagram-tools" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
                     Browse all free Instagram tools <ChevronRight className="w-4 h-4" />
@@ -620,10 +620,10 @@ export default function Home() {
                     </Link>
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-3">
-                    AI tools like ChatGPT, Gemini, and Midjourney are now standard in the creator workflow — but the output quality depends entirely on the quality of the prompt. Our free AI creator tools generate optimised prompts for image generation (Midjourney, DALL·E, Stable Diffusion, Flux), structure content briefs that get usable AI outputs on the first attempt, and help you build a faster content pipeline without any prompt engineering experience.
+                    ChatGPT is only as good as what you ask it. That's not a knock on AI. It's just how prompts work. Most creators spend 20 minutes wrestling with vague outputs because the prompt wasn't specific enough. That's not a creativity problem. It's an input problem.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Copy the prompt, paste it into your AI tool of choice, and get results that actually match your vision — no trial and error.
+                    Our free AI creator tools give you ready-to-use prompts for Midjourney, DALL·E, Stable Diffusion, Flux, and ChatGPT, so you skip the guessing entirely. Structure content briefs that get usable outputs on the first try. Build a faster pipeline without learning prompt engineering from scratch. Copy the prompt. Paste it. Get results that actually match your vision.
                   </p>
                   <Link href="/category/ai-creator-tools" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
                     Browse all free AI creator tools <ChevronRight className="w-4 h-4" />

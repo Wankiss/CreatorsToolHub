@@ -231,26 +231,33 @@ function buildHomepageBody(tools: { name: string; slug: string; categoryId: numb
 </div>`;
 }
 
+/** Returns the 5 FAQ items for a tool page.
+ *  Shared by buildToolBody (HTML) and the FAQPage JSON-LD schema injected
+ *  server-side so crawlers (Googlebot, Bingbot, GPTBot) can read it. */
+function buildToolFaqs(toolName: string, categorySlug: string): Array<{ q: string; a: string }> {
+  const platformFAQ = categorySlug.includes("tiktok")
+    ? { q: `Can I use the ${toolName} for TikTok videos?`, a: `Yes. The ${toolName} is built specifically for TikTok creators. It understands TikTok's short-form format, trending content patterns, and what actually gets views on the platform.` }
+    : categorySlug.includes("instagram")
+    ? { q: `Can I use the ${toolName} for Instagram Reels?`, a: `Yes. The ${toolName} works for all Instagram content formats including Reels, posts, carousels, and Stories. Results are optimised for Instagram's algorithm and audience behaviour.` }
+    : categorySlug.includes("ai")
+    ? { q: `Which AI models work with the ${toolName}?`, a: `The ${toolName} generates prompts and content compatible with ChatGPT, Claude, Gemini, and other major AI tools. You can copy the output and paste it directly into any AI assistant.` }
+    : { q: `Can I use the ${toolName} for YouTube Shorts?`, a: `Yes. The ${toolName} works for both long-form YouTube videos and YouTube Shorts. Simply specify your format when entering your topic and the AI will tailor the output accordingly.` };
+
+  return [
+    { q: `Is the ${toolName} free?`, a: `Yes, the ${toolName} on creatorsToolHub is completely free. There is no signup, no subscription, and no usage limit. Open the tool, enter your details, and get results instantly — forever free.` },
+    { q: `How does the ${toolName} work?`, a: `The ${toolName} uses advanced AI to generate high-quality results based on your input. Enter your topic, keyword, or content idea, click Generate, and receive professional-quality output in seconds.` },
+    { q: `How many times can I use the ${toolName}?`, a: `Unlimited. creatorsToolHub does not cap how many times you can use the ${toolName}. Generate as many results as you need — the tool stays completely free with no daily limits or credit system.` },
+    platformFAQ,
+    { q: `Do I need to create an account to use the ${toolName}?`, a: `No account is required. The ${toolName} works instantly in your browser without any signup, email address, or payment information. Just open the page and start generating.` },
+  ];
+}
+
 function buildToolBody(
   tool: { name: string; description: string; slug: string },
   categoryName: string,
   categorySlug: string,
 ): string {
-  const platformFAQ = categorySlug.includes("tiktok")
-    ? { q: `Can I use the ${tool.name} for TikTok videos?`, a: `Yes. The ${tool.name} is built specifically for TikTok creators. It understands TikTok's short-form format, trending content patterns, and what actually gets views on the platform.` }
-    : categorySlug.includes("instagram")
-    ? { q: `Can I use the ${tool.name} for Instagram Reels?`, a: `Yes. The ${tool.name} works for all Instagram content formats including Reels, posts, carousels, and Stories. Results are optimised for Instagram's algorithm and audience behaviour.` }
-    : categorySlug.includes("ai")
-    ? { q: `Which AI models work with the ${tool.name}?`, a: `The ${tool.name} generates prompts and content compatible with ChatGPT, Claude, Gemini, and other major AI tools. You can copy the output and paste it directly into any AI assistant.` }
-    : { q: `Can I use the ${tool.name} for YouTube Shorts?`, a: `Yes. The ${tool.name} works for both long-form YouTube videos and YouTube Shorts. Simply specify your format when entering your topic and the AI will tailor the output accordingly.` };
-
-  const faqs = [
-    { q: `Is the ${tool.name} free?`, a: `Yes, the ${tool.name} on creatorsToolHub is completely free. There is no signup, no subscription, and no usage limit. Open the tool, enter your details, and get results instantly — forever free.` },
-    { q: `How does the ${tool.name} work?`, a: `The ${tool.name} uses advanced AI to generate high-quality results based on your input. Enter your topic, keyword, or content idea, click Generate, and receive professional-quality output in seconds.` },
-    { q: `How many times can I use the ${tool.name}?`, a: `Unlimited. creatorsToolHub does not cap how many times you can use the ${tool.name}. Generate as many results as you need — the tool stays completely free with no daily limits or credit system.` },
-    platformFAQ,
-    { q: `Do I need to create an account to use the ${tool.name}?`, a: `No account is required. The ${tool.name} works instantly in your browser without any signup, email address, or payment information. Just open the page and start generating.` },
-  ];
+  const faqs = buildToolFaqs(tool.name, categorySlug);
 
   return `<div style="${S.wrap}">
   ${navHtml()}
@@ -769,13 +776,12 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
         : isAI        ? "ai-creator-tools"
         : "youtube-tools";
 
-      // NOTE: FAQPage schema is NOT injected server-side for tool pages.
-      // Each tool component injects its own rich, tool-specific FAQPage schema
-      // client-side (e.g. youtube-title-generator.tsx, tiktok-hashtag-generator.tsx).
-      // Injecting a generic FAQPage here AND in the component causes a
-      // "Duplicate field 'FAQPage'" GSC error that blocks FAQ rich results.
-      // The component-level schemas are richer (7 tool-specific Q&As vs 5 generic ones)
-      // and Google executes JS to find them — so SSR for FAQ is not needed here.
+      // Build the 5 FAQ items once — used in both the HTML body and FAQPage JSON-LD.
+      // Client-side components also inject a richer tool-specific FAQPage via useEffect,
+      // but that is invisible to crawlers (Googlebot, Bingbot, GPTBot don't execute JS).
+      // This server-side FAQPage ensures crawlers AND Google Rich Results Test can see
+      // structured FAQ markup for every tool page.
+      const toolFaqs = buildToolFaqs(tool.name, categorySlug);
 
       const meta: PageMeta = {
         title:       `Free ${tool.name}`,
@@ -794,6 +800,15 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
             "isAccessibleForFree": true,
             "description":         tool.description,
             "creator": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
+          },
+          {
+            "@context":   "https://schema.org",
+            "@type":      "FAQPage",
+            "mainEntity": toolFaqs.map(item => ({
+              "@type": "Question",
+              "name":  item.q,
+              "acceptedAnswer": { "@type": "Answer", "text": item.a },
+            })),
           },
           breadcrumb(
             { name: categoryName, url: `${SITE_URL}/category/${categorySlug}` },

@@ -512,19 +512,126 @@ export default function Home() {
         </section>
       )}
 
-      {/* ── SEO TEXT SECTION ─────────────────────────────────── */}
-      <section className="py-16 bg-background border-t border-border/40">
+      {/* ── PLATFORM DESCRIPTIONS ────────────────────────────── */}
+      <section className="py-20 bg-background border-t border-border/40">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="prose prose-sm text-muted-foreground max-w-none space-y-4 text-center">
-            <h2 className="text-xl font-bold font-display text-foreground not-prose">
-              creatorsToolHub — Your Free AI Tools for Content Creation
+          <InView className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
+              Free Tools Built for Every Platform
             </h2>
-            <p className="leading-relaxed">
-              creatorsToolHub (creatorstoolhub.com) is the leading hub of free creator tools built for YouTubers, TikTok creators, Instagram influencers, and side hustlers who want to grow their audience without breaking the bank. Our platform offers 30+ free AI-powered tools including a YouTube script generator free to use, a viral title generator, TikTok content generator, faceless YouTube ideas generator, Instagram hashtag generator, AI prompt generator, Midjourney prompt generator, and many more content creation tools — all completely free with no signup required.
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Every tool on creatorsToolHub is built specifically for one platform — not repurposed from somewhere else. Here's what you get for each.
             </p>
-            <p className="leading-relaxed">
-              Whether you're searching for free AI tools for video creators, YouTube automation tools, free AI video creator tools, or TikTok viral content generators, creatorsToolHub has everything in one place. Our tools are designed for beginner and intermediate creators who want to save time, stay consistent, and create high-performing content across all major platforms. Use our free creator tools today and join thousands of creators who are growing faster with creatorsToolHub.
-            </p>
+          </InView>
+
+          <div className="space-y-14">
+
+            {/* YouTube */}
+            <InView>
+              <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-red-100 dark:bg-red-950/40 text-red-600 dark:text-red-400 flex items-center justify-center mt-1">
+                  <Youtube className="w-6 h-6" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold font-display mb-3">
+                    <Link href="/category/youtube-tools" className="hover:text-primary transition-colors">
+                      Free YouTube Tools
+                    </Link>
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    YouTube is the world's second-largest search engine — every title, tag, and description is a ranking signal just like a blog post's SEO. Our free YouTube tools help you optimise every one: write click-worthy titles that balance search keywords with curiosity-driven copy, extract the exact tags top-performing videos in your niche use, and generate full video scripts built around the hook-body-CTA structure that retains viewers past the 30-second mark.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Whether you're starting your first channel or optimising an established one, these tools cut prep time from hours to minutes — completely free with no signup required.
+                  </p>
+                  <Link href="/category/youtube-tools" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
+                    Browse all free YouTube tools <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </InView>
+
+            <div className="border-t border-border/40" />
+
+            {/* TikTok */}
+            <InView>
+              <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-pink-100 dark:bg-pink-950/40 text-pink-600 dark:text-pink-400 flex items-center justify-center mt-1">
+                  <Music className="w-6 h-6" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold font-display mb-3">
+                    <Link href="/category/tiktok-tools" className="hover:text-primary transition-colors">
+                      Free TikTok Tools
+                    </Link>
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    TikTok's For You Page algorithm rewards relevance and consistency above follower count — the right hashtags and captions move the needle more than how long you've been posting. Our free TikTok tools generate trending hashtag sets targeted to your specific niche, write captions in TikTok's native short-form voice, and suggest video ideas matched to what's performing in your category right now.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Every tool is built specifically for TikTok's short-form format, not adapted from YouTube or blog content strategies.
+                  </p>
+                  <Link href="/category/tiktok-tools" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
+                    Browse all free TikTok tools <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </InView>
+
+            <div className="border-t border-border/40" />
+
+            {/* Instagram */}
+            <InView>
+              <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center mt-1">
+                  <Instagram className="w-6 h-6" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold font-display mb-3">
+                    <Link href="/category/instagram-tools" className="hover:text-primary transition-colors">
+                      Free Instagram Tools
+                    </Link>
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    Instagram reach now depends on keyword-rich captions and Reels optimisation — the hashtag-only strategy that worked before 2023 no longer drives discovery on its own. Our free Instagram tools help you adapt to the current algorithm: generate niche hashtag sets that reach targeted audiences instead of oversaturated tags with millions of posts, write Reels captions structured for saves and shares, and build a profile bio that converts visitors into followers.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Whether you're growing a personal brand or a business account, these tools cut research time from hours to seconds.
+                  </p>
+                  <Link href="/category/instagram-tools" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
+                    Browse all free Instagram tools <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </InView>
+
+            <div className="border-t border-border/40" />
+
+            {/* AI Creator Tools */}
+            <InView>
+              <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mt-1">
+                  <Zap className="w-6 h-6" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold font-display mb-3">
+                    <Link href="/category/ai-creator-tools" className="hover:text-primary transition-colors">
+                      Free AI Creator Tools
+                    </Link>
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    AI tools like ChatGPT, Gemini, and Midjourney are now standard in the creator workflow — but the output quality depends entirely on the quality of the prompt. Our free AI creator tools generate optimised prompts for image generation (Midjourney, DALL·E, Stable Diffusion, Flux), structure content briefs that get usable AI outputs on the first attempt, and help you build a faster content pipeline without any prompt engineering experience.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Copy the prompt, paste it into your AI tool of choice, and get results that actually match your vision — no trial and error.
+                  </p>
+                  <Link href="/category/ai-creator-tools" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
+                    Browse all free AI creator tools <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </InView>
+
           </div>
         </div>
       </section>

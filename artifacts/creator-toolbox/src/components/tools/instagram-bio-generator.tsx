@@ -102,47 +102,47 @@ function ScoreBar({ label, value, color }: { label: string; value: number; color
 const FAQ_ITEMS = [
   {
     q: "What makes a good Instagram bio?",
-    a: "A high-converting Instagram bio answers three questions in under 3 seconds: What is this account about? What do I gain from following? What should I do next? The most effective bios combine four elements: (1) A clear niche signal — who you are and what category of content you create. (2) A specific value proposition — not what you do, but what result the follower receives ('lose 20 lbs without giving up carbs' rather than 'fitness tips'). (3) A credibility marker — a result, credential, or social proof that earns trust instantly. (4) A single clear CTA — one specific next action, whether that's a follow, a DM, or a link click. Instagram Help Center documents the 150-character bio limit as the primary text space a visitor sees on your profile, making every element of that space count for conversion.",
+    a: "A high-converting Instagram bio answers three questions in under 3 seconds: What is this account about? What do I gain from following? What should I do next? The most effective bios combine four elements: (1) A clear niche signal, who you are and what category of content you create. (2) A specific value proposition, not what you do, but what result the follower receives ('lose 20 lbs without giving up carbs' rather than 'fitness tips'). (3) A credibility marker, a result, credential, or social proof that earns trust instantly. (4) A single clear CTA, one specific next action, whether that's a follow, a DM, or a link click. Instagram Help Center documents the 150-character bio limit as the primary text space a visitor sees on your profile, making every element of that space count for conversion.",
   },
   {
     q: "How long should an Instagram bio be?",
-    a: "Instagram's hard character limit is 150 characters. The optimal bio length for conversions is 100–140 characters — long enough to communicate niche, value, and CTA, but short enough to avoid truncation on mobile profiles, where Instagram folds the bio after the second line. Bios under 80 characters tend to leave value on the table, signaling a creator who hasn't thought carefully about their positioning. Bios over 130 characters risk getting cut off before the CTA on some devices and screen sizes. Our generator enforces the 150-character limit on every bio produced and shows you a live character meter so you can compare bios at a glance.",
+    a: "Instagram's hard character limit is 150 characters. The optimal bio length for conversions is 100–140 characters, long enough to communicate niche, value, and CTA, but short enough to avoid truncation on mobile profiles, where Instagram folds the bio after the second line. Bios under 80 characters tend to leave value on the table, signaling a creator who hasn't thought carefully about their positioning. Bios over 130 characters risk getting cut off before the CTA on some devices and screen sizes. Our generator enforces the 150-character limit on every bio produced and shows you a live character meter so you can compare bios at a glance.",
   },
   {
     q: "What should I include in my Instagram bio?",
-    a: "The most effective Instagram bio structure follows the formula: [Who you help] + [Result you deliver] + [Credibility signal] + [CTA]. Specifically: (1) Niche/audience signal — who your content is for, so visitors can self-identify. (2) Specific result — what transformation or benefit a follower receives, stated as an outcome. (3) Credibility — a quantified achievement ('helped 500+ clients'), a credential ('certified nutritionist'), or a social proof signal ('featured in Forbes'). (4) CTA — one clear next step: follow prompt with a specific benefit, DM instruction, or a link-in-bio reference. Optional additions include emojis (1–3, niche-relevant), a posting frequency claim ('new Reels every Tuesday'), and a location if you serve a local audience.",
+    a: "The most effective Instagram bio structure follows the formula: [Who you help] + [Result you deliver] + [Credibility signal] + [CTA]. Specifically: (1) Niche/audience signal, who your content is for, so visitors can self-identify. (2) Specific result, what transformation or benefit a follower receives, stated as an outcome. (3) Credibility, a quantified achievement ('helped 500+ clients'), a credential ('certified nutritionist'), or a social proof signal ('featured in Forbes'). (4) CTA, one clear next step: follow prompt with a specific benefit, DM instruction, or a link-in-bio reference. Optional additions include emojis (1–3, niche-relevant), a posting frequency claim ('new Reels every Tuesday'), and a location if you serve a local audience.",
   },
   {
     q: "Should I put emojis in my Instagram bio?",
-    a: "Yes — strategically. Emojis serve as visual bullets that break up text, add personality, and increase scannability within Instagram's 150-character limit. The most effective approach is using emojis that reinforce your niche or replace words to save characters (🏋️ for fitness, 💰 for finance, ✍️ for writing). The ↓ arrow emoji pointing to your link-in-bio is particularly powerful — it draws the eye and signals more value waiting below. Instagram Help Center notes that emojis count toward your character limit (typically 1–2 characters each). Avoid emoji overload: more than 3 emojis typically makes a bio feel cluttered and reduces the authority signal, particularly in professional or business-focused niches.",
+    a: "Yes, strategically. Emojis serve as visual bullets that break up text, add personality, and increase scannability within Instagram's 150-character limit. The most effective approach is using emojis that reinforce your niche or replace words to save characters (🏋️ for fitness, 💰 for finance, ✍️ for writing). The ↓ arrow emoji pointing to your link-in-bio is particularly powerful, it draws the eye and signals more value waiting below. Instagram Help Center notes that emojis count toward your character limit (typically 1–2 characters each). Avoid emoji overload: more than 3 emojis typically makes a bio feel cluttered and reduces the authority signal, particularly in professional or business-focused niches.",
   },
   {
     q: "What is the best Instagram bio CTA?",
-    a: "The best Instagram bio CTA is specific and benefit-connected rather than generic. 'Follow for daily fat-loss tips' consistently outperforms 'Follow me!' because it answers the implicit question 'What's in it for me?' Similarly, 'Free macro guide ↓' outperforms 'Link in bio' because it names the specific thing waiting below. Instagram Help Center documents the profile link as the primary off-platform conversion mechanism — your bio CTA should direct visitors toward it clearly. The five highest-performing CTA types for Instagram bios are: benefit-driven follow prompts, DM-with-a-keyword triggers, specific link-in-bio references, free resource grabs with the ↓ emoji, and collab/partnership invitation for B2B creators.",
+    a: "The best Instagram bio CTA is specific and benefit-connected rather than generic. 'Follow for daily fat-loss tips' consistently outperforms 'Follow me!' because it answers the implicit question 'What's in it for me?' Similarly, 'Free macro guide ↓' outperforms 'Link in bio' because it names the specific thing waiting below. Instagram Help Center documents the profile link as the primary off-platform conversion mechanism, your bio CTA should direct visitors toward it clearly. The five highest-performing CTA types for Instagram bios are: benefit-driven follow prompts, DM-with-a-keyword triggers, specific link-in-bio references, free resource grabs with the ↓ emoji, and collab/partnership invitation for B2B creators.",
   },
   {
     q: "How often should I update my Instagram bio?",
-    a: "Update your Instagram bio whenever your content focus shifts significantly, when you launch a new product, series, or campaign, or when you're A/B testing bio performance. Beyond event-driven updates, refreshing your bio every 6–8 weeks is good practice — a fresh bio signals an active creator to returning profile visitors and often improves conversion from people who've visited before but didn't follow. When testing bios, run each version for at least 14 days and track your profile visit performance in Instagram Insights (Professional Dashboard → Overview → Accounts Reached → Profile Activity), as documented in Instagram's Help Center under 'About Instagram Insights'. If profile visits are rising but follower growth is flat, that's a signal your bio isn't converting — regenerate and test a new positioning angle.",
+    a: "Update your Instagram bio whenever your content focus shifts significantly, when you launch a new product, series, or campaign, or when you're A/B testing bio performance. Beyond event-driven updates, refreshing your bio every 6–8 weeks is good practice, a fresh bio signals an active creator to returning profile visitors and often improves conversion from people who've visited before but didn't follow. When testing bios, run each version for at least 14 days and track your profile visit performance in Instagram Insights (Professional Dashboard → Overview → Accounts Reached → Profile Activity), as documented in Instagram's Help Center under 'About Instagram Insights'. If profile visits are rising but follower growth is flat, that's a signal your bio isn't converting, regenerate and test a new positioning angle.",
   },
   {
     q: "What is the 150-character Instagram bio limit?",
-    a: "Instagram's bio section is capped at 150 characters — this includes all text, spaces, emojis (each emoji counts as 1–2 characters depending on complexity), line breaks (each counts as 1 character), and punctuation. Instagram enforces this limit hard: text beyond 150 characters is truncated and not displayed. Our generator validates every bio to the 150-character limit before surfacing it — you'll never see a result that can't be pasted directly into Instagram's profile editor. The live character meter on each bio card shows you how close each option is to the ceiling, colour-coded green (comfortable), yellow (tight but within limit), and orange (near the limit — review carefully).",
+    a: "Instagram's bio section is capped at 150 characters, this includes all text, spaces, emojis (each emoji counts as 1–2 characters depending on complexity), line breaks (each counts as 1 character), and punctuation. Instagram enforces this limit hard: text beyond 150 characters is truncated and not displayed. Our generator validates every bio to the 150-character limit before surfacing it, you'll never see a result that can't be pasted directly into Instagram's profile editor. The live character meter on each bio card shows you how close each option is to the ceiling, colour-coded green (comfortable), yellow (tight but within limit), and orange (near the limit, review carefully).",
   },
   {
     q: "How do I write an Instagram bio for a business?",
-    a: "Business Instagram bios require a customer-first framing rather than company-first. Lead with what the business does for the customer ('Handmade leather goods for minimalists') rather than who you are as a company ('We make leather goods'). Include a trust signal — years in business, number of customers served, press mentions, or certifications — if it fits within the character limit. Always end with a clear CTA tied to your primary business goal: 'Shop now ↓' for e-commerce, 'Book a call ↓' for services, 'Get the free guide ↓' for lead generation. Avoid jargon, mission statements, and abstract language — write for a cold prospect who has never heard of you. Use the Professional tone option in our generator for business accounts.",
+    a: "Business Instagram bios require a customer-first framing rather than company-first. Lead with what the business does for the customer ('Handmade leather goods for minimalists') rather than who you are as a company ('We make leather goods'). Include a trust signal, years in business, number of customers served, press mentions, or certifications, if it fits within the character limit. Always end with a clear CTA tied to your primary business goal: 'Shop now ↓' for e-commerce, 'Book a call ↓' for services, 'Get the free guide ↓' for lead generation. Avoid jargon, mission statements, and abstract language, write for a cold prospect who has never heard of you. Use the Professional tone option in our generator for business accounts.",
   },
   {
     q: "How do I write an Instagram bio that gets followers?",
-    a: "The bios that consistently convert profile visitors to followers share four characteristics: (1) They communicate a specific, tangible benefit — not 'fitness inspiration' but 'lose your first 10 lbs in 30 days.' (2) They establish immediate relevance — the reader knows within 2 seconds whether this account is for them. (3) They include a social proof or credibility signal that earns trust without explanation. (4) They end with a friction-free follow CTA that gives one more reason to commit — 'Follow for a new workout every Monday.' The generator's Professional and Inspirational tones are optimised for follow conversion; Bold and Minimal tones work better for engagement and DM conversion.",
+    a: "The bios that consistently convert profile visitors to followers share four characteristics: (1) They communicate a specific, tangible benefit, not 'fitness inspiration' but 'lose your first 10 lbs in 30 days.' (2) They establish immediate relevance, the reader knows within 2 seconds whether this account is for them. (3) They include a social proof or credibility signal that earns trust without explanation. (4) They end with a friction-free follow CTA that gives one more reason to commit, 'Follow for a new workout every Monday.' The generator's Professional and Inspirational tones are optimised for follow conversion; Bold and Minimal tones work better for engagement and DM conversion.",
   },
   {
     q: "Is this Instagram bio generator free?",
-    a: "Yes — the Instagram Bio Generator is completely free with no account required, no signup, and no usage limits. Every generation produces 10 bio variations across four distinct tones: 3 Professional, 2 Bold, 2 Minimal, and 3 Inspirational — all validated to Instagram's 150-character limit. Each bio includes a live character meter, Power Score, and Clarity Score to help you quickly identify the strongest options. Use the tone filter tabs to compare within a style, hit Regenerate for fresh variations, and copy any bio in one click. The tool works for personal brands, creators, coaches, businesses, and any niche.",
+    a: "Yes, the Instagram Bio Generator is completely free with no account required, no signup, and no usage limits. Every generation produces 10 bio variations across four distinct tones: 3 Professional, 2 Bold, 2 Minimal, and 3 Inspirational: all validated to Instagram's 150-character limit. Each bio includes a live character meter, Power Score, and Clarity Score to help you quickly identify the strongest options. Use the tone filter tabs to compare within a style, hit Regenerate for fresh variations, and copy any bio in one click. The tool works for personal brands, creators, coaches, businesses, and any niche.",
   },
   {
     q: "Does Instagram's Name field affect search results?",
-    a: "Yes — and this is one of the most underused profile optimization tactics on Instagram. According to Instagram Help Center's profile guidance, the Name field (the bold text directly below your profile photo) is indexed by Instagram's search algorithm, while your username is also indexed separately. This means you can use keyword-rich text in the Name field — such as 'Fitness Coach | Fat Loss Expert' or 'Food Blogger | Easy Dinner Recipes' — to appear in search results when users look for those topics, even if they don't know your name or handle. The Name field allows up to 30 characters. Your bio text is not indexed for external search in the same way, so the Name field is your primary SEO lever. Update the Name field independently of your bio when testing search visibility.",
+    a: "Yes, and this is one of the most underused profile optimization tactics on Instagram. According to Instagram Help Center's profile guidance, the Name field (the bold text directly below your profile photo) is indexed by Instagram's search algorithm, while your username is also indexed separately. This means you can use keyword-rich text in the Name field, such as 'Fitness Coach | Fat Loss Expert' or 'Food Blogger | Easy Dinner Recipes', to appear in search results when users look for those topics, even if they don't know your name or handle. The Name field allows up to 30 characters. Your bio text is not indexed for external search in the same way, so the Name field is your primary SEO lever. Update the Name field independently of your bio when testing search visibility.",
   },
 ];
 
@@ -273,7 +273,7 @@ export function InstagramBioGeneratorTool() {
             <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 block">What You Help People Achieve *</label>
             <Input placeholder="e.g. lose 20 lbs without giving up carbs" value={valueprop}
               onChange={e => setValueprop(e.target.value)} className="rounded-xl h-11 text-sm" />
-            <p className="text-xs text-muted-foreground mt-1.5">Be specific — 'lose 20 lbs without giving up carbs' beats 'get fit'.</p>
+            <p className="text-xs text-muted-foreground mt-1.5">Be specific, 'lose 20 lbs without giving up carbs' beats 'get fit'.</p>
           </div>
 
           {/* Audience */}
@@ -408,9 +408,9 @@ export function InstagramBioGeneratorTool() {
         <div className="grid sm:grid-cols-2 gap-4">
           {[
             { step: 1, title: "Select Your Niche and Describe What You Help People Achieve", desc: "Choose your content niche, then enter your core value proposition. Be specific: 'lose 20 lbs without giving up carbs' generates far stronger bios than 'get fit'. The more precise your input, the more targeted your output." },
-            { step: 2, title: "Enter Your Target Audience and Choose Your CTA Goal", desc: "Describe your target audience clearly — 'busy moms over 35' or 'early-stage entrepreneurs' converts better than 'everyone'. Then select your CTA goal: Follow (growing your audience), DM (coaching/services), Link (products), Free Gift (list building), or Collabs (partnerships)." },
+            { step: 2, title: "Enter Your Target Audience and Choose Your CTA Goal", desc: "Describe your target audience clearly, 'busy moms over 35' or 'early-stage entrepreneurs' converts better than 'everyone'. Then select your CTA goal: Follow (growing your audience), DM (coaching/services), Link (products), Free Gift (list building), or Collabs (partnerships)." },
             { step: 3, title: "Add Optional Credibility Markers and Keywords", desc: "Credibility markers ('helped 500+ clients', '10K students', 'Forbes featured') are injected into the Professional-tone bios. Keywords ensure your specific positioning language appears in the generated bios. Your name is optional for personalisation in certain bio formats." },
-            { step: 4, title: "Filter by Tone and Copy Your Best Bio", desc: "Get 10 bios across 4 tones: 3 Professional, 2 Bold, 2 Minimal, 3 Inspirational. Use the tone filter tabs to compare across styles. Every bio shows a live character meter, Power Score, and Clarity Score. Copy to clipboard in one click — paste directly into Instagram's profile edit." },
+            { step: 4, title: "Filter by Tone and Copy Your Best Bio", desc: "Get 10 bios across 4 tones: 3 Professional, 2 Bold, 2 Minimal, 3 Inspirational. Use the tone filter tabs to compare across styles. Every bio shows a live character meter, Power Score, and Clarity Score. Copy to clipboard in one click, paste directly into Instagram's profile edit." },
           ].map(({ step, title, desc }) => (
             <div key={step} className="flex gap-4 p-5 rounded-2xl bg-muted/40 border border-border hover:border-primary/30 transition-colors">
               <div className="w-9 h-9 rounded-xl bg-primary text-primary-foreground font-bold text-sm flex items-center justify-center shrink-0">{step}</div>
@@ -429,7 +429,7 @@ export function InstagramBioGeneratorTool() {
           <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
             <User className="w-5 h-5 text-primary" />
           </div>
-          <h2 className="text-2xl font-bold font-display text-foreground">Instagram Bio Generator — Turn Profile Visitors Into Followers</h2>
+          <h2 className="text-2xl font-bold font-display text-foreground">Instagram Bio Generator, Turn Profile Visitors Into Followers</h2>
         </div>
         <div className="space-y-8">
           <div>
@@ -437,26 +437,26 @@ export function InstagramBioGeneratorTool() {
               <Zap className="w-4 h-4 text-primary" /> Why Your Instagram Bio Is Your Most Important Conversion Page
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Instagram's Help Center documents a hard 150-character bio limit — the only profile text space that every visitor sees before deciding to follow or leave. On a platform with over 2 billion monthly active users (Statista, 2024), the difference between a bio that converts profile visitors into followers and one that doesn't is the difference between growing your audience and wasting content effort.
+              Instagram's Help Center documents a hard 150-character bio limit, the only profile text space that every visitor sees before deciding to follow or leave. On a platform with over 2 billion monthly active users (Statista, 2024), the difference between a bio that converts profile visitors into followers and one that doesn't is the difference between growing your audience and wasting content effort.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
               Your Instagram bio is the only section of your profile that every visitor reads before making
               the decision to follow or leave. The profile photo catches the eye. The username indicates the
-              niche. But the bio — 150 characters of carefully chosen text — is where the conversion happens
+              niche. But the bio, 150 characters of carefully chosen text, is where the conversion happens
               or doesn't. When someone taps your profile from a Reel, a hashtag search, an Explore
               recommendation, or a tagged mention, your bio is the moment of decision. That window is your entire opportunity.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
               The fundamental purpose of an Instagram bio is to answer three questions in a single glance:
               What is this account about? What do I gain from following? What should I do next? Most creators
-              answer only the first question well — they communicate their niche clearly but fail to
+              answer only the first question well, they communicate their niche clearly but fail to
               articulate specific value ('follow for fitness tips' is niche clarity without value) and skip
               the CTA entirely, leaving the visitor with no directed action. The result is a profile that
               gets views but doesn't convert.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              This generator applies the proven bio formula — [Who you help] + [What result you deliver] +
-              [Credibility signal] + [CTA] — across 10 variations in four distinct tones. Each bio is
+              This generator applies the proven bio formula, [Who you help] + [What result you deliver] +
+              [Credibility signal] + [CTA], across 10 variations in four distinct tones. Each bio is
               constructed to communicate maximum value density within the 150-character limit, with every
               word chosen to eliminate ambiguity and drive a clear follow or action. Pair your bio with{" "}
               <Link href="/tools/instagram-hashtag-generator" className="text-primary hover:underline font-medium">
@@ -475,7 +475,7 @@ export function InstagramBioGeneratorTool() {
               <TrendingUp className="w-4 h-4 text-primary" /> The Four Tone Strategies and When Each Performs Best
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Instagram's creators.instagram.com resource hub distinguishes between professional creators, personal brands, and business accounts — each calling for different bio positioning. The tone of your bio signals what kind of relationship you're inviting: authority-first (professional), identity-first (inspirational), or directness-first (bold), and each works best for a different audience psychology.
+              Instagram's creators.instagram.com resource hub distinguishes between professional creators, personal brands, and business accounts: each calling for different bio positioning. The tone of your bio signals what kind of relationship you're inviting: authority-first (professional), identity-first (inspirational), or directness-first (bold), and each works best for a different audience psychology.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
               Professional-tone bios are the strongest performers for coaches, consultants, service providers,
@@ -486,16 +486,16 @@ export function InstagramBioGeneratorTool() {
               evaluate credentials before following.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Bold-tone bios are most effective for creators who compete through differentiation — they use
+              Bold-tone bios are most effective for creators who compete through differentiation, they use
               a contrarian statement, a "no fluff" positioning claim, or a direct challenge to conventional
               wisdom. Bold bios attract followers who are already skeptical of generic advice, generating
-              higher-quality engagement but lower follow volume. Minimal bios — clean, short, and instantly
-              scannable — outperform longer bios in fashion, travel, photography, and entertainment niches
+              higher-quality engagement but lower follow volume. Minimal bios, clean, short, and instantly
+              scannable, outperform longer bios in fashion, travel, photography, and entertainment niches
               where aesthetic identity matters more than detailed positioning.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Inspirational bios perform best for lifestyle, personal development, and wellness creators
-              whose audience is primarily motivated by identity — the desire to become a certain type of
+              whose audience is primarily motivated by identity, the desire to become a certain type of
               person rather than achieve a specific outcome. They use aspirational language, community
               framing, and forward-looking statements that make the follower feel like following is a step
               toward the version of themselves they want to be.
@@ -507,12 +507,11 @@ export function InstagramBioGeneratorTool() {
               <User className="w-4 h-4 text-primary" /> How to Maximise the Instagram Bio Character Limit
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Instagram Help Center confirms the 150-character bio limit applies to all account types — personal, creator, and business. Within that limit, Instagram also indexes the Name field (up to 30 characters, separate from the bio) for search, giving you two distinct text assets to optimize: the Name field for searchability and the bio for conversion.
+              Instagram Help Center confirms the 150-character bio limit applies to all account types, personal, creator, and business. Within that limit, Instagram also indexes the Name field (up to 30 characters, separate from the bio) for search, giving you two distinct text assets to optimize: the Name field for searchability and the bio for conversion.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
               Instagram's 150-character bio limit is simultaneously a constraint and a competitive advantage.
-              The creators who treat the limit as a discipline — forcing every word to earn its place —
-              consistently produce bios that outperform longer, less edited versions. The most common
+              The creators who treat the limit as a discipline, forcing every word to earn its place,               consistently produce bios that outperform longer, less edited versions. The most common
               character-wasting patterns to eliminate are: opening with your name (your username already
               identifies you), describing what you do rather than what you deliver ('I make fitness content'
               vs 'I help busy moms lose 20 lbs'), and using vague CTAs ('follow for tips') instead of
@@ -533,27 +532,27 @@ export function InstagramBioGeneratorTool() {
               <ArrowUpRight className="w-4 h-4 text-primary" /> How Instagram Creator Accounts Unlock More Bio and Profile Features
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              Instagram offers a dedicated Creator account type — separate from Personal and Business accounts — with additional profile features documented in Instagram Help Center under "Switch to a Creator or Business Account." Creator accounts get access to a contact button (email and phone), the ability to display a category label beneath your name (such as "Fitness Instructor" or "Digital Creator"), and a simplified version of Instagram Insights through the Professional Dashboard. These features augment your bio's conversion power by giving visitors additional credibility signals and contact paths.
+              Instagram offers a dedicated Creator account type, separate from Personal and Business accounts, with additional profile features documented in Instagram Help Center under "Switch to a Creator or Business Account." Creator accounts get access to a contact button (email and phone), the ability to display a category label beneath your name (such as "Fitness Instructor" or "Digital Creator"), and a simplified version of Instagram Insights through the Professional Dashboard. These features augment your bio's conversion power by giving visitors additional credibility signals and contact paths.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              The category label beneath your name is particularly valuable for discoverability — it's set independently from your bio and Name field and appears on your profile as a secondary identifier. Setting it to an accurate, specific category (e.g., "Health/beauty" or "Finance") helps Instagram's recommendation system surface your profile in relevant Explore and suggested creator contexts. You can update your category at any time: Settings → Account → Switch to Professional Account → Creator → Select Category.
+              The category label beneath your name is particularly valuable for discoverability, it's set independently from your bio and Name field and appears on your profile as a secondary identifier. Setting it to an accurate, specific category (e.g., "Health/beauty" or "Finance") helps Instagram's recommendation system surface your profile in relevant Explore and suggested creator contexts. You can update your category at any time: Settings → Account → Switch to Professional Account → Creator → Select Category.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-3">
-              For creators working toward brand partnerships, Instagram's Creator Marketplace (available to eligible accounts with 10,000+ followers through the Professional Dashboard) uses your bio, category, and audience data to match you with brand campaigns. A bio that's specific, credentialed, and niche-clear makes your profile more attractive to brands searching for creators in your category — use the Professional bio tone option in this generator to optimize for that context.
+              For creators working toward brand partnerships, Instagram's Creator Marketplace (available to eligible accounts with 10,000+ followers through the Professional Dashboard) uses your bio, category, and audience data to match you with brand campaigns. A bio that's specific, credentialed, and niche-clear makes your profile more attractive to brands searching for creators in your category, use the Professional bio tone option in this generator to optimize for that context.
             </p>
 
             {/* Citation capsule */}
             <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
               <p className="text-sm text-muted-foreground leading-relaxed">
                 <strong className="text-foreground">Sources:</strong>{" "}
-                <a href="https://help.instagram.com/502981923235522" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Instagram Help Center — Edit your profile</a>
+                <a href="https://help.instagram.com/502981923235522" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Instagram Help Center, Edit your profile</a>
                 {" "}documents the 150-character bio limit, Name field (30 characters, indexed for search), and category label.{" "}
-                <a href="https://help.instagram.com/138925576505882" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Instagram Help Center — Switch to a Creator or Business Account</a>
+                <a href="https://help.instagram.com/138925576505882" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Instagram Help Center, Switch to a Creator or Business Account</a>
                 {" "}covers Creator account features including contact buttons and professional dashboard.{" "}
                 <a href="https://creators.instagram.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Instagram for Creators</a>
                 {" "}(creators.instagram.com) provides official Creator guidance on profile optimization.{" "}
                 <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Statista (2024)</a>
-                {" "}— Instagram monthly active users: 2 billion globally.
+                {" "},  Instagram monthly active users: 2 billion globally.
               </p>
             </div>
           </div>
@@ -564,16 +563,16 @@ export function InstagramBioGeneratorTool() {
             </h3>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
-                "10 bio variations simultaneously — 3 Professional, 2 Bold, 2 Minimal, 3 Inspirational",
-                "Strict 150-character enforcement — every bio fits Instagram's hard limit with a live character meter",
-                "5 CTA goal types — Follow, DM, Link in Bio, Free Gift, Collab — each with natural CTA phrase variations",
-                "Credibility marker injection — results or achievements incorporated into Professional bio variations",
-                "Power Score and Clarity Score per bio — quickly identify the highest-converting options",
-                "Tone filter tabs — view only Professional, Bold, Minimal, or Inspirational variations to compare",
+                "10 bio variations simultaneously, 3 Professional, 2 Bold, 2 Minimal, 3 Inspirational",
+                "Strict 150-character enforcement, every bio fits Instagram's hard limit with a live character meter",
+                "5 CTA goal types, Follow, DM, Link in Bio, Free Gift, Collab: each with natural CTA phrase variations",
+                "Credibility marker injection, results or achievements incorporated into Professional bio variations",
+                "Power Score and Clarity Score per bio, quickly identify the highest-converting options",
+                "Tone filter tabs, view only Professional, Bold, Minimal, or Inspirational variations to compare",
                 "4 bio structure formulas: [Result] | [CTA], [Audience] + [Result] + [CTA], and more",
-                "15 niches supported — Fitness, Beauty, Business, Finance, Tech, Education, Food, Travel, and more",
-                "Keywords field — inject niche-specific terms and positioning language directly into bio variations",
-                "One-click copy per bio — paste directly into Instagram's profile edit without reformatting",
+                "15 niches supported, Fitness, Beauty, Business, Finance, Tech, Education, Food, Travel, and more",
+                "Keywords field, inject niche-specific terms and positioning language directly into bio variations",
+                "One-click copy per bio, paste directly into Instagram's profile edit without reformatting",
               ].map((text, i) => (
                 <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
                   <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
@@ -585,6 +584,109 @@ export function InstagramBioGeneratorTool() {
         </div>
       </section>
 
+      {/* ── About This Tool ──────────────────────────────────────── */}
+      <section className="mt-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <User className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold font-display text-foreground">About This Instagram Bio Generator</h2>
+        </div>
+        <div className="space-y-8">
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <Zap className="w-4 h-4 text-primary" /> What This Instagram Bio Generator Does
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Instagram has{" "}
+              <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">2 billion monthly active users</a>{" "}
+              (Statista, 2024), and your bio is the only 150 characters on your profile that every visitor reads before deciding whether to follow or leave. This generator builds 10 bio variations in four tones, each applying the proven [Who you help] + [Result you deliver] + [Credibility] + [CTA] formula, free, in under 60 seconds.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              You enter four fields: your niche, what you help people achieve, your target audience, and your CTA goal. The AI applies those inputs across Professional, Bold, Minimal, and Inspirational tone frameworks to produce bios that answer the three questions every profile visitor asks: What is this? What do I gain? What should I do next? Every output respects Instagram's hard 150-character limit.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Each bio card shows a live character meter, a Power Score measuring CTA and credibility strength, and a Clarity Score measuring readability and value communication. Once you find your best option, copy it in one click and paste directly into Instagram's profile editor. Pair your new bio with the{" "}
+              <Link href="/tools/instagram-caption-generator" className="text-primary hover:underline font-medium">
+                Instagram Caption Generator
+              </Link>{" "}
+              and the{" "}
+              <Link href="/tools/instagram-hashtag-generator" className="text-primary hover:underline font-medium">
+                Instagram Hashtag Generator
+              </Link>{" "}
+              to complete your profile optimization stack.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-primary" /> Why Your Instagram Bio Is Your First Impression
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Your bio is read before a single post. Someone taps your profile from a Reel, a hashtag, or an Explore recommendation and they see 150 characters before they scroll to your grid. That window is the whole decision. According to the{" "}
+              <a href="https://help.instagram.com/502981923235522" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Instagram Help Center</a>,
+              the Name field (30 characters, indexed by Instagram's search algorithm) and the bio together form the complete text identity of your profile. Both need to work.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Most creators answer only one of those three profile-visitor questions well. They communicate their niche, "fitness tips and workouts", but skip the specific value ("lose your first 10 lbs in 30 days") and the CTA ("follow for a new workout every Monday"). The result is a bio that reads as a description, not a conversion. Descriptions get skimmed. Value propositions get followed.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              The four-tone approach matters because your audience's psychology determines which bio converts best. Professional tones win in authority niches like finance and coaching. Inspirational tones win in lifestyle and wellness. Bold tones attract skeptics. Minimal tones perform in aesthetic-first niches. Testing two or three tones over 2-week cycles is the fastest way to find which positioning resonates with your specific audience.
+            </p>
+          </div>
+
+          {/* YouTube Embed */}
+          <figure style={{margin:"1rem 0 2rem",position:"relative",paddingBottom:"56.25%",height:0,overflow:"hidden",borderRadius:"12px"}}>
+            <iframe style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",border:0}}
+              srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href='https://www.youtube.com/embed/rx_Qmb4i6nw?autoplay=1'><img src='https://img.youtube.com/vi/rx_Qmb4i6nw/maxresdefault.jpg' alt='How to write an Instagram bio that converts profile visitors into followers'><span>&#9654;</span></a>"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="How to write an Instagram bio that converts profile visitors into followers"
+              aria-label="Step-by-step walkthrough of writing a high-converting Instagram bio including niche positioning, value proposition, and CTA strategy">
+            </iframe>
+            <noscript><a href="https://www.youtube.com/watch?v=rx_Qmb4i6nw" target="_blank" rel="noopener">Watch: How to Write an Instagram Bio That Gets Followers on YouTube</a></noscript>
+          </figure>
+
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+              <Shield className="w-4 h-4 text-primary" /> Benefits of Using This Instagram Bio Generator
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {[
+                "10 bio variations in one click across Professional, Bold, Minimal, and Inspirational tones",
+                "Strict 150-character enforcement with a live color-coded character meter on every bio card",
+                "Power Score per bio: measures CTA strength, credibility signal, and conversion element presence",
+                "Clarity Score per bio: measures how quickly the bio communicates niche, value, and action",
+                "5 CTA goal types built in: Follow, DM, Link, Free Gift, Collabs: each with natural phrasing",
+                "Credibility marker injection: achievements and credentials woven into Professional bio variations",
+                "Tone filter tabs: view only Professional, Bold, Minimal, or Inspirational results at once",
+                "Optional keywords field: inject your specific positioning language into every bio variation",
+                "One-click copy per bio: paste directly into Instagram's profile editor with no reformatting",
+                "100% free: no account required, no usage limits, unlimited generations",
+              ].map((text, i) => (
+                <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
+                  <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                  <span className="text-sm text-muted-foreground">{text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Citation Capsule ──────────────────────────────────────── */}
+      <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          <strong className="text-foreground">Source documentation:</strong>{" "}
+          Instagram has 2 billion monthly active users globally (
+          <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Statista, 2024</a>
+          ). Your bio is capped at 150 characters, documented by the{" "}
+          <a href="https://help.instagram.com/502981923235522" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Instagram Help Center (Edit Your Profile)</a>
+          {" "},  making it the most space-constrained, highest-traffic text asset on any creator's profile. The Name field (30 characters, indexed for search) is a separate, complementary signal.
+        </p>
+      </div>
+
       {/* ── Tips ──────────────────────────────────────────────────── */}
       <section className="mt-2">
         <div className="flex items-center gap-3 mb-6">
@@ -595,13 +697,13 @@ export function InstagramBioGeneratorTool() {
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
           {[
-            "Instagram bios are capped at 150 characters — lead with your who/what/why in the first line since the second line is folded on mobile profiles.",
-            "Use the Name Field for SEO keywords, not your actual name — 'Fitness Coach | Fat Loss Expert' in the name field appears in Instagram search results.",
-            "Add a location if you're a local business or event creator — Instagram Help Center notes that location makes your profile more relevant for nearby viewers discovering you through Search and Explore.",
-            "Change your bio link to match your current campaign — static 'link in bio' with no context underperforms; update it every 1–2 weeks with your latest content or offer and name it in your bio.",
-            "Use a line break (press return on mobile) to create visual separation — a structured 3-line bio is far easier to scan than a run-on paragraph, helping visitors parse your value proposition faster.",
-            "Include 1–3 emojis as bullets — they replace periods aesthetically and increase scannability by creating visual breaks within Instagram's compact 150-character display.",
-            "State your content posting schedule — 'New reels every Tuesday & Friday' sets expectations and improves follow-to-watch conversion rates significantly.",
+            "Instagram bios are capped at 150 characters, lead with your who/what/why in the first line since the second line is folded on mobile profiles.",
+            "Use the Name Field for SEO keywords, not your actual name, 'Fitness Coach | Fat Loss Expert' in the name field appears in Instagram search results.",
+            "Add a location if you're a local business or event creator, Instagram Help Center notes that location makes your profile more relevant for nearby viewers discovering you through Search and Explore.",
+            "Change your bio link to match your current campaign, static 'link in bio' with no context underperforms; update it every 1–2 weeks with your latest content or offer and name it in your bio.",
+            "Use a line break (press return on mobile) to create visual separation, a structured 3-line bio is far easier to scan than a run-on paragraph, helping visitors parse your value proposition faster.",
+            "Include 1–3 emojis as bullets, they replace periods aesthetically and increase scannability by creating visual breaks within Instagram's compact 150-character display.",
+            "State your content posting schedule, 'New reels every Tuesday & Friday' sets expectations and improves follow-to-watch conversion rates significantly.",
           ].map((tip, i) => (
             <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
               <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />

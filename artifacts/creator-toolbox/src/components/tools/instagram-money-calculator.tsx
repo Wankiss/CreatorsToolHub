@@ -237,21 +237,21 @@ function calcEarnings(
 
   const recommendations: string[] = [];
   if (engagementRate < 3)
-    recommendations.push("Improve engagement by ending every Reel with a direct question or call-to-action — higher engagement unlocks better sponsorship rates and affiliate clicks.");
+    recommendations.push("Improve engagement by ending every Reel with a direct question or call-to-action, higher engagement unlocks better sponsorship rates and affiliate clicks.");
   if (postsPerWeek < 3)
-    recommendations.push("Post at least 3–5 times per week — more content means more sponsored post slots and more affiliate link exposures per month.");
+    recommendations.push("Post at least 3–5 times per week, more content means more sponsored post slots and more affiliate link exposures per month.");
   if (!methods.includes("sponsorships") && followers >= 10_000)
-    recommendations.push("You're eligible for brand sponsorships — start pitching to brands in your niche directly. At your follower count, a single post can earn $200–$2,000.");
+    recommendations.push("You're eligible for brand sponsorships, start pitching to brands in your niche directly. At your follower count, a single post can earn $200–$2,000.");
   if (!methods.includes("affiliate") && followers >= 5_000)
-    recommendations.push("Add affiliate marketing — even 1–2 affiliate links in your bio or Stories can generate passive income from your existing audience with zero extra work.");
+    recommendations.push("Add affiliate marketing, even 1–2 affiliate links in your bio or Stories can generate passive income from your existing audience with zero extra work.");
   if (!methods.includes("products") && followers >= 25_000)
-    recommendations.push("Consider creating a digital product (e-book, preset, template, mini-course) — product sales let you earn directly from your audience without relying on brand budgets or outreach.");
+    recommendations.push("Consider creating a digital product (e-book, preset, template, mini-course), product sales let you earn directly from your audience without relying on brand budgets or outreach.");
   if (!methods.includes("subscriptions") && followers >= 50_000)
-    recommendations.push("Launch Instagram Subscriptions — exclusive content at $2.99–$9.99/month provides predictable recurring revenue, even at 0.5% subscriber conversion.");
+    recommendations.push("Launch Instagram Subscriptions, exclusive content at $2.99–$9.99/month provides predictable recurring revenue, even at 0.5% subscriber conversion.");
   if (audienceQuality !== "premium")
-    recommendations.push("Create content that appeals to US, UK, or Canadian audiences — premium audience locations increase sponsorship CPMs by up to 150%.");
+    recommendations.push("Create content that appeals to US, UK, or Canadian audiences, premium audience locations increase sponsorship CPMs by up to 150%.");
   if (followers < 10_000)
-    recommendations.push("Focus on reaching 10K followers — this is the threshold where brand deals, affiliate traffic, and algorithm distribution improve significantly.");
+    recommendations.push("Focus on reaching 10K followers, this is the threshold where brand deals, affiliate traffic, and algorithm distribution improve significantly.");
   recommendations.push("Build an email list or community outside Instagram to diversify revenue and gain leverage in brand deal negotiations.");
 
   const projections = buildProjections(
@@ -263,7 +263,7 @@ function calcEarnings(
     followers < 10_000
       ? "Focus on Affiliate Marketing + rapid content growth. With under 10K followers, affiliate links in bio and Reels descriptions generate income with no minimum audience requirement. Pair this with consistent Reels to grow toward the 10K brand deal threshold."
       : followers < 50_000
-      ? "Combine Brand Sponsorships + Affiliate Marketing. You're in the micro-influencer sweet spot — brands pay premium rates for your engagement levels. Add affiliate links to every sponsored post to earn a second revenue stream from the same content."
+      ? "Combine Brand Sponsorships + Affiliate Marketing. You're in the micro-influencer sweet spot, brands pay premium rates for your engagement levels. Add affiliate links to every sponsored post to earn a second revenue stream from the same content."
       : followers < 200_000
       ? "Prioritize Brand Sponsorships + Digital Products. At this tier, a well-positioned digital product (e-book, course, templates) can generate $1,000–$5,000/month from a single launch, while sponsorships provide consistent monthly income."
       : "Scale with Brand Deals + Subscriptions + Products. Your audience size justifies launching Instagram Subscriptions for recurring income. Combine with premium brand deals and a high-ticket product to build a diversified, resilient income model.";
@@ -280,7 +280,7 @@ function calcEarnings(
     `Affiliate: 2% link click-through rate, ${affiliateCommission}% commission, $${affiliateProductPrice} avg product price`,
     `Subscriptions: 0.5%–5% conversion of followers at $${subscriptionPrice}/month`,
     `Products: 0.5%–2.5% conversion of followers at $${productPrice} product price`,
-    `Scenario: ${SCENARIO_FACTORS[scenario].label} — factor range ${SCENARIO_FACTORS[scenario].factor[0]}×–${SCENARIO_FACTORS[scenario].factor[1]}×`,
+    `Scenario: ${SCENARIO_FACTORS[scenario].label}, factor range ${SCENARIO_FACTORS[scenario].factor[0]}×–${SCENARIO_FACTORS[scenario].factor[1]}×`,
   ];
 
   return {
@@ -304,47 +304,47 @@ function calcEarnings(
 const FAQ_ITEMS = [
   {
     q: `How do Instagram creators make money in ${YEAR}?`,
-    a: "Instagram creators earn through four primary revenue streams: (1) Brand Sponsorships — companies pay creators to feature their products in Reels, carousels, or Stories; this represents the majority of income for most established creators; (2) Affiliate Marketing — creators earn a commission (typically 5–30%) on sales generated through unique tracking links in their bio, Stories, or Reels descriptions; (3) Instagram Subscriptions — creators charge followers a monthly fee ($2.99–$9.99) for exclusive content, subscriber-only Stories, and direct access; (4) Digital or Physical Product Sales — creators sell e-books, presets, courses, merchandise, or coaching directly to their audience. The most successful creators combine all four streams to reduce dependence on any single platform or brand.",
+    a: "Instagram creators earn through four primary revenue streams: (1) Brand Sponsorships, companies pay creators to feature their products in Reels, carousels, or Stories; this represents the majority of income for most established creators; (2) Affiliate Marketing, creators earn a commission (typically 5–30%) on sales generated through unique tracking links in their bio, Stories, or Reels descriptions; (3) Instagram Subscriptions, creators charge followers a monthly fee ($2.99–$9.99) for exclusive content, subscriber-only Stories, and direct access; (4) Digital or Physical Product Sales, creators sell e-books, presets, courses, merchandise, or coaching directly to their audience. The most successful creators combine all four streams to reduce dependence on any single platform or brand.",
   },
   {
     q: "How much does Instagram pay per 1,000 followers?",
-    a: "Instagram does not pay creators directly per follower — unlike TikTok's Creator Rewards, there's no per-view or per-follower payment program from Instagram itself. Income comes from brand sponsorships, subscriptions, affiliate marketing, and product sales. For brand deals, the industry benchmark is roughly $10–$100 per 1,000 followers per sponsored post, depending heavily on niche, engagement rate, and audience quality. Finance and business creators earn at the high end ($50–$100 per 1K followers), while entertainment creators earn less ($5–$20 per 1K followers). Engagement rate is more important than follower count — a creator with 10K followers and 8% engagement can outperform one with 100K followers and 1% engagement.",
+    a: "Instagram does not pay creators directly per follower, unlike TikTok's Creator Rewards, there's no per-view or per-follower payment program from Instagram itself. Income comes from brand sponsorships, subscriptions, affiliate marketing, and product sales. For brand deals, the industry benchmark is roughly $10–$100 per 1,000 followers per sponsored post, depending heavily on niche, engagement rate, and audience quality. Finance and business creators earn at the high end ($50–$100 per 1K followers), while entertainment creators earn less ($5–$20 per 1K followers). Engagement rate is more important than follower count, a creator with 10K followers and 8% engagement can outperform one with 100K followers and 1% engagement.",
   },
   {
     q: "How many Instagram followers do you need to make money?",
-    a: "You can start earning on Instagram with as few as 1,000 followers through affiliate marketing and micro-deals, but meaningful income appears at these thresholds: 5,000–10,000 followers — first brand deals from small businesses ($50–$300/post), affiliate income from engaged niche audiences; 25,000–50,000 followers — consistent brand partnerships ($300–$1,500/post), Instagram Subscriptions launch, affiliate income of $200–$800/month; 100,000 followers — mid-tier brand deals ($1,000–$5,000/post), multiple income streams generating $2,000–$8,000/month; 500,000+ followers — premium brand partnerships ($5,000–$25,000/post), subscription revenue of $1,000–$10,000/month, product launches generating $5,000–$50,000+.",
+    a: "You can start earning on Instagram with as few as 1,000 followers through affiliate marketing and micro-deals, but meaningful income appears at these thresholds: 5,000–10,000 followers, first brand deals from small businesses ($50–$300/post), affiliate income from engaged niche audiences; 25,000–50,000 followers, consistent brand partnerships ($300–$1,500/post), Instagram Subscriptions launch, affiliate income of $200–$800/month; 100,000 followers, mid-tier brand deals ($1,000–$5,000/post), multiple income streams generating $2,000–$8,000/month; 500,000+ followers, premium brand partnerships ($5,000–$25,000/post), subscription revenue of $1,000–$10,000/month, product launches generating $5,000–$50,000+.",
   },
   {
     q: "What is the best niche for making money on Instagram?",
-    a: `The highest-earning niches on Instagram in ${YEAR} are: (1) Finance and Business — highest CPMs ($15–$25), premium brand deals, high-intent affiliate audiences; (2) Tech / AI — strong brand demand from SaaS and software companies, highly engaged early-adopter audience; (3) Education — high content value signals to the algorithm, strong course and coaching monetization; (4) Fitness — supplement, apparel, and health product deals are abundant, strong affiliate product ecosystem; (5) Beauty — large brand budget, reliable affiliate commissions, strong subscription potential. The common thread in high-earning niches is an audience with purchasing intent and disposable income — creators who serve professionals, investors, or health-conscious buyers earn significantly more per follower than broad entertainment creators.`,
+    a: `The highest-earning niches on Instagram in ${YEAR} are: (1) Finance and Business, highest CPMs ($15–$25), premium brand deals, high-intent affiliate audiences; (2) Tech / AI, strong brand demand from SaaS and software companies, highly engaged early-adopter audience; (3) Education, high content value signals to the algorithm, strong course and coaching monetization; (4) Fitness, supplement, apparel, and health product deals are abundant, strong affiliate product ecosystem; (5) Beauty, large brand budget, reliable affiliate commissions, strong subscription potential. The common thread in high-earning niches is an audience with purchasing intent and disposable income, creators who serve professionals, investors, or health-conscious buyers earn significantly more per follower than broad entertainment creators.`,
   },
   {
     q: "How much do Instagram brand deals pay?",
-    a: `Instagram brand deal rates in ${YEAR} follow this general structure: Nano-influencers (1K–10K followers) — $50–$500 per Reel or carousel post, often paid in product; Micro-influencers (10K–100K) — $300–$3,000 per post, sometimes including Stories packages; Mid-tier (100K–500K) — $1,500–$10,000 per post with multi-deliverable packages; Macro (500K–1M) — $5,000–$25,000 per post; Celebrity tier (1M+) — $25,000–$500,000+ per post. Engagement rate significantly adjusts these rates — brands increasingly use cost-per-engagement rather than cost-per-follower, meaning a creator with high engagement can command meaningfully higher rates than one with the same follower count at low engagement. Niche also matters significantly: finance and business creators typically earn higher per-post rates than lifestyle or entertainment creators with equivalent audiences, because advertisers in those categories pay higher CPMs for more targeted, purchase-intent audiences.`,
+    a: `Instagram brand deal rates in ${YEAR} follow this general structure: Nano-influencers (1K–10K followers), $50–$500 per Reel or carousel post, often paid in product; Micro-influencers (10K–100K), $300–$3,000 per post, sometimes including Stories packages; Mid-tier (100K–500K), $1,500–$10,000 per post with multi-deliverable packages; Macro (500K–1M), $5,000–$25,000 per post; Celebrity tier (1M+), $25,000–$500,000+ per post. Engagement rate significantly adjusts these rates, brands increasingly use cost-per-engagement rather than cost-per-follower, meaning a creator with high engagement can command meaningfully higher rates than one with the same follower count at low engagement. Niche also matters significantly: finance and business creators typically earn higher per-post rates than lifestyle or entertainment creators with equivalent audiences, because advertisers in those categories pay higher CPMs for more targeted, purchase-intent audiences.`,
   },
   {
     q: "How do Instagram Subscriptions work for creators?",
-    a: "Instagram Subscriptions allow creators to charge followers a monthly fee for exclusive content. Creators can set prices ranging from $0.99 to $99.99 per month (most effective range is $2.99–$9.99 for broad audiences). Subscribers get access to subscriber-only Stories, exclusive Lives, subscriber badges in comments, and any other exclusive content the creator designates. Instagram takes a commission (currently 30% in-app on iOS/Android). Even at conservative conversion rates — 0.5–1% of followers converting to paid subscribers — a creator with 100K followers can generate $1,500–$3,000/month in subscription revenue. Subscriptions work best for creators with highly engaged niche audiences who consume content regularly and want deeper access to the creator.",
+    a: "Instagram Subscriptions allow creators to charge followers a monthly fee for exclusive content. Creators can set prices ranging from $0.99 to $99.99 per month (most effective range is $2.99–$9.99 for broad audiences). Subscribers get access to subscriber-only Stories, exclusive Lives, subscriber badges in comments, and any other exclusive content the creator designates. Instagram takes a commission (currently 30% in-app on iOS/Android). Even at conservative conversion rates, 0.5–1% of followers converting to paid subscribers, a creator with 100K followers can generate $1,500–$3,000/month in subscription revenue. Subscriptions work best for creators with highly engaged niche audiences who consume content regularly and want deeper access to the creator.",
   },
   {
     q: "What is engagement rate and why does it matter for Instagram income?",
-    a: `Engagement rate on Instagram is calculated as: (Likes + Comments + Saves + Shares) ÷ Reach × 100. A good engagement rate varies by account size: under 10K followers — 5–8% is healthy; 10K–100K — 3–6% is solid; 100K+ — 2–4% is good for larger accounts. Engagement rate directly impacts income in three ways: (1) Brand deal rates — brands calculate value using engagement, not just follower count; a 6% engagement rate can double your sponsorship fee; (2) Affiliate conversions — engaged followers click links and buy; (3) Instagram's Reels algorithm — higher engagement triggers broader distribution, increasing your organic reach to potential new followers and brand partners. Saves are weighted particularly heavily by Instagram's algorithm in ${YEAR}.`,
+    a: `Engagement rate on Instagram is calculated as: (Likes + Comments + Saves + Shares) ÷ Reach × 100. A good engagement rate varies by account size: under 10K followers, 5–8% is healthy; 10K–100K, 3–6% is solid; 100K+, 2–4% is good for larger accounts. Engagement rate directly impacts income in three ways: (1) Brand deal rates, brands calculate value using engagement, not just follower count; a 6% engagement rate can double your sponsorship fee; (2) Affiliate conversions, engaged followers click links and buy; (3) Instagram's Reels algorithm, higher engagement triggers broader distribution, increasing your organic reach to potential new followers and brand partners. Saves are weighted particularly heavily by Instagram's algorithm in ${YEAR}.`,
   },
   {
     q: "How much can Instagram affiliate marketing earn?",
-    a: "Instagram affiliate marketing income depends on three factors: (1) Audience size and engagement — clicks are estimated at 1–3% of followers for Reels/Stories with affiliate links; (2) Commission rate — ranges from 5% for physical products to 30%+ for digital products and SaaS tools; (3) Average order value — promoting a $200 supplement generates more per sale than a $15 product. Realistic ranges: 5K–25K followers — $50–$500/month with consistent affiliate link placement; 50K–100K followers — $200–$2,000/month; 250K–500K followers — $1,000–$8,000/month. Affiliate marketing is particularly powerful for Instagram creators because it earns passively on every video that includes a link — unlike brand deals, there's no per-post limit.",
+    a: "Instagram affiliate marketing income depends on three factors: (1) Audience size and engagement, clicks are estimated at 1–3% of followers for Reels/Stories with affiliate links; (2) Commission rate, ranges from 5% for physical products to 30%+ for digital products and SaaS tools; (3) Average order value, promoting a $200 supplement generates more per sale than a $15 product. Realistic ranges: 5K–25K followers, $50–$500/month with consistent affiliate link placement; 50K–100K followers, $200–$2,000/month; 250K–500K followers, $1,000–$8,000/month. Affiliate marketing is particularly powerful for Instagram creators because it earns passively on every video that includes a link, unlike brand deals, there's no per-post limit.",
   },
   {
     q: "What is a good monetization score on this calculator?",
-    a: "The Monetization Score (0–100) in this calculator rates how well your profile is set up to generate Instagram income. It factors in: engagement rate (high engagement = higher multiplier on all revenue streams), follower count (more followers = more deal opportunities and subscription revenue), posting frequency (consistent posting = more sponsored post slots), number of active monetization methods (diversification reduces risk), and audience quality (premium locations earn higher CPM rates). A score of 80–100 is excellent — your profile is optimized across all earning dimensions. 60–79 is good — you have strong fundamentals with clear growth areas. Below 60 indicates 1–2 significant levers you should focus on before expecting consistent income.",
+    a: "The Monetization Score (0–100) in this calculator rates how well your profile is set up to generate Instagram income. It factors in: engagement rate (high engagement = higher multiplier on all revenue streams), follower count (more followers = more deal opportunities and subscription revenue), posting frequency (consistent posting = more sponsored post slots), number of active monetization methods (diversification reduces risk), and audience quality (premium locations earn higher CPM rates). A score of 80–100 is excellent, your profile is optimized across all earning dimensions. 60–79 is good, you have strong fundamentals with clear growth areas. Below 60 indicates 1–2 significant levers you should focus on before expecting consistent income.",
   },
   {
     q: "Is this Instagram money calculator accurate?",
-    a: "This calculator provides realistic estimated ranges based on current Instagram industry benchmarks for brand sponsorship CPMs, affiliate conversion rates, subscription conversion rates, and product sales rates. Actual earnings vary significantly based on specific brand partnerships you secure, your audience's purchasing behavior, content quality, posting consistency, and how aggressively you promote affiliate and product links. The calculator always returns ranges rather than fixed numbers — real Instagram income is highly variable. Use the Conservative scenario for minimum planning, the Realistic scenario as your baseline target, and the Aggressive scenario as your ceiling under optimized conditions. Verify current market rates with Instagram's Creator Marketplace and in creator economy communities.",
+    a: "This calculator provides realistic estimated ranges based on current Instagram industry benchmarks for brand sponsorship CPMs, affiliate conversion rates, subscription conversion rates, and product sales rates. Actual earnings vary significantly based on specific brand partnerships you secure, your audience's purchasing behavior, content quality, posting consistency, and how aggressively you promote affiliate and product links. The calculator always returns ranges rather than fixed numbers, real Instagram income is highly variable. Use the Conservative scenario for minimum planning, the Realistic scenario as your baseline target, and the Aggressive scenario as your ceiling under optimized conditions. Verify current market rates with Instagram's Creator Marketplace and in creator economy communities.",
   },
   {
     q: "How do I join Instagram's Creator Marketplace to get brand deals?",
-    a: "Instagram's Creator Marketplace is documented in the Instagram Help Center as the platform's official tool for connecting creators with brand partners. To access it, you need: a professional account (Business or Creator type), to be at least 18 years old, to comply with Instagram's Partner Monetization Policies, and to be located in a supported country (the list is expanding). Once eligible, go to Professional Dashboard → Monetization Tools → Creator Marketplace in the Instagram app to set up your creator portfolio, add your rate card, and indicate the brand categories you work with. Brands can then discover and message you directly within the platform, and you can apply to open brand campaigns. The Creator Marketplace is separate from Instagram's native Affiliate tool, which allows creators to earn commissions on product sales by tagging shoppable products in posts and Reels — also accessible under Professional Dashboard → Monetization Tools.",
+    a: "Instagram's Creator Marketplace is documented in the Instagram Help Center as the platform's official tool for connecting creators with brand partners. To access it, you need: a professional account (Business or Creator type), to be at least 18 years old, to comply with Instagram's Partner Monetization Policies, and to be located in a supported country (the list is expanding). Once eligible, go to Professional Dashboard → Monetization Tools → Creator Marketplace in the Instagram app to set up your creator portfolio, add your rate card, and indicate the brand categories you work with. Brands can then discover and message you directly within the platform, and you can apply to open brand campaigns. The Creator Marketplace is separate from Instagram's native Affiliate tool, which allows creators to earn commissions on product sales by tagging shoppable products in posts and Reels, also accessible under Professional Dashboard → Monetization Tools.",
   },
 ];
 
@@ -654,7 +654,7 @@ export function InstagramMoneyCalculatorTool() {
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <label className="text-sm font-bold text-foreground tracking-wide uppercase flex items-center gap-1.5">
-                  Engagement Rate <span className="text-muted-foreground font-normal normal-case text-xs">(optional — auto-estimated if blank)</span>
+                  Engagement Rate <span className="text-muted-foreground font-normal normal-case text-xs">(optional, auto-estimated if blank)</span>
                 </label>
                 <NumberInput value={engagementStr} onChange={setEngagementStr} min={0} max={100} step={0.1} placeholder={`Auto: ${estimateEngagement(followers).toFixed(1)}%`} prefix="%" />
               </div>
@@ -899,10 +899,10 @@ export function InstagramMoneyCalculatorTool() {
                   <Zap className="w-4 h-4 text-primary" /> Action Plan to Increase Income
                 </h3>
                 {[
-                  { action: "Increase engagement rate above 4%", impact: "Boosts all revenue streams simultaneously — especially brand deal rates and affiliate click-through", icon: TrendingUp },
+                  { action: "Increase engagement rate above 4%", impact: "Boosts all revenue streams simultaneously, especially brand deal rates and affiliate click-through", icon: TrendingUp },
                   { action: "Post Reels 4–5x per week", impact: "More Reels = more reach = more organic follower growth and more sponsored post slots per month", icon: BarChart2 },
-                  { action: "Add at least one affiliate link to bio", impact: "Passive income from every video — no extra work required after the initial link setup", icon: LinkIcon },
-                  { action: "Pitch 3 brands per week directly", impact: "Outbound brand pitching generates far more sponsorship income than waiting for inbound inquiries — most creators at the micro tier only get deals through their own outreach", icon: Star },
+                  { action: "Add at least one affiliate link to bio", impact: "Passive income from every video: no extra work required after the initial link setup", icon: LinkIcon },
+                  { action: "Pitch 3 brands per week directly", impact: "Outbound brand pitching generates far more sponsorship income than waiting for inbound inquiries, most creators at the micro tier only get deals through their own outreach", icon: Star },
                   { action: "Create one digital product this month", impact: "Even a $29 e-book or preset pack at 1% conversion of 50K followers generates $1,450 on launch day", icon: ShoppingBag },
                 ].map(({ action, impact, icon: Icon }, i) => (
                   <div key={i} className="flex gap-3 p-3.5 rounded-xl bg-muted/40 border border-border">
@@ -932,9 +932,9 @@ export function InstagramMoneyCalculatorTool() {
         <div className="grid sm:grid-cols-2 gap-4">
           {[
             { step: 1, icon: <Users className="w-5 h-5 text-primary" />, title: "Enter your follower count and niche",
-              desc: "Drag the follower slider to your current count, then select your niche. Niche is critical — finance and business creators earn up to 2× more than lifestyle creators with the same audience size due to higher advertiser demand." },
+              desc: "Drag the follower slider to your current count, then select your niche. Niche is critical, finance and business creators earn up to 2× more than lifestyle creators with the same audience size due to higher advertiser demand." },
             { step: 2, icon: <DollarSign className="w-5 h-5 text-primary" />, title: "Select your monetization methods",
-              desc: "Choose the revenue streams you use or plan to use: Brand Sponsorships, Affiliate Marketing, Instagram Subscriptions, or Product Sales. Select all that apply — the calculator estimates each stream independently and totals them." },
+              desc: "Choose the revenue streams you use or plan to use: Brand Sponsorships, Affiliate Marketing, Instagram Subscriptions, or Product Sales. Select all that apply, the calculator estimates each stream independently and totals them." },
             { step: 3, icon: <Target className="w-5 h-5 text-primary" />, title: "Set your engagement rate and scenario",
               desc: "Enter your engagement rate for a more accurate result (leave blank for auto-estimate). Select your income scenario: Conservative for worst-case planning, Realistic for baseline targets, or Aggressive for optimized best-case projections." },
             { step: 4, icon: <BarChart2 className="w-5 h-5 text-primary" />, title: "Review your earnings and projections",
@@ -952,208 +952,143 @@ export function InstagramMoneyCalculatorTool() {
         </div>
       </section>
 
-      {/* ── About / SEO ──────────────────────────────────────── */}
+      {/* ── About ────────────────────────────────────────────── */}
       <section className="rounded-3xl border border-border bg-card shadow-sm p-8 space-y-8">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
             <TrendingUp className="w-5 h-5 text-primary" />
           </div>
-          <h2 className="text-2xl font-bold font-display text-foreground">Instagram Money Calculator — Estimate Your Real Earning Potential</h2>
+          <h2 className="text-2xl font-bold font-display text-foreground">About This Instagram Money Calculator</h2>
         </div>
-        <div className="space-y-7 text-muted-foreground leading-relaxed text-sm">
+        <div className="space-y-8">
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Zap className="w-4 h-4 text-primary flex-shrink-0" />
-              How This Instagram Earnings Calculator Works
+              <Zap className="w-4 h-4 text-primary flex-shrink-0" /> What This Instagram Money Calculator Does
             </h3>
-            <p className="mb-3">
-              Instagram offers creators four documented monetization paths. Instagram's Help Center
-              covers Brand Partnerships (via Creator Marketplace), Instagram Subscriptions (monthly
-              fan memberships), the native Affiliate tool (available in select markets), and direct
-              product sales via Instagram Shopping. On a platform with{" "}
-              <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">2 billion monthly active users</a>{" "}
-              (Statista, 2024), the difference between what the same creator earns with one method
-              versus all four simultaneously is often the difference between a side income and a
-              full-time business.
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Instagram influencer rates range from $100–$500 per post for nano-influencers (1K–10K
+              followers) to $10,000+ for accounts over 1 million followers, according to{" "}
+              <a href="https://influencermarketinghub.com/influencer-marketing-benchmark-report/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Influencer Marketing Hub's 2025 Benchmark Report
+              </a>
+              . This calculator estimates your potential monthly income across all four Instagram
+              revenue streams, brand sponsorships, affiliate marketing, subscriptions, and product
+              sales, using your follower count, niche, engagement rate, and audience quality.
             </p>
-            <p className="mb-3">
-              This calculator estimates Instagram income using the same variables that brands and creator economy
-              analysts use to evaluate creator earning potential: follower count, engagement rate, niche value,
-              audience quality, and monetization method mix. Rather than producing a single misleading number,
-              it returns realistic ranges across Conservative, Realistic, and Aggressive scenarios — so you
-              can plan income at different levels of execution.
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Set your follower count with the slider, choose your niche, select the monetization
+              methods you use or plan to use, and pick an income scenario (Conservative, Realistic,
+              or Aggressive). The calculator estimates each stream independently and totals them.
+              You also get income projections at 7 follower milestones, from 5K to 500K, so you
+              can see what your income trajectory looks like as you grow.
             </p>
-            <p className="mb-3">
-              Four revenue streams are modeled independently using current industry benchmarks:
-              Brand Sponsorships are calculated using Instagram Reels reach (estimated at 30% of followers)
-              multiplied by niche-specific CPM rates ($5–$25 per 1,000 reach) and adjusted by engagement
-              and audience quality multipliers. Affiliate Marketing is estimated from link click-through
-              rates (2% of followers per post, scaled by engagement) and conversion rates of 0.5%–3%.
-              Instagram Subscriptions are modeled at 0.5%–5% subscriber conversion of total followers.
-              Product Sales use 0.5%–2.5% buyer conversion rates scaled by product price.
-            </p>
-            <p>
-              The Monetization Score (0–100) rates how well your profile is positioned to earn across all
-              streams simultaneously — accounting for engagement, posting frequency, niche value, audience
-              quality, and the diversity of revenue sources you use.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Search className="w-4 h-4 text-primary flex-shrink-0" />
-              How Instagram Creators Actually Get Paid in {YEAR}
-            </h3>
-            <p className="mb-3">
-              Instagram's Help Center documents that creators can monetize through Brand Partnerships,
-              Subscriptions, the Affiliate tool, and Shopping — but it explicitly does not offer a
-              per-view ad revenue share program equivalent to YouTube's Partner Program. This means
-              Instagram income is almost entirely dependent on the creator's own business activity,
-              not passive ad revenue from content views.
-            </p>
-            <p className="mb-3">
-              Unlike YouTube, Instagram does not have a standard partner program that pays per view.
-              Creator income on Instagram is almost entirely driven by external monetization: deals negotiated
-              with brands, commissions earned through affiliate programs, subscription fees charged to
-              followers, and revenue from the creator's own products. This means Instagram income is
-              highly variable and directly correlated with the creator's business activity — not just
-              content performance.
-            </p>
-            <p className="mb-3">
-              Brand sponsorships represent the largest revenue stream for most mid-tier and larger Instagram
-              creators. The influencer marketing industry reached an estimated $24 billion globally in 2024
-              according to the{" "}
-              <a href="https://influencermarketinghub.com/influencer-marketing-benchmark-report/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                Influencer Marketing Hub 2025 Benchmark Report
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Pair these estimates with the{" "}
+              <a href="/tools/instagram-engagement-calculator" className="text-primary hover:underline font-medium">
+                Instagram Engagement Calculator
               </a>{" "}
-              — and brands increasingly prefer creator-led content on Instagram Reels because audiences
-              engage with creator content differently than with brand-produced ads. This demand drives
-              sponsorship rates upward, particularly for niche creators with highly engaged professional
-              or interest-specific audiences.
-            </p>
-            <p>
-              Affiliate marketing has become the most accessible entry point for smaller creators. With
-              5,000 engaged followers in a high-value niche (fitness, finance, beauty, tech), a creator
-              can generate $200–$600 per month from affiliate links placed in bio, Stories swipe-ups,
-              and Reels descriptions — with zero minimum follower requirement and no outreach needed.
-              Instagram's native affiliate program (available in select markets) and third-party programs
-              like Amazon Associates, ShareASale, and niche-specific affiliate networks all offer viable
-              paths to passive income.
+              to understand how improving your engagement rate directly affects your brand deal
+              pricing. Cross-platform creators can compare earnings using the{" "}
+              <a href="/tools/youtube-money-calculator" className="text-primary hover:underline font-medium">
+                YouTube Money Calculator
+              </a>
+              .
             </p>
           </div>
 
           <div>
             <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Shield className="w-4 h-4 text-primary flex-shrink-0" />
-              Understanding the Income Scenarios and What They Mean for Planning
+              <TrendingUp className="w-4 h-4 text-primary flex-shrink-0" /> How Instagram Creator Rates Are Actually Calculated
             </h3>
-            <p className="mb-3">
-              The three income scenarios — Conservative, Realistic, and Aggressive — reflect different
-              levels of execution, not luck. The Conservative scenario (0.6×–0.8× base rates) represents
-              a creator who posts inconsistently, doesn't actively pitch brands, and uses only one or two
-              monetization methods passively. It's useful for financial planning where you need to budget
-              around a minimum guaranteed floor.
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Most creators assume Instagram pays per view. It doesn't. Instagram has no per-view ad
+              revenue program equivalent to YouTube's Partner Program.{" "}
+              <a href="https://help.instagram.com/1216478198750997" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Instagram's Help Center
+              </a>{" "}
+              documents four official monetization paths: Brand Partnerships via Creator Marketplace,
+              Subscriptions, the native Affiliate tool, and Instagram Shopping. Every dollar you earn
+              comes from one of these four buckets.
             </p>
-            <p className="mb-3">
-              The Realistic scenario (0.9×–1.1× base rates) reflects average market conditions for an
-              active creator who posts 3–5 times per week, responds to brand inquiries, maintains
-              affiliate links, and engages consistently with their audience. For most creators, this
-              is the right baseline to build a financial plan around.
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Brand deal pricing follows a CPM model. Brands estimate your Reels reach (typically
+              30% of followers), multiply by a niche-specific CPM rate ($5–$25 per 1,000 reach), and
+              apply an engagement multiplier. Finance and business creators earn CPMs of $14–$25.
+              Entertainment creators earn $5–$10. That difference is why niche matters more than
+              follower count when negotiating sponsorship rates. The influencer marketing industry
+              hit an estimated{" "}
+              <a href="https://influencermarketinghub.com/influencer-marketing-benchmark-report/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                $24 billion globally in 2024 (Influencer Marketing Hub)
+              </a>
+              , and brands are paying premium rates for niche creators with high engagement.
             </p>
-            <p>
-              The Aggressive scenario (1.2×–1.6× base rates) represents what's achievable for a creator
-              who treats their Instagram presence as a full business: pitching brands proactively, launching
-              digital products, promoting affiliate links actively in every content format, and consistently
-              optimizing for engagement rate. Reaching the Aggressive scenario ceiling requires both
-              content quality and active business development — but it represents what the top 10–20%
-              of creators at each follower tier actually earn.
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Engagement rate is the multiplier on everything. It's not just a vanity metric. A
+              creator with a 6% engagement rate earns a 1.8× multiplier on their base sponsorship
+              rate versus 1.0× for someone at 2%. For a creator with 50,000 fitness followers, that
+              difference equals roughly $500–$800 more per sponsored Reel. This is why tracking and
+              improving engagement rate pays directly.
             </p>
           </div>
+
+          {/* YouTube embed */}
+          <figure style={{margin:"1rem 0 2rem",position:"relative",paddingBottom:"56.25%",height:0,overflow:"hidden",borderRadius:"12px"}}>
+            <iframe style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",border:0}}
+              srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href='https://www.youtube.com/embed/wrGfPA0djFg?autoplay=1'><img src='https://img.youtube.com/vi/wrGfPA0djFg/maxresdefault.jpg' alt='How Much Does Instagram Pay, Creator Monetization Guide 2025'><span>&#9654;</span></a>"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="How Much Does Instagram Pay, Creator Monetization Guide 2025"
+              aria-label="Video explaining how Instagram creators actually get paid, what brand deal rates look like, and how to maximize earnings in 2025"
+            ></iframe>
+            <noscript><a href="https://www.youtube.com/watch?v=wrGfPA0djFg" target="_blank" rel="noopener">Watch: How Much Does Instagram Pay, Creator Monetization Guide 2025 on YouTube</a></noscript>
+          </figure>
 
           <div>
-            <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-              <Star className="w-4 h-4 text-primary flex-shrink-0" />
-              How Instagram's Creator Marketplace Works for Brand Partnerships
+            <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+              <Shield className="w-4 h-4 text-primary flex-shrink-0" /> Benefits of Using This Instagram Money Calculator
             </h3>
-            <p className="mb-3">
-              Instagram's Creator Marketplace is the platform's official tool for connecting creators
-              with brands, documented in the Instagram Help Center. To access it, creators must have
-              a professional account (Business or Creator), be at least 18 years old, comply with
-              Instagram's Partner Monetization Policies, and in most markets have at least 10,000
-              followers. Once eligible, creators can set up a portfolio within the Creator Marketplace,
-              add their contact information, and indicate the categories of brands they work with —
-              making themselves discoverable to brand partners searching for creators in specific niches.
-            </p>
-            <p className="mb-3">
-              Through the Creator Marketplace, brands can send partnership messages directly to creators,
-              propose collaboration terms, and manage payments within the platform. Creators can also
-              use the marketplace to find open campaigns posted by brands looking for applicants.
-              Instagram's Help Center documentation specifies that the Creator Marketplace is available
-              in a growing list of countries — creators outside supported markets can still receive
-              brand deals independently but cannot access the in-platform tools.
-            </p>
-            <p className="mb-3">
-              Instagram's native Affiliate tool (separate from Creator Marketplace) allows eligible
-              creators to earn commissions on products sold through Instagram Shopping by tagging
-              products in feed posts, Reels, and Stories. The commission rate varies by brand and is
-              set by the seller. Both the Creator Marketplace and the native Affiliate tool are
-              accessible under Professional Dashboard → Monetization Tools in Instagram's app.
-            </p>
-            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                <strong>Key sources:</strong>{" "}
-                <a href="https://help.instagram.com/1216478198750997" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                  Instagram Help Center — Creator Marketplace
-                </a>{" "}
-                documents eligibility (18+, professional account, Partner Monetization Policies),
-                setup process, and how brands discover creators. Instagram's{" "}
-                <a href="https://help.instagram.com/191462054593916" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                  Partner Monetization Policies
-                </a>{" "}
-                set the compliance requirements for all monetization tools. The{" "}
-                <a href="https://influencermarketinghub.com/influencer-marketing-benchmark-report/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                  Influencer Marketing Hub 2025 Benchmark Report
-                </a>{" "}
-                estimated the global influencer marketing industry at $24 billion in 2024. Statista
-                reported{" "}
-                <a href="https://www.statista.com/statistics/253577/number-of-monthly-active-instagram-users/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                  2 billion monthly active Instagram users
-                </a>{" "}
-                globally in 2024.
-              </p>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {[
+                "4 independent revenue stream estimates: Brand Sponsorships, Affiliate Marketing, Subscriptions, and Product Sales",
+                "Monthly and yearly earnings ranges, not misleading single-number estimates",
+                "Income projections at 7 follower milestones: 5K, 10K, 25K, 50K, 100K, 250K, and 500K",
+                "3 income scenarios (Conservative, Realistic, Aggressive), match your planning style",
+                "Monetization Score (0-100) rating how well your profile is positioned to earn across all streams",
+                "Personalized best strategy recommendation tailored to your follower tier and active revenue methods",
+                "5-step income action plan with specific tactics for your current follower count and niche",
+                "Engagement rate auto-estimation if you don't know yours, based on proven follower-count benchmarks",
+                "Audience location multiplier: Premium (US/UK/CA), Mixed, or Developing, adjusts CPMs and deal rates",
+                "Full calculation assumptions panel, see exactly how every number is derived, no black boxes",
+              ].map((text, i) => (
+                <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
+                  <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                  <span className="text-sm text-muted-foreground">{text}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Benefits ─────────────────────────────────────────── */}
-      <section className="rounded-3xl border border-border bg-card shadow-sm p-8">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-            <Shield className="w-5 h-5 text-primary" />
-          </div>
-          <h2 className="text-2xl font-bold font-display text-foreground">What This Instagram Money Calculator Includes</h2>
-        </div>
-        <div className="grid sm:grid-cols-2 gap-3">
-          {[
-            "4 independent revenue stream calculations: Brand Sponsorships, Affiliate Marketing, Instagram Subscriptions, and Product Sales",
-            "Monthly and yearly earnings estimates with Low–High ranges, not misleading single figures",
-            "Income projections at 7 follower milestones: 5K, 10K, 25K, 50K, 100K, 250K, and 500K",
-            "3 income scenarios: Conservative, Realistic, and Aggressive — for different planning needs",
-            "Monetization Score (0–100) rating how well your profile is positioned to generate Instagram income",
-            "Personalized best strategy recommendation based on your follower tier and active revenue methods",
-            "5-step action plan with specific, prioritized tactics to increase income at your current stage",
-            "Engagement rate auto-estimation if you don't know yours (based on proven follower-count benchmarks)",
-            "Audience location multiplier: Premium (US/UK/CA), Mixed, or Developing — adjusts CPMs and deal rates",
-            "Full calculation assumptions panel — see exactly how every number is calculated for transparency",
-          ].map((text, i) => (
-            <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-muted/40 border border-border">
-              <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-              <span className="text-sm text-muted-foreground">{text}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ── Citation Capsule ──────────────────────────────────────── */}
+      <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 mt-4">
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          <strong className="text-foreground">Source documentation:</strong>{" "}
+          Instagram influencer rates range from $100–$500 per post for nano-influencers to $10,000+
+          for accounts over 1 million followers, per the{" "}
+          <a href="https://influencermarketinghub.com/influencer-marketing-benchmark-report/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            Influencer Marketing Hub 2025 Benchmark Report
+          </a>
+          , which estimated the global influencer marketing industry at $24 billion in 2024.{" "}
+          <a href="https://help.instagram.com/1216478198750997" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            Instagram's Help Center
+          </a>{" "}
+          documents four official creator monetization paths: Brand Partnerships (Creator Marketplace),
+          Subscriptions, the native Affiliate tool, and Instagram Shopping. Instagram does not offer
+          per-view ad revenue: all creator income is business-activity-dependent.
+        </p>
+      </div>
 
       {/* ── Tips & Best Practices ───────────────────────── */}
       <section className="mt-10">
@@ -1165,13 +1100,13 @@ export function InstagramMoneyCalculatorTool() {
         </div>
         <div className="grid sm:grid-cols-2 gap-4">
           {[
-            { tip: "Nano-influencers (1K–10K followers) often earn 2–5% engagement vs 0.5–1% for mega-influencers — higher engagement rates can command equal or better sponsorship rates." },
-            { tip: "Brand deal rates on Instagram typically run $100–$500 per 10,000 followers for a feed post — negotiate based on your engagement rate and niche authority." },
-            { tip: "Diversify monetization beyond brand deals — digital products, affiliate commissions, LTK/Amazon storefronts, and subscriptions add reliable non-deal income." },
-            { tip: "Instagram's Creator Marketplace is the platform's official tool for connecting creators with brands — complete your creator profile and set your rates to be discoverable by brand partners searching in your niche." },
-            { tip: "Performance-based programs and bonuses fluctuate — Q4 historically sees higher advertiser spend as brands push holiday campaigns, so prioritize your best content for that period." },
-            { tip: "Document your results data (reach, conversions, story swipe-ups) — case studies in your media kit give brands concrete evidence of ROI, which improves your negotiating position." },
-            { tip: "Package your services in tiers — offer a Basic (1 story), Standard (1 feed post), and Premium (reel + story + feed) to upsell brands automatically." },
+            { tip: "Nano-influencers (1K–10K followers) often earn 2–5% engagement vs 0.5–1% for mega-influencers, higher engagement rates can command equal or better sponsorship rates." },
+            { tip: "Brand deal rates on Instagram typically run $100–$500 per 10,000 followers for a feed post, negotiate based on your engagement rate and niche authority." },
+            { tip: "Diversify monetization beyond brand deals, digital products, affiliate commissions, LTK/Amazon storefronts, and subscriptions add reliable non-deal income." },
+            { tip: "Instagram's Creator Marketplace is the platform's official tool for connecting creators with brands, complete your creator profile and set your rates to be discoverable by brand partners searching in your niche." },
+            { tip: "Performance-based programs and bonuses fluctuate, Q4 historically sees higher advertiser spend as brands push holiday campaigns, so prioritize your best content for that period." },
+            { tip: "Document your results data (reach, conversions, story swipe-ups), case studies in your media kit give brands concrete evidence of ROI, which improves your negotiating position." },
+            { tip: "Package your services in tiers, offer a Basic (1 story), Standard (1 feed post), and Premium (reel + story + feed) to upsell brands automatically." },
           ].map(({ tip }, i) => (
             <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">
               <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -1193,7 +1128,7 @@ export function InstagramMoneyCalculatorTool() {
         </div>
         <div className="grid sm:grid-cols-2 gap-4">
           {[
-            { name: "Instagram Engagement Calculator", path: "/tools/instagram-engagement-calculator", desc: "Calculate your engagement rate — the metric brands use most to evaluate and price sponsorship deals." },
+            { name: "Instagram Engagement Calculator", path: "/tools/instagram-engagement-calculator", desc: "Calculate your engagement rate, the metric brands use most to evaluate and price sponsorship deals." },
             { name: "Instagram Content Planner", path: "/tools/instagram-content-planner", desc: "Build a consistent posting schedule that keeps your engagement high and brand partnerships attractive." },
             { name: "Instagram Reel Idea Generator", path: "/tools/instagram-reel-idea-generator", desc: "Generate high-performing Reel concepts that drive views and follower growth to boost your earnings potential." },
             { name: "Instagram Hashtag Generator", path: "/tools/instagram-hashtag-generator", desc: "Find the right hashtags to expand your reach and attract the right brand partners to your profile." },

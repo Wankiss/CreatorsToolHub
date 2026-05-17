@@ -324,28 +324,28 @@ if (process.env.NODE_ENV === "production") {
     }),
   );
 
-  // Normalise /blog/ → /blog (no trailing slash).
-  // Express's static middleware automatically 301s directory-like paths to add
-  // a trailing slash. That makes /blog redirect TO /blog/ — the wrong direction.
-  // The sitemap, canonical tags, and internal links all use /blog (no slash).
-  // This rule runs first and corrects the direction for Googlebot and users.
-  app.get("/blog/", (_req, res) => res.redirect(301, "/blog"));
-
   // Serve blog images directly from the source public/blog directory.
-  // This allows new images pushed to git to be served immediately without
-  // requiring a full Vite rebuild (dist/ is not committed to git, so newly
-  // added public/blog/ images would 404 until the next build without this).
+  // Only intercepts requests with a file extension (e.g. /blog/image.png).
+  // Requests for /blog and /blog/ (no extension) fall through to the SPA
+  // catch-all, which injects the correct meta via meta-injector.
+  // This also prevents express.static's directory-detection from issuing a
+  // /blog → /blog/ redirect that would create a loop with our canonical rule.
   const sourceBlogDir = path.resolve(
     process.cwd(),
     "artifacts/creator-toolbox/public/blog",
   );
-  app.use(
-    "/blog",
-    express.static(sourceBlogDir, {
-      maxAge: "30d",
-      immutable: false,
-    }),
-  );
+  const serveBlogImages = express.static(sourceBlogDir, { maxAge: "30d", immutable: false });
+  app.use("/blog", (req, res, next) => {
+    if (!path.extname(req.path)) return next(); // no extension → skip to SPA
+    serveBlogImages(req, res, next);
+  });
+
+  // Normalise /blog/ → /blog (no trailing slash).
+  // The sitemap, canonical tags, and internal links all use /blog without a
+  // trailing slash. This rule ensures both humans and crawlers land on the
+  // canonical URL. Runs after the image middleware so /blog/image.png is
+  // unaffected (it has an extension and is handled above).
+  app.get("/blog/", (_req, res) => res.redirect(301, "/blog"));
 
   // Serve OG images directly from the source public/og directory.
   // Images are committed to git so they survive all redeploys and server

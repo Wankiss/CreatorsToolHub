@@ -162,6 +162,13 @@ Sitemap: https://creatorstoolhub.com/sitemap.xml`
   );
 });
 
+// ── IndexNow key file ─────────────────────────────────────────────────────────
+// Bing, Yandex, and other IndexNow-compatible engines verify ownership by
+// fetching this file. The same key is used when submitting URLs via the API.
+app.get("/86809e8949cc48479bcd6c89b8fe5b3f.txt", (_req, res) => {
+  res.type("text/plain").send("86809e8949cc48479bcd6c89b8fe5b3f");
+});
+
 // ── llms.txt ─────────────────────────────────────────────────────────────────
 app.get("/llms.txt", (_req, res) => {
   res.type("text/plain").send(

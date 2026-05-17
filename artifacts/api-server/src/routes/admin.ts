@@ -3,6 +3,39 @@ import { db } from "@workspace/db";
 import { categoriesTable, toolsTable, blogPostsTable, toolUsageLogsTable, contactMessagesTable } from "@workspace/db/schema";
 import { eq, sql, desc, gte } from "drizzle-orm";
 
+const SITE_URL       = "https://creatorstoolhub.com";
+const INDEXNOW_KEY   = "86809e8949cc48479bcd6c89b8fe5b3f";
+const INDEXNOW_API   = "https://api.indexnow.org/indexnow";
+
+/**
+ * Ping IndexNow with a single blog post URL.
+ * Fire-and-forget — never throws, logs on failure.
+ * Notifies Bing, Yandex, and other IndexNow-compatible engines simultaneously.
+ */
+async function pingIndexNow(slug: string): Promise<void> {
+  const url = `${SITE_URL}/blog/${slug}`;
+  try {
+    const body = JSON.stringify({
+      host:        "creatorstoolhub.com",
+      key:         INDEXNOW_KEY,
+      keyLocation: `${SITE_URL}/${INDEXNOW_KEY}.txt`,
+      urlList:     [url],
+    });
+    const res = await fetch(INDEXNOW_API, {
+      method:  "POST",
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body,
+    });
+    if (res.ok) {
+      console.log(`[indexnow] submitted ${url} → HTTP ${res.status}`);
+    } else {
+      console.warn(`[indexnow] ${url} → HTTP ${res.status}`);
+    }
+  } catch (err) {
+    console.error("[indexnow] ping failed:", err);
+  }
+}
+
 const router: IRouter = Router();
 
 const TAG_COVER_DEFAULTS: [string, string][] = [
@@ -201,6 +234,9 @@ router.post("/admin/blog", async (req, res) => {
       publishedAt: isPublished ? new Date() : null,
     }).returning();
 
+    // Notify IndexNow immediately when a new post is published
+    if (post.isPublished && post.slug) pingIndexNow(post.slug);
+
     res.status(201).json({
       ...post,
       tags: (() => { try { return JSON.parse(post.tags); } catch { return []; } })(),
@@ -242,6 +278,9 @@ router.put("/admin/blog/:id", async (req, res) => {
 
     const [post] = await db.update(blogPostsTable).set(updates).where(eq(blogPostsTable.id, id)).returning();
     if (!post) { res.status(404).json({ error: "not_found", message: "Post not found" }); return; }
+
+    // Ping IndexNow when a post is published or its content is updated while published
+    if (post.isPublished && post.slug) pingIndexNow(post.slug);
 
     res.json({
       ...post,

@@ -953,8 +953,9 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
             "operatingSystem":     "Web",
             "offers":              { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
             "isAccessibleForFree": true,
-            "description":         tool.description,
-            "creator": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
+            "description":         TOOL_META_DESCRIPTIONS[slug] ?? tool.description,
+            "creator":             { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
+            "speakable":           { "@type": "SpeakableSpecification", "cssSelector": ["h1", "h2", ".tool-description"] },
           },
           {
             "@context":   "https://schema.org",
@@ -1045,6 +1046,7 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
             "url":        canonical,
             "inLanguage": "en",
             "publisher":  { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
+            "speakable":  { "@type": "SpeakableSpecification", "cssSelector": ["h1", "h2", ".category-description"] },
             "hasPart": categoryTools.map(t => ({
               "@type":               "SoftwareApplication",
               "name":                t.name,

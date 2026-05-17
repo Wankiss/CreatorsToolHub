@@ -324,6 +324,13 @@ if (process.env.NODE_ENV === "production") {
     }),
   );
 
+  // Normalise /blog/ → /blog (no trailing slash).
+  // Express's static middleware automatically 301s directory-like paths to add
+  // a trailing slash. That makes /blog redirect TO /blog/ — the wrong direction.
+  // The sitemap, canonical tags, and internal links all use /blog (no slash).
+  // This rule runs first and corrects the direction for Googlebot and users.
+  app.get("/blog/", (_req, res) => res.redirect(301, "/blog"));
+
   // Serve blog images directly from the source public/blog directory.
   // This allows new images pushed to git to be served immediately without
   // requiring a full Vite rebuild (dist/ is not committed to git, so newly

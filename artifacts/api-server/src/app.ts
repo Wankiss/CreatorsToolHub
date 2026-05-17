@@ -340,6 +340,21 @@ if (process.env.NODE_ENV === "production") {
     }),
   );
 
+  // Serve OG images directly from the source public/og directory.
+  // Images are committed to git so they survive all redeploys and server
+  // restarts with zero dependency on Replit Object Storage or any sidecar.
+  const sourceOgDir = path.resolve(
+    process.cwd(),
+    "artifacts/creator-toolbox/public/og",
+  );
+  app.use(
+    "/og",
+    express.static(sourceOgDir, {
+      maxAge: "30d",
+      immutable: false,
+    }),
+  );
+
   // Serve favicon and other static root files with 7-day cache.
   app.use(
     express.static(staticDir, {

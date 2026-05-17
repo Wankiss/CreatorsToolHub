@@ -142,6 +142,15 @@ export function buildHtml(template: string, meta: PageMeta): string {
     .replace(/<meta name="twitter:image"[^>]*\/>/,             `<meta name="twitter:image" content="${i}" />`)
     .replace(/<link rel="canonical"[^>]*\/>/,                  `<link rel="canonical" href="${c}" />`);
 
+  // Inject hero image preload only on the homepage — prevents wasted fetches
+  // on tool/blog pages where hero-bg.webp is never used as the LCP element.
+  if (canonical === SITE_URL || canonical === `${SITE_URL}/`) {
+    html = html.replace(
+      "</head>",
+      `  <!-- Preload LCP hero image — homepage only -->\n  <link rel="preload" as="image" href="/images/hero-bg.webp" type="image/webp" fetchpriority="high">\n</head>`,
+    );
+  }
+
   if (schemas.length > 0) {
     const blocks = schemas
       .map(s => `  <script type="application/ld+json">${JSON.stringify(s)}</script>`)

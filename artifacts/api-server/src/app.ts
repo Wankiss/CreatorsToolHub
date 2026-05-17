@@ -363,10 +363,16 @@ if (process.env.NODE_ENV === "production") {
   );
 
   // Serve favicon and other static root files with 7-day cache.
+  // redirect:false prevents express.static from issuing directory trailing-slash
+  // redirects (e.g. /blog → /blog/) for directories that exist in dist/public/.
+  // Those paths should fall through to the SPA catch-all instead. Without this,
+  // dist/public/blog/ causes a /blog → /blog/ redirect that Cloudflare's URL
+  // normalizer turns into a /blog → /blog self-redirect loop.
   app.use(
     express.static(staticDir, {
       maxAge: "7d",
       index: false,
+      redirect: false,
       // Only cache known static file types — not HTML
       setHeaders(res, filePath) {
         if (filePath.endsWith(".html")) {

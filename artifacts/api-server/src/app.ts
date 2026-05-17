@@ -350,10 +350,9 @@ if (process.env.NODE_ENV === "production") {
 
   // Normalise /blog/ → /blog (no trailing slash).
   // The sitemap, canonical tags, and internal links all use /blog without a
-  // trailing slash. This rule ensures both humans and crawlers land on the
-  // canonical URL. Runs after the image middleware so /blog/image.png is
-  // unaffected (it has an extension and is handled above).
-  app.get("/blog/", (_req, res) => res.redirect(301, "/blog"));
+  // trailing slash. Use a regex so Express strict-false mode doesn't also
+  // match /blog (without the slash) and create a self-redirect loop.
+  app.get(/^\/blog\/$/, (_req, res) => res.redirect(301, "/blog"));
 
   // Serve OG images directly from the source public/og directory.
   // Images are committed to git so they survive all redeploys and server

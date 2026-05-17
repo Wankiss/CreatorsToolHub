@@ -222,6 +222,7 @@ app.get("/llms.txt", (_req, res) => {
 
 ## Blog
 
+- [How to Start YouTube Automation With AI Free Tools in 2026](https://creatorstoolhub.com/blog/how-to-start-youtube-automation-with-ai-free-tools): Complete beginner guide to YouTube automation using free AI tools — covers niche selection, AI scripting, voiceover, thumbnail creation, and upload scheduling at zero cost.
 - [Instagram Hashtag Strategy 2026: Get More Reach on Every Post](https://creatorstoolhub.com/blog/instagram-hashtag-strategy-2026-get-more-reach): Instagram enforced a 5-hashtag cap in December 2025. This guide covers the updated strategy, niche hashtag tiers, and what the data says about hashtag reach in 2026.
 - [How to Use YouTube Tags to Get More Views in 2026](https://creatorstoolhub.com/blog/how-to-use-youtube-tags-to-get-more-views): Data-backed guide to YouTube tags in 2026 — what they do, how many to use, and which free tools generate the best tags for your niche.
 - [50 Content Creation Ideas for Beginners (Never Run Out of Things to Post)](https://creatorstoolhub.com/blog/content-creation-ideas-for-beginners): 50 proven content ideas for beginner creators across YouTube, TikTok, and Instagram — including hooks, formats, and free tools to produce each one.

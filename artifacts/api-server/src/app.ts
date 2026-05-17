@@ -147,10 +147,10 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-User-agent: Amazonbot
+User-agent: GoogleOther
 Allow: /
 
-User-agent: PerplexityBot
+User-agent: Amazonbot
 Allow: /
 
 User-agent: Applebot-Extended

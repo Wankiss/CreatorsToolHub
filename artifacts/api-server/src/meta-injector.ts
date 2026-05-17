@@ -893,9 +893,53 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
       // structured FAQ markup for every tool page.
       const toolFaqs = buildToolFaqs(tool.name, categorySlug);
 
+      // Optimised meta descriptions (140-160 chars): keyword-rich, benefit-led,
+      // free + no-signup signal — overrides whatever is stored in the DB.
+      const TOOL_META_DESCRIPTIONS: Record<string, string> = {
+        // YouTube
+        "youtube-title-generator":          "Generate SEO-optimized YouTube titles that boost clicks and search rankings. Free AI title generator delivers 10 proven title options for any topic instantly.",
+        "youtube-tag-generator":            "Generate keyword-optimized YouTube tags that help videos rank in search. Free tag generator delivers 20 SEO-ready tags for any topic instantly. No signup.",
+        "youtube-description-generator":    "Create YouTube descriptions with timestamps, keywords, and CTAs that improve rankings. Free description generator - professional results in seconds. No signup.",
+        "youtube-channel-name-generator":   "Generate creative, brandable YouTube channel names for your niche. Free generator delivers 10+ unique, searchable ideas - find one that's memorable and yours.",
+        "youtube-money-calculator":         "Calculate YouTube earnings by views, niche, and location. Free money calculator uses real CPM and RPM data by category - see your true earning potential.",
+        "youtube-thumbnail-downloader":     "Download YouTube thumbnails in HD from any video URL instantly. Free thumbnail downloader grabs maxresdefault, hqdefault, and SD frames. No signup needed.",
+        "youtube-hashtag-generator":        "Generate the best YouTube hashtags for any video topic. Free hashtag generator finds trending, niche-specific tags that improve discoverability and reach.",
+        "youtube-shorts-revenue-calculator":"Estimate YouTube Shorts earnings by views and niche CPM rates. Free Shorts revenue calculator shows realistic income projections for short-form creators.",
+        "youtube-video-idea-generator":     "Generate YouTube video ideas for your niche and trending topics. Free idea generator delivers 10+ content angles for any channel - beat creator's block.",
+        "youtube-seo-score-checker":        "Analyze your YouTube video SEO and get a score with actionable fixes. Free SEO checker evaluates title, tags, and description to help your videos rank.",
+        "youtube-cpm-calculator":           "Calculate YouTube CPM and RPM to benchmark your ad earnings. Free CPM calculator with niche-specific rate data - see what advertisers pay per 1,000 views.",
+        "youtube-title-analyzer":           "Score your YouTube title for SEO and CTR. Free title analyzer rates keyword placement, length, and power words - improve click-through rate before publishing.",
+        "youtube-keyword-generator":        "Find high-volume, low-competition YouTube keywords for any topic. Free keyword generator surfaces the best search terms to rank in YouTube and Google.",
+        "youtube-script-generator":         "Create YouTube scripts with a viral hook, structured body, and strong CTA. Free script generator writes complete video scripts for any niche in minutes.",
+        "youtube-engagement-calculator":    "Measure YouTube engagement rate from likes, comments, and shares. Free calculator benchmarks your channel against niche averages to spot top-performing videos.",
+        "youtube-tag-extractor":            "See hidden tags on any YouTube video instantly. Free tag extractor reveals the exact keywords competitors use to rank - paste a URL, get results in seconds.",
+        // TikTok
+        "tiktok-viral-idea-generator":      "Generate trending TikTok video ideas for your niche. Free viral idea generator surfaces proven content angles and hooks built around what works on the FYP.",
+        "tiktok-hook-generator":            "Generate proven TikTok hooks for the first 3 seconds of your video. Free hook generator uses question, shock, and story formulas to stop scrolling instantly.",
+        "tiktok-script-generator":          "Generate TikTok scripts with a viral hook, structured body, and strong CTA. Free script generator writes complete, ready-to-film scripts for any niche.",
+        "tiktok-hashtag-generator":         "Get trending TikTok hashtags that maximize For You Page reach. Free generator delivers viral, niche, and micro-tag mixes for any video topic - instantly.",
+        "tiktok-caption-generator":         "Write TikTok captions that drive comments, shares, and follows. Free caption generator adds keywords, emojis, and hashtags for any video topic in seconds.",
+        "tiktok-money-calculator":          "Estimate TikTok income from brand deals, Creator Fund, and live gifts. Free money calculator delivers niche-specific earnings projections by follower count.",
+        "tiktok-bio-generator":             "Create a TikTok bio that converts profile visitors into followers. Free bio generator writes compelling copy with your niche, personality, and CTA in one click.",
+        "tiktok-username-generator":        "Find a creative, brandable TikTok username for your niche. Free generator creates 10+ modern, memorable name ideas matched to your content style and brand.",
+        // Instagram
+        "instagram-hashtag-generator":      "Generate 30 Instagram hashtags using a proven tiered strategy. Free hashtag generator delivers broad, niche, and micro tags to maximize reach and impressions.",
+        "instagram-caption-generator":      "Generate Instagram captions that drive comments, saves, and shares. Free generator produces ready-to-post copy for Reels, carousels, and static posts instantly.",
+        "instagram-bio-generator":          "Create an Instagram bio that turns visitors into followers. Free bio generator writes keyword-rich copy with a clear CTA and personality matched to your niche.",
+        "instagram-username-generator":     "Find creative, brandable Instagram usernames for your niche. Free generator creates 10+ memorable, searchable name ideas for your content style and brand.",
+        "instagram-reel-idea-generator":    "Generate viral Instagram Reel ideas for your niche. Free idea generator delivers trending concepts, hooks, and formats designed to maximize reach and saves.",
+        "instagram-hook-generator":         "Create scroll-stopping Instagram Reel hooks for the first 3 seconds. Free hook generator delivers proven question, shock, and story formulas that boost views.",
+        "instagram-engagement-calculator":  "Calculate Instagram engagement rate from likes, comments, and saves. Free tool benchmarks your account against niche averages - see what content is working.",
+        "instagram-money-calculator":       "Estimate Instagram income from brand deals, affiliate sales, and sponsorships. Free calculator gives niche-specific income projections by follower count.",
+        "instagram-content-planner":        "Plan Instagram content with a calendar balancing Reels, carousels, stories, and posts. Free planner aligns your schedule with content pillars and growth goals.",
+        // AI Tools
+        "ai-prompt-generator":              "Generate structured, role-based prompts for ChatGPT, Claude, and Gemini. Free AI prompt generator produces professional-quality outputs on the first attempt.",
+        "midjourney-prompt-generator":      "Generate optimized Midjourney prompts with correct syntax, style descriptors, and aspect ratios. Free generator creates stunning AI images on the first try.",
+      };
+
       const meta: PageMeta = {
         title:       `Free ${tool.name}`,
-        description: tool.description,
+        description: TOOL_META_DESCRIPTIONS[slug] ?? tool.description,
         canonical,
         ogImage:     TOOL_OG_IMAGES[slug],
         bodyHtml:    buildToolBody(tool, categoryName, categorySlug),

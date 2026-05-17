@@ -985,6 +985,39 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
           categoryTools,
         ),
         schemas: [
+          // CollectionPage — tells AI models this is a structured page of tools
+          {
+            "@context":   "https://schema.org",
+            "@type":      "CollectionPage",
+            "name":       `Free ${category.name} — AI Tools for Content Creators`,
+            "description": category.description ?? "Free AI-powered tools for content creators. No signup required.",
+            "url":        canonical,
+            "inLanguage": "en",
+            "publisher":  { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
+            "hasPart": categoryTools.map(t => ({
+              "@type":               "SoftwareApplication",
+              "name":                t.name,
+              "url":                 `${SITE_URL}/tools/${t.slug}`,
+              "applicationCategory": "UtilitiesApplication",
+              "isAccessibleForFree": true,
+              "offers":              { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            })),
+          },
+          // ItemList — each tool as a named, positioned, linkable entity
+          {
+            "@context":      "https://schema.org",
+            "@type":         "ItemList",
+            "name":          `Free ${category.name}`,
+            "description":   category.description ?? "Free AI-powered tools for content creators. No signup required.",
+            "url":           canonical,
+            "numberOfItems": categoryTools.length,
+            "itemListElement": categoryTools.map((t, i) => ({
+              "@type":    "ListItem",
+              "position": i + 1,
+              "name":     t.name,
+              "url":      `${SITE_URL}/tools/${t.slug}`,
+            })),
+          },
           breadcrumb({ name: category.name, url: canonical }),
         ],
       };

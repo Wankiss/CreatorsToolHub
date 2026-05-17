@@ -974,10 +974,17 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
       const catId = categoryIdMap[slug];
       const categoryTools = (tools as Array<{ name: string; slug: string; categoryId: number }>).filter(t => t.categoryId === catId);
 
+      const CATEGORY_META_DESCRIPTIONS: Record<string, string> = {
+        "youtube-tools":    "Access 16 free YouTube tools for titles, tags, SEO, scripts, hashtags, and revenue calculations. No signup required — grow your channel faster starting today.",
+        "tiktok-tools":     "Access 8 free TikTok tools for viral ideas, hooks, scripts, hashtags, and earnings estimates. No signup — create content that reaches the For You Page.",
+        "instagram-tools":  "Access 9 free Instagram tools for captions, hashtags, Reel hooks, content planning, and earnings estimates. No signup — grow your Instagram account today.",
+        "ai-creator-tools": "Access free AI prompt tools for ChatGPT, Claude, Gemini, and Midjourney. Free AI creator tools built for content creators — no signup, instant results.",
+      };
+
       const canonical = `${SITE_URL}/category/${slug}`;
       const meta: PageMeta = {
         title:       `Free ${category.name} — AI Tools for Content Creators`,
-        description: category.description ?? "Free AI-powered tools for content creators. No signup required.",
+        description: CATEGORY_META_DESCRIPTIONS[slug] ?? category.description ?? "Free AI-powered tools for content creators. No signup required.",
         canonical,
         ogImage:     CATEGORY_OG_IMAGES[slug],
         bodyHtml:    buildCategoryBody(

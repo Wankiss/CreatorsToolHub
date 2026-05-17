@@ -172,36 +172,11 @@ export default function BlogPost() {
     };
   }, [post]);
 
-  // ── FAQ structured data ──
-  useEffect(() => {
-    if (!post?.faqSchema) return;
-    try {
-      const faqs = JSON.parse(post.faqSchema);
-      if (!Array.isArray(faqs) || faqs.length === 0) return;
-
-      const script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.id = `faq-schema-${post.slug}`;
-      script.textContent = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map((item: { question: string; answer: string }) => ({
-          "@type": "Question",
-          "name": item.question,
-          "acceptedAnswer": { "@type": "Answer", "text": item.answer },
-        })),
-      });
-      document.head.appendChild(script);
-
-      return () => {
-        document.getElementById(`faq-schema-${post.slug}`)?.remove();
-      };
-    } catch {
-      // invalid JSON — skip
-    }
-  }, [post?.faqSchema, post?.slug]);
-
   // ── BreadcrumbList schema ──
+  // Note: FAQPage JSON-LD is injected server-side by meta-injector.ts.
+  // Do NOT add a client-side useEffect for FAQPage here — it would create
+  // a duplicate schema block that causes Google's "Duplicate field" error
+  // and blocks FAQ rich results in Search Console.
   useEffect(() => {
     if (!post) return;
     const schema = {

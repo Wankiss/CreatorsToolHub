@@ -31,6 +31,7 @@ import { resolvePageMeta, buildHtml } from "./meta-injector";
 })();
 
 const app: Express = express();
+app.disable("x-powered-by");
 
 // ── Trust Cloudflare's proxy headers ─────────────────────────────────────────
 // Cloudflare sits between users and the origin. Without this, req.ip returns

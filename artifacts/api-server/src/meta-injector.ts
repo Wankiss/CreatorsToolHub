@@ -329,6 +329,16 @@ function buildToolFaqs(toolName: string, categorySlug: string): Array<{ q: strin
 // extract and cite each section independently.
 const TOOL_ANSWER_SECTIONS: Record<string, string> = {
 
+  "youtube-tag-generator": `
+    <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">Do YouTube Tags Still Matter in 2026?</h2>
+    <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">YouTube tags still matter — just differently than they did five years ago. YouTube's algorithm uses tags primarily to classify videos in ambiguous niches and to connect your content with related videos in the Suggested feed. According to <a href="https://support.google.com/youtube/answer/146402" style="color:#7c3aed;text-decoration:none">YouTube's own creator documentation</a>, tags are especially valuable when a keyword in your title is commonly misspelled — helping the algorithm surface your video for both spelling variations.</p>
+
+    <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">The Tag Strategy That Actually Works</h2>
+    <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">The most effective YouTube tag strategy mixes three tiers: 2 to 3 broad tags covering your main topic, 4 to 5 mid-tail tags targeting your specific angle, and 2 to 3 long-tail tags matching exact phrases your audience searches. <a href="https://backlinko.com/youtube-seo" style="color:#7c3aed;text-decoration:none">Backlinko's YouTube SEO study</a> found that videos using a mix of broad and specific tags consistently rank higher in both YouTube search and Google Video results than videos relying on a single tag type.</p>
+
+    <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">How to Get the Most Out of the Tag Generator</h2>
+    <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">Enter your video's main keyword and the generator produces a tiered set of tags covering broad, mid-tail, and long-tail variations. Copy the full set into YouTube Studio's tag field — YouTube allows up to 500 characters total. Put your most important keyword as the first tag: YouTube gives slightly more weight to tags listed earlier in the sequence, so lead with the term you most want to rank for.</p>`,
+
   "youtube-title-generator": `
     <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">How Your YouTube Title Controls the Algorithm</h2>
     <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">Your title is the first thing both viewers and YouTube's algorithm read. YouTube uses click-through rate as a primary signal for search rankings and recommendations — and your title drives CTR more than any other on-page factor. <a href="https://backlinko.com/youtube-seo" style="color:#7c3aed;text-decoration:none">Backlinko's analysis of 4 million YouTube videos</a> found title optimization is the strongest on-page ranking factor on the platform. Titles between 47 and 60 characters consistently perform best.</p>

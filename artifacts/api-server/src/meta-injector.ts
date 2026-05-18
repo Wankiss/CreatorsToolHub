@@ -329,6 +329,16 @@ function buildToolFaqs(toolName: string, categorySlug: string): Array<{ q: strin
 // extract and cite each section independently.
 const TOOL_ANSWER_SECTIONS: Record<string, string> = {
 
+  "youtube-hashtag-generator": `
+    <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">Do Hashtags Actually Help YouTube Videos Get Views?</h2>
+    <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">YouTube hashtags drive discovery in two distinct ways: they appear as clickable links above your video title on desktop, and they feed into YouTube's topic classification system for the Shorts feed. <a href="https://support.google.com/youtube/answer/6390658" style="color:#7c3aed;text-decoration:none">YouTube's own guidelines</a> recommend using 3 to 5 focused hashtags per video — enough to improve discoverability without triggering the over-tagging penalty. Add more than 60 hashtags and YouTube automatically ignores all of them on that video.</p>
+
+    <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">Where to Put Your Hashtags for Maximum Impact</h2>
+    <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">Hashtags placed in your video description appear as clickable links above the video title — prime visibility real estate most creators overlook. Hashtags added directly to the title show even more prominently on mobile, where over 70% of YouTube watch time now occurs according to <a href="https://blog.youtube/news-and-events/youtube-at-15-by-the-numbers/" style="color:#7c3aed;text-decoration:none">YouTube's platform data</a>. For Shorts, hashtags in the description are the primary signal YouTube uses to categorize and distribute content in the dedicated Shorts feed.</p>
+
+    <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">How to Build the Right Hashtag Set With the Generator</h2>
+    <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">Enter your video topic and the generator produces a tiered set: 1 to 2 broad channel-level hashtags, 2 to 3 topic-specific tags, and 1 niche tag. Copy the top 3 to 5 into your video description first — they'll appear above your title automatically. If you're posting a Short, include #Shorts as one of your tags. It significantly increases distribution in the dedicated Shorts feed.</p>`,
+
   "youtube-script-generator": `
     <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">Why Your Script Determines Your Watch Time</h2>
     <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">Watch time is YouTube's most heavily weighted ranking signal — and your script controls it from the first second. YouTube's algorithm prioritizes videos that keep viewers watching longest, using average view duration and audience retention to decide which videos to recommend next. According to <a href="https://creatoracademy.youtube.com" style="color:#7c3aed;text-decoration:none">YouTube's Creator Academy</a>, channels that improve average view duration see a direct uplift in impressions from the recommendation engine. A better script means more watch time. More watch time means more reach.</p>

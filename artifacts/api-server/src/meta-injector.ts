@@ -322,12 +322,32 @@ function buildToolFaqs(toolName: string, categorySlug: string): Array<{ q: strin
   ];
 }
 
+// ── Per-tool answer-first sections ───────────────────────────────────────────
+// Each entry is raw HTML injected between the tool description and the FAQ.
+// Sections follow answer-first formatting: every H2 opens with a 40-60 word
+// stat-backed paragraph so AI crawlers (GPTBot, ClaudeBot, PerplexityBot) can
+// extract and cite each section independently.
+const TOOL_ANSWER_SECTIONS: Record<string, string> = {
+
+  "youtube-title-generator": `
+    <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">How Your YouTube Title Controls the Algorithm</h2>
+    <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">Your title is the first thing both viewers and YouTube's algorithm read. YouTube uses click-through rate as a primary signal for search rankings and recommendations — and your title drives CTR more than any other on-page factor. <a href="https://backlinko.com/youtube-seo" style="color:#7c3aed;text-decoration:none">Backlinko's analysis of 4 million YouTube videos</a> found title optimization is the strongest on-page ranking factor on the platform. Titles between 47 and 60 characters consistently perform best.</p>
+
+    <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">What High-CTR YouTube Titles Have in Common</h2>
+    <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">High-performing YouTube titles share a clear pattern: they lead with the primary keyword, include a number or a specific promise, and stay under 60 characters to avoid being cut off on mobile. Research from <a href="https://blog.hubspot.com/marketing/headline-formulas" style="color:#7c3aed;text-decoration:none">HubSpot and CoSchedule</a> shows that headlines combining emotional trigger words with a direct benefit see up to 36% higher CTR than purely descriptive alternatives. That's exactly the framework this generator applies to every title it produces.</p>
+
+    <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">How to Use the Generator to Find Your Best Title</h2>
+    <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">Enter your topic or main keyword, then review all 10 title options before you pick one. Look for the title that leads with your keyword, makes a clear promise, and would make you click if you saw it in a feed. The real move: take your top two and A/B test them using YouTube Studio's built-in experiment feature. Channels that test titles consistently outperform those that guess.</p>`,
+
+};
+
 function buildToolBody(
   tool: { name: string; description: string; slug: string },
   categoryName: string,
   categorySlug: string,
 ): string {
   const faqs = buildToolFaqs(tool.name, categorySlug);
+  const answerSections = TOOL_ANSWER_SECTIONS[tool.slug] ?? "";
 
   return `<div style="${S.wrap}">
   ${navHtml()}
@@ -345,6 +365,8 @@ function buildToolBody(
       Completely free. No signup required. No usage limit.
       Works instantly in your browser on desktop and mobile.
     </p>
+
+    ${answerSections}
 
     <h2 style="${S.h2}">Frequently Asked Questions</h2>
     <div>

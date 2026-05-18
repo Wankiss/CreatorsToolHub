@@ -329,6 +329,16 @@ function buildToolFaqs(toolName: string, categorySlug: string): Array<{ q: strin
 // extract and cite each section independently.
 const TOOL_ANSWER_SECTIONS: Record<string, string> = {
 
+  "youtube-script-generator": `
+    <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">Why Your Script Determines Your Watch Time</h2>
+    <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">Watch time is YouTube's most heavily weighted ranking signal — and your script controls it from the first second. YouTube's algorithm prioritizes videos that keep viewers watching longest, using average view duration and audience retention to decide which videos to recommend next. According to <a href="https://creatoracademy.youtube.com" style="color:#7c3aed;text-decoration:none">YouTube's Creator Academy</a>, channels that improve average view duration see a direct uplift in impressions from the recommendation engine. A better script means more watch time. More watch time means more reach.</p>
+
+    <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">What Every High-Retention YouTube Script Needs</h2>
+    <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">High-retention YouTube scripts follow a consistent structure: a pattern-interrupt hook in the first 15 seconds, a value bridge that tells viewers exactly what they'll learn, and open loops throughout the body that delay resolution and keep people watching. <a href="https://www.tubebuddy.com/blog" style="color:#7c3aed;text-decoration:none">TubeBuddy's creator data</a> shows that videos with a strong opening hook retain significantly more viewers past the two-minute mark — the threshold where YouTube's algorithm starts treating a video as high-quality content.</p>
+
+    <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">How to Turn a Generated Script Into a Video People Watch</h2>
+    <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">Enter your topic, target audience, and preferred tone, then use the generated script as a structural guide rather than a word-for-word read. The most natural YouTube videos blend a tight script with casual delivery — read the core points, then improvise the connective tissue between them. Always record the hook section as a polished read: if the first 30 seconds don't land, nothing else matters.</p>`,
+
   "youtube-tag-generator": `
     <h2 style="font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:#0f172a">Do YouTube Tags Still Matter in 2026?</h2>
     <p style="font-size:1.05rem;line-height:1.7;color:#374151;margin:0 0 1.25rem">YouTube tags still matter — just differently than they did five years ago. YouTube's algorithm uses tags primarily to classify videos in ambiguous niches and to connect your content with related videos in the Suggested feed. According to <a href="https://support.google.com/youtube/answer/146402" style="color:#7c3aed;text-decoration:none">YouTube's own creator documentation</a>, tags are especially valuable when a keyword in your title is commonly misspelled — helping the algorithm surface your video for both spelling variations.</p>

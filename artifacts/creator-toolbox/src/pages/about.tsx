@@ -60,24 +60,31 @@ export default function About() {
       "name": "Nnaemeka Immanuels",
       "url": `${SITE_URL}/about`,
       "image": `${SITE_URL}/immanuels-avatar.png`,
-      "jobTitle": "Founder & Content Creator Strategist",
+      "jobTitle": "Founder & Full-Stack Developer",
       "description":
-        "Content creator strategist and digital growth enthusiast. Founder of creatorsToolHub — a free AI-powered tools platform for YouTube, TikTok, and Instagram creators.",
+        "Full-stack developer and AI tools builder from Lagos, Nigeria. Founder of creatorsToolHub — 35+ free AI-powered tools for YouTube, TikTok, and Instagram content creators.",
       "worksFor": {
         "@type": "Organization",
         "name": "creatorsToolHub",
         "url": SITE_URL,
       },
+      "address": { "@type": "PostalAddress", "addressLocality": "Lagos", "addressCountry": "NG" },
       "sameAs": [
-        "https://www.linkedin.com/in/immanuels",
-        "https://twitter.com/creatorstoolhub",
+        "https://www.linkedin.com/in/nnaemeka-immanuels",
+        "https://x.com/emeka_immanuels",
+        "https://www.youtube.com/@creatorstoolhub",
+        "https://www.tiktok.com/@nnaemeka.immanuels",
       ],
       "knowsAbout": [
         "YouTube SEO",
         "TikTok growth strategies",
         "Instagram content marketing",
         "AI content creation",
-        "Content creator monetization",
+        "Full-Stack Development",
+        "React",
+        "Node.js",
+        "Prompt Engineering",
+        "Content Strategy",
       ],
     };
 
@@ -277,9 +284,27 @@ export default function About() {
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   I built creatorsToolHub because I was genuinely frustrated. Every tool that actually helped, from scriptwriters to title optimisers to hashtag generators, was locked behind a subscription most beginner creators simply cannot afford. I knew the AI to build these tools existed, so I built them myself, made them completely free, and put them all in one place.
                 </p>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed mb-6">
                   Every tool on this platform is something I personally use or wish I'd had when I was starting out. The blog is where I share everything I've tested and learned. No filler, no recycled tips you've already read a hundred times. Just honest strategy from someone who has been in the trenches and knows what actually moves the needle.
                 </p>
+                <div className="flex flex-wrap gap-2">
+                  <a href="https://www.youtube.com/@creatorstoolhub" target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold hover:bg-primary/20 transition-colors">
+                    YouTube
+                  </a>
+                  <a href="https://www.linkedin.com/in/nnaemeka-immanuels" target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold hover:bg-primary/20 transition-colors">
+                    LinkedIn
+                  </a>
+                  <a href="https://x.com/emeka_immanuels" target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold hover:bg-primary/20 transition-colors">
+                    X / Twitter
+                  </a>
+                  <a href="https://www.tiktok.com/@nnaemeka.immanuels" target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold hover:bg-primary/20 transition-colors">
+                    TikTok
+                  </a>
+                </div>
               </div>
             </motion.div>
           </div>

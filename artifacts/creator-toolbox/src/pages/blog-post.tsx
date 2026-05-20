@@ -136,8 +136,10 @@ export default function BlogPost() {
         "name": post.author,
         "url": `${SITE_URL}/about`,
         "sameAs": [
-          "https://www.linkedin.com/in/immanuels",
-          "https://twitter.com/creatorstoolhub"
+          "https://www.linkedin.com/in/nnaemeka-immanuels",
+          "https://x.com/emeka_immanuels",
+          "https://www.youtube.com/@creatorstoolhub",
+          "https://www.tiktok.com/@nnaemeka.immanuels",
         ],
       },
       "publisher": {

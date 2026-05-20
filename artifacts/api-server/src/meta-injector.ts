@@ -929,39 +929,150 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
 
   if (pathname === "/about") {
     return {
-      title:       "About creatorsToolHub",
-      description: "creatorsToolHub is built by Nnaemeka Immanuels — 35+ free AI tools for YouTube, TikTok & Instagram creators. No signup, no subscription, ever.",
+      title:       "About creatorsToolHub — Nnaemeka Immanuels",
+      description: "creatorsToolHub is built by Nnaemeka Immanuels, a full-stack developer and AI tools builder from Lagos, Nigeria. 35+ free AI tools for YouTube, TikTok & Instagram creators. No signup, no subscription, ever.",
       canonical:   `${SITE_URL}/about`,
       bodyHtml: `<div style="${S.wrap}">
   ${navHtml()}
   <main style="${S.main}">
-    <h1 style="${S.h1}">About creatorsToolHub</h1>
+
+    <p style="${S.crumb}"><a href="/" style="${S.crumbA}">Home</a> › About</p>
+
+    <span style="${S.badge}">Meet the Founder</span>
+    <h1 style="${S.h1}">Built by a Creator, for Creators</h1>
+
     <p style="${S.desc}">
-      creatorsToolHub is a free platform built by Nnaemeka Immanuels — a content creator
-      strategist and digital growth enthusiast. The platform offers 35+ free AI-powered
-      tools for YouTube, TikTok, and Instagram creators. No signup, no subscription,
-      no cost — ever.
+      creatorsToolHub is a free platform with 35+ AI-powered tools for YouTube, TikTok, and
+      Instagram creators — built and maintained by <strong>Nnaemeka Immanuels</strong>, a
+      full-stack developer and AI tools builder based in Lagos, Nigeria. Every tool on this
+      platform is free, requires no signup, and has no subscription. That is not a marketing
+      line. It is a founding principle.
+    </p>
+
+    <h2 style="${S.h2}">Why I Built creatorsToolHub</h2>
+    <p style="${S.desc}">
+      Most content creators do not struggle with talent. They struggle with time. Writing ten
+      YouTube title variations, crafting a hook that stops the scroll, finding hashtags that
+      actually reach new audiences — these are solvable problems. Yet the tools that solve them
+      cost $30, $50, even $100 per month. I built creatorsToolHub because that price barrier
+      should not exist.
     </p>
     <p style="${S.desc}">
-      Every tool is designed to solve a real problem creators face: writing titles that
-      get clicked, scripts that retain viewers, captions that convert, and hashtags that
-      reach new audiences.
+      I started with a YouTube title generator. Then a hashtag tool. Then a script writer.
+      Each tool I built came from a real frustration I watched creators deal with. Today the
+      platform has 35+ tools covering the full content workflow — from the idea stage through
+      to the caption and the thumbnail hook — and every single one is free.
     </p>
-    <p style="margin-top:1.5rem">
-      <a href="/" style="${S.crumbA}">Explore All Free Tools</a> ·
+
+    <h2 style="${S.h2}">Who Is Behind creatorsToolHub?</h2>
+    <p style="${S.desc}">
+      My name is <strong>Nnaemeka Immanuels</strong>. I am a self-taught full-stack developer
+      with a background in computer science at Akanu Ibiam Federal Polytechnic Unwana, Nigeria.
+      I have been building for the web since 2020 — starting with WordPress sites for small
+      businesses, then growing into React, TypeScript, Node.js, and PostgreSQL as the problems
+      I wanted to solve got bigger.
+    </p>
+    <p style="${S.desc}">
+      Before creatorsToolHub, I worked as a content creator and digital strategist at
+      Devotion Media Concept, where I learned first-hand how much time goes into producing
+      consistent, quality content for an audience. That experience directly shaped every
+      decision I have made building this platform: speed matters, simplicity matters, and
+      the output has to be something a real creator would actually use.
+    </p>
+    <p style="${S.desc}">
+      creatorsToolHub is built on a modern full stack: React and TypeScript on the frontend,
+      Node.js and Express on the backend, PostgreSQL for data, and deployed on a VPS with
+      Cloudflare CDN for fast global access. The AI layer uses the OpenAI API with custom
+      prompt engineering tuned specifically for creator use cases — not generic outputs,
+      but results calibrated for YouTube, TikTok, and Instagram specifically.
+    </p>
+
+    <h2 style="${S.h2}">What creatorsToolHub Gives You</h2>
+    <p style="${S.desc}">
+      The platform covers every stage of the content creation workflow across three platforms.
+      On YouTube: <a href="/tools/youtube-title-generator" style="${S.crumbA}">title generators</a>,
+      <a href="/tools/youtube-hashtag-generator" style="${S.crumbA}">hashtag tools</a>,
+      <a href="/tools/youtube-description-generator" style="${S.crumbA}">description writers</a>,
+      <a href="/tools/youtube-script-generator" style="${S.crumbA}">script generators</a>, and
+      <a href="/tools/youtube-hook-generator" style="${S.crumbA}">hook writers</a>.
+      On TikTok: caption generators, hook tools, and content idea generators.
+      On Instagram: Reels caption writers, hashtag optimizers, and bio generators.
+      Everything works in under 30 seconds. No account needed.
+    </p>
+
+    <h2 style="${S.h2}">The Founding Principle: Free Means Free</h2>
+    <p style="${S.desc}">
+      A lot of tools call themselves free and then hit you with a usage cap, a watermark, or
+      a paywall on the feature you actually need. creatorsToolHub does not do that. The platform
+      is funded by non-intrusive advertising, which means creators who cannot afford a $50/month
+      SaaS subscription get the same tools as creators who can. That is the point.
+    </p>
+    <p style="${S.desc}">
+      If you are a creator just starting out, creatorsToolHub was built specifically for you.
+      If you are an established creator who wants faster workflows without adding another
+      subscription, creatorsToolHub was built for you too.
+    </p>
+
+    <h2 style="${S.h2}">Connect and Follow the Build</h2>
+    <p style="${S.desc}">
+      I share content strategy insights, YouTube SEO tips, and behind-the-scenes updates on
+      building creatorsToolHub across these platforms:
+    </p>
+    <ul style="list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-wrap:wrap;gap:0.75rem">
+      <li><a href="https://www.youtube.com/@creatorstoolhub" rel="noopener" target="_blank"
+        style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.45rem 1rem;background:#f3f0ff;color:#7c3aed;border-radius:8px;font-size:0.9rem;font-weight:600;text-decoration:none">
+        YouTube</a></li>
+      <li><a href="https://www.linkedin.com/in/nnaemeka-immanuels" rel="noopener" target="_blank"
+        style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.45rem 1rem;background:#f3f0ff;color:#7c3aed;border-radius:8px;font-size:0.9rem;font-weight:600;text-decoration:none">
+        LinkedIn</a></li>
+      <li><a href="https://x.com/emeka_immanuels" rel="noopener" target="_blank"
+        style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.45rem 1rem;background:#f3f0ff;color:#7c3aed;border-radius:8px;font-size:0.9rem;font-weight:600;text-decoration:none">
+        X / Twitter</a></li>
+      <li><a href="https://www.tiktok.com/@nnaemeka.immanuels" rel="noopener" target="_blank"
+        style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.45rem 1rem;background:#f3f0ff;color:#7c3aed;border-radius:8px;font-size:0.9rem;font-weight:600;text-decoration:none">
+        TikTok</a></li>
+    </ul>
+
+    <h2 style="${S.h2}">Frequently Asked Questions</h2>
+
+    <p style="${S.faqQ}">Is creatorsToolHub really free?</p>
+    <p style="${S.faqA}">Yes — completely free, with no signup, no usage caps, and no hidden paywalls. The platform is funded by non-intrusive advertising so creators at every level can access professional-grade tools without a subscription.</p>
+
+    <p style="${S.faqQ}">Who built creatorsToolHub?</p>
+    <p style="${S.faqA}">creatorsToolHub was designed, built, and launched by Nnaemeka Immanuels — a full-stack developer and AI tools builder from Lagos, Nigeria. He built the entire platform solo, from the React frontend and Node.js API through to deployment and SEO infrastructure.</p>
+
+    <p style="${S.faqQ}">What platforms do the tools support?</p>
+    <p style="${S.faqA}">The tools cover YouTube, TikTok, and Instagram across the full content workflow — titles, scripts, hooks, descriptions, captions, hashtags, and content ideas. Each tool is tuned specifically for its platform rather than producing generic AI output.</p>
+
+    <p style="${S.faqQ}">How do I get in touch?</p>
+    <p style="${S.faqA}">Email hello@creatorstoolhub.com or use the <a href="/contact" style="${S.crumbA}">contact page</a>. Feature suggestions and bug reports are always welcome.</p>
+
+    <p style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid #e2e8f0">
+      <a href="/" style="${S.crumbA}">Explore All 35+ Free Tools</a> &nbsp;·&nbsp;
+      <a href="/blog" style="${S.crumbA}">Read the Blog</a> &nbsp;·&nbsp;
       <a href="/contact" style="${S.crumbA}">Contact</a>
     </p>
+
   </main>
 </div>`,
       schemas: [
         {
-          "@context": "https://schema.org",
-          "@type":    "Person",
-          "name":     "Nnaemeka Immanuels",
-          "url":      `${SITE_URL}/about`,
-          "jobTitle": "Founder & Content Creator Strategist",
-          "worksFor": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
-          "sameAs":   ["https://www.linkedin.com/in/immanuels", "https://twitter.com/creatorstoolhub"],
+          "@context":  "https://schema.org",
+          "@type":     "Person",
+          "name":      "Nnaemeka Immanuels",
+          "url":       `${SITE_URL}/about`,
+          "image":     `${SITE_URL}/opengraph.jpg`,
+          "jobTitle":  "Founder & Full-Stack Developer",
+          "description": "Full-stack developer and AI tools builder from Lagos, Nigeria. Founder of creatorsToolHub — 35+ free AI-powered tools for YouTube, TikTok, and Instagram content creators.",
+          "worksFor":  { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
+          "address":   { "@type": "PostalAddress", "addressLocality": "Lagos", "addressCountry": "NG" },
+          "knowsAbout": ["Content Strategy", "YouTube SEO", "AI Tools", "Full-Stack Development", "React", "Node.js", "PostgreSQL", "Prompt Engineering"],
+          "sameAs": [
+            "https://www.linkedin.com/in/nnaemeka-immanuels",
+            "https://x.com/emeka_immanuels",
+            "https://www.youtube.com/@creatorstoolhub",
+            "https://www.tiktok.com/@nnaemeka.immanuels",
+          ],
         },
       ],
     };

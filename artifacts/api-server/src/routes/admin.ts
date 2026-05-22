@@ -252,7 +252,7 @@ router.put("/admin/blog/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
     const updates: Record<string, unknown> = {};
-    const { title, slug, excerpt, content, author, coverImage, faqSchema, tags, metaTitle, metaDescription, isPublished } = req.body;
+    const { title, slug, excerpt, content, author, coverImage, faqSchema, tags, metaTitle, metaDescription, isPublished, publishedAt, ogImage, schemaType, canonical } = req.body;
     if (title !== undefined) updates.title = title;
     if (slug !== undefined) updates.slug = slug;
     if (excerpt !== undefined) updates.excerpt = excerpt;
@@ -266,13 +266,18 @@ router.put("/admin/blog/:id", async (req, res) => {
         tags !== undefined ? tags : []
       );
     }
+    if (ogImage !== undefined) updates.ogImage = ogImage;
+    if (schemaType !== undefined) updates.schemaType = schemaType;
+    if (canonical !== undefined) updates.canonical = canonical;
     if (faqSchema !== undefined) updates.faqSchema = faqSchema;
     if (tags !== undefined) updates.tags = JSON.stringify(tags);
     if (metaTitle !== undefined) updates.metaTitle = metaTitle;
     if (metaDescription !== undefined) updates.metaDescription = metaDescription;
     if (isPublished !== undefined) {
       updates.isPublished = isPublished;
-      if (isPublished) updates.publishedAt = new Date();
+      if (isPublished) updates.publishedAt = publishedAt ? new Date(publishedAt) : new Date();
+    } else if (publishedAt !== undefined) {
+      updates.publishedAt = new Date(publishedAt);
     }
     updates.updatedAt = new Date();
 

@@ -484,6 +484,8 @@ const BLOG_REDIRECTS: Record<string, string> = {
   // Near-duplicates added after audit:
   "how-to-go-viral-on-tiktok-2026":                                             "how-to-go-viral-on-tiktok-2026-strategies-that-work",
   "how-to-get-more-tiktok-followers-for-free-understand-tiktok-algorithm":      "how-to-grow-tiktok-followers-fast-2026",
+  // Ghost URL indexed by Google (old slug → current canonical post):
+  "how-to-start-a-faceless-youtube-channel-with-ai":                            "how-to-make-faceless-youtube-channel-with-ai",
 };
 
 // Must run before static SPA serving so crawlers receive 301, not index.html

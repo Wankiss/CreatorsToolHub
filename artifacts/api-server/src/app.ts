@@ -57,6 +57,21 @@ app.use((req, res, next) => {
   next();
 });
 
+// ── Trailing slash → canonical redirect (critical for Google deduplication) ──
+// Prevents "Duplicate, Google chose different canonical than user" GSC error.
+// Any URL with a trailing slash (except the root "/") gets 301-redirected to
+// the non-slash version, which matches what canonical tags and the sitemap use.
+app.use((req, res, next) => {
+  const url = req.originalUrl;
+  if (url.length > 1 && url.endsWith("/") && !url.includes("?")) {
+    return res.redirect(301, url.slice(0, -1));
+  }
+  if (url.length > 1 && url.includes("/?")) {
+    return res.redirect(301, url.replace("/?", "?"));
+  }
+  next();
+});
+
 // ── Security headers ──────────────────────────────────────────────────────────
 app.use((_req, res, next) => {
   res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
@@ -492,7 +507,7 @@ app.get("/sitemap.xml", async (_req, res) => {
     const today = new Date().toISOString().split("T")[0];
 
     const urlEntries = [
-      `<url><loc>${baseUrl}/</loc><lastmod>${today}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>`,
+      `<url><loc>${baseUrl}</loc><lastmod>${today}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>`,
       `<url><loc>${baseUrl}/blog</loc><lastmod>${today}</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>`,
       `<url><loc>${baseUrl}/about</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>`,
       `<url><loc>${baseUrl}/contact</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>`,
@@ -562,11 +577,8 @@ if (process.env.NODE_ENV === "production") {
     serveBlogImages(req, res, next);
   });
 
-  // Normalise /blog/ → /blog (no trailing slash).
-  // The sitemap, canonical tags, and internal links all use /blog without a
-  // trailing slash. Use a regex so Express strict-false mode doesn't also
-  // match /blog (without the slash) and create a self-redirect loop.
-  app.get(/^\/blog\/$/, (_req, res) => res.redirect(301, "/blog"));
+  // /blog/ → /blog redirect is now handled by the global trailing-slash
+  // middleware registered at the top of app.ts. Nothing to do here.
 
   // Serve OG images directly from the source public/og directory.
   // Images are committed to git so they survive all redeploys and server

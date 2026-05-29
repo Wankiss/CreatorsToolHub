@@ -473,19 +473,40 @@ The AI Creator Tools category contains free prompt generators for the most widel
 });
 
 // ── 301 redirects for consolidated duplicate blog posts ──────────────────────
+// All entries must point to a slug that EXISTS in the blog_posts DB table.
+// Broken chains (ghost → ghost) cause soft 404s and confuse Google.
 const BLOG_REDIRECTS: Record<string, string> = {
-  "how-to-go-viral-on-tiktok-in-2026-understanding-tiktok-algorithm":          "how-to-go-viral-on-tiktok-2026-strategies-that-work",
-  "instagram-hashtag-strategy-2026-more-reach":                                 "instagram-hashtag-strategy-2026-get-more-reach",
-  "how-to-start-faceless-youtube-channel-2026":                                 "how-to-start-faceless-youtube-channel-complete-guide-2026",
-  "youtube-seo-tips-beginners-2026":                                            "youtube-seo-tips-beginners-that-work-2026",
-  "best-free-ai-tools-for-content-creators-work-smarter-grow-faster":           "best-free-ai-tools-content-creators-2026",
-  "viral-content-ideas-beginners-2026":                                         "50-viral-content-ideas-beginners-get-views-2026",
-  "how-to-write-youtube-script-fast-free-generator":                            "how-to-write-youtube-script-fast-free-script-generator",
-  // Near-duplicates added after audit:
-  "how-to-go-viral-on-tiktok-2026":                                             "how-to-go-viral-on-tiktok-2026-strategies-that-work",
-  "how-to-get-more-tiktok-followers-for-free-understand-tiktok-algorithm":      "how-to-grow-tiktok-followers-fast-2026",
-  // Ghost URL indexed by Google (old slug → current canonical post):
+  // ── Old slugs → current canonical live slugs ──────────────────────────────
+  "how-to-go-viral-on-tiktok-in-2026-understanding-tiktok-algorithm":           "how-to-go-viral-on-tiktok-with-0-followers",
+  "how-to-go-viral-on-tiktok-2026":                                             "how-to-go-viral-on-tiktok-with-0-followers",
+  "how-to-go-viral-on-tiktok-2026-strategies-that-work":                        "how-to-go-viral-on-tiktok-with-0-followers",
+
+  "instagram-hashtag-strategy-2026-more-reach":                                 "instagram-hashtags-not-working-2026",
+  "instagram-hashtag-strategy-2026-get-more-reach":                             "instagram-hashtags-not-working-2026",
+  "instagram-reels-for-beginners-no-followers-no-experience":                   "instagram-reels-for-beginners-no-followers",
+
+  "how-to-start-faceless-youtube-channel-2026":                                 "how-to-make-faceless-youtube-channel-with-ai",
+  "how-to-start-faceless-youtube-channel-complete-guide-2026":                  "how-to-make-faceless-youtube-channel-with-ai",
   "how-to-start-a-faceless-youtube-channel-with-ai":                            "how-to-make-faceless-youtube-channel-with-ai",
+  "faceless-youtube-channel-ideas-proven-niches-2026":                          "faceless-youtube-channel-ideas-for-introverts",
+  "faceless-youtube-channel-ideas-for-introverts-2026":                         "faceless-youtube-channel-ideas-for-introverts",
+
+  "youtube-seo-tips-beginners-2026":                                            "youtube-seo-checklist-beginners-15-steps",
+  "youtube-seo-tips-beginners-that-work-2026":                                  "youtube-seo-checklist-beginners-15-steps",
+  "youtube-automation-with-ai-free-tools-2026":                                 "youtube-automation-with-ai-free",
+
+  "best-free-ai-tools-for-content-creators-work-smarter-grow-faster":           "free-ai-tools-for-beginner-content-creators",
+  "best-free-ai-tools-content-creators-2026":                                   "free-ai-tools-for-beginner-content-creators",
+
+  "viral-content-ideas-beginners-2026":                                         "content-creation-ideas-for-beginners",
+  "50-viral-content-ideas-beginners-get-views-2026":                            "content-creation-ideas-for-beginners",
+
+  "how-to-write-youtube-script-fast-free-generator":                            "how-to-write-a-youtube-script-for-beginners",
+  "how-to-write-youtube-script-fast-free-script-generator":                     "how-to-write-a-youtube-script-for-beginners",
+
+  "how-to-get-more-tiktok-followers-for-free-understand-tiktok-algorithm":      "tiktok-growth-tips-for-small-accounts",
+  "how-to-grow-tiktok-followers-fast-2026":                                     "tiktok-growth-tips-for-small-accounts",
+  "tiktok-growth-tips-for-small-accounts-2026":                                 "tiktok-growth-tips-for-small-accounts",
 };
 
 // Must run before static SPA serving so crawlers receive 301, not index.html

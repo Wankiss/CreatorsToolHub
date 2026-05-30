@@ -849,8 +849,8 @@ function extractVideoObjects(content: string, publishedAt: Date | null): object[
   if (vids.length === 0) return [];
 
   const dateStr = publishedAt
-    ? new Date(publishedAt).toISOString().split("T")[0]
-    : new Date().toISOString().split("T")[0];
+    ? new Date(publishedAt).toISOString()
+    : new Date().toISOString();
 
   return vids.map(({ id, title }, i) => ({
     "@context":     "https://schema.org",

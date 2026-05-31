@@ -36,21 +36,21 @@ const MODEL_ROUTER: Record<string, string> = {
   "instagram-content-planner":     "meta-llama/llama-3.3-70b-instruct:free",
   "instagram-reel-idea-generator": "meta-llama/llama-3.3-70b-instruct:free",
   // Structured
-  "youtube-keyword-generator":     "deepseek/deepseek-v3:free",
-  "youtube-hashtag-generator":     "deepseek/deepseek-v3:free",
-  "youtube-seo-score-checker":     "deepseek/deepseek-v3:free",
-  "youtube-title-analyzer":        "deepseek/deepseek-v3:free",
-  "instagram-hashtag-generator":   "deepseek/deepseek-v3:free",
-  "tiktok-hashtag-generator":      "deepseek/deepseek-v3:free",
-  "youtube-tag-generator":         "deepseek/deepseek-v3:free",
+  "youtube-keyword-generator":     "qwen/qwen3-coder:free",
+  "youtube-hashtag-generator":     "qwen/qwen3-coder:free",
+  "youtube-seo-score-checker":     "qwen/qwen3-coder:free",
+  "youtube-title-analyzer":        "qwen/qwen3-coder:free",
+  "instagram-hashtag-generator":   "qwen/qwen3-coder:free",
+  "tiktok-hashtag-generator":      "qwen/qwen3-coder:free",
+  "youtube-tag-generator":         "qwen/qwen3-coder:free",
 };
 
-const DEFAULT_MODEL = "google/gemini-2.0-flash-exp:free";
+const DEFAULT_MODEL = "openai/gpt-oss-120b:free";
 
 // Fallback order when a model fails (rate limit / error)
 const FALLBACK_CHAIN = [
-  "google/gemini-2.0-flash-exp:free",
-  "deepseek/deepseek-v3:free",
+  "openai/gpt-oss-120b:free",
+  "moonshotai/kimi-k2.6:free",
   "meta-llama/llama-3.3-70b-instruct:free",
 ];
 

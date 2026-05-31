@@ -60,6 +60,18 @@ router.get("/tools", async (req, res) => {
   }
 });
 
+// ── Usage counter — MUST be before /tools/:slug to avoid slug collision ───────
+router.get("/tools/usage", (req, res) => {
+  const ip    = getClientIP(req);
+  const usage = getUsage(ip);
+  res.json({
+    used:      usage.used,
+    remaining: usage.remaining,
+    limit:     DAILY_LIMIT,
+    resetAt:   usage.resetAt,
+  });
+});
+
 router.get("/tools/popular", async (req, res) => {
   try {
     const limit = Math.min(Number(req.query.limit) || 12, 24);
@@ -151,18 +163,6 @@ router.get("/tools/:slug", async (req, res) => {
     console.error(err);
     res.status(500).json({ error: "server_error", message: "Failed to fetch tool" });
   }
-});
-
-// ── Usage counter (read-only, no consumption) ─────────────────────────────────
-router.get("/tools/usage", (req, res) => {
-  const ip    = getClientIP(req);
-  const usage = getUsage(ip);
-  res.json({
-    used:      usage.used,
-    remaining: usage.remaining,
-    limit:     DAILY_LIMIT,
-    resetAt:   usage.resetAt,
-  });
 });
 
 router.post("/tools/:slug/execute", async (req, res) => {

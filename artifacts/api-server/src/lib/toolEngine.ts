@@ -97,7 +97,12 @@ async function aiGenerate(
       const text = response.choices[0]?.message?.content?.trim() ?? "";
       const lines = text
         .split("\n")
-        .map((l) => l.replace(/^[\d\-\*\.\)]+\s*/, "").trim())
+        .map((l) => l
+          .replace(/^[\d\-\*\.\)]+\s*/, "")   // strip leading list markers
+          .replace(/\*\*([^*]+)\*\*/g, "$1")   // strip **bold**
+          .replace(/\*([^*]+)\*/g,   "$1")     // strip *italic*
+          .trim()
+        )
         .filter(Boolean);
       return { lines: lines.length > 0 ? lines : [text], model };
     } catch (err: any) {

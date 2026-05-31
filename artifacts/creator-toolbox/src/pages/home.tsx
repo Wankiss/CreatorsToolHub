@@ -249,9 +249,9 @@ export default function Home() {
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-6 leading-[1.1] text-balance">
-            Free AI Tools for{" "}
-            <span className="gradient-text">Content Creators</span>{" "}
-            That Actually Work
+            Free AI Tools for Content Creators —{" "}
+            <span className="gradient-text">Save Hours. Grow Faster.</span>{" "}
+            Pay Nothing.
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed text-balance">

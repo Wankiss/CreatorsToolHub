@@ -3,8 +3,10 @@ import { Link, useLocation } from "wouter";
 import { useCanonical } from "@/hooks/use-canonical";
 import { useSeoMeta } from "@/hooks/use-seo-meta";
 import {
-  Search, Sparkles, Youtube, Instagram, Music, Zap, ArrowRight, TrendingUp,
-  CheckCircle2, Star, Clock, Lightbulb, BarChart2, Flame, ChevronRight
+  Search, Sparkles, Youtube, Instagram, Zap, ArrowRight, TrendingUp,
+  CheckCircle2, Star, Clock, Lightbulb, BarChart2, Flame, ChevronRight,
+  AlertCircle, TrendingDown, RotateCcw, MousePointerClick, ClipboardList,
+  Rocket, Users, Gift, Shield
 } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
@@ -13,7 +15,22 @@ import { ToolCard } from "@/components/tool-card";
 import { useGetPopularTools, useListCategories, useListBlogPosts } from "@workspace/api-client-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
-// ── Lightweight scroll-reveal (replaces framer-motion whileInView) ──────────
+// ── TikTok SVG Icon ───────────────────────────────────────────────────────────
+function TikTokIcon({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="TikTok"
+    >
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.29 6.29 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.18 8.18 0 0 0 4.79 1.52V6.82a4.85 4.85 0 0 1-1.02-.13z" />
+    </svg>
+  );
+}
+
+// ── Lightweight scroll-reveal ─────────────────────────────────────────────────
 function InView({
   children,
   className = "",
@@ -65,16 +82,16 @@ const FEATURED_TOOLS = [
     label: "YouTube",
     name: "YouTube Script Generator — Free",
     slug: "youtube-script-generator",
-    benefit: "Stop staring at a blank page. Get a full, hook-to-CTA video script in seconds — structured for maximum watch time and designed to keep viewers hooked till the end.",
-    outcome: "Scripts that retain viewers",
+    benefit: "Stop staring at a blank page. Get a complete, hook-to-CTA video script in seconds — built for maximum watch time, structured to keep viewers watching until the end.",
+    outcome: "Scripts that hold viewer attention",
     tag: "Most popular",
   },
   {
     icon: <Flame className="w-7 h-7" />,
     label: "YouTube",
-    name: "Viral Title Generator",
+    name: "Viral Title Generator — Free",
     slug: "youtube-title-generator",
-    benefit: "Your title is the first thing the algorithm and your viewer judge. Generate click-worthy, SEO-optimized titles that actually get clicked — free, unlimited, instant.",
+    benefit: "Your title decides whether anyone watches your video. Generate click-worthy, SEO-optimized titles that get clicks from both search and the algorithm — free, unlimited, instant.",
     outcome: "Higher click-through rates",
     tag: "Top pick",
   },
@@ -83,14 +100,14 @@ const FEATURED_TOOLS = [
     label: "YouTube",
     name: "Faceless YouTube Ideas Generator",
     slug: "youtube-video-idea-generator",
-    benefit: "Find profitable faceless channel ideas in any niche — from finance to fitness. Get complete video concepts with hooks, titles, and monetization angles, all for free.",
+    benefit: "Find profitable faceless channel ideas in any niche from finance to fitness. Get full video concepts with hooks, titles, and monetization angles — all for free.",
     outcome: "Ready-to-film ideas instantly",
-    tag: "For faceless channels",
+    tag: "Faceless channels",
   },
   {
-    icon: <Music className="w-7 h-7" />,
+    icon: <TikTokIcon className="w-7 h-7" />,
     label: "TikTok",
-    name: "TikTok Video Idea Generator",
+    name: "TikTok Video Idea Generator — Free",
     slug: "tiktok-viral-idea-generator",
     benefit: "Never run dry on TikTok content again. Generate scroll-stopping video concepts tailored to your niche, complete with hooks, captions, and trending hashtag strategies.",
     outcome: "Viral-ready TikTok content",
@@ -99,21 +116,77 @@ const FEATURED_TOOLS = [
 ];
 
 const BENEFITS = [
-  { icon: <Clock className="w-5 h-5 text-primary" />, text: "Save 5–10 hours every week on content planning and writing" },
+  { icon: <Clock className="w-5 h-5 text-primary" />, text: "Save 5 to 10 hours every week on content planning and writing" },
   { icon: <Lightbulb className="w-5 h-5 text-primary" />, text: "Never run out of video ideas — generate unlimited concepts for any niche" },
   { icon: <Flame className="w-5 h-5 text-primary" />, text: "Create viral-ready content optimized for YouTube, TikTok, and Instagram" },
-  { icon: <TrendingUp className="w-5 h-5 text-primary" />, text: "Grow your channel faster without hiring writers or spending on subscriptions" },
+  { icon: <TrendingUp className="w-5 h-5 text-primary" />, text: "Grow your channel faster without hiring writers or paying for subscriptions" },
   { icon: <Zap className="w-5 h-5 text-primary" />, text: "Get AI-quality output instantly — no prompt engineering or learning curve" },
   { icon: <BarChart2 className="w-5 h-5 text-primary" />, text: "Stay consistent with content calendars, caption generators, and hashtag tools" },
-  { icon: <CheckCircle2 className="w-5 h-5 text-primary" />, text: "100% free — no hidden fees, no subscriptions, no credit card, ever" },
+  { icon: <Gift className="w-5 h-5 text-primary" />, text: "100% free — no hidden fees, no subscriptions, no credit card, ever" },
   { icon: <Star className="w-5 h-5 text-primary" />, text: "Built for beginner creators — works on day one, no experience needed" },
 ];
 
 const PAIN_POINTS = [
-  { icon: "😩", text: "You've been staring at a blank page for an hour with no idea what to post." },
-  { icon: "📉", text: "Your last 10 videos barely got views — and you're not sure why." },
-  { icon: "⏳", text: "You spend more time planning and writing than actually creating." },
-  { icon: "🔄", text: "You keep posting but feel stuck in the same loop — inconsistent, unmotivated, invisible." },
+  {
+    icon: <AlertCircle className="w-6 h-6 text-orange-500 flex-shrink-0 mt-0.5" />,
+    text: "You have been staring at a blank page for an hour with no idea what to post.",
+  },
+  {
+    icon: <TrendingDown className="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />,
+    text: "Your last 10 videos barely got views — and you cannot figure out why.",
+  },
+  {
+    icon: <Clock className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-0.5" />,
+    text: "You spend more time planning and writing than actually creating.",
+  },
+  {
+    icon: <RotateCcw className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" />,
+    text: "You keep posting but feel stuck in the same loop — inconsistent, unmotivated, invisible.",
+  },
+];
+
+const HOW_IT_WORKS = [
+  {
+    step: "01",
+    icon: <MousePointerClick className="w-7 h-7 text-primary" />,
+    title: "Pick a Free Tool",
+    desc: "Choose from 35+ free AI tools built for YouTube, TikTok, Instagram, and AI content creation. No account needed.",
+  },
+  {
+    step: "02",
+    icon: <ClipboardList className="w-7 h-7 text-primary" />,
+    title: "Enter Your Details",
+    desc: "Tell the tool your niche, topic, or platform. Takes less than 30 seconds. The more specific you are, the better the output.",
+  },
+  {
+    step: "03",
+    icon: <Rocket className="w-7 h-7 text-primary" />,
+    title: "Copy and Create",
+    desc: "Get professional-quality scripts, titles, captions, or ideas instantly. Copy, paste, and start creating right away.",
+  },
+];
+
+const FAQS = [
+  {
+    q: "Are all the tools on CreatorsToolHub really free?",
+    a: "Yes, completely free. Every single tool on CreatorsToolHub is free to use with no hidden fees, no subscription plans, and no credit card required. You can use every tool as many times as you want.",
+  },
+  {
+    q: "Do I need to create an account to use the tools?",
+    a: "No account needed. You can use all 35+ free creator tools without signing up. Just open any tool, enter your details, and get results instantly.",
+  },
+  {
+    q: "What free tools are available for YouTube creators?",
+    a: "CreatorsToolHub offers free YouTube tools including a script generator, title generator, description generator, tag generator, hashtag generator, video idea generator, channel name generator, and more. All built specifically for YouTube creators.",
+  },
+  {
+    q: "Can beginner creators use these AI tools?",
+    a: "Absolutely. These free AI tools for creators are designed for beginners. There is no learning curve, no prompt engineering required, and no technical knowledge needed. Enter your topic and get results in seconds.",
+  },
+  {
+    q: "What platforms do the free creator tools support?",
+    a: "CreatorsToolHub has free tools for YouTube, TikTok, Instagram, and general AI content creation. Each tool is built specifically for its platform, not repurposed from a generic generator.",
+  },
 ];
 
 export default function Home() {
@@ -121,11 +194,12 @@ export default function Home() {
   useSeoMeta({
     title: "Free AI Tools for Content Creators",
     description:
-      "35+ free AI tools for YouTube, TikTok & Instagram creators. Generate titles, scripts, captions, hashtags, and prompts instantly — no signup required.",
+      "35+ free AI tools for YouTube, TikTok & Instagram creators. Generate titles, scripts, captions, hashtags, and content ideas instantly — no signup required.",
     path: "/",
   });
 
   const [search, setSearch] = useState("");
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [, setLocation] = useLocation();
 
   const { data: popularTools, isLoading: toolsLoading } = useGetPopularTools({ limit: 6 });
@@ -140,10 +214,10 @@ export default function Home() {
   };
 
   const getCategoryIcon = (slug: string) => {
-    if (slug.includes('youtube')) return <Youtube className="w-6 h-6" />;
-    if (slug.includes('tiktok')) return <Music className="w-6 h-6" />;
-    if (slug.includes('instagram')) return <Instagram className="w-6 h-6" />;
-    if (slug.includes('ai')) return <Zap className="w-6 h-6" />;
+    if (slug.includes("youtube")) return <Youtube className="w-6 h-6" />;
+    if (slug.includes("tiktok")) return <TikTokIcon className="w-6 h-6" />;
+    if (slug.includes("instagram")) return <Instagram className="w-6 h-6" />;
+    if (slug.includes("ai")) return <Zap className="w-6 h-6" />;
     return <Sparkles className="w-6 h-6" />;
   };
 
@@ -167,27 +241,35 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/75 to-background" />
         </div>
 
-        {/* Hero content: CSS animation, no framer-motion */}
         <div className="container relative z-10 mx-auto px-4 max-w-4xl text-center animate-hero">
 
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-6 border border-primary/20">
-            <Sparkles className="w-4 h-4" />
-            <span>30+ Free Creator Tools — No Signup Required</span>
+            <Gift className="w-4 h-4" />
+            <span>35+ Free Creator Tools — Zero Signup. Zero Credit Card.</span>
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-6 leading-[1.1] text-balance">
-            The Best <span className="gradient-text">Free Creator Tools</span> for YouTube, TikTok & Instagram
+            Free AI Tools for{" "}
+            <span className="gradient-text">Content Creators</span>{" "}
+            That Actually Work
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed text-balance">
-            Free AI tools for creators who want to grow faster — generate scripts, viral titles, hooks, captions, hashtags, and content ideas instantly. No subscription. No credit card. Ever.
+            Generate YouTube scripts, viral titles, TikTok hooks, Instagram captions, hashtags, and faceless channel ideas in seconds. 35+ free AI tools built for creators — no subscription, no credit card, no limits.
           </p>
 
           <p className="text-sm font-semibold text-primary mb-10 tracking-wide uppercase">
-            ✓ 100% Free &nbsp;·&nbsp; ✓ No Signup Required &nbsp;·&nbsp; ✓ Unlimited Use
+            <CheckCircle2 className="w-4 h-4 inline mr-1" />100% Free
+            &nbsp;&nbsp;
+            <CheckCircle2 className="w-4 h-4 inline mr-1" />No Signup Required
+            &nbsp;&nbsp;
+            <CheckCircle2 className="w-4 h-4 inline mr-1" />Unlimited Use
           </p>
 
-          <form onSubmit={handleSearch} className="max-w-2xl mx-auto relative group flex items-center shadow-2xl shadow-primary/10 rounded-full bg-background border-2 border-primary/20 focus-within:border-primary transition-all p-2 mb-6">
+          <form
+            onSubmit={handleSearch}
+            className="max-w-2xl mx-auto relative group flex items-center shadow-2xl shadow-primary/10 rounded-full bg-background border-2 border-primary/20 focus-within:border-primary transition-all p-2 mb-6"
+          >
             <Search className="absolute left-6 w-5 h-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
             <Input
               type="text"
@@ -196,13 +278,23 @@ export default function Home() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <Button type="submit" size="lg" className="absolute right-2 h-12 rounded-full px-6 font-semibold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5">
+            <Button
+              type="submit"
+              size="lg"
+              className="absolute right-2 h-12 rounded-full px-6 font-semibold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
+            >
               Search Tools
             </Button>
           </form>
 
           <div className="flex flex-wrap justify-center gap-3 text-sm text-muted-foreground">
-            {["YouTube Title Generator", "TikTok Viral Ideas", "AI Prompt Generator", "Instagram Hashtags", "Faceless YouTube Ideas"].map(q => (
+            {[
+              "YouTube Title Generator",
+              "TikTok Viral Ideas",
+              "AI Prompt Generator",
+              "Instagram Hashtags",
+              "Faceless YouTube Ideas",
+            ].map((q) => (
               <button
                 key={q}
                 onClick={() => setLocation(`/search?q=${encodeURIComponent(q)}`)}
@@ -221,7 +313,7 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { stat: "30+", label: "Free Content Creation Tools" },
+              { stat: "35+", label: "Free Content Creation Tools" },
               { stat: "100%", label: "Free — Always, No Exceptions" },
               { stat: "4", label: "Creator Platforms Covered" },
               { stat: "0", label: "Signup or Credit Card Required" },
@@ -240,17 +332,21 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-5xl">
           <InView className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-5">
-              Sound familiar?
+              Does any of this sound familiar?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Every creator hits the same wall. The good news? It's not a talent problem — it's a tools problem.
+              Every creator hits the same wall. The good news? It is not a talent problem — it is a tools problem.
             </p>
           </InView>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {PAIN_POINTS.map(({ icon, text }, i) => (
-              <InView key={i} delay={i * 100} className="flex items-start gap-4 bg-muted/40 rounded-2xl p-6 border border-border/50">
-                <span className="text-3xl mt-0.5 flex-shrink-0">{icon}</span>
+              <InView
+                key={i}
+                delay={i * 100}
+                className="flex items-start gap-4 bg-muted/40 rounded-2xl p-6 border border-border/50"
+              >
+                {icon}
                 <p className="text-base text-foreground leading-relaxed">{text}</p>
               </InView>
             ))}
@@ -258,7 +354,7 @@ export default function Home() {
 
           <InView className="text-center mt-10">
             <p className="text-muted-foreground text-lg">
-              If any of that hit close to home — you're in the right place. Let's fix it.
+              If any of that hit close to home — you are in the right place. Let's fix it.
             </p>
           </InView>
         </div>
@@ -271,23 +367,36 @@ export default function Home() {
           <InView>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 text-primary font-semibold text-sm mb-6 border border-primary/25">
               <Zap className="w-4 h-4" />
-              <span>Meet your unfair advantage</span>
+              <span>Your unfair advantage as a creator</span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-6">
-              Free AI Tools for Creators — <br className="hidden md:block" />
-              <span className="gradient-text">Built for Growth</span>
+              Free AI Tools for Creators —{" "}
+              <br className="hidden md:block" />
+              <span className="gradient-text">Built to Help You Grow</span>
             </h2>
 
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
-              creatorsToolHub is your all-in-one hub of free AI-powered content creation tools. Whether you're building a faceless YouTube channel, growing on TikTok, or scaling your Instagram — every tool here is designed to help you create better content in a fraction of the time. And it's completely free — no plans, no paywalls, no limits.
+              CreatorsToolHub is your all-in-one hub of free AI-powered content creation tools. Building a faceless YouTube channel, growing on TikTok, or scaling your Instagram presence — every tool here helps you create better content in a fraction of the time. Completely free. No plans, no paywalls, no limits.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left max-w-3xl mx-auto">
               {[
-                { icon: <Zap className="w-6 h-6 text-primary" />, title: "AI-Powered Results", desc: "Every tool uses advanced AI to generate professional-quality outputs instantly." },
-                { icon: <CheckCircle2 className="w-6 h-6 text-primary" />, title: "Actually Free", desc: "No trial periods, no subscriptions, no hidden fees. Free today, free tomorrow." },
-                { icon: <Sparkles className="w-6 h-6 text-primary" />, title: "Beginner-Friendly", desc: "Works from day one. No learning curve, no tech skills required." },
+                {
+                  icon: <Zap className="w-6 h-6 text-primary" />,
+                  title: "AI-Powered Results",
+                  desc: "Every tool uses advanced AI to generate professional-quality outputs instantly.",
+                },
+                {
+                  icon: <Shield className="w-6 h-6 text-primary" />,
+                  title: "Actually Free",
+                  desc: "No trial periods, no subscriptions, no hidden fees. Free today, free tomorrow, free forever.",
+                },
+                {
+                  icon: <Users className="w-6 h-6 text-primary" />,
+                  title: "Beginner-Friendly",
+                  desc: "Works from day one. No learning curve, no tech skills, and no prompt engineering required.",
+                },
               ].map(({ icon, title, desc }) => (
                 <div key={title} className="bg-background rounded-2xl p-6 border border-border/60 shadow-sm">
                   <div className="mb-3">{icon}</div>
@@ -308,7 +417,7 @@ export default function Home() {
               Powerful Free Content Creation Tools
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              YouTube automation tools, TikTok content generators, and AI-powered prompts — all free, all instant.
+              YouTube automation tools, TikTok content generators, and AI-powered prompts — all free, all instant, no account required.
             </p>
           </InView>
 
@@ -326,12 +435,17 @@ export default function Home() {
                       </span>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-muted-foreground mb-1 uppercase tracking-wide">{tool.label}</p>
-                      <h3 className="text-xl font-bold font-display group-hover:text-primary transition-colors mb-3">{tool.name}</h3>
+                      <p className="text-xs font-semibold text-muted-foreground mb-1 uppercase tracking-wide">
+                        {tool.label}
+                      </p>
+                      <h3 className="text-xl font-bold font-display group-hover:text-primary transition-colors mb-3">
+                        {tool.name}
+                      </h3>
                       <p className="text-muted-foreground text-sm leading-relaxed mb-4">{tool.benefit}</p>
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 dark:text-emerald-400 px-3 py-1 rounded-full">
-                          ✓ {tool.outcome}
+                          <CheckCircle2 className="w-3 h-3 inline mr-1" />
+                          {tool.outcome}
                         </span>
                         <span className="text-primary text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
                           Try free <ChevronRight className="w-4 h-4" />
@@ -346,7 +460,9 @@ export default function Home() {
 
           <div className="text-center">
             <Button asChild size="lg" variant="outline" className="rounded-full px-8">
-              <Link href="/search">Browse All Free Creator Tools <ArrowRight className="w-4 h-4 ml-2" /></Link>
+              <Link href="/search">
+                Browse All Free Creator Tools <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
             </Button>
           </div>
         </div>
@@ -356,34 +472,83 @@ export default function Home() {
       <section className="py-20 bg-muted/30 border-y border-border">
         <div className="container mx-auto px-4 max-w-7xl">
           <InView className="mb-10">
-            <h2 className="text-3xl font-bold font-display tracking-tight mb-2">Free Tools by Platform</h2>
-            <p className="text-muted-foreground">Pick your platform and start creating — every tool is free and ready to use right now</p>
+            <h2 className="text-3xl font-bold font-display tracking-tight mb-2">
+              Free Tools by Platform
+            </h2>
+            <p className="text-muted-foreground">
+              Pick your platform and start creating — every tool is free and ready to use right now
+            </p>
           </InView>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {catsLoading
-              ? Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-32 rounded-2xl" />)
+              ? Array.from({ length: 4 }).map((_, i) => (
+                  <Skeleton key={i} className="h-32 rounded-2xl" />
+                ))
               : categoriesData?.categories.map((cat, i) => (
-                <InView key={cat.id} delay={i * 100}>
-                  <Link href={`/category/${cat.slug}`}>
-                    <div className="group bg-card border border-border/50 hover:border-primary/50 rounded-2xl p-6 flex items-center gap-5 cursor-pointer hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 h-full">
-                      <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all flex-shrink-0">
-                        {getCategoryIcon(cat.slug)}
+                  <InView key={cat.id} delay={i * 100}>
+                    <Link href={`/category/${cat.slug}`}>
+                      <div className="group bg-card border border-border/50 hover:border-primary/50 rounded-2xl p-6 flex items-center gap-5 cursor-pointer hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 h-full">
+                        <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all flex-shrink-0">
+                          {getCategoryIcon(cat.slug)}
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold font-display group-hover:text-primary transition-colors">
+                            {cat.name}
+                          </h3>
+                          <p className="text-sm text-muted-foreground mt-0.5">
+                            {cat.toolCount} free tools
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-lg font-bold font-display group-hover:text-primary transition-colors">{cat.name}</h3>
-                        <p className="text-sm text-muted-foreground mt-0.5">{cat.toolCount} free tools</p>
-                      </div>
-                    </div>
-                  </Link>
-                </InView>
-              ))}
+                    </Link>
+                  </InView>
+                ))}
           </div>
         </div>
       </section>
 
-      {/* ── BENEFITS SECTION ─────────────────────────────────── */}
+      {/* ── HOW IT WORKS ─────────────────────────────────────── */}
       <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <InView className="text-center mb-14">
+            <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-5">
+              How It Works — Start in 30 Seconds
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              No tutorials. No onboarding. No learning curve. Pick a free tool and get results in three steps.
+            </p>
+          </InView>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            <div className="hidden md:block absolute top-10 left-[calc(16.67%+1rem)] right-[calc(16.67%+1rem)] h-px bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" />
+            {HOW_IT_WORKS.map(({ step, icon, title, desc }, i) => (
+              <InView key={step} delay={i * 150} className="relative text-center">
+                <div className="w-20 h-20 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-5 border border-primary/20">
+                  {icon}
+                </div>
+                <div className="absolute top-0 right-1/2 translate-x-1/2 md:right-auto md:translate-x-0 md:top-0 md:left-4">
+                  <span className="text-xs font-bold text-primary/40 tracking-widest">{step}</span>
+                </div>
+                <h3 className="text-xl font-bold font-display mb-3">{title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
+              </InView>
+            ))}
+          </div>
+
+          <InView className="text-center mt-14">
+            <Button asChild size="lg" className="rounded-full px-10 h-14 text-base font-bold">
+              <Link href="/search">
+                Start Using Free Tools Now <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </Button>
+            <p className="text-muted-foreground text-sm mt-4">No account needed. Completely free.</p>
+          </InView>
+        </div>
+      </section>
+
+      {/* ── BENEFITS SECTION ─────────────────────────────────── */}
+      <section className="py-24 bg-muted/20 border-y border-border">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <InView>
@@ -391,10 +556,12 @@ export default function Home() {
                 What changes when you use free AI tools for creators
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Content creators who use creatorsToolHub don't just save time — they create better content, more consistently, and grow faster. Here's the transformation:
+                Creators who use CreatorsToolHub do not just save time. They create better content, more consistently, and grow faster. Here is the transformation:
               </p>
               <Button asChild size="lg" className="rounded-full px-8">
-                <Link href="/search">Start Using Free Tools <ArrowRight className="w-4 h-4 ml-2" /></Link>
+                <Link href="/search">
+                  Start Using Free Tools <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
               </Button>
             </InView>
 
@@ -402,7 +569,7 @@ export default function Home() {
               {BENEFITS.map(({ icon, text }, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-muted/40 border border-border/40"
+                  className="flex items-start gap-4 p-4 rounded-xl bg-background border border-border/40"
                 >
                   <div className="mt-0.5 flex-shrink-0">{icon}</div>
                   <p className="text-sm text-foreground leading-relaxed">{text}</p>
@@ -414,28 +581,34 @@ export default function Home() {
       </section>
 
       {/* ── POPULAR TOOLS ────────────────────────────────────── */}
-      <section className="py-12 pb-24 bg-muted/20 border-y border-border">
+      <section className="py-12 pb-24 bg-background">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="flex justify-between items-end mb-10">
             <div>
               <h2 className="text-3xl font-bold font-display tracking-tight mb-2 flex items-center gap-2">
                 <TrendingUp className="w-7 h-7 text-primary" /> Most Popular Free Creator Tools Right Now
               </h2>
-              <p className="text-muted-foreground">The free content creation tools thousands of creators are using today</p>
+              <p className="text-muted-foreground">
+                The free content creation tools thousands of creators are using today
+              </p>
             </div>
             <Button variant="outline" asChild className="hidden sm:flex rounded-full">
-              <Link href="/search">View All <ArrowRight className="w-4 h-4 ml-2" /></Link>
+              <Link href="/search">
+                View All <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
             </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {toolsLoading
-              ? Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className="h-64 rounded-2xl" />)
+              ? Array.from({ length: 6 }).map((_, i) => (
+                  <Skeleton key={i} className="h-64 rounded-2xl" />
+                ))
               : popularTools?.tools.map((tool, i) => (
-                <InView key={tool.id} delay={i * 50}>
-                  <ToolCard tool={tool} />
-                </InView>
-              ))}
+                  <InView key={tool.id} delay={i * 50}>
+                    <ToolCard tool={tool} />
+                  </InView>
+                ))}
           </div>
 
           <div className="mt-10 sm:hidden">
@@ -451,22 +624,40 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
         <div className="container relative mx-auto px-4 max-w-4xl text-center">
           <InView>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 text-white font-semibold text-sm mb-8 border border-white/25">
+              <Gift className="w-4 h-4" />
+              <span>100% Free — No Signup. No Credit Card. No Catch.</span>
+            </div>
             <h2 className="text-4xl md:text-6xl font-display font-bold tracking-tight mb-6 text-white">
-              Start using free creator tools now
+              Start creating better content today — for free
             </h2>
             <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-              No signup. No credit card. No subscription. Just pick a tool and start creating viral-ready YouTube, TikTok, and Instagram content — completely free, right now.
+              Pick a free tool and go. No signup required. No subscription. Generate your first YouTube script, TikTok idea, or viral title in the next 60 seconds — completely free.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary" className="rounded-full px-10 text-base font-bold h-14">
-                <Link href="/category/youtube-tools">YouTube Tools — Free <ArrowRight className="w-5 h-5 ml-2" /></Link>
+              <Button
+                asChild
+                size="lg"
+                variant="secondary"
+                className="rounded-full px-10 text-base font-bold h-14"
+              >
+                <Link href="/category/youtube-tools">
+                  Free YouTube Tools <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full px-10 text-base font-bold h-14 border-white/40 text-white hover:bg-white/10">
-                <Link href="/category/tiktok-tools">TikTok Tools — Free <ArrowRight className="w-5 h-5 ml-2" /></Link>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-full px-10 text-base font-bold h-14 border-white/40 text-white hover:bg-white/10"
+              >
+                <Link href="/category/tiktok-tools">
+                  Free TikTok Tools <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
               </Button>
             </div>
             <p className="text-white/50 text-sm mt-8">
-              Join thousands of content creators using creatorsToolHub at creatorstoolhub.com — 100% free, always.
+              Join creators using CreatorsToolHub at creatorstoolhub.com — free AI tools for content creators, always.
             </p>
           </InView>
         </div>
@@ -479,11 +670,17 @@ export default function Home() {
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="flex justify-between items-end mb-12">
               <div>
-                <h2 className="text-3xl font-bold font-display tracking-tight mb-2">Creator Growth Hub</h2>
-                <p className="text-muted-foreground">Free guides on YouTube automation, TikTok content strategy, and growing your channel faster</p>
+                <h2 className="text-3xl font-bold font-display tracking-tight mb-2">
+                  Creator Growth Hub
+                </h2>
+                <p className="text-muted-foreground">
+                  Free guides on YouTube automation, TikTok content strategy, and growing your channel faster
+                </p>
               </div>
               <Button variant="link" asChild className="text-primary hidden sm:flex">
-                <Link href="/blog">Read more articles <ArrowRight className="w-4 h-4 ml-1" /></Link>
+                <Link href="/blog">
+                  Read more articles <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
               </Button>
             </div>
 
@@ -493,12 +690,21 @@ export default function Home() {
                   <div className="bg-card rounded-2xl border border-border overflow-hidden hover:shadow-xl hover:border-primary/40 transition-all group cursor-pointer h-full flex flex-col">
                     <div className="p-6 flex-1 flex flex-col">
                       <div className="flex gap-2 mb-4">
-                        {post.tags.slice(0, 2).map(tag => (
-                          <span key={tag} className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-md">{tag}</span>
+                        {post.tags.slice(0, 2).map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-md"
+                          >
+                            {tag}
+                          </span>
                         ))}
                       </div>
-                      <h3 className="text-xl font-bold font-display mb-3 group-hover:text-primary transition-colors">{post.title}</h3>
-                      <p className="text-muted-foreground text-sm line-clamp-3 mb-6 flex-1">{post.excerpt}</p>
+                      <h3 className="text-xl font-bold font-display mb-3 group-hover:text-primary transition-colors">
+                        {post.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm line-clamp-3 mb-6 flex-1">
+                        {post.excerpt}
+                      </p>
                       <div className="flex items-center justify-between text-xs text-muted-foreground border-t border-border/50 pt-4 mt-auto">
                         <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
                         <span>{post.readingTime} min read</span>
@@ -520,7 +726,7 @@ export default function Home() {
               Free Tools Built for Every Platform
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Every tool on creatorsToolHub is built specifically for one platform — not repurposed from somewhere else. Here's what you get for each.
+              Every tool on CreatorsToolHub is built specifically for one platform — not a generic generator repurposed from somewhere else.
             </p>
           </InView>
 
@@ -535,14 +741,14 @@ export default function Home() {
                 <div>
                   <h2 className="text-xl font-bold font-display mb-3">
                     <Link href="/category/youtube-tools" className="hover:text-primary transition-colors">
-                      Free YouTube Tools
+                      Free YouTube Tools for Creators
                     </Link>
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-3">
-                    Most creators obsess over camera gear and miss the thing that actually drives views. YouTube is the world's second-largest search engine. Your title, tags, and description are ranking signals, just like a blog post. Get those wrong and even great videos don't get found.
+                    Most creators obsess over camera gear and miss what actually drives views. YouTube is the world's second-largest search engine. Your title, tags, and description are ranking signals, just like a blog post. Get those wrong and even great videos do not get found.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Our free YouTube tools fix that. Write titles that balance search keywords with curiosity-driven copy that earns the click. Pull the exact tags top-performing videos in your niche are using. Generate full scripts built around the hook-body-CTA structure that keeps viewers watching past the 30-second mark. Whether you're just starting out or scaling an established channel, these tools cut your prep time from hours to minutes.
+                    Our free YouTube tools fix that. Write titles that balance search keywords with curiosity-driven copy that earns the click. Pull the exact tags top-performing videos in your niche use. Generate full scripts built around the hook-body-CTA structure that keeps viewers past the 30-second mark. Whether you are just starting out or scaling an established channel, these free tools cut your prep time from hours to minutes.
                   </p>
                   <Link href="/category/youtube-tools" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
                     Browse all free YouTube tools <ChevronRight className="w-4 h-4" />
@@ -557,19 +763,19 @@ export default function Home() {
             <InView>
               <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
                 <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-pink-100 dark:bg-pink-950/40 text-pink-600 dark:text-pink-400 flex items-center justify-center mt-1">
-                  <Music className="w-6 h-6" />
+                  <TikTokIcon className="w-6 h-6" />
                 </div>
                 <div>
                   <h2 className="text-xl font-bold font-display mb-3">
                     <Link href="/category/tiktok-tools" className="hover:text-primary transition-colors">
-                      Free TikTok Tools
+                      Free TikTok Content Generator Tools
                     </Link>
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-3">
-                    Here's what most TikTok guides won't tell you: your follower count matters less than your hashtags and captions. TikTok's For You Page rewards relevance and consistency. A fresh account with the right niche hashtags will outperform a 10k-follower account posting the wrong content. Every time.
+                    Here is what most TikTok guides will not tell you: your follower count matters less than your hashtags and captions. TikTok's For You Page rewards relevance and consistency. A brand-new account with the right niche hashtags will outperform a 10k-follower account posting the wrong content every time.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Our free TikTok tools generate trending hashtag sets targeted to your specific niche, write captions in TikTok's short-form voice, and suggest video ideas based on what's actually performing in your category right now. Built for TikTok's format. Not adapted from YouTube or repurposed from a blog generator.
+                    Our free TikTok tools generate trending hashtag sets targeted to your specific niche, write captions in TikTok's short-form voice, and suggest video ideas based on what is actually performing in your category right now. Built for TikTok's format. Not adapted from YouTube or repurposed from a blog generator.
                   </p>
                   <Link href="/category/tiktok-tools" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
                     Browse all free TikTok tools <ChevronRight className="w-4 h-4" />
@@ -589,14 +795,14 @@ export default function Home() {
                 <div>
                   <h2 className="text-xl font-bold font-display mb-3">
                     <Link href="/category/instagram-tools" className="hover:text-primary transition-colors">
-                      Free Instagram Tools
+                      Free Instagram Tools for Growth
                     </Link>
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-3">
-                    The Instagram hashtag strategy you learned in 2021 is dead. Since the algorithm shifted, reach runs on keyword-rich captions and Reels optimisation. If you're still copy-pasting the same 30 tags on every post, you're essentially invisible.
+                    The Instagram hashtag strategy from 2021 is dead. Since the algorithm shifted, reach runs on keyword-rich captions and Reels optimization. If you are still copy-pasting the same 30 tags on every post, you are essentially invisible.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Our free Instagram tools help you adapt. Generate niche hashtag sets that reach targeted audiences instead of oversaturated tags with tens of millions of posts. Write Reels captions structured for saves and shares. Build a bio that converts profile visitors into followers. Whether you're growing a personal brand or a business account, the research that used to take an hour now takes seconds.
+                    Our free Instagram tools help you adapt. Generate niche hashtag sets that reach targeted audiences instead of oversaturated tags with tens of millions of posts. Write Reels captions structured for saves and shares. Build a bio that converts profile visitors into followers. Research that used to take an hour now takes seconds — and it is completely free.
                   </p>
                   <Link href="/category/instagram-tools" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
                     Browse all free Instagram tools <ChevronRight className="w-4 h-4" />
@@ -616,14 +822,14 @@ export default function Home() {
                 <div>
                   <h2 className="text-xl font-bold font-display mb-3">
                     <Link href="/category/ai-creator-tools" className="hover:text-primary transition-colors">
-                      Free AI Creator Tools
+                      Free AI Creator Tools and Prompt Generators
                     </Link>
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-3">
-                    ChatGPT is only as good as what you ask it. That's not a knock on AI. It's just how prompts work. Most creators spend 20 minutes wrestling with vague outputs because the prompt wasn't specific enough. That's not a creativity problem. It's an input problem.
+                    ChatGPT is only as good as what you ask it. That is not a knock on AI. It is just how prompts work. Most creators spend 20 minutes wrestling with vague outputs because the prompt was not specific enough. That is not a creativity problem — it is an input problem.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Our free AI creator tools give you ready-to-use prompts for Midjourney, DALL·E, Stable Diffusion, Flux, and ChatGPT, so you skip the guessing entirely. Structure content briefs that get usable outputs on the first try. Build a faster pipeline without learning prompt engineering from scratch. Copy the prompt. Paste it. Get results that actually match your vision.
+                    Our free AI creator tools give you ready-to-use prompts for Midjourney, DALL·E, Stable Diffusion, Flux, and ChatGPT, so you skip the guessing entirely. Structure content briefs that get usable outputs on the first try. Build a faster workflow without learning prompt engineering from scratch. Copy the prompt. Paste it. Get results that match your vision.
                   </p>
                   <Link href="/category/ai-creator-tools" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
                     Browse all free AI creator tools <ChevronRight className="w-4 h-4" />
@@ -632,6 +838,44 @@ export default function Home() {
               </div>
             </InView>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ SECTION ──────────────────────────────────────── */}
+      <section className="py-24 bg-muted/20 border-t border-border">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <InView className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Everything you need to know about the free creator tools on CreatorsToolHub.
+            </p>
+          </InView>
+
+          <div className="space-y-3">
+            {FAQS.map(({ q, a }, i) => (
+              <InView key={i} delay={i * 80}>
+                <div className="bg-card border border-border/60 rounded-2xl overflow-hidden">
+                  <button
+                    className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-base hover:text-primary transition-colors"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    aria-expanded={openFaq === i}
+                  >
+                    <span>{q}</span>
+                    <ChevronRight
+                      className={`w-5 h-5 flex-shrink-0 transition-transform text-primary ${openFaq === i ? "rotate-90" : ""}`}
+                    />
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-muted-foreground text-sm leading-relaxed border-t border-border/40 pt-4">
+                      {a}
+                    </div>
+                  )}
+                </div>
+              </InView>
+            ))}
           </div>
         </div>
       </section>

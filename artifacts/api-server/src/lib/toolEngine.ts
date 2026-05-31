@@ -1,6 +1,17 @@
 import OpenAI from "openai";
 
-const openai = new OpenAI({
+// ── OpenRouter client ─────────────────────────────────────────────────────────
+const openrouter = new OpenAI({
+  baseURL: "https://openrouter.ai/api/v1",
+  apiKey:  process.env.OPENROUTER_API_KEY ?? "missing",
+  defaultHeaders: {
+    "HTTP-Referer": "https://creatorstoolhub.com",
+    "X-Title":      "CreatorsToolHub",
+  },
+});
+
+// ── Fallback: legacy OpenAI / GitHub Models client ───────────────────────────
+const legacyClient = new OpenAI({
   baseURL: process.env.GITHUB_TOKEN
     ? "https://models.github.ai/inference"
     : (process.env.AI_INTEGRATIONS_OPENAI_BASE_URL ?? undefined),
@@ -10,78 +21,149 @@ const openai = new OpenAI({
     ?? "missing",
 });
 
+// ── Model routing ─────────────────────────────────────────────────────────────
+// Long-form creative output → Llama 3.3 70B
+// Structured / formatted output → DeepSeek V3
+// Everything else → Gemini 2.0 Flash (default)
+
+const MODEL_ROUTER: Record<string, string> = {
+  // Long-form
+  "youtube-script-generator":      "meta-llama/llama-3.3-70b-instruct:free",
+  "tiktok-script-generator":       "meta-llama/llama-3.3-70b-instruct:free",
+  "youtube-video-idea-generator":  "meta-llama/llama-3.3-70b-instruct:free",
+  "tiktok-viral-idea-generator":   "meta-llama/llama-3.3-70b-instruct:free",
+  "youtube-description-generator": "meta-llama/llama-3.3-70b-instruct:free",
+  "instagram-content-planner":     "meta-llama/llama-3.3-70b-instruct:free",
+  "instagram-reel-idea-generator": "meta-llama/llama-3.3-70b-instruct:free",
+  // Structured
+  "youtube-keyword-generator":     "deepseek/deepseek-v3:free",
+  "youtube-hashtag-generator":     "deepseek/deepseek-v3:free",
+  "youtube-seo-score-checker":     "deepseek/deepseek-v3:free",
+  "youtube-title-analyzer":        "deepseek/deepseek-v3:free",
+  "instagram-hashtag-generator":   "deepseek/deepseek-v3:free",
+  "tiktok-hashtag-generator":      "deepseek/deepseek-v3:free",
+  "youtube-tag-generator":         "deepseek/deepseek-v3:free",
+};
+
+const DEFAULT_MODEL = "google/gemini-2.0-flash-exp:free";
+
+// Fallback order when a model fails (rate limit / error)
+const FALLBACK_CHAIN = [
+  "google/gemini-2.0-flash-exp:free",
+  "deepseek/deepseek-v3:free",
+  "meta-llama/llama-3.3-70b-instruct:free",
+];
+
+export function getModelForSlug(slug: string): string {
+  return MODEL_ROUTER[slug] ?? DEFAULT_MODEL;
+}
+
 export interface ToolInput {
   [key: string]: string | number | boolean;
 }
 
 export interface ToolOutput {
-  result: Record<string, unknown>;
+  result:  Record<string, unknown>;
   outputs: string[];
   success: boolean;
+  model?:  string;
 }
 
-async function aiGenerate(systemPrompt: string, userPrompt: string): Promise<string[]> {
-  const model = process.env.GITHUB_TOKEN ? "openai/gpt-4o-mini" : "gpt-4o-mini";
-  const response = await openai.chat.completions.create({
-    model,
-    messages: [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: userPrompt },
-    ],
-  });
-  const text = response.choices[0]?.message?.content?.trim() ?? "";
-  const lines = text
-    .split("\n")
-    .map((l) => l.replace(/^[\d\-\*\.\)]+\s*/, "").trim())
-    .filter(Boolean);
-  return lines.length > 0 ? lines : [text];
+// ── Core AI call with fallback chain ─────────────────────────────────────────
+async function aiGenerate(
+  systemPrompt: string,
+  userPrompt:   string,
+  preferredModel = DEFAULT_MODEL,
+): Promise<{ lines: string[]; model: string }> {
+  const useOpenRouter = !!process.env.OPENROUTER_API_KEY && process.env.OPENROUTER_API_KEY !== "missing";
+
+  // Build model list: preferred first, then fallbacks (deduped)
+  const candidates = useOpenRouter
+    ? [preferredModel, ...FALLBACK_CHAIN.filter(m => m !== preferredModel)]
+    : ["gpt-4o-mini"]; // legacy path
+
+  for (const model of candidates) {
+    try {
+      const client = useOpenRouter ? openrouter : legacyClient;
+      const legacyModel = process.env.GITHUB_TOKEN ? "openai/gpt-4o-mini" : "gpt-4o-mini";
+      const response = await client.chat.completions.create({
+        model:    useOpenRouter ? model : legacyModel,
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user",   content: userPrompt   },
+        ],
+        max_tokens: 2_000,
+      });
+      const text = response.choices[0]?.message?.content?.trim() ?? "";
+      const lines = text
+        .split("\n")
+        .map((l) => l.replace(/^[\d\-\*\.\)]+\s*/, "").trim())
+        .filter(Boolean);
+      return { lines: lines.length > 0 ? lines : [text], model };
+    } catch (err: any) {
+      console.warn(`[toolEngine] ${model} failed: ${err?.message ?? err}. Trying next model…`);
+    }
+  }
+  throw new Error("All models failed. Please try again in a moment.");
+}
+
+// Convenience wrapper — returns just the lines array
+async function generate(
+  systemPrompt: string,
+  userPrompt:   string,
+  model:        string,
+): Promise<string[]> {
+  const { lines } = await aiGenerate(systemPrompt, userPrompt, model);
+  return lines;
 }
 
 // ─── YouTube Tools ────────────────────────────────────────────────────────────
 
-async function generateYouTubeTitles(inputs: ToolInput): Promise<string[]> {
-  const topic = String(inputs.topic || inputs.keyword || "");
-  const tone = String(inputs.tone || inputs.style || "engaging");
+async function generateYouTubeTitles(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const topic    = String(inputs.topic    || inputs.keyword || "");
+  const tone     = String(inputs.tone     || inputs.style   || "engaging");
   const audience = String(inputs.audience || "");
-  return aiGenerate(
+  return generate(
     `You are an expert YouTube SEO strategist. Generate compelling, click-worthy YouTube video titles.
 Return ONLY a numbered list of 10 titles, one per line, no extra commentary.
 Each title should be unique, under 70 characters, and optimized for clicks and search.`,
-    `Topic: "${topic}"${audience ? `\nTarget audience: ${audience}` : ""}\nTone: ${tone}\n\nGenerate 10 YouTube video titles.`
+    `Topic: "${topic}"${audience ? `\nTarget audience: ${audience}` : ""}\nTone: ${tone}\n\nGenerate 10 YouTube video titles.`,
+    model,
   );
 }
 
-async function generateYouTubeTags(inputs: ToolInput): Promise<string[]> {
+async function generateYouTubeTags(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
   const topic = String(inputs.topic || inputs.keyword || "");
-  return aiGenerate(
+  return generate(
     `You are a YouTube SEO expert. Generate relevant YouTube tags/keywords for videos.
 Return ONLY a list of 15 tags, one per line, no numbering, no hashtags, no extra text.
 Mix broad and specific tags. Include variations and related terms.`,
-    `Video topic: "${topic}"\n\nGenerate 15 YouTube tags.`
+    `Video topic: "${topic}"\n\nGenerate 15 YouTube tags.`,
+    model,
   );
 }
 
-async function generateYouTubeDescription(inputs: ToolInput): Promise<string[]> {
-  const topic = String(inputs.topic || "");
-  const topicSummary = String(inputs.topicSummary || "");
-  const keywords = String(inputs.keywords || "");
-  const channel = String(inputs.channelName || "my channel");
-  const callToAction = String(inputs.callToAction || "Subscribe for more videos like this");
-  const timestamps = String(inputs.timestamps || "");
+async function generateYouTubeDescription(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const topic              = String(inputs.topic              || "");
+  const topicSummary       = String(inputs.topicSummary       || "");
+  const keywords           = String(inputs.keywords           || "");
+  const channel            = String(inputs.channelName        || "my channel");
+  const callToAction       = String(inputs.callToAction       || "Subscribe for more videos like this");
+  const timestamps         = String(inputs.timestamps         || "");
   const includeSocialLinks = String(inputs.includeSocialLinks || "no") === "yes";
 
   const userPrompt = [
     `Video title: "${topic}"`,
-    topicSummary ? `Topic summary: "${topicSummary}"` : "",
-    keywords ? `Target keywords (weave naturally): ${keywords}` : "",
+    topicSummary       ? `Topic summary: "${topicSummary}"` : "",
+    keywords           ? `Target keywords (weave naturally): ${keywords}` : "",
     `Channel name: ${channel}`,
     `Call-to-action: ${callToAction}`,
-    timestamps ? `Timestamps to include:\n${timestamps}` : "",
+    timestamps         ? `Timestamps to include:\n${timestamps}` : "",
     includeSocialLinks ? "Include a social links section with placeholder URLs for Website, Instagram, Twitter, and Discord." : "",
     "\nWrite a complete, SEO-optimized YouTube description.",
   ].filter(Boolean).join("\n");
 
-  const lines = await aiGenerate(
+  const lines = await generate(
     `You are an expert YouTube SEO strategist and copywriter. Write a full, structured YouTube video description following this exact six-section format:
 
 1. HOOK (2-3 sentences): Place the primary keyword from the title in the very first sentence. Immediately communicate what viewers will gain. These first 150 characters are critical — they appear in search results.
@@ -97,16 +179,17 @@ async function generateYouTubeDescription(inputs: ToolInput): Promise<string[]> 
 6. HASHTAGS: End with 3–5 highly relevant hashtags based on the video title and keywords.
 
 Use emojis naturally as section headers. Keep the total description between 250–450 words. Return the entire description as one block of text preserving all newlines.`,
-    userPrompt
+    userPrompt,
+    model,
   );
   return [lines.join("\n")];
 }
 
-async function generateChannelNames(inputs: ToolInput): Promise<string[]> {
-  const niche = String(inputs.niche || inputs.topic || "");
-  const style = String(inputs.style || "Creative");
-  const length = String(inputs.length || "medium");
-  const includeKeyword = String(inputs.includeKeyword || "no") === "yes";
+async function generateChannelNames(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const niche          = String(inputs.niche           || inputs.topic || "");
+  const style          = String(inputs.style           || "Creative");
+  const length         = String(inputs.length          || "medium");
+  const includeKeyword = String(inputs.includeKeyword  || "no") === "yes";
 
   const lengthGuide = length === "short"
     ? "single-word names only (1 word, 4–12 characters)"
@@ -120,15 +203,15 @@ async function generateChannelNames(inputs: ToolInput): Promise<string[]> {
 
   const styleGuide: Record<string, string> = {
     Professional: "authoritative, trustworthy, clean — e.g. FinanceClear, LegalPath",
-    Creative: "imaginative, vibrant, energetic — e.g. PixelBloom, SparkVibe",
-    Fun: "playful, upbeat, friendly — e.g. SnackBytes, BuzzMode",
-    Minimalist: "simple, lowercase-aesthetic, elegant — e.g. muse, loom, drift",
-    Brandable: "invented ownable words, no dictionary meaning — e.g. Tubora, Streamiq",
-    Techy: "tech-forward, coding/AI feel — e.g. ByteForge, CodeStack",
-    Educational: "informative, clear, trusted — e.g. LearnLoop, KnowledgeCore",
+    Creative:     "imaginative, vibrant, energetic — e.g. PixelBloom, SparkVibe",
+    Fun:          "playful, upbeat, friendly — e.g. SnackBytes, BuzzMode",
+    Minimalist:   "simple, lowercase-aesthetic, elegant — e.g. muse, loom, drift",
+    Brandable:    "invented ownable words, no dictionary meaning — e.g. Tubora, Streamiq",
+    Techy:        "tech-forward, coding/AI feel — e.g. ByteForge, CodeStack",
+    Educational:  "informative, clear, trusted — e.g. LearnLoop, KnowledgeCore",
   };
 
-  const prompt = `You are a YouTube branding expert. Generate 30 unique YouTube channel names for the niche provided.
+  const systemPrompt = `You are a YouTube branding expert. Generate 30 unique YouTube channel names for the niche provided.
 Name style: ${style} (${styleGuide[style] || style})
 Name length: ${lengthGuide}
 ${keywordRule}
@@ -176,45 +259,47 @@ KEYWORD = niche keyword + branding word combinations.
 CREATIVE = evocative combinations that strongly imply the niche without being literal.
 Every name must be unique, pronounceable, and suitable as a YouTube channel name.`;
 
-  const lines = await aiGenerate(prompt, `Channel niche: "${niche}"\n\nGenerate 30 unique YouTube channel names in the required format.`);
+  const lines = await generate(systemPrompt, `Channel niche: "${niche}"\n\nGenerate 30 unique YouTube channel names in the required format.`, model);
   return [lines.join("\n")];
 }
 
-async function generateYouTubeHashtags(inputs: ToolInput): Promise<string[]> {
-  const topic = String(inputs.topic || "");
-  const niche = String(inputs.niche || "");
+async function generateYouTubeHashtags(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const topic    = String(inputs.topic    || "");
+  const niche    = String(inputs.niche    || "");
   const keywords = String(inputs.keywords || "");
   const quantity = Number(inputs.quantity || 20);
-  return aiGenerate(
+  return generate(
     `You are a YouTube SEO expert. Generate high-performing YouTube hashtags.
 Return ONLY a list of hashtags (with # symbol), one per line, no extra text.
 Mix trending general hashtags with niche-specific ones for maximum reach and discoverability.`,
-    `Video topic: "${topic}"${niche ? `\nNiche: ${niche}` : ""}${keywords ? `\nKeywords: ${keywords}` : ""}\n\nGenerate ${quantity} YouTube hashtags.`
+    `Video topic: "${topic}"${niche ? `\nNiche: ${niche}` : ""}${keywords ? `\nKeywords: ${keywords}` : ""}\n\nGenerate ${quantity} YouTube hashtags.`,
+    model,
   );
 }
 
-async function generateYouTubeVideoIdeas(inputs: ToolInput): Promise<string[]> {
-  const niche = String(inputs.niche || inputs.topic || "content creation");
-  const audience = String(inputs.audience || "");
-  const contentType = String(inputs.contentType || "");
-  return aiGenerate(
+async function generateYouTubeVideoIdeas(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const niche       = String(inputs.niche        || inputs.topic || "content creation");
+  const audience    = String(inputs.audience     || "");
+  const contentType = String(inputs.contentType  || "");
+  return generate(
     `You are a creative YouTube content strategist. Generate fresh, engaging video ideas with high view potential.
 Return ONLY a numbered list of 10 video ideas, one per line.
 Each idea should include the video angle/hook. Make them specific, actionable, and audience-driven.`,
-    `Creator niche: "${niche}"${audience ? `\nTarget audience: ${audience}` : ""}${contentType ? `\nContent type preference: ${contentType}` : ""}\n\nGenerate 10 unique YouTube video ideas.`
+    `Creator niche: "${niche}"${audience ? `\nTarget audience: ${audience}` : ""}${contentType ? `\nContent type preference: ${contentType}` : ""}\n\nGenerate 10 unique YouTube video ideas.`,
+    model,
   );
 }
 
-async function generateYouTubeScript(inputs: ToolInput): Promise<string[]> {
-  const topic = String(inputs.topic || "");
+async function generateYouTubeScript(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const topic    = String(inputs.topic    || "");
   const audience = String(inputs.audience || "general audience");
-  const length = String(inputs.length || "7");
-  const tone = String(inputs.tone || "educational");
-  const goal = String(inputs.goal || "educate");
+  const length   = String(inputs.length   || "7");
+  const tone     = String(inputs.tone     || "educational");
+  const goal     = String(inputs.goal     || "educate");
   const keywords = String(inputs.keywords || "");
-  const style = String(inputs.style || "tutorial");
+  const style    = String(inputs.style    || "tutorial");
 
-  const lines = await aiGenerate(
+  const lines = await generate(
     `You are a professional YouTube scriptwriter. Write a complete, engaging YouTube video script.
 Structure: Hook (first 15 seconds), Intro, Main Content (with clear sections), Outro + CTA.
 Use natural spoken language, include stage directions in [brackets], and add timestamps.
@@ -226,18 +311,19 @@ Tone: ${tone}
 Goal: ${goal}
 Style: ${style}${keywords ? `\nKeywords to include: ${keywords}` : ""}
 
-Write a complete YouTube video script.`
+Write a complete YouTube video script.`,
+    model,
   );
   return [lines.join("\n")];
 }
 
-async function generateYouTubeKeywords(inputs: ToolInput): Promise<string[]> {
-  const topic = String(inputs.topic || "");
-  const niche = String(inputs.niche || "");
-  const audience = String(inputs.audience || "");
+async function generateYouTubeKeywords(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const topic       = String(inputs.topic       || "");
+  const niche       = String(inputs.niche       || "");
+  const audience    = String(inputs.audience    || "");
   const contentType = String(inputs.contentType || "tutorial");
-  const goal = String(inputs.goal || "balanced");
-  return aiGenerate(
+  const goal        = String(inputs.goal        || "balanced");
+  return generate(
     `You are a YouTube SEO keyword research expert. Generate high-value YouTube search keywords.
 For each keyword, provide: the keyword phrase, estimated search intent (high/medium/low competition), and why it works.
 Format each line as: [keyword] | [competition: low/medium/high] | [why it ranks]
@@ -246,18 +332,19 @@ Return ONLY the list, no intro or outro text.`,
 Content type: ${contentType}
 Goal: ${goal}
 
-Generate 15 YouTube keyword suggestions.`
+Generate 15 YouTube keyword suggestions.`,
+    model,
   );
 }
 
-async function analyzeYouTubeSeoScore(inputs: ToolInput): Promise<string[]> {
-  const title = String(inputs.title || "");
-  const description = String(inputs.description || "");
-  const tags = String(inputs.tags || "");
-  const targetKeyword = String(inputs.targetKeyword || "");
+async function analyzeYouTubeSeoScore(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const title             = String(inputs.title             || "");
+  const description       = String(inputs.description       || "");
+  const tags              = String(inputs.tags              || "");
+  const targetKeyword     = String(inputs.targetKeyword     || "");
   const secondaryKeywords = String(inputs.secondaryKeywords || "");
 
-  const lines = await aiGenerate(
+  const lines = await generate(
     `You are a YouTube SEO auditor. Analyse the provided video metadata and give a detailed SEO score report.
 Score each element out of 100 and explain what's working and what needs improvement.
 Format your response as:
@@ -276,18 +363,19 @@ Tags: "${tags}"
 Target keyword: "${targetKeyword}"
 Secondary keywords: "${secondaryKeywords}"
 
-Analyse this video's SEO and provide a detailed score report.`
+Analyse this video's SEO and provide a detailed score report.`,
+    model,
   );
   return [lines.join("\n")];
 }
 
-async function analyzeYouTubeTitle(inputs: ToolInput): Promise<string[]> {
-  const title = String(inputs.title || "");
-  const keyword = String(inputs.keyword || "");
-  const niche = String(inputs.niche || "");
+async function analyzeYouTubeTitle(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const title    = String(inputs.title    || "");
+  const keyword  = String(inputs.keyword  || "");
+  const niche    = String(inputs.niche    || "");
   const audience = String(inputs.audience || "");
 
-  const lines = await aiGenerate(
+  const lines = await generate(
     `You are a YouTube title optimisation expert. Analyse the given title and provide a detailed performance report.
 Format your response exactly as:
 OVERALL SCORE: [X/100]
@@ -307,42 +395,45 @@ IMPROVED VERSIONS:
 3. [better title]`,
     `Title to analyse: "${title}"${keyword ? `\nTarget keyword: "${keyword}"` : ""}${niche ? `\nNiche: ${niche}` : ""}${audience ? `\nTarget audience: ${audience}` : ""}
 
-Analyse this YouTube title and provide a full performance report.`
+Analyse this YouTube title and provide a full performance report.`,
+    model,
   );
   return [lines.join("\n")];
 }
 
 // ─── TikTok Tools ─────────────────────────────────────────────────────────────
 
-async function generateTikTokHashtags(inputs: ToolInput): Promise<string[]> {
-  const topic = String(inputs.topic || inputs.niche || "");
-  const niche = String(inputs.niche || "");
-  const contentType = String(inputs.contentType || "tutorial");
-  return aiGenerate(
+async function generateTikTokHashtags(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const topic       = String(inputs.topic        || inputs.niche || "");
+  const niche       = String(inputs.niche        || "");
+  const contentType = String(inputs.contentType  || "tutorial");
+  return generate(
     `You are a TikTok SEO and hashtag strategy expert. Generate a high-performing, tiered hashtag set for TikTok.
 Return ONLY a list of 15 hashtags (with # symbol), one per line, no extra text, no numbering.
 Mix: 4-5 niche-specific primary hashtags, 4-5 broader secondary hashtags, 3 trending format hashtags relevant to the content style, and 2-3 long-tail search-optimized hashtags.
 Prioritize discoverability via both the For You Page algorithm and TikTok Search.`,
-    `Video topic: "${topic}"\nCreator niche: "${niche || topic}"\nContent style: "${contentType}"\n\nGenerate 15 strategic TikTok hashtags.`
+    `Video topic: "${topic}"\nCreator niche: "${niche || topic}"\nContent style: "${contentType}"\n\nGenerate 15 strategic TikTok hashtags.`,
+    model,
   );
 }
 
-async function generateTikTokUsernames(inputs: ToolInput): Promise<string[]> {
-  const niche = String(inputs.niche || "");
-  const name = String(inputs.name || "");
-  const tone = String(inputs.tone || "fun");
+async function generateTikTokUsernames(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const niche    = String(inputs.niche    || "");
+  const name     = String(inputs.name     || "");
+  const tone     = String(inputs.tone     || "fun");
   const keywords = String(inputs.keywords || "");
-  return aiGenerate(
+  return generate(
     `You are a social media branding expert specializing in TikTok creator identity. Generate creative, brandable TikTok usernames.
 Return ONLY a list of 10 usernames (with @ symbol), one per line, no explanations, no numbering.
 Usernames must be: short (under 20 characters), memorable, easy to spell, and relevant to the creator's niche.
 Vary the styles: include personal brand names (e.g. @MiaFit), niche-based names (e.g. @FitLab), keyword twists, aesthetic names, bold names, and abstract single-word brands.
 Tone style: ${tone}. Do NOT use underscores or numbers unless essential.`,
-    `Creator niche: "${niche}"\nCreator name: "${name || "not specified"}"\nTone: "${tone}"\nKeywords to weave in: "${keywords || "none"}"\n\nGenerate 10 unique TikTok usernames.`
+    `Creator niche: "${niche}"\nCreator name: "${name || "not specified"}"\nTone: "${tone}"\nKeywords to weave in: "${keywords || "none"}"\n\nGenerate 10 unique TikTok usernames.`,
+    model,
   );
 }
 
-async function generateTikTokBio(inputs: ToolInput): Promise<string[]> {
+async function generateTikTokBio(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
   const niche     = String(inputs.niche     || "content creator");
   const whatYouDo = String(inputs.whatYouDo || "");
   const tone      = String(inputs.tone      || "casual");
@@ -351,7 +442,7 @@ async function generateTikTokBio(inputs: ToolInput): Promise<string[]> {
   const cta       = String(inputs.cta       || "");
   const keywords  = String(inputs.keywords  || "");
 
-  return aiGenerate(
+  return generate(
     `You are an expert TikTok profile copywriter who specialises in high-converting bios.
 Generate exactly 10 TikTok bio options, numbered 1–10, each on its own line with NO extra commentary.
 
@@ -368,7 +459,6 @@ STRICT RULES:
 - At least 4 bios must contain a clear call-to-action.
 - Do NOT exceed 80 characters on any bio — verify before outputting.
 - Output format: just the bio text on each numbered line, nothing else.`,
-
     `Niche: ${niche}
 ${whatYouDo ? `What the creator does: ${whatYouDo}` : ""}
 ${audience   ? `Target audience: ${audience}` : ""}
@@ -376,32 +466,34 @@ ${usp        ? `Unique selling point: ${usp}` : ""}
 ${cta        ? `Preferred CTA: ${cta}` : ""}
 ${keywords   ? `Keywords to weave in: ${keywords}` : ""}
 
-Generate 10 high-converting TikTok bios (max 80 chars each).`
+Generate 10 high-converting TikTok bios (max 80 chars each).`,
+    model,
   );
 }
 
-async function generateTikTokHooks(inputs: ToolInput): Promise<string[]> {
-  const topic = String(inputs.topic || "");
-  const niche = String(inputs.niche || "");
+async function generateTikTokHooks(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const topic    = String(inputs.topic    || "");
+  const niche    = String(inputs.niche    || "");
   const audience = String(inputs.audience || "");
-  const tone = String(inputs.tone || "bold");
-  const count = Number(inputs.count || 10);
-  return aiGenerate(
+  const tone     = String(inputs.tone     || "bold");
+  const count    = Number(inputs.count    || 10);
+  return generate(
     `You are a viral TikTok hook writer. Create scroll-stopping opening hooks for TikTok videos.
 Return ONLY a numbered list of hooks, one per line, no extra commentary.
 Hooks must grab attention in the first 2 seconds. Use bold statements, shocking facts, questions, or challenges.
 Keep each hook under 15 words. Make them feel urgent and personal.`,
-    `Topic: "${topic}"${niche ? `\nNiche: ${niche}` : ""}${audience ? `\nAudience: ${audience}` : ""}\nTone: ${tone}\n\nGenerate ${count} viral TikTok hooks.`
+    `Topic: "${topic}"${niche ? `\nNiche: ${niche}` : ""}${audience ? `\nAudience: ${audience}` : ""}\nTone: ${tone}\n\nGenerate ${count} viral TikTok hooks.`,
+    model,
   );
 }
 
-async function generateTikTokCaptions(inputs: ToolInput): Promise<string[]> {
-  const topic = String(inputs.topic || "");
-  const niche = String(inputs.niche || "");
-  const goal = String(inputs.goal || "grow-followers");
-  const tone = String(inputs.tone || "bold");
+async function generateTikTokCaptions(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const topic    = String(inputs.topic    || "");
+  const niche    = String(inputs.niche    || "");
+  const goal     = String(inputs.goal     || "grow-followers");
+  const tone     = String(inputs.tone     || "bold");
   const audience = String(inputs.audience || "");
-  return aiGenerate(
+  return generate(
     `You are a TikTok caption expert. Write engaging TikTok captions that drive comments, shares, and follows.
 Return ONLY 3 caption options, numbered 1-3.
 Each caption should have: a strong opening line, main body with value or story, a call to action, and 5-8 relevant hashtags.`,
@@ -409,18 +501,19 @@ Each caption should have: a strong opening line, main body with value or story, 
 Goal: ${goal}
 Tone: ${tone}
 
-Write 3 TikTok captions.`
+Write 3 TikTok captions.`,
+    model,
   );
 }
 
-async function generateTikTokScript(inputs: ToolInput): Promise<string[]> {
-  const topic = String(inputs.topic || "");
-  const niche = String(inputs.niche || "");
+async function generateTikTokScript(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const topic    = String(inputs.topic    || "");
+  const niche    = String(inputs.niche    || "");
   const audience = String(inputs.audience || "general audience");
   const duration = String(inputs.duration || inputs.length || "60");
-  const tone = String(inputs.tone || "engaging");
+  const tone     = String(inputs.tone     || "engaging");
 
-  const lines = await aiGenerate(
+  const lines = await generate(
     `You are a professional TikTok scriptwriter. Write a complete, viral TikTok video script.
 Structure: Hook (first 3 seconds), Problem/Intrigue setup, Main value/content, Twist or payoff, CTA.
 Use short punchy sentences. Write exactly as it would be spoken on camera. Add [visual cue] directions.
@@ -430,38 +523,40 @@ Target audience: ${audience}
 Video duration: ~${duration} seconds
 Tone: ${tone}
 
-Write a complete TikTok video script.`
+Write a complete TikTok video script.`,
+    model,
   );
   return [lines.join("\n")];
 }
 
-async function generateTikTokViralIdeas(inputs: ToolInput): Promise<string[]> {
-  const niche = String(inputs.niche || inputs.topic || "");
+async function generateTikTokViralIdeas(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const niche    = String(inputs.niche    || inputs.topic || "");
   const audience = String(inputs.audience || "");
-  const trend = String(inputs.trend || "");
-  return aiGenerate(
+  const trend    = String(inputs.trend    || "");
+  return generate(
     `You are a TikTok viral content strategist. Generate high-potential TikTok video ideas that are likely to go viral.
 Return ONLY a numbered list of 10 ideas, one per line.
 Each idea should include the format (e.g., POV, Storytime, Tutorial, Trend), the hook, and why it will go viral.`,
-    `Niche: "${niche}"${audience ? `\nTarget audience: ${audience}` : ""}${trend ? `\nTrend to leverage: ${trend}` : ""}\n\nGenerate 10 viral TikTok video ideas.`
+    `Niche: "${niche}"${audience ? `\nTarget audience: ${audience}` : ""}${trend ? `\nTrend to leverage: ${trend}` : ""}\n\nGenerate 10 viral TikTok video ideas.`,
+    model,
   );
 }
 
 // ─── Instagram Tools ───────────────────────────────────────────────────────────
 
-async function generateInstagramHashtags(inputs: ToolInput): Promise<string[]> {
+async function generateInstagramHashtags(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
   const topic       = String(inputs.topic       || inputs.niche || "");
   const niche       = String(inputs.niche       || "lifestyle");
   const contentType = String(inputs.contentType || "static");
   const goal        = String(inputs.goal        || "reach");
   const keywords    = String(inputs.keywords    || "");
 
-  return aiGenerate(
+  return generate(
     `You are an Instagram hashtag strategist. Generate 3 rotating hashtag sets (A, B, C) of 30 hashtags each.
 
 STRUCTURE per set — follow this EXACTLY:
 - 5 Broad hashtags (500K–5M+ posts) for wide discovery
-- 10 Mid-Range hashtags (50K–500K posts) for targeted reach  
+- 10 Mid-Range hashtags (50K–500K posts) for targeted reach
 - 15 Micro hashtags (1K–50K posts) for niche community ranking
 
 RULES:
@@ -471,16 +566,16 @@ RULES:
 - Content type: "${contentType}" — ${contentType === "reel" ? "weight toward broad/mid for Reels distribution" : contentType === "carousel" ? "weight toward micro for carousel ranking" : "balanced mix for static posts"}.
 - Goal: "${goal}" — ${goal === "engagement" ? "include community/conversation tags" : goal === "growth" ? "include follow-oriented tags" : goal === "sales" ? "include buyer-intent and product tags" : "include broad discovery tags"}.
 - Make hashtags specific to the topic and niche — no generic filler.`,
-
     `Post topic: "${topic}"
 Niche: "${niche}"
 ${keywords ? `Keywords to include: ${keywords}` : ""}
 
-Generate 90 hashtags (3 sets of 30, each with 5 broad + 10 mid + 15 micro).`
+Generate 90 hashtags (3 sets of 30, each with 5 broad + 10 mid + 15 micro).`,
+    model,
   );
 }
 
-async function generateInstagramBio(inputs: ToolInput): Promise<string[]> {
+async function generateInstagramBio(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
   const niche       = String(inputs.niche       || "lifestyle");
   const valueprop   = String(inputs.valueprop   || "");
   const audience    = String(inputs.audience    || "");
@@ -498,7 +593,7 @@ async function generateInstagramBio(inputs: ToolInput): Promise<string[]> {
   };
   const ctaHint = ctaMap[ctaGoal] ?? ctaMap.follow;
 
-  return aiGenerate(
+  return generate(
     `You are an elite Instagram branding strategist. Generate exactly 10 Instagram bio variations.
 
 TONE DISTRIBUTION — follow this exact order:
@@ -514,7 +609,6 @@ STRICT RULES:
 - Use 1–3 emojis in Professional and Inspirational bios; 0–1 in Minimal; 1–2 in Bold.
 - Output ONLY the bio text, numbered 1–10, one per line.
 - No extra commentary, labels, or explanations — just the 10 numbered bios.`,
-
     `Niche: ${niche}
 ${valueprop   ? `What they help people achieve: ${valueprop}` : ""}
 ${audience    ? `Target audience: ${audience}` : ""}
@@ -522,53 +616,57 @@ ${credibility ? `Credibility markers: ${credibility}` : ""}
 ${keywords    ? `Keywords to include: ${keywords}` : ""}
 ${name        ? `Creator name: ${name}` : ""}
 
-Generate 10 Instagram bios (150 chars max each): 3 Professional, 2 Bold, 2 Minimal, 3 Inspirational.`
+Generate 10 Instagram bios (150 chars max each): 3 Professional, 2 Bold, 2 Minimal, 3 Inspirational.`,
+    model,
   );
 }
 
-async function generateInstagramCaptions(inputs: ToolInput): Promise<string[]> {
+async function generateInstagramCaptions(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
   const topic = String(inputs.topic || "this moment");
-  const mood = String(inputs.mood || "positive");
-  return aiGenerate(
+  const mood  = String(inputs.mood  || "positive");
+  return generate(
     `You are an Instagram copywriter. Write engaging Instagram captions that drive comments and saves.
 Return ONLY 3 caption options, numbered 1-3.
 Each caption should have: a strong opening line, body with value/story, call to action, and relevant hashtags.`,
-    `Post topic: "${topic}"\nMood/tone: "${mood}"\n\nWrite 3 Instagram captions.`
+    `Post topic: "${topic}"\nMood/tone: "${mood}"\n\nWrite 3 Instagram captions.`,
+    model,
   );
 }
 
-async function generateInstagramUsernames(inputs: ToolInput): Promise<string[]> {
+async function generateInstagramUsernames(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
   const niche = String(inputs.niche || inputs.name || "");
-  return aiGenerate(
+  return generate(
     `You are a social media branding expert. Generate creative, catchy Instagram usernames.
 Return ONLY a numbered list of 10 usernames (with @ symbol), one per line, no explanations.
 Usernames should be short (under 20 chars), memorable, spell-able, and relevant to the creator's niche.`,
-    `Creator niche/name: "${niche}"\n\nGenerate 10 unique Instagram usernames.`
+    `Creator niche/name: "${niche}"\n\nGenerate 10 unique Instagram usernames.`,
+    model,
   );
 }
 
-async function generateInstagramHooks(inputs: ToolInput): Promise<string[]> {
-  const topic = String(inputs.topic || "");
-  const niche = String(inputs.niche || "");
+async function generateInstagramHooks(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const topic    = String(inputs.topic    || "");
+  const niche    = String(inputs.niche    || "");
   const audience = String(inputs.audience || "");
-  return aiGenerate(
+  return generate(
     `You are an Instagram Reels and caption hook expert. Create scroll-stopping opening lines.
 Return ONLY a numbered list of 10 hooks, one per line.
 Hooks should stop the scroll in the first 2 seconds. Use bold claims, relatable statements, or surprising facts.
 Each hook must be under 10 words and create immediate curiosity or emotion.`,
-    `Topic: "${topic}"${niche ? `\nNiche: ${niche}` : ""}${audience ? `\nAudience: ${audience}` : ""}\n\nGenerate 10 Instagram hooks.`
+    `Topic: "${topic}"${niche ? `\nNiche: ${niche}` : ""}${audience ? `\nAudience: ${audience}` : ""}\n\nGenerate 10 Instagram hooks.`,
+    model,
   );
 }
 
-async function generateInstagramContentPlan(inputs: ToolInput): Promise<string[]> {
-  const niche = String(inputs.niche || "lifestyle");
+async function generateInstagramContentPlan(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const niche    = String(inputs.niche    || "lifestyle");
   const audience = String(inputs.audience || "");
-  const pillars = String(inputs.pillars || "education,entertainment,personal,tips");
-  const freq = String(inputs.freq || "5");
-  const goal = String(inputs.goal || "growth");
-  const style = String(inputs.style || "mixed");
+  const pillars  = String(inputs.pillars  || "education,entertainment,personal,tips");
+  const freq     = String(inputs.freq     || "5");
+  const goal     = String(inputs.goal     || "growth");
+  const style    = String(inputs.style    || "mixed");
 
-  const lines = await aiGenerate(
+  const lines = await generate(
     `You are an Instagram content strategist. Create a detailed 1-week Instagram content plan.
 For each post include: Day, Content type (Reel/Carousel/Story/Static), Topic, Hook, Caption idea, Hashtag strategy, Best posting time.
 Make the plan realistic, varied, and aligned with the creator's goal and niche.
@@ -579,17 +677,18 @@ Posts per week: ${freq}
 Main goal: ${goal}
 Content style: ${style}
 
-Create a 7-day Instagram content plan.`
+Create a 7-day Instagram content plan.`,
+    model,
   );
   return [lines.join("\n")];
 }
 
-async function generateInstagramReelIdeas(inputs: ToolInput): Promise<string[]> {
-  const niche = String(inputs.niche || "");
+async function generateInstagramReelIdeas(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const niche    = String(inputs.niche    || "");
   const audience = String(inputs.audience || "");
-  const goal = String(inputs.goal || "growth");
-  const tone = String(inputs.tone || "relatable");
-  return aiGenerate(
+  const goal     = String(inputs.goal     || "growth");
+  const tone     = String(inputs.tone     || "relatable");
+  return generate(
     `You are an Instagram Reels content strategist. Generate high-potential Reel ideas that drive reach and followers.
 Return ONLY a numbered list of 10 Reel ideas, one per line.
 Each idea should include: the Reel format (tutorial/POV/trend/storytime etc), the hook, and the value it delivers to viewers.`,
@@ -597,21 +696,22 @@ Each idea should include: the Reel format (tutorial/POV/trend/storytime etc), th
 Goal: ${goal}
 Tone: ${tone}
 
-Generate 10 Instagram Reel ideas.`
+Generate 10 Instagram Reel ideas.`,
+    model,
   );
 }
 
 // ─── AI Tools ─────────────────────────────────────────────────────────────────
 
-async function generateAIPrompts(inputs: ToolInput): Promise<string[]> {
+async function generateAIPrompts(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
   const contentType = String(inputs.contentType || "youtube-script");
-  const niche = String(inputs.niche || "");
-  const audience = String(inputs.audience || "");
-  const goal = String(inputs.goal || "engagement");
-  const tone = String(inputs.tone || "casual");
-  const platform = String(inputs.platform || "chatgpt");
-  const wordCount = String(inputs.wordCount || "");
-  return aiGenerate(
+  const niche       = String(inputs.niche       || "");
+  const audience    = String(inputs.audience    || "");
+  const goal        = String(inputs.goal        || "engagement");
+  const tone        = String(inputs.tone        || "casual");
+  const platform    = String(inputs.platform    || "chatgpt");
+  const wordCount   = String(inputs.wordCount   || "");
+  return generate(
     `You are an expert in crafting instructions for AI content tools. Your job is to write detailed, ready-to-use instructions for content creators.
 Return ONLY a numbered list of 5 items, one per line.
 Each item should include a role context, format instructions, specific constraints, and be ready to paste into an AI writing tool.`,
@@ -620,19 +720,20 @@ Goal: ${goal}
 Tone: ${tone}
 Platform: ${platform}${wordCount ? `\nWord count: ${wordCount}` : ""}
 
-Generate 5 detailed AI instructions for this content creation use case.`
+Generate 5 detailed AI instructions for this content creation use case.`,
+    model,
   );
 }
 
-async function generateMidjourneyPrompts(inputs: ToolInput): Promise<string[]> {
-  const visualType = String(inputs.visualType || "youtube-thumbnail");
-  const subject = String(inputs.subject || "");
-  const style = String(inputs.style || "photorealistic");
-  const mood = String(inputs.mood || "dramatic");
-  const lighting = String(inputs.lighting || "cinematic");
-  const perspective = String(inputs.perspective || "");
+async function generateMidjourneyPrompts(inputs: ToolInput, model = DEFAULT_MODEL): Promise<string[]> {
+  const visualType   = String(inputs.visualType   || "youtube-thumbnail");
+  const subject      = String(inputs.subject      || "");
+  const style        = String(inputs.style        || "photorealistic");
+  const mood         = String(inputs.mood         || "dramatic");
+  const lighting     = String(inputs.lighting     || "cinematic");
+  const perspective  = String(inputs.perspective  || "");
   const colorPalette = String(inputs.colorPalette || "");
-  return aiGenerate(
+  return generate(
     `You are an image generation expert for content creators. Generate detailed, effective Midjourney image generation instructions.
 Return ONLY a numbered list of 5 items, one per line.
 Each item should be a complete, ready-to-use Midjourney image instruction including: subject description, style, lighting, mood, camera angle, and parameters like --ar 16:9 --v 6.
@@ -643,20 +744,21 @@ Art style: ${style}
 Mood: ${mood}
 Lighting: ${lighting}${perspective ? `\nPerspective: ${perspective}` : ""}${colorPalette ? `\nColor palette: ${colorPalette}` : ""}
 
-Generate 5 Midjourney image generation instructions.`
+Generate 5 Midjourney image generation instructions.`,
+    model,
   );
 }
 
-// ─── Utility Tools (deterministic) ────────────────────────────────────────────
+// ─── Utility Tools (deterministic — no model needed) ─────────────────────────
 
 function countWords(inputs: ToolInput): string[] {
-  const text = String(inputs.text || "");
-  const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-  const chars = text.length;
+  const text          = String(inputs.text || "");
+  const words         = text.trim() ? text.trim().split(/\s+/).length : 0;
+  const chars         = text.length;
   const charsNoSpaces = text.replace(/\s/g, "").length;
-  const sentences = text.split(/[.!?]+/).filter(Boolean).length;
-  const paragraphs = text.split(/\n\n+/).filter(Boolean).length;
-  const readingTime = Math.max(1, Math.ceil(words / 200));
+  const sentences     = text.split(/[.!?]+/).filter(Boolean).length;
+  const paragraphs    = text.split(/\n\n+/).filter(Boolean).length;
+  const readingTime   = Math.max(1, Math.ceil(words / 200));
   return [
     `📝 Words: ${words}`,
     `🔤 Characters (with spaces): ${chars}`,
@@ -672,14 +774,14 @@ function convertCase(inputs: ToolInput): string[] {
   const type = String(inputs.caseType || "title");
   let result = "";
   switch (type) {
-    case "upper": result = text.toUpperCase(); break;
-    case "lower": result = text.toLowerCase(); break;
-    case "title": result = text.replace(/\w\S*/g, (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()); break;
+    case "upper":    result = text.toUpperCase(); break;
+    case "lower":    result = text.toLowerCase(); break;
+    case "title":    result = text.replace(/\w\S*/g, (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()); break;
     case "sentence": result = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase(); break;
-    case "camel": result = text.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (_, c) => c.toUpperCase()); break;
-    case "snake": result = text.toLowerCase().replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, ""); break;
-    case "kebab": result = text.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""); break;
-    default: result = text;
+    case "camel":    result = text.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (_, c) => c.toUpperCase()); break;
+    case "snake":    result = text.toLowerCase().replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, ""); break;
+    case "kebab":    result = text.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""); break;
+    default:         result = text;
   }
   return [result];
 }
@@ -698,18 +800,15 @@ function generateSlug(inputs: ToolInput): string[] {
 function removeLineBreaks(inputs: ToolInput): string[] {
   const text = String(inputs.text || "");
   const mode = String(inputs.mode || "single");
-  let result = "";
-  if (mode === "all") {
-    result = text.replace(/\n+/g, " ").trim();
-  } else {
-    result = text.replace(/\n{2,}/g, "\n").trim();
-  }
+  const result = mode === "all"
+    ? text.replace(/\n+/g, " ").trim()
+    : text.replace(/\n{2,}/g, "\n").trim();
   return [result];
 }
 
 function sortText(inputs: ToolInput): string[] {
-  const text = String(inputs.text || "");
-  const order = String(inputs.order || "asc");
+  const text       = String(inputs.text  || "");
+  const order      = String(inputs.order || "asc");
   const removeDups = inputs.removeDuplicates === "true" || inputs.removeDuplicates === true;
   let lines = text.split("\n").filter(Boolean);
   if (removeDups) lines = [...new Set(lines)];
@@ -718,11 +817,11 @@ function sortText(inputs: ToolInput): string[] {
 }
 
 function calculateYouTubeMoney(inputs: ToolInput): string[] {
-  const views = Number(inputs.views || inputs.monthlyViews || 100000);
-  const cpm = Number(inputs.cpm || 4);
-  const rpm = cpm * 0.55;
+  const views   = Number(inputs.views || inputs.monthlyViews || 100000);
+  const cpm     = Number(inputs.cpm   || 4);
+  const rpm     = cpm * 0.55;
   const monthly = (views / 1000) * rpm;
-  const yearly = monthly * 12;
+  const yearly  = monthly * 12;
   return [
     `💰 Estimated Monthly Revenue: $${monthly.toFixed(2)}`,
     `📅 Estimated Yearly Revenue: $${yearly.toFixed(2)}`,
@@ -734,9 +833,9 @@ function calculateYouTubeMoney(inputs: ToolInput): string[] {
 }
 
 function calculateTikTokMoney(inputs: ToolInput): string[] {
-  const followers = Number(inputs.followers || 100000);
-  const views = Number(inputs.avgViews || followers * 0.1);
-  const tikTokFund = views * 0.02 / 1000;
+  const followers   = Number(inputs.followers || 100000);
+  const views       = Number(inputs.avgViews  || followers * 0.1);
+  const tikTokFund  = views * 0.02 / 1000;
   const sponsorRate = followers / 1000 * 0.01;
   return [
     `💰 TikTok Creator Fund (estimated): $${tikTokFund.toFixed(2)}/month`,
@@ -748,7 +847,7 @@ function calculateTikTokMoney(inputs: ToolInput): string[] {
 }
 
 function downloadThumbnail(inputs: ToolInput): string[] {
-  const url = String(inputs.url || inputs.youtubeUrl || "");
+  const url     = String(inputs.url || inputs.youtubeUrl || "");
   const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/)?.[1];
   if (!videoId) return ["❌ Could not extract YouTube video ID from URL. Please enter a valid YouTube URL."];
   return [
@@ -765,45 +864,46 @@ function downloadThumbnail(inputs: ToolInput): string[] {
 // ─── Router ───────────────────────────────────────────────────────────────────
 
 export async function executeTool(slug: string, inputs: ToolInput): Promise<ToolOutput> {
+  const model = getModelForSlug(slug);
   let outputs: string[] = [];
 
   switch (slug) {
     // YouTube — generative
-    case "youtube-title-generator":        outputs = await generateYouTubeTitles(inputs); break;
-    case "youtube-tag-generator":          outputs = await generateYouTubeTags(inputs); break;
-    case "youtube-description-generator":  outputs = await generateYouTubeDescription(inputs); break;
-    case "youtube-channel-name-generator": outputs = await generateChannelNames(inputs); break;
-    case "youtube-hashtag-generator":      outputs = await generateYouTubeHashtags(inputs); break;
-    case "youtube-video-idea-generator":   outputs = await generateYouTubeVideoIdeas(inputs); break;
-    case "youtube-script-generator":       outputs = await generateYouTubeScript(inputs); break;
-    case "youtube-keyword-generator":      outputs = await generateYouTubeKeywords(inputs); break;
-    case "youtube-seo-score-checker":      outputs = await analyzeYouTubeSeoScore(inputs); break;
-    case "youtube-title-analyzer":         outputs = await analyzeYouTubeTitle(inputs); break;
+    case "youtube-title-generator":        outputs = await generateYouTubeTitles(inputs, model); break;
+    case "youtube-tag-generator":          outputs = await generateYouTubeTags(inputs, model); break;
+    case "youtube-description-generator":  outputs = await generateYouTubeDescription(inputs, model); break;
+    case "youtube-channel-name-generator": outputs = await generateChannelNames(inputs, model); break;
+    case "youtube-hashtag-generator":      outputs = await generateYouTubeHashtags(inputs, model); break;
+    case "youtube-video-idea-generator":   outputs = await generateYouTubeVideoIdeas(inputs, model); break;
+    case "youtube-script-generator":       outputs = await generateYouTubeScript(inputs, model); break;
+    case "youtube-keyword-generator":      outputs = await generateYouTubeKeywords(inputs, model); break;
+    case "youtube-seo-score-checker":      outputs = await analyzeYouTubeSeoScore(inputs, model); break;
+    case "youtube-title-analyzer":         outputs = await analyzeYouTubeTitle(inputs, model); break;
     // YouTube — calculators / utilities
     case "youtube-money-calculator":       outputs = calculateYouTubeMoney(inputs); break;
     case "youtube-thumbnail-downloader":   outputs = downloadThumbnail(inputs); break;
     // TikTok — generative
-    case "tiktok-hashtag-generator":       outputs = await generateTikTokHashtags(inputs); break;
-    case "tiktok-username-generator":      outputs = await generateTikTokUsernames(inputs); break;
-    case "tiktok-bio-generator":           outputs = await generateTikTokBio(inputs); break;
-    case "tiktok-hook-generator":          outputs = await generateTikTokHooks(inputs); break;
-    case "tiktok-caption-generator":       outputs = await generateTikTokCaptions(inputs); break;
-    case "tiktok-script-generator":        outputs = await generateTikTokScript(inputs); break;
-    case "tiktok-viral-idea-generator":    outputs = await generateTikTokViralIdeas(inputs); break;
+    case "tiktok-hashtag-generator":       outputs = await generateTikTokHashtags(inputs, model); break;
+    case "tiktok-username-generator":      outputs = await generateTikTokUsernames(inputs, model); break;
+    case "tiktok-bio-generator":           outputs = await generateTikTokBio(inputs, model); break;
+    case "tiktok-hook-generator":          outputs = await generateTikTokHooks(inputs, model); break;
+    case "tiktok-caption-generator":       outputs = await generateTikTokCaptions(inputs, model); break;
+    case "tiktok-script-generator":        outputs = await generateTikTokScript(inputs, model); break;
+    case "tiktok-viral-idea-generator":    outputs = await generateTikTokViralIdeas(inputs, model); break;
     // TikTok — calculators
     case "tiktok-money-calculator":        outputs = calculateTikTokMoney(inputs); break;
     // Instagram — generative
-    case "instagram-hashtag-generator":    outputs = await generateInstagramHashtags(inputs); break;
-    case "instagram-bio-generator":        outputs = await generateInstagramBio(inputs); break;
-    case "instagram-caption-generator":    outputs = await generateInstagramCaptions(inputs); break;
-    case "instagram-username-generator":   outputs = await generateInstagramUsernames(inputs); break;
-    case "instagram-hook-generator":       outputs = await generateInstagramHooks(inputs); break;
-    case "instagram-content-planner":      outputs = await generateInstagramContentPlan(inputs); break;
-    case "instagram-reel-idea-generator":  outputs = await generateInstagramReelIdeas(inputs); break;
+    case "instagram-hashtag-generator":    outputs = await generateInstagramHashtags(inputs, model); break;
+    case "instagram-bio-generator":        outputs = await generateInstagramBio(inputs, model); break;
+    case "instagram-caption-generator":    outputs = await generateInstagramCaptions(inputs, model); break;
+    case "instagram-username-generator":   outputs = await generateInstagramUsernames(inputs, model); break;
+    case "instagram-hook-generator":       outputs = await generateInstagramHooks(inputs, model); break;
+    case "instagram-content-planner":      outputs = await generateInstagramContentPlan(inputs, model); break;
+    case "instagram-reel-idea-generator":  outputs = await generateInstagramReelIdeas(inputs, model); break;
     // AI tools
     case "ai-prompt-generator":
-    case "prompt-generator":               outputs = await generateAIPrompts(inputs); break;
-    case "midjourney-prompt-generator":    outputs = await generateMidjourneyPrompts(inputs); break;
+    case "prompt-generator":               outputs = await generateAIPrompts(inputs, model); break;
+    case "midjourney-prompt-generator":    outputs = await generateMidjourneyPrompts(inputs, model); break;
     // Utility tools
     case "word-counter":                   outputs = countWords(inputs); break;
     case "case-converter":                 outputs = convertCase(inputs); break;
@@ -814,5 +914,5 @@ export async function executeTool(slug: string, inputs: ToolInput): Promise<Tool
       outputs = [`Tool "${slug}" executed successfully.`];
   }
 
-  return { result: { outputs }, outputs, success: true };
+  return { result: { outputs }, outputs, success: true, model };
 }

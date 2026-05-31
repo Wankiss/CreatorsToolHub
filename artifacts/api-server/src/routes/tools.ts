@@ -3,6 +3,7 @@ import { db } from "@workspace/db";
 import { categoriesTable, toolsTable, blogPostsTable } from "@workspace/db/schema";
 import { eq, sql, ilike, or, desc, ne, inArray } from "drizzle-orm";
 import { executeTool } from "../lib/toolEngine.js";
+import { checkAndConsume, getClientIP, getUsage, DAILY_LIMIT } from "../lib/rateLimiter.js";
 
 const router: IRouter = Router();
 
@@ -152,6 +153,18 @@ router.get("/tools/:slug", async (req, res) => {
   }
 });
 
+// ── Usage counter (read-only, no consumption) ─────────────────────────────────
+router.get("/tools/usage", (req, res) => {
+  const ip    = getClientIP(req);
+  const usage = getUsage(ip);
+  res.json({
+    used:      usage.used,
+    remaining: usage.remaining,
+    limit:     DAILY_LIMIT,
+    resetAt:   usage.resetAt,
+  });
+});
+
 router.post("/tools/:slug/execute", async (req, res) => {
   try {
     const { slug } = req.params;
@@ -160,8 +173,27 @@ router.post("/tools/:slug/execute", async (req, res) => {
       res.status(400).json({ error: "bad_request", message: "inputs object is required" });
       return;
     }
+
+    // ── Rate limit check ────────────────────────────────────────────────────
+    const ip     = getClientIP(req);
+    const limit  = checkAndConsume(ip);
+    if (!limit.allowed) {
+      res.status(429).json({
+        error:     "rate_limited",
+        message:   limit.error,
+        remaining: limit.remaining,
+        resetAt:   limit.resetAt,
+      });
+      return;
+    }
+
     const result = await executeTool(slug, inputs as Record<string, string | number | boolean>);
-    res.json(result);
+
+    // Attach usage info to every successful response
+    res.json({
+      ...result,
+      usage: { remaining: limit.remaining, limit: DAILY_LIMIT, resetAt: limit.resetAt },
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "server_error", message: "Tool execution failed" });

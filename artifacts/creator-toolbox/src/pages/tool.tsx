@@ -11,28 +11,44 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
 import {
   Sparkles, Check, Copy, ChevronRight, Home, LayoutGrid,
-  Activity, HelpCircle, FileText, Zap, Loader2
+  Activity, HelpCircle, FileText, Zap, Loader2, AlertCircle, Clock
 } from "lucide-react";
 import { ToolCard } from "@/components/tool-card";
 import { TOOL_REGISTRY, type ToolRegistryEntry } from "@/components/tools/tool-registry";
 
+// ─── Usage state type ─────────────────────────────────────────────────────────
+interface UsageState { remaining: number; limit: number; resetAt: number }
+
 // ─── Generic Fallback Tool Interface ─────────────────────────────────────────
 
-function GenericToolInterface({ slug }: { slug: string }) {
+function GenericToolInterface({
+  slug,
+  onUsageUpdate,
+}: {
+  slug: string;
+  onUsageUpdate?: (u: UsageState) => void;
+}) {
   const executeMutation = useExecuteTool();
   const { toast } = useToast();
   const [input, setInput] = useState("");
   const [outputs, setOutputs] = useState<string[]>([]);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+  const [rateLimited, setRateLimited] = useState(false);
+  const [rateLimitMsg, setRateLimitMsg] = useState("");
 
   const handleExecute = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
+    setRateLimited(false);
 
     executeMutation.mutate(
       { slug, data: { inputs: { topic: input, text: input, keyword: input } } },
       {
         onSuccess: (res) => {
+          // Update usage counter from response
+          const usage = (res as any).usage as UsageState | undefined;
+          if (usage) onUsageUpdate?.(usage);
+
           if (res.success && res.outputs.length > 0) {
             setOutputs(res.outputs);
             setTimeout(() => {
@@ -42,8 +58,17 @@ function GenericToolInterface({ slug }: { slug: string }) {
             toast({ title: "Generation failed", description: "No outputs were generated. Please try a different prompt.", variant: "destructive" });
           }
         },
-        onError: () => {
-          toast({ title: "Error", description: "Something went wrong. Try again.", variant: "destructive" });
+        onError: (err: any) => {
+          const data = err?.data as any;
+          if (err?.status === 429 && data) {
+            setRateLimited(true);
+            setRateLimitMsg(data.message ?? "Rate limit reached. Please try again later.");
+            if (data.remaining !== undefined) {
+              onUsageUpdate?.({ remaining: data.remaining, limit: 10, resetAt: data.resetAt ?? 0 });
+            }
+          } else {
+            toast({ title: "Error", description: "Something went wrong. Try again.", variant: "destructive" });
+          }
         },
       }
     );
@@ -58,6 +83,15 @@ function GenericToolInterface({ slug }: { slug: string }) {
 
   return (
     <div className="space-y-8">
+      {rateLimited && (
+        <div className="flex items-start gap-3 rounded-2xl border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive">
+          <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+          <div>
+            <p className="font-semibold mb-0.5">Daily limit reached</p>
+            <p>{rateLimitMsg}</p>
+          </div>
+        </div>
+      )}
       <Card className="p-1 border-primary/20 shadow-xl shadow-primary/5 bg-gradient-to-br from-background to-muted/50 rounded-3xl overflow-hidden">
         <div className="bg-card rounded-[1.35rem] p-6 sm:p-8">
           <form onSubmit={handleExecute} className="space-y-6">
@@ -76,7 +110,7 @@ function GenericToolInterface({ slug }: { slug: string }) {
             <Button
               type="submit"
               size="lg"
-              disabled={executeMutation.isPending || !input.trim()}
+              disabled={executeMutation.isPending || !input.trim() || rateLimited}
               className="w-full h-14 text-lg rounded-xl font-bold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all hover:-translate-y-0.5"
             >
               {executeMutation.isPending ? (
@@ -139,6 +173,7 @@ export default function ToolPage() {
     },
   });
   const trackMutation = useTrackToolUsage();
+  const [usageState, setUsageState] = useState<UsageState | null>(null);
 
   const SITE_URL = "https://creatorstoolhub.com";
 
@@ -150,6 +185,14 @@ export default function ToolPage() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tool?.id, slug]);
+
+  // Fetch current usage on mount
+  useEffect(() => {
+    fetch("/api/tools/usage")
+      .then(r => r.json())
+      .then((data: UsageState) => setUsageState(data))
+      .catch(() => {});
+  }, []);
 
   // ── Per-page SEO meta tags ──
   useSeoMeta({
@@ -281,12 +324,23 @@ export default function ToolPage() {
                   <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight text-foreground">
                     {tool.name}
                   </h1>
-                  <div className="flex items-center gap-3 mt-1.5 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-3 mt-1.5 text-sm text-muted-foreground flex-wrap">
                     <span className="flex items-center">
                       <Activity className="w-4 h-4 mr-1 text-primary" /> {tool.usageCount.toLocaleString()} uses
                     </span>
                     <span>•</span>
                     <span className="text-primary font-medium">Free Tool</span>
+                    {usageState !== null && (
+                      <>
+                        <span>•</span>
+                        <span className={`flex items-center gap-1 font-medium ${usageState.remaining === 0 ? "text-destructive" : usageState.remaining <= 3 ? "text-amber-500" : "text-emerald-600 dark:text-emerald-400"}`}>
+                          <Clock className="w-3.5 h-3.5" />
+                          {usageState.remaining === 0
+                            ? "Daily limit reached — resets midnight UTC"
+                            : `${usageState.remaining} of ${usageState.limit} free uses left today`}
+                        </span>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -300,7 +354,7 @@ export default function ToolPage() {
                   <CustomInterface />
                 </Suspense>
               ) : (
-                <GenericToolInterface slug={slug || ""} />
+                <GenericToolInterface slug={slug || ""} onUsageUpdate={setUsageState} />
               )}
             </section>
 

@@ -20,16 +20,14 @@ echo "→ Fixing permissions..."
 export PATH="/opt/alt/alt-nodejs22/root/usr/bin:$PATH"
 export PATH="$HOME/.npm/_npx/e6e0ed1aca658cae/node_modules/.bin:$PATH"
 
-chmod +x node_modules/.bin/tsx        2>/dev/null || true
-chmod +x node_modules/.bin/vite       2>/dev/null || true
-chmod +x node_modules/.bin/tsc        2>/dev/null || true
+# Fix all tsx/vite/tsc binaries across the whole repo
+find . -path "*/node_modules/.bin/tsx"  -exec chmod +x {} \; 2>/dev/null || true
+find . -path "*/node_modules/.bin/vite" -exec chmod +x {} \; 2>/dev/null || true
+find . -path "*/node_modules/.bin/tsc"  -exec chmod +x {} \; 2>/dev/null || true
 
-# Fix esbuild binary
-ESBUILD_BIN=$(find node_modules/.pnpm -name "esbuild" -path "*/linux-x64/bin/esbuild" 2>/dev/null | head -1)
-if [ -n "$ESBUILD_BIN" ]; then
-  chmod +x "$ESBUILD_BIN"
-  echo "   esbuild: $ESBUILD_BIN ✓"
-fi
+# Fix all esbuild binaries
+find . -path "*/linux-x64/bin/esbuild" -exec chmod +x {} \; 2>/dev/null || true
+echo "   permissions fixed ✓"
 
 # ── 3. Build API server ───────────────────────────────────────────────────────
 echo "→ Building API server..."

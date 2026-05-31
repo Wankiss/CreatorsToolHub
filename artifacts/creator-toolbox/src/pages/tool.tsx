@@ -11,10 +11,11 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
 import {
   Sparkles, Check, Copy, ChevronRight, Home, LayoutGrid,
-  Activity, HelpCircle, FileText, Zap, Loader2, AlertCircle, Clock
+  Activity, HelpCircle, FileText, Loader2, AlertCircle, Clock
 } from "lucide-react";
 import { ToolCard } from "@/components/tool-card";
 import { TOOL_REGISTRY, type ToolRegistryEntry } from "@/components/tools/tool-registry";
+import { getToolIcon } from "@/lib/tool-icons";
 
 // ─── Usage state type ─────────────────────────────────────────────────────────
 interface UsageState { remaining: number; limit: number; resetAt: number }
@@ -317,8 +318,8 @@ export default function ToolPage() {
             {/* Tool Header */}
             <section>
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-3xl shadow-inner border border-primary/20">
-                  {tool.icon && tool.icon.length <= 2 ? tool.icon : <Zap />}
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shadow-inner border border-primary/20">
+                  {getToolIcon(tool.slug, tool.categorySlug, "w-7 h-7")}
                 </div>
                 <div>
                   <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight text-foreground">
@@ -402,8 +403,8 @@ export default function ToolPage() {
                     {tool.relatedTools.map(t => (
                       <Link key={t.id} href={`/tools/${t.slug}`}>
                         <div className="flex items-start gap-3 p-3 rounded-xl hover:bg-background border border-transparent hover:border-border hover:shadow-sm transition-all cursor-pointer group">
-                          <div className="w-10 h-10 rounded-lg bg-background flex items-center justify-center border border-border shadow-sm group-hover:text-primary transition-colors text-xl">
-                            {t.icon && t.icon.length <= 2 ? t.icon : "🔧"}
+                          <div className="w-10 h-10 rounded-lg bg-background flex items-center justify-center border border-border shadow-sm text-muted-foreground group-hover:text-primary transition-colors">
+                            {getToolIcon(t.slug, t.categorySlug)}
                           </div>
                           <div>
                             <h4 className="font-bold text-sm text-foreground group-hover:text-primary transition-colors">

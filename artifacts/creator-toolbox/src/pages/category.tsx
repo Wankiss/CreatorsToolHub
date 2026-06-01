@@ -6,7 +6,8 @@ import { Layout } from "@/components/layout";
 import { ToolCard } from "@/components/tool-card";
 import { useGetCategoryBySlug } from "@workspace/api-client-react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { AlertCircle, FolderOpen } from "lucide-react";
+import { AlertCircle } from "lucide-react";
+import { getCategoryIcon } from "@/lib/tool-icons";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { CATEGORY_REGISTRY } from "@/components/categories/category-registry";
 
@@ -86,8 +87,8 @@ export default function CategoryPage() {
 
         <div className="container mx-auto px-4 max-w-7xl relative z-10">
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-3xl shadow-inner border border-primary/20">
-              {category.icon || <FolderOpen />}
+            <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shadow-inner border border-primary/20">
+              {getCategoryIcon(category.slug)}
             </div>
             <div>
               <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-2 text-foreground">

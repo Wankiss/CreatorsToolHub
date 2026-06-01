@@ -1,5 +1,5 @@
 import {
-  Youtube, Instagram, Zap, Sparkles,
+  Youtube, Instagram, Zap, Sparkles, FolderOpen,
   FileText, Flame, Hash, Tag, Lightbulb, MessageSquare, User,
   DollarSign, BarChart2, Search, Calendar, Film, TrendingUp,
   Image, Download, AtSign, Anchor, Type, ScrollText, Wand2,
@@ -74,4 +74,13 @@ export function getToolIcon(slug: string, categorySlug?: string, iconClass = "w-
   if (categorySlug?.includes("ai"))        return <Zap className={iconClass} />;
 
   return <Sparkles className={iconClass} />;
+}
+
+// ── Category slug → icon ──────────────────────────────────────────────────────
+export function getCategoryIcon(slug?: string, iconClass = "w-8 h-8"): React.ReactNode {
+  if (slug?.includes("youtube"))   return <Youtube className={iconClass} />;
+  if (slug?.includes("tiktok"))    return <TikTokIcon className={iconClass} />;
+  if (slug?.includes("instagram")) return <Instagram className={iconClass} />;
+  if (slug?.includes("ai"))        return <Zap className={iconClass} />;
+  return <FolderOpen className={iconClass} />;
 }

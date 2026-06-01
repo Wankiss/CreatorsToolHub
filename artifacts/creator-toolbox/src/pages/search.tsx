@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation, Link } from "wouter";
 import { Layout } from "@/components/layout";
 import { Search as SearchIcon, Frown, ArrowRight, TrendingUp } from "lucide-react";
+import { getToolIcon } from "@/lib/tool-icons";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { searchTools, TOOLS_INDEX, type ToolIndexEntry } from "@/lib/tools-index";
@@ -17,8 +18,8 @@ function ToolResultCard({ tool }: { tool: ToolIndexEntry }) {
   return (
     <Link href={`/tools/${tool.slug}`}>
       <div className="group bg-card border border-border rounded-2xl p-5 hover:border-primary/40 hover:shadow-md transition-all cursor-pointer flex items-start gap-4">
-        <div className="text-3xl flex-shrink-0 w-12 h-12 flex items-center justify-center bg-muted rounded-xl">
-          {tool.icon}
+        <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-muted rounded-xl text-primary">
+          {getToolIcon(tool.slug, tool.categorySlug)}
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2 mb-1">

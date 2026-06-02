@@ -5,9 +5,20 @@ import { randomUUID } from "crypto";
 import fs from "fs";
 import { objectStorageClient } from "../lib/objectStorage.js";
 
-const UPLOADS_DIR = path.resolve(process.cwd(), "uploads");
+// Primary storage: git-tracked source directory — survives every deploy forever.
+// Served by the existing /blog/* static middleware in app.ts (Section 8 of CLAUDE.md).
+const UPLOADS_DIR = path.resolve(
+  process.cwd(),
+  "artifacts/creator-toolbox/public/blog",
+);
 if (!fs.existsSync(UPLOADS_DIR)) {
   fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+}
+
+// Legacy fallback dir (kept so old /api/uploads/ URLs still resolve if files exist there)
+const LEGACY_UPLOADS_DIR = path.resolve(process.cwd(), "uploads");
+if (!fs.existsSync(LEGACY_UPLOADS_DIR)) {
+  fs.mkdirSync(LEGACY_UPLOADS_DIR, { recursive: true });
 }
 
 // Memory storage so we can write to both local disk and Object Storage
@@ -98,14 +109,16 @@ router.post("/uploads/image", upload.single("image"), async (req: Request, res: 
   const ext = path.extname(req.file.originalname).toLowerCase() || ".jpg";
   const filename = `${randomUUID()}${ext}`;
 
-  // 1. Save to local disk (fast, for immediate serving)
+  // 1. Save to git-tracked public/blog/ — served via /blog/* static route.
+  //    Files committed to git survive every deploy and server restart permanently.
   const localPath = path.join(UPLOADS_DIR, filename);
   fs.writeFileSync(localPath, req.file.buffer);
 
-  // 2. Persist to Object Storage in background (survives redeploys)
+  // 2. Persist to Object Storage in background (Replit only, no-op on Hostinger)
   persistToObjectStorage(filename, req.file.buffer, req.file.mimetype);
 
-  res.json({ url: `/api/uploads/${filename}` });
+  // Return /blog/ URL — served by express.static from the git-tracked source dir
+  res.json({ url: `/blog/${filename}` });
 });
 
 export default router;

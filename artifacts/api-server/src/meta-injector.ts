@@ -690,7 +690,7 @@ function buildToolBody(
 
     <span style="${S.badge}">Free · No signup · Unlimited uses</span>
     <h1 style="${S.h1}">Free ${esc(tool.name)}</h1>
-    <p style="${S.desc}">${esc(tool.description)}</p>
+    <p class="tool-description" style="${S.desc}">${esc(tool.description)}</p>
     <p style="color:#475569;margin-bottom:2rem">
       Completely free. No signup required. No usage limit.
       Works instantly in your browser on desktop and mobile.
@@ -728,7 +728,7 @@ function buildCategoryBody(
 
     <span style="${S.badge}">Free · No signup required</span>
     <h1 style="${S.h1}">Free ${esc(category.name)} — AI Tools for Content Creators</h1>
-    ${category.description ? `<p style="${S.desc}">${esc(category.description)}</p>` : ""}
+    ${category.description ? `<p class="category-description" style="${S.desc}">${esc(category.description)}</p>` : ""}
 
     <h2 style="${S.h2}">All ${esc(category.name)} (${tools.length} free tools)</h2>
     <ul style="${S.grid}">

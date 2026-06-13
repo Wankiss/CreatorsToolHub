@@ -88,7 +88,7 @@ app.use((_req, res, next) => {
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob: https:",
       "connect-src 'self' https://api.openai.com https://www.google-analytics.com",
-      "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com",
+      "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com",
       "upgrade-insecure-requests",
     ].join("; ")
   );

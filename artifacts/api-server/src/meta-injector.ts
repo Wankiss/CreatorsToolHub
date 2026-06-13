@@ -63,6 +63,11 @@ function setCached(key: string, meta: PageMeta, ttl = CACHE_TTL_MS): void {
   cache.set(key, { meta, expiresAt: Date.now() + ttl });
 }
 
+/** Drops a single cache entry so the next request re-fetches live data from DB. */
+export function invalidatePageCache(key: string): void {
+  cache.delete(key);
+}
+
 // ── HTML helpers ──────────────────────────────────────────────────────────────
 
 /** Escape only the characters that break HTML attribute values. */

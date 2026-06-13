@@ -2,6 +2,7 @@ import { Router, type IRouter } from "express";
 import { db } from "@workspace/db";
 import { categoriesTable, toolsTable, blogPostsTable, toolUsageLogsTable, contactMessagesTable } from "@workspace/db/schema";
 import { eq, sql, desc, gte } from "drizzle-orm";
+import { invalidatePageCache } from "../meta-injector.js";
 
 const SITE_URL       = "https://creatorstoolhub.com";
 const INDEXNOW_KEY   = "86809e8949cc48479bcd6c89b8fe5b3f";
@@ -174,6 +175,9 @@ router.put("/admin/tools/:id", async (req, res) => {
     const [tool] = await db.update(toolsTable).set(updates).where(eq(toolsTable.id, id)).returning();
     if (!tool) { res.status(404).json({ error: "not_found", message: "Tool not found" }); return; }
 
+    // Bust the SSR meta-injector cache so the next crawl gets the updated description
+    invalidatePageCache(`tool:${tool.slug}`);
+
     const cat = await db.select({ name: categoriesTable.name, slug: categoriesTable.slug })
       .from(categoriesTable).where(eq(categoriesTable.id, tool.categoryId)).limit(1);
 
@@ -234,6 +238,11 @@ router.post("/admin/blog", async (req, res) => {
       publishedAt: isPublished ? new Date() : null,
     }).returning();
 
+    // Bust the SSR meta-injector cache so the next crawl gets fresh meta
+    if (post.isPublished && post.slug) {
+      invalidatePageCache(`blog:${post.slug}`);
+      invalidatePageCache("blog-list");
+    }
     // Notify IndexNow immediately when a new post is published
     if (post.isPublished && post.slug) pingIndexNow(post.slug);
 
@@ -284,6 +293,11 @@ router.put("/admin/blog/:id", async (req, res) => {
     const [post] = await db.update(blogPostsTable).set(updates).where(eq(blogPostsTable.id, id)).returning();
     if (!post) { res.status(404).json({ error: "not_found", message: "Post not found" }); return; }
 
+    // Bust the SSR meta-injector cache immediately so Googlebot gets fresh meta
+    if (post.slug) {
+      invalidatePageCache(`blog:${post.slug}`);
+      invalidatePageCache("blog-list");
+    }
     // Ping IndexNow when a post is published or its content is updated while published
     if (post.isPublished && post.slug) pingIndexNow(post.slug);
 

@@ -229,7 +229,7 @@ router.post("/admin/blog", async (req, res) => {
 
     const [post] = await db.insert(blogPostsTable).values({
       title, slug, excerpt: excerpt || "", content: content || "",
-      author: author || "Immanuels",
+      author: author || "Nnaemeka Immanuels",
       coverImage: resolvedCover,
       faqSchema: faqSchema || "",
       tags: JSON.stringify(tags || []),

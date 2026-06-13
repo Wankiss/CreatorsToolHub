@@ -186,7 +186,19 @@ app.get("/86809e8949cc48479bcd6c89b8fe5b3f.txt", (_req, res) => {
 });
 
 // ── llms.txt ─────────────────────────────────────────────────────────────────
-app.get("/llms.txt", (_req, res) => {
+// Blog section is dynamic — always reflects the current set of published posts.
+app.get("/llms.txt", async (_req, res) => {
+  let blogLines = "";
+  try {
+    const posts = await db
+      .select({ title: blogPostsTable.title, slug: blogPostsTable.slug, excerpt: blogPostsTable.excerpt })
+      .from(blogPostsTable)
+      .where(eq(blogPostsTable.isPublished, true));
+    blogLines = posts
+      .map(p => `- [${p.title}](https://creatorstoolhub.com/blog/${p.slug}): ${p.excerpt}`)
+      .join("\n");
+  } catch { blogLines = ""; }
+
   res.type("text/plain").send(
 `# creatorsToolHub
 
@@ -238,25 +250,14 @@ app.get("/llms.txt", (_req, res) => {
 
 ## Blog
 
-- [How to Start YouTube Automation With AI Free Tools in 2026](https://creatorstoolhub.com/blog/how-to-start-youtube-automation-with-ai-free-tools): Complete beginner guide to YouTube automation using free AI tools — covers niche selection, AI scripting, voiceover, thumbnail creation, and upload scheduling at zero cost.
-- [Instagram Hashtag Strategy 2026: Get More Reach on Every Post](https://creatorstoolhub.com/blog/instagram-hashtag-strategy-2026-get-more-reach): Instagram enforced a 5-hashtag cap in December 2025. This guide covers the updated strategy, niche hashtag tiers, and what the data says about hashtag reach in 2026.
-- [How to Use YouTube Tags to Get More Views in 2026](https://creatorstoolhub.com/blog/how-to-use-youtube-tags-to-get-more-views): Data-backed guide to YouTube tags in 2026 — what they do, how many to use, and which free tools generate the best tags for your niche.
-- [50 Content Creation Ideas for Beginners (Never Run Out of Things to Post)](https://creatorstoolhub.com/blog/content-creation-ideas-for-beginners): 50 proven content ideas for beginner creators across YouTube, TikTok, and Instagram — including hooks, formats, and free tools to produce each one.
-- [How to Write a YouTube Script for Beginners: Step-by-Step + Free Template](https://creatorstoolhub.com/blog/how-to-write-a-youtube-script-for-beginners): Step-by-step guide to writing a YouTube video script with hook, body, and CTA — includes a free template and script generator for any niche.
-- [Free Content Creation Tool Stack for Beginners: Build Your $0 Setup in 2026](https://creatorstoolhub.com/blog/free-content-creation-tool-stack-beginners): The complete free tool stack for beginner content creators in 2026 — covers YouTube, TikTok, Instagram, AI writing, and graphic design tools.
-- [Instagram Hashtags Not Working in 2026? Here's Why (and How to Fix It)](https://creatorstoolhub.com/blog/instagram-hashtags-not-working-2026): Why Instagram hashtags stop working and how to fix it — covers banned tags, the December 2025 5-tag cap, and the correct niche hashtag strategy.
-- [How to Get Your First 1,000 TikTok Followers (Complete 2026 Guide)](https://creatorstoolhub.com/blog/how-to-get-your-first-1000-tiktok-followers): Complete strategy for getting your first 1,000 TikTok followers in 2026 — posting frequency, niche selection, hook formulas, and content formats that grow accounts from zero.
-- [Free AI Tools for Beginner Content Creators: The No-Budget Starter Kit](https://creatorstoolhub.com/blog/free-ai-tools-for-beginner-content-creators): The best free AI tools for content creators in 2026 — covers script writing, caption generation, hashtag research, thumbnail creation, and video editing at zero cost.
-- [How to Start a Faceless YouTube Channel With AI (Complete Guide)](https://creatorstoolhub.com/blog/how-to-start-a-faceless-youtube-channel-with-ai): How to build a faceless YouTube channel using AI tools in 2026 — from niche selection and scripting to voiceover, editing, and monetization without showing your face.
-- [YouTube SEO Checklist for Beginners: 10 Steps to Rank Your Videos in 2026](https://creatorstoolhub.com/blog/youtube-seo-checklist-for-beginners): A 10-step YouTube SEO checklist for beginners covering title optimization, description keywords, tags, thumbnails, and audience retention signals that drive rankings.
-- [How to Get Views on YouTube With No Subscribers (What Actually Works)](https://creatorstoolhub.com/blog/how-to-get-views-on-youtube-with-no-subscribers): Proven strategies for getting YouTube views with zero subscribers — covers keyword research, search-optimized titles, thumbnail CTR, and content formats that rank from day one.
+${blogLines}
 
 ## Optional
 
 - [About](https://creatorstoolhub.com/about): About creatorsToolHub and its founder Nnaemeka Immanuels — content creator strategist and digital growth enthusiast.
 - [Blog](https://creatorstoolhub.com/blog): Creator growth guides covering YouTube, TikTok, and Instagram strategies.
 - [Sitemap](https://creatorstoolhub.com/sitemap.xml): Full XML sitemap of all URLs.
-- [llms-full.txt](https://creatorstoolhub.com/llms-full.txt): Full prose descriptions for all 35 tools, 4 categories, and 12 blog posts — for AI crawlers requiring richer context.`
+- [llms-full.txt](https://creatorstoolhub.com/llms-full.txt): Full prose descriptions for all 35 tools, 4 categories, and all blog posts — for AI crawlers requiring richer context.`
   );
 });
 
@@ -264,7 +265,27 @@ app.get("/llms.txt", (_req, res) => {
 // Full prose descriptions for AI crawlers (GPTBot, ClaudeBot, PerplexityBot).
 // Follows the llms.txt spec: llms-full.txt contains rich, citable content about
 // every tool, category, and resource on the site.
-app.get("/llms-full.txt", (_req, res) => {
+// Blog section is dynamic — always reflects current published posts.
+app.get("/llms-full.txt", async (_req, res) => {
+  let blogFullSection = "";
+  try {
+    const posts = await db
+      .select({
+        title:           blogPostsTable.title,
+        slug:            blogPostsTable.slug,
+        excerpt:         blogPostsTable.excerpt,
+        metaDescription: blogPostsTable.metaDescription,
+      })
+      .from(blogPostsTable)
+      .where(eq(blogPostsTable.isPublished, true));
+    blogFullSection = posts.map(p => {
+      const desc = (p.metaDescription && p.metaDescription.length > p.excerpt.length)
+        ? p.metaDescription
+        : p.excerpt;
+      return `### ${p.title}\nURL: https://creatorstoolhub.com/blog/${p.slug}\n${desc}`;
+    }).join("\n\n");
+  } catch { blogFullSection = ""; }
+
   res.type("text/plain").send(
 `# creatorsToolHub — Full AI Reference
 
@@ -446,18 +467,7 @@ The AI Creator Tools category contains free prompt generators for the most widel
 
 ## Blog
 
-- [How to Start YouTube Automation With AI Free Tools in 2026](https://creatorstoolhub.com/blog/how-to-start-youtube-automation-with-ai-free-tools): Complete beginner guide to YouTube automation using free AI tools — covers niche selection, AI scripting, voiceover, thumbnail creation, and upload scheduling at zero cost.
-- [Instagram Hashtag Strategy 2026: Get More Reach on Every Post](https://creatorstoolhub.com/blog/instagram-hashtag-strategy-2026-get-more-reach): Updated strategy guide following Instagram's December 2025 5-hashtag cap, covering niche hashtag tiers and data-backed reach results.
-- [How to Use YouTube Tags to Get More Views in 2026](https://creatorstoolhub.com/blog/how-to-use-youtube-tags-to-get-more-views): Data-backed guide covering what YouTube tags do, how many to use, and which free tools generate the best tags for any niche.
-- [50 Content Creation Ideas for Beginners](https://creatorstoolhub.com/blog/content-creation-ideas-for-beginners): 50 proven content ideas for beginner creators across YouTube, TikTok, and Instagram with hooks, formats, and free production tools for each.
-- [How to Write a YouTube Script for Beginners](https://creatorstoolhub.com/blog/how-to-write-a-youtube-script-for-beginners): Step-by-step guide to writing a video script with hook, body, and CTA — includes a free template and script generator.
-- [Free Content Creation Tool Stack for Beginners](https://creatorstoolhub.com/blog/free-content-creation-tool-stack-beginners): The complete free tool stack for beginner creators in 2026 covering YouTube, TikTok, Instagram, AI writing, and graphic design.
-- [Instagram Hashtags Not Working in 2026? Here is Why and How to Fix It](https://creatorstoolhub.com/blog/instagram-hashtags-not-working-2026): Explains why hashtags stop working and how to fix it — covers banned tags, the December 2025 5-tag cap, and the correct niche strategy.
-- [How to Get Your First 1,000 TikTok Followers](https://creatorstoolhub.com/blog/how-to-get-your-first-1000-tiktok-followers): Complete strategy for reaching 1,000 TikTok followers in 2026 — posting frequency, niche selection, hook formulas, and formats that grow accounts from zero.
-- [Free AI Tools for Beginner Content Creators](https://creatorstoolhub.com/blog/free-ai-tools-for-beginner-content-creators): The best free AI tools for content creators in 2026 covering scripting, caption generation, hashtag research, thumbnail creation, and video editing at zero cost.
-- [How to Start a Faceless YouTube Channel With AI](https://creatorstoolhub.com/blog/how-to-start-a-faceless-youtube-channel-with-ai): How to build a faceless YouTube channel using AI in 2026 — niche selection, scripting, voiceover, editing, and monetization without showing your face.
-- [YouTube SEO Checklist for Beginners: 10 Steps to Rank Your Videos](https://creatorstoolhub.com/blog/youtube-seo-checklist-for-beginners): A 10-step YouTube SEO checklist covering title optimization, description keywords, tags, thumbnails, and audience retention signals that drive rankings.
-- [How to Get Views on YouTube With No Subscribers](https://creatorstoolhub.com/blog/how-to-get-views-on-youtube-with-no-subscribers): Proven strategies for getting YouTube views with zero subscribers — keyword research, search-optimized titles, thumbnail CTR, and content formats that rank from day one.
+${blogFullSection}
 
 ---
 

@@ -695,7 +695,7 @@ function buildToolBody(
 
     <span style="${S.badge}">Free · No signup · Unlimited uses</span>
     <h1 style="${S.h1}">Free ${esc(tool.name)}</h1>
-    <p style="${S.desc}">${esc(tool.description)}</p>
+    <p class="tool-description" style="${S.desc}">${esc(tool.description)}</p>
     <p style="color:#475569;margin-bottom:2rem">
       Completely free. No signup required. No usage limit.
       Works instantly in your browser on desktop and mobile.
@@ -733,7 +733,7 @@ function buildCategoryBody(
 
     <span style="${S.badge}">Free · No signup required</span>
     <h1 style="${S.h1}">Free ${esc(category.name)} — AI Tools for Content Creators</h1>
-    ${category.description ? `<p style="${S.desc}">${esc(category.description)}</p>` : ""}
+    ${category.description ? `<p class="category-description" style="${S.desc}">${esc(category.description)}</p>` : ""}
 
     <h2 style="${S.h2}">All ${esc(category.name)} (${tools.length} free tools)</h2>
     <ul style="${S.grid}">
@@ -899,6 +899,47 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
       description: "35+ free AI tools for YouTube, TikTok & Instagram creators. Generate titles, scripts, captions, hashtags, and prompts instantly — no signup required.",
       canonical:   SITE_URL,
       bodyHtml,
+      schemas: [
+        {
+          "@context":     "https://schema.org",
+          "@type":        "Organization",
+          "name":         SITE_NAME,
+          "url":          SITE_URL,
+          "logo":         { "@type": "ImageObject", "url": `${SITE_URL}/favicon.svg` },
+          "description":  "35+ free AI-powered tools for YouTube, TikTok, and Instagram content creators. No signup required, no subscription, ever.",
+          "foundingDate": "2024",
+          "founder": {
+            "@type": "Person",
+            "name":  "Nnaemeka Immanuels",
+            "url":   `${SITE_URL}/about`,
+          },
+          "sameAs": [
+            "https://www.youtube.com/@creatorstoolhub",
+            "https://www.linkedin.com/in/nnaemeka-immanuels",
+            "https://x.com/emeka_immanuels",
+            "https://www.tiktok.com/@nnaemeka.immanuels",
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type":    "WebSite",
+          "name":     SITE_NAME,
+          "url":      SITE_URL,
+          "description": "35+ free AI tools for YouTube, TikTok & Instagram creators.",
+          "inLanguage":  "en",
+          "publisher":   { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
+        },
+        {
+          "@context": "https://schema.org",
+          "@type":    "WebPage",
+          "url":      SITE_URL,
+          "name":     "Free AI Tools for Content Creators",
+          "speakable": {
+            "@type":      "SpeakableSpecification",
+            "cssSelector": ["h1", "h2"],
+          },
+        },
+      ],
     };
     setCached(cacheKey, meta, CACHE_TTL_STATIC_MS);
     return meta;

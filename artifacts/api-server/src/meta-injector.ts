@@ -850,7 +850,45 @@ function buildBlogPostBody(post: {
       <a href="/" style="${S.crumbA}">Free Creator Tools</a>
     </p>
   </main>
-</div>`;
+</div>
+<script>
+(function(){
+  // Replace srcdoc lazy-load iframes with onclick divs that create proper
+  // src= iframes on demand. This prevents YouTube's "Sign in to confirm
+  // you're not a bot" prompt which is triggered when a srcdoc iframe
+  // navigates to youtube.com rather than loading it as a genuine embed.
+  document.querySelectorAll('iframe[srcdoc]').forEach(function(el){
+    var iframe = el;
+    var srcdoc = iframe.getAttribute('srcdoc') || '';
+    var urlM = srcdoc.match(/href='(https:\/\/www\.youtube-nocookie\.com\/embed\/[^']+)'/);
+    var imgM = srcdoc.match(/img[^>]+src='([^']+)'/);
+    var altM = srcdoc.match(/img[^>]+alt='([^']+)'/);
+    if (!urlM) return;
+    var embedUrl = urlM[1];
+    var thumbUrl = imgM ? imgM[1] : '';
+    var altText  = altM ? altM[1] : 'YouTube video';
+    var fig = iframe.parentElement;
+    if (!fig) return;
+    var div = document.createElement('div');
+    div.setAttribute('style', iframe.getAttribute('style') || 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;');
+    div.style.cursor = 'pointer';
+    div.setAttribute('role', 'button');
+    div.setAttribute('aria-label', 'Play ' + altText);
+    if (thumbUrl) { div.style.backgroundImage = 'url(' + thumbUrl + ')'; div.style.backgroundSize = 'cover'; div.style.backgroundPosition = 'center'; }
+    div.innerHTML = '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:50px;background:rgba(0,0,0,0.78);border-radius:14px;display:flex;align-items:center;justify-content:center;"><svg viewBox=\'0 0 24 24\' style=\'width:30px;height:30px;fill:white;margin-left:5px;\'><path d=\'M8 5v14l11-7z\'></path></svg></div>';
+    div.onclick = function(){
+      var f = document.createElement('iframe');
+      f.src = embedUrl;
+      f.setAttribute('style', iframe.getAttribute('style') || 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;');
+      f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      f.setAttribute('allowfullscreen', '');
+      f.setAttribute('title', altText);
+      fig.replaceChild(f, div);
+    };
+    fig.replaceChild(div, iframe);
+  });
+})();
+</script>`;
 }
 
 function buildBlogListBody(posts: { title: string; slug: string; excerpt: string }[]): string {

@@ -666,6 +666,13 @@ if (process.env.NODE_ENV === "production") {
       if (meta && indexTemplate) {
         const html = buildHtml(indexTemplate, meta);
         res.setHeader("Content-Type", "text/html; charset=utf-8");
+        if (meta.noindex) {
+          // Unpublished content: tell Google this URL doesn't exist yet.
+          // noindex meta tag is already injected by buildHtml.
+          res.setHeader("Cache-Control", "no-store");
+          res.status(404).send(html);
+          return;
+        }
         // Homepage and blog list change infrequently — give Cloudflare a 30-min
         // edge cache so every global PoP serves from memory after the first hit.
         // Blog posts are cached 10 min (content could be updated by admin).

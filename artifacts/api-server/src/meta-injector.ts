@@ -33,6 +33,8 @@ interface PageMeta {
   ogType?:     string;
   ogImage?:    string;
   schemas?:    object[];
+  /** When true, buildHtml injects noindex and app.ts returns HTTP 404. */
+  noindex?:    boolean;
   /** Static HTML injected into <div id="root"><!--app-html--></div>.
    *  Crawlers read this; React replaces it on the client. */
   bodyHtml?:   string;
@@ -154,6 +156,10 @@ export function buildHtml(template: string, meta: PageMeta): string {
       "</head>",
       `  <!-- Preload LCP hero image — homepage only -->\n  <link rel="preload" as="image" href="/images/hero-bg.webp" type="image/webp" fetchpriority="high">\n</head>`,
     );
+  }
+
+  if (meta.noindex) {
+    html = html.replace("</head>", `  <meta name="robots" content="noindex, nofollow" />\n</head>`);
   }
 
   if (schemas.length > 0) {
@@ -1312,7 +1318,12 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
         .where(eq(blogPostsTable.slug, slug))
         .limit(1);
 
-      if (!post || !post.isPublished) return null;
+      if (!post) return null;
+
+      if (!post.isPublished) {
+        const draftCanonical = `${SITE_URL}/blog/${slug}`;
+        return { title: post.title, description: "", canonical: draftCanonical, noindex: true };
+      }
 
       const title       = (post.metaTitle  || post.title).trim();
       const description = (post.metaDescription || post.excerpt).trim();

@@ -159,7 +159,10 @@ export function buildHtml(template: string, meta: PageMeta): string {
   }
 
   if (meta.noindex) {
-    html = html.replace("</head>", `  <meta name="robots" content="noindex, nofollow" />\n</head>`);
+    html = html.replace(
+      /<meta name="robots"[^>]*\/>/,
+      `<meta name="robots" content="noindex, nofollow" />`,
+    );
   }
 
   if (schemas.length > 0) {

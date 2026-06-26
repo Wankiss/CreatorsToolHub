@@ -1077,6 +1077,16 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
     return meta;
   }
 
+  // ── Search (/search) ──────────────────────────────────────────────────────
+
+  if (pathname === "/search") {
+    return {
+      title:       "Search Free Creator Tools",
+      description: "Search 35+ free AI tools for YouTube, TikTok, and Instagram creators. Find title generators, script writers, hashtag tools, money calculators, and more.",
+      canonical:   `${SITE_URL}/search`,
+    };
+  }
+
   // ── About ──────────────────────────────────────────────────────────────────
 
   if (pathname === "/about") {
@@ -1330,9 +1340,12 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
 
       const title       = (post.metaTitle  || post.title).trim();
       const description = (post.metaDescription || post.excerpt).trim();
-      const canonical   = `${SITE_URL}/blog/${slug}`;
-      const imageUrl    = post.coverImage
-        ? (post.coverImage.startsWith("http") ? post.coverImage : `${SITE_URL}${post.coverImage}`)
+      const canonical   = (post.canonical && post.canonical.trim())
+        ? post.canonical.trim()
+        : `${SITE_URL}/blog/${slug}`;
+      const ogSrc       = (post.ogImage && post.ogImage.trim()) ? post.ogImage.trim() : post.coverImage;
+      const imageUrl    = ogSrc
+        ? (ogSrc.startsWith("http") ? ogSrc : `${SITE_URL}${ogSrc}`)
         : `${SITE_URL}/opengraph.jpg`;
 
       let tags: string[] = [];
@@ -1340,7 +1353,7 @@ export async function resolvePageMeta(rawPathname: string): Promise<PageMeta | n
 
       const articleSchema: object = {
         "@context":           "https://schema.org",
-        "@type":              "BlogPosting",
+        "@type":              (post.schemaType && post.schemaType.trim()) ? post.schemaType.trim() : "BlogPosting",
         "headline":           post.title,
         "description":        description,
         "image":              { "@type": "ImageObject", "url": imageUrl, "width": 1200, "height": 630 },

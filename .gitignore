@@ -47,3 +47,10 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Uploaded blog cover images — UUID-named files saved by the upload API to
+# public/blog/. These are untracked intentionally: gitignore protects them
+# from git clean -fd during deploys. The committed .webp/.png files are
+# unaffected (gitignore only applies to untracked files).
+artifacts/creator-toolbox/public/blog/*.jpg
+artifacts/creator-toolbox/public/blog/*.jpeg

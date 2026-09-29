@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { searchTools, TOOLS_INDEX, type ToolIndexEntry } from "@/lib/tools-index";
 import { NativeBannerAd } from "@/components/ad-banners";
+import { SponsoredLink } from "@/components/sponsored-link";
 
 function BrandLogo({ size = 20, className = "" }: { size?: number; className?: string }) {
   return (
@@ -332,6 +333,7 @@ export function Layout({ children }: { children: ReactNode }) {
             <p className="text-slate-400 text-sm">
               © {new Date().getFullYear()} creatorsToolHub — creatorstoolhub.com. All rights reserved.
             </p>
+            <SponsoredLink />
           </div>
         </div>
       </footer>

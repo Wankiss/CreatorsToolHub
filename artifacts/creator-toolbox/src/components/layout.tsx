@@ -4,6 +4,7 @@ import { Menu, X, Search, Youtube, Instagram, Code, TrendingUp, Zap, BookOpen } 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { searchTools, TOOLS_INDEX, type ToolIndexEntry } from "@/lib/tools-index";
+import { NativeBannerAd } from "@/components/ad-banners";
 
 function BrandLogo({ size = 20, className = "" }: { size?: number; className?: string }) {
   return (
@@ -275,6 +276,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
       <main className="flex-1 w-full relative">
         {children}
+        <NativeBannerAd />
       </main>
 
       <footer className="bg-foreground text-background mt-auto py-16">
